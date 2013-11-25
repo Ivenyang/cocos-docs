@@ -2,11 +2,11 @@ Cocos2d-HTML5 wiki article lists:
 
 The articles are organized by the following rules:
 
-Each article are named README.md
+Each article are named en.md/zh.md/ja.md which means these articles are written in English/Chinese/Japanese.
 
 Each article is under a folder which name is the article's title. The folder name will be added a prefix number to indicate the order of each artcile.
 
-All image related to the article are laid down along with the README.md file in the same directory
+All image related to the article are laid down along with the en.md/zh.md/ja.md file in the same directory
 
 This kind of organization rules have the following advantages:
 
