@@ -20,7 +20,7 @@ We have two articles named Setup Developmenet Environment and Gettting Started .
 
 It will be organized like this:
 
----1.0Setup-Developmenet-Environment(Directory)
+---1.0-Setup-Developmenet-Environment(Directory)
 
 ------en.md(article)
 ------zh.md(article)
@@ -31,7 +31,7 @@ It will be organized like this:
 
 --------xxxpng(image)
 
----2.0Getting Started(Directory)
+---2.0-Getting Started(Directory)
 
 ------en.md(article)
 ------zh.md(article)
