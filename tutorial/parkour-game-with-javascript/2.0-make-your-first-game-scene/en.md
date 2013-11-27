@@ -1,9 +1,9 @@
 #Make Your First Game Scene
-In this tutorial, I will show you how to make your first game scene. Before that, we should be familiar with some basic concepts of cocos2d. If you are already familiar with these concepts, you can safely skim them and continue to read the remaining chapters.
+Before adding the first scene to game, you should be familiar with some basic concepts of Cocos2d. If you are already familiar with these concepts, you can safely skip this chapter and go to the next chapter.
 
 
-## Basic concepts of cocos2d
-In Cocos2d world, everything is a node, the world is constructed mostly from 3 kinds of nodes:
+## Basic concepts of Cocos2d
+In Cocos2d world, everything is a node, the world is constructed mostly from three kinds of nodes:
 
 - A scene node
 
@@ -11,7 +11,7 @@ In Cocos2d world, everything is a node, the world is constructed mostly from 3 k
 
 - Lots of sprite nodes
 
-    Only 1 scene can be running at a time, which includes 1 or more layers and layers contains sprite nodes. In the following sections, we will dig these concepts into more details.
+    Only one scene can be runned at a time, which contains at least one layer, which contains sprite nodes. In the following sections, we will dig these concepts for more details.
 
 ### Director,Scene, Layer and sprite
 #### Director
@@ -37,11 +37,11 @@ There is also a family of cc.Scene classes called transitions, implemented with 
 
 #### Layer
 
-A cc.Layer is a cc.Node that knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, allowing players to see other layers behind them. cc.Layer are very useful in defining your game's appearance and behavior, so you should expect to spend a lot of your programming time coding cc.Layer subclasses to do what you need.
+A cc.Layer is a cc.Node that knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, allowing players to see other layers behind them. cc.Layer are very useful in defining your game's appearance and behaviour, so you should expect to spend a lot of your programming time coding cc.Layer subclasses to do what you need.
 
 ![layer](layerstructure.png)
 
-The cc.Layer is where you define touch event handlers. By implementing a method to handle one of the touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled) a cc.Layer can react to the player's interaction. These touch events are propagated to all the layers within a scene, from front to back, until some layer catches the event and accepts it.
+The cc.Layer is where you define touch event handlers. By implementing a method to handle one of touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled) a cc.Layer can react to the player's interaction. These touch events are propagated to all the layers within a scene, from front to back, until some layer catches the event and accepts it.
 
 While complex applications will require you to define custom cc.Layer subclasses, Cocos2d provides several predefined layers. Some examples include cc.Menu (a simple menu layer), cc.ColorLayer (a layer that draws a solid color), and cc.LayerMultiplex (a layer that lets you multiplex its children, activating one at a time while disabling the others).
 
@@ -152,7 +152,7 @@ Using StandardTouchDelegate results in two benefits:
  2. You don’t need to claim true or false in ccTouchesBegan. And all of your touch callbacks will be called when you touch the screen.
 
 ## Make your first Game scene
-In the last tutorial, we have analyzed the execution path of a cocos2d-html5 game. We know that in main.js, we load our first game scene in **applicationDidFinishLaunching**, here is the code snippet which does the real trick:
+In the last tutorial, we have analysed the execution path of a cocos2d-html5 game. We know that in main.js, we load our first game scene in **applicationDidFinishLaunching**, here is the code snippet which does the real trick:
 
 ```
  //load resources
@@ -165,7 +165,7 @@ Here, we use cc.LoaderScene to preload the resources of our game and after loadi
 
 **Note:**
 
-The **cocos2dApp** is actually a function which mimic the behavior of class in an object-oriented language.
+The **cocos2dApp** is actually a function which mimic the behaviour of class in an object-oriented language.
 
 ```
 var cocos2dApp = cc.Application.extend({
@@ -349,6 +349,6 @@ In this tutorial,  I have shown you the basic concepts you need to know when you
 
 ## Where to go from here
 
-In the next tutorial, I will show you how to define your game scene and along with the various game layers. How to design these layers, what's the responsibility of these layers. 
+In the next chapter, I will show you how to define your game scene and along with the various game layers. How to design these layers, what's the responsibility of these layers. 
 
 
