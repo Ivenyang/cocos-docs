@@ -1,8 +1,8 @@
-
+#Make Your First Game Scene
 In this tutorial, I will show you how to make your first game scene. Before that, we should be familiar with some basic concepts of cocos2d. If you are already familiar with these concepts, you can safely skim them and continue to read the remaining chapters.
 
 
-# Basic concepts of cocos2d
+## Basic concepts of cocos2d
 In Cocos2d world, everything is a node, the world is constructed mostly from 3 kinds of nodes:
 
 - A scene node
@@ -13,14 +13,14 @@ In Cocos2d world, everything is a node, the world is constructed mostly from 3 k
 
     Only 1 scene can be running at a time, which includes 1 or more layers and layers contains sprite nodes. In the following sections, we will dig these concepts into more details.
 
-## Director,Scene, Layer and sprite
-### Director
+### Director,Scene, Layer and sprite
+#### Director
 
 The director(implemented with the cc.Director object in cocos2d-html5) is a shared (singleton) object that takes care of navigating between scenes. It knows which scene is currently active and allows you to change scenes by replacing the current scene or pushing a new one onto the scene stack. When you push a new scene onto the stack, the Director pauses the previous scene but keeps it in memory. Later, when you pop the top scene from the stack, the paused scene resumes from its last state.
 
 The Director is also responsible for initializing OpenGL ES and set the pixel format of your OpenGL ES context. And the game loop and rendering logic also go here. It's role is actually the director of a film.
 
-### Scene
+#### Scene
 
 A scene (implemented with the cc.Scene object in cocos2d-html5) is more or less an independent piece of the app workflow. Some people may call them “screens” or “stages”. Your app can have many scenes, but only one of them is active at a given time.
 
@@ -35,7 +35,7 @@ Because scenes are a subclass of cc.Node, they can be transformed manually or by
 There is also a family of cc.Scene classes called transitions, implemented with the ccTransitionScene class. These allow you to create special transition effects when switching from one scene to another--for example, fading, sliding in from the side, and so on.
 
 
-### Layer
+#### Layer
 
 A cc.Layer is a cc.Node that knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, allowing players to see other layers behind them. cc.Layer are very useful in defining your game's appearance and behavior, so you should expect to spend a lot of your programming time coding cc.Layer subclasses to do what you need.
 
@@ -48,16 +48,16 @@ While complex applications will require you to define custom cc.Layer subclasses
 Layers may contain any cc.Node as a child, including cc.Sprite, cc.Label, and even other cc.Layer objects. Because layers are a subclass of cc.Node, they can be transformed manually or by using cc.Action. 
 
 
-### Sprite
+#### Sprite
 
 A Cocos2d cc.Sprite is similar to sprites you find in other game engines. It is a 2D image that can be moved, rotated, scaled, animated, and undergo other transformations. Sprites (implemented using the cc.Sprite class) can have other sprites as children. When a parent is transformed, all its children are transformed as well. Because sprites are a subclass of cc.Node, they can be transformed manually or by using cc.Action. 
 
 
-### All these objects are Nodes
+#### All these objects are Nodes
 
 There is a root class named cc.Node in cocos2d-html5 scene graph hierarchy. The node is a subclass of cc.Class while in cocos2d-x it's a subclass of CCObject. Node class define the basic properties and some common interface of a cocos2d element. A cc.Node is a "void" object. It doesn't have a texture. If you want to display a image on screen, you should create a cc.Sprite class and assign a texture to it.
 
-## Coordination system
+### Coordination system
 
 Cocos2d-html5 uses the same coordinate system as OpenGL, which is so call “Right-handed Cartesian Coordinate System”. It is popular in game industry, however, it is  different from traditional top left coordinate system which used in web-page design. 
 
@@ -84,7 +84,7 @@ For example, this sprite has an anchorPoint of cc.p(0, 0) and a position of cc.p
 ```
 
 
-## Action
+### Action
 
 Actions are like orders given to any cc.Node object. These actions usually modify some of the object's attributes like position, rotation, scale, etc. If these attributes are modified during a period of time, they are cc.IntervalAction actions, otherwise they are cc.InstantAction actions.
 
@@ -98,7 +98,7 @@ sprite.runAction(cc.MoveBy.create(2, cc.p(50, 10)));
 ```
 
 
-## Animation
+### Animation
 
 In Cocos2d, animations are bind to cc.Animate actions. You can use a sequence of images to create an animation. After the animation is constructed, you can use the following code to play animation on a sprite.
 
@@ -115,7 +115,7 @@ In Cocos2d, animations are bind to cc.Animate actions. You can use a sequence of
 ```
 
 
-## Scheduler
+### Scheduler
 
 Scheduler is responsible for triggering the scheduled callbacks.
 
@@ -129,7 +129,7 @@ Custom selectors should be avoided when possible because update selectors are fa
 
 
 
-## TouchEvent
+### TouchEvent
 
 Cocos2d supports two different ways of handling touch events. These are defined by two different types of delegates (both defined in CCTouchDelegateProtocol.js).
 There are TargetedTouchDelegate and StandardTouchDelegate. 
@@ -151,7 +151,7 @@ Using StandardTouchDelegate results in two benefits:
    
  2. You don’t need to claim true or false in ccTouchesBegan. And all of your touch callbacks will be called when you touch the screen.
 
-# Make your first Game scene
+## Make your first Game scene
 In the last tutorial, we have analyzed the execution path of a cocos2d-html5 game. We know that in main.js, we load our first game scene in **applicationDidFinishLaunching**, here is the code snippet which does the real trick:
 
 ```
@@ -192,11 +192,11 @@ The second one:
 
 > Essentially what we are doing here is defining our **cocos2dApp** object to extend the cc.Application prototype.  This is a pretty common behavior in working with Cocos2D, so hopefully you can wrap your head around it.  We then implement the ctor ( constructor ) and applicationDidFinishingLaunching.  Again, if you are used to C++ like languages, you can think of cocos2dApp as being derived from cc.Application, then overriding the default constructor and a virtual method.  If you aren’t a C++/C# or Java programmer, forget everything I just said. 
 
-### Do some cleanup work
+#### Do some cleanup work
 
 Ok, I think the background information is enough. Let's do some cleanup stuff.
 
-#### Delete the multiple resolution stuff
+##### Delete the multiple resolution stuff
 
 1. Delete **HD** and **Normal** folder under **res** directory. Leave your res directory looks like this:(this resource files can be found from our sample project)
 
@@ -232,7 +232,7 @@ and delete the following code:
 ```
 
 
-#### Cleanup the myApp.js
+##### Cleanup the myApp.js
 
 This process is very simple. At first, we should delete all the contents of myApp.js. Because we will rewrite them from scratch.
 
@@ -266,7 +266,7 @@ Open resource.js and change it's content to this:
   ];
 ```
 
-### Define your first scene - MenuScene
+#### Define your first scene - MenuScene
 
 Open myApp.js and start to define the MenuLayer:
 
@@ -343,11 +343,11 @@ The process of creating a MenuScene is very straightforward. You define a variab
 Once the scene is created, a **onEnter** function should be defined. It has the MenuLayer as it's child. We can also define a **ctor** function instead of the onEnter function. The onEnter function is called after ctor function.
 
 
-# Summary
+## Summary
 
 In this tutorial,  I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](https://github.com/iTyran/cocos2dhtml5Doc/blob/master/2.0make-your-first-game-scene/Parkour.zip).
 
-# Where to go from here
+## Where to go from here
 
 In the next tutorial, I will show you how to define your game scene and along with the various game layers. How to design these layers, what's the responsibility of these layers. 
 
