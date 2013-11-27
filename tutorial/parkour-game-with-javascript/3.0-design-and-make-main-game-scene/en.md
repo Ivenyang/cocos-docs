@@ -9,7 +9,7 @@ Here is the final result of our gameplay scene:
 
 ![gamescene](result.png)
 
-There are background buildings, a hero and some HUD elements to show us the status of the current game progress. We can easily divide the gameplay scene into three parts:background layer, animation layer and HUD layer.
+There are background buildings, a hero and some HUD elements to show us the status of the current game progress. We can easily divide the gameplay scene into three parts:background layer, animation layer and status layer.
 
 ###Background Layer
 Basically, every game need background. Sometimes the background is just a static image which  occupies the entire screen size of your game. Sometimes the background layers can move at a constant or various speed. Sometimes the background images even show us parallax effects--different layers move at various speed, the nearest layer moves faster and the farthest layer move slower. 
@@ -189,6 +189,8 @@ var StatusLayer = cc.Layer.extend({
 });
 
 ```
+We can use **cc.LabelTTF.create** for creating a text label. The first param is the displayed texts, the second param is the Font Family and the third param is the Font size. We can also use **setColor** member function of LabelTTF to set the color of labels. The **cc.c3(0,0,0)** represent black color.
+
 
 ##Summary 
 
