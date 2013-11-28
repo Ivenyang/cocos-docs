@@ -1,6 +1,7 @@
+#Setting up Cocos2d-HTML5 Development Environment
 In this documentation, I will show you how to setup a cocos2d-html5 development environment on MacOS 10.9 -- Yeah! The Maverics.
 
-# Prerequisites
+## Prerequisites
 
 To follow this tutorials, you should be familiar with the software package  installation process of MacOS.
 
@@ -16,7 +17,7 @@ Most of the time, the process is something like this:
 
 In this documentation, I will omit the every details of each software package's installation process.
 
-#  Download the required software packages
+##Download the required software packages
 
 1. Download and install WebStorm 7. The current stable release of [WebStorm 7](http://www.jetbrains.com/webstorm/download/index.html) is 7.02.  Why do we choose WebStorm? Because it provides many feature like javascript code syntax completion, debugging, syntax highlighting, version system integrated etc. You can go to WebStorm's official website for more information.
 
@@ -37,7 +38,7 @@ In this documentation, I will omit the every details of each software package's 
  
 All right, let's see how to configure WebStorm 7.1 to develop and debug our cocos2d-html5 applications.
 
-# Configure WebStorm to work with cocos2d-html5
+## Configure WebStorm to work with cocos2d-html5
 
 At first, you should launch WebStorm 7. If it is your first time to launch WebStorm, it will ask you to choose your personal preference like choosing key mappings. 
 
@@ -79,7 +80,7 @@ Now, Let's try cocos2d-html5 within WebStorm.
 
 5. Congratulations! You have successfully configured the cocos2d-html5 project for WebStorm.
 
-# Play with cocos2d-html5
+## Play with cocos2d-html5
 
 Since you have added the entire cocos2d-html5 directory to WebStorm 7. WebStorm will parse all the cocos2d-html5 source code. If you open **HelloHTML5World/src/myApp.js**, you can obtain the ability of acurate syntax completion.
 
@@ -91,7 +92,7 @@ If you have a third party javascript library in your cocos2d-html5 game apps, yo
 
 Here is the instructions:
 
-## (Optional) Add a third party library for parsing
+### (Optional) Add a third party library for parsing
 
 1. Click **Settings** to launch your project settings dialog:
 
@@ -111,10 +112,10 @@ Here is the instructions:
 	
 	![addjslibpath](addjslibpath.png)
 
-## Debug cocos2d-html5 javascript code within WebStorm
+### Debug cocos2d-html5 javascript code within WebStorm
 Now it's time for us to debugging cocos2d-html5 code.
 
-### Connect WebStorm to Chrome with JB chrome extensions
+#### Connect WebStorm to Chrome with JB chrome extensions
 1. Right click the **index.html** under **~/Github/cocos2d-html5** and choose **Debug 'index.html'**:
 	
 	**Figure 9**
@@ -129,7 +130,7 @@ it will shows you that it has been connected with WebStrom 7.02:
 
 **Note:** This is step is very straightforward, once you have installed the plugin--"JetBrains IDE support". When you click the debug menu in WebStorm, it will connect to chrome automatically. How convenience it is! You can also click the **JB** icon in the right side of Chrome's side bar and it will bring you to the WebStorm IDE immediately.
 
-### Debug javascript code in WebStorm
+#### Debug javascript code in WebStorm
 Back to WebStorm and double click **HelloHTML5World/src/myApp.js** to view the source code.
 
 1. Set the break point. Right click the left sidebar of myApp.js source code viewport.
@@ -146,8 +147,8 @@ Back to WebStorm and double click **HelloHTML5World/src/myApp.js** to view the s
 
 3. Now you can do debugging thing like step out, step into, step over, continue executing etc. 
 
-# Summary
+## Summary
 In this tutorial, I have shown you the basic steps to configure cocos2d-html5 to work with WebStorm 7, including configuring syntax aware auto complete and debugging. The process is quite simple and straightforward. If you have any questions or suggestion of this tutorials, please let me know. I will appreciate your contribution.
 
-# Where to go from here
+## Where to go from here
 In the next tutorial, I will show you how to setup a new cocos2d-html5 project. And we will walk through the built-in tests and sample games of cocos2d-html5.
