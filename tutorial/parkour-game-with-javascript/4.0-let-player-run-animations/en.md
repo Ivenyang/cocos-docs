@@ -9,9 +9,8 @@ Before that, I want to show you an awesome tool named *TexturePacker*.
 
 ## Introduction to TexturePacker
 
-TexturePacker is a GUI and command line tool to create sprite sheets or sprite atlases! Without specifying any additional options TexturePacker already creates very good results,
-but you also have enough options available to adjust things to your needs. If you want to learn more about TexturePacker, go to [this website](http://www.codeandweb.com/texturepacker/documentation)
-for more information.
+TexturePacker is a GUI and command line tool to create sprite sheets or sprite atlases!
+If you want to learn more about TexturePacker, go to [this website](http://www.codeandweb.com/texturepacker/documentation) for more information.
 
 Here I will give you a brief introduction for using TexturePacker to generate the animation files we need in our game.
 
