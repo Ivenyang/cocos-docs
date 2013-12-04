@@ -16,7 +16,7 @@ The listen events above are all managed by `_eventDispatcher`. The jobs of `_eve
 * Event types such as: EventTouh, EventKeyboard etc.
 * Event Listener such as: EventListenerTouch, EventListenerKeyboard etc.
 
-Listener has implemented all kinds of logics after event touched. Dispatcher will dispatch event type at the appropriate time, then it calls the corrresponding type of listener.
+Listener has implemented all kinds of logics after event triggered. Dispatcher will dispatch event type at the appropriate time, then it calls the corrresponding type of listener.
 
 ## Usages
 
@@ -111,7 +111,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 ### New touch mechanism
 
-The proceudres above seem a little bit difficult than version 2.x. Inheriting a delegate in old version, delegate defines onTouchBegan method etc. Then delegate recognizes the touched element and doing the logical solving. But new version separate the event logical solving from the delegate and
+The proceudres above seem a little bit difficult than version 2.x. Inheriting a delegate in old version, delegate defines onTouchBegan method etc. Then delegate recognizes the touched element and solving logics. But new version separate the event logical solving from the delegate and
 encapsulate it into a listener. However, the logics above implemented functions below:   
 
 1. By adding event listener, sprite can be added to event dispatcher with SceneGraphPriority. That is when clicking the sprite button, callback function will be called by sequence according to the sprite cover order.
@@ -120,7 +120,7 @@ encapsulate it into a listener. However, the logics above implemented functions 
 
 *Note:* **FixedPriority** is different from **SceneGraphPriority**, it can dicide the priority of event by manually setting `Priority` value, and the smaller the value is, the higher priority of the event.
 
-##Other event dispatch solving modules
+##Other event dispatch handling modules
 
 In addition to touch event response, and the following modules using the same solving method.
 
