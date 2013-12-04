@@ -159,7 +159,7 @@ Now, you can run the project and you will get a infinite running player in your 
 
 In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within cocos2d-html5.
 
-You can download the entire project from [here]().
+You can download the entire project from [here](https://github.com/cocos2d/cocos-docs/blob/chapter5/tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/Parkour.zip).
 
 ## Where to Go from Here?
 
