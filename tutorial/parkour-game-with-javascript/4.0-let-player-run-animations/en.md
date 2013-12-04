@@ -157,8 +157,7 @@ Now, you can run the project and you will get a infinite running player in your 
 
 ##Summary
 
-In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation within cocos2d-html5.
-
+In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within cocos2d-html5.
 
 ## Where to Go from Here?
 
