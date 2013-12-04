@@ -107,7 +107,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 **_eventDispatcher** is the property of the **Node**, you can use it manage the dispatch situation of all events of current node(such as scene, layer, sprite etc).
 
-_Note: _ When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be add serval times.
+*Note:* When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be added serval times.
 
 ### New touch mechanism
 
@@ -115,12 +115,12 @@ The proceudres above seem a little bit difficult than version 2.x. Inheriting a 
 encapsulate it into a listener. However, the logics above implemented functions below:   
 
 1. By adding event listener, sprite can be added to event dispatcher with SceneGraphPriority. That is when clicking the sprite button, callback function will be called by sequence according to the sprite cover order.
-2. When Dealing with logical solving, according to each kind of logics when touched (such as recognize click area, set clicked element as different transparency) to display the click effect.
+2. When Dealing with event logical, according to each kind of situations to solve the logics when touched(such as recognize click area, set clicked element as different transparency) to display the click effect.
 3. As `listener1->setSwallowTouches(true)` is setted and some decisions has been made in onTouchBegan to get the return value, whether the display order of the touch event should pass back can be solved.   
 
-_Note: _**FixedPriority** is different from **SceneGraphPriority**, it can dicide the priority of event by manually setting `Priority` value, and the smaller the value is, the higher priority of the event.
+*Note:* **FixedPriority** is different from **SceneGraphPriority**, it can dicide the priority of event by manually setting `Priority` value, and the smaller the value is, the higher priority of the event.
 
-##Other events dispatch solving module
+##Other event dispatch solving modules
 
 In addition to touch event response, and the following modules using the same solving method.
 
@@ -136,7 +136,7 @@ In addition to keyboard, it also can be every menu of the device, they can use t
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-    //key respond for function prototype
+    //key position responds for function prototype
     void KeyboardTest::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
     {
         log("Key with keycode %d pressed", keyCode);
@@ -166,7 +166,7 @@ Then creating corrresponding listener, you can use lambda expression to create a
         //Logical solving code 
     }
 ```
-###Mouse response event
+###Mouse Response Event
 
 Mouse click catching event dispatch is added in version 3.0, it is appropriate for multi-platformi, and enrich the user experience of the game.
 
@@ -219,7 +219,7 @@ void MouseTest::onMouseScroll(Event *event)
 
 ###Custom Event
 
-The event types are defined by system, and the events(such as touch screen, keyboard response etc) triggered by system automatically. In addition, another custom event is available, it is not triggered by system but by user, as follow:
+The event types above are defined by system, and the events(such as touch screen, keyboard response etc) triggered by system automatically. In addition, another custom event is available, it is not triggered by system but by user, as follow:
 
 ```c++
     _listener = EventListenerCustom::create("game_custom_event1", [=](EventCustom* event){
@@ -248,7 +248,7 @@ A custom event listener has been defined above, it implemented some logics and i
         
 ```
 
-A `EventCustom` defined and it's UserData setted by manually set `_eventDispatcher->dispatchEvent(&event);`. By dispatching the event, the logics implemented before can be triggered.
+A `EventCustom` defined and it's UserData setted by manually set `_eventDispatcher->dispatchEvent(&event);`. By dispatching the event, the implemented logics can be triggered.
 
 ###Remove Event Listener
 
