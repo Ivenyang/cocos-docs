@@ -9,7 +9,7 @@ Before that, I want to show you an awesome tool named *TexturePacker*.
 
 ## Introduction to TexturePacker
 
-TexturePacker is a GUI and command line tool to create sprite sheets or sprite atlases!
+TexturePacker is a cross-platform GUI and command line tool to create sprite sheets!
 If you want to learn more about TexturePacker, go to [this website](http://www.codeandweb.com/texturepacker/documentation) for more information.
 
 Here I will give you a brief introduction for using TexturePacker to generate the animation files we need in our game.
@@ -24,23 +24,23 @@ Here is the building process:
 
 When you add new images into the *TexturePacker* folder, TexturePacker will automatically detect the changes and load the images.
 
-2. Choose "data format" to "cocos2d" and "data format" to "png" from the TextureSettings panel.
+2. Choose "data format" to "cocos2d" and "data format" to "png" from the TextureSettings panel(which is the default settings).
 
 3. Specify the *Data file* and *Texture file* path. Here we set the path at *res* directory and we set the data file name to "running.plist" and the texture file to "running.png".
 
 ![specifypath](specifypath.png)
 
-4. Click *publish*. Now a dialog will appear, if there is no errors, then it will  generate "running.png" and "running.plist" in the right place.
+4. Click *publish*. Now a dialog will appear, if there are no errors, then it will  generate "running.png" and "running.plist" in the right place.
 
 ![generating](generating.png)
 
-Ok, we have successfully generate the running animation files. Next let's run the animation.
+Ok, we have successfully generate the running animation files. Next let's play with the generated animation files.
 
 ## Load Animations Files in Cocos2D-HTML5
 
 ### Preparation
 
-At first , we should add the running.plist and running.png  to *resource.js* file.
+At first, we should add the running.plist and running.png  to *resource.js* file.
 
 ```
 var s_HelloBG = "helloBG.png";
@@ -62,7 +62,8 @@ var g_resources = [
 ];
 ```
 
-Here, we have changed the variable *s_runner*'s value to "running.png" which is a spritesheet. We will create our player sprite from the *running.png*.
+Here, we have changed the variable *s_runner*'s value to "running.png" which is a spritesheet. We will create our player sprite from the *running.png*
+in the future.
 
 ### Create Player Animation
 
@@ -157,6 +158,8 @@ Now, you can run the project and you will get a infinite running player in your 
 ##Summary
 
 In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within cocos2d-html5.
+
+You can download the entire project from [here]().
 
 ## Where to Go from Here?
 
