@@ -18,11 +18,11 @@ The listen events above are all managed by `_eventDispatcher`. The jobs of `_eve
 
 Listener has implemented all kinds of logics after event touched. Dispatcher will dispatch event type at the appropriate time, then it calls the corrresponding type of listener.
 
-## Using Method
+## Usages
 
-Now we'll implement adding three buttons in a scene, and these three buttons will cover each other. Moreover, they can touch off touch events, here is the implementation below:
+Now adding three buttons in a scene, and these buttons will cover each other. Moreover, they can trigger touch events, see the implementation as follow:
 
-### Create three sprites first, as display picture of three buttons.
+### Create three sprites as display picture of three buttons first.
 
 
 ```c++
@@ -42,20 +42,20 @@ Now we'll implement adding three buttons in a scene, and these three buttons wil
                                                 
 ![touchable_sprite](touchable_sprite.png)
 
-### Create a single touch event listener, and complete logics solution content
+### Create a single touch event listener, and complete the logics code
 
 ```C++
-        //Create a event listener OneByOne as single touch
+    //Create a event listener OneByOne as single touch
     auto listener1 = EventListenerTouchOneByOne::create();
-       //Setting of swallow event, when onTouchBegan method return true set swallow
+    //Setting of swallow event, when onTouchBegan method return true set as swallow
     listener1->setSwallowTouches(true);
 
-    //Using lambda implement onTouchBegan event callback function
+    //Using lambda expression implement onTouchBegan event callback function
     listener1->onTouchBegan = [](Touch* touch, Event* event){
-        //Get target binded by event 
+        //Get target, which is  binded to event 
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
 
-        //Get the coordinate of the current point relative position of the button
+        //Get the coordinate of the current point's relative position of the button
         Point locationInNode = target->convertToNodeSpace(touch->getLocation());
         Size s = target->getContentSize();
         Rect rect = Rect(0, 0, s.width, s.height);
@@ -105,7 +105,7 @@ Now we'll implement adding three buttons in a scene, and these three buttons wil
 
 ```
 
-**_eventDispatcher** is the property of the **Node**, you can use it manage the dispatch situation of all the event of current node(such as scene, layer, sprite etc).
+**_eventDispatcher** is the property of the **Node**, you can use it manage the dispatch situation of all events of current node(such as scene, layer, sprite etc).
 
 _Note: _ When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be add serval times.
 
