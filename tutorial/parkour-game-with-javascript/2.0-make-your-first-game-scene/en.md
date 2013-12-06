@@ -12,19 +12,19 @@ In a Cocos2d-x game, every element is a node. The game is constructed mostly by 
 
 - Sprite 
 
-You can find details about these concepts ![here](http://cocos2d-x.org/wiki/Director_Scene_Layer_and_Sprite)
+You can find details about these concepts [here](http://cocos2d-x.org/wiki/Director_Scene_Layer_and_Sprite)
 
 ### Action
 
-More details about Action are in ![here](http://cocos2d-x.org/wiki/Actions)
+More details about Action are in [here](http://cocos2d-x.org/wiki/Actions)
 
 ### Animation
 
-More details about Animation are in ![here](http://cocos2d-x.org/wiki/Animations)
+More details about Animation are in [here](http://cocos2d-x.org/wiki/Animations)
 
 ### Scheduler and Timer Callback
 
-More details about Scheduler and Timer Callback are in ![here](http://cocos2d-x.org/wiki/Scheduler_and_Timer_Callback)
+More details about Scheduler and Timer Callback are in [here](http://cocos2d-x.org/wiki/Scheduler_and_Timer_Callback)
 
 ### TouchEvent
 
@@ -95,7 +95,7 @@ Ok, I think the background information is enough. Let's do some cleanup stuff.
 
 ##### Delete the multiple resolution stuff
 
-1. Delete **HD** and **Normal** folder under **res** directory. Leave your res directory looks like this:(this resource files can be found from our sample project)
+1. Delete **HD** and **Normal** folder under **res** directory. Leave your res directory looks like this(the resource files can be found from our sample project)
 
 	![res](resdirectory.png)
 
