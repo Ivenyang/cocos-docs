@@ -171,6 +171,3 @@ setScale9Enabled(bool able)					| 设置9图显示
 
 在将 UILayout 添加到 UILayer 里面之后，我们使用 `m_pLayer->getWidgetByName("UItest")` 来从 UILayer 里面获取一个 UI 资源里面已经存在的控件。**注意，这里的 getWidgetByName() 方法是属于 UILayer 的，而不是 UILayout 的**，UILayout 只是控件中的一种，而 UILayer 是做桥梁，链接游戏场景和 UI 系统，所有的 UI 控件都可以通过 UILayer 获取得到。一个 UILayer 里面的所有控件都能且应该从 UILayer 获取，`getWidgetByName()` 或者 `getWidgetByTag()` 方法。
 
-
-
-
