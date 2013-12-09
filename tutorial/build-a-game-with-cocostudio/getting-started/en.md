@@ -16,7 +16,11 @@ All tests of the CocoStudio’s API can be found in Cocos2d-html5. For example, 
 
 ![](test-freame-event.png)
 
+*Figure 2: CocoStudio Test - Test Freame Event*<br></br>
+
 ![](armature-test.png)
+
+*Figure 3: ArmatureTest.js*<br></br>
 
 ### Taking a Look at the Sample Demos
 
@@ -24,4 +28,5 @@ In CocoStudio, when you open the UI Editor, Animation Editor or the Scene Editor
 
 ![](demos-animation-editor.png)
 
+*Figure 4: Sample Demos in CocoStudio Animation Editor*<br></br>
 
