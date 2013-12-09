@@ -12,16 +12,69 @@ In a Cocos2d-x game, every element is a node. The game is constructed mostly by 
 
 - Sprite 
 
-You can find details about these concepts [here](http://cocos2d-x.org/wiki/Director_Scene_Layer_and_Sprite)
+Now we focus on the Layers in this game, and you can find more details about Scene and Sprite at [here](http://cocos2d-x.org/wiki/Director_Scene_Layer_and_Sprite)
+
+#### Layer
+
+A cc.Layer is a cc.Node, which  knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, making players can see other layers behind them. cc.Layer are very useful in defining your game's appearance and behaviour, so it will take a lot of time to deal
+with cc.Layer subclasses to reach your expectation.
+
+![layer](layerstructure.png)
+
+The cc.Layer is where you can define touch event handlers. By implementing a method to handle one of touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled), a cc.Layer can interact with player. These touch events are transmit to all the layers within a scene, from front to back, until some layer catch the event and accept it.
+
+While complex applications will require you to define custom cc.Layer subclasses, Cocos2d-x provides several predefined layers. Some examples include cc.Menu (a simple menu layer), cc.ColorLayer (a layer that draws a solid color), and cc.LayerMultiplex (a layer that lets you multiplex its children, activating one at a time while disabling the others).
+
+Layers may contain any cc.Node as a child, including cc.Sprite, cc.Label, and even other cc.Layer objects. Because layers are a subclass of cc.Node, they can be transformed manually or by using cc.Action.
+
+### Coordination system
+
+Cocos2d-html5 uses the same coordinate system as OpenGL, which is so call “Right-handed Cartesian Coordinate System”. It is popular in game industry, however, it is  different from traditional top left coordinate system which used in web-page design. 
+
+More details about coordinate system you can find at [here](http://cocos2d-x.org/wiki/Coordinate_System)
+
+####Anchor Point
+
+The anchor point is used for both positioning and rotation of an object. The anchor point coordinate is relative coordinate, for example, the anchor point in position (0, 0) which we always define in short in Cocos2d-x as cc.p(0 , 0) corresponds to the most bottom-left of that object, while cc.p(0.5, 0.5) corresponds to the center of the object. When setting the position of an object, the object is positioned such that the anchor point will be at the coordinates specified with the setPosition() call. Similarly, when rotating the object, it is rotated around the anchor point.
+   
+For example, this sprite has an anchorPoint of cc.p(0, 0) and a position of cc.p(0,0).
+
+```
+ // create sprite 
+    var sprite = cc. Sprite.create ( "bottomleft.png" ) ; 
+    sprite. setAnchorPoint ( cc.p ( 0 , 0 ) ) ; // Anchor Point 
+    sprite. setPosition ( cc.p ( 0 , 0 ) ) ; 
+    this.addChild ( sprite ) ;
+```
 
 ### Action
 
 More details about Action are in [here](http://cocos2d-x.org/wiki/Actions)
 
+Example of running the cc.MoveBy action:
+
+```
+// Move a sprite 50 pixels to the right, and 10 pixels to the top over 2 seconds.
+sprite.runAction(cc.MoveBy.create(2, cc.p(50, 10)));
+```
+
 ### Animation
 
 More details about Animation are in [here](http://cocos2d-x.org/wiki/Animations)
 
+Example of playing animation:
+
+```
+ var animation = cc.Animation.create ( ) ; 
+        for ( var i = 1 ; i < 15 ; i ++ ) {         
+        var frameName = "res/Images/grossini_dance_" + ( ( i < 10 ) ? ( "0" + i ) : i ) + ".png" ; 
+           animation. addSpriteFrameWithFile ( frameName ) ; 
+        } 
+        animation. setDelayPerUnit ( 2.8 / 14 ) ; 
+        animation. setRestoreOriginalFrame ( true ) ; 
+        var action = cc. Animate . create ( animation ) ; 
+        sprite. runAction ( cc. Sequence . create ( action , action. reverse ( ) ) ) ;
+```
 ### Scheduler and Timer Callback
 
 More details about Scheduler and Timer Callback are in [here](http://cocos2d-x.org/wiki/Scheduler_and_Timer_Callback)
