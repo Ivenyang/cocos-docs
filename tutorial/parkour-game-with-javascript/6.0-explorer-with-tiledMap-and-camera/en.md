@@ -26,6 +26,24 @@ if(typeof TagOfLayer == "undefined") {
 
 Here we give background layer, animation layer and status layer a tag name, thus we can retrieve other layer by tag.
 
+We also need add the resource variables in *resource.js*:
+
+```
+//Our two tiled map are named s_map00 and s_map01.
+var s_map = "map.png";
+var s_map00 = "map00.tmx";
+var s_map01 = "map01.tmx";
+var g_resources = [
+    //image
+    //There are a lot of image defined here, we just omit it for clarifying.
+    {src:s_map},
+    {src:s_map00},
+    {src:s_map01}
+];
+```
+
+The above code is self-explanation so let's go to the next section.
+
 ### Enable Chipmunk Debug Drawing
 If we are doing Chipmunk physics, you'd better to enable debug drawing. So the debug process will be more handy.
 
