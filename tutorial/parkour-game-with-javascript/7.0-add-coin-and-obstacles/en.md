@@ -69,8 +69,28 @@ If you don't want to any optimization of the spritesheet, just leave them out an
 ![packcoins](packcoins.png)
 
 ## Introduction to TiledMap Object Layer
+We have used TiledMap for our level map, but it lacks game items. So in this section, we will cover how to design level items with TiledMap object layer.
 ###Add Coin Object Layer
+At first, we'll add Coin object layer.
+
+1. Launch Tiled and open *map00.tmx* and *map01.tmx*.
+
+2. Create an Object layer named *coin* in map00.tmx and map01.tmx.
+![objectlayer][objectlayer.png]
+
+3. Design object layer by dragging and dropping rectangle object into the map.
+You can change the rectangle size and it's position. You can also duplicate or delete the object.
+
+![designobjectlayer](designobjectlayer.png)
+
+4. Some tips on designing object layer:
+You can change the opacity of the layers in the tiled map so that you can better place the object.
+
+
 ###Add Rock Object Layer
+The process to create the Rock object layer is more or less the same as creating coin object layer.
+
+So we will leave it out for your own implementation.
 
 ## Refactor BackgroundLayer class
 
