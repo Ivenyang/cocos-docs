@@ -105,15 +105,18 @@ BackgroundLayer class. Here is the code snippets:
 ```
     ctor:function (space) {
         this._super();
-        this.init();
 
         // clean old array here
         this.objects = [];
         this.space = space;
+
+        this.init();
     },
 ```
 
 Here we have added additional init code. We added a array named *objects* and initialize it to an empty array.
+
+(*Note: You should call this.init() method right after the assignment of this.space = space. Because we will create physic objects in the init method*)
 
 ### Add Helper Method
 1. Add more member variables into BackgroundLayer class:
@@ -161,6 +164,13 @@ Here we have added additional init code. We added a array named *objects* and in
 Here we iterate all the objects info in the tiled map and create responding Chipmunk rigid bodies. Finally we store these object into the *objects* array.
 
 All these code are self-explanation. You should only pay attention to the *mapIndex* parameter. We use the parameter to calculate where we should place the rigid body.
+
+We need call *loadObject* method at the end of *init* method to create the  physic objects in the first two screen maps.
+
+```
+this.loadObjects(this.map00, 0);
+this.loadObjects(this.map01, 1);
+```
 
 4. Add another two helper methods for removing unused chipmunk rigid bodies.
 
@@ -230,13 +240,236 @@ Here is the code snippets:
 
 
 ## Add Coin and Rock
+Now it's time to add the coin and rock implementation. Despite the implementation details, you should also pay attention to the design idea behind these two
+classes. Here we prefer to inherit from cc.Class instead of cc.Sprite. We let each object to own a instance of cc.Sprite.
 ### Design and Implement Coin Class
+1. Create a new file named *Coin.js*. We will define our Coin class in this file. Make sure you have this filed located in your *src* directory.
+
+2. Derived a class named *Coin* from cc.Class, let's take a look at the whole implementation:
+```
+var Coin = cc.Class.extend({
+    space:null,
+    sprite:null,
+    shape:null,
+    _mapIndex:0,// which map belongs to
+    get mapIndex() {
+        return this._mapIndex;
+    },
+    set mapIndex(index) {
+        this._mapIndex = index;
+    },
+
+    /** Constructor
+     * @param {cc.SpriteBatchNode *}
+     * @param {cp.Space *}
+     * @param {cc.p}
+     */
+    ctor:function (spriteSheet, space, pos) {
+        this.space = space;
+
+        // init coin animation
+        var animFrames = [];
+        for (var i = 0; i < 8; i++) {
+            var str = "coin" + i + ".png";
+            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+
+        var animation = cc.Animation.create(animFrames, 0.2);
+        var action = cc.RepeatForever.create(cc.Animate.create(animation));
+
+        this.sprite = cc.PhysicsSprite.createWithSpriteFrameName("coin0.png");
+
+        // init physics
+        var radius = 0.95 * this.sprite.getContentSize().width / 2;
+        var body = new cp.StaticBody();
+        body.setPos(pos);
+        this.sprite.setBody(body);
+
+        this.shape = new cp.CircleShape(body, radius, cp.vzero);
+        this.shape.setCollisionType(SpriteTag.coin);
+        //Sensors only call collision callbacks, and never generate real collisions
+        this.shape.setSensor(true);
+
+        this.space.addStaticShape(this.shape);
+
+        // add sprite to sprite sheet
+        this.sprite.runAction(action);
+        spriteSheet.addChild(this.sprite, 1);
+    },
+
+    removeFromParent:function () {
+        this.space.removeStaticShape(this.shape);
+        this.shape = null;
+        this.sprite.removeFromParent();
+        this.sprite = null;
+    },
+
+    getShape:function () {
+        return this.shape;
+    }
+});
+```
+
+Let's explain the code piece by piece.
+
+At first, we add three member variables named: *space*, *sprite* and *shape*. We will use these variables to create the coin object's physic body
+and its display attribution.
+
+Then, we added another member variable *_mapIndex*.  We used the *get/set* syntax sugar to define accessor of the variable.
+
+The *ctor* method is the constructor of Coin class. We will create a Coin class with a spritesheet, a space and a position object later.
+
+Since the coins are circular shape, so we have created CircleShape attached to the rigid body. The remaining part of the ctor function is self-explanation.
+
+At last, we need to define a method to do the cleanup work. It's the *removeFromParent* method. It firstly remove the rigid body from the space and then remove the sprite
+from its parent. The *getShape* method is just a getter method used for accessing the shape object stored in the coin object.
+
 ### Design and Implement Rock Class
+The principle of designing the Rock class is more or less as the Coin class except for the rigid shape type part.
+
+Because our Rock class is a rectangle box. So we use cp.BoxShape to replace the cc.CircleShape in Coin class.
+
+Here is the full source code of Rock.js:
+
+```
+var Rock = cc.Class.extend({
+    space:null,
+    sprite:null,
+    shape:null,
+    _map:0,// which map belong to
+    get map() {
+        return this._map;
+    },
+    set map(newMap) {
+        this._map = newMap;
+    },
+
+    /** Constructor
+     * @param {cc.SpriteBatchNode *}
+     * @param {cp.Space *}
+     * @param {cc.p}
+     */
+    ctor:function (spriteSheet, space, posX) {
+        this.space = space;
+
+        this.sprite = cc.PhysicsSprite.createWithSpriteFrameName("rock.png");
+        var body = new cp.StaticBody();
+        body.setPos(cc.p(posX, this.sprite.getContentSize().height / 2 + g_groundHight));
+        this.sprite.setBody(body);
+
+        this.shape = new cp.BoxShape(body,
+            this.sprite.getContentSize().width,
+            this.sprite.getContentSize().height);
+        this.shape.setCollisionType(SpriteTag.rock);
+
+        this.space.addStaticShape(this.shape);
+        spriteSheet.addChild(this.sprite);
+    },
+
+    removeFromParent:function () {
+        this.space.removeStaticShape(this.shape);
+        this.shape = null;
+        this.sprite.removeFromParent();
+        this.sprite = null;
+    },
+
+    getShape:function () {
+        return this.shape;
+    }
+});
+```
 
 ## Improve the PlayScene
+### Refactor onEnter function of PlayScene
+1. At first, let's add a extra array named *shapesToRemove* and initialize it at the beginning of *onEnter* function.
 
-## Wrap it up
+```
+//the following line goes in init member variable define area
+shapesToRemove :[],
+
+//the following line goes at the beginning of the *onEnter* function.
+this.shapesToRemove = [];
+```
+
+2. Secondly, modify the creation of BackgroundLayer. Here we simply pass the space object into BackgroundLayer's constructor.
+```
+    this.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
+```
+
+### Add Collision Detection Callbacks
+- At first, we should call these two functions at the end of *initPhyiscs* method:
+
+```
+ // setup chipmunk CollisionHandler
+        this.space.addCollisionHandler(SpriteTag.runner, SpriteTag.coin,
+            this.collisionCoinBegin.bind(this), null, null, null);
+        this.space.addCollisionHandler(SpriteTag.runner, SpriteTag.rock,
+            this.collisionRockBegin.bind(this), null, null, null);
+```
+
+The *addCollisionHandler* method needs a callback when collision occurs.
+
+- Then, let's define these two callbacks to handle player collide with coins and rocks.
+
+```
+ collisionCoinBegin:function (arbiter, space) {
+        var shapes = arbiter.getShapes();
+        // shapes[0] is runner
+        this.shapesToRemove.push(shapes[1]);
+    },
+
+    collisionRockBegin:function (arbiter, space) {
+        cc.log("==game over");
+    },
+```
+
+- Delete unused rigid bodies in background layer. You should add the following code at the end of *update* method:
+
+```
+        // Simulation cpSpaceAddPostStepCallback
+        for(var i = 0; i < this.shapesToRemove.length; i++) {
+            var shape = this.shapesToRemove[i];
+            this.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
+        }
+        this.shapesToRemove = [];
+```
+
+We can't delete physic bodies during the physic simulation process. so we use an extra array named *shapesToRemove* to hold the temporal data needed to be deleted.
+
+
+## Wrap all these things up
+Congratulations! You almost reach the end. Before we hit the *debug* button to see the results. Let's add some extra glue code to connect everything together.
+
+Open *cocos2d.js* and append two more array items at the end of *appFiles* array.
+
+```
+    appFiles:[
+            'src/resource.js',
+            'src/myApp.js',
+            'src/AnimationLayer.js',
+            'src/BackgroundLayer.js',
+            'src/PlayScene.js',
+            'src/StatusLayer.js',
+            'src/globals.js',
+            'src/Coin.js',
+            'src/Rock.js'
+        ]
+```
+
+Build and run! Cheers, we did it!:)
+
+Let's see our final fruits:
+
+![fruit]( result.png )
 
 ## Summary
+In this tutorial, we have enjoyed a very long journey. But worth it, isn't it?
+
+We have learned how to use TiledMap's object layer to design complex game levels and how to customize your own class to extend your code structure.
+
+You can download the full source code from [here](xxx).
 
 ## Where to go from here?
+In the next tutorial, we'll cover how to update game HUD constantly and we'll also add game over logic and simple gesture recognizer into our game to make the
+player to jump over the obstacles. Keep tuning!
