@@ -3,18 +3,18 @@
 ## Introduction
 In this tutorial, we will try to add Coin and Obstacles into our parkour game.
 
-Thus our player can collect the coin when he is running and he will die when he collide with the obstacle.
+After this tutorial, our player should be able to collect the coin when he is running and he will die when he collides with the obstacle.
 
 We will also cover how to design a game level with tiled map editor. Since the game logic is a little bit complex than before,
-so we will refactor the code before we are adding new game components.
+so we will refactor the code before we adding new game components.
 
 ## Preparation
 Before we start, let's finish the preparation stuff.
 
 ### Setup Resource and Globals
-Since we will add two more game elements into our parkour game. So we need add some more global integers to identify each game items.
+Since we will add two more game elements into our parkour game. So we need add some more global integer tags to identify each game items.
 
-Let's add the following code snippets in the end of *globals.js*:
+Let's add the following code snippets at the end of *globals.js*:
 
 ```
 // collision type for chipmunk
@@ -26,11 +26,13 @@ if(typeof SpriteTag == "undefined") {
 };
 ```
 
-From the code above, we can easily figure out what each tag is for.
+Here we use 0,1,2 to represent runner,coin and rock.
 
-We also introduce another spritesheet named *background.png* and *background.plist*. We have packed the coins and rocks sprites into the spritesheet.
+We also introduce another spritesheet named *background.png* and *background.plist*. We have packed the coins and rocks sprites into the spritesheet named background.png.
 
-We just copy the resources file into our *res* directory and add two more variables for further referring.
+The details of how to pack these sprites are leave out for the next subsection.
+
+Next, let's copy the resource files into our *res* directory and add two more variables for further referring.
 
 ```
 var s_background = "background.png";
@@ -55,6 +57,16 @@ var g_resources = [
 
 
 ### Pack Coins and Rocks into Spritesheet with TexturePacker
+
+In the previous chapter, we have learned how to pack a bunch of small sprites into a big large compact spritesheet. Let's pack another spritesheet.
+
+At first, you should launch TexturePacker and drag all the assets under *res/TexturePacker/coins and rocks* director.(Note: You can get the whole game resource from the download as before.)
+
+After dragging the resource, you should specify the *Data file* and *Texture format* with some path like *xxx/chapter8/res/background.png* or *xxx/chapter8/res/background.plist*.
+
+If you don't want to any optimization of the spritesheet, just leave them out and press *Publish* to generate the final spritesheet.
+
+![packcoins](packcoins.png)
 
 ## Introduction to TiledMap Object Layer
 ###Add Coin Object Layer
