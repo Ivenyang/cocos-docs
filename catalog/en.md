@@ -10,5 +10,8 @@
 		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/2.0-make-your-first-game-scene/en.md)
 		- [Design and Make Main Game Scene](../tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/en.md)
 		- [Let Player Run Animations](../tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/en.md)
+		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/en.md)
+		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/en.md)
+		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/en.md)
 		
 		
