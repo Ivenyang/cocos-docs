@@ -6,7 +6,7 @@
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
 	- Data Structure
-		- 3.0: Vector<T>, Map<K,V> and Value
+		- 3.0: Vector\<T\>, Map\<K,V\> and Value
 	- Audio
 	- Memory Management
 	- Inputs
