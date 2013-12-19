@@ -13,5 +13,6 @@
 		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/en.md)
 		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/en.md)
 		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/en.md)
+		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/en.md)
 		
 		

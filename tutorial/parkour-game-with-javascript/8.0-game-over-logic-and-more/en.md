@@ -60,12 +60,248 @@ Here is the screenshot:
 ![updatehud](updatehud.png)
 
 ##Add Game Over Logic into the Game
+###Design and Implement the Game Over Layer
+In order to keep things simple, we just add a menu item at the center of our game over layer.
+
+When you click the *restart* menu, the game will restart again.
+
+So the design is very trivial, let's implement it.
+
+Here is the whole implementation of *GameOverLayer.js*:
+
+```
+var GameOverLayer = cc.LayerColor.extend({
+    // constructor
+    ctor:function () {
+        this._super();
+        this.init();
+    },
+    init:function () {
+        this._super(cc.c4b(0, 0, 0, 180));
+        var winSize = cc.Director.getInstance().getWinSize();
+
+        var centerPos = cc.p(winSize.width / 2, winSize.height / 2);
+        cc.MenuItemFont.setFontSize(30);
+        var menuItemRestart = cc.MenuItemSprite.create(
+            cc.Sprite.create(s_restart_n),
+            cc.Sprite.create(s_restart_s),
+            this.onRestart, this);
+        var menu = cc.Menu.create(menuItemRestart);
+        menu.setPosition(centerPos);
+        this.addChild(menu);
+    },
+    onRestart:function (sender) {
+        cc.Director.getInstance().resume();
+        cc.Director.getInstance().replaceScene(new PlayScene());
+    }
+});
+```
+
+Here we used two sprite named *s_restart_n* and *s_restart_s* to create our restart menu item.
+
+So we should add the resource file into the *res* directory and define the resources path.
+
+Open *resource.js* and add the following code lines:
+
+```
+var s_restart_n = "restart_n.png";
+var s_restart_s = "restart_s.png";
+
+//add the following two lines at the end of g_resources array.
+{src:s_restart_n},
+{src:s_restart_s},
+```
+
+The code of *init* method is self-explanation. But you should pay attention to the callback *onRestart* method.
+
+We have called the *resume* function of cc.Director. Why should be do this? Because we call *pause* method when the player die.
+
+###Game Over When The Player Collide with a Rock
+Now, let's display the game over layer when the player collide with the rock.
+
+Open *PlayScene* and add the following code lines at the end of *collisionRockBegin* method:
+
+```
+  collisionRockBegin:function (arbiter, space) {
+        cc.log("==game over");
+        cc.Director.getInstance().pause();
+        this.addChild(new GameOverLayer());
+    },
+```
+
+Yeah, it's done. Now run the game again.
+
+Here is the final screenshot:
+
+![gameover](gameover.png)
+
 
 ##Implement Your Own Simple Gesture Recognizer
+At this section, we will design a very simple gesture recognizer.
+
+When we swipe our finger on the screen from bottom to up, the recognizer will detect it.
+
+The algorithm for detecting the swipe gesture is very straightforward. When the touch begin event is detected, we store the first
+touch point in the array. When the touch moves event is detected, we append the touch point at the end of point array.
+
+We can simply compare the difference of x axis or y axis of two adjacent point to determine the swipe direction.
+
+Here is the code snippets to do the magic:
+
+```
+function Point(x, y)
+{
+    this.X = x;
+    this.Y = y;
+}
+
+// class define
+function SimpleRecognizer()
+{
+    this.points = [];
+    this.result = "";
+}
+
+// be called in onTouchBegan
+SimpleRecognizer.prototype.beginPoint = function(x, y) {
+    this.points = [];
+    this.result = "";
+    this.points.push(new Point(x, y));
+}
+
+// be called in onTouchMoved
+SimpleRecognizer.prototype.movePoint = function(x, y) {
+    this.points.push(new Point(x, y));
+
+    if (this.result == "not support") {
+        return;
+    }
+
+    var newRtn = "";
+    var len = this.points.length;
+    var dx = this.points[len - 1].X - this.points[len - 2].X;
+    var dy = this.points[len - 1].Y - this.points[len - 2].Y;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 0) {
+            newRtn = "right";
+        } else {
+            newRtn = "left";
+        }
+    } else {
+        if (dy > 0) {
+            newRtn = "up";
+        } else {
+            newRtn = "down";
+        }
+    }
+
+    // first set result
+    if (this.result == "") {
+        this.result = newRtn;
+        return;
+    }
+
+    // if diretcory change, not support Recongnizer
+    if (this.result != newRtn) {
+        this.result = "not support";
+    }
+}
+
+// be called in onTouchEnded
+SimpleRecognizer.prototype.endPoint = function() {
+    if (this.points.length < 3) {
+        return "error";
+    }
+    return this.result;
+}
+
+SimpleRecognizer.prototype.getPoints = function() {
+    return this.points;
+}
+```
+
+After the gesture is detected, we can call *endPoint* of the SimpleRecognizer to get the final result.
+
+Currently it supports four simple types: up, down, left and right. You can extend your own more complex one.
 
 ##Handling Touch Event, Player Jumping Animation and Logic
 ###Add Jumping Animation of the Player
+In order to implement the jumping animation, we should prepare our game arts first. Here we have done it for you.
+
+You can download the whole project from the *Summary* section and copy&paste the running.plist and running.png file into the *res* directory.
+
+When the game starts, the player will be running infinite until him collide with the rock. We want to let the player jump by swiping upwards.
+
+Thus we can play the game a little bit longer.
+
+When the player jumps up or jumps up, we need to play corresponding animations.
+
+So at first, let's add two more animation action member variables into the AnimationLayer:
+
+```
+jumpUpAction:null,
+jumpDownAction:null,
+```
+
+And then let's add a new method named *initAction*:
+
+```
+  initAction:function () {
+        // init runningAction
+        var animFrames = [];
+        // num equal to spriteSheet
+        for (var i = 0; i < 8; i++) {
+            var str = "runner" + i + ".png";
+            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+        var animation = cc.Animation.create(animFrames, 0.1);
+        this.runningAction = cc.RepeatForever.create(cc.Animate.create(animation));
+        this.runningAction.retain();
+        // init jumpUpAction
+        animFrames = [];
+        for (var i = 0; i < 4; i++) {
+            var str = "runnerJumpUp" + i + ".png";
+            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+        animation = cc.Animation.create(animFrames, 0.2);
+        this.jumpUpAction = cc.Animate.create(animation);
+        this.jumpUpAction.retain();
+        // init jumpDownAction
+        animFrames = [];
+        for (var i = 0; i < 2; i++) {
+            var str = "runnerJumpDown" + i + ".png";
+            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+        animation = cc.Animation.create(animFrames, 0.3);
+        this.jumpDownAction = cc.Animate.create(animation);
+        this.jumpDownAction.retain();
+    },
+```
+
+In this function, we have initialized all the animations of the players.
+
+At lasts, let's remove the initialize code of runningAction we did before in the *init* function and call *initAction* method instead.
+
+```
+//init  actions
+this.initAction();
+//        // init runningAction
+//        var animFrames = [];
+//        for (var i = 0; i < 8; i++) {
+//            var str = "runner" + i + ".png";
+//            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+//            animFrames.push(frame);
+//        }
+//        var animation = cc.Animation.create(animFrames, 0.1);
+//        this.runningAction = cc.RepeatForever.create(cc.Animate.create(animation));
+```
+
 ###Handling Touch Event
+
 ###Wrap them all
 
 ##Summary
