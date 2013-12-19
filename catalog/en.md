@@ -4,7 +4,7 @@
 		- Setting up Environments on Mac OS X
 	- 2D Graphics
 		- Particle System        
-			- [Particle System Comparison Of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
+			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
 	- Data Structure
 		- 3.0: Vector<T>, Map<K,V> and Value
 	- Audio
