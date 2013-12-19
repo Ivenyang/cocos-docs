@@ -301,9 +301,139 @@ this.initAction();
 ```
 
 ###Handling Touch Event
+Now it's time to handle touch event. At first, we should enable touch handling of the AnimationLayer.
+
+Add the following code snippets at the end of *init* method:
+
+```
+// enable touch
+this.setTouchEnabled(true);
+// set touch mode to kCCTouchesOneByOne
+this.setTouchMode(1);
+```
+
+These two code lines can activate the touch dispatching function.
+
+Now let's add three callbacks we needed to handle our touch event:
+
+```
+ onTouchBegan:function(touch, event) {
+        var pos = touch.getLocation();
+        this.recognizer.beginPoint(pos.x, pos.y);
+        return true;
+    },
+    onTouchMoved:function(touch, event) {
+        var pos = touch.getLocation();
+        this.recognizer.movePoint(pos.x, pos.y);
+    },
+    onTouchEnded:function(touch, event) {
+        var rtn = this.recognizer.endPoint();
+        cc.log("rnt = " + rtn);
+        switch (rtn) {
+            case "up":
+                this.jump();
+                break;
+            default:
+                break;
+        }
+    },
+```
+
+When you touch the scrren the *onTouchBegan* method will be called. When you hold your finger and move it around, the *onTouchMoved* method will
+be called. When you release your finger, the *onTouchEnded* method will be called.
+
+Here we have used our simple gesture recognizer to detect the "swipe out" gesture.
 
 ###Wrap them all
+Now it's time to wrap them all.
+
+At first, add the following enumerations in the beginning of the AnimationLayer:
+
+```
+// define enum for runner status
+if(typeof RunnerStat == "undefined") {
+    var RunnerStat = {};
+    RunnerStat.running = 0;
+    RunnerStat.jumpUp = 1;
+    RunnerStat.jumpDown = 2;
+};
+```
+
+We use these enums to represent different state of the player.
+
+Then we should add another two member variables in the AnimationLayer:
+
+```
+ recognizer:null,
+ stat:RunnerStat.running,// init with running status
+```
+
+And init the recognizer at the end of *init* method:
+
+```
+ this.recognizer = new SimpleRecognizer();
+```
+
+At last, we should implement our jump method:
+
+```
+ jump:function () {
+        cc.log("jump");
+        if (this.stat == RunnerStat.running) {
+            this.body.applyImpulse(cp.v(0, 250), cp.v(0, 0));
+            this.stat = RunnerStat.jumpUp;
+            this.sprite.stopAllActions();
+            this.sprite.runAction(this.jumpUpAction);
+        }
+    },
+```
+
+And also we should tie these things up int the *update* function:
+
+```
+//in the update method of AnimationLayer
+    // check and update runner stat
+        var vel = this.body.getVel();
+        if (this.stat == RunnerStat.jumpUp) {
+            if (vel.y < 0.1) {
+                this.stat = RunnerStat.jumpDown;
+                this.sprite.stopAllActions();
+                this.sprite.runAction(this.jumpDownAction);
+            }
+        } else if (this.stat == RunnerStat.jumpDown) {
+            if (vel.y == 0) {
+                this.stat = RunnerStat.running;
+                this.sprite.stopAllActions();
+                this.sprite.runAction(this.runningAction);
+            }
+        }
+```
+
+One more word, don't forget the cleanup stuff. We should release the created actions when the AnimationLayer exit.
+
+```
+    onExit:function() {
+        this.runningAction.release();
+        this.jumpUpAction.release();
+        this.jumpDownAction.release();
+        this._super();
+    },
+```
+
+You may also want to check whether all the created js files are loaded in *cocos2d.js* file or not.
 
 ##Summary
+Congratulations! You have finished another epic tutorial again.
+
+Let's see what we have done in this tutorial.
+
+At first, we have learned how to update our game hud elements.
+
+Then we added the game over logic.
+
+At last, we have created a simple gesture recognizer to handle the controlling of our hero's jumping action.
+
+You can download the final project from [here]().
 
 ##Where to go from here?
+In the next tutorial, we will cover the final bolts and nuts of the parkour game. Keep tuning!
