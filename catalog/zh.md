@@ -63,11 +63,13 @@
 			- 从2.2升级到3.0
 		
 	- CocoStudio
+		- CocoStudio UI编辑器的使用
 		- 如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面
 		- 使用CocoStudio创建Cocos2d-x序列帧和骨骼动画
 			
 	- Cocos2d-html5	
 		- 如何搭建 Cocos2d-HTML5 开发调试环境
+		- 如何自定义cocos2d-html5加载界面
 	
 - Tutorial
 	- 入门篇：用C++写一个忍者射飞镖游戏
