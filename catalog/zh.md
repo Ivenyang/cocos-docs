@@ -1,112 +1,100 @@
 - Manual
 	- Cocos2d-x
-	
-		- [导演，场景，层，以及精灵的介绍]()
-		- [COCOS2D-X坐标系详解]()
-		- [定时器SCHEDULERH和TIMER]()
-		- [动作 ACTIONS]()
-		- [动画 ANIMATIONS]()
-		- [骨骼动画详解]()
-		- [场景转换 TRANSITIONS]()
-		- [EFFECTS]()
-		- [粒子效果]()
- 		- [瓦片地图 TILED MAP]()
- 		
 		- 环境搭建
+			- 如何在Windows 7上搭建cocos2d-x开发环境
+			- 如何在Mac OS X上搭建cocos2d-x开发环境
+		- 基础概念
+			- 引擎架构和目录结构
+			- 引擎支持的平台及编程语言
+			- 导演，场景，层，以及精灵
+			- 坐标系详解
+			- 定时器scheduler和timer
+			- 动作 Actions
+			- 序列帧动画 Sprite Sheet Animations
+			- 骨骼动画 Skeleton Animations
+			- 场景转换 Transitions
+			- 粒子效果 Particle System
+ 			- 瓦片地图 Tiled Map
+		- 数据结构
+			- 3.0数据结构: Vector<T>, Map<K,V>和弱类型Value
+			- 2.0数据结构：CCArray, CCDictionary, CCString
+		- 声音
+			- 不同平台上所支持的音效格式
+		- 内存管理
+			- Cocos2d-x的引用计数和AutoreleasePool
+			- 纹理缓存 Texture Cache
+			- 各平台硬件所允许的最大纹理尺寸
+		- 人机交互
+			- [事件派发机制 Event Dispatcher](../manual/framework/native/event_dispatcher/zh.md)
+			- 如何获得并响应触摸事件
+			- 如何开启多点触摸
+			- 如何获得并响应重力传感
+		- GUI
+			- [GUI系统概述](../manual/framework/native/gui/part-1/zh.md)
+			- [容器类的使用：Layout, ScrollView, PageView](../manual/framework/native/gui/part-2/zh.md)
+			- [常用控件介绍：CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/zh.md)
+			- 菜单控件 Menu和MenuItems
+			- 文本控件 Label
+			- 文本输入框 EditBox
+			- ScrollView 实现帮助界面、关卡选择
+		- 网络
+			- 如何使用XMLHttpRequest
+			- 如何使用WebSocket
+		- 多线程
+			- 如何使用pthread来建立多线程
+		- 物理引擎
+			- 2D物理模块详解
+		- 多分辨率支持
+			- 多分辨率支持策略和原理
+		- 脚本编程
+			- Lua
+				- 如何实现Lua和C++的相互调用
+				- 如何通过自动绑定把C++接口批量导到Lua
+				- LuaJavaBridge和LuaObjcBridge
+			- Javascript
+				- 如何实现Javascript和C++的相互调用
+				- 如何通过自动绑定把C++接口批量导到Javascript
+				- Javascript Binding的手动绑定实现
+		- 第三方库集成
+			- 如何让Java和C++接口互相调用：JNI使用指南
+			- 如何在Android上集成第三方SDK
+			- 如何在iOS上集成第三方SDK
+		- 版本升级指南
+			- 从2.2升级到3.0
 		
-			- [如何在WINDOWS 7上搭建ANDROID的COCOS2D-X开发环境]()
-			- [搭建MAC OS X下COCOS2D-X的ANDROID开发环境]()
-
-		- 进阶功能
-		
-			- 声音
-				- [Audio formats supported by CocosDenshion on different platforms]()
-				- [Use OpenSL ES to play effect on Android]()
-	 
-			- 数据结构
-				- [CCArray]()
-				- [CCDictionary]()
-				- [CCString]() 
-			
-			- 内存管理
-				- [Reference Count and AutoReleasePool in Cocos2d-x]()
-				- [Texture Cache]()
-				- [Device Orientation]()
-				- [cocos2d-想多分辨率支持]()
-				- [Multi resolution support]()
-				- [Max size of textures in cocos2d-x depends on each platform]()
-				
-			- Handling User Input
-				- [怎样支持多点触摸 How to Enable Multi-Touch]()
-				- [GUI MENU和MENUITEMS Menu and MenuItems]()
-				- [TEXT LABELS Text Labels]()
-				- [EDITBOXEditBox]()
-
-			- Network
-				- [如何使用CCHTTPCLIENT How to use CCHttpClient]()
-				- [如何编译LIBCURL How to compile libcurl]() 
-
-			- Threading
-				- [怎么使用PTHREAD How to use pthread]()
-
-			- 物理引擎
-				- [CHIPMUNK]()
-				- [BOX2D]()
-			
-			- 版本升级指南 v2.x
-				- [关于COCOS2D-X V2.0中静态构造函数的API更改]()
-				- [从V1.X到2.X的API更改 API Change List from v1.x to 2.x]()
-				- [COCOS2D-X V2.0迁移指南]()
-				
-			- 版本升级指南 v0.x
-				- [如何将你的游戏从0.7.2升级到0.8.0]() 
-				- [如何将你的游戏从0.7.1升级到0.7.2]()
-	 
-
-			- Optimizations
-				- [基准报告  Benchmark Reports]()
-				- [跨平台游戏的最好的实践 Best Practice of cross-platform games]()
-				
-- Tutorial
-	- Cocos2d-x
-	
-	 	- Cocos2d-x完整项目教程
-			- [第二章 怎样添加精灵]()
-			- [第三章 怎样移动一个精灵]()
-			- [第四章 怎样发射子弹]()
-			- [第五章 碰撞检测]()
-			- [第六章 如何播放背景音乐与音效]()
-			- [第七章 锦上添花]()
-			
-
-		- 基础研究		
-			- [Cocos2d-x 屏幕适配新解]()
-			- [多层 UI 触摸事件的轻量级设计]()
-			- [Cocos2d-x 内存管理浅说]()
-			- [Cocos2d-x 内存管理的一种实现]()
-			- [深入理解 Cocos2d-x 内存管理]()
-			- [Cocos2d-x 屏幕适配新解 – 兼容与扩展]()
-
-		- 进阶技术		
-			- [CCScrollView 实现帮助界面、关卡选择]()
-			- [Cocos2d-x 之 CCGUI设计与实现]()
-			- [Cocos2d-x 弹出对话框的设计与实现]()
-			- [Cocos2d-x Js Binding 的手动绑定实现]()
-			
-	- Cocos2d-Html5
-		- [手把手，快速搭建 Cocos2d-HTML5 开发调试环境]()
-		- [如何自定义 Cocos2d-HTML5 Loading 界面]()
-
-		- Cocos2d-html5 其他教程
-			- [手把手，快速搭建 Cocos2d-HTML5 开发调试环境]()
-			- [如何自定义 Cocos2d-HTML5 Loading 界面]()
-
 	- CocoStudio
-		- [CocoStudio UI 编辑器的使用]()
-		- [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面]()
-		- [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画]()
-		
-	- 其他教程
+		- CocoStudio UI编辑器的使用
+		- 如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面
+		- 使用CocoStudio创建Cocos2d-x序列帧和骨骼动画
+			
+	- Cocos2d-html5	
+		- 如何搭建 Cocos2d-HTML5 开发调试环境
+		- 如何自定义cocos2d-html5加载界面
 	
-		- [如何优雅的管理游戏资源]()
+- Tutorial
+	- 入门篇：用C++写一个忍者射飞镖游戏
+		- 新建一个跨平台游戏
+		- 怎样添加精灵
+		- 怎样移动一个精灵
+		- 怎样发射子弹
+		- 碰撞检测
+		- 如何播放背景音乐与音效
+		- 锦上添花
+	- 编辑器篇：用CocoStudio来快速建立一个游戏
+		- CocoStudio简介 
+		- 准备开发环境
+		- 建立一个跑酷游戏
+	- 脚本篇：用Javascript来写一个跑酷游戏
+		- 建立html5开发环境
+		- 你好Cocos2d-html5
+		- 建立第一个游戏场景
+		- 设计实现主场景
+		- 让角色运行动画
+		- 在游戏中加入Chipmunk物理引擎
+		- 使用瓦片地图和相机
+		- 增加金币和障碍物
+		- 游戏结束逻辑
+		- 对源码进行混淆
+		- 在浏览器中对Javascript代码进行调试
+		- 通过Cocos2d-x Javascript Binding以原生方式编译iOS和Android版
 

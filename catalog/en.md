@@ -1,10 +1,30 @@
 - Manual
-    - Cocos2D-X 3.0 new feature
-        - [New Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
-        - [New GUI part one](../manual/framework/native/new_gui/part-1/en.md)
-        - [New GUI part two](../manual/framework/native/new_gui/part-2/en.md)
-        - [New GUI part three](../manual/framework/native/new_gui/part-3/en.md)
-        - [Particle System Comparison Of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
+	- Setting up Environments
+		- Setting up Environments on Windows 7
+		- Setting up Environments on Mac OS X
+	- 2D Graphics
+		- Particle System        
+			- [Particle System Comparison Of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
+	- Data Structure
+		- 3.0: Vector<T>, Map<K,V> and Value
+	- Audio
+	- Memory Management
+	- Inputs
+		- [Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
+		- How to Receive and Response Touch Events
+		- How to Receive and Response Accelerometer Events
+    - GUI
+        - [Overview of GUI system](../manual/framework/native/gui/part-1/en.md)
+        - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/part-2/en.md)
+        - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/en.md)
+	- Network
+	- Multi-Threading
+	- Physics
+	- Multiple Resolutions
+	- Scripting
+		- Lua
+		- Javascript
+	- How to Integrate with 3rd SDK
 - Tutorial
 	- [Build a Game with CocoStudio](../tutorial/build-a-game-with-cocostudio/en.md)
 		- [What is CocoStudio](../tutorial/build-a-game-with-cocostudio/what-is-cocostudio/en.md)
