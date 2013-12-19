@@ -71,7 +71,6 @@
 	- Cocos2d-x
 	
 	 	- Cocos2d-x完整项目教程
-	 	- 
 			- [第二章 怎样添加精灵]()
 			- [第三章 怎样移动一个精灵]()
 			- [第四章 怎样发射子弹]()
@@ -79,47 +78,30 @@
 			- [第六章 如何播放背景音乐与音效]()
 			- [第七章 锦上添花]()
 			
-<<<<<<< HEAD
+
 		- 基础研究		
-=======
-		- 基础研究
-		
->>>>>>> 6d2a4540896b1b3ad463382f6955e87acda0f704
 			- [Cocos2d-x 屏幕适配新解]()
 			- [多层 UI 触摸事件的轻量级设计]()
 			- [Cocos2d-x 内存管理浅说]()
 			- [Cocos2d-x 内存管理的一种实现]()
 			- [深入理解 Cocos2d-x 内存管理]()
 			- [Cocos2d-x 屏幕适配新解 – 兼容与扩展]()
-		
-<<<<<<< HEAD
+
 		- 进阶技术		
-=======
-		- 进阶技术
-		
->>>>>>> 6d2a4540896b1b3ad463382f6955e87acda0f704
 			- [CCScrollView 实现帮助界面、关卡选择]()
 			- [Cocos2d-x 之 CCGUI设计与实现]()
 			- [Cocos2d-x 弹出对话框的设计与实现]()
 			- [Cocos2d-x Js Binding 的手动绑定实现]()
 			
 	- Cocos2d-Html5
-			
-<<<<<<< HEAD
-		- Cocos2d-html5 其他教程		
-			- [手把手，快速搭建 Cocos2d-HTML5 开发调试环境]()
-			- [如何自定义 Cocos2d-HTML5 Loading 界面]()
+		- [手把手，快速搭建 Cocos2d-HTML5 开发调试环境]()
+		- [如何自定义 Cocos2d-HTML5 Loading 界面]()
 
-	- CocoStudio	
-=======
 		- Cocos2d-html5 其他教程
-		
 			- [手把手，快速搭建 Cocos2d-HTML5 开发调试环境]()
 			- [如何自定义 Cocos2d-HTML5 Loading 界面]()
 
 	- CocoStudio
-	
->>>>>>> 6d2a4540896b1b3ad463382f6955e87acda0f704
 		- [CocoStudio UI 编辑器的使用]()
 		- [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面]()
 		- [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画]()
