@@ -4,20 +4,15 @@
 		- [COCOS2D-X坐标系详解]()
 		- [定时器SCHEDULERH和TIMER]()
 		- [动作 ACTIONS]()
-	
 		- [动画 ANIMATIONS]()
-
 		- [骨骼动画详解]()
 		- [场景转换 TRANSITIONS]()
-
 		- [EFFECTS]()
 		- [粒子效果]()
-
  		- [瓦片地图 TILED MAP]()
- 	
+ 		
 		- 环境搭建
 			- [如何在WINDOWS 7上搭建ANDROID的COCOS2D-X开发环境]()
-
 			- [搭建MAC OS X下COCOS2D-X的ANDROID开发环境]()
 
 		- 进阶功能
@@ -35,22 +30,16 @@
 			- 内存管理
 
 				- [Reference Count and AutoReleasePool in Cocos2d-x]()
-
 				- [Texture Cache]()
-
 				- [Device Orientation]()
-
 				- [cocos2d-想多分辨率支持]()
-
 				- [Multi resolution support]()
 				- [Max size of textures in cocos2d-x depends on each platform]()
 				
 			- Handling User Input
 
 				- [怎样支持多点触摸 How to Enable Multi-Touch]()
-
 				- [GUI MENU和MENUITEMS Menu and MenuItems]()
-
 				- [TEXT LABELS Text Labels]()
 				- [EDITBOXEditBox]()
 
@@ -59,7 +48,6 @@
 			- Network
 
 				- [如何使用CCHTTPCLIENT How to use CCHttpClient]()
-
 				- [如何编译LIBCURL How to compile libcurl]() 
 
 			- Threading
@@ -75,7 +63,6 @@
 
 				- [关于COCOS2D-X V2.0中静态构造函数的API更改]()
 				- [从V1.X到2.X的API更改 API Change List from v1.x to 2.x]()
-
 				- [COCOS2D-X V2.0迁移指南]()
 				
 			- 版本升级指南 v0.x
@@ -87,7 +74,6 @@
 			- Optimizations
 
 				- [基准报告  Benchmark Reports]()
-
 				- [跨平台游戏的最好的实践 Best Practice of cross-platform games]()
 - Tutorial
 	- Cocos2d-x
