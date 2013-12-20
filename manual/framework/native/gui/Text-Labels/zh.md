@@ -26,7 +26,7 @@ TTF标签的优点和缺点：（CCLabelTTF）
 
 ## 标签对象 ##
 
-![](../res/image001.png)
+![](./res/image001.png)
 
  **创建标签：简单的方法**
 
@@ -108,7 +108,7 @@ ccc3 示例颜色
 
 ### CCLabelBMFont ### 
 
-![](../res/image002.png)
+![](./res/image002.png)
 
 **介绍**
 
@@ -165,7 +165,7 @@ Java编辑器：有额外的功能，如阴影，渐变，模糊
 
 ### LabelAtlas ###
 
-![](../res/image003.png)
+![](./res/image003.png)
 
 **介绍**
 

@@ -1,12 +1,12 @@
 - Manual
 	- Cocos2d-x
 		- 环境搭建
-			- 如何在Windows 7上搭建cocos2d-x开发环境
-			- 如何在Mac OS X上搭建cocos2d-x开发环境
+			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/set_up_dev_env/Android-environment-in Windows7/zh.md)
+			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/set_up_dev_env/Android-Environment Setup-on-mac)
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
-			- 导演，场景，层，以及精灵
+			- [导演，场景，层，以及精灵](../manual/framework/native/basic-concept/Director-Scene-Layer-and-Sprite/zh.md)
 			- 坐标系详解
 			- 定时器scheduler和timer
 			- 动作 Actions
@@ -33,17 +33,18 @@
 			- [GUI系统概述](../manual/framework/native/gui/part-1/zh.md)
 			- [容器类的使用：Layout, ScrollView, PageView](../manual/framework/native/gui/part-2/zh.md)
 			- [常用控件介绍：CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/zh.md)
-			- 菜单控件 Menu和MenuItems
-			- 文本控件 Label
-			- 文本输入框 EditBox
-			- ScrollView 实现帮助界面、关卡选择
+			- [菜单控件 Menu和MenuItems](../manual/framework/native/gui/Menu-and-MenuItems/zh.md)
+			- [文本控件 Label](../manual/framework/native/gui/Text-Labels/zh.md)
+			- [文本输入框 EditBox](../manual/framework/native/gui/EditBox/zh.md)
+			- [ScrollView 实现帮助界面、关卡选择](../manual/framework/native/gui/use-CCScrollView-make-help-scene-and-level-scene/zh.md)
 		- 网络
-			- 如何使用XMLHttpRequest
-			- 如何使用WebSocket
+			- [如何使用CCHttpClient](../manual/framework/native/network/How-to-use-CCHttpClient/zh.md)
+			- [如何编译LIBCURL](../manual/framework/native/network/How-to-compile-libcurl/zh.md)
 		- 多线程
-			- 如何使用pthread来建立多线程
+			- [如何使用pthread来建立多线程](../manual/framework/native/Threading/How-to-use-pthread/zh.md)
 		- 物理引擎
-			- 2D物理模块详解
+			- [Chipmunk](../manual/framework/native/physical_engine/Chipmunk/zh.md)
+			- [Box2d](../manual/framework/native/physical_engine/Box2D/zh.md)
 		- 多分辨率支持
 			- [多分辨率支持策略和原理](../manual/framework/native/multi-resolution-support/detailed-explanation-Cocos2dx-multi-resolution-adaptation/zh.md)
 		- 脚本编程
@@ -54,7 +55,7 @@
 			- Javascript
 				- 如何实现Javascript和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Javascript
-				- Javascript Binding的手动绑定实现
+				- [Javascript Binding的手动绑定实现](../manual/framework/native/script-program/javascript/js-binding/zh.md)
 		- 第三方库集成
 			- 如何让Java和C++接口互相调用：JNI使用指南
 			- 如何在Android上集成第三方SDK
@@ -74,12 +75,12 @@
 - Tutorial
 	- 入门篇：用C++写一个忍者射飞镖游戏
 		- 新建一个跨平台游戏
-		- 怎样添加精灵
-		- 怎样移动一个精灵
-		- 怎样发射子弹
-		- 碰撞检测
-		- 如何播放背景音乐与音效
-		- 锦上添花
+		- [怎样添加精灵](../tutorial/use-cpp-make-a-shoot-game/Chapter2–How-to-Add-a-sprite/zh.md)
+		- [怎样移动一个精灵](../tutorial/use-cpp-make-a-shoot-game/Chapter-3–How-to-Move-a-sprite/zh.md)
+		- [怎样发射子弹](../tutorial/use-cpp-make-a-shoot-game/Chapter4–How-to-Fire-some-Bullets/zh.md)
+		- [碰撞检测](../tutorial/use-cpp-make-a-shoot-game/Chapter5–How-to-Detect- the-Collisions/zh.md)
+		- [如何播放背景音乐与音效](../tutorial/use-cpp-make-a-shoot-game/Chapter6–How-to-Play-Music-and-Sound-Effect)
+		- [锦上添花](../tutorial/use-cpp-make-a-shoot-game/Chapter-7–Some-Icing-on the-Cake/zh.md)
 	- 编辑器篇：用CocoStudio来快速建立一个游戏
 		- CocoStudio简介 
 		- 准备开发环境
