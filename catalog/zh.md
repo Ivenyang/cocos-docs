@@ -45,7 +45,7 @@
 		- 物理引擎
 			- 2D物理模块详解
 		- 多分辨率支持
-			- [多分辨率支持策略和原理](../multi-resolution-support/detailed-explanation-Cocos2dx-multi-resolution-adaptation/zh.md)
+			- [多分辨率支持策略和原理](../manual/framework/native/multi-resolution-support/detailed-explanation-Cocos2dx-multi-resolution-adaptation/zh.md)
 		- 脚本编程
 			- Lua
 				- 如何实现Lua和C++的相互调用
