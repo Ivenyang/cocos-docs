@@ -79,7 +79,7 @@
 		- [怎样移动一个精灵](../tutorial/use-cpp-make-a-shoot-game/Chapter-3–How-to-Move-a-sprite/zh.md)
 		- [怎样发射子弹](../tutorial/use-cpp-make-a-shoot-game/Chapter4–How-to-Fire-some-Bullets/zh.md)
 		- [碰撞检测](../tutorial/use-cpp-make-a-shoot-game/Chapter5–How-to-Detect- the-Collisions/zh.md)
-		- [如何播放背景音乐与音效](../tutorial/use-cpp-make-a-shoot-game/Chapter6–How-to-Play-Music-and-Sound-Effect)
+		- [如何播放背景音乐与音效](../tutorial/use-cpp-make-a-shoot-game/Chapter6–How-to-Play-Music-and-Sound-Effect/zh.md)
 		- [锦上添花](../tutorial/use-cpp-make-a-shoot-game/Chapter-7–Some-Icing-on the-Cake/zh.md)
 	- 编辑器篇：用CocoStudio来快速建立一个游戏
 		- CocoStudio简介 
