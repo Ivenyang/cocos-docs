@@ -45,7 +45,7 @@
 		- 物理引擎
 			- 2D物理模块详解
 		- 多分辨率支持
-			- 多分辨率支持策略和原理
+			- [多分辨率支持策略和原理](../multi-resolution-support/detailed-explanation-Cocos2dx-multi-resolution-adaptation/zh.md)
 		- 脚本编程
 			- Lua
 				- 如何实现Lua和C++的相互调用
@@ -63,9 +63,9 @@
 			- 从2.2升级到3.0
 		
 	- CocoStudio
-		- CocoStudio UI编辑器的使用
-		- 如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面
-		- 使用CocoStudio创建Cocos2d-x序列帧和骨骼动画
+		- [CocoStudio UI编辑器的使用](../manual/studio/cocostudio-ui-editor-usage/zh.md)
+		- [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面](../manual/studio/cocostudio-with-chaosfight/zh.md)
+		- [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画](../manual/studio/cocostudio-sequence-bone-animation/zh.md)
 			
 	- Cocos2d-html5	
 		- [如何搭建 Cocos2d-HTML5 开发调试环境](../manual/framework/html5/cocos2d-html5-debug-env/zh.md)
