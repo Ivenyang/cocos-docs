@@ -46,7 +46,7 @@ Panel 作为最主要的容器层，前面我们说过，由 CocoStudio UI 编�
 
 如上面代码所示，我们创建了一个 `layout` 控件，然后在其中添加了三个控件。`m_pUiLayer` 是当前场景的一个 UILayer ，前面我们介绍过，所有的 UI 控件，都是放在  UILayer 里面，UILayer 管理所有的控件，并添加到当前场景中去。显示效果如下：
 
-![uipanel_test](uipanel_test.png)
+![uipanel_test](res/uipanel_test.png)
 
 我们设置了 layout 的 size 属性，也就是给它一个大小，但是并没有显示出来效果，默认是透明的，我们可以为这个层设置颜色：
 
@@ -56,7 +56,7 @@ Panel 作为最主要的容器层，前面我们说过，由 CocoStudio UI 编�
 	
 ```
 
-![uipanel_color](uipanel_color.png)
+![uipanel_color](res/uipanel_color.png)
 
 除了设置纯色之外，还可以设计渐变颜色：
 
@@ -66,7 +66,7 @@ Panel 作为最主要的容器层，前面我们说过，由 CocoStudio UI 编�
 
 ```
 
-![uipanel_gradient](uipanel_gradient.png)
+![uipanel_gradient](res/uipanel_gradient.png)
 
 当然，除了设置颜色之外，还可以设置我们想要的背景图片：
 
@@ -78,11 +78,11 @@ Panel 作为最主要的容器层，前面我们说过，由 CocoStudio UI 编�
 
 ```
 
-![uipanel_background1](uipanel_background1.png)
+![uipanel_background1](res/uipanel_background1.png)
 
 如上图显示，我们设置了 size 并且设置了 背景图片，但是不要忘了调用 `setClippingEnabled` 方法根据 size 进行裁剪，如果忘了调用，那么会向下面所显示的一样。
 
-![uipanel_background2](uipanel_background2.png)
+![uipanel_background2](res/uipanel_background2.png)
 
 除了以上使用方式，还有其它玩法：
 
@@ -92,7 +92,7 @@ Panel 作为最主要的容器层，前面我们说过，由 CocoStudio UI 编�
 
 ```
 
-![uipanel_scale9](uipanel_scale9.png)
+![uipanel_scale9](res/uipanel_scale9.png)
 
 使用九宫格图片做为背景，注意启用此功能。
 
@@ -153,7 +153,7 @@ UILayout 是作为布局之用，以上都只是修改背景图片，下面除�
 
 显示效果如下：
 
-![uipanel_vertical](uipanel_vertical.png)
+![uipanel_vertical](res/uipanel_vertical.png)
 
 我们看到，分别创建了三个布局参数 `UILinearLayoutParameter`，设置了 `Gravity` 和 `Margin` 参数，然后给三个 UIPanel 的内部控件分别设置其布局参数值，已达到如上效果。
 
@@ -178,7 +178,7 @@ UILayout 是作为布局之用，以上都只是修改背景图片，下面除�
 	button_scale9->setLayoutParameter(rp3);
 
 ```
-![uipanel_relative](uipanel_relative.png)
+![uipanel_relative](res/uipanel_relative.png)
 
 这里创建了三个布局属性，设置了不同的 "停靠" 参数 `Align` 。
 
@@ -214,7 +214,7 @@ UILayout 是作为布局之用，以上都只是修改背景图片，下面除�
 	
 ```
 
-![uiscrollview_vertical](uiscrollview_vertical.png)
+![uiscrollview_vertical](res/uiscrollview_vertical.png)
 
 请看如图效果，这里创建了一个 ScrollView 控件，并且添加了一些内部元素，以完成布局，控件内容超出显示区域，我们可以通过上下拖动，来显示上下未未显示的不分。
 
@@ -246,7 +246,7 @@ ListView 继承自 ScrollView，所以 ScrollView 里面有的功能，特性，
 
 ```
 
-![uilistview_vertical](uilistview_vertical.png)
+![uilistview_vertical](res/uilistview_vertical.png)
 
 如图，但不能很好的看到效果，这里是类似 ScrollView 的实现，可以实现拖动，并且有二十个按钮在这其中。先说说普通的属性，通过 `ItemsMargin` 设置每个元素的间距， 通过 `Gravity`  设置布局方案，这里是横向剧中显示。
 
@@ -315,7 +315,7 @@ ListView 继承自 ScrollView，所以 ScrollView 里面有的功能，特性，
 
 ```
 
-![uipageview](uipageview.png)
+![uipageview](res/uipageview.png)
 
 如图显示，创建了一个 PageView 对象 pageView，设置大小为 "Size(240, 130)"，这也就是它的显示区域大小了。我们使用一个 for 循环，添加了三个同样的元素 UILayout ，每个 UILayout 的大小也都是 `Size(240, 130)`，所以 PageView 一次正好能够显示一个项的内容，也就是 "页"。至于每个页的 UILayout 里面装着什么，那就是根据自己的需要而定了。然后使用 `pageView->addPage(layout)` 添加一个页，需要注意的是，这里所添加的必须是 `UILayout` 类型对象或者其派生类对象。
 

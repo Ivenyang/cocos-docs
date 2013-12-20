@@ -4,7 +4,7 @@
 ###*The Similar:*
 ####Inheritance diagram
 
-![](./ParticleBatchNode@2.x.png)   ![](./ParticleBatchNode@3.0.png)
+![](res/./ParticleBatchNode@2.x.png)   ![](res/./ParticleBatchNode@3.0.png)
 
 As the inheritance diagram above, the first one in 2.x and another one in 3.0, we can see they all inheritance from Node and TextureProtocol.
 ParticleBatchNode is like a batch node: if it contains children, it will draw them in 1 single OpenGL call (often known as "batch draw").
@@ -28,7 +28,7 @@ A ParticleBatchNode can reference one and only one texture (one image file, one 
 ###*The Similar:*
 ####Inheritance diagram
 
-![](./ParticleSystem@2x.png)	![](./ParticleSystem@3.0.png)
+![](res/./ParticleSystem@2x.png)	![](res/./ParticleSystem@3.0.png)
 
 Particle System base class. 
 Attributes of a Particle System:
@@ -122,7 +122,7 @@ It is possible to customize any of the above mentioned properties in runtime. Ex
 ###*The Similar:*
 ####Inheritance diagram
 
-![](./ParticleSystem@2x.png)	![](./ParticleSystem@3.0.png)
+![](res/./ParticleSystem@2x.png)	![](res/./ParticleSystem@3.0.png)
 
 ParticleSystemQuad is a subclass of ParticleSystem.
 It includes all the features of ParticleSystem.
@@ -143,7 +143,7 @@ There aren't much more changes in 3.0, you can just use it in 3.0 as you do it i
 ###*The Sample:*
 - There is a sample using ParticleSystem below:
 
-![](./ParticleSystemEffect.png)
+![](res/./ParticleSystemEffect.png)
 
 	/*
 		// Cocos2d-x-2.x
