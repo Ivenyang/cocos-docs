@@ -194,7 +194,7 @@ We can use **cc.LabelTTF.create** for creating a text label. The first param is 
 
 ##Summary 
 
-In this tutorial, we have learned how to divide a game scene into different layers. Each layer has it's own logic and responsibility. You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/master/tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/res/Parkour.zip).
+In this tutorial, we have learned how to divide a game scene into different layers. Each layer has it's own logic and responsibility. You can download the entire project from [here](res/Parkour.zip).
 
 Since the code and logic are very simple, so we don't cover them all in details. If you have any question or suggestions, let us know and we will do our best to support you.
 
