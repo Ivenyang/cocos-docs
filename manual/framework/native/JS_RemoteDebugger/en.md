@@ -106,4 +106,4 @@ Sometime you need to jump to a loop or a method to find the issue, so in this ci
 
 #### Step In
 
-Although we haven't implemented **Step In** in remote-debugger, but we can set breakpoint in loop for method to achieve the same goal.
+Although we haven't implemented **Step In** in remote-debugger, but we can set breakpoint in loop or method to achieve the same goal.
