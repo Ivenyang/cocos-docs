@@ -22,7 +22,7 @@ CCEditbox不支持换行符和wrapping换行，这意味着，CCEditbox只能用
 
 
 
-![](../res/0825119PF.png)
+![](./res/0825119PF.png)
 
 ### EditBoxInputMode ###
 
@@ -58,4 +58,4 @@ EditBoxInputMode定义了以下用户被允许输入的文本类型：
 	};
 
 
-![](../res/082513dsH.png)
+![](./res/082513dsH.png)

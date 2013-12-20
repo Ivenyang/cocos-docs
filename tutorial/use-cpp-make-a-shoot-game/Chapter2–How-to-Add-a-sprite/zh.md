@@ -18,18 +18,18 @@
 ## 1. 添加图片资源 ##
  这里是你的Cocos2dSimpleGame工程所用到的3张图片资源，由Ray Wenderlich ’s wife 制作。
 
-![](../res/0721580Sl.png) ![](../res/072158uBI.png) ![](../res/0721590v4.png)
+![](./res/0721580Sl.png) ![](./res/072158uBI.png) ![](./res/0721590v4.png)
 
 如果你完成[Chapter 1 – Create a New cocos2d-x project with multi-platforms](http://www.cocos2d-x.org/wiki/Chapter_1_-_How_to_Create_a_New_cocos2d-x_project_on_multi-platforms)，你肯定有一个cocos2d-x/Cocos2dSimpleGame文件夹。请下载上面那些图片并且拷贝到cocos2d-x/Cocos2dSimpleGame/Resources 文件夹中。然后返回到不同平台的开发环境中。
 
 ### 1.1 iPhone环境添加资源###
-很简单 ，打开Xcode，右键Cocos2dSimpleGame/Resources，点击‘Add -> Existing Files’，添加上面的3张图片。注意确保“Add to Targets”窗口中的“Cocos2dxSimpleGame复选框”为选中状态。![](../res/072201jjS.png)
+很简单 ，打开Xcode，右键Cocos2dSimpleGame/Resources，点击‘Add -> Existing Files’，添加上面的3张图片。注意确保“Add to Targets”窗口中的“Cocos2dxSimpleGame复选框”为选中状态。![](./res/072201jjS.png)
 
 ### 1.2 android环境添加资源 ###
 如果你运行build_native.sh来编译，你需要将这些图片拷贝到Resources文件夹，另外你应该将图片文件复制到“assets”文件夹。
 
 ###1.3 win32环境添加资源###
-Win32可执行文件会从它关联的路径中找寻这些资源。所以我们需要亲手把图片从cocos2d-x/Cocos2dSimpleGame/Resources复制到cocos2d-x/Debug.win32文件夹中。（不过像我这样的懒人，总是会找到懒方法）![](../res/0722031H6.png) 
+Win32可执行文件会从它关联的路径中找寻这些资源。所以我们需要亲手把图片从cocos2d-x/Cocos2dSimpleGame/Resources复制到cocos2d-x/Debug.win32文件夹中。（不过像我这样的懒人，总是会找到懒方法）![](./res/0722031H6.png) 
 
 Event -> Command Line中写上这句话：
 xcopy /Y /E .\Resources\*.* $(OutDir)每次编译完成，VistualStudio会复制这些资源到可执行路径中。
@@ -164,11 +164,11 @@ android上，标题栏会占用一些空间，所以在设置player的坐标时�
 
 ·  iPhone截图
 
-![](../res/072204CuB.png)
+![](./res/072204CuB.png)
 ·  Android截图
 
-![](../res/072206e7G.png)
+![](./res/072206e7G.png)
 ·Win32截图
 
-![](../res/072206u5I.png)
+![](./res/072206u5I.png)
   
