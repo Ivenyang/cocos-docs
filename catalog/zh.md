@@ -6,7 +6,7 @@
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
-			- [导演，场景，层，以及精灵]()
+			- [导演，场景，层，以及精灵](../manual/framework/native/basic-concept/Director-Scene-Layer-and-Sprite/zh.md)
 			- 坐标系详解
 			- 定时器scheduler和timer
 			- 动作 Actions
