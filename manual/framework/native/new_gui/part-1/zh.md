@@ -42,7 +42,7 @@ GUI 中的每一个元素都是 **UIWidget** 元素，UIWidget 是直接继承�
 
 ```
 
-![hello_cocos](hello_cocos.png)
+![hello_cocos](res/hello_cocos.png)
 
 注意：前文说道，通过 UILayer 将当前运行场景和所需 UI 控件管理起来，如果将 UILabel 直接添加到一个运行的 Node （如当前场景），是不可行的，类型匹配不了。
 
@@ -103,7 +103,7 @@ UILabel 常用于显示静态文字，但也能通过添加 `addTouchEventListen
 	
 ```
 
-![uibutton](uibutton.png)
+![uibutton](res/uibutton.png)
 
 常用属性/方法								|	说明
 --------------------------------------------|-------------------------
@@ -127,7 +127,7 @@ addTouchEventListener(Object *target, SEL_TouchEvent selector)	| 设置按钮回
 
 ```
 
-![uiimageview](uiimageview.png)
+![uiimageview](res/uiimageview.png)
 
 常用属性/方法								|	说明
 --------------------------------------------|-------------------------

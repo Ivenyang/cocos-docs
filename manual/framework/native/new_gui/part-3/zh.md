@@ -15,7 +15,7 @@
 
 ```
 
-![uitextbutton](uitextbutton.png)
+![uitextbutton](res/uitextbutton.png)
 
 既然是按钮，肯定需要支持可触摸操作，然后调用 `loadTextures` 方法加载按钮图片，注意第三个参数是按钮禁用时显示的图片，可根据自己的选择是否设置，这里要提一下的是第四个参数，请看如下方法原型：
 
@@ -37,7 +37,7 @@
 
 ```
 
-![uitextbutton9](uitextbutton9.png)
+![uitextbutton9](res/uitextbutton9.png)
 
 ### UICheckBox
 
@@ -59,7 +59,7 @@
 
 ```
 
-![uicheckbox](uicheckbox.png)
+![uicheckbox](res/uicheckbox.png)
 
 看到这里，属性没多少，但是图片却加载了很多，两种状态，两种状态的禁用图片，还有一个按下时显示的图片，有了这五张图片，才能算是一个完整的复选框控件。通过 `addEventListenerCheckBox` 方法设置回调函数：
 
@@ -83,7 +83,7 @@
 
 对于一个复选框来说，有选中和未选中状态，当我们点击它状态发生改变的时候，我们通过回调函数来做一些逻辑上的处理，比如记录当前控件的选中状态，或者如上面所示，设置一个标签的显示内容，以通知当前的状态已经修改。
 
-![uicheckboxs](uicheckboxs.png)
+![uicheckboxs](res/uicheckboxs.png)
 
 
 ### UISlider
@@ -102,7 +102,7 @@
 
 ```
 
-![uislider](uislider.png)
+![uislider](res/uislider.png)
 
 我们分别使用不同的方法加载图片，`loadBarTexture` 所加载的是滑动条背景图，`loadSlidBallTextures` 方法所加载的是可滑动部件的三种状态下图片，也就是我们可以拖动的中间那个圆球。 而 `loadProgressBarTexture` 方法则显示了滑动条的具体进度。当然最后不要忘了，它也有回调函数，我们可能需要实时的记录它的当前状态值：
 
@@ -136,7 +136,7 @@
 
 ```
 
-![uiloadingbar](uiloadingbar.png)
+![uiloadingbar](res/uiloadingbar.png)
 
 以上的代码当然仅仅是初始化，想要实时的跟新显示其值，我们需要需要不停的为它通过 `setPercent` 方法更新属性值。在启动一个场景的时候，我们调用 `scheduleUpdate();` 并实现 `update` 方法，以保证每一帧都调用，然后我们在此 `update` 方法里面实现更新进度条的方法：
 
@@ -170,7 +170,7 @@ UILabelAtlas 控件可以显示由图片拼接而成的数字标签:
 
 ```
 
-![uilabelatlas](uilabelatlas.png)
+![uilabelatlas](res/uilabelatlas.png)
 
 这个控件的使用比较简单，在老的版本中，使用 Label 的效率不高，使用 LabelAtlas 是非常好的替代方案，但是 3.0 版本优化了  Label 的内部实现机制，提高了很多效率。这里使用 Atlas 的另一个好处是可以使用自定义的丰富的显示效果。
 
@@ -189,7 +189,7 @@ UILabelAtlas 控件可以显示由图片拼接而成的数字标签:
 
 ```
 
-![uibmfont](uibmfont.png)
+![uibmfont](res/uibmfont.png)
 
 UILabelBMFont 和 UILabelAtlas 一样，都是通过一张图片来保存需要显示的信息，但是 Atlas 更为小巧，图片裁剪的参数可以直接设置，而 BMFont 则不然，每张图片配合一个以 ".fnt" 为后缀的文件，里面记录了文字信息到图片的映射，所以我们可以很容易的使用它，并且同样提供了很多丰富的显示效果。
 
@@ -210,7 +210,7 @@ UILabelBMFont 和 UILabelAtlas 一样，都是通过一张图片来保存需要�
         
 ```
 
-![uitextarea](uitextarea.png)
+![uitextarea](res/uitextarea.png)
 
 一个文本域，需要知道它的大小，对齐方式(每一行所显示的文字，根据单子的长短，可能每行的长度不一，使用 `setTextHorizontalAlignment` 来设置，有： 左对齐，右对齐 和 剧中对齐)，文本显示内容，字体大小和字体等信息。
 
@@ -230,7 +230,7 @@ UILabelBMFont 和 UILabelAtlas 一样，都是通过一张图片来保存需要�
 
 ```
 
-![uitextfield](uitextfield.png)
+![uitextfield](res/uitextfield.png)
 
 我们设置好属性，启用可触摸选项，等待用户的触摸，以执行文字录入操作。 `setPlaceHolder` 可以作为提示文字而存在，当控件没有显示的文字内容时。注意这里的回调函数有很多中状态：
 

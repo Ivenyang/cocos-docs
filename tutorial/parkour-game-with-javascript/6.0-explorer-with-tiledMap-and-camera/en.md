@@ -57,7 +57,7 @@ this.addChild(this._debugNode, 10);
 
 When you run the game again, you will see a red box above the running player:
 
-![debugdraw](debugdraw.png)
+![debugdraw](res/debugdraw.png)
 
 ## Introduction to TiledMap
 TiledMap is a very common used concepts in 2d games. It is useful for building large level map and some parallax scrolling background.
@@ -78,7 +78,7 @@ The detail process of making the two tiled map is out of scope of this tutorial.
 
 (*Note: If you can't make the tiled map by yourself, you can safely skip the process and use the tiled map provided by us.*)
 
-![tiledmap](tiledmap.png)
+![tiledmap](res/tiledmap.png)
 
 
 ### Replace Previous Background with TiledMap
@@ -119,7 +119,7 @@ this.addChild(this.map01);
 
 Save all the changes and run it:
 
-![replacebg](replacebg.png)
+![replacebg](res/replacebg.png)
 
 Here, we add two maps. The *map01* is right beside the *map00* background. In the later section, We will explain why we should add two maps.
 
@@ -239,7 +239,7 @@ this._debugNode.setVisible(false);
 ## Summary
 In this tutorial, we have met TiledMap and Cocos2d camera. These two concepts are very important ones when you development a physic endless running game.
 
-You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/chapter7/tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/Parkour.zip).
+You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/chapter7/tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/res/Parkour.zip).
 
 ## Where to go from here?
 In the next tutorial, we will add coins and obstacles into our game. At that tutorial, we will also learn how to refactor our game code and make it more extensible.

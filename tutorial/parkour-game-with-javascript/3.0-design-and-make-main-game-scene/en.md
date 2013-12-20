@@ -7,7 +7,7 @@ From the previous tutorials, we know that we can use different layers to separat
 
 Here is the final result of our gameplay scene:
 
-![gamescene](result.png)
+![gamescene](res/result.png)
 
 There are background buildings, a hero and some HUD elements to show us the status of the current game progress. We can easily divide the gameplay scene into three parts:background layer, animation layer and status layer.
 
@@ -105,7 +105,7 @@ var PlayScene = cc.Scene.extend({
 
 ### Coding BackgroundLayer(BackgroundLayer.js)
 Here is our background image:
-![bg](PlayBG.png)
+![bg](res/PlayBG.png)
 
 Here is the code snippet:
 
@@ -130,7 +130,7 @@ var BackgroundLayer = cc.Layer.extend({
 ```
 ### Coding AnimationLayer(AnimationLayer.js)
 Here is our main character:
-![runner](runner.png)
+![runner](res/runner.png)
 
 In this section, I will show you how to run actions on the hero. We will run **MoveTo** action on the sprite to move the sprite from (80,85) to (300,85) in two seconds.
 
@@ -194,7 +194,7 @@ We can use **cc.LabelTTF.create** for creating a text label. The first param is 
 
 ##Summary 
 
-In this tutorial, we have learned how to divide a game scene into different layers. Each layer has it's own logic and responsibility. You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/master/tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/Parkour.zip).
+In this tutorial, we have learned how to divide a game scene into different layers. Each layer has it's own logic and responsibility. You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/master/tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/res/Parkour.zip).
 
 Since the code and logic are very simple, so we don't cover them all in details. If you have any question or suggestions, let us know and we will do our best to support you.
 

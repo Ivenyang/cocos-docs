@@ -46,7 +46,7 @@ Here is my screenshot of launching WebStorm:
 
    **Figure 1**
 
-  ![splash](sbsplashscreen.png)
+  ![splash](res/sbsplashscreen.png)
 
 
 **Note:** 
@@ -62,13 +62,13 @@ Now, Let's try cocos2d-html5 within WebStorm.
 	
 	**Figure 2**
 	
-	![option](chooseserver.png)
+	![option](res/chooseserver.png)
 
 2. Choose **Source files are in a local directory, no Web server is yet configured** and click **Next** to continue.
 
 	**Figure 3**
 
-	![choosedirectory](choosedirectory.png)
+	![choosedirectory](res/choosedirectory.png)
 
 3. At this step, you should expand the directory tree to specify where you put your cocos2d-html5 source code. After you have specified the correct directory, note that the **Finish** button is still gray.
 
@@ -76,7 +76,7 @@ Now, Let's try cocos2d-html5 within WebStorm.
 
 	**Figure 4**
 
-	![setupfinish](setupfinish.png)
+	![setupfinish](res/setupfinish.png)
 
 5. Congratulations! You have successfully configured the cocos2d-html5 project for WebStorm.
 
@@ -86,7 +86,7 @@ Since you have added the entire cocos2d-html5 directory to WebStorm 7. WebStorm 
 
 **Figure 5**
 
-![syntaxac](syntaxac.png)
+![syntaxac](res/syntaxac.png)
 
 If you have a third party javascript library in your cocos2d-html5 game apps, you can also add it to the WebStorm library for parsing and enable realtime syntax autocompletion.
 
@@ -98,19 +98,19 @@ Here is the instructions:
 
 	**Figure 6**
 
-	![clicksettings](clicksettings.png)
+	![clicksettings](res/clicksettings.png)
 
 2. After clicking the **Settings** menu, it will popup the followings dialog:
 	
 	**Figure 7**
 	
-	![addjslib](addjslib.png)
+	![addjslib](res/addjslib.png)
 
 3. Now you should click **Add...** button and it will prompts you to specify the location of your javascript library. 
 	
 	**Figure 8**
 	
-	![addjslibpath](addjslibpath.png)
+	![addjslibpath](res/addjslibpath.png)
 
 ### Debug cocos2d-html5 javascript code within WebStorm
 Now it's time for us to debugging cocos2d-html5 code.
@@ -120,13 +120,13 @@ Now it's time for us to debugging cocos2d-html5 code.
 	
 	**Figure 9**
 	
-	![debugindex](debugindex.png)
+	![debugindex](res/debugindex.png)
 2. Now it will open your Chrome automatically. If you put your mouse above the JB plugin,
 it will shows you that it has been connected with WebStrom 7.02:
 
 	**Figure 10**
 	
-	![chome](chrome.png)
+	![chome](res/chrome.png)
 
 **Note:** This is step is very straightforward, once you have installed the plugin--"JetBrains IDE support". When you click the debug menu in WebStorm, it will connect to chrome automatically. How convenience it is! You can also click the **JB** icon in the right side of Chrome's side bar and it will bring you to the WebStorm IDE immediately.
 
@@ -137,13 +137,13 @@ Back to WebStorm and double click **HelloHTML5World/src/myApp.js** to view the s
 
 	**Figure 11**
 	
-	![setbreakpointer](setbreakpoint.png)
+	![setbreakpointer](res/setbreakpoint.png)
 
 2. Start debugging. Open your chrome browser and click **HelloHTML5World** link to open the sample project. Then back to your WebStorm by clicking JB icon. And the program will stop at the break point we have just set. And the editor will switch to Debug View:
 
 	**Figure 12**
 	
-	![debugview](debugview.png)
+	![debugview](res/debugview.png)
 
 3. Now you can do debugging thing like step out, step into, step over, continue executing etc. 
 

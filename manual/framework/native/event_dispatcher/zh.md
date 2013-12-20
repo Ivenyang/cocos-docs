@@ -39,7 +39,7 @@
 	
 ```
 
-![touchable_sprite](touchable_sprite.png)
+![touchable_sprite](res/touchable_sprite.png)
 
 ### 创建一个单点触摸事件监听器，并完成逻辑处理内容
 

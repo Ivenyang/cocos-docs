@@ -57,7 +57,7 @@ Save all files and git it a try:)
 
 Here is the screenshot:
 
-![updatehud](updatehud.png)
+![updatehud](res/updatehud.png)
 
 ##Add Game Over Logic into the Game
 ###Design and Implement the Game Over Layer
@@ -133,7 +133,7 @@ Yeah, it's done. Now run the game again.
 
 Here is the final screenshot:
 
-![gameover](gameover.png)
+![gameover](res/gameover.png)
 
 
 ##Implement Your Own Simple Gesture Recognizer

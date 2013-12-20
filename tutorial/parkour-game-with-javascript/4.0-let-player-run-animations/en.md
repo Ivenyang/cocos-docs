@@ -20,7 +20,7 @@ Here is the building process:
 
 1. Open TexturePacker and drag the folder *TexturePacker* under *res/TexturePacker*  in to TexturePacker's sprite area.
 
-![dragTheResource](dragTheResource.png)
+![dragTheResource](res/dragTheResource.png)
 
 When you add new images into the *TexturePacker* folder, TexturePacker will automatically detect the changes and load the images.
 
@@ -28,11 +28,11 @@ When you add new images into the *TexturePacker* folder, TexturePacker will auto
 
 3. Specify the *Data file* and *Texture file* path. Here we set the path at *res* directory and we set the data file name to "running.plist" and the texture file to "running.png".
 
-![specifypath](specifypath.png)
+![specifypath](res/specifypath.png)
 
 4. Click *publish*. Now a dialog will appear, if there are no errors, then it will  generate "running.png" and "running.plist" in the right place.
 
-![generating](generating.png)
+![generating](res/generating.png)
 
 Ok, we have successfully generate the running animation files. Next let's play with the generated animation files.
 
@@ -153,13 +153,13 @@ var AnimationLayer = cc.Layer.extend({
 
 Now, you can run the project and you will get a infinite running player in your game screen.
 
-![finalresult](finalresult.png)
+![finalresult](res/finalresult.png)
 
 ##Summary
 
 In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within cocos2d-html5.
 
-You can download the entire project from [here](https://github.com/cocos2d/cocos-docs/blob/chapter5/tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/Parkour.zip).
+You can download the entire project from [here](https://github.com/cocos2d/cocos-docs/blob/chapter5/tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/res/Parkour.zip).
 
 ## Where to Go from Here?
 

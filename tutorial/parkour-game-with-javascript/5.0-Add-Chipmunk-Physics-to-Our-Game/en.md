@@ -173,14 +173,14 @@ The code and comment are self-explanatory. Add these code in *AnimationLayer*'s 
 
 Congratulations. You have done all the bolts and nuts. You can just press the *debug* button within *Webstorm*.
 
-![run](run.png)
+![run](res/run.png)
 
 Now you can see the runner run pass through the screen.
 
 ##Summary
 
 In this tutorial, we have show you how to setup Chipmunk physic world, how to setup the physic world boundary, how to create a rigid body and the associated
-shape. we also add physics to sprite to make it act more realistic. You can grab the entire source code from [here](https://github.com/andyque/cocos-docs/blob/chapter6/tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/Parkour.zip).
+shape. we also add physics to sprite to make it act more realistic. You can grab the entire source code from [here](https://github.com/andyque/cocos-docs/blob/chapter6/tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/res/Parkour.zip).
 
 
 ##Where to go from here
