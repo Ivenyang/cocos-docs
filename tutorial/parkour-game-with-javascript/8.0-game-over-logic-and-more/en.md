@@ -433,7 +433,7 @@ Then we added the game over logic.
 
 At last, we have created a simple gesture recognizer to handle the controlling of our hero's jumping action.
 
-You can download the final project from [here](https://github.com/andyque/cocos-docs/blob/feature3435/tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/res/Parkour.zip).
+You can download the final project from [here](res/Parkour.zip).
 
 ##Where to go from here?
 In the next tutorial, we will cover the final bolts and nuts of the parkour game. Keep tuning!

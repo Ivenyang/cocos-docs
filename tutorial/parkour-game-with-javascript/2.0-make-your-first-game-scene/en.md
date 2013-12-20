@@ -295,7 +295,7 @@ Once the scene is created, a **onEnter** function should be defined. It defined 
 
 ## Summary
 
-In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](https://github.com/iTyran/cocos2dhtml5Doc/blob/master/2.0make-your-first-game-scene/res/Parkour.zip).
+In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](res/Parkour.zip).
 
 ## Where to go from here
 

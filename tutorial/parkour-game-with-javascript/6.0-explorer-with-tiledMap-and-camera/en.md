@@ -239,7 +239,7 @@ this._debugNode.setVisible(false);
 ## Summary
 In this tutorial, we have met TiledMap and Cocos2d camera. These two concepts are very important ones when you development a physic endless running game.
 
-You can download the entire project from [here](https://github.com/andyque/cocos-docs/blob/chapter7/tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/res/Parkour.zip).
+You can download the entire project from [here](res/Parkour.zip).
 
 ## Where to go from here?
 In the next tutorial, we will add coins and obstacles into our game. At that tutorial, we will also learn how to refactor our game code and make it more extensible.
