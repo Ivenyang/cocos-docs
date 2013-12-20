@@ -19,7 +19,7 @@ Now we focus on the Layers in this game, and you can find more details about Sce
 A cc.Layer is a cc.Node, which  knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, making players can see other layers behind them. cc.Layer are very useful in defining your game's appearance and behaviour, so it will take a lot of time to deal
 with cc.Layer subclasses to reach your expectation.
 
-![layer](layerstructure.png)
+![layer](res/layerstructure.png)
 
 The cc.Layer is where you can define touch event handlers. By implementing a method to handle one of touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled), a cc.Layer can interact with player. These touch events are transmit to all the layers within a scene, from front to back, until some layer catch the event and accept it.
 
@@ -150,7 +150,7 @@ Ok, I think the background information is enough. Let's do some cleanup stuff.
 
 1. Delete **HD** and **Normal** folder under **res** directory. Leave your res directory looks like this(the resource files can be found from our sample project)
 
-	![res](resdirectory.png)
+	![res](res/resdirectory.png)
 
 2. Delete the following code pieces in main.js:
 
@@ -295,7 +295,7 @@ Once the scene is created, a **onEnter** function should be defined. It defined 
 
 ## Summary
 
-In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](https://github.com/iTyran/cocos2dhtml5Doc/blob/master/2.0make-your-first-game-scene/Parkour.zip).
+In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](https://github.com/iTyran/cocos2dhtml5Doc/blob/master/2.0make-your-first-game-scene/res/Parkour.zip).
 
 ## Where to go from here
 

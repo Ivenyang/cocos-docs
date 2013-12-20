@@ -57,7 +57,7 @@ Save all files and git it a try:)
 
 Here is the screenshot:
 
-![updatehud](updatehud.png)
+![updatehud](res/updatehud.png)
 
 ##Add Game Over Logic into the Game
 ###Design and Implement the Game Over Layer
@@ -133,7 +133,7 @@ Yeah, it's done. Now run the game again.
 
 Here is the final screenshot:
 
-![gameover](gameover.png)
+![gameover](res/gameover.png)
 
 
 ##Implement Your Own Simple Gesture Recognizer
@@ -433,7 +433,7 @@ Then we added the game over logic.
 
 At last, we have created a simple gesture recognizer to handle the controlling of our hero's jumping action.
 
-You can download the final project from [here](https://github.com/andyque/cocos-docs/blob/feature3435/tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/Parkour.zip).
+You can download the final project from [here](https://github.com/andyque/cocos-docs/blob/feature3435/tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/res/Parkour.zip).
 
 ##Where to go from here?
 In the next tutorial, we will cover the final bolts and nuts of the parkour game. Keep tuning!

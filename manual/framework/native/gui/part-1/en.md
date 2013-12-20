@@ -26,7 +26,7 @@ UILabel                 | Character label                   | UIPageView    | Pa
 
 Every element in GUI system is a **UIWidget** element and UIWidget is inherited from cocos2d::Object. Although UIWidget element can build a tree structure, however, it's independent of the structure created by Node. These two structure can be linked by **UILayer**, which is inherited from Layer class. And Layer is also a Node, there is a **UIRootWidget** inside, every UIWidget added to UILayer will be a UIWidget in the top-level to build GUI. Now you can see "Hello Cocos!" in the center of the scene by folloing code:
 
-``` c++
+```
     auto size = Director::getInstance()->getWinSize();
     
     auto uLabel = UILabel::create();
@@ -42,7 +42,7 @@ Every element in GUI system is a **UIWidget** element and UIWidget is inherited 
 
 ```
 
-![hello_cocos](hello_cocos.png)
+![hello_cocos](res/hello_cocos.png)
 
 Note: UILayer can manage current running scene and UI widgets, but it is impracticable to add a UILabel to a running Node because of type mismatch.
 
@@ -103,7 +103,7 @@ We used `addTouchEventListener` to add touch event callback function. _lbl is a 
     
 ```
 
-![uibutton](uibutton.png)
+![uibutton](res/uibutton.png)
 
 General proprerties and methods             | Description
 --------------------------------------------|-------------------------
@@ -118,15 +118,15 @@ Note: Some widgets can not enable touch, such as UILabel and UIImageView, howeve
 
 To enrich the UI we added a image display widget-UIImageView, as following code:
 
-``` c++
+```
     UIImageView *imageView = UIImageView::create();
     imageView->loadTexture("cocosgui/ccicon.png");
     imageView->setPosition(Point(size.width / 2, size.height / 2) + Point(0, 50));
     uLayer->addWidget(imageView);
-
 ```
 
-![uiimageview](uiimageview.png)
+![uiimageview](res/uiimageview.png)
+
 
 General proprerties and methods             | Description
 --------------------------------------------|-------------------------

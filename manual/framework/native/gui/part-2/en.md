@@ -46,7 +46,7 @@ Panel as primary container, it's the base to create UI by CocoStudio editor. It'
 
 We created a `layout` widget by the code above and then added three widgets to it. `m_pUiLayer` is a UILayer in current scene as we mentioned before. All the UI widgets are put into UILayer and UILayer manages all of them. You can see the result when put them into the scene as following image:
 
-![uipanel_test](uipanel_test.png)
+![uipanel_test](res/uipanel_test.png)
 
 We give a size of the layout by setting "size" value, but we don't get what we want because the color of the layout default is transparent. However, we can set color for this layout:
 
@@ -56,7 +56,7 @@ We give a size of the layout by setting "size" value, but we don't get what we w
     
 ```
 
-![uipanel_color](uipanel_color.png)
+![uipanel_color](res/uipanel_color.png)
 
 You can also set background image as you like:
 
@@ -68,11 +68,11 @@ You can also set background image as you like:
 
 ```
 
-![uipanel_background1](uipanel_background1.png)
+![uipanel_background1](res/uipanel_background1.png)
 
 As shown above, we setted the size and background image, but remember call `setClippingEnabled` method to clip by size, you'll see following if you forget call the method:
 
-![uipanel_background2](uipanel_background2.png)
+![uipanel_background2](res/uipanel_background2.png)
 
 There other ways to do the same thing:
 
@@ -82,7 +82,7 @@ There other ways to do the same thing:
 
 ```
 
-![uipanel_scale9](uipanel_scale9.png)
+![uipanel_scale9](res/uipanel_scale9.png)
 
 Using squared images as background image, remember enable this function.
 
@@ -143,7 +143,7 @@ Note: In addtion to absolute layout scheme, if you set other scheme then UIPanel
 
 Following image shows the displaying effect:
 
-![uipanel_vertical](uipanel_vertical.png)
+![uipanel_vertical](res/uipanel_vertical.png)
 
 Settd three parameters for layout-`UILinearLayoutParameter`, `Gravity` and `Margin`, then setted layout parameters for three UIPanel's inner widgets, so you saw the result above.
 
@@ -168,7 +168,7 @@ Here we used Linear Vertical scheme, but every `Gravity` set as `LINEAR_GRAVITY_
     button_scale9->setLayoutParameter(rp3);
 
 ```
-![uipanel_relative](uipanel_relative.png)
+![uipanel_relative](res/uipanel_relative.png)
 
 Here created three layout properties, and setted different `Align` parameters.
 
@@ -204,7 +204,7 @@ In addition to layout container, scroll view is always been used, it can enlarge
     
 ```
 
-![uiscrollview_vertical](uiscrollview_vertical.png)
+![uiscrollview_vertical](res/uiscrollview_vertical.png)
 
 As the image shows, we created a ScrollView widget and added some inner elements to it. The content is too much that out of the display area, in this situation we can drag the view up and down to show the content.
 
@@ -236,7 +236,7 @@ ListView inherited from ScrollView, so ScrollView's characters also can be shown
 
 ```
 
-![uilistview_vertical](uilistview_vertical.png)
+![uilistview_vertical](res/uilistview_vertical.png)
 
 As shown above, it's the implementation like ScrollView. There are twenty buttons can be draged, by setting every element's space with `ItemsMargin` and `Gravity` make them displaying in the center horizontally.
 
@@ -305,7 +305,7 @@ We talked about ScrollView and some widget can display list, still PageView can 
 
 ```
 
-![uipageview](uipageview.png)
+![uipageview](res/uipageview.png)
 
 As shown, a PageView object created and size is "Size(240, 130)", which is display area. We added three same UILayout and each of them has the same size "Size(240, 130)" so PageView can display the entire content of a Item one time. You can added what you need in UILayout, then add a page by `pageView->addPage(layout)`. You should remember you have to add `UILayout` object or its derived class object.
 

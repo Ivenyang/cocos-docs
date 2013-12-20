@@ -7,7 +7,7 @@ Here is the cocos2d-html5 directory structure:
 
 **Figure1**
 
-![directory](directorystructure.png)
+![directory](res/directorystructure.png)
 
 ###Understanding the directory structures
 
@@ -47,7 +47,7 @@ When you debug the index.html file within WebStorm, it will open the index.html 
 
 **Figure 2**
 
-![index](index.png)
+![index](res/index.png)
 
 As we can see, there are many demos and sample games. If you are curious about what Cocos2d-html5 can do , prepare a coffee, sit down and take a look at the built-in sample games. 
 
@@ -56,7 +56,7 @@ In Figure 2, when you open the link named “Test cases”. It will show you the
 
 **Figure 3**
 
-![tests](tests.png)
+![tests](res/tests.png)
 
 The tests are the best learning resources for you. The tests show nearly every features of Cocos2d-html5. You can tweak these tests files and you will get feedback immediately after refresh browser. It is better to have a taste of Cocos2d-html5 this way than reading a huge documentation at the very beginning.
 
@@ -71,7 +71,7 @@ The first game I would like to show you is MoonWarrior. It is a vertical shootin
 
 **Figure 4**
 
-![moonwarrior](moonwarrior.png)
+![moonwarrior](res/moonwarrior.png)
 
 #### Fruit Attack
 
@@ -79,7 +79,7 @@ This is a matching game. You can swap the position of the nearby fruit, if there
 
 **Figure 5**
 
-![fruitattack](fruitaatack.png)
+![fruitattack](res/fruitaatack.png)
 
 There are also other type games, you to try it by yourself.
 
@@ -97,7 +97,7 @@ Now open your WebStorm and there will be a new directory in the previous Project
 
 **Figure 6**
 
-![newnavigator](newnavigator.png)
+![newnavigator](res/newnavigator.png)
 
 Right click the **index.html** in WebStorm and choose **Debug 'index.html(1)'**. It will open your Chrome automatically and you have successfully setted up a new project. Cheers! The browser address is 
 
@@ -125,7 +125,7 @@ After modification, here is the classic **Hello World** screenshot:
 
 **Figure 7**
 
-![helloworld](helloworld.png)
+![helloworld](res/helloworld.png)
 
 
 
@@ -141,7 +141,7 @@ At first, let take a look at all the files and the directory structure:
 
 ** Figure 8**
 
-![projectstructure](projectstructure.png)
+![projectstructure](res/projectstructure.png)
 
 In the Figure 8, we can see that:
 
@@ -169,7 +169,7 @@ It is very important to know a program's execution path. Here is a picture shows
 
 **Figure 9**
 
-![exepath](execute-path.png)
+![exepath](res/execute-path.png)
 
 From Figure 9, we can see that our program is loaded into browser from index.html. Then it moves to cocos2d.js. In this file, the code logic diverse due to the following config:
 

@@ -66,7 +66,7 @@ After dragging the resource, you should specify the *Data file* and *Texture for
 
 If you don't want to any optimization of the spritesheet, just leave them out and press *Publish* to generate the final spritesheet.
 
-![packcoins](packcoins.png)
+![packcoins](res/packcoins.png)
 
 ## Introduction to TiledMap Object Layer
 We have used TiledMap for our level map, but it lacks game items. So in this section, we will cover how to design level items with TiledMap object layer.
@@ -76,12 +76,12 @@ At first, we'll add Coin object layer.
 1. Launch Tiled and open *map00.tmx* and *map01.tmx*.
 
 2. Create an Object layer named *coin* in map00.tmx and map01.tmx.
-![objectlayer][objectlayer.png]
+![objectlayer](res/objectlayer.png)
 
 3. Design object layer by dragging and dropping rectangle object into the map.
 You can change the rectangle size and it's position. You can also duplicate or delete the objects.
 
-![designobjectlayer](designobjectlayer.png)
+![designobjectlayer](res/designobjectlayer.png)
 
 4. Some tips on designing object layer:
 You can change opacity of the layers in the tiled map so that you can easily place the object.
@@ -461,14 +461,14 @@ Build and run! Cheers, we did it!:)
 
 Let's see our final fruits:
 
-![fruit]( result.png )
+![fruit]( res/result.png )
 
 ## Summary
 In this tutorial, we have enjoyed a very long journey. But worth it, isn't it?
 
 We have learned how to use TiledMap's object layer to design complex game levels and how to customize your own class to extend your code structure.
 
-You can download the full source code from [here](https://github.com/andyque/cocos-docs/blob/chapter8/tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/Parkour.zip).
+You can download the full source code from [here](https://github.com/andyque/cocos-docs/blob/chapter8/tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/res/Parkour.zip).
 
 ## Where to go from here?
 In the next tutorial, we'll cover how to update game HUD constantly and we'll also add game over logic and simple gesture recognizer into our game to make the

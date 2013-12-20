@@ -40,7 +40,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
                                                 
 ```
                                                 
-![touchable_sprite](touchable_sprite.png)
+![touchable_sprite](res/touchable_sprite.png)
 
 ### Create a single touch event listener, and complete the logics code
 

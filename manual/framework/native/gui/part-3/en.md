@@ -15,7 +15,7 @@ We introduced the basic usage of UIButton before to control a display content of
 
 ```
 
-![uitextbutton](uitextbutton.png)
+![uitextbutton](res/uitextbutton.png)
 
 As button, it has to support touch event. Then call `loadTextures` method to load image. Notice the third parameter is the display image when button is unenabled. Let's focus on the fouth parameter, checking out following method's prototype:
 
@@ -37,7 +37,7 @@ The last parameter is image type, default as `UI_TEX_TYPE_LOCAL`, which means us
 
 ```
 
-![uitextbutton9](uitextbutton9.png)
+![uitextbutton9](res/uitextbutton9.png)
 
 ### UICheckBox
 
@@ -59,7 +59,7 @@ We also see a widget in web page-checkbox, it allows you choose more than one it
 
 ```
 
-![uicheckbox](uicheckbox.png)
+![uicheckbox](res/uicheckbox.png)
 
 There are not too much properties in here, but many images loaded-two status images, two unenabled status images and pressed image. These five images build a checkbox, setting callback method by `addEventListenerCheckBox`:
 
@@ -83,7 +83,7 @@ There are not too much properties in here, but many images loaded-two status ima
 
 There are two statuses for a checkbox-selected and unselected. It chages its status when it is touched, we can call some callback functions to do something. As shown, when the status changed, it will call the function to inform the checkbox.
 
-![uicheckboxs](uicheckboxs.png)
+![uicheckboxs](res/uicheckboxs.png)
 
 
 ### UISlider
@@ -102,7 +102,7 @@ It's a good choice to choose slider if you want to add a widget controling the v
 
 ```
 
-![uislider](uislider.png)
+![uislider](res/uislider.png)
 
 We take different ways to load images, `loadBarTexture` for slider background image and `loadSlidBallTextures` for  three statuses image of slider. That is the center ball can be draged. However, `loadProgressBarTexture` method displaying the progress of the slider. It also has callback function, which can be used for record current status:
 
@@ -136,7 +136,7 @@ In contrast to the slider is a progress bar, one of them is controling progress 
 
 ```
 
-![uiloadingbar](uiloadingbar.png)
+![uiloadingbar](res/uiloadingbar.png)
 
 We did some intialize work above, if you want to get new value in real time then you need to update the value by `setPercent` method. When run a scene, we call the `scheduleUpdate();` and implement `update` method ensuring it can be called every frame. Following code should be in `update` method:
 
@@ -169,7 +169,7 @@ UILabelAtlas can display number label that jointed by images:
 
 ```
 
-![uilabelatlas](uilabelatlas.png)
+![uilabelatlas](res/uilabelatlas.png)
 
 The usage of this widget is very simple, Label is not efficient in old version so LabelAtlas is a good substitution but in version 3.0 Label has been improved a lot. Here we choose Atlas because we can custom it to get better displaying effect. 
 
@@ -186,7 +186,7 @@ In addition to UILabelAtlas, you can also display a label by UILabelBMFont.
 
 ```
 
-![uibmfont](uibmfont.png)
+![uibmfont](res/uibmfont.png)
 
 Just like UILabelAtlas, UILabelBMFont store the disply information by a image, but Atlas is smaller than BMFont. You can set the parameters of the cutting, but BMFont has to be with a ".fnt" file. There are many information in it, and it also provide many display effect.
 
@@ -206,7 +206,7 @@ Text area widget can help us solve some problems such as auto wrap and so on. It
         
 ```
 
-![uitextarea](uitextarea.png)
+![uitextarea](res/uitextarea.png)
 
 You need to know the size of a text area, and its alignmet(Use `setTextHorizontalAlignment` to set the align mode: Left, Right and Center), display content, font size and font etc.
 
@@ -226,7 +226,7 @@ Text Field is a very important widget, it can call device's input system to reci
 
 ```
 
-![uitextfield](uitextfield.png)
+![uitextfield](res/uitextfield.png)
 
 Setted properties and enabled touch, then wait user's touch event to done the text input work. `setPlaceHolder` can remind user to input when the widget don't show anything. Notice that the callback functions here have many statuses:
 
