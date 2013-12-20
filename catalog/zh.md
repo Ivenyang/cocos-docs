@@ -68,8 +68,8 @@
 		- 使用CocoStudio创建Cocos2d-x序列帧和骨骼动画
 			
 	- Cocos2d-html5	
-		- 如何搭建 Cocos2d-HTML5 开发调试环境
-		- 如何自定义cocos2d-html5加载界面
+		- [如何搭建 Cocos2d-HTML5 开发调试环境](../manual/framework/html5/cocos2d-html5-debug-env/zh.md)
+		- [如何自定义cocos2d-html5加载界面](../manual/framework/html5/customize-cocos2dhtml5-loading-screen/zh.md)
 	
 - Tutorial
 	- 入门篇：用C++写一个忍者射飞镖游戏
