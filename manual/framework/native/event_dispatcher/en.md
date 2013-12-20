@@ -44,7 +44,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 ### Create a single touch event listener, and complete the logics code
 
-```C++
+```c++
     //Create a event listener OneByOne as single touch
     auto listener1 = EventListenerTouchOneByOne::create();
     //Setting of swallow event, when onTouchBegan method return true set as swallow
@@ -97,7 +97,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 ### Add event listener to event dispathcer
 
-```C++
+```c++
     //Add listener
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, sprite1);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1->clone(), sprite2);
