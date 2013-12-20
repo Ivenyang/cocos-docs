@@ -1,4 +1,4 @@
-# New GUI System
+# GUI System
 
 ## Introduction
 
