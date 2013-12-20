@@ -37,7 +37,7 @@ Sprite Sheet Animation
 
 下面是一个典型的sprite sheet.它是动画中的一连串sprite frames，或者是可以在一个场景中用到的一组图片. 
 
-![](../res/045152Y9t.png)
+![](./res/045152Y9t.png)
 
 
 

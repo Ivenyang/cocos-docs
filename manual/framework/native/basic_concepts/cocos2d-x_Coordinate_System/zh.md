@@ -8,7 +8,7 @@
 
 你可能上学的时候就已经知道“笛卡尔坐标系”了，它在几何课本里经常用到。如果你已经忘得差不多了，下面这些图片可以很快唤起你的记忆：
 
-![](../res/102155kj0.png)
+![](./res/102155kj0.png)
 
 
 
@@ -29,7 +29,7 @@ iOS/Android/Windows SDK中的通用UI坐标系：
 
 详见下图
 
-![](../res/102155doD.jpg)
+![](./res/102155doD.jpg)
 
  
 
@@ -41,7 +41,7 @@ OpenGL和Cocos2d坐标系
 
 Cocos2d-x/-html5/-iphone使用的坐标系和OpenGL的坐标系一样，名为“Right-handed Cartesian Coordinate Syste”。
 
-![](../res/102156ZNW.png)
+![](./res/102156ZNW.png)
 
 在2D世界中，我们仅会使用x轴和y轴。所以在你的cocos2d游戏中：
 起点坐标(x=0, y=0)位于左下角，这意味着屏幕位于
@@ -50,7 +50,7 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 下面这张图片有助于更好的阐述Cocos2d-x坐标：
 
-![](../res/1021588ym.png)
+![](./res/1021588ym.png)
 
 一定要注意：通用UI坐标系和DirectX坐标系是不一样的。
 
@@ -82,7 +82,7 @@ Parent and Childrens
 
 作为例子，下面这个精灵有的锚点位于 ccp(0,0)，位置位于ccp(0,0)。
 
-![](../res/1021594RZ.png)
+![](./res/1021594RZ.png)
 
 这个矩形精灵将被放到它的父对象（layer）的左下角。
 
@@ -95,11 +95,11 @@ Parent and Childrens
 	addChild(sprite);
 
 
-![](../res/102201Gpv.png)
+![](./res/102201Gpv.png)
 
 在另一个例子中，我们会摆放一个坐标为ccp(0.5,0.5)的anchorPoint，以便您更好的理解锚点的相对值。
 
-![](../res/102201zMO.png)
+![](./res/102201zMO.png)
 
 	// create sprite
 	CCSprite* sprite = CCSprite::create("center.png");
@@ -108,7 +108,7 @@ Parent and Childrens
 	addChild(sprite);
 
 
-![](../res/1022035rC.png)
+![](./res/1022035rC.png)
 
 正如你从图中看出的，锚点取的不是像素值，此值的X和Y是相对于此节点的大小的。
 
@@ -132,7 +132,7 @@ convertToNodeSpace：
 
 我们会调用CCPoint point = node1->convertToNodeSpace(node2->getPosition()); 转换node2的屏幕坐标为node1的位置。结果是，node2的位置是(-25，-60).
 
-![](../res/102204fyJ.jpg)
+![](./res/102204fyJ.jpg)
 
 convertToWorldSpace：
 
@@ -143,7 +143,7 @@ convertToWorldSpace(常量 CCPoint& nodePoint) 转换node坐标为SCREEN坐标�
 
 上面的代码会转换node2坐标为node2在屏幕上对应的坐标。
 
-![](../res/102204oEG.jpg)
+![](./res/102204oEG.jpg)
 
 convertToWorldSpaceAR
 
