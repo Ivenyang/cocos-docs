@@ -1,4 +1,4 @@
-**本章由 Edwardair （泰然教程组）翻译，转载请注明出处并通知泰然。**
+**本章由 Edwardair（泰然教程组）翻译**
 
 我们已经在[Chapter 2 – How to Add a sprite](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Chapter_2_-_How_to_Add_a_sprite)场景中添加了一个英雄。但是这个英雄有点孤独，所以我们要添加一些敌人来给英雄练级。下面的void addTarget()函数将会完成这个工作，敌人们被从右往左随机速度地添加进场景中。
 
