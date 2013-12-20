@@ -468,7 +468,7 @@ In this tutorial, we have enjoyed a very long journey. But worth it, isn't it?
 
 We have learned how to use TiledMap's object layer to design complex game levels and how to customize your own class to extend your code structure.
 
-You can download the full source code from [here](https://github.com/andyque/cocos-docs/blob/chapter8/tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/Parkour.zip).
+You can download the full source code from [here](https://github.com/andyque/cocos-docs/blob/chapter8/tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/res/Parkour.zip).
 
 ## Where to go from here?
 In the next tutorial, we'll cover how to update game HUD constantly and we'll also add game over logic and simple gesture recognizer into our game to make the
