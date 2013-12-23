@@ -7,7 +7,7 @@
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
 		- New renderer
 			- How to add custom command
-		- New Label
+		- [New Label](../manual/framework/native/2d-graphics/Label/en.md)
 	- Data Structure
 		- 3.0: Vector\<T\>, Map\<K,V\> and Value
 	- Audio
