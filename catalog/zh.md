@@ -6,7 +6,7 @@
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
-			- [导演，场景，层，以及精灵](../manual/framework/native/basic-concept/Director-Scene-Layer-and-Sprite/zh.md)
+			- [导演，场景，层，以及精灵](../manual/framework/native/basic_concepts/Director-Scene-Layer-and-Sprite/zh.md)
 			- [坐标系详解](../manual/framework/native/basic_concepts/cocos2d-x_Coordinate_System/zh.md)
 			- [定时器scheduler和timer](../manual/framework/native/basic_concepts/Scheduler_and_Timer/zh.md)
 			- [动作 Actions](../manual/framework/native/basic_concepts/Actions/zh.md)
