@@ -3,9 +3,9 @@
 		- Setting up Environments on Windows 7
 		- Setting up Environments on Mac OS X
 	- 2D Graphics
+		- [Label](../manual/framework/native/2d-graphics/Label/en.md)
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
-		- [Label](../manual/framework/native/2d-graphics/Label/en.md)
 	- Data Structure
 		- 3.0: Vector\<T\>, Map\<K,V\> and Value
 	- Audio
