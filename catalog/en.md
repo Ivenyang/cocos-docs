@@ -6,9 +6,14 @@
 		- [Label](../manual/framework/native/2d-graphics/Label/en.md)
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
+		- New renderer
+			- How to add custom command
+		- New Label
 	- Data Structure
 		- 3.0: Vector\<T\>, Map\<K,V\> and Value
 	- Audio
+	- Physics integration
+	- Console module
 	- Memory Management
 	- Inputs
 		- [Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
@@ -23,9 +28,16 @@
 	- Physics
 	- Multiple Resolutions
 	- Scripting
+	    - Usage of binding-generator
 		- Lua
+		    - Invoke objective-c code from lua
+		    - Invoke Java code from lua
+		    - Call back from c++ to lua when an event is triggered
 		- Javascript
+		    - Remote debugging
 	- How to Integrate with 3rd SDK
+	- Others
+	    - New script for Android building(include building for all platforms and generating APK)
 - Tutorial
 	- [Build a Game with CocoStudio](../tutorial/build-a-game-with-cocostudio/en.md)
 		- [What is CocoStudio](../tutorial/build-a-game-with-cocostudio/what-is-cocostudio/en.md)
