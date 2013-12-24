@@ -209,3 +209,7 @@ class Sprite : public Node {
 ```
 
 ##Best practices
+
+- Always prefer cocos2d-x built-in container and memory management rules
+- Obey the naming convention and coding style of cocos2d-x
+- Obey to [cocos2d-x cpp programming guide](../../../../contributors-guide/cpp-coding-style.md)
