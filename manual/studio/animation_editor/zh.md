@@ -1,16 +1,6 @@
 #使用 CocoStudio 创建 Cocos2d-x 序列帧和骨骼动画
 ---
 
-> CocoStudio 简介
-
-> 环境搭建与配置
-
-> 序列帧动画的创建步骤
-
-> 如何在 Cocos2d-x 中运行其动画
-
-> 骨骼动画的创建
-
 ##1 CocoStudio 简介
 CocoStudio 是由 Cocos2d-x 官方推出的一个专门针对 Cocos2d-x 游戏开发的免费工具集，目前正在开发阶段，且日益完善之中！既是工具集，当然集成了现有各零零散散工具的功能，并且不断扩充，包含动画编辑器，UI编辑器，场景编辑器和数据编辑器。具体内容及其特性欢迎访问 CocoStudio 官网 [http://cocostudio.org/](http://cocostudio.org/) 。在这里，我们通过动画编辑器来快速体验一下 CocoStudio 为我们开发带来的便捷~
 

@@ -1,8 +1,6 @@
-# 动画(Animations) #
+# 序列帧动画 Flipbook Animations #
 
-Frame Animation（帧动画）
-
-
+## 帧动画
 
 你可以通过多张图片文件来创建一个动画，比如:
 
@@ -16,28 +14,17 @@ Frame Animation（帧动画）
 		animation->addSpriteFrameWithFileName(szImageFileName);  
 	}
 
-
-
-
-
-
 注意CCAnimation是由sprite frame帧组、单个frame延时，持续时间等组成的，它是一组”数据”. 而CCAnimate是一个action，它是基于CCAnimation对象创建的。
 
-Sprite Sheet Animation
-
- 
-
+## 序列帧动画 Sprite Sheet Animation
 
 
 尽管帧动画是非常易于理解的,但事实上，它在真实游戏项目中是非常少用到的.相反，sprite sheet animation是2D动画中最常见的解决方案.
 
 
-
 下面是一个典型的sprite sheet.它是动画中的一连串sprite frames，或者是可以在一个场景中用到的一组图片. 
 
 ![](./res/045152Y9t.png)
-
-
 
 在OpenGL ES 1.1时代，sprite sheets被广泛使用是得益于:
 
@@ -48,24 +35,14 @@ Sprite Sheet Animation
 
 - 减少 OpenGL ES 调用方法绘制，加速渲染.
 
- 
-
-
 Cocos2d-x v2.0已更新，是基于OpenGL ES 2.0的.OpenGL ES 2.0不再为textures分配2的幂次方内存块，但减少文件系统I/O和绘图调用时间的好处仍然是有效的.
-
 
 
 那该如何动画呢？正如我们看到的，sprite sheet与动画没有的必然关系.但考虑到上面这些益处，sprite sheet是有效的.在cocos2d中有很多种不同的方法来创建sprite sheet.
 
-Creating from .png and .plist file
-
- 
-
-
+## Creating from .png and .plist file
 
 在cocos2d-x 0.x和1.x版本中，CCSpriteSheet便是为此目的而生的.而CCSpriteBatchNode在v2.0版本之后替换了CCSpriteSheet
-
-
 
 CCSpriteBatchNode对象包含了所有sprite frames中用到的真实图片texture.你必须在场景中添加它，甚至它自身什么都不用画;它只需要放到那里，这样它就成了rendering pipeline的组成部分.比如:
 
@@ -121,15 +98,7 @@ CCAnimationCache 可以加载xml/plist文件，此文件可以非常好的描述
 	sprite->runAction(animate);
 
 
-
-
 简单易用吧？哈哈
-
-骨骼动画(Skeleton Animation)
-
-请参考 [Skeletal Animation](http://www.cocos2d-x.org/wiki/Skeletal_Animation) 页.
-
-
 
 
 标签：`Animations` `cocos2d-x官方文档` `动画` 

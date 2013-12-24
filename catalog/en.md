@@ -2,12 +2,13 @@
 	- Setting up Environments
 		- Setting up Environments on Windows 7
 		- Setting up Environments on Mac OS X
-	- 2D Graphics
+	- Graphic
 		- Particle System        
-			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
+			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
 		- New renderer
 			- How to Draw Custom Nodes 
-		- [New Label](../manual/framework/native/2d-graphics/Label/en.md)
+	- GUI
+		- [Label v3.0](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
 		- 3.0 Data Structures: Vector\<T\>, Map\<K,V\> and Value
 		- 2.x Data Structures: CCArray, CCDictionary, CCString
@@ -20,14 +21,14 @@
 		- Texture Cache
 		- Max Size of Textures on Each Platform
 	- Inputs
-		- [Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
+		- [Event Dispatcher](../manual/framework/native/input/event_dispatcher/en.md)
 		- How to Receive and Response Touch Events
 		- How to Enable Multiple Touches
 		- How to Receive and Response Accelerometer Events
     - GUI
-        - [Overview of GUI system](../manual/framework/native/gui/part-1/en.md)
-        - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/part-2/en.md)
-        - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/en.md)
+        - [Overview of GUI system](../manual/framework/native/gui/overview/en.md)
+        - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/container/en.md)
+        - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/widget/en.md)
 	- Network
 		- How to Compile libCUrl
 	- Multi-Threading
@@ -44,24 +45,25 @@
 	- How to Integrate with 3rd SDK on Android Native Activity
 	- Debugging
 		- Work with CCConsole
-	- Others
-        - [Replaced Objective-C patterns with c++ 11 patterns and best practices](../manual/framework/native/best_practice/en.md)
+	- Best Practice
+        - [Replaced Objective-C patterns with c++ 11 patterns and best practices](../manual/framework/native/best_practice/cpp11_patterns/en.md)
+        - [C++ Coding Style of Cocos2d-x](../manual/framework/native/best_practice/cpp_coding_style/en.md)
 	    - New script for Android building(include building for all platforms and generating APK)
 - Tutorial
-	- [Build a Game with CocoStudio](../tutorial/build-a-game-with-cocostudio/en.md)
-		- [What is CocoStudio](../tutorial/build-a-game-with-cocostudio/what-is-cocostudio/en.md)
-		- [Getting Started](../tutorial/build-a-game-with-cocostudio/getting-started/en.md)
-		- [Let's Build a Parkour Game](../tutorial/build-a-game-with-cocostudio/lets-build-a-parkour-game/en.md)
-		- [Keep Going](../tutorial/build-a-game-with-cocostudio/keep-going/en.md)
+	- [Build a Game with CocoStudio](../tutorial/parkour_game_with_cocostudio/en.md)
+		- [What is CocoStudio](../tutorial/parkour_game_with_cocostudio/chapter1/en.md)
+		- [Getting Started](../tutorial/parkour_game_with_cocostudio/chapter2/en.md)
+		- [Let's Build a Parkour Game](../tutorial/parkour_game_with_cocostudio/chapter3/en.md)
+		- [Keep Going](../tutorial/parkour_game_with_cocostudio/chapter4/en.md)
 	- Pakour Game with Javascript
-		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/1.0-setup-development-environment/en.md)
-		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/1.1-hello-world-cocos2d-html5/en.md)
-		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/2.0-make-your-first-game-scene/en.md)
-		- [Design and Make Main Game Scene](../tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/en.md)
-		- [Let Player Run Animations](../tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/en.md)
-		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/en.md)
-		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/en.md)
-		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/en.md)
-		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/en.md)
+		- [Setup Development Environment](../tutorial/parkour_game_with_javascript/chapter1/en.md)
+		- [Hello World Cocos2d-html5](../tutorial/parkour_game_with_javascript/chapter2/en.md)
+		- [Make your First Game Scene](../tutorial/parkour_game_with_javascript/chapter3/en.md)
+		- [Design and Make Main Game Scene](../tutorial/parkour_game_with_javascript/chapter4/en.md)
+		- [Let Player Run Animations](../tutorial/parkour_game_with_javascript/chapter5/en.md)
+		- [Add Chipmunk Physics to Our Game](../tutorial/parkour_game_with_javascript/chapter6/en.md)
+		- [Explorer with TiledMap and Camera](../tutorial/parkour_game_with_javascript/chapter7/en.md)
+		- [Add Coin and Obstacles](../tutorial/parkour_game_with_javascript/chapter8/en.md)
+		- [Add Game Over Logic And More](../tutorial/parkour_game_with_javascript/chapter9/en.md)
 		
 		
