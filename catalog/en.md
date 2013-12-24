@@ -36,6 +36,7 @@
 		    - Remote debugging
 	- How to Integrate with 3rd SDK
 	- Others
+        - Replaced Objective-C patterns with c++ 11 patterns and best practices
 	    - New script for Android building(include building for all platforms and generating APK)
 - Tutorial
 	- [Build a Game with CocoStudio](../tutorial/build-a-game-with-cocostudio/en.md)
