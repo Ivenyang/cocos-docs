@@ -6,23 +6,30 @@
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
 		- New renderer
-			- How to add custom command
+			- How to Draw Custom Nodes 
 		- [New Label](../manual/framework/native/2d-graphics/Label/en.md)
 	- Data Structure
-		- 3.0: Vector\<T\>, Map\<K,V\> and Value
+		- 3.0 Data Structures: Vector\<T\>, Map\<K,V\> and Value
+		- 2.x Data Structures: CCArray, CCDictionary, CCString
 	- Audio
+		- Audio Formats on Different Platforms
 	- Physics integration
 	- Console module
 	- Memory Management
+		- Objects Reference Count and Auto Release Pool
+		- Texture Cache
+		- Max Size of Textures on Each Platform
 	- Inputs
 		- [Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
 		- How to Receive and Response Touch Events
+		- How to Enable Multiple Touches
 		- How to Receive and Response Accelerometer Events
     - GUI
         - [Overview of GUI system](../manual/framework/native/gui/part-1/en.md)
         - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/part-2/en.md)
         - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/en.md)
 	- Network
+		- How to Compile libCUrl
 	- Multi-Threading
 	- Physics
 	- Multiple Resolutions
@@ -34,7 +41,9 @@
 		    - Call back from c++ to lua when an event is triggered
 		- Javascript
 		    - Remote debugging
-	- How to Integrate with 3rd SDK
+	- How to Integrate with 3rd SDK on Android Native Activity
+	- Debugging
+		- Work with CCConsole
 	- Others
         - [Replaced Objective-C patterns with c++ 11 patterns and best practices](../manual/framework/native/best_practice/en.md)
 	    - New script for Android building(include building for all platforms and generating APK)
