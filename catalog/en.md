@@ -65,5 +65,6 @@
 		- [Explorer with TiledMap and Camera](../tutorial/parkour_game_with_javascript/chapter7/en.md)
 		- [Add Coin and Obstacles](../tutorial/parkour_game_with_javascript/chapter8/en.md)
 		- [Add Game Over Logic And More](../tutorial/parkour_game_with_javascript/chapter9/en.md)
+        - [Add Audio Effect into Parkour Game](../tutorial/parkour_game_with_javascript/chapter10/en.md)
 		
 		
