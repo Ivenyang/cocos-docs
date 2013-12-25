@@ -1,6 +1,6 @@
 - Manual
 	- Setting up Environments
-		- Setting up Environments on Windows 7
+		- [Setting up Environments on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
 		- Setting up Environments on Mac OS X
 	- Graphic
 		- Particle System        
