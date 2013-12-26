@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Simulate real pysicals world in game is annoying, so usually pysical engine take charge of this kind of stuff. As known, Box2D can simulate almost all the physical effect. However, Chipmunk is more light-weight. In Cocos2d-x 2.0, game uses pysics engine directly and Cocos2d-x provide a simple CCPhysicsSprite. CCPhysicsSprite resolve the relationship between physics engine's body and CCSprite, but other elements of physics engine didn't connect to Cocos2d-x, in this way you should call the APIs of Chipmunk or Box2D in game to solve the logical stuff. Using physics engine directly is complex, it has a lot of API parameters so it's too much for game developers to remember.
+Simulate real physicals world in game is annoying, so usually pysical engine take charge of this kind of stuff. As known, Box2D can simulate almost all the physical effect. However, Chipmunk is more light-weight. In Cocos2d-x 2.0, game uses pysics engine directly and Cocos2d-x provide a simple CCPhysicsSprite. CCPhysicsSprite resolve the relationship between physics engine's body and CCSprite, but other elements of physics engine didn't connect to Cocos2d-x, in this way you should call the APIs of Chipmunk or Box2D in game to solve the logical stuff. Using physics engine directly is complex, it has a lot of API parameters so it's too much for game developers to remember.
 
-Things changed in Cocos2d-x 3.0, Physics Integration packed Chipmunk and Box2D into Cocos2d-x 3.0. Game developers don't need to concern about which physics engine will be used or call API of the engine directly.
+Things have been changed in Cocos2d-x 3.0, Physics Integration packed Chipmunk and Box2D into Cocos2d-x 3.0. Game developers don't need to concern about which physics engine will be used or call API of the engine directly.
 
 Physics engines integrated into Cocos2d-x:
 
@@ -82,7 +82,7 @@ return scene;
 }
 ```
 
-Scene class has new static factory method-createWithPhysics() to create scene with physics world. You can get PhysicsWorld instance by Scene's **getPhysicsWorld()** method.
+Scene class has a new static factory method-createWithPhysics() to create scene with physics world. You can get PhysicsWorld instance by Scene's **getPhysicsWorld()** method.
 
 PhysicsWorld's **setDebugDrawMask()** method is very useful when debugging physics engine, it can make shape, joint and contact visible in physics world. Remember switch off the debug function when you want to release your game.
 
