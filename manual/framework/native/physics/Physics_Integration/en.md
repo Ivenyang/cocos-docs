@@ -45,7 +45,8 @@ CC_ENABLE_BOX2D_INTEGRATION=1
 ```
 
 as following image:
-![iOS Precess](./iosPreprocess.png)
+
+![iOS Precess](res/iosPreprocess.png)
 
 Both Debug and Release has to be changed.
 
@@ -147,7 +148,7 @@ contactListener->onContactBegin = CC_CALLBACK_2(HelloWorld::onContactBegin, this
 _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 ```
 
-Every collision detect event is listened by **EventListenerPhysicsContact**. Create a instance, then set its callback function **conContactBegin**. CC_CALLBACK_2 is callback pointer transform function used by C++ 11. Because **onContactBegin** callback function has two parameters, so we use CC_CALLBACK_2 to transform them.
+Every collision detect event is listened by **EventListenerPhysicsContact**. Create a instance, then set its callback function **conContactBegin**. **CC_CALLBACK_2** is callback pointer transform function used by C++ 11. Because **onContactBegin** callback function has two parameters, so we use **CC_CALLBACK_2** to transform them.
 
 _eventDispatcher is a member of base class Node, it can be used by a initilized Layer.
 
@@ -155,4 +156,4 @@ _eventDispatcher is a member of base class Node, it can be used by a initilized 
 
 You can get Demo of this document from this: <https://github.com/Yangtb/newPhysics.git>
 
-Demo is based on[cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone it and put it in **cocos2d-x-3.0alpha1/projects**, if you don't have file you can create one.
+Demo is based on [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone it and put it in **cocos2d-x-3.0alpha1/projects**, if you don't have file you can create one.
