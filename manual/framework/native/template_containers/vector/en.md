@@ -1,6 +1,4 @@
-#Template Containers
-
-##cocos2d::Vector< T >
+#cocos2d::Vector< T >
 In the elder version of cocos2d-x, there are Dictionary, Array, Set and some other containers. But now,in the latest version, we can use some new containers to replace it, for example we can use `cocos2d::Vector<T>` instead of `cocos2d::Array`. We could easily find that it's more closer to the STL style of c++, where we use `std::vector` to do the same work.  
 
 The `Vector` doesn't inherit from class `Object`,and there is no create function for `Vector`.
@@ -28,7 +26,7 @@ void addRefForAllObjects()
 ```
 According to the constructors and some other functions defined in the class, it's possible to do something more to our vector. There is a list below.
 
-###Constructor
+##Constructor
 -  As constructor `explicit Vector<T>(ssize_t capacity)` show, we can initialize a vector with a **capacity**.
 
 - `Vector<T>(const Vector<T>& other)` make it easy to **copy** one vector to another.By the way, there is another way we can choose to do this operation. The operator “＝” is overloaded in the class, so we can just do like `oneVector = anotherVector` to do our work.
@@ -36,17 +34,17 @@ According to the constructors and some other functions defined in the class, it'
 - We can use `Vector<T>(Vector<T>&& other)` to **move** our data, and also we can use the "=" to do the same operation.
 
 
-###Add 
+##Add 
 - There is a `insert(ssize_t index, T object)` that we can use to insert a certain object at a certain index.
 
 - We can add a new element at the end of the vector using `pushBack(T object)`, an d using `pushBack(const Vector<T>& other)` to push all elements of an existing vector to the end of current vector.
 
-###Remove 
+##Remove 
 - It's convenient to remove one object by `popBack()`. And we can also use `eraseObject(T object, bool toRelease = true)` to do it, the second param `toRelease` decide whether to decrease the reference count of the deleted object.
 
 - There also some other functions. We can remove a single element by using  `erase(iterator position)` or `erase(ssize_t index)`, and we can also remove a range of elements through `erase(const_iterator first, const_iterator last)`, even we can use `clear()` to removes all elements from the vector (which are destroyed), leaving the container with a size of 0.
 
-###Modify
+##Modify
 - It's easy to get the **capacity or size** by calling the function `capacity()` or `size()`. But the capacity is not necessarily equal to the vector size. It can be equal or greater. The result returns from `size()` express the number of actual objects held in the vector. Of course, we can use `shrinkToFit()` to shrinks the vector so the memory footprint corresponds with the number of items.
 
 - We can request a **change in capacity** by the function `void reserve(ssize_t n)`. If n is greater than the current vector capacity, the function causes the container to reallocate its storage increasing its capacity to n (or greater).
@@ -58,7 +56,7 @@ According to the constructors and some other functions defined in the class, it'
 - And we can reverses the vector by using `reverse()`.
 
 
-###Query
+##Query
 - `max_size()` returns the maximum number of elements that the vector can hold.
 
 - We can use `empty()` to check if the vector is empty.
