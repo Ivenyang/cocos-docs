@@ -10,8 +10,14 @@
 	- GUI
 		- [Label v3.0](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
-		- 3.0 Data Structures: Vector\<T\>, Map\<K,V\> and Value
-		- 2.x Data Structures: CCArray, CCDictionary, CCString
+		- 3.0 Data Structures
+            - [Vector\<T\>](../manual/framework/native/template_containers/vector/en.md)
+            - Map\<K,V\>
+            - Value
+		- 2.x Data Structures
+            - CCArray
+            - CCDictionary
+            - CCString
 	- Audio
 		- Audio Formats on Different Platforms
 	- Physics integration
