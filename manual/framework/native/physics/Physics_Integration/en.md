@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Simulate real physicals world in game is annoying, so usually pysical engine take charge of this kind of stuff. As known, Box2D can simulate almost all the physical effect. However, Chipmunk is more light-weight. In Cocos2d-x 2.0, game uses pysics engine directly and Cocos2d-x provide a simple CCPhysicsSprite. CCPhysicsSprite resolve the relationship between physics engine's body and CCSprite, but other elements of physics engine didn't connect to Cocos2d-x, in this way you should call the APIs of Chipmunk or Box2D in game to solve the logical stuff. Using physics engine directly is complex, it has a lot of API parameters so it's too much for game developers to remember.
+Simulate real physicals world in game is annoying, so usually physical engine take charge of this kind of stuff. As known, Box2D can simulate almost all the physical effect. However, Chipmunk is more light-weight. In Cocos2d-x 2.0, game uses physics engine directly and Cocos2d-x provide a simple CCPhysicsSprite. CCPhysicsSprite resolve the relationship between physics engine's body and CCSprite, but other elements of physics engine didn't connect to Cocos2d-x, in this way you should call the APIs of Chipmunk or Box2D in game to solve the logical stuff. Using physics engine directly is complex, it has a lot of API parameters so it's too much for game developers to remember.
 
 Things have been changed in Cocos2d-x 3.0, Physics Integration packed Chipmunk and Box2D into Cocos2d-x 3.0. Game developers don't need to concern about which physics engine will be used or call API of the engine directly.
 
@@ -17,7 +17,7 @@ Physics engines integrated into Cocos2d-x:
 
 You can create a 3.0 project by script in this path **/tools/project-creator下的create_project.py**
 
-The project you created defalut using Chipmunk as physics engine. You can change it as Box2D as you want and it makes no difference for game.
+The project you created default using Chipmunk as physics engine. You can change it as Box2D as you want and it makes no difference for game.
 
 Using Box2D in android, you should change something in **projects/youPorjecyName/proj.android/jni/Application.mk**:
 change 
@@ -109,8 +109,8 @@ scene->addChild(edgeNode);
 PhysicsWorld has many factory methods, such as **createEdgeBox**-create a rectangle edge and all the parameters are:
 
 1. Rectangle area, setted as **visibleSize**.
-2. Optional parameter-Texture, defalut as **PHYSICSBODY_MATERIAL_DEFAULT**.
-3. Optional parameter-Border Size, defalut as **1**.
+2. Optional parameter-Texture, default as **PHYSICSBODY_MATERIAL_DEFAULT**.
+3. Optional parameter-Border Size, default as **1**.
 
 Then we created Node and attach the body just created to Node. Setted center of screen as the position of the Node, finally add Node to Scene.
 
@@ -134,7 +134,7 @@ void HelloWorld::addNewSpriteAtPosition(Point p)
 }
 ```
 
-Create a sprite first, and then create a circle body that attach on sprite by PhysicsBody::createCircle. The whole proces is as same as create a boundary.
+Create a sprite first, and then create a circle body that attach on sprite by PhysicsBody::createCircle. The whole process is as same as create a boundary.
 
 ## Collision detect
 
@@ -150,7 +150,7 @@ _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
 Every collision detect event is listened by **EventListenerPhysicsContact**. Create a instance, then set its callback function **conContactBegin**. **CC_CALLBACK_2** is callback pointer transform function used by C++ 11. Because **onContactBegin** callback function has two parameters, so we use **CC_CALLBACK_2** to transform them.
 
-_eventDispatcher is a member of base class Node, it can be used by a initilized Layer.
+_eventDispatcher is a member of base class Node, it can be used by a initialized Layer.
 
 ## Demo
 
