@@ -36,4 +36,5 @@ These docs are organized by this folder structure:
 		- html5  // cocos2d-html5
 	- studio
 
+More details of the contributor guide can be found [here](./manual/framework/native/best_practice/cocos_docs_style/en.md)
  						
