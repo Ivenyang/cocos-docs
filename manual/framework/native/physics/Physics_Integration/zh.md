@@ -37,7 +37,8 @@ android修改内部使用Box2D物理引擎，修改项目配置中的"Preprocess
 	CC_ENABLE_BOX2D_INTEGRATION=1
 
 如下图所示：
-![iOS Preprocess](./iosPreprocess.png)
+
+![iOS Preprocess](res/iosPreprocess.png)
 
 Debug和Release都需要修改。
 
@@ -141,4 +142,4 @@ _eventDispatcher是基类Node的成员，Layer初始化后就可直接使用。
 
 你可以在这里获取文章配套Demo：<https://github.com/Yangtb/newPhysics.git>
 
-Demo基于[cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone后放到引擎的projects（如果没有自行创建）文件夹下。
+Demo基于 [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone后放到引擎的projects（如果没有自行创建）文件夹下。
