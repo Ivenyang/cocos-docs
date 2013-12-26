@@ -1,12 +1,12 @@
-# Part 1. Common Syntax
+# Part 1 Common Syntax
 
 
 Generate the topic
 
-- [Part 1. Common Syntax](#Part 1. Common Syntax)
-- [Part 2. Lists](#Part 2. Lists)
-- [Part 3. Fenced Code Blocks](#Part 3. Fenced Code Blocks)
-- [Part 4. Folder Name](#Part 4. Folder Name)
+- [Part 1 Common Syntax](#part-1-common-syntax)
+- [Part 2 Lists](#part-2-lists)
+- [Part 3 Fenced Code Blocks](#part-3-fenced-code-blocks)
+- [Part 4 Folder Name](#part-4-folder-name)
 
 Strong and Emphasize
 
@@ -23,7 +23,7 @@ Headers
 
 ###### Header 6
 
-# Part 2. Lists
+# Part 2 Lists
 
 
 Ordered, without paragraphs:
@@ -51,7 +51,7 @@ You can nest them:
 *   Cunning
  
 
-# Part 3. Fenced Code Blocks
+# Part 3 Fenced Code Blocks
 
 
 Start with a line containing 3 or more backtick 
@@ -65,7 +65,7 @@ coinSprite->setPosition(ccp(size.width - 15, size.height - 30));
 coinSprite->setCoins(GameStat::sharedInstance()->getCoin());
 addChild(coinSprite);
 ```
-# Part 4. Folder Name
+# Part 4 Folder Name
 
 
 A simple folder name looks like this: 
