@@ -38,6 +38,7 @@
         //engineDir:'../cocos2d/',
         SingleEngineFile:'../../Cocos2d-html5-min.js',
         appFiles:[
+            '../../chipmunk.js',
             'src/resource.js',
             'src/myApp.js',
             'src/AnimationLayer.js',
