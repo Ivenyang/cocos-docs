@@ -61,7 +61,7 @@
 				- [Javascript Binding的手动绑定实现](../manual/framework/native/scripting/javascript/jsb_manually/zh.md)
 				- Javascript绑定的远程调试
 		- 第三方库集成
-			- 如何让Java和C++接口互相调用：JNI使用指南
+			- [如何让Java和C++接口互相调用：JNI使用指南](../manual/framework/native/concept/how_to_invoke_android_api_in_cocos2dx/zh.md)
 			- 如何在Android上集成第三方SDK
 			- 如何在iOS上集成第三方SDK
 		- 版本升级指南
