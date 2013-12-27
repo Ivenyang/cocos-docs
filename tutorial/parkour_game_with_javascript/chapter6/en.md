@@ -138,7 +138,7 @@ Thus our preparation work has been done. let's wrap the end and call these metho
 ```
 
 
-### Add Phyisc Component to the Runner Sprite
+### Add Physics Component to the Runner Sprite
 
 In the last tutorial, we create the runner by using spritsheet. In this section, we will rewrite the runner by using *PhysicsSprite*.
 
