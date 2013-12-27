@@ -37,7 +37,7 @@ JNI是一个双向的接口：开发者不仅可以通过JNI在Java代码中访�
 
 也就是说，JNI是帮助游戏在Java代码中调用Native接口和在Native代码中调用Java接口。
 
-### 基本使用方式
+### 方法1. 基本使用
 
 #### c++接口
 
@@ -90,4 +90,64 @@ public static void WeiboLogin(String clientID, String redirector) {
 #### 问题
 
 以上是实现jni的基本方法，看起来很复杂，不是吗？所以Cocos2d-x对jni进一步封装了一次，可以实现更简单的调用方式。
+
+### 方法2. jnihelper
+
+#### 简介
+
+2dx里面为我们提供了一个JniHelper类，来满足与Java层的数据交互，JniHelper可以很方便的调用java层的动静态方法。
+
+
+里面最重要的两个方法是：
+getStaticMethodInfo、getMethodInfo
+
+第一个调用Java静态方法的方法:
+
+`getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)`
+
+- 第一个参数为JniMethodInfo，为一个容器类，表示当前调用的方法
+
+- 第二个参数为调用Java方法类的全名
+
+- 第三个参数为调用java的方法名，也就是参数为方法的参数类型
+
+java与Jni对应的参数类型如下：
+
+ava类型 | 对应的签名
+------------ | ------------- 
+boolean  | Z   
+byte  | B 
+char  | C 
+short  | S 
+int  | I 
+long  | J 
+float  | F 
+double  | D 
+void  | V 
+Object  | Ljava/lang/String
+Array  | Ljava/lang/String
+  
+
+- 第四个参数为返回类型
+
+#### 示例代码：
+
+```
+JniMethodInfo t;
+bool isHave = JniHelper::getStaticMethodInfo(t,
+                                             "com/weibo/test/WeiboHelper",	//需要调用的Java文件
+                                             "toast",//调用的方法名
+                                             "()V");//参数
+```
+
+#### 使用步骤回顾：
+
+1. 再使用JniMethodInfo的env调用执行Java的静态方法
+2. getStaticMethodInfo，获取需要调用的java方法信息
+
+#### 效果
+工程中，我们简单复用新浪微博demo中的java代码，所以，弹出的webview效果如下：
+
+![alt text](./res/weibo_screenshot1.jpg "weibo_screenshot1")
+
 
