@@ -1,11 +1,5 @@
-# cocos2d-x如何调用android接口
+# 如何让Java和C++接口互相调用：JNI使用指南
 
-- [写在前面的话](# 写在前面的话)
-- 关于新浪SDK
-- jni详解
-- jnihelper使用
-- android调试指南
-- cocos2d-x集成新浪微博
 
 ## 写在前面的话
 
