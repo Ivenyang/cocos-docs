@@ -1,6 +1,7 @@
-# cocos2d-x如何集成android第三方库
+# cocos2d-x如何调用android接口
 
 - [写在前面的话](# 写在前面的话)
+- 关于新浪SDK
 - jni详解
 - jnihelper使用
 - android调试指南
@@ -97,11 +98,18 @@ public static void WeiboLogin(String clientID, String redirector) {
 
 2dx里面为我们提供了一个JniHelper类，来满足与Java层的数据交互，JniHelper可以很方便的调用java层的动静态方法。
 
+#### 使用步骤：
 
-里面最重要的两个方法是：
+1. 再使用JniMethodInfo的env调用执行Java的静态方法
+2. getStaticMethodInfo，获取需要调用的java方法信息
+
+
+#### 最重要的两个方法：
 getStaticMethodInfo、getMethodInfo
 
-第一个调用Java静态方法的方法:
+##### getStaticMethodInfo
+
+getStaticMethodInfo调用Java静态方法的方法:
 
 `getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)`
 
@@ -130,6 +138,14 @@ Array  | Ljava/lang/String
 
 - 第四个参数为返回类型
 
+##### getMethodInfo  
+getMethodInfo类似与第一个函数，只是对应非静态函数；此函数主要用于获取Java定义的类非静态函数是否存在，返回bool；
+
+#### JniMethodInfo  
+
+此类型主要用户保存类结构体，可以通过JniHelper类的getStaticMethodInfo函数实例化JniMethodInfo对象，从而使用实例的env属性调用CallStaticVoidMethod，CallVoidMethod，CallStaticIntMethod等函数进行对保存的类结构调用函数；
+
+
 #### 示例代码：
 
 ```
@@ -140,14 +156,11 @@ bool isHave = JniHelper::getStaticMethodInfo(t,
                                              "()V");//参数
 ```
 
-#### 使用步骤回顾：
-
-1. 再使用JniMethodInfo的env调用执行Java的静态方法
-2. getStaticMethodInfo，获取需要调用的java方法信息
-
 #### 效果
 工程中，我们简单复用新浪微博demo中的java代码，所以，弹出的webview效果如下：
 
 ![alt text](./res/weibo_screenshot1.jpg "weibo_screenshot1")
 
+##结语
 
+虽然Jni在cocos2d-x android工程中的运用很广泛，但是Android项目中，Activity主线程跟c++层是不同的，两者分属不同线程，也就是说，Android的UI线程并不安全，通过Jni直接调用java层方法来做刷新界面等操作是极度危险的。所以在集成一些第三方支付SDK的时候应该非常小心。
