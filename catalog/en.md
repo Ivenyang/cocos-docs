@@ -1,6 +1,6 @@
 - Manual
 	- Setting up Environments
-		- [Setting up Environments on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
+		- [Setting up Android Environments on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
 		- Setting up Environments on Mac OS X
 	- Graphic
 		- Particle System        
@@ -20,7 +20,7 @@
             - CCString
 	- Audio
 		- Audio Formats on Different Platforms
-	- Physics integration
+	- [Physics integration](../manual/framework/native/physics/new_physicals/en.md)
 	- Console module
 	- Memory Management
 		- Objects Reference Count and Auto Release Pool
@@ -47,7 +47,7 @@
 		    - Invoke Java code from lua
 		    - Call back from c++ to lua when an event is triggered
 		- Javascript
-		    - Remote debugging
+		    - [Remote debugging](../manual/framework/native/scripting/javascript/js_remote_debugger/en.md)
 	- How to Integrate with 3rd SDK on Android Native Activity
 	- Debugging
 		- Work with CCConsole
