@@ -1,4 +1,4 @@
-#Cocos2d-x Js Binding 的手动绑定实现
+#Cocos2d-x JavaScript Binding 的手动绑定实现
 --
 
 随着 Cocos2d-x 的发展，Cocos2d-html5 也日益完善，相比纯 C++ 的开发方式，它开发效率更为高效，而另一个显而易见的好处便是 JS 端的 API 可以作为 Cocos2d-x Javascript Bindings (JSB) 的接口封装。一套 API，两种解决方案，这让用 JS 快速开发游戏，通过 JSB 以接近原生代码的速度来运行游戏成为可能。
