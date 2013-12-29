@@ -1,6 +1,6 @@
 #cocos2d::Map< K,V >
 
-From `typedef std::unordered_map<K, V> RefMap;` in class `Map`, we can konw that the STL container `unordered_map` is used, which is the new feature of c++11.  
+From `typedef std::unordered_map<K, V> RefMap;` in class `Map`, we can know that the STL container `unordered_map` is used, which is the new feature of c++11.  
 
 Unordered maps are associative containers that store elements formed by the combination of a key value and a mapped value, and which allows for fast retrieval of individual elements based on their keys.
 
@@ -11,17 +11,17 @@ Internally, the elements in the unordered_map are not sorted in any particular o
 ##Usage
 
 ```
-	auto map_Val_0 = Sprite::create("CloseNormal.png");
-    Map<char*, Object*>* pMap = new Map<char*, Object*>();
-    char* map_key =const_cast<char*>("test");
-    pMap->insert(map_key, map_Val_0);
-    ssize_t mapSize = pMap->size();
-    log("The size of the Map is %zd.",mapSize); 
-    if(!pMap->empty()){
-        auto map_Val_1 = (Sprite*)pMap->at(map_key);
-        map_Val_1->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
-        this->addChild(map_Val_1);
-    }
+auto map_Val_0 = Sprite::create("CloseNormal.png");
+Map<char*, Object*>* pMap = new Map<char*, Object*>();
+char* map_key =const_cast<char*>("test");
+pMap->insert(map_key, map_Val_0);
+ssize_t mapSize = pMap->size();
+log("The size of the Map is %zd.",mapSize); 
+if(!pMap->empty()){
+    auto map_Val_1 = (Sprite*)pMap->at(map_key);
+    map_Val_1->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
+    this->addChild(map_Val_1);
+}
 ```
 
 ##Detail
@@ -52,11 +52,18 @@ There is no create function, but you can initialize you map with the constructor
 
 - All the elements in the Map<K,V> container will be dropped if we use `clear()`.
 
+```
+pMap->erase(map_key);
+pMap->clear();
+```
 
 ###Modify
 
-- We can set capacity of the mapbay by using `reserve(ssize_t capacity)`. 
+- We can set capacity of the map by using `reserve(ssize_t capacity)`. 
 
+```
+pMap->reserve(10);
+```
 
 ###Query
 
@@ -64,12 +71,28 @@ There is no create function, but you can initialize you map with the constructor
 
 - `bucket(const K& k)` make it easy to get the bucket number where the element with key k is located.
 
-- We can know whether the map container is empty accroding to the value `empty()` returns.
+- We can know whether the map container is empty according to the value `empty()` returns.
 
 - All keys in the map will be know if `keys()` used. And we can add a param like `keys(V object)` to get all keys that matches the object.
 
 - It's possible to use `at(const K& key)` to get a reference to the mapped value of the element with key k in the map. If key does not match the key of any element in the container, the function return nullptr.
 
-- `find(const K& key)` can be used to searche the container for an element with 'key' as key and returns an iterator to it if found, otherwise it returns an iterator to Map<K, V>::end (the element past the end of the container).
+- `find(const K& key)` can be used to search the container for an element with 'key' as key and returns an iterator to it if found, otherwise it returns an iterator to Map<K, V>::end (the element past the end of the container).
 
 - `getRandomObject()` will return a random object in the map if the map isn't empty, otherwise it returns nullptr.
+
+```
+if (!pMap->empty()) {
+	pMap->size();
+	pMap->bucketCount();
+	pMap->bucket(map_key);
+	pMap->bucketSize(1);
+	pMap->keys();
+	pMap->keys(map_Val_0);
+	pMap->at(map_key);
+	pMap->find(map_key);
+}
+```
+
+
+
