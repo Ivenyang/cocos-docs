@@ -2,11 +2,11 @@
 
 ## 简介
 
-目前在wp8平台中没有支付宝支付SDK，可以采用WAP+服务端方式进行第三方支付。这种情况下，需要添加包含WebBrowser控件的Windows Phone Page页面。以下介绍如何响应CCMenuItem单击以添加C#类的方法示例，其实即是在WinRT组件（C++）中调用C#类库的一种解决方案。以下代码示例均在[https://github.com/koowolf/cocos2d-x](https://github.com/koowolf/cocos2d-x "koowolf/cocos2d-x")中实现。
+目前在wp8平台中没有支付宝支付SDK，可以采用WAP+服务端方式进行第三方支付。这种情况下，需要添加包含WebBrowser控件的Windows Phone Page页面。以下介绍如何响应CCMenuItem单击以添加C#类的方法示例，其实即是在WinRT组件（C++）中调用C#类库的一种解决方案。以下代码示例均在[https://github.com/koowolf/cocos2d-x/tree/webbroswer](https://github.com/koowolf/cocos2d-x "koowolf/cocos2d-x")中实现。
 
 ## 新建Windows Phone XAML and Direct3D App工程
 
-目前在Github上已提供了支持XAML的混合托管模式,https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml,Git下来之后打开cocos2d-wp8.vc2012.sln可以看到工程结构如下：
+目前在Github上已提供了支持XAML的混合托管模式,[https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml](https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml),Git下来之后打开cocos2d-wp8.vc2012.sln可以看到工程结构如下：
 
 ![application](res/1.png)
 
@@ -143,3 +143,6 @@ helper.SetShowWebBroswerDelegate(ShowWebBroswer);
         }
 
 ```
+
+## 效果 ##
+
