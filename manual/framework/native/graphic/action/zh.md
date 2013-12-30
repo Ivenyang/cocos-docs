@@ -9,8 +9,9 @@ Actions 继承了CCNoded的属性。actions通常会修改对象的一些属性�
 
  例如:
 
+```
 	// Move a sprite 50 pixels to the right, and 10 pixels to the top over 2 seconds. CCActionInterval* actionBy = CCMoveBy::create(2, ccp(50,10)); 
-
+```
 
 CCIntervalAction actions有一些有意思的属性:
 
@@ -25,8 +26,9 @@ CCIntervalAction actions有一些有意思的属性:
 
 你可以通过用CCActionManager来暂停和恢复所有actions:
 
+```
 	// Pause actions CCDirector *director = CCDirector::sharedDirector(); m_pPausedTargets = director->getActionManager()->pauseAllRunningActions(); // resume actions CCDirector *director = CCDirector::sharedDirector(); director->getActionManager()->resumeTargets(m_pPausedTargets); 
-
+```
 
 Basic Actions
 
@@ -72,10 +74,11 @@ Basic Actions
 
 例如:
 
+```
 	CCSprite *sprite = CCSprite::create("Images/grossini.png"); sprite->setPosition(ccp(100, 100)); addChild(sprite); CCMoveBy* act1 = CCMoveBy::create(0.5, ccp(100, 0)); sprite->runAction(CCRepeat::create(act1, 1)); 
+```
 
-
-act1是持续0.5秒的CCMoveBy action,并且使用位置ccp(100,0)的值？.
+act1是持续0.5秒的CCMoveBy action,并且使用位置`ccp(100,0)`的值？.
   
 
 

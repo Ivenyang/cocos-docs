@@ -11,7 +11,7 @@ CCArray是cocos2d鼎力支持的数据结构类。它对游戏存储数组型数
 CCArray继承至CCObject（CCObject主要是为了自动内存管理而创建的），并且提供了一系列接口，包括
 
 ### 创建 ###
-
+```
 	/** 创建一个数组 */
 	static CCArray* create();
 	 /** 使用一些对象创建数组 */
@@ -22,21 +22,21 @@ CCArray继承至CCObject（CCObject主要是为了自动内存管理而创建的
 	static CCArray* createWithCapacity(unsigned int capacity);     
 	 /** 使用一个现有的CCArray数组来新建一个数组 */ 
 	static CCArray* createWithArray(CCArray* otherArray);
-
+```
 
 ### 插入 ###
 
-	
+```	
 	/** 插入一个对象 */
 	void addObject(CCObject* object);
 	/** 插入别外一个数组里面的全部对象 */
 	void addObjectsFromArray(CCArray* otherArray);
 	/** 在一个确定的索引位置插入一个对象 */
 	void insertObject(CCObject* object, unsigned int index);
-
+```
 
 ### 删除 ###
-
+```
 	/** 移除最后的一个对象 */
 	void removeLastObject(bool bReleaseObj = true);
 	/**移除一个确定的对象 */
@@ -51,29 +51,31 @@ CCArray继承至CCObject（CCObject主要是为了自动内存管理而创建的
 	void fastRemoveObject(CCObject* object);
 	/** 快速移除一个确定索引位置的对象 */
 	void fastRemoveObjectAtIndex(unsigned int index);
+```
 
-
-- See more at: [http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.kc1dtGXI.dpuf](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.kc1dtGXI.dpuf)
+- 更多参见: [http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.kc1dtGXI.dpuf](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.kc1dtGXI.dpuf)
 
 remove和fastRemove有什么区别，可以看看源代码，remove是从CCArray中完全的移除，fastRemove只是将CCArray中对应的对象释放掉了，没够改变整个CCArray的结构。从代码上来看，区别在于删除元素之后，是否把数组之后的元素向前移动覆盖掉之前位置的元素。
  代码上的差别如下所示：
+ ```
 	unsigned int remaining = arr->num - index;
 	if(remaining>0)
 	{
 	    memmove((void *)&arr->arr[index], (void *)&arr->arr[index+1], remaining * sizeof(CCObject*));
 	}
-
+```
 
 ### 遍历 ###
 
 #### CCArray ####
 
-在教程第五章 “怎么样去侦测碰撞”中，在update（）函数下面调用了CCARRAY_FOREACH(arr, obj)方法，这个方法就是用来遍历CCArray（_targets和_projectiles），用来在每一帧中检测碰撞。
+在教程第五章 “怎么样去侦测碰撞”中，在update（）函数下面调用了`CCARRAY_FOREACH(arr, obj)`方法，这个方法就是用来遍历`CCArray（_targets和_projectiles）`，用来在每一帧中检测碰撞。
 
  
 
 在HelloWorldScene.h中申明，并且在HelloWorldScene.cpp中定义
 
+```
 	void HelloWorld::update(ccTime dt)
 	{
 	    CCArray *projectilesToDelete = new CCArray;
@@ -129,7 +131,7 @@ remove和fastRemove有什么区别，可以看看源代码，remove是从CCArray
 	 }
 	projectilesToDelete->release();
 	}
-
+```
 
 - See more at: [http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.hQf6ATw7.dpuf](http://www.cocos2d-x.org/wiki/CCArray)
 
@@ -149,12 +151,13 @@ CCArray效率很高，但是CCArray中的对象也是有对应位置的，假如
 
 测试A(NSArray)
 
+```
 	for(int w = 0; w<100; w++){
 	   for(id object in arrayNS){
 	       //Do something
 	 }
 	}
-
+```
 
 - See more at: [http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.hQf6ATw7.dpuf](http://www.cocos2d-x.org/wiki/CCArray)
 
@@ -162,6 +165,7 @@ CCArray效率很高，但是CCArray中的对象也是有对应位置的，假如
 
 测试B(CCArray)
 
+```
 	ccArray *arrayData = array->data;
 	id object;
 	int nu = arrayData->num;
@@ -171,7 +175,7 @@ CCArray效率很高，但是CCArray中的对象也是有对应位置的，假如
 	      //Do something
 	   }
 	}
-
+```
 
 - See more at: [http://www.cocos2d-x.org/projects/cocos2d-x/wiki/CCArray#sthash.hQf6ATw7.dpuf](http://www.cocos2d-x.org/wiki/CCArray)
 

@@ -59,18 +59,19 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 我们创建一个灰色父对象和一个蓝色子对象。设置父对象位置是ccp(100,100),子对象的anchor point位于圆心。
 
+```
     CCSprite* parent = CCSprite::create("parent.png");
-    parent-&gt;setAnchorPoint(ccp(0, 0));// Anchor Point
-    parent-&gt;setPosition(ccp(100, 100));
-    parent-&gt;setAnchorPoint(ccp(0, 0));
+    parent->setAnchorPoint(ccp(0, 0));// Anchor Point
+    parent->setPosition(ccp(100, 100));
+    parent->setAnchorPoint(ccp(0, 0));
     addChild(parent);
  
     //create child
     CCSprite* child = CCSprite::create("child.png");
-    child-&gt;setAnchorPoint(ccp(0.5, 0.5));
-    child-&gt;setPosition(ccp(0, 0));
-    parent-&gt;addChild(child);//add child sprite into parent sprite.
-
+    child->setAnchorPoint(ccp(0.5, 0.5));
+    child->setPosition(ccp(0, 0));
+    parent->addChild(child);//add child sprite into parent sprite.
+```
 
 由于我们设置子对象的位置是ccp(0,0)，父对象位置是ccp(100,100)。所以，子对象位置是：
 
@@ -86,12 +87,13 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 示例：
 
+```
 	// create sprite
 	CCSprite* sprite = CCSprite::create("bottomleft.png");
-	sprite-&gt;setAnchorPoint(ccp(0, 0));// Anchor Point
-	sprite-&gt;setPosition(ccp(0,0));
+	sprite->setAnchorPoint(ccp(0, 0));// Anchor Point
+	sprite->setPosition(ccp(0,0));
 	addChild(sprite);
-
+```
 
 ![](./res/102201Gpv.png)
 
@@ -99,12 +101,13 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 ![](./res/102201zMO.png)
 
+```
 	// create sprite
 	CCSprite* sprite = CCSprite::create("center.png");
-	sprite-&gt;setAnchorPoint(ccp(0.5, 0.5));// Anchor Point
-	sprite-&gt;setPosition(ccp(0,0));
+	sprite->setAnchorPoint(ccp(0.5, 0.5));// Anchor Point
+	sprite->setPosition(ccp(0,0));
 	addChild(sprite);
-
+```
 
 ![](./res/1022035rC.png)
 
@@ -116,7 +119,7 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 - getVisibleOrigin
 - getWinSize
 
-VisibleSize（可视区域大小）会返回此点的OpenGL视图的可视区域大小。如果没有调用CCEGLView::setDesignResolutionSize()的话，此值等于getWinSize的大小。 getVisibleOrigin（获取可视区域起点）会返回此点的OpenGL视图的可视区域起点。请移步[Multi resolution support](http://shiren1118.github.io/blog/2013/03/03/coordinate-system/Multi%20resolution%20support)查看详情。
+VisibleSize（可视区域大小）会返回此点的OpenGL视图的可视区域大小。如果没有调用`CCEGLView::setDesignResolutionSize()`的话，此值等于getWinSize的大小。 getVisibleOrigin（获取可视区域起点）会返回此点的OpenGL视图的可视区域起点。请移步[Multi resolution support](http://shiren1118.github.io/blog/2013/03/03/coordinate-system/Multi%20resolution%20support)查看详情。
 
 如何转换坐标
 
@@ -136,9 +139,9 @@ convertToWorldSpace：
 
 convertToWorldSpace(常量 CCPoint& nodePoint) 转换node坐标为SCREEN坐标。convertToWorldSpace会经常返回你的精灵的SCREEN位置，如果你想捕获精灵的taps而且需要移动/缩放layer的时候，这可能非常有帮助。
 
-	CCPoint point = node1-&gt;convertToWorldSpace(node2-&gt;getPosition());
-
-
+```
+	CCPoint point = node1->convertToWorldSpace(node2->getPosition());
+```
 上面的代码会转换node2坐标为node2在屏幕上对应的坐标。
 
 ![](./res/102204oEG.jpg)
@@ -151,29 +154,30 @@ convertToNodeSpaceAR – 和convertToWorldSpaceAR是一样的逻辑。
 
 示例代码：
 
+```
 	CCSprite *sprite1 = CCSprite::create("CloseNormal.png");
 	
-	sprite1-&gt;setPosition(ccp(20,40));
+	sprite1->setPosition(ccp(20,40));
 	 
-	sprite1-&gt;setAnchorPoint(ccp(0,0));
+	sprite1->setAnchorPoint(ccp(0,0));
 	 
-	this-&gt;addChild(sprite1);
+	this->addChild(sprite1);
 	
 	CCSprite *sprite2 = CCSprite::cteate("CloseNormal.png");
 	 
-	sprite2-&gt;setPosition(ccp(-5,-20));
+	sprite2->setPosition(ccp(-5,-20));
 	
-	sprite2-&gt;setAnchorPoint(ccp(1,1));
+	sprite2->setAnchorPoint(ccp(1,1));
 	
-	this-&gt;addChild(sprite2);
+	this->addChild(sprite2);
 	
-	CCPoint point1 = sprite1-&gt;convertToNodeSpace(sprite2-&gt;getPosition());
+	CCPoint point1 = sprite1->convertToNodeSpace(sprite2->getPosition());
 	
-	CCPoint point2 = sprite1-&gt;convertToWorldSpace(sprite2-&gt;getPosition());
+	CCPoint point2 = sprite1->convertToWorldSpace(sprite2->getPosition());
 	
-	CCPoint point3 = sprite1-&gt;convertToNodeSpaceAR(sprite2-&gt;getPosition());
+	CCPoint point3 = sprite1->convertToNodeSpaceAR(sprite2->getPosition());
 	
-	CCPoint point4 = sprite1-&gt;convertToWorldSpaceAR(sprite2-&gt;getPosition());
+	CCPoint point4 = sprite1->convertToWorldSpaceAR(sprite2->getPosition());
 	
 	CCLog("position = (%f,%f)",point1.x,point1.y);
 	
@@ -182,10 +186,11 @@ convertToNodeSpaceAR – 和convertToWorldSpaceAR是一样的逻辑。
 	CCLog("position = (%f,%f)",point3.x,point3.y);
 	
 	CCLog("position = (%f,%f)",point4.x,point4.y);
-
+```
 
 结果：
 
+```
 	position = (-25.000000,-60.000000)
 	
 	position = (15.000000,20.000000)
@@ -193,7 +198,7 @@ convertToNodeSpaceAR – 和convertToWorldSpaceAR是一样的逻辑。
 	position = (-25.000000,-60.000000)
 	
 	position = (15.000000,20.000000)
-
+```
 
 参考
 

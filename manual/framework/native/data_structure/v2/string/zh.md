@@ -9,7 +9,7 @@ CCString继承至CCObject，CCObjecte这个基类主要是为了自动内存管�
 
 
 ### 创建： ###
-
+```
     /**使用std：：string创建了一个字符串, 你也可以传递一个c字符串指针，因为std：：string的构造函数可以访问c字符串指针
  
      * @返回的 CCString 指针是一个自动释放对象,
@@ -50,12 +50,13 @@ CCString继承至CCObject，CCObjecte这个基类主要是为了自动内存管�
  
      */
     static CCString* createWithContentsOfFile(const char* pszFileName);
-
+```
 
 ### 转换 ###
 
 CCString允许CCString实例变量转换为另外类型的变量。
 
+```
     /** convert to int value */
  
     int intValue() const;
@@ -75,19 +76,21 @@ CCString允许CCString实例变量转换为另外类型的变量。
     /** convert to bool value */
  
     bool boolValue() const;    
-
+```
 
 ### 常用的宏定义 ###
 
+```
 	#define CCStringMake(str) CCString::create(str)
 	 
 	#define ccs CCStringMake
-
+```
 
 使用这些宏可以非常方便的构建一个自动释放的CCString对象。假如你想要新建很多的CCString对象并把他们增加到CCArray中。
 
 使用下面的代码就可以实现了，并且这些代码看起来相当简洁。 
 
+```
 	CCArray *stringArray = CCArray::create(
  
         ccs("Hello"),
@@ -99,4 +102,4 @@ CCString允许CCString实例变量转换为另外类型的变量。
         ccs("!"),
  
         NULL);
-
+```
