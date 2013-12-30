@@ -33,16 +33,34 @@ According to the constructors and some other functions defined in the class, it'
 
 - We can use `Vector<T>(Vector<T>&& other)` to **move** our data, and also we can use the "=" to do the same operation.
 
+```
+Vector<Object*>* pVecTemp = new Vector<Object*>(3);
+Vector<Object*>* pVecCopy = new Vector<Object*>(*pVecTemp);
+Vector<Object*>* pVecMove = pVecTemp;
+```
 
 ##Add 
 - There is a `insert(ssize_t index, T object)` that we can use to insert a certain object at a certain index.
 
 - We can add a new element at the end of the vector using `pushBack(T object)`, an d using `pushBack(const Vector<T>& other)` to push all elements of an existing vector to the end of current vector.
 
+```
+pVec->pushBack(sp0);
+pVec->insert(0, sp1);
+pVec->pushBack(*pVecMove);
+```
+
 ##Remove 
 - It's convenient to remove one object by `popBack()`. And we can also use `eraseObject(T object, bool toRelease = true)` to do it, the second param `toRelease` decide whether to decrease the reference count of the deleted object.
 
 - There also some other functions. We can remove a single element by using  `erase(iterator position)` or `erase(ssize_t index)`, and we can also remove a range of elements through `erase(const_iterator first, const_iterator last)`, even we can use `clear()` to removes all elements from the vector (which are destroyed), leaving the container with a size of 0.
+
+```
+pVec->popBack();
+pVec->eraseObject(sp0);
+pVec->erase(0);
+pVec->clear();
+```
 
 ##Modify
 - It's easy to get the **capacity or size** by calling the function `capacity()` or `size()`. But the capacity is not necessarily equal to the vector size. It can be equal or greater. The result returns from `size()` express the number of actual objects held in the vector. Of course, we can use `shrinkToFit()` to shrinks the vector so the memory footprint corresponds with the number of items.
@@ -55,6 +73,17 @@ According to the constructors and some other functions defined in the class, it'
 
 - And we can reverses the vector by using `reverse()`.
 
+```
+ssize_t capacity = pVec->capacity();
+pVec->reserve(5);
+int size = pVec->size();
+int index = pVec->getIndex(sp0);
+pVec->shrinkToFit();
+pVec->swap(sp0, sp1);
+pVec->swap(0, 1);
+pVec->replace(0, sp1);
+pVec->reverse();
+```
 
 ##Query
 - `max_size()` returns the maximum number of elements that the vector can hold.
@@ -75,3 +104,14 @@ According to the constructors and some other functions defined in the class, it'
 
 - It will return true if the two vectors are equal when `equals(const Vector<T> &other)` is used.
 
+```
+pVec->max_size();
+if(!pVec->empty()){
+   pVec->getIndex(sp0);
+   pVec->find(sp1);
+   pVec->front();
+   pVec->back();
+   pVec->contains(sp1);
+   pVecTemp->equals(*pVecCopy);
+}
+```
