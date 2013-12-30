@@ -1,9 +1,10 @@
-#Design and Make Your Gameplay Scene
+# Design and Make Your Gameplay Scene
 
-##Introduction
+## Introduction
+
 In this tutorial, I will show you how to design and construct the gameplay scene. Every game needs some kind of gameplay scene. So this tutorial try to normalize the general scenario. 
 
-From the previous tutorials, we know that we can use different layers to separate the logic of a specified scene.
+From the previous tutorial, we know that we can use different layers to separate the logic of a specified scene.
 
 Here is the final result of our gameplay scene:
 
@@ -11,21 +12,22 @@ Here is the final result of our gameplay scene:
 
 There are background buildings, a hero and some HUD elements to show us the status of the current game progress. We can easily divide the gameplay scene into three parts:background layer, animation layer and status layer.
 
-###Background Layer
+### Background Layer
+
 Basically, every game need background. Sometimes the background is just a static image which  occupies the entire screen size of your game. Sometimes the background layers can move at a constant or various speed. Sometimes the background images even show us parallax effects--different layers move at various speed, the nearest layer moves faster and the farthest layer move slower. 
 
-In the later tutorials, we will introduce tiled map which are very useful to construct parallax background. In this tutorial, in order to keep the thing simple, we just use a simple static image to represent the game background.
+In later tutorials, we will introduce tiled map which are very useful to construct parallax background. In this tutorial, in order to keep things simple, we just use a simple static image to represent the game background.
 
 **Note**:
 We can move the background to mimic a effect of infinite running of our game hero. The hero is always at the center of the game screen. There are many such tricks we can see during game development process.
 
-###Animation Layer(Gameplay Layer)
+### Animation Layer(Gameplay Layer)
 
 The animation layer contains all game elements' animations, collide detections and other game logics. Maybe **GamePlayLayer** is a more proper name. You can choose what you want. In this layer, we organize the key part of our game play. In general, we will design game objects, level spawner(which are also called level managers), collide detection between different game objects and the condition of win and lose. All of the dirty things are goes here.
 
 In theory, we don't need to separate this layer into smaller layers. We can use composition and delegation to handle things properly. 
 
-###Status Layer(HUD Layer)
+### Status Layer(HUD Layer)
 
 In video gaming, the HUD (head-up display) is the method by which information is visually relayed to the player as part of a game's user interface. It takes its name from the head-up displays used in modern aircraft.
 
@@ -33,8 +35,10 @@ The HUD is frequently used to simultaneously display several pieces of informati
 
 To make things simpler, we put these information into a separate layer called StatusLayer. Because these items are always displayed on top of other game elements. By using a separate layer will make our life easier without caring about the zOrder display issues.
 
-##Coding in Action
+## Coding in Action
+
 ### Preparation
+
 At first, we should add two images(**PlayBG.png** and **runner.png**) to the **res** directory.
 
 In the previous tutorial, we have added all resources variables in **resource.js**. Since we have added another two images, so the **resource.js** should also be changed like this:
@@ -87,7 +91,7 @@ At last, we should display PlayScene when we click the button in the first MenuS
 
 ### Coding PlayScene(PlayScene.js)
 
-Since background layer , animation layer and status layer should be displayed in different order. We can specify the order explicit when call **addChild** method or we can add them as PlayScene's children in the right order. In this tutorial, we take the later option.
+Since background layer, animation layer and status layer should be displayed in different order. We can specify the order explicit when call **addChild** method or we can add them as PlayScene's children in the right order. In this tutorial, we take the later option.
 
 Here is the code snippet of PlayScene:
 
@@ -104,6 +108,7 @@ var PlayScene = cc.Scene.extend({
 ```
 
 ### Coding BackgroundLayer(BackgroundLayer.js)
+
 Here is our background image:
 ![bg](res/PlayBG.png)
 
@@ -129,6 +134,7 @@ var BackgroundLayer = cc.Layer.extend({
 
 ```
 ### Coding AnimationLayer(AnimationLayer.js)
+
 Here is our main character:
 ![runner](res/runner.png)
 
@@ -157,9 +163,10 @@ var AnimationLayer = cc.Layer.extend({
     }
 });
 ```
+
 ### Coding StatusLayer(StatusLayer.js)
 
-In the section, we will add two indicators: the coin quantity indicator and the distance indicator.Both indicator are labels in cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
+In this section, we will add two indicators: the coin quantity indicator and the distance indicator. Both indicator are labels in cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
 
 Here is the code snippet we need to setup the layer:
 
@@ -192,12 +199,12 @@ var StatusLayer = cc.Layer.extend({
 We can use **cc.LabelTTF.create** for creating a text label. The first param is the displayed texts, the second param is the Font Family and the third param is the Font size. We can also use **setColor** member function of LabelTTF to set the color of labels. The **cc.c3(0,0,0)** represent black color.
 
 
-##Summary 
+## Summary 
 
 In this tutorial, we have learned how to divide a game scene into different layers. Each layer has it's own logic and responsibility. You can download the entire project from [here](res/Parkour.zip).
 
 Since the code and logic are very simple, so we don't cover them all in details. If you have any question or suggestions, let us know and we will do our best to support you.
 
-##Where to Go From Here
+## Where to Go From Here
 
 In the next tutorial, I will show you how to run animations on the runner and how to pack small images into sprite sheet. I will also introduce a awesome tools named **TexturePakcer** to you guys. 
