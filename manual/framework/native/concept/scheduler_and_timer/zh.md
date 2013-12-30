@@ -4,12 +4,12 @@
 
 两种不同类型的回调 (selectors):
 
-- 更新selector: ‘update’ selector会被每个frame调用.你可以自定义优先级.
+- 更新selector: `update` selector会被每个frame调用.你可以自定义优先级.
 - 自定义selector: 自定义selector会被每个frame调用, 或自定义的时间段内调用.
 
-‘custom selectors’尽可能避免使用。相对于使用’update selector’来说，它比较快，且内存消耗较小.
+`custom selectors`尽可能避免使用。相对于使用’update selector’来说，它比较快，且内存消耗较小.
 
-CCScheduler vs. NSTimer
+## CCScheduler vs. NSTimer
 
 Cocos2D Scheduler 为你的游戏提供了时间事件和调用.你最好不要使用NSTimer，而用CCScheduler类替代.
 

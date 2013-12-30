@@ -7,7 +7,7 @@
 
 **Android** 在android上CocosDenshion能支持的音频格式是对应于android.media.MediaPlayer所支持的格式。  
 **IOS**  在IOS上面Cocos2d-x的CocosDenshion所支持的格式和Cocos2d-iphone中所支持的是一样，caf是推荐的一种格式（修改：原文上说推荐的是MP3，在ios上面，mp3是不能算是被推荐的）。  
-**Windows**  mid，wav， mp3都是被支持的。（修改：原文说mp3不被支持)  
+**Windows**  mid，wav， mp3都是被支持的。  
 **Marmalade**  mp3（不祥）  
 
 ## 音效 ##

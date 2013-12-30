@@ -4,6 +4,7 @@
 
 你可以通过多张图片文件来创建一个动画，比如:
 
+```
 	CCAnimation *animation = CCAnimation::create();
 	
 	// load image file from local file system to CCSpriteFrame, then add into CCAnimation
@@ -13,7 +14,7 @@
 		sprintf(szImageFileName, "Images/grossini_dance_%02d.png", i);
 		animation->addSpriteFrameWithFileName(szImageFileName);  
 	}
-
+```
 注意CCAnimation是由sprite frame帧组、单个frame延时，持续时间等组成的，它是一组”数据”. 而CCAnimate是一个action，它是基于CCAnimation对象创建的。
 
 ## 序列帧动画 Sprite Sheet Animation
@@ -46,24 +47,22 @@ Cocos2d-x v2.0已更新，是基于OpenGL ES 2.0的.OpenGL ES 2.0不再为textur
 
 CCSpriteBatchNode对象包含了所有sprite frames中用到的真实图片texture.你必须在场景中添加它，甚至它自身什么都不用画;它只需要放到那里，这样它就成了rendering pipeline的组成部分.比如:
 
-
+```
 	CCSpriteBatchNode* spritebatch = CCSpriteBatchNode::create("animations/grossini.png");
-
+```
 
 接下来，你需要使用CCSpriteFrameCache单例对象来保存frame名字如何对应到frame bounds——
 也就是，sprite sheet中的矩形区域.例如:
 
+```
 	CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache(); cache->addSpriteFramesWithFile("animations/grossini.plist");
-
-
-
+```
 
 一旦你的sprite sheet和frames已经加载完毕，并且sprite sheet已经增加到场景中了，你可以通过这些frame创建sprite，使用 “createWithSpriteFrameName” 方法，把它添加为sprite sheet的子对象:
 
+```
 	m_pSprite1 = CCSprite::createWithSpriteFrameName("grossini_dance_01.png"); spritebatch->addChild(m_pSprite1); addChild(spritebatch);
-
-
-
+```
 
 createWithSpriteFrameName方法会查找相应坐标和grossini.plist中定义的矩形，接着”裁剪”texture grossini.png到sprite frame.
 
@@ -71,32 +70,35 @@ createWithSpriteFrameName方法会查找相应坐标和grossini.plist中定义�
 
 现在，我们需要创建CCArray对象，增加动画中的所有frame到此对象中。在这个动画例子中，我们知道这14个frame都有一模一样的尺寸,所以我们使用了嵌套循环来迭代，当我们完成增加第14个frame的时候中断循环.
 
+```
 	CCArray* animFrames = CCArray::createWithCapacity(15);
 	 
 	char str[100] = {0};
 	
-	for(int i = 1; i &lt; 15; i++)
+	for(int i = 1; i < 15; i++)
 	{
 	sprintf(str, "grossini_dance_%02d.png", i);
 	CCSpriteFrame* frame = cache->spriteFrameByName( str );
 	animFrames->addObject(frame);
 	}
-
+```
 
 最后，我们需要创建CCAnimate动作实例，该实例能在CCSprite对像上运作.下面，我们还将CCAnimate动作封装到CCRepeatForever动作中，此动作正是你所需要的:重复动画,像这样:
 
+```
 	CCAnimation* animation = CCAnimation::createWithSpriteFrames(animFrames, 0.3f);
 	m_pSprite1->runAction( CCRepeatForever::create( CCAnimate::create(animation) ) );
-
+```
 
 CCAnimationCache 可以加载xml/plist文件，此文件可以非常好的描述批量node,sprite frame names和它们的矩形. 这个接口更简单易用.
 
+```
 	CCAnimationCache *cache = CCAnimationCache::sharedAnimationCache(); // "caches" are always singletons in cocos2d
 	cache->addAnimationsWithFile("animations/animations-2.plist");
 	CCAnimation animation = cache->animationByName("dance_1"); // I apologize for this method name, it should be getAnimationByName(..) in future versions
 	CCAnimate animate = CCAnimate::create(animation); // Don't confused between CCAnimation and CCAnimate :)
 	sprite->runAction(animate);
-
+```
 
 简单易用吧？哈哈
 
