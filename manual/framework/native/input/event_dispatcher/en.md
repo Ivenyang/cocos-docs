@@ -107,7 +107,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 **_eventDispatcher** is the property of the **Node**, you can use it manage the dispatch situation of all events of current node(such as scene, layer, sprite etc).
 
-*Note:* When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be added serval times.
+*Note:* When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be added serval times. One more thing you should keep in mind. If you add a fixed priority listener to a node, when the node is removed,you should also remove the listener manually. But the scene graph priority listener is different. It is binded to the node, when the node's destructor is called, the listener will be removed automatically.
 
 ### New touch mechanism
 
