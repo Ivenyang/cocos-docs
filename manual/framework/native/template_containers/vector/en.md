@@ -1,5 +1,9 @@
 #cocos2d::Vector< T >
-In the elder version of cocos2d-x, there are Dictionary, Array, Set and some other containers. But now,in the latest version, we can use some new containers to replace it, for example we can use `cocos2d::Vector<T>` instead of `cocos2d::Array`. We could easily find that it's more closer to the STL style of c++, where we use `std::vector` to do the same work.  
+
+- Since: v3.0 beta
+- Language: C++
+
+In the older version of cocos2d-x, there are Dictionary, Array, Set and some other containers. But now,in the latest version, we can use some new containers to replace it, for example we can use `cocos2d::Vector<T>` instead of `cocos2d::Array`. We could easily find that it's more closer to the STL style of c++, where we use `std::vector` to do the same work.  
 
 The `Vector` doesn't inherit from class `Object`,and there is no create function for `Vector`.
 
@@ -7,15 +11,15 @@ In the new container `Vector`, there are some operation functions. We can copy o
 
 In this version, we can use `Vector` like:
 
-```
-   auto sp0 = Sprite::create();  
-   Vector<Object*>* pVec = new Vector<Object*>();  
-   pVec->pushBack(sp0);
+```cpp
+auto sp0 = Sprite::create();  
+Vector<Object*>* pVec = new Vector<Object*>();  
+pVec->pushBack(sp0);
 ```
 
 There are some functions that will do the operations of `retain` and `release`, such as `addRefForAllObjects()`. So the DataType, I use `Object*` above, there **must be pointer to the object of class	`Object` or its subclass**. 
 
-```
+```cpp
 /** Retains all the objects in the vector */
 void addRefForAllObjects()
 {
@@ -33,7 +37,7 @@ According to the constructors and some other functions defined in the class, it'
 
 - We can use `Vector<T>(Vector<T>&& other)` to **move** our data, and also we can use the "=" to do the same operation.
 
-```
+```cpp
 Vector<Object*>* pVecTemp = new Vector<Object*>(3);
 Vector<Object*>* pVecCopy = new Vector<Object*>(*pVecTemp);
 Vector<Object*>* pVecMove = pVecTemp;
@@ -44,7 +48,7 @@ Vector<Object*>* pVecMove = pVecTemp;
 
 - We can add a new element at the end of the vector using `pushBack(T object)`, an d using `pushBack(const Vector<T>& other)` to push all elements of an existing vector to the end of current vector.
 
-```
+```cpp
 pVec->pushBack(sp0);
 pVec->insert(0, sp1);
 pVec->pushBack(*pVecMove);
@@ -55,7 +59,7 @@ pVec->pushBack(*pVecMove);
 
 - There also some other functions. We can remove a single element by using  `erase(iterator position)` or `erase(ssize_t index)`, and we can also remove a range of elements through `erase(const_iterator first, const_iterator last)`, even we can use `clear()` to removes all elements from the vector (which are destroyed), leaving the container with a size of 0.
 
-```
+```cpp
 pVec->popBack();
 pVec->eraseObject(sp0);
 pVec->erase(0);
@@ -73,7 +77,7 @@ pVec->clear();
 
 - And we can reverses the vector by using `reverse()`.
 
-```
+```cpp
 ssize_t capacity = pVec->capacity();
 pVec->reserve(5);
 int size = pVec->size();
@@ -104,7 +108,7 @@ pVec->reverse();
 
 - It will return true if the two vectors are equal when `equals(const Vector<T> &other)` is used.
 
-```
+```cpp
 pVec->max_size();
 if(!pVec->empty()){
    pVec->getIndex(sp0);

@@ -106,7 +106,7 @@
 
 **_eventDispatcher** 是 **Node** 的属性，通过它管理当前节点（如 场景 、层、精灵等 ）的所有事件分发情况。但是它本身是一个单例模式值的引用，在 CCNode 构造函数中，通过 "Director::getInstance()->getEventDispatcher();" 获取，有了这个属性，我们能更为方便的调用。
 
-_注意：_ 这里当我们再次使用 **listener1** 的时候，需要使用 `clone()` 方法创建一个新的克隆，因为在使用 `addEventListenerWithSceneGraphPriority` 或者 `addEventListenerWithFixedPriority` 方法时，会对当前使用的事件监听器添加一个已注册的标记，这使得它不能够被添加多次。
+_注意：_ 这里当我们再次使用 **listener1** 的时候，需要使用 `clone()` 方法创建一个新的克隆，因为在使用 `addEventListenerWithSceneGraphPriority` 或者 `addEventListenerWithFixedPriority` 方法时，会对当前使用的事件监听器添加一个已注册的标记，这使得它不能够被添加多次。另外，有一点非常重要，FixedPriority listener添加完之后需要手动remove，而SceneGraphPriority listener是跟node绑定的，在node的析构函数中会被移除。具体的示例用法可以参考引擎自带的tests。
 
 ### 新的触摸机制
 
