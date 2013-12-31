@@ -1,5 +1,8 @@
 #cocos2d::Map< K,V >
 
+- Since: v3.0 beta
+- Language: C++
+
 From `typedef std::unordered_map<K, V> RefMap;` in class `Map`, we can know that the STL container `unordered_map` is used, which is the new feature of c++11.  
 
 Unordered maps are associative containers that store elements formed by the combination of a key value and a mapped value, and which allows for fast retrieval of individual elements based on their keys.
@@ -10,7 +13,7 @@ Internally, the elements in the unordered_map are not sorted in any particular o
 
 ##Usage
 
-```
+```cpp
 auto map_Val_0 = Sprite::create("CloseNormal.png");
 Map<char*, Object*>* pMap = new Map<char*, Object*>();
 char* map_key =const_cast<char*>("test");
@@ -52,7 +55,7 @@ There is no create function, but you can initialize you map with the constructor
 
 - All the elements in the Map<K,V> container will be dropped if we use `clear()`.
 
-```
+```cpp
 pMap->erase(map_key);
 pMap->clear();
 ```
@@ -61,7 +64,7 @@ pMap->clear();
 
 - We can set capacity of the map by using `reserve(ssize_t capacity)`. 
 
-```
+```cpp
 pMap->reserve(10);
 ```
 
@@ -81,7 +84,7 @@ pMap->reserve(10);
 
 - `getRandomObject()` will return a random object in the map if the map isn't empty, otherwise it returns nullptr.
 
-```
+```cpp
 if (!pMap->empty()) {
 	pMap->size();
 	pMap->bucketCount();
