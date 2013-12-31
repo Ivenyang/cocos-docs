@@ -3,7 +3,7 @@
 - Since: v3.0 beta
 - Language: C++
 
-Defined in header <CCVector.h>
+Defined in header "CCVector.h" located in file "cocos/base"
 
 ---
 
@@ -47,7 +47,7 @@ if (pVec0->equals(*pVec2)) { //returns true if the two vectors are equal
     log("pVec0 is equal to pVec2");
 }
 if (!pVec1->empty()) {  //whether the Vector is empty
-        //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
+    //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
     if (pVec1->capacity()==pVec1->size()) {
        log("pVec1->capacity()==pVec1->size()");
     }else{
