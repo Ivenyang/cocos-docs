@@ -3,15 +3,15 @@
 - Since: v3.0 beta
 - Language: C++
 
-From `typedef std::unordered_map<K, V> RefMap;` in class `Map`, we can know that the STL container `unordered_map` is used, which is the new feature of c++11.  
+Map<K,V> is template associative container which uses std::unordered_map<K, V> as its internal infrastructure.
 
-Unordered maps are associative containers that store elements formed by the combination of a key value and a mapped value, and which allows for fast retrieval of individual elements based on their keys.
+The std::unordered_map<K, V> is associative container that store elements formed by the combination of a key value and a mapped value, and which allows for fast retrieval of individual elements based on their keys.
 
 In an unordered_map, the key value is generally used to uniquely identify the element, while the mapped value is an object with the content associated to this key. Types of key and mapped value may differ.
 
 Internally, the elements in the unordered_map are not sorted in any particular order with respect to either their key or mapped values, but organized into buckets depending on their hash values to allow for fast access to individual elements directly by their key values (with a constant average time complexity on average).
 
-##Usage
+##Basic Usage
 
 ```cpp
 auto map_Val_0 = Sprite::create("CloseNormal.png");
@@ -27,7 +27,7 @@ if(!pMap->empty()){
 }
 ```
 
-##Detail
+##Details In Action
 
 ###Constructors
 
