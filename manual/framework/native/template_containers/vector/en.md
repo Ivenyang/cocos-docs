@@ -3,13 +3,15 @@
 - Since: v3.0 beta
 - Language: C++
 
-In the older version of cocos2d-x, there are Dictionary, Array, Set and some other containers. But now,in the latest version, we can use some new containers to replace it, for example we can use `cocos2d::Vector<T>` instead of `cocos2d::Array`. We could easily find that it's more closer to the STL style of c++, where we use `std::vector` to do the same work.  
+In the older version of cocos2d-x, there are Dictionary, Array, Set and some other containers. But now,since cocos2d-x v3.0 beta, we provide a few brand new template containers for handling aggregation object manipulation. For example we can use `cocos2d::Vector<T>` instead of `cocos2d::Array`. It is STL-like style and more c++ friendly.
 
-The `Vector` doesn't inherit from class `Object`,and there is no create function for `Vector`.
+Actually the internal implementation data structure is std::vector<T> which is the standard sequence container of STL.
 
-In the new container `Vector`, there are some operation functions. We can copy or move our data to the vector just use the constructors.
+The new `Vector` class is a template class which only supports CCObject descendant object pointer as it's elements. No others data type or primitives are not allowed. Because we integrate the memory management model of cocos2d-x into `Vector`.
 
-In this version, we can use `Vector` like:
+In this documentation, we will cover the basic usage of Vector<T> and we will also point out the pitfalls and traps of the new container.
+
+We can create a object pointer of Vector<Object*> and add a sprite pointer object to it:
 
 ```cpp
 auto sp0 = Sprite::create();  
@@ -115,7 +117,7 @@ if(!pVec->empty()){
    pVec->find(sp1);
    pVec->front();
    pVec->back();
-   pVec->contains(sp1);
+   bool flag =  pVec->contains(sp1);
    pVecTemp->equals(*pVecCopy);
 }
 ```
