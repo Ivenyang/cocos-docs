@@ -1,37 +1,33 @@
-#Improve Label in Cocos2d-x-3.0
+#Improved Label in Cocos2d-x-3.0
 
-Before the Cocos2d-x-3.0, there are three classes that can add text label on layers and sprites,which are CCLabelTTF, CCLabelBMFont and CCLabelAtlas.
+Before Cocos2d-x 3.0 released, the text label can be added to layer by three classes-CCLabelTTF, CCLabelBMFont and CCLabelAtlas.
 
-Cocos2d-x 3.0 makes some improvements, it keeps compatible with previous version, keep LabelTTF, LabelBMFont and LabelAtlas with minor changes and also provides another class named Label to handling text rendering.
+Though Cocos2d-x 3.0 have improved, it keeps compatible with previous version.
 
-So there are four classes that can add text label: Label, LabelTTF, LabelBMFont and LabelAtlas. The new Label in v3.0 works with freetype and gives you the same visual effect
-on different platforms. It's quicker than previous version with cache strategy.
+With cache strategy's help you can speed up your game.
 
-And also it offers tracing, shadow and many more features to be ready to put aside your LabelTTF and LabelBMFont.
+## Changes:
 
+1. Removed CC prefix of classes, structures and macros. Removed Hungarian naming convention, such as m, p, etc.
+2. Changed certain data type of parameters and return value type in member functions. For example, char was replaced by string, unsigned int was replaced by long, etc.
+3. Changed the name and attribute values ​​of some enum types.
+4. Added const modifier to member function, such as `float getFontSize() const;`, improving the robustness of the program.
 
-Changes:
-
-1. Remove the CC prefix of class, struct and macro. Remove Hungarian naming convention, such as m, p, etc.
-2. Change certain data type of parameters and return type in the member functions. For example, char was replaced by string, unsigned int was replaced by long, etc.
-3. Change the name and attribute values ​​of some enum types;
-4. Add const modifier to member function, such as `float getFontSize() const;`, improving the robustness of the program.
-
-## Similar changes
+## Similar changes of old CCLabel
 
 ### 1.Comparison of the inheritance relationship
-1.In v3.0 version ,all classes have removed the CC prefix and also remove the CCCopying class. Such as:
+In v3.0 version, all classes have removed CC prefix and also remove the CCCopying class. Such as:
 
-CCLabelTTF and LabelTTF 
+#### CCLabelTTF and LabelTTF 
 
 ![](./res/classcocos2d_1_1_c_c_label_t_t_f.png)
 
 ![](./res/classcocos2d_1_1_label_t_t_f.png)
 
 
-### 2.The definition of Horizontal alignment and vertical alignment are changed
+### 2. The definition of Horizontal alignment and vertical alignment are changed
 
-In V2.x version
+#### In V2.x version
 
 ```
 	static CCLabelTTF * create(const char *string, const char *fontName, float fontSize,
@@ -39,7 +35,7 @@ In V2.x version
 	　　                               CCVerticalTextAlignment vAlignment);
 ```
 
-In V3.0 version
+#### In V3.0 version
 ```
 	static LabelTTF * create(const std::string& string, const std::string& fontName, float fontSize,
 	　　                             const Size& dimensions, TextHAlignment hAlignment,
@@ -47,11 +43,13 @@ In V3.0 version
 ```
 
 
-As the example above, you can see a number of changes in the function of the upgrade version. Firstly, there isn't CC prefix any more;
+As the example above, you can see the changes in the function of the upgrade version. 
 
-Secondly, char array has been replaced by a string type(The string is relatively  more advanced and more convenient to use. The char array operation is much more error prone,
-but the efficiency is higher); In addition, the type of last two parameters(horizontal and vertical alignment of the text) are also changed,
-but they have the similar efficiency as the previous version, only the name has changed as follows:
+Firstly, there isn't CC prefix any more.
+
+Secondly, char array has been replaced by a string type(The string is relatively more advanced and more convenient to use. The char array operation is likely make mistakes, but more efficient).
+
+In addition, the type of the last two parameters(horizontal and vertical alignment of the text) are also changed. However, they have the similar efficiency as the previous version, only name has changed as follows:
 
 
 | |*cocos2d-x-2.x*|*cocos2d-x-3.0*|
@@ -62,15 +60,15 @@ but they have the similar efficiency as the previous version, only the name has 
 
 
 
-## Different changes
+## Different changes of old CCLabel
  
-LabelBMFont removed the function:
+LabelBMFont has removed following function:
 
 ``` 
 	CCBMFontConfiguration* getConfiguration() const;
 ```
 
-So you can't call this function to get _configuration(FNT file configuration properties) in v3.0 version any more.
+This function can’t be called to get _configuration(FNT file configuration properties) in v3.0 version any more.
 
 
 
@@ -78,13 +76,13 @@ So you can't call this function to get _configuration(FNT file configuration pro
 ### New Label class
 
 
-Let's look at the hierarchy chart of the Label class :
+Let's look at the hierarchy chart of the Label class:
 
 
 ![](./res/classcocos2d_1_1_label.png)
 
 
-In the above chart, LabelTextFormatProtocol is also a new class, it is  similar as LabelProtocol,  they are all pure virtual classes which provide a interface to store strings.
+In the chart above, LabelTextFormatProtocol is also a new class. It is similar as LabelProtocol,  they are all pure virtual base classes which provide a interface to store strings.
 
 Here is the inheritance graph:
 
@@ -101,13 +99,11 @@ Static Public Member Functions of Label class:
 ```
 
  
-* CreateWithTTF () function can create Label directly from TTF file(TTF is a file extension for a font file developed by Apple. TTF stands for True Type Font.
-TTF files are currently used by both Apple and Microsoft as a raster font format).
+CreateWithTTF() function can create Label directly from TTF file.
 
-The way of creating Label with this function is similar to the way of creating LabelTTF(previous CCLabelTTF). The difference is LabelTTF class create font label from font name,
-but Label class create font label directly through a ttf file.
+The way of creating Label with this function is similar to the way of creating LabelTTF. The difference is LabelTTF class create font label by font name, but Label class create font label directly through a ttf file.
 
-Look at a piece of code as follows, creating a label with LabelTTF and Label: 
+Look at a piece of code as follow, creating a label with LabelTTF and Label: 
 ```
 	auto label1 = LabelTTF::create("Creating label through LabelTTF class by file name", "myFontName", 24);
 	label1->setPosition(Point(origin.x, origin.y + visibleSize.height - label1->getContentSize().height));
@@ -120,7 +116,7 @@ Look at a piece of code as follows, creating a label with LabelTTF and Label:
 	label2->setAnchorPoint(Point(0.0f, 0.0f));
 	this->addChild(label2);
 ```
-Run the program and you will get the following screenshot:
+Run the program and you will get the following result:
 
 ![](./res/ttf.png)
 
@@ -132,7 +128,7 @@ Here is a method to set the alignment of a label:
 	label2->setAlignment(TextHAlignment::LEFT)；	//Set the text level alignment is aligned to the left
 ```
 
-* CreateWithBMFont() can create Label with FNT file,it is similar to LabelBMFont. Look at a piece of code as follows, creating a label through LabelBMFont and Label: 
+CreateWithBMFont() can create Label with FNT file, it is similar to LabelBMFont. Look at a piece of code as follow, creating a label through LabelBMFont and Label: 
 
 ```
 	auto label3 = LabelBMFont::create("Create label through LabelBMFont class by .fnt file", "fonts/helvetica-32.fnt");
@@ -146,16 +142,17 @@ Here is a method to set the alignment of a label:
 	addChild(label4 );
 ```
 
-Run the program and you give get the following screenshot:
+Run the program and you give get the following result:
 
 ![](./res/bmfont1.png)
 
 To use the LabelBMFont class, you need to add the font files into your project, including a PNG file and a FNT file. The Label class has the same requirement.
-FNT file contains the name of the corresponding image (Image contains all  characters that you want to draw), the corresponding unicode  of characters,
-the coordinates, width and height of characters in the image.
 
-You can change some attributes of your label4 by simply calling the member function like the following:
+FNT file contains the name of the corresponding image, the corresponding unicode  of characters, the coordinates, width and height of characters in the image.
 
+You can change some attributes of your label4 by calling the member function just like following codes:
+
+```
 	auto size = label4->getLabelContentSize();
 	CCLOG("Label content size: %.2fx%.2f", size.width, size.height);
 	auto lineWidth = label4->getMaxLineWidth();
@@ -169,7 +166,7 @@ You can change some attributes of your label4 by simply calling the member funct
 	auto jump = JumpBy::create(0.5f, Point::ZERO, 60, 1);
 	auto jump_4ever = RepeatForever::create(jump);
 	CChar->runAction(jump_4ever);
-
+```
 
 Run the program to see the difference:
 
@@ -177,5 +174,6 @@ Run the program to see the difference:
 ![](./res/bmfont2.png)
 
 ![](./res/bmfont3.png)
+
 
 
