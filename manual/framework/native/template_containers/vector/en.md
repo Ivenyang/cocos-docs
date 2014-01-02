@@ -34,7 +34,7 @@ The complexity (efficiency) of common operations on `cocos2d::Vecotr<T>` is as f
 
 **T** - The type of the elements.
 
-- T must be the a pointer to `[cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
+- T must be the a pointer to "[cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)" descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
 
 ##Memory Management
 The `cocos2d::Vector<T>` class contains only one data member:
