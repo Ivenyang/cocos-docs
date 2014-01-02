@@ -59,6 +59,8 @@ So the `pushBack` method now will retain the ownership of the function argument 
 
 When you use these operations, you should pay extra attentions to the underline memory management stuff which are the common traps for many newbie cocos2d-x developers.
 
+**Note** The `Vector<T>` doesn't overload `operator[]`, so you can't get a element from `Vector<T>` using subscrit operator like `vec[i]`.
+
 The `Vector<T>` container provides many different kinds of iterators. Thus we benefit many standard infrastructures of standard library of c++.
 
 For example, the exclusive huge amount of standard generic algorithms and the `for_each` loop.
