@@ -3,11 +3,11 @@
 - Since: v3.0 beta
 - Language: C++
 
-Defined in the head "CCValue.h" loated in "cocos/base"
+Defined in the head "[CCValue.h](https://github.com/andyque/cocos2d-x/blob/develop/cocos/base/CCValue.h)" loated in "COCOS2DX_ROOT/cocos/base"
 
 ---
 
-```
+```cpp
 class Value;
 ```
 
@@ -24,7 +24,7 @@ cocos2d::Value encapsulates basical types and template containers. Initializatio
 
 ##Basic Usage
 
-```
+```cpp
 Value val;   // call the default constructor
 if (val.isNull()) {
 	log("val is null");
@@ -67,7 +67,7 @@ log("operator-> The description of val4:%s",val2.getDescription().c_str());
 
 output:
 
-```
+```cpp
 cocos2d: val is null
 cocos2d: The description of the integer value:
 65
@@ -93,3 +93,5 @@ cocos2d: operator-> The description of val4:
 ```
 
 ##Best Practice
+- Prefer `cocos2d::Value` and new template container(`cocos2d::Vector<T>` and `cocos2d::Map<K,V>`) over `cocos2d::CCBool`, `cocos2d::CCFloat`,`cocos2d::CCDouble`,`cocos2d::CCString`,`cocos2d::CCInteger` and old Objective-c style container(`cocos2d::CCArray` and `cocos2d::CCDictionary`).
+- When you want to deal with primitives aggregate, wrap the primitives with `cocos2d::Value` and combine them with the new template container `cocos2d::Vector<T>` and `cocos2d::Map<K,V>`.
