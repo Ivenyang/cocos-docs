@@ -34,7 +34,7 @@ The complexity (efficiency) of common operations on `Vecotr<T>` is as follows:
 
 **T** - The type of the elements.
 
-- T must be the a pointer to `Object` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
+- T must be the a pointer to `[Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
 
 ##Memory Management
 The `Vector<T>` class contains only one data member:
@@ -50,6 +50,8 @@ If you call `new` operator to allocate a dynamic memory of `Vector<T>`, you shou
 **Note**: In modern c++, it prefer local storage object over heap storage object. So please don't call `new` operator to allocate a heap object of `Vector<T>`, use stack object instead.
 
 If you do want to dynamic allocate `Vecotr<T>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
+
+**WARNING**: `cocos2d::Vector<T>` doesn't use retain/release and refcount memory management like other cocos2d classes!
 
 
 ##Basic Usage
@@ -73,56 +75,56 @@ For more APIs usage, please refer to the source code and the tests distributed w
 Here is a simple usage example:
 
 ```cpp
-  //create Vector<Object*> with default size and add a sprite into it
-    auto sp0 = Sprite::create();
-    sp0->setTag(0);
-    //here we use shared_ptr just as an demo, do use stack object instead
-    std::shared_ptr<Vector<Sprite*>>  vec0 = std::make_shared<Vector<Sprite*>>();  //default constructor
-    vec0->pushBack(sp0);
-    
-    //create a Vector<Object*> with capacity equals 5 and add a sprite into it
-    auto sp1 = Sprite::create();
-    sp1->setTag(1);
-    
-    //initialize a vector with a capacity
-    Vector<Sprite*>  vec1(5);
-    //insert a certain object at a certain index
-    vec1.insert(0, sp1);
-    
-    //we can also add a whole vector
-    vec1.pushBack(*vec0);
-    
-    for(auto sp : vec1)
-    {
-        log("sprite tag = %d", sp->getTag());
+//create Vector<Object*> with default size and add a sprite into it
+auto sp0 = Sprite::create();
+sp0->setTag(0);
+//here we use shared_ptr just as an demo, do use stack object instead
+std::shared_ptr<Vector<Sprite*>>  vec0 = std::make_shared<Vector<Sprite*>>();  //default constructor
+vec0->pushBack(sp0);
+
+//create a Vector<Object*> with capacity equals 5 and add a sprite into it
+auto sp1 = Sprite::create();
+sp1->setTag(1);
+
+//initialize a vector with a capacity
+Vector<Sprite*>  vec1(5);
+//insert a certain object at a certain index
+vec1.insert(0, sp1);
+
+//we can also add a whole vector
+vec1.pushBack(*vec0);
+
+for(auto sp : vec1)
+{
+    log("sprite tag = %d", sp->getTag());
+}
+
+Vector<Sprite*> vec2(*vec0);
+if (vec0->equals(vec2)) { //returns true if the two vectors are equal
+    log("pVec0 is equal to pVec2");
+}
+if (!vec1.empty()) {  //whether the Vector is empty
+    //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
+    if (vec1.capacity() == vec1.size()) {
+        log("pVec1->capacity()==pVec1->size()");
+    }else{
+        vec1.shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
+        log("pVec1->capacity()==%zd; pVec1->size()==%zd",vec1.capacity(),vec1.size());
     }
+    //pVec1->swap(0, 1);  //swap two elements in Vector by the index
+    vec1.swap(vec1.front(), vec1.back());  //swap two elements in Vector by the value
+    if (vec2.contains(sp0)) {  //returns a Boolean value that indicates whether object is present in vector
+        log("The index of sp0 in pVec2 is %zd",vec2.getIndex(sp0));
+    }
+    //remove the element from the Vector
+    vec1.erase(vec1.find(sp0));
+    //pVec1->erase(1);
+    //pVec1->eraseObject(sp0,true);
+    //pVec1->popBack();
     
-    Vector<Sprite*> vec2(*vec0);
-    if (vec0->equals(vec2)) { //returns true if the two vectors are equal
-        log("pVec0 is equal to pVec2");
-    }
-    if (!vec1.empty()) {  //whether the Vector is empty
-        //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
-        if (vec1.capacity() == vec1.size()) {
-            log("pVec1->capacity()==pVec1->size()");
-        }else{
-            vec1.shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
-            log("pVec1->capacity()==%zd; pVec1->size()==%zd",vec1.capacity(),vec1.size());
-        }
-        //pVec1->swap(0, 1);  //swap two elements in Vector by the index
-        vec1.swap(vec1.front(), vec1.back());  //swap two elements in Vector by the value
-        if (vec2.contains(sp0)) {  //returns a Boolean value that indicates whether object is present in vector
-            log("The index of sp0 in pVec2 is %zd",vec2.getIndex(sp0));
-        }
-        //remove the element from the Vector
-        vec1.erase(vec1.find(sp0));
-        //pVec1->erase(1);
-        //pVec1->eraseObject(sp0,true);
-        //pVec1->popBack();
-        
-        vec1.clear(); //remove all elements
-        log("The size of pVec1 is %zd",vec1.size());
-    }
+    vec1.clear(); //remove all elements
+    log("The size of pVec1 is %zd",vec1.size());
+}
  ```
 
 output:
