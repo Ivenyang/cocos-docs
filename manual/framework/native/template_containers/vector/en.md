@@ -47,6 +47,10 @@ The memory management of `_data` is handled automatically by the compiler. If yo
 
 If you call `new` operator to allocate a dynamic memory of `Vector<T>`, you should call `delete` operator to deallocate the memory after usage. The same goes for `new[]` and `delete[]`.
 
+**Note**: In modern c++, it prefer local storage object over heap storage object. So please don't call `new` operator to allocate a heap object of `Vector<T>`, use stack object instead.
+
+If you do want to dynamic allocate `Vecotr<T>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
+
 
 ##Basic Usage
 We wrapped almost all common operations of `std::vector<T>` with a unified interface plus the memory management rules of cocos2d-x.
@@ -67,59 +71,64 @@ For more APIs usage, please refer to the source code and the tests distributed w
 Here is a simple usage example:
 
 ```cpp
-//create a Vector<Object*> with default size and add a sprite into it
-auto sp0 = Sprite::create();
-Vector<Object*>* pVec0 = new Vector<Object*>();  //default constructor
-pVec0->pushBack(sp0);
-
-//create a Vector<Object*> with capacity equals 5 and add a sprite into it
-auto sp1 = Sprite::create();
-Vector<Object*>* pVec1 = new Vector<Object*>(5); //initialize a vector with a capacity
-pVec1->insert(0, sp1);  //insert a certain object at a certain index
-
-//add a whole Vecotr into another, all elements of the container will be added
-pVec1->pushBack(*pVec0);
-
-//create a Vecotr<Object*> with another Vector<Object*>.
-Vector<Object*>* pVec2 = new Vector<Object*>(*pVec0);
-
-//check equality of two Vector, each element of the container will be checked equality by calling the isEqual method of T
-if (pVec0->equals(*pVec2)) { 
-    log("pVec0 is equal to pVec2");
-}
-if (!pVec1->empty()) {  
-    //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
-    if (pVec1->capacity()==pVec1->size()) {
-       log("pVec1->capacity()==pVec1->size()");
-    }else{
-        pVec1->shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
-        log("pVec1->capacity()==%zd; pVec1->size()==%zd",pVec1->capacity(),pVec1->size());
+    //create Vector<Sprite*> with default size and add a sprite into it
+    auto sp0 = Sprite::create();
+    sp0->setTag(0);
+    std::shared_ptr<Vector<Sprite*>>  vec0 = std::make_shared<Vector<Sprite*>>();  //default constructor
+    vec0->pushBack(sp0);
+    
+    //create a Vector<Sprite*> with capacity equals 5 and add a sprite into it
+    auto sp1 = Sprite::create();
+    sp1->setTag(1);
+    
+    //initialize a vector with a capacity
+    std::shared_ptr<Vector<Sprite*>>  vec1(new Vector<Sprite*>(5));
+    //insert a certain object at a certain index
+    vec1->insert(0, sp1);
+    
+    //we can also add a whole vector
+    vec1->pushBack(*vec0);
+    
+    for(auto sp : *vec1)
+    {
+        log("sprite tag = %d", sp->getTag());
     }
-
-    //pVec1->swap(0, 1);  //swap two elements in Vector by the index
-
-    pVec1->swap(pVec1->front(), pVec1->back());  //swap two elements in Vector by the value
-    if (pVec2->contains(sp0)) {  //returns a Boolean value that indicates whether object is present in vector
-        log("The index of sp0 in pVec2 is %zd",pVec2->getIndex(sp0));
+    
+    Vector<Sprite*> vec2(*vec0);
+    if (vec0->equals(vec2)) { //returns true if the two vectors are equal
+        log("pVec0 is equal to pVec2");
     }
-
-    //remove the element from the Vector
-    pVec1->erase(pVec1->find(sp0));
-    //pVec1->erase(1);
-    //pVec1->eraseObject(sp0,true);
-    //pVec1->popBack(); 
-
-   //loop all elements of the container
-
-    pVec1->clear(); //remove all elements
-    log("The size of pVec1 is %zd",pVec1->size());
-}
+    if (!vec1->empty()) {  //whether the Vector is empty
+        //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
+        if (vec1->capacity() == vec1->size()) {
+            log("pVec1->capacity()==pVec1->size()");
+        }else{
+            vec1->shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
+            log("pVec1->capacity()==%zd; pVec1->size()==%zd",vec1->capacity(),vec1->size());
+        }
+        //pVec1->swap(0, 1);  //swap two elements in Vector by the index
+        vec1->swap(vec1->front(), vec1->back());  //swap two elements in Vector by the value
+        if (vec2.contains(sp0)) {  //returns a Boolean value that indicates whether object is present in vector
+            log("The index of sp0 in pVec2 is %zd",vec2.getIndex(sp0));
+        }
+        //remove the element from the Vector
+        vec1->erase(vec1->find(sp0));
+        //pVec1->erase(1);
+        //pVec1->eraseObject(sp0,true);
+        //pVec1->popBack();
+        
+        vec1->clear(); //remove all elements
+        log("The size of pVec1 is %zd",vec1->size());
+    }
 ```
 
 output:
 
 ```cpp
-cocos2d: pVec0 is equal to pVec2
-cocos2d: pVec1->capacity()==2; pVec1->size()==2
-cocos2d: The index of sp0 in pVec2 is 0
+Cocos2d: sprite tag = 1
+Cocos2d: sprite tag = 0
+Cocos2d: pVec0 is equal to pVec2
+Cocos2d: pVec1->capacity()==2; pVec1->size()==2
+Cocos2d: The index of sp0 in pVec2 is 0
+Cocos2d: The size of pVec1 is 0
 ```
