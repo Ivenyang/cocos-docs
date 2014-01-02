@@ -13,21 +13,21 @@ template<class T>class CC_DLL Vector;
 
 ---
 
-cocos2d::Vector is a sequence container that encapsulates dynamic size arrays.
+`cocos2d::Vector` is a sequence container that encapsulates dynamic size arrays.
 
-The elements are stored contiguously and the storage of the Vector is handled automatically. Actually the internal implementation data structure is [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
+The elements are stored contiguously and the storage of the `cocos2d::Vector` is handled automatically. Actually the internal implementation data structure is [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
 
 Before cocos2d-x v3.0 beta, there is another sequence container named "[CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h)" which will be deprecated in the future.
 
-Because we carefully design the Vector<T> container as a replacement for CCArray. So please use Vector<T> instead of CCArray.
+Because we carefully design the `Vector<T>` container as a replacement for `CCArray`. So please use `Vector<T>` instead of `CCArray`.
 
-The complexity (efficiency) of common operations on vectors is as follows:
+The complexity (efficiency) of common operations on `Vecotr<T>` is as follows:
 
 - Random access - constant O(1)
 
 - Insertion or removal of elements at the end - amortized constant O(1)
 
-- Insertion or removal of elements - linear in distance to the end of the vector O(n)
+- Insertion or removal of elements - linear in distance to the end of the `cocos2d::Vector` O(n)
 
 
 ##Template parameters
@@ -36,19 +36,33 @@ The complexity (efficiency) of common operations on vectors is as follows:
 
 - T must be the a pointer to CCObject descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
 
+##Memory Management
+The `Vector<T>` class contains only one data member:
+
+```cpp
+std::vector<T> _data;
+```
+
+The memory management of `_data` is handled automatically by the compiler. If you declare a `Vector<T>` object on stack, you don't need to care about the memory deallocation.
+
+If you call `new` operator to allocate a dynamic memory of `Vector<T>`, you should call `delete` operator to deallocate the memory after usage. The same goes for `new[]` and `delete[]`.
 
 
 ##Basic Usage
-We wrapped almost all common operations of std::vector<T> with a unified interface plus the memory management rules of cocos2d-x.
+We wrapped almost all common operations of `std::vector<T>` with a unified interface plus the memory management rules of cocos2d-x.
 
-So the `pushBack` method now will retain the ownership of the function argument and the `popBack()` method will release the ownership of the argument.
+So the `pushBack` method now will retain the ownership of the function argument and the `popBack()` method will release the ownership of the last element of container.
 
-When you use these operations, you should pay extra attentions to the underline memory management stuff which is the common traps for many newbie cocos2d-x developers.
+When you use these operations, you should pay extra attentions to the underline memory management stuff which are the common traps for many newbie cocos2d-x developers.
 
-Despite of std::vector<t>'s container operations, we also added many standard algorithms like `std::find`,`std::reverse` and `std::swap` to Vector<T> container which simplify many useful
+The `Vector<T>` container provides many different kinds of iterators. Thus we benefit many standard infrastructures of standard library of c++.
+
+For example, the exclusive huge amount of standard generic algorithms and the `for_each` loop.
+
+Despite of `std::vector<t>`'s container operations, we also added many standard algorithms like `std::find`,`std::reverse` and `std::swap` to `Vector<T>` container which simplify many useful
 common operations.
 
-For more APIs, you should refer to the source code and the tests distributed with cocos2d-x 3.0 beta archive.
+For more APIs usage, please refer to the source code and the tests distributed with cocos2d-x 3.0 beta archive.
 
 Here is a simple usage example:
 
@@ -94,6 +108,8 @@ if (!pVec1->empty()) {
     //pVec1->erase(1);
     //pVec1->eraseObject(sp0,true);
     //pVec1->popBack(); 
+
+   //loop all elements of the container
 
     pVec1->clear(); //remove all elements
     log("The size of pVec1 is %zd",pVec1->size());
