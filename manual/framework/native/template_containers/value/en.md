@@ -19,6 +19,8 @@ cocos2d::Value encapsulates basical types and template containers. Initializatio
 - Assignment: `value1(value2)`  or  `value1=value2`
 - Type conversion:  `XXX asXXX()`
 
+##Memory Management
+
 
 ##Basic Usage
 
@@ -89,3 +91,5 @@ cocos2d: operator-> The description of val2:
 cocos2d: operator-> The description of val4:
 4
 ```
+
+##Best Practice

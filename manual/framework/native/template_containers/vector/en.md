@@ -34,7 +34,7 @@ The complexity (efficiency) of common operations on `Vecotr<T>` is as follows:
 
 **T** - The type of the elements.
 
-- T must be the a pointer to CCObject descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
+- T must be the a pointer to `Object` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
 
 ##Memory Management
 The `Vector<T>` class contains only one data member:
@@ -141,5 +141,5 @@ Cocos2d: The size of pVec1 is 0
 - Prefer stack-based scope `Vector<T>` over heap-based scope `Vector<T>`
 - When pass `Vector<T>` as a argument, declare it as a const reference like `const Vector<T>&`
 - When return a `Vector<T>` from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
-- Don't try to hold any data type objects except for `CCObject` descendant object pointers.
+- Don't try to hold any data type objects except for `Object` descendant object pointers.
 
