@@ -13,43 +13,43 @@ template<class T>class CC_DLL Vector;
 
 ---
 
-`cocos2d::Vector` is a sequence container that encapsulates dynamic size arrays.
+`cocos2d::Vector<T>` is a sequence container that encapsulates dynamic size arrays.
 
-The elements are stored contiguously and the storage of the `cocos2d::Vector` is handled automatically. Actually the internal implementation data structure is [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
+The elements are stored contiguously and the storage of the `cocos2d::Vector<T>` is handled automatically. Actually the internal implementation data structure is [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
 
-Before cocos2d-x v3.0 beta, there is another sequence container named "[CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h)" which will be deprecated in the future.
+Before cocos2d-x v3.0 beta, there is another sequence container named "[cocos2d::CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h)" which will be deprecated in the future.
 
-Because we carefully design the `Vector<T>` container as a replacement for `CCArray`. So please use `Vector<T>` instead of `CCArray`.
+Because we carefully design the `cocos2d::Vector<T>` container as a replacement for `cocos2d::CCArray`. So please use `cocos2d::Vector<T>` instead of `cocos2d::CCArray`.
 
-The complexity (efficiency) of common operations on `Vecotr<T>` is as follows:
+The complexity (efficiency) of common operations on `cocos2d::Vecotr<T>` is as follows:
 
 - Random access - constant O(1)
 
 - Insertion or removal of elements at the end - amortized constant O(1)
 
-- Insertion or removal of elements - linear in distance to the end of the `cocos2d::Vector` O(n)
+- Insertion or removal of elements - linear in distance to the end of the `cocos2d::Vector<T>` O(n)
 
 
 ##Template parameters
 
 **T** - The type of the elements.
 
-- T must be the a pointer to `[Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `Vector`. （since v3.0 beta）
+- T must be the a pointer to `[cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)` descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
 
 ##Memory Management
-The `Vector<T>` class contains only one data member:
+The `cocos2d::Vector<T>` class contains only one data member:
 
 ```cpp
 std::vector<T> _data;
 ```
 
-The memory management of `_data` is handled automatically by the compiler. If you declare a `Vector<T>` object on stack, you don't need to care about the memory deallocation.
+The memory management of `_data` is handled automatically by the compiler. If you declare a `cocos2d::Vector<T>` object on stack, you don't need to care about the memory deallocation.
 
-If you call `new` operator to allocate a dynamic memory of `Vector<T>`, you should call `delete` operator to deallocate the memory after usage. The same goes for `new[]` and `delete[]`.
+If you call `new` operator to allocate a dynamic memory of `cocos2d::Vector<T>`, you should call `delete` operator to deallocate the memory after usage. The same goes for `new[]` and `delete[]`.
 
-**Note**: In modern c++, it prefer local storage object over heap storage object. So please don't call `new` operator to allocate a heap object of `Vector<T>`, use stack object instead.
+**Note**: In modern c++, it prefer local storage object over heap storage object. So please don't call `new` operator to allocate a heap object of `cocos2d::Vector<T>`, use stack object instead.
 
-If you do want to dynamic allocate `Vecotr<T>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
+If you do want to dynamic allocate `cocos2d::Vecotr<T>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
 
 **WARNING**: `cocos2d::Vector<T>` doesn't use retain/release and refcount memory management like other cocos2d classes!
 
@@ -61,13 +61,13 @@ So the `pushBack` method now will retain the ownership of the function argument 
 
 When you use these operations, you should pay extra attentions to the underline memory management stuff which are the common traps for many newbie cocos2d-x developers.
 
-**Note** The `Vector<T>` doesn't overload `operator[]`, so you can't get a element from `Vector<T>` using subscrit operator like `vec[i]`.
+**WARNING** The `cocos2d::Vector<T>` doesn't overload `operator[]`, so you can't get a element from `cocos2d::Vector<T>` using subscrit operator like `vec[i]`.
 
-The `Vector<T>` container provides many different kinds of iterators. Thus we benefit many standard infrastructures of standard library of c++.
+The `cocos2d::Vector<T>` container provides many different kinds of iterators. Thus we benefit many standard infrastructures of standard library of c++.
 
 For example, the exclusive huge amount of standard generic algorithms and the `for_each` loop.
 
-Despite of `std::vector<t>`'s container operations, we also added many standard algorithms like `std::find`,`std::reverse` and `std::swap` to `Vector<T>` container which simplify many useful
+Despite of `std::vector<t>`'s container operations, we also added many standard algorithms like `std::find`,`std::reverse` and `std::swap` to `cocos2d::Vector<T>` container which simplify many useful
 common operations.
 
 For more APIs usage, please refer to the source code and the tests distributed with cocos2d-x 3.0 beta archive.
@@ -140,8 +140,8 @@ Cocos2d: The size of pVec1 is 0
 
 ##Best practice
 
-- Prefer stack-based scope `Vector<T>` over heap-based scope `Vector<T>`
-- When pass `Vector<T>` as a argument, declare it as a const reference like `const Vector<T>&`
-- When return a `Vector<T>` from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
-- Don't try to hold any data type objects except for `Object` descendant object pointers.
+- Prefer stack-based scope `cocos2d::Vector<T>` over heap-based scope `cocos2d::Vector<T>`
+- When pass `cocos2d::Vector<T>` as a argument, declare it as a const reference like `const cocos2d::Vector<T>&`
+- When return a `cocos2d::Vector<T>` from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
+- Don't try to hold any data type objects except for `cocos2d::Object` descendant object pointers.
 
