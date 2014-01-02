@@ -71,25 +71,26 @@ For more APIs usage, please refer to the source code and the tests distributed w
 Here is a simple usage example:
 
 ```cpp
-    //create Vector<Sprite*> with default size and add a sprite into it
+  //create Vector<Object*> with default size and add a sprite into it
     auto sp0 = Sprite::create();
     sp0->setTag(0);
+    //here we use shared_ptr just as an demo, do use stack object instead
     std::shared_ptr<Vector<Sprite*>>  vec0 = std::make_shared<Vector<Sprite*>>();  //default constructor
     vec0->pushBack(sp0);
     
-    //create a Vector<Sprite*> with capacity equals 5 and add a sprite into it
+    //create a Vector<Object*> with capacity equals 5 and add a sprite into it
     auto sp1 = Sprite::create();
     sp1->setTag(1);
     
     //initialize a vector with a capacity
-    std::shared_ptr<Vector<Sprite*>>  vec1(new Vector<Sprite*>(5));
+    Vector<Sprite*>  vec1(5);
     //insert a certain object at a certain index
-    vec1->insert(0, sp1);
+    vec1.insert(0, sp1);
     
     //we can also add a whole vector
-    vec1->pushBack(*vec0);
+    vec1.pushBack(*vec0);
     
-    for(auto sp : *vec1)
+    for(auto sp : vec1)
     {
         log("sprite tag = %d", sp->getTag());
     }
@@ -98,29 +99,29 @@ Here is a simple usage example:
     if (vec0->equals(vec2)) { //returns true if the two vectors are equal
         log("pVec0 is equal to pVec2");
     }
-    if (!vec1->empty()) {  //whether the Vector is empty
+    if (!vec1.empty()) {  //whether the Vector is empty
         //get the capacity and size of the Vector, noted that the capacity is not necessarily equal to the vector size.
-        if (vec1->capacity() == vec1->size()) {
+        if (vec1.capacity() == vec1.size()) {
             log("pVec1->capacity()==pVec1->size()");
         }else{
-            vec1->shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
-            log("pVec1->capacity()==%zd; pVec1->size()==%zd",vec1->capacity(),vec1->size());
+            vec1.shrinkToFit();   //shrinks the vector so the memory footprint corresponds with the number of items
+            log("pVec1->capacity()==%zd; pVec1->size()==%zd",vec1.capacity(),vec1.size());
         }
         //pVec1->swap(0, 1);  //swap two elements in Vector by the index
-        vec1->swap(vec1->front(), vec1->back());  //swap two elements in Vector by the value
+        vec1.swap(vec1.front(), vec1.back());  //swap two elements in Vector by the value
         if (vec2.contains(sp0)) {  //returns a Boolean value that indicates whether object is present in vector
             log("The index of sp0 in pVec2 is %zd",vec2.getIndex(sp0));
         }
         //remove the element from the Vector
-        vec1->erase(vec1->find(sp0));
+        vec1.erase(vec1.find(sp0));
         //pVec1->erase(1);
         //pVec1->eraseObject(sp0,true);
         //pVec1->popBack();
         
-        vec1->clear(); //remove all elements
-        log("The size of pVec1 is %zd",vec1->size());
+        vec1.clear(); //remove all elements
+        log("The size of pVec1 is %zd",vec1.size());
     }
-```
+ ```
 
 output:
 
@@ -132,3 +133,11 @@ Cocos2d: pVec1->capacity()==2; pVec1->size()==2
 Cocos2d: The index of sp0 in pVec2 is 0
 Cocos2d: The size of pVec1 is 0
 ```
+
+##Best practice
+
+- Prefer stack-based scope Vector<T> over heap-based scope Vector<T>
+- When pass Vector<T> as a argument, declare it as a const reference like `const Vector<T>&`
+- When return a Vector<T> from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
+- Don't try to hold any data type objects except for CCObject descendant object pointers.
+
