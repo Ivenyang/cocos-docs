@@ -17,7 +17,7 @@ template<class T>class CC_DLL Vector;
 
 The elements are stored contiguously and the storage of the `cocos2d::Vector<T>` is handled automatically. Actually the internal implementation data structure is [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
 
-Before cocos2d-x v3.0 beta, there is another sequence container named "[cocos2d::CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h)" which will be deprecated in the future.
+Before cocos2d-x v3.0 beta, there is another sequence container named [cocos2d::CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h) which will be deprecated in the future.
 
 Because we carefully design the `cocos2d::Vector<T>` container as a replacement for `cocos2d::CCArray`. So please use `cocos2d::Vector<T>` instead of `cocos2d::CCArray`.
 
@@ -34,7 +34,7 @@ The complexity (efficiency) of common operations on `cocos2d::Vecotr<T>` is as f
 
 **T** - The type of the elements.
 
-- T must be the a pointer to "[cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h)" descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
+- T must be the a pointer to [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
 
 ##Memory Management
 The `cocos2d::Vector<T>` class contains only one data member:
