@@ -3,9 +3,11 @@
 -------------
 
 
-在Cocos2d-x3.0之前的版本中，可以向场层和精灵上添加文字的类有三个：CCLabelTTF、CCLabelBMFont和CCLabelAtlas。而现在的3.0版本对文本显示这一块有所改进的是，它保留了原来版本的类，实现了向下兼容，
-但同时又把已有的文本显示功能收录在了一个新增Label类中，即现在它有四个可添加文字的类：Label、LabelTTF、LabelBMFont和LabelAtlas。后三个类在功能上承续之前的版本，功能没有什么变化，只是在类名、变量名的命名方式等方面 有点细微的改变；
-Label类几乎已经代替了LabelTTF和LabelBMFont类，因为它使用更快的缓存策略，提供了追踪(tracing)、阴影和更多的功能。
+在Cocos2d-x3.0之前的版本中，可以向场层和精灵上添加文字的类有三个：CCLabelTTF、CCLabelBMFont和CCLabelAtlas。
+
+3.0版本对文本显示这一块有所改进的是，新增Label类中有四个可添加文字的类：Label、LabelTTF、LabelBMFont和LabelAtlas。其中LabelTTF、LabelBMFont和LabelAtlas在功能上承续之前的版本，只是在命名方式等有所调整。
+
+Label类可以代替LabelTTF和LabelBMFont类，因为Label使用了更快的缓存策略。并且Label提供了追踪(tracing)、阴影和更多的功能。
 
 变化：
 
@@ -15,27 +17,25 @@ Label类几乎已经代替了LabelTTF和LabelBMFont类，因为它使用更快�
 4. 将引擎中不会被修改数据成员的函数都声明成了const 类型，提高了程序的健壮性。
 
 
-
-
-## 相同的改变
-### 1、从继承关系图上比较
+## 主要调整
+### 从继承关系图上比较
 从继承关系上比较，v3.0版本的类都去掉了CC前缀，也去掉了CCCopying基类。例如：
 
-CCLabelTTF类和LabelTTF类的比较
+#### CCLabelTTF类和LabelTTF类的比较
 
 ![](./res/classcocos2d_1_1_c_c_label_t_t_f.png)
 
 ![](./res/classcocos2d_1_1_label_t_t_f.png)
 
-### 2.水平对齐方式和垂直对齐方式定义有所变化
+### 水平对齐方式和垂直对齐方式定义有所变化
 
-V2.x的版本
+#### V2.x的版本
 
 	static CCLabelTTF * create(const char *string, const char *fontName, float fontSize,
 	　　                               const CCSize& dimensions, CCTextAlignment hAlignment, 
 	　　                               CCVerticalTextAlignment vAlignment);
 
-v3.0版本
+#### v3.0版本
 
 	static LabelTTF * create(const std::string& string, const std::string& fontName, float fontSize,
 	　　                             const Size& dimensions, TextHAlignment hAlignment,
