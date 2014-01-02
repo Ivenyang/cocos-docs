@@ -136,8 +136,8 @@ Cocos2d: The size of pVec1 is 0
 
 ##Best practice
 
-- Prefer stack-based scope Vector<T> over heap-based scope Vector<T>
-- When pass Vector<T> as a argument, declare it as a const reference like `const Vector<T>&`
-- When return a Vector<T> from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
-- Don't try to hold any data type objects except for CCObject descendant object pointers.
+- Prefer stack-based scope `Vector<T>` over heap-based scope `Vector<T>`
+- When pass `Vector<T>` as a argument, declare it as a const reference like `const Vector<T>&`
+- When return a `Vector<T>` from a function, simple return the value object. The compiler will optimize this situation by using the move semantics.
+- Don't try to hold any data type objects except for `CCObject` descendant object pointers.
 
