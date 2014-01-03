@@ -3,99 +3,124 @@
 - Since: v3.0 beta
 - Language: C++
 
-Map<K,V> is template associative container which uses std::unordered_map<K, V> as its internal infrastructure.
+Defined in header "[CCMap.h](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCMap.h)" located in the path "COCOS2DX_ROOT/cocos/base".
+
+---
+
+```cpp
+template <class K, class V>
+class CC_DLL Map;
+```
+
+---
+
+`cocos2d::Map<K,V>` is template associative container which uses [std::unordered_map<K, V>](http://en.cppreference.com/w/cpp/container/unordered_map) as its internal infrastructure.
 
 The std::unordered_map<K, V> is associative container that store elements formed by the combination of a key value and a mapped value, and which allows for fast retrieval of individual elements based on their keys.
 
-In an unordered_map, the key value is generally used to uniquely identify the element, while the mapped value is an object with the content associated to this key. Types of key and mapped value may differ.
+In an unordered_map, the key value is generally used to uniquely identify the element, while the mapped value is an object with the content associated to this key.
 
 Internally, the elements in the unordered_map are not sorted in any particular order with respect to either their key or mapped values, but organized into buckets depending on their hash values to allow for fast access to individual elements directly by their key values (with a constant average time complexity on average).
 
+Before cocos2d-x v3.0 beta, there is another sequence container named [cocos2d::CCDictionary](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCDictionary.h) which will be deprecated in the future.
+
+Because we carefully design the `cocos2d::Map<K,V>` container as a replacement for `cocos2d::CCDictionary`, please use cocos2d::Vector<T> instead of `cocos2d::CCDictionary`.
+##Template parameters
+
+**K** - The type of the key values.
+
+- Each element in an unordered_map is uniquely identified by its key value.
+
+**V** - The type of the mapped value.
+
+- T must be the a pointer to [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Map<K,V>`. （since v3.0 beta）
+
+##Memory Management
+The `cocos2d::Map<K,V>` class contains only one data member:
+
+```cpp
+typedef std::unordered_map<K, V> RefMap;
+RefMap _data;
+```
+
+The memory management of `_data` is handled automatically by the compiler. If you declare a `cocos2d::Map<K,V>` object on stack, you don't need to care about the memory deallocation.
+
+If you call `new` operator to allocate a dynamic memory of `cocos2d::Map<K,V>`, you should call `delete` operator to deallocate the memory after usage. The same goes for `new[]` and `delete[]`.
+
+**Note**: In modern c++, it prefer local storage object over heap storage object. So please don't call `new` operator to allocate a heap object of `cocos2d::Map<K,V>`, use stack object instead.
+
+If you do want to dynamic allocate `cocos2d::Map<K,V>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
+
+**WARNING**: `cocos2d::Map<K,V>` doesn't use retain/release and refcount memory management like other cocos2d classes!
+
+
 ##Basic Usage
 
+**WARNING** The `cocos2d::Map<K,V>` doesn't overload `operator[]`, so you can't get a element from `cocos2d::Map<K,V>` using subscrit operator like `map[i]`.
+
+For more APIs usage, please refer to the source code and the tests distributed with cocos2d-x 3.0 beta archive.
+
+Here is a simple usage example:
+
 ```cpp
-auto map_Val_0 = Sprite::create("CloseNormal.png");
-Map<char*, Object*>* pMap = new Map<char*, Object*>();
-char* map_key =const_cast<char*>("test");
-pMap->insert(map_key, map_Val_0);
-ssize_t mapSize = pMap->size();
-log("The size of the Map is %zd.",mapSize); 
-if(!pMap->empty()){
-    auto map_Val_1 = (Sprite*)pMap->at(map_key);
-    map_Val_1->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
-    this->addChild(map_Val_1);
-}
+//create Map<K, V> with default size and add a sprite into it
+auto sp0 = Sprite::create();
+sp0->setTag(0);
+Map<std::string, Sprite*> map0;
+std::string mapKey0 = "MAP_KEY_0";
+map0.insert(mapKey0, sp0);
+log("The size of map is %zd.",map0.size()); 
+//create a Map<K, V> with capacity equals 5
+Map<std::string, Sprite*> map1(map0);
+std::string mapKey1 = "MAP_KEY_1";
+if(!map1.empty()){
+	auto spTemp = (Sprite*)map1.at(mapKey0);
+	log("sprite tag = %d", spTemp->getTag());
+	auto sp1 = Sprite::create();
+	sp1->setTag(1);
+	map1.insert(mapKey1, sp1);      
+	//get all keys,stored in std::vector, that matches the object
+	std::vector<std::string> mapKeyVec;
+	mapKeyVec = map1.keys();
+	for(auto key : mapKeyVec)
+	{
+		auto spTag = map1.at(key)->getTag();
+		log("The Sprite tag = %d, MAP key = %s",spTag,key.c_str());
+		log("Element with key %s is located in bucket %zd",key.c_str(),map1.bucket(key));
+	}
+	log("%zd buckets in the Map container",map1.bucketCount());
+	log("%zd element in bucket 1",map1.bucketSize(1));  
+	get a random object if the map isn't empty, otherwise it returns nullptr
+	log("The random object tag = %d",map1.getRandomObject()->getTag());  
+	//find(const K& key) can be used to search the container for an element with 'key'
+	//erase(const_iterator position) remove an element with an iterator
+	log("Before remove sp0, size of map is %zd.",map1.size());
+	map1.erase(map1.find(mapKey0));
+	log("After remove sp0, size of map is %zd.",map1.size());
+}  
+//create a Map<K, V> with capacity equals 5
+Map<std::string, Sprite*> map2(5);
+map2.reserve(10);  //set capacity of the map
 ```
 
-##Details In Action
-
-###Constructors
-
-There is no create function, but you can initialize you map with the constructors below:
-
-- Except the default constructor `Map<K, V>()`, we can also use the constructor `Map<K, V>(ssize_t capacity)` with capacity.
-
-- The copy constructor `Map<K, V>(const Map<K, V>& other)` can be used to initialize our map to have the same contents and properties as the ump unordered_map object.
-
-- And there is a move constructor `Map<K, V>(Map<K, V>&& other)` can be used.
-
-- The operator **=** can also help us to do the copy and move work.
- 
-- All objects in map will be released due to the `clear()` in the destructor `~Map<K, V>()`.
- 
-###Add
-
-- We can insert new elements in the map by using `insert(const K& key, V object)`. If the container has already contained the key, this function will erase the old pair(key, object)  and insert the new pair.
-
-###Remove
-
-- `erase(const_iterator position)` and `erase(const K& k)` can remove an element with an iterator from the Map<K, V> container.
-
-- We can also use `erase(const std::vector<K>& keys)` removes some elements with a vector which contains keys in the map.
-
-- All the elements in the Map<K,V> container will be dropped if we use `clear()`.
+output:
 
 ```cpp
-pMap->erase(map_key);
-pMap->clear();
-```
-
-###Modify
-
-- We can set capacity of the map by using `reserve(ssize_t capacity)`. 
-
-```cpp
-pMap->reserve(10);
-```
-
-###Query
-
-- `bucketCount()` can be used to get the number of buckets in the map container. And the number of elements in the map can be check though `size()`. We also can use `bucketSize(ssize_t n)` to get the number of elements in bucket n.
-
-- `bucket(const K& k)` make it easy to get the bucket number where the element with key k is located.
-
-- We can know whether the map container is empty according to the value `empty()` returns.
-
-- All keys in the map will be know if `keys()` used. And we can add a param like `keys(V object)` to get all keys that matches the object.
-
-- It's possible to use `at(const K& key)` to get a reference to the mapped value of the element with key k in the map. If key does not match the key of any element in the container, the function return nullptr.
-
-- `find(const K& key)` can be used to search the container for an element with 'key' as key and returns an iterator to it if found, otherwise it returns an iterator to Map<K, V>::end (the element past the end of the container).
-
-- `getRandomObject()` will return a random object in the map if the map isn't empty, otherwise it returns nullptr.
-
-```cpp
-if (!pMap->empty()) {
-	pMap->size();
-	pMap->bucketCount();
-	pMap->bucket(map_key);
-	pMap->bucketSize(1);
-	pMap->keys();
-	pMap->keys(map_Val_0);
-	pMap->at(map_key);
-	pMap->find(map_key);
-}
+cocos2d: The size of map is 1.
+cocos2d: sprite tag = 0
+cocos2d: The Sprite tag = 1, MAP key = MAP_KEY_1
+cocos2d: Element with key MAP_KEY_1 is located in bucket 1
+cocos2d: The Sprite tag = 0, MAP key = MAP_KEY_0
+cocos2d: Element with key MAP_KEY_0 is located in bucket 0
+cocos2d: 2 buckets in the Map container
+cocos2d: 1 element in bucket 1
+cocos2d: The random object tag = 0
+cocos2d: Before remove sp0, size of map is 2.
+cocos2d: After remove sp0, size of map is 1.
 ```
 
 
+##Best practice
 
+- When pass `cocos2d::Map<K, V>()` as a argument, declare it as a const reference like `const cocos2d::Map<K, V>()&`
+- T must be the a pointer to `cocos2d::Object` descendant object type. No other data type or primitives are allowed.
