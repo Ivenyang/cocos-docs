@@ -7,7 +7,7 @@
 
 3.0版本对文本显示这一块有所改进的是，新增Label类中有四个可添加文字的类：Label、LabelTTF、LabelBMFont和LabelAtlas。其中LabelTTF、LabelBMFont和LabelAtlas在功能上承续之前的版本，只是在命名方式等有所调整。
 
-Label类可以代替LabelTTF和LabelBMFont类，因为Label使用了更快的缓存策略。并且Label提供了追踪(tracing)、阴影和更多的功能。
+Label类可以代替LabelTTF和LabelBMFont类，它使用freetype库进行字体绘制，可以做到各平台相同的文本效果，同时使用了更快的缓存策略，效率更高，提供了追踪(tracing)、阴影和更多的功能。
 
 变化：
 

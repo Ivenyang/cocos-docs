@@ -1,10 +1,8 @@
 #Improved Label in Cocos2d-x-3.0
 
-Before Cocos2d-x 3.0 released, the text label can be added to layer by three classes-CCLabelTTF, CCLabelBMFont and CCLabelAtlas.
+Before Cocos2d-x 3.0 released, there are three classes that can create text labels, which are CCLabelTTF, CCLabelBMFont and CCLabelAtlas.
 
-Though Cocos2d-x 3.0 have improved, it keeps compatible with previous version.
-
-With cache strategy's help you can speed up your game.
+Cocos2d-x 3.0 add a new class **Label** to create text labels. The new Label works with freetype that gives you the same visual effect on different platforms. It's have a faster cache policy that make render faster. It also offers tracing, shadowing and more features to be ready to put aside your LabelTTF and LabelBMFont.
 
 ## Changes:
 
