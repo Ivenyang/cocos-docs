@@ -5,9 +5,10 @@ Cocos Documents
 
 Here are entries of documents for Cocos2d-x, Cocos2d-html5 and CocoStudio. Please click your lanauage and enter coreesponding catalog. 
 
-- [English Documents](catalog/en.md)
-- [中文文档](catalog/zh.md)
-- Contributors are welcome to add more language translations here.
+- [__English__](catalog/en.md)
+- [__中文__](catalog/zh.md)
+- __한국의__   // waiting for your contribution
+- __日本語__  // waiting for your contribution
 
 
 ## Contributing
