@@ -1,10 +1,10 @@
-## Javascript Manual Binding Implementation Procedure
+## Javascript Manual Binding
 
-Cocos2d-x allows you using javascript way to call C++ classes. In this way, it saves a lot of time of focusing the C++ implementation. Instead, you can olny care about the logical by using Javascript to complete game. 
+Cocos2d-x allows you using javascript to call C++ classes, and vice versa. In this way, you can only care about the logical by using Javascript to complete game.
 
 ### Create a JS project
 
-Cocos2d-x 3.0alpha1 allows you using **create_project.py** to create a JS project. Now create a JS project named JSBMaualBinding in this way.
+Cocos2d-x 3.0alpha1 allows you using **create_project.py** to create a JS project. Create a JS project named JSBMaualBinding in this way.
 
 ```
 cd ~/cocos2d-x-3.0alpha1/tools/project-creator
@@ -14,7 +14,8 @@ cd ~/cocos2d-x-3.0alpha1/tools/project-creator
 
 ### Define your C++ classes
 
-Now create C++ class **XObject** and put them in **Classes** file folder. All the C++ classed need binding to JS can be put in this file folder. For **XObject** instance, let's check out the class.
+Now create C++ class **XObject** and put them in **Classes** folder. All the C++ classes need to put in this folder. For **XObject** instance, let's check out the class.
+
 
 ```
 XObject.h
@@ -68,7 +69,7 @@ When this class bound to JS you can see the information of log.
 Time to bind your class. Create a class **JSB_Manual_XObject** to bind class **XObject** class to JS. Also, you need to put them in **Classes** file folder. You have to remember some points before started:
 
 1. Register a JS class, which is the C++ class you need to bind.
-2. A JS class has constructor, deconstructor and a creator function.
+2. A JS class has constructor, destructor and a creator function.
 3. Bind all the functions of C++ class to JS class.
 
 Add following codes to **JSB_Manual_XObject.h**
@@ -204,14 +205,14 @@ void JSB_register_XObject(JSContext *cx, JSObject *obj)
 
 Let's familiar with the procedures:
 
-1. The deconstructor of the JS class, which is also the deconstructor of the bound C++ class.
-2. It's the callback method of the JS class, which is named as **callback**. Remember **callback** is a method of JS class, which meams you can use this method call C++ class's callback function. You can name it whatever you want.
-3. The constructor of thr JS class, it does some initilizing work.
+1. The destructor of the JS class, which is also the destructor of the bound C++ class.
+2. It's the callback method of the JS class, which is named as **callback**. Remember **callback** is a method of JS class, which means you can use this method call C++ class's callback function. You can name it whatever you want.
+3. The constructor of the JS class, it does some initilizing works.
 4. This method is for binding C++ class's callback function-**logAndCallBck**.
 5. Create a JS class by this method. In this method, you have to define all the functions in C++ class. It's a important step. Don't miss the name of parameters. For instance, **logAndCallBack** is the name of C++ function, and **JSB_XObject_logAndCallBack** is the name of bound C++ function.
 6. In this method, you gave the C++ class a new name-**MyBinding**. So **MyBinding** can be treated as a JS class. And register the JS class.
 
-You have almost complete the procedure. The last step is test the class, let's check out if the C++ class have bound to JS class-**MyBinding**.
+You are almost complete the procedure. The last step is test the class, let's check out if the C++ class have bound to JS object - **MyBinding**.
 
 ### Test
 
@@ -240,7 +241,7 @@ var MyScene = cc.Scene.extend({
 });
 ```
 
-If you see following result in console, congratulations you made it!
+If you see following result in output windows, congratulations you made it!
 
 
 ![logInfo](src/logInfo.png)
