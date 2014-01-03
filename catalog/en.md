@@ -12,8 +12,8 @@
 	- Data Structure
 		- 3.0 Data Structures
             - [Vector\<T\>](../manual/framework/native/template_containers/vector/en.md)
-            - Map\<K,V\>
-            - Value
+            - [Map\<K,V\>](../manual/framework/native/template_containers/map/en.md)
+            - [Value](../manual/framework/native/template_containers/value/en.md)
 		- 2.x Data Structures
             - CCArray
             - CCDictionary
