@@ -90,7 +90,7 @@ if(!map1.empty()){
 	}
 	log("%zd buckets in the Map container",map1.bucketCount());
 	log("%zd element in bucket 1",map1.bucketSize(1));  
-	get a random object if the map isn't empty, otherwise it returns nullptr
+	//get a random object if the map isn't empty, otherwise it returns nullptr
 	log("The random object tag = %d",map1.getRandomObject()->getTag());  
 	//find(const K& key) can be used to search the container for an element with 'key'
 	//erase(const_iterator position) remove an element with an iterator
