@@ -1,4 +1,3 @@
-
 We are happy to announce the release of:
 
 * cocos2d-x v3.0-beta and cocos2d-x v2.2.2
@@ -46,7 +45,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 
 # CocoStudio #
 
-<img src="http://upyun.cocimg.com/CocoStudio/Img/CocoStudio-Name-Logo.png">
+<img src="http://upyun.cocimg.com/CocoStudio/Img/CocoStudio-Name-Logo.png" width=140>
 
 ## V1.2 ##
 
