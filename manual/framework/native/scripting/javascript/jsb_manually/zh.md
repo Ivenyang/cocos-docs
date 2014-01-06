@@ -1,21 +1,20 @@
-#Cocos2d-x Javascript Binding手动绑定
----
+# Cocos2d-x Javascript Binding手动绑定
 
-##前言
+## 前言
 
-Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey?redirectlocale=en-US&redirectslug=SpiderMonkey)，通过SpiderMonkey在引擎内部将JavaScript代码“映射”为C++代码，从而实现了用JavaScript语法调用Cocos2d-x的API来完成游戏的逻辑的编写。
+Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey?redirectlocale=en-US&redirectslug=SpiderMonkey)，通过SpiderMonkey在引擎内部将C++代码映射为JavaScript代码，从而实现了用JavaScript语法调用Cocos2d-x的API来完成游戏的逻辑的编写。
 
-##绑定实现
+## 绑定实现
 
-###一、创建待绑定的类
+### 一、创建待绑定的类
 
-- 首先创建类`class XObject;`
+- 首先创建类XObject
 
-	类中声明了一个含有函数指针类型参数的构造函数以及一个`logAndCallBack`方法。
+类中声明了一个含有函数指针类型参数的构造函数以及一个logAndCallBack方法。
 	
-	具体的实现方法可参见[源码]()
+具体的实现方法可参见[源码](./code)
 
-	```
+```
 	typedef void (*XObjectCallFunc)(void *selector, int value);
 	class XObject
 	{
@@ -26,11 +25,11 @@ Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://develope
     	void *m_selector;
     	XObjectCallFunc m_callback;
 	};
-	```
+```
 
 - 类中成员函数的实现
 
-	```
+```
 	XObject::XObject(void *selector, XObjectCallFunc func)
 	{
     	m_selector = selector;
@@ -41,28 +40,35 @@ Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://develope
     	cocos2d::log("logAndCallBack:%d", value);
     	m_callback(m_selector, value);
 	}
-	```
+```
 
-	当我们的类绑定到JS时将会调用`logAndCallBack`，显示`log`信息如下所示：
+当我们的类绑定到JS时将会调用logAndCallBack，显示log信息如下所示：
+
+![logInfo](src/logInfo.png)
+
+### 二、JSB环境初始化：
+
+在applicationDidFinishLaunching中使用了很多类似于
+
+```
+sc->addRegisterCallback(XXX);
+```
+
+形式的语句注册特定模块的js绑定。每一个注册函数，对应一个模块。我们在这注册自己模块的js绑定
+
+```
+sc->addRegisterCallback(JSB_register_XObject);
+```
 	
-	![logInfo](src/logInfo.png)
+### 三、实现绑定
 
-###二、JSB环境初始化：
+添加头文件 **JSB_Manual_XObject.h** ，并在其中声明函数JSB手动绑定注册回调函数
 
-在`AppDelegate::applicationDidFinishLaunching()`方法中使用了很多类似于
-	`sc->addRegisterCallback(XXX);`形式的语句注册脚本绑定。
+```
+void JSB_register_XObject(JSContext* cx, JSObject* obj);
+```
 
-`addRegisterCallback`接口用于添加注册函数，注册函数用于在引擎执行时，绑定相应的代码（从JS往C++的映射代码）。每一个注册函数，对应一个库。现在cocos2d-x提供了四个库支持，分别是cocos2d-x核心库，cocos2d-x扩展库，cocosbuilder支持库，clipmunk物理引擎库。我们可以在这里添加注册自己实现的JS绑定库:
-	
-`sc->addRegisterCallback(JSB_register_XObject);`	
-`start`启动脚本引擎。
-	
-###三、实现绑定
-
-我们添加头文件 **JSB_Manual_XObject.h** ，并在其中声明函数
-`void JSB_register_XObject(JSContext* cx, JSObject* obj);` 作为JSB手动绑定函数的入口
-
-接下来我们需要做的就是根据自己的需要在**JSB_Manual_XObject.cpp**中实现绑定,我们需要完成一下几点：
+接下来我们需要做的就是根据自己的需要在**JSB_Manual_XObject.cpp**中实现绑定,我们需要完成以下几点：
 
 1. 注册一个JS的类
 2. 一个JS的类有构造器、析构器以及一个create方法
@@ -211,10 +217,16 @@ void JSB_register_XObject(JSContext *cx, JSObject *obj)
    
    `JS_InitClass`初始化一个`JSClass`。第八个参数`const JSFunctionSpec *fs`(对应于代码中的参数`funcs`)。这个参数是指向`JSFunctionSpecs`数组第一个元素的指针，这些如果存在就会被添加到类的新原型对象。这个新类的所有实例将通过原型链继承这些方法。
    
-7. 入口函数实现：
+7. 注册回调函数实现：
 
-	创建了一个新对象`myBinding`，并为其设置属性`JS_SetProperty(cx, obj, "MyBinding", myBindingVal);`。然后程序的最后一句调用了`JSB_XObject_createClass(cx, myBinding, "XObject");`去实现类创建和初始化。
-		
-	如果不是很了解**JS API**的话，可以参考下[JSAPI](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_User_Guide)。
+下面的代码定义一个js名字空间myBinding.
+
+`JS_SetProperty(cx, obj, "MyBinding", myBindingVal);`
+
+然后在这个名字空见下新加入一个类名：
+
+`JSB_XObject_createClass(cx, myBinding, "XObject");`
+
+更多**JS API**信息，参考[JSAPI](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_User_Guide)。
 
        
