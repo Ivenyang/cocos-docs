@@ -1,8 +1,8 @@
 - 模块说明 
 	- Cocos2d-x
 		- 环境搭建
-			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_mac/zh.md)
-			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_win7/zh.md)
+			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_win7/zh.md)
+			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_mac/zh.md)
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
