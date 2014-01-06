@@ -179,33 +179,41 @@ void JSB_register_XObject(JSContext *cx, JSObject *obj)
 2. 这是JS的析构函数，在析构函数中对新创建对象进行清除。
 
 3. JS端回调方法，我们可以使用这个方法来调用c++端的回调方法。这里有几个接口需要解释下:
-`INT_TO_JSVAL(value)`可将**C**风格的整型值value转换为**Js**的整型值；
-`ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(jsobj), "callback", 1, param, &retval);`简化了调用对象`OBJECT_TO_JSVAL(jsobj)`的方法`callback`的过程,`1`为参数个数,`param`为参数数组名,`retval`接受函数返回值。
+	- INT_TO_JSVAL(value)可将**C**风格的整型值value转换为**Js**的整型值；
+	
+	- executeFunctionWithOwner简化了调用对象**OBJECT_TO_JSVAL(jsobj)**的**callback**方法的过程,**1**为参数个数,**param**为参数数组名,**retval**接受函数返回值。
+	
+```
+	ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(jsobj), "callback", 1, param, &retval);
+```
 
 4. JS的构造函数：
 	
-	利用[`JS_NewObject`](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_Reference/JS_NewObject)创建了对象。`JS_NewObject`基于一个特定的类(此处为`JSB_XObject_class`),原型(`JSB_XObject_object`)以及指向父类的指针来创建对象。    
+	利用[**JS_NewObject**](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_Reference/JS_NewObject)创建了对象。JS_NewObject基于一个特定的类(此处为**JSB_XObject_class**),原型(**JSB_XObject_object**)以及指向父类的指针来创建对象。    
 
-	同时创建了一个`XObject`的对象，参数为JS对象和JS端的回调函数。再回过头看看`XObject`类，不难发现JS端的回调方法已经和C++的回调方法已经被绑定
+	同时创建了一个**XObject**的对象，参数为JS对象和JS端的回调函数。再回过头看看**XObject**类，不难发现JS端的回调方法已经和C++的回调方法已经被绑定
 	
-	`JS_SetPrivate`被用来设置对象(`jsobj`)的私有数据域(`(void *)newObject`)，这个方法被用来存储不能在脚本中直接可见的c/c++的数据时非常有用。但是，**需要注意**的是此处的对象必须是一个包含有`JSCLASS_HAS_PRIVATE` flag 的实例。
+	**JS_SetPrivate**被用来设置对象(**jsobj**)的私有数据域(**(void *****)newObject**)，这个方法被用来存储不能在脚本中直接可见的c/c++的数据时非常有用。但是，**需要注意**的是此处的对象必须是一个包含有**JSCLASS_HAS_PRIVATE flag** 的实例。
 
-5. `JSB_XObject_logAndCallBack`为了绑定C++的`logAndCallBack`。
+5. JSB_XObject_logAndCallBack 用来绑定C++的 logAndCallBack。
 
 6. 创建了一个JS对象，并为其分配空间
-`JSB_XObject_class = (JSClass *)calloc(1, sizeof(JSClass));`
 
-	然后通过该对象来描述用户信息：`name`为被绑定的类的名称,`finalize`接收JS的析构函数；
+```
+	JSB_XObject_class = (JSClass *)calloc(1, sizeof(JSClass));
+```
+
+然后通过该对象来描述用户信息：**name**为被绑定的类的名称,**finalize**接收JS的析构函数；
 	
-	`JSPropertySpec`被用来给对象定义一个属性：
+**JSPropertySpec**被用来给对象定义一个属性：
 	
-	```
+```
 	struct JSPropertySpec {  	const char *name;  //Name to assign the property.  	int8 tinyid;  //Unique ID number for the property  	uint8 flags;  //Property attributes.  	JSPropertyOp getter;    //Getter method for the property.  	JSPropertyOp setter;    //Setter method for the property.	};
-	```
+```
 
-   同时还定义了静态成员`funcs`和`st_funcs`。`JSFunctionSpec`为JS函数定义了特性与对象进行关联。
+   同时还定义了静态成员funcs和st_funcs。**JSFunctionSpec**为JS函数定义了特性与对象进行关联。
    
-   ```
+```
    struct JSFunctionSpec {
     const char      *name;  //function's name
     JSNativeWrapper call;   //The built-in JS call wrapped by this function
@@ -213,20 +221,51 @@ void JSB_register_XObject(JSContext *cx, JSObject *obj)
     uint16_t        flags;  //The bitwise OR of any number of property attributes and function flags, and optionally JSFUN_STUB_GSOPS.
     const char      *selfHostedName; 
    };
-   ```
+```
    
-   `JS_InitClass`初始化一个`JSClass`。第八个参数`const JSFunctionSpec *fs`(对应于代码中的参数`funcs`)。这个参数是指向`JSFunctionSpecs`数组第一个元素的指针，这些如果存在就会被添加到类的新原型对象。这个新类的所有实例将通过原型链继承这些方法。
+   **JS_InitClass**初始化一个JSClass。第八个参数**const JSFunctionSpec *****fs**(对应于代码中的参数**funcs**)。这个参数是指向**JSFunctionSpecs**数组第一个元素的指针，这些如果存在就会被添加到类的新原型对象。这个新类的所有实例将通过原型链继承这些方法。这些方法在javascript中的地位就相当于C++和Java中公有的非静态方法。
    
 7. 注册回调函数实现：
 
-下面的代码定义一个js名字空间myBinding.
+下面的代码将值myBindingVal指派给对象obj的MyBinding属性，定义了一个js名称空间MyBinding。
 
-`JS_SetProperty(cx, obj, "MyBinding", myBindingVal);`
+```
+JS_SetProperty(cx, obj, "MyBinding", myBindingVal);
+```
 
 然后在这个名字空见下新加入一个类名：
 
-`JSB_XObject_createClass(cx, myBinding, "XObject");`
+```
+JSB_XObject_createClass(cx, myBinding, "XObject");
+```
 
 更多**JS API**信息，参考[JSAPI](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_User_Guide)。
 
-       
+### 四、测试
+
+打开**Resources/src**文件夹下的**myApp.js**文件。在**MyScene**的**onEnter**方法中添加如下代码：
+
+```
+var MyScene = cc.Scene.extend({
+    ctor:function() {
+        this._super();
+        cc.associateWithNative( this, cc.Scene );
+    },
+    onEnter:function () {
+        this._super();
+        var layer = new MyLayer();
+        this.addChild(layer);
+        layer.init();                        
+        // test myBinding
+        var obj = new MyBinding.XObject();
+        obj.callback = function (value) {
+                                 cc.log(value);
+                              };
+        obj.logAndCallBack(11);
+    }
+});
+```
+
+如果绑定成功，将会获得如下显示：
+
+![logInfo](src/logInfo.png)
