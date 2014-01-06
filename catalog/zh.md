@@ -77,7 +77,7 @@
 		- Cocos2d-html5的开发优势
 		- [如何搭建 Cocos2d-html5 开发调试环境](../manual/framework/html5/setup_devenv/zh.md)
 		- [如何自定义cocos2d-html5加载界面](../manual/framework/html5/customize_loading_screen/zh.md)
-		- [Cocos2d-html5 2.2.2的屏幕适配方案](../manual/framework/html5/resolution_policy_design/en.md)
+		- [Cocos2d-html5 2.2.2的屏幕适配方案](../manual/framework/html5/resolution_policy_design/zh.md)
 	
 - 教程
 	- 入门篇：用C++写一个忍者射飞镖游戏
