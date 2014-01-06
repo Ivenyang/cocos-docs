@@ -1,6 +1,6 @@
 ## Javascript Manual Binding
 
-Cocos2d-x allows you using javascript to call C++ classes, and vice versa. In this way, you can only care about the logical by using Javascript to complete game.
+Cocos2d-x allows you using javascript to call C++ classes, and vice versa. In this way, you can only care about the logical by using Javascript to complete game. So you can introduce your own API, which is written by C++ and can be called by JS. It's a good way to enlarge game library. If you tend to customize game library, you may love this.
 
 ### Create a JS project
 
@@ -14,7 +14,7 @@ cd ~/cocos2d-x-3.0alpha1/tools/project-creator
 
 ### Define your C++ classes
 
-Now create C++ class **XObject** and put them in **Classes** folder. All the C++ classes need to put in this folder. For **XObject** instance, let's check out the class.
+Now create C++ class **XObject**, which will be bound to JS, and put them in **Classes** folder. All the C++ classes need to put in this folder. For **XObject** instance, let's check out the class.
 
 
 ```
@@ -39,7 +39,7 @@ private:
 #endif /* defined(__JSBManualBinding__XObject__) */
 ```
 
-The class's function is show you the callback function-**logAndCallBack**'s information after the class bound to JS.
+The class defines a constructor and a callback function. The second parameter of constructor is a function pointer, which point to callback function.
 
 ```
 XObject.cpp
@@ -60,9 +60,7 @@ void XObject::logAndCallBack(int value)
 }
 ```
 
-When this class bound to JS you can see the information of log.
-
-![logInfo](src/logInfo.png)
+The implementation of constructor and callback function. When the callback function being called, you can see the log information in console.
 
 ### Bind C++ classes
 
