@@ -181,11 +181,11 @@ FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按
 >
 		apply: function (view, designedResolution) {
 			// 适配过程
-		}
+		},
 >
 		postApply: function (view) {
 			// 这个函数将在适配策略后被调用，如果你的策略不需要，可以去除这个函数。
-		},
+		}
 	});
 
 继承内容适配策略的方法：
@@ -201,11 +201,11 @@ FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按
 			// 计算游戏世界大小，以及相对于设计分辨率的x轴比例和y轴比例
 >
 			return this._buildResult(containerW, containerH, contentW, contentH, scaleX, scaleY);
-		}
+		},
 >
 		postApply: function (view) {
 			// 这个函数将在适配策略后被调用，如果你的策略不需要，可以去除这个函数。
-		},
+		}
 	});
 
 最后，你就可以使用自定义策略来构建一个适配模式：

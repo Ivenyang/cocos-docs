@@ -187,12 +187,12 @@ Extend the container strategy:
 >
 		apply: function (view, designedResolution) {
 			// Apply process
-		}
+		},
 >
 		postApply: function (view) {
 			// This function is called after the process of adaptation,
 			// you can remove this function if you don't need
-		},
+		}
 	});
 
 Extend the content strategy
@@ -209,12 +209,12 @@ Extend the content strategy
 			// The process to calculate the content size, the x axe scale and the y axe scale
 >
 			return this._buildResult(containerW, containerH, contentW, contentH, scaleX, scaleY);
-		}
+		},
 >
 		postApply: function (view) {
 			// This function is called after the process of adaptation,
 			// you can remove this function if you don't need
-		},
+		}
 	});
 
 At last, you should construct your own policy with your custom strategies.
