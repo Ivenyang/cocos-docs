@@ -32,7 +32,7 @@ As we mentioned above, the actual rendering API goes into a new separate thread 
 
 Here is the illustration picture:
 
-[architecture](./res/architexture.png)
+![architecture](./res/architexture.png)
 
 The process of scene graph is running in a front-end thread while generating various **Command**. Each Command will be sent to the CommandQueue waited to be processed(such as sorting, rearrange etc.) in a separate back-end thread.
 
