@@ -129,17 +129,19 @@ EXACT_FIT模式会忽略原始宽高比放大游戏世界以完全适应外框�
 
 ####4. FIXED_WIDTH (EQUAL_TO_FRAME + FIXED_WIDTH)
 
-![FixedWidth](./res/FixedWidth.jpg)
+![FixedWidth](./res/FixedWidth.jpeg)
 
-FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按原始宽高比放大。结果有两种可能，类似与SHOW_ALL模式的结果（如图），或者等同于NO_BORDER模式。
+FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按原始宽高比放大。结果有两种可能，类似与SHOW_ALL模式的结果（如图），或者类于NO_BORDER模式。它与前面两种模式的差别在于，在FIXED_WIDTH模式下游戏世界坐标系等同于Canvas元素坐标系，并且Canvas元素必然占满整个外框。
 
-注意图中情况下与SHOW_ALL模式的区别，此时视窗大小是整个外框大小，所以可显示内容区域实际上比SHOW_ALL模式更多。
+注意图中情况下与SHOW_ALL模式的区别，此时Canvas大小是整个外框大小，所以可显示内容区域实际上比SHOW_ALL模式更多。
 
 ####5. FIXED_HEIGHT (EQUAL_TO_FRAME + FIXED_HEIGHT)
 
 ![FixedHeight](./res/FixedHeight.jpeg)
 
 与前一个模式相反，FIXED_HEIGHT模式会纵向放大游戏世界以适应外框的高度，横向按原始宽高比放大。结果同上。
+
+在这个模式下，与NO_BORDER模式的区别是此时游戏世界坐标系和大小等同于Canvas坐标系。
 
 ##开发者自定义适配模式
 
@@ -173,19 +175,26 @@ FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按
 继承容器适配策略的方法：
 >
 	var MyContainerStg = cc.ContainerStrategy.extend({
-		init: function (view) {
-			// 这个函数将在Cocos2d-html5引擎初始化完成后被调用，
-			// 如果你的策略不需要初始化，可以去除这个函数。
+		preApply: function (view) {
+			// 这个函数将在适配策略前被调用，如果你的策略不需要，可以去除这个函数。
 		},
 >
 		apply: function (view, designedResolution) {
 			// 适配过程
 		}
+>
+		postApply: function (view) {
+			// 这个函数将在适配策略后被调用，如果你的策略不需要，可以去除这个函数。
+		},
 	});
 
 继承内容适配策略的方法：
 >
 	var MyContentStg = cc.ContentStrategy.extend({
+		preApply: function (view) {
+			// 这个函数将在适配策略前被调用，如果你的策略不需要，可以去除这个函数。
+		},
+>
 		apply: function (view, designedResolution) {
 			var containerW = cc.canvas.width, containerH = cc.canvas.height;
 >			
@@ -193,6 +202,10 @@ FIXED_WIDTH模式会横向放大游戏世界以适应外框的宽度，纵向按
 >
 			return this._buildResult(containerW, containerH, contentW, contentH, scaleX, scaleY);
 		}
+>
+		postApply: function (view) {
+			// 这个函数将在适配策略后被调用，如果你的策略不需要，可以去除这个函数。
+		},
 	});
 
 最后，你就可以使用自定义策略来构建一个适配模式：
