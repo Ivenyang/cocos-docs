@@ -61,7 +61,6 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 * CCNode's setContentSize and setAnchorPoint support two types of parameters, more friendly and more efficient. setAnchorPoint(x,y) is `35% faster` than setAnchorPoint(cc.p(x,y)).
 * Added `NPM` support and adjusted folder structure. It supports modules customization, the packaged mini engine and HelloWorld is just `185KB` in single file mode. Please visit [NPM Guide](http://www.cocos2d-x.org/wiki/Cocos-utils_for_NPM) for more details.
 * Added SpriteFrameCache `JSON` format support.
-* Added `source map` generating of Closure Compiler advance mode , please make sure your JDK version is 7.0 and up.
 
 
 ## Note
