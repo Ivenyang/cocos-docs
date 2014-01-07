@@ -65,7 +65,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 
 
 ## Note
-We will continue to put all our energy on performace improvement and compatiblity of mobile browsers in the upcoming versions. It will support NPM in next version to reduce file size and module customization.  
+Cocos2d-html5 will support new event dispatcher and new label in next release.  
 
 
 ### More information ###
