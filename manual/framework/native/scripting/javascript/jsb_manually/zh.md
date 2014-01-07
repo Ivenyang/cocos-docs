@@ -8,11 +8,7 @@ Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://develope
 
 ### 一、创建待绑定的类
 
-- 首先创建类XObject
-
-类中声明了一个含有函数指针类型参数的构造函数以及一个logAndCallBack方法。
-	
-具体的实现方法可参见[源码](./code)
+- XObject.h头文件
 
 ```
 	typedef void (*XObjectCallFunc)(void *selector, int value);
@@ -27,7 +23,9 @@ Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://develope
 	};
 ```
 
-- 类中成员函数的实现
+XObjectCallFunc 定义了一个函数指针，作为回调函数类型。
+
+- XObject.cpp实现
 
 ```
 	XObject::XObject(void *selector, XObjectCallFunc func)
@@ -42,11 +40,9 @@ Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://develope
 	}
 ```
 
-当我们的类绑定到JS时将会调用logAndCallBack，显示log信息如下所示：
+构造函数简单记录回调函数指针和回调对象，在logAndCallBack中会使用到。
 
-![logInfo](src/logInfo.png)
-
-### 二、JSB环境初始化：
+### 二、JSB环境初始化
 
 在applicationDidFinishLaunching中使用了很多类似于
 
