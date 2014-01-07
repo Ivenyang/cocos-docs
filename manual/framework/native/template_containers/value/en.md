@@ -13,16 +13,48 @@ class Value;
 
 ---
 
-cocos2d::Value encapsulates basical types and template containers. Initialization,assignment and type conversion can be done.
+`cocos2d::Value` is a wrapper class for many primitives(`int`,`float`,`double`,`bool`,`unsigned char`,`char*` and `std::string`) plus `std::vector<Value>`, `std::unordered_map<std::string,Value>` and `std::unordered_map<int,Value>`.
 
-- Initialization:	`Value(XXX v)`
-- Assignment: `value1(value2)`  or  `value1=value2`
-- Type conversion:  `XXX asXXX()`
+You can put all the primitives mentioned above into a `cocos2d::Value` object and convert it to the corresponding primitive. The opposite is vice verse.
+
+Internally, `cocos2d::Value` uses a union variable to hold all kinds of primitives which saves a lot of memory space.
+
+Before cocos2d-x v3.0 beta, there are `CCBool`, `CCFloat`, `CCDouble`, `CCinteger` primitive wrapper. These classes will be deprecated in the future.
+
+*Note*:When you deal with primitives and container, please use `cocos2d::Vector<T>`,`cocos2d::Map<K,V>` and `cocos2d::Value`.
+
 
 ##Memory Management
+The memory of `cocos2d::Value` is handled automatically by it's own destructor. So please stick to the best practice of c++ memory management rules when handling the memory of `cocos2d::Value`.
 
+The `cocos2d::Value` class contains the following data members:
+
+```cpp
+union
+{
+    unsigned char byteVal;
+    int intVal;
+    float floatVal;
+    double doubleVal;
+    bool boolVal;
+}_baseData;
+
+std::string _strData;
+ValueVector* _vectorData;
+ValueMap* _mapData;
+ValueMapIntKey* _intKeyMapData;
+
+Type _type;
+```
+
+From the code snippets, `_baseData`, `_strData` and `_type` data members' memory are handled automatically by the compiler and their own destructors. The destructor of `cocos2d::Value` is responsible for deallocating all the resources of pointer member variables(`_vectorData`,`_mapData` and `_intKeyMapData`).
+
+WARNING: `cocos2d::Value` doesn't use retain/release and refcount memory management like other cocos2d classes!
 
 ##Basic Usage
+The usage of `cocos2d::Value` is very straightforward.
+
+Here is a simple usage example:
 
 ```cpp
 Value val;   // call the default constructor
