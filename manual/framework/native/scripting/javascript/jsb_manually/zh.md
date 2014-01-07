@@ -1,265 +1,267 @@
-#Cocos2d-x JavaScript Binding 的手动绑定实现
---
+# Cocos2d-x Javascript Binding手动绑定
 
-随着 Cocos2d-x 的发展，Cocos2d-html5 也日益完善，相比纯 C++ 的开发方式，它开发效率更为高效，而另一个显而易见的好处便是 JS 端的 API 可以作为 Cocos2d-x Javascript Bindings (JSB) 的接口封装。一套 API，两种解决方案，这让用 JS 快速开发游戏，通过 JSB 以接近原生代码的速度来运行游戏成为可能。
+## 前言
 
-这里使用当前稳定版 Cocos2d-x-2.1.4，Xcode JSB 项目模板创建项目，如果是用其它 IDE ，注意配置好不同环境的依赖关系，本文的示例源码可以在[【这里】](https://github.com/iTyran/Tutorials/tree/master/jsb/jsb_manual/jsb)看到。
+Cocos2d-x内置了一套JavaScript的解析引擎[SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey?redirectlocale=en-US&redirectslug=SpiderMonkey)，通过SpiderMonkey在引擎内部将C++代码映射为JavaScript代码，从而实现了用JavaScript语法调用Cocos2d-x的API来完成游戏的逻辑的编写。
 
-##JSB 手动绑定的实现步骤
+## 绑定实现
 
-要实现 C++ 到 JS 的手动绑定，首先我们需要定义一个待绑定的类，为了这里的解说简单，创建了一个非常简单的类，也只定义了些简单的方法，如下：
+### 一、创建待绑定的类
 
-	// Leafsoar.h 文件定义
-	namespace ls {
-	    class Leafsoar: public cocos2d::CCObject
-	    {
-	    public:
-	        static cocos2d::CCScene* scene();
-	        virtual bool init();
-	        CREATE_FUNC(Leafsoar);
-	        void functionTest();
-	    };
-	}
-	 
-	// Leafsoar.cpp 实现
-	bool ls::Leafsoar::init(){
-	    bool bRef = false;
-	    do {
-	        cocos2d::CCLog("leafsoar init ...");
-	        bRef = true;
-	    } while (0);
-	    return bRef;
-	}
-	void ls::Leafsoar::functionTest(){
-	    cocos2d::CCLog("function Test");
-	}
+- XObject.h头文件
 
-以上是我们定义的一个类，在**ls**命名空间里面，它很简单，继承自 CCObject，定义实现了**functionTest**方法，我们下面要做的就是将它绑定到 JS ，最终达到通过 JS 来创建对象，并且调用方法。如果不知道从何下手，那么下面是一种实现思路。
-
-为了使代码风格统一 （这样的好处是任何人都能相对容易的读懂代码并修改之），我们将参照 Cocos2d-x 现有的 JSB 实现，如从 **AppDelegate**的**applicationDidFinishLaunching**方法开始，里面实现了 JSB 环境的初始化等操作，其中我们看到类似`sc->addRegisterCallback(register_all_cocos2dx);`这样的代码，而我们将创建**register_all_ls**方法，来完成我们自有**ls**命名空间下需要绑定的代码。
-
-编写**jsb_ls_auto.h**文件，定义如下：
-
-	#include "jsapi.h"
-	#include "jsfriendapi.h"
-	#include "ScriptingCore.h"
-	 
-	void register_all_ls(JSContext* cx, JSObject* obj);
-
-完成了以上**register_all_ls**方法定义，它作为自定义 JSB 手动绑定函数的入口，内中实现绑定我么的命名空间，我们的类和方法等 ~ 所以**js_ls_auto.cpp**的实现需要根据自己的需要实现，以下是当前的实现步骤，：
-
-	#include "jsb_ls_auto.h"
-	#include "cocos2d.h"
-	#include "Leafsoar.h"
-	 
-	#include "cocos2d_specifics.hpp"
-	 
-	// 定义 js 端的类型
-	JSClass  *jsb_LsLeafsoar_class;
-	JSObject *jsb_LsLeafsoar_prototype;
-	 
-	// 实现 ls 命名空间下的类绑定
-	void register_all_ls(JSContext* cx, JSObject* obj) {
-	    jsval nsval;
-	    JSObject *ns;
-	    JS_GetProperty(cx, obj, "ls", &nsval);
-	    if (nsval == JSVAL_VOID) {
-	        ns = JS_NewObject(cx, NULL, NULL, NULL);
-	        nsval = OBJECT_TO_JSVAL(ns);
-	        JS_SetProperty(cx, obj, "ls", &nsval);
-	    } else {
-	        JS_ValueToObject(cx, nsval, &ns);
-	    }
-	    obj = ns;
-	 
-	    // 实现绑定 Leafsoar 类，它的定义后文给出
-	    js_register_ls_Leafsoar(cx, obj);
-	}
-
-为了实现思路的清晰，所以文章内容以**register_all_ls**为入口，一步步实现，需要什么，我们就去实现什么，看到上面绑定了命名空间（在 js 中并没有明确的命名空间的机制，但 js 能实现类似命名空间的效果），并调用了**js_register_ls_Leafsoar(cx, obj);**方法来实现具体的绑定，下面是它的实现：
-
-	// 绑定 Leafsoar 类的实现
-	void js_register_ls_Leafsoar(JSContext *cx, JSObject *global) {
-	    // 创建一个 JS 类型的对象
-	    jsb_LsLeafsoar_class = (JSClass *)calloc(1, sizeof(JSClass));
-	    // 类型名称为 **Leafsoar** 正式绑定到 js 由 js 调用的名称
-	    jsb_LsLeafsoar_class->name = "Leafsoar";
-	    jsb_LsLeafsoar_class->addProperty = JS_PropertyStub;
-	    jsb_LsLeafsoar_class->delProperty = JS_PropertyStub;
-	    jsb_LsLeafsoar_class->getProperty = JS_PropertyStub;
-	    jsb_LsLeafsoar_class->setProperty = JS_StrictPropertyStub;
-	    jsb_LsLeafsoar_class->enumerate = JS_EnumerateStub;
-	    jsb_LsLeafsoar_class->resolve = JS_ResolveStub;
-	    jsb_LsLeafsoar_class->convert = JS_ConvertStub;
-	    // Leafsoar 类型的析构函数绑定
-	    jsb_LsLeafsoar_class->finalize = js_ls_Leafsoar_finalize;
-	    jsb_LsLeafsoar_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
-	 
-	    static JSPropertySpec properties[] = {
-	        {0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
-	    };
-	 
-	    // 为 Leafsoar 设定绑定函数，函数名 "functionTest"，绑定函数 "js_ls_Leafsoar_functionTest"
-	    // 后面可以添加其它函数绑定，如果需要，之后以 "JS_FS_END" 结尾
-	    static JSFunctionSpec funcs[] = {
-	        JS_FN("functionTest", js_ls_Leafsoar_functionTest, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-	        JS_FS_END
-	    };
-	 
-	    // 这里定义并且绑定了静态函数(static)，包括方法名 "create" 和对应的绑定实现 "js_ls_Leafsoar_create"
-	    static JSFunctionSpec st_funcs[] = {
-	        JS_FN("create", js_ls_Leafsoar_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-	        JS_FS_END
-	    };
-	 
-	    // 初始化类型属性
-	    jsb_LsLeafsoar_prototype = JS_InitClass(
-	                                        cx, global,
-	                                        NULL, // parent proto
-	                                        jsb_LsLeafsoar_class,
-	                                        js_ls_Leafsoar_constructor, 0, // 这里绑定的是构造函数的实现，也就是用 js new 操作符创建的对象
-	                                        properties,
-	                                        funcs,      // 函数绑定
-	                                        NULL, // no static properties
-	                                        st_funcs);      // 静态函数绑定
-	 
-	    JSBool found;
-	    JS_SetPropertyAttributes(cx, global, "Leafsoar", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
-	 
-	    TypeTest<ls::Leafsoar> t;
-	    js_type_class_t *p;
-	    uint32_t typeId = t.s_id();
-	    HASH_FIND_INT(_js_global_type_ht, &typeId, p);
-	    if (!p) {
-	        p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
-	        p->type = typeId;
-	        p->jsclass = jsb_LsLeafsoar_class;
-	        p->proto = jsb_LsLeafsoar_prototype;
-	        p->parentProto = NULL;
-	        HASH_ADD_INT(_js_global_type_ht, type, p);
-	    }
-	}
-
-写到这里，类型的绑定已经基本完成，但是可以看见，其中所用到的如**js_ls_Leafsoar_functionTest、js_ls_Leafsoar_finalize 、js_ls_Leafsoar_create 和 js_ls_Leafsoar_constructor**并没有实现，它们是在绑定 Leafosar 类型的时候去绑定了，所以需要在调用前去实现它们，下面是它们的实现：
-
-	// js 端 functionTest 所绑定的方法调用
-	JSBool js_ls_Leafsoar_functionTest(JSContext *cx, uint32_t argc, jsval *vp)
+```
+	typedef void (*XObjectCallFunc)(void *selector, int value);
+	class XObject
 	{
-	    JSBool ok = JS_TRUE;
-	 
-	    JSObject *obj = NULL;
-	    ls::Leafsoar* cobj = NULL;  // 定义以获取真实类型
-	    obj = JS_THIS_OBJECT(cx, vp);
-	    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	    // 获取 js 绑定的实际对象 通过 proxy->ptr
-	    cobj = (ls::Leafsoar *)(proxy ? proxy->ptr : NULL);
-	    JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	    if (argc == 0) {
-	        // 调用实际的方法
-	        cobj->functionTest();
-	        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-	        return ok;
-	    }
-	 
-	    JS_ReportError(cx, "wrong number of arguments");
-	    return JS_FALSE;
-	}
-	 
-	// js 构造函数实现
-	JSBool js_ls_Leafsoar_constructor(JSContext *cx, uint32_t argc, jsval *vp)
-	{
-	    cocos2d::CCLog("js ls lsleafsoar constructor ..");
-	    if (argc == 0) {
-	        // 调用 C++ 构造函数
-	        ls::Leafsoar* cobj = new ls::Leafsoar();
-	        cocos2d::CCObject* _ccobj = dynamic_cast<cocos2d::CCObject*>(cobj);
-	        // 默认使用原有的内存管理方式
-	        if (_ccobj){
-	            _ccobj->autorelease();
-	        }
-	        TypeTest<ls::Leafsoar> t;
-	        js_type_class_t *typeClass;
-	        uint32_t typeId = t.s_id();
-	        HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
-	        assert(typeClass);
-	        JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
-	        JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
-	        // 构造 js 端对象，将 cobj 实际对象存入
-	        js_proxy_t* p = jsb_new_proxy(cobj, obj);
-	        JS_AddNamedObjectRoot(cx, &p->obj, "ls::Leafsoar");
-	 
-	        return JS_TRUE;
-	    }
-	 
-	    JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	    return JS_FALSE;
-	}
-	 
-	// 静态函数 create 的具体实现
-	JSBool js_ls_Leafsoar_create(JSContext *cx, uint32_t argc, jsval *vp)
-	{
-	    cocos2d::CCLog("js ls lsleafsoar create ..");
-	    if (argc == 0) {
-	        // 创建 Leafsoar 对象
-	        ls::Leafsoar* ret = ls::Leafsoar::create();
-	        jsval jsret;
-	        do {
-	            if (ret) {
-	                js_proxy_t *proxy = js_get_or_create_proxy<ls::Leafsoar>(cx, ret);
-	                jsret = OBJECT_TO_JSVAL(proxy->obj);
-	            } else {
-	                jsret = JSVAL_NULL;
-	            }
-	        } while (0);
-	        JS_SET_RVAL(cx, vp, jsret);
-	        return JS_TRUE;
-	    }
-	    JS_ReportError(cx, "wrong number of arguments");
-	    return JS_FALSE;
-	}
-	 
-	void js_ls_Leafsoar_finalize(JSFreeOp *fop, JSObject *obj) {
-	    // 析构函数实现，如果在构造函数做了什么，如开辟内存空间，那么需要在这里做些收尾工作
-	    //    CCLOGINFO("jsbindings: finalizing JS object %p (LsLeafsoar)", obj);
-	}
-
-通过以上的步骤，我们实现了 C++ 类 Leafosar 到 JS 端的绑定。在 JS 中我们可以通过以下调试测试：
-
-	// var ls = new ls.Leafsoar();
-	// 或者
-	var ls = ls.Leafsoar.create();
-	// 之后调用
-	ls.functionTest();
-
-##怎样实现 C++ 回调 JS
-
-在上文，完成了 C++ 到 js 的手动绑定，但有时我们还需要其它一些功能，比如想在 C++ 开一个多线程以加载资源，或者一个网络异步请求，再如要实现一个 delegate 以实现接口回调，然这些都归为同一个问题，实现 C++ 到 js 的回调。我们在 js 端定义了一个 Leafsoar 对象，并且新实现了一个方法，等待 C++ 端的回调，如下：
-
-	var ls = new ls.Leafsoar(); // 创建一个对象
-	// 定义回调函数 callback
-	ls.callback = function(i, j){
-	    log("ls.callback " + i + j);
+	public:
+    	XObject(void *selector, XObjectCallFunc func);
+    	void logAndCallBack(int value);
+	private:
+    	void *m_selector;
+    	XObjectCallFunc m_callback;
 	};
-	ls.functionTest();
+```
 
-我们想通过调用**functionTest**之后回调在 js 端定义的 callback 方法。那么我们需要重新实现 C++ 端的 functionTest 方法：
+XObjectCallFunc 定义了一个函数指针，作为回调函数类型。
 
-	void ls::Leafsoar::functionTest(){
-	    cocos2d::CCLog("function Test");
-	    js_proxy_t * p = jsb_get_native_proxy(this);
-	    jsval retval;
-	    JSContext* jc = ScriptingCore::getInstance()->getGlobalContext();
-	    //  定义参数，由两个参数
-	    jsval v[] = {
-	        v[0] = int32_to_jsval(jc, 32),
-	        v[1] =UINT_TO_JSVAL(88)
-	    };
-	    // 通过 ScriptingCore 封装好的方法实现回调，可以帮助我们节省很多细节上的研究
-	    ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(p->obj), "callback", 2, v, &retval);
+- XObject.cpp实现
+
+```
+	XObject::XObject(void *selector, XObjectCallFunc func)
+	{
+    	m_selector = selector;
+    	m_callback = func;
 	}
+	void XObject::logAndCallBack(int value)
+	{
+    	cocos2d::log("logAndCallBack:%d", value);
+    	m_callback(m_selector, value);
+	}
+```
 
-##JSB 的内存管理
+构造函数简单记录回调函数指针和回调对象，在logAndCallBack中会使用到。
 
-了解 Cocos2d-x 的朋友知道，它的内存管理方式，如果对此有疑问，可以参见[《Cocos2d-x 内存管理浅说》](http://www.ityran.com/archives/4100)和 [《深入理解 Cocos2d-x 内存管理》](http://www.ityran.com/archives/4184) 这两篇文章，那么在 JSB 我们如何来管理内存呢？在 C++ 需要通过**retain**和**release**来实现引用计数的管理（源码示例也给出它的绑定实现，但仅仅作为参考），在绑定 js 时，如果不做相应处理，那么可能会出现 js 正在运行着的代码，所绑定的实际 C++ 对象已经释放。虽然我们能通过 绑定实现 retain 和 release 方法，来实现 js 端的此方法调用，但这显然不符合 js 代码边的习惯，它是自动回收的，所以这里推荐 始终 由 SpiderMonkey 来保持一份对象引用，以使它更像 JS 的使用方式，当 js 垃圾回收自动执行时，在去释放 SpiderMonkey 对对象的引用。
+### 二、JSB环境初始化
 
-要做到这一点，我们需要只要修改上文的代码实现，在 构造函数，create 静态方法，实现对 C++ 类型对象的引用，在 析构绑定的析构函数中解除对其的引用以完成 C++ 到 JS 端绑定的内存管理方案。
+在applicationDidFinishLaunching中使用了很多类似于
+
+```
+sc->addRegisterCallback(XXX);
+```
+
+形式的语句注册特定模块的js绑定。每一个注册函数，对应一个模块。我们在这注册自己模块的js绑定
+
+```
+sc->addRegisterCallback(JSB_register_XObject);
+```
+	
+### 三、实现绑定
+
+添加头文件 **JSB_Manual_XObject.h** ，并在其中声明函数JSB手动绑定注册回调函数
+
+```
+void JSB_register_XObject(JSContext* cx, JSObject* obj);
+```
+
+接下来我们需要做的就是根据自己的需要在**JSB_Manual_XObject.cpp**中实现绑定,我们需要完成以下几点：
+
+1. 注册一个JS的类
+2. 一个JS的类有构造器、析构器以及一个create方法
+3. 把C++类中的方法绑定到JS类
+
+先贴上部分代码，然后再做详细解释：
+
+```
+//1.
+static JSClass* JSB_XObject_class = NULL;
+static JSObject* JSB_XObject_object = NULL;
+//2.
+static void JSB_XObject_finalize(JSFreeOp *fop, JSObject *obj)
+{
+	CCLOGINFO("jsbindings: finalizing JS object %p (XObject)", obj);
+    XObject *newObject = (XObject *)JS_GetPrivate(obj);
+    JS_SetPrivate(obj, NULL);
+    delete newObject;
+}
+//3.
+static void JSB_XObject_Callback(void *selector, int value)
+{
+    JSObject *jsobj = (JSObject *)selector;
+    jsval param[] = {
+        INT_TO_JSVAL(value)
+    };
+    jsval retval;
+    ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(jsobj), "callback", 1, param, &retval);
+}
+//4.
+static JSBool JSB_XObject_constructor(JSContext *cx, unsigned argc, JS::Value *vp)
+{
+    if (argc == 0) {
+        JSObject *jsobj = JS_NewObject(cx, JSB_XObject_class, JSB_XObject_object, NULL);
+        XObject *newObject = new XObject(jsobj, JSB_XObject_Callback);
+        JS_SetPrivate(jsobj, (void *)newObject);
+        JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(jsobj));
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "Wrong number of arguments: %d, was expecting: %d", argc, 0);
+    return JS_FALSE;
+}
+//5.
+static JSBool JSB_XObject_logAndCallBack(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JSB_PRECONDITION2(argc==1, cx, JS_FALSE, "Invalid number of arguments");
+    jsval *argvp = JS_ARGV(cx,vp);
+    JSObject *jsObj = (JSObject *)JS_THIS_OBJECT(cx, vp);
+    XObject *newObject = (XObject *)JS_GetPrivate(jsObj);
+    // call native member function
+    newObject->logAndCallBack(JSVAL_TO_INT(argvp[0]));  
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+//6.
+static void JSB_XObject_createClass(JSContext *cx, JSObject* globalObj, const char* name)
+{
+	JSB_XObject_class = (JSClass *)calloc(1, sizeof(JSClass));
+	JSB_XObject_class->name = name;
+	JSB_XObject_class->addProperty = JS_PropertyStub;
+	JSB_XObject_class->delProperty = JS_DeletePropertyStub;
+	JSB_XObject_class->getProperty = JS_PropertyStub;
+	JSB_XObject_class->setProperty = JS_StrictPropertyStub;
+	JSB_XObject_class->enumerate = JS_EnumerateStub;
+	JSB_XObject_class->resolve = JS_ResolveStub;
+	JSB_XObject_class->convert = JS_ConvertStub;
+	JSB_XObject_class->finalize = JSB_XObject_finalize;
+	JSB_XObject_class->flags = JSCLASS_HAS_PRIVATE;
+    // no property for this class
+	static JSPropertySpec properties[] = {
+        {0, 0, 0, 0, 0}
+	};
+    // define member function
+	static JSFunctionSpec funcs[] = {
+		JS_FN("logAndCallBack", JSB_XObject_logAndCallBack, 1, JSPROP_PERMANENT  | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+	static JSFunctionSpec st_funcs[] = {
+		JS_FS_END
+	};
+	JSB_XObject_object = JS_InitClass(
+                                     cx,
+                                     globalObj,
+                                     NULL,  //parent proto
+                                     JSB_XObject_class,
+                                     JSB_XObject_constructor,
+                                     0,
+                                     properties,
+                                     funcs, 
+                                     NULL,  //no static properties
+                                     st_funcs);   
+}
+//7.
+void JSB_register_XObject(JSContext *cx, JSObject *obj)
+{
+    // define name space
+    JSObject *myBinding = JS_NewObject(cx, NULL, NULL, NULL);
+    JS::RootedValue myBindingVal(cx);
+    myBindingVal = OBJECT_TO_JSVAL(myBinding);
+	JS_SetProperty(cx, obj, "MyBinding", myBindingVal);
+    // register class
+    JSB_XObject_createClass(cx, myBinding, "XObject");
+}
+```
+
+1. 定义JS端的类型，在下方创建新对象时会用到。
+
+2. 这是JS的析构函数，在析构函数中对新创建对象进行清除。
+
+3. JS端回调方法，我们可以使用这个方法来调用c++端的回调方法。这里有几个接口需要解释下:
+	- INT_TO_JSVAL(value)可将**C**风格的整型值value转换为**Js**的整型值；
+	
+	- executeFunctionWithOwner简化了调用对象**OBJECT_TO_JSVAL(jsobj)**的**callback**方法的过程,**1**为参数个数,**param**为参数数组名,**retval**接受函数返回值。
+	
+```
+	ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(jsobj), "callback", 1, param, &retval);
+```
+
+4. JS的构造函数：
+	
+	利用[**JS_NewObject**](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_Reference/JS_NewObject)创建了对象。JS_NewObject基于一个特定的类(此处为**JSB_XObject_class**),原型(**JSB_XObject_object**)以及指向父类的指针来创建对象。    
+
+	同时创建了一个**XObject**的对象，参数为JS对象和JS端的回调函数。再回过头看看**XObject**类，不难发现JS端的回调方法已经和C++的回调方法已经被绑定
+	
+	**JS_SetPrivate**被用来设置对象(**jsobj**)的私有数据域(**(void *****)newObject**)，这个方法被用来存储不能在脚本中直接可见的c/c++的数据时非常有用。但是，**需要注意**的是此处的对象必须是一个包含有**JSCLASS_HAS_PRIVATE flag** 的实例。
+
+5. JSB_XObject_logAndCallBack 用来绑定C++的 logAndCallBack。
+
+6. 创建了一个JS对象，并为其分配空间
+
+```
+	JSB_XObject_class = (JSClass *)calloc(1, sizeof(JSClass));
+```
+
+然后通过该对象来描述用户信息：**name**为被绑定的类的名称,**finalize**接收JS的析构函数；
+	
+**JSPropertySpec**被用来给对象定义一个属性：
+	
+```
+	struct JSPropertySpec {  	const char *name;  //Name to assign the property.  	int8 tinyid;  //Unique ID number for the property  	uint8 flags;  //Property attributes.  	JSPropertyOp getter;    //Getter method for the property.  	JSPropertyOp setter;    //Setter method for the property.	};
+```
+
+   同时还定义了静态成员funcs和st_funcs。**JSFunctionSpec**为JS函数定义了特性与对象进行关联。
+   
+```
+   struct JSFunctionSpec {
+    const char      *name;  //function's name
+    JSNativeWrapper call;   //The built-in JS call wrapped by this function
+    uint16_t        nargs;  //value used for Function.length
+    uint16_t        flags;  //The bitwise OR of any number of property attributes and function flags, and optionally JSFUN_STUB_GSOPS.
+    const char      *selfHostedName; 
+   };
+```
+   
+   **JS_InitClass**初始化一个JSClass。第八个参数**const JSFunctionSpec *****fs**(对应于代码中的参数**funcs**)。这个参数是指向**JSFunctionSpecs**数组第一个元素的指针，这些如果存在就会被添加到类的新原型对象。这个新类的所有实例将通过原型链继承这些方法。这些方法在javascript中的地位就相当于C++和Java中公有的非静态方法。
+   
+7. 注册回调函数实现：
+
+下面的代码将值myBindingVal指派给对象obj的MyBinding属性，定义了一个js名称空间MyBinding。
+
+```
+JS_SetProperty(cx, obj, "MyBinding", myBindingVal);
+```
+
+然后在这个名字空见下新加入一个类名：
+
+```
+JSB_XObject_createClass(cx, myBinding, "XObject");
+```
+
+更多**JS API**信息，参考[JSAPI](https://developer.mozilla.org/en-US/docs/SpiderMonkey/JSAPI_User_Guide)。
+
+### 四、测试
+
+打开**Resources/src**文件夹下的**myApp.js**文件。在**MyScene**的**onEnter**方法中添加如下代码：
+
+```
+var MyScene = cc.Scene.extend({
+    ctor:function() {
+        this._super();
+        cc.associateWithNative( this, cc.Scene );
+    },
+    onEnter:function () {
+        this._super();
+        var layer = new MyLayer();
+        this.addChild(layer);
+        layer.init();                        
+        // test myBinding
+        var obj = new MyBinding.XObject();
+        obj.callback = function (value) {
+                                 cc.log(value);
+                              };
+        obj.logAndCallBack(11);
+    }
+});
+```
+
+如果绑定成功，将会获得如下显示：
+
+![logInfo](src/logInfo.png)
