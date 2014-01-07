@@ -1,6 +1,7 @@
 We are happy to announce the release of:
 
 * cocos2d-x v3.0-beta and cocos2d-x v2.2.2
+* cocos2d-html5 v2.2.2
 * CocoStudio v1.2
 
 
@@ -42,6 +43,34 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 * supports CocoStudio v1.2. It includes JS and Lua bindigns for CocoStudio
 * WinPhone8 & Windows8: added XAML support, libcurl support, updated to latest version of ANGLE
 
+# Cocos2d-html5 #
+
+<img src="http://www.cocos2d-x.org/attachments/download/1508" height=180>
+
+## Download
+
+[Cocos2d-html5-v2.2.2.zip](http://cdn.cocos2d-x.org/Cocos2d-html5-v2.2.2.zip)
+
+## Highlights
+
+
+* Resolution policy now act as a combination of `cc.ContainerStrategy` and `cc.ContentStrategy` so that user can beautifully customize its behavior.
+* cc.LabelTTF's now support perfectly automatic line break with occidental and Chinese characters.
+* `cc.ClippingNode` for canvas render mode is implemented.
+* Refactored cc.Node and cc.Sprite by adding cc._PointConst and cc._SizeConst for better Performance. Now the performance of setPosition and getPosition is `65% faster` than before.
+* CCNode's setContentSize and setAnchorPoint support two types of parameters, more friendly and more efficient. setAnchorPoint(x,y) is `35% faster` than setAnchorPoint(cc.p(x,y)).
+* Added `NPM` support and adjusted folder structure. It supports modules customization, the packaged mini engine and HelloWorld is just `185KB` in single file mode. Please visit [NPM Guide](http://www.cocos2d-x.org/wiki/Cocos-utils_for_NPM) for more details.
+* Added SpriteFrameCache `JSON` format support.
+* Added `source map` generating of Closure Compiler advance mode , please make sure your JDK version is 7.0 and up.
+
+
+## Note
+We will continue to put all our energy on performace improvement and compatiblity of mobile browsers in the upcoming versions. It will support NPM in next version to reduce file size and module customization.  
+
+
+### More information ###
+
+Read more about all the new features at [Cocos2d-html5 v2.2.2 release notes](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Notes_for_Cocos2d-html5_v222).
 
 # CocoStudio #
 
