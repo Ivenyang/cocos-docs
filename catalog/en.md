@@ -55,6 +55,11 @@
         - [Replaced Objective-C patterns with c++ 11 patterns and best practices](../manual/framework/native/best_practice/cpp11_patterns/en.md)
         - [C++ Coding Style of Cocos2d-x](../manual/framework/native/best_practice/cpp_coding_style/en.md)
 	    - New script for Android building(include building for all platforms and generating APK)
+	    
+	- Cocos2d-html5
+		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5_advantages/en.md)
+		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution_policy_design/en.md)
+		
 - Tutorial
 	- [Build a Game with CocoStudio](../tutorial/parkour_game_with_cocostudio/en.md)
 		- [What is CocoStudio](../tutorial/parkour_game_with_cocostudio/chapter1/en.md)
