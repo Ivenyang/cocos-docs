@@ -41,7 +41,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 ### Highlights ###
 
 * supports CocoStudio v1.2. It includes JS and Lua bindigns for CocoStudio
-* WinPhone8 & Windows8: added XAML support, libcurl support, updated to latest version of ANGLE
+* WinPhone8 & Windows8: added XAML support, updated to latest version of ANGLE
 
 # Cocos2d-html5 #
 
