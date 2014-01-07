@@ -97,7 +97,7 @@ The game content represent the game world's coordinates.
 
 ####4. Viewport
 
-The viewport is the canvas's rect in the game world's coordinates in pixel.
+The viewport is the game world's rect related to the canvas's coordinates in pixel.
 
 ####5. Container Strategy
 
@@ -110,7 +110,7 @@ The content strategy controls the behavior of how to scale the game world relati
 
 ##Predefined policies
 
-Now I will introduce all five predefined policies, in each captured image, the red rects are the game's content corner, and the green ones are the corners of the canvas.
+Now I will introduce all five predefined policies, in each captured image, the red rects are the game content's corner, and the green ones are the corners of the canvas.
 
 All resolution policies are combined with a container strategy and a content strategy, the combination of each policy is shown in the brackets.
 
