@@ -40,10 +40,10 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 
 ### Highlights ###
 
-* supports CocoStudio v1.2. It includes JS and Lua bindigns for CocoStudio
+* Added support for CocoStudio v1.2. It includes JS and Lua bindigns for CocoStudio
 * WinPhone8 & Windows8: added XAML support, updated to latest version of ANGLE
 
-# Cocos2d-html5 #
+# cocos2d-html5 #
 
 <img src="http://www.cocos2d-x.org/attachments/download/1508" height=180>
 
@@ -54,17 +54,13 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 ## Highlights
 
 
-* Resolution policy now act as a combination of `cc.ContainerStrategy` and `cc.ContentStrategy` so that user can beautifully customize its behavior.
-* cc.LabelTTF's now support perfectly automatic line break with occidental and Chinese characters.
-* `cc.ClippingNode` for canvas render mode is implemented.
-* Refactored cc.Node and cc.Sprite by adding cc._PointConst and cc._SizeConst for better Performance. Now the performance of setPosition and getPosition is `65% faster` than before.
-* CCNode's setContentSize and setAnchorPoint support two types of parameters, more friendly and more efficient. setAnchorPoint(x,y) is `35% faster` than setAnchorPoint(cc.p(x,y)).
+* Resolution policy now act as a combination of `cc.ContainerStrategy` and `cc.ContentStrategy`. Users can easily customize its behavior.
+* `cc.LabelTTF` now supports automatic line break with occidental and Chinese characters.
+* Added support for `cc.ClippingNode` in canvas mode.
+* Improved performance in `setPosition` and `getPosition` in `cc.Node` and `cc.Sprite` in about 65%.
+* `cc.Node`'s `setContentSize` and `setAnchorPoint` support pasing `x` and `y` as arguments. `setAnchorPoint(x,y)` is 35% faster than `setAnchorPoint(Point(x,y))`
 * Added `NPM` support and adjusted folder structure. It supports modules customization, the packaged mini engine and HelloWorld is just `185KB` in single file mode. Please visit [NPM Guide](http://www.cocos2d-x.org/wiki/Cocos-utils_for_NPM) for more details.
 * Added SpriteFrameCache `JSON` format support.
-
-
-## Note
-Cocos2d-html5 will support new event dispatcher and new label in next release.  
 
 
 ### More information ###
