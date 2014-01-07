@@ -6,6 +6,7 @@
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
 		- New renderer
+			- [Introduction to New Render](../manual/framework/native/new_render/en.md) 
 			- How to Draw Custom Nodes 
 	- GUI
 		- [Label v3.0](../manual/framework/native/gui/label/v3/en.md)
