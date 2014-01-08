@@ -51,7 +51,7 @@ In addtion, UILabel has other proprerties:
 General proprerties and Methods             | Description 
 --------------------------------------------|--------------------
 setText(const std::string& text)            | Setting of display text label
-getStringValue()                            | Get displyed text
+getStringValue()                            | Get displayed text
 getStringLength()                           | Get the length of string(Chinese character is more than English's, in iOS is 3)
 setFontName(const std::string& name)        | Set font
 setFontSize(int size)                       | Set the size of font

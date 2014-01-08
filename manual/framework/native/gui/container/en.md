@@ -1,6 +1,6 @@
 ## Usage of Container Layer
 
-GUI widgets can be divided into two general kinds-**Noraml Widget** and **Container Widget**. Noraml widgets are some common widgets such as UIButton, UILabel, UISlider and UITextField etc. On the other hand, container widgets like UILayout, UIScrollView and UIPageView etc have a common character, that is they can be the container contains other widgets. Even though all the widgets can contain others, but some of them just do one thing like button and label, adding other widgets to them is not a common use. Let's get to know details about how to using these container widgets.
+GUI widgets can be divided into two general kinds-**Normal Widget** and **Container Widget**. Normal widgets are some common widgets such as UIButton, UILabel, UISlider and UITextField etc. On the other hand, container widgets like UILayout, UIScrollView and UIPageView etc have a common character, that is they can be the container contains other widgets. Even though all the widgets can contain others, but some of them just do one thing like button and label, adding other widgets to them is not a common use. Let's get to know details about how to using these container widgets.
 
 ### UILayout (Panel)
 

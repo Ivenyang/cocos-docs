@@ -1,4 +1,6 @@
-# Event Dispatch Mechanism
+# Mechanism of EventDispatcher
+
+* version: since cocos2d-x v3.0 alpha0
 
 ## Introduction
 

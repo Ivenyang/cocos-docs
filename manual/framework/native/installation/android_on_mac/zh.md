@@ -1,3 +1,6 @@
+如何在Mac OS X上搭建Cocos2d-x安卓开发环境
+================
+
 ## 版本 ##
 
 - Cocos2d-x: cocos2d-2.1beta3-x-2.1.1

@@ -1,8 +1,8 @@
 - 模块说明 
 	- Cocos2d-x
 		- 环境搭建
-			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_mac/zh.md)
-			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_win7/zh.md)
+			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_win7/zh.md)
+			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android_on_mac/zh.md)
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
@@ -40,7 +40,6 @@
 			- [文本控件 Label v3.0](../manual/framework/native/gui/label/v3/zh.md)
 			- [文本输入框 EditBox](../manual/framework/native/gui/editbox/zh.md)
 			- [ScrollView 实现帮助界面、关卡选择](../manual/framework/native/gui/scrollview/zh.md)
-			- [wp8添加第三方支付控件](../manual/framework/native/gui/WebBrowser/zh.md)
 		- 网络
 			- 如何使用XMLHttpRequest
 			- 如何使用WebSocket
@@ -62,7 +61,8 @@
 				- [Javascript Binding的手动绑定实现](../manual/framework/native/scripting/javascript/jsb_manually/zh.md)
 				- Javascript绑定的远程调试
 		- 第三方库集成
-			- [如何让Java和C++接口互相调用：JNI使用指南](../manual/framework/native/concept/how_to_invoke_android_api_in_cocos2dx/zh.md)
+			- [Android: 如何让Java和C++接口互相调用：JNI使用指南](../manual/framework/native/sdk_integration/android_jni/zh.md)
+			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk_integration/wp8_webbrowser/zh.md)
 			- 如何在Android上集成第三方SDK
 			- 如何在iOS上集成第三方SDK
 		- 版本升级指南
@@ -75,8 +75,9 @@
 			
 	- Cocos2d-html5	
 		- Cocos2d-html5的开发优势
-		- [如何搭建 Cocos2d-HTML5 开发调试环境](../manual/framework/html5/setup_devenv/zh.md)
+		- [如何搭建 Cocos2d-html5 开发调试环境](../manual/framework/html5/setup_devenv/zh.md)
 		- [如何自定义cocos2d-html5加载界面](../manual/framework/html5/customize_loading_screen/zh.md)
+		- [Cocos2d-html5 2.2.2的屏幕适配方案](../manual/framework/html5/resolution_policy_design/zh.md)
 	
 - 教程
 	- 入门篇：用C++写一个忍者射飞镖游戏

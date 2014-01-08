@@ -1,10 +1,10 @@
-#手把手，快速搭建 Cocos2d-HTML5 开发调试环境
+#手把手，快速搭建 Cocos2d-html5 开发调试环境
 ---
 
-在这篇文章中，你将学会如何快速搭建 Cocos2d-HTML5 的开发和运行环境，对于脚本来说，大多编辑器提供语法高亮显示，而没有语义补全，虽然有些开发环境提供了自动补全功能，但都不大好用。这里推荐使用 WebStorm，作为一个 IDE（集成开发环境），它有非常强大的代码补全，而且其补全相当智能，提高了开发效率。还能与 Google Chrome 浏览器配合，完成实时编辑和调试功能。当然你可以有其它选择。下面详细介绍它的详细配置步骤。
+在这篇文章中，你将学会如何快速搭建 Cocos2d-html5 的开发和运行环境，对于脚本来说，大多编辑器提供语法高亮显示，而没有语义补全，虽然有些开发环境提供了自动补全功能，但都不大好用。这里推荐使用 WebStorm，作为一个 IDE（集成开发环境），它有非常强大的代码补全，而且其补全相当智能，提高了开发效率。还能与 Google Chrome 浏览器配合，完成实时编辑和调试功能。当然你可以有其它选择。下面详细介绍它的详细配置步骤。
 
 ##环境准备
-在开始之前，首先下载需要的文件，依赖等，对于 Cocos2d-HTML5 使用当前的最新稳定版本，2.1.5 。你可以在 这里[下载](http://cocos2d-x.googlecode.com/files/Cocos2d-html5-v2.1.5.zip)。[WebStorm](http://www.jetbrains.com/webstorm/download/index.html) 请访问官网，根据自己的系统环境选择下载，这里使用的是 6.0.2 版本。 为了能够使得 IDE 与浏览器协同编辑调试，需要安装 Chrome [jetbrains-ide-support](https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji) 插件。有了以上三者，就可以进行配置。这里以 Mac OS X 作为系统环境。
+在开始之前，首先下载需要的文件，依赖等，对于 Cocos2d-html5 使用当前的最新稳定版本，2.1.5 。你可以在 这里[下载](http://cocos2d-x.googlecode.com/files/Cocos2d-html5-v2.1.5.zip)。[WebStorm](http://www.jetbrains.com/webstorm/download/index.html) 请访问官网，根据自己的系统环境选择下载，这里使用的是 6.0.2 版本。 为了能够使得 IDE 与浏览器协同编辑调试，需要安装 Chrome [jetbrains-ide-support](https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji) 插件。有了以上三者，就可以进行配置。这里以 Mac OS X 作为系统环境。
 
 ##配置 WebStorm 项目，代码补全功能
 在开始开发之前，第一步需要将 Cocos2d-html5 导入 WebStorm 项目工程。
@@ -18,7 +18,7 @@
 
 ![image](./res/2.png)
 
-- 浏览文件夹到**Cocos2d-html5-v2.1.5**目录，然后点击`Project Root`设定跟目录
+- 浏览文件夹到**Cocos2d-html5-v2.1.5**目录，然后点击`Project Root`设定根目录
 
 ![image](./res/3.png)
 
