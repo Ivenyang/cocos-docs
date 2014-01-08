@@ -71,7 +71,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 * Added support for `cc.ClippingNode` in canvas mode.
 * Improved performance in `setPosition` and `getPosition` in `cc.Node` and `cc.Sprite` in about 65%.
 * `cc.Node`'s `setContentSize` and `setAnchorPoint` support pasing `x` and `y` as arguments. `setAnchorPoint(x,y)` is 35% faster than `setAnchorPoint(Point(x,y))`
-* Added `NPM` support and adjusted folder structure. It supports modules customization, the packaged mini engine and HelloWorld is just `185KB` in single file mode. Please visit [NPM Guide](http://www.cocos2d-x.org/wiki/Cocos-utils_for_NPM) for more details.
+* Added `NPM` support and adjusted folder structure. It supports modules customization, the packaged mini engine and HelloWorld is just `185KB` in single file mode. Please visit [Cocos-utils for NPM Guide](../manual/framework/html5/cocos_utils/en.md) for more details.
 * Added SpriteFrameCache `JSON` format support.
 
 

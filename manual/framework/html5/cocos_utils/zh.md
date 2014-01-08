@@ -1,3 +1,6 @@
+cocos-utils
+========
+
 `cocos-utils` 是一个用于支持cocos2d-html5引擎 NPM 分支的工具，目的是更好的为开发者提供开发的便利，降低引擎的使用难度，提高开发效率，并极力为开发者提供一套良好的开发流程。
 
 
@@ -29,7 +32,7 @@ npm --registry "http://registry.cnpmjs.org" install cocos-utils -g
 
 通过输入`cocos help`来确认是否安装成功。
 
-[查看命令详细说明](cocos_command.md).
+[查看命令详细说明](cocos_command/zh.md).
 
 
 ## HelloWorld
@@ -134,7 +137,7 @@ cocos publish
 该文件是项目相关的`cocos`命令的配置。
 如果在执行执行`cocos`相关命令出错时，请先查看错误信息，再检查该文件是否配置正确。
 
-[详细说明](cocos_json.md)
+[详细说明](cocos_json/zh.md)
 
 
 ## resCfg
@@ -144,7 +147,7 @@ cocos publish
 `cc.js`取代了`jsLoader.js`，所以`jsLoader.js`在NPM分支中是不存在的。
 故之前那种通过jsLoader来引用项目文件的方式在该分支中是无法使用的。
 
-[详细说明](resCfg.md)
+[详细说明](rescfg/zh.md)
 
 
 ## package.json
@@ -162,7 +165,7 @@ cocos publish
 默认，我们已经为开发者提供了一些常用的测试方法。
 同时，你也可以自定义测试方法。
 
-[详细说明](UnitTest.md)
+[详细说明](unit_test/zh.md)
 
 ## 注意事项
 
