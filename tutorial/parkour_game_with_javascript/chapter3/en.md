@@ -2,6 +2,11 @@
 
 Before creating the first scene for your game, you should be familiar with some basic concepts of Cocos2d-x. If you are already familiar with these concepts, you can skip to next chapter.
 
+## Online Showcase
+
+<iframe src="./code/index.html" width="480" height="320" scrolling="yes" frameborder="0"> 
+</iframe> 
+
 ## Basic Concepts
 
 In a Cocos2d-x game, every element is a node. The game is constructed mostly by three kinds of node:
