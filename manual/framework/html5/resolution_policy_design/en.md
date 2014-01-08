@@ -97,7 +97,7 @@ The game content represent the game world's coordinates.
 
 ####4. Viewport
 
-The viewport is the canvas's rect in the game world's coordinates in pixel.
+The viewport is the game world's rect related to the canvas's coordinates in pixel.
 
 ####5. Container Strategy
 
@@ -110,7 +110,7 @@ The content strategy controls the behavior of how to scale the game world relati
 
 ##Predefined policies
 
-Now I will introduce all five predefined policies, in each captured image, the red rects are the game's content corner, and the green ones are the corners of the viewport of your game: which equals to the canvas.
+Now I will introduce all five predefined policies, in each captured image, the red rects are the game content's corner, and the green ones are the corners of the canvas.
 
 All resolution policies are combined with a container strategy and a content strategy, the combination of each policy is shown in the brackets.
 
@@ -134,11 +134,11 @@ Exact fit policy will scale the container to fit exactly the frame, so your game
 
 ####4. FIXED_WIDTH (EQUAL_TO_FRAME + FIXED_WIDTH)
 
-![FixedWidth](./res/FixedWidth.jpg)
+![FixedWidth](./res/FixedWidth.jpeg)
 
 Fixed width policy will scale the width of the container to fit the frame's width, and the height will be scaled proportionally.
 
-Pay attention to the position of viewport corners, it's different from the show all policy.
+It may seem alike to the SHOW_ALL policy, but the canvas's rect fills up the whole frame, and game world's coordinate system equals the canvas coordinate system.
 
 ####5. FIXED_HEIGHT (EQUAL_TO_FRAME + FIXED_HEIGHT)
 
@@ -146,7 +146,7 @@ Pay attention to the position of viewport corners, it's different from the show 
 
 Fixed height policy will scale the height of the container to fit the frame's height, and the width will be scaled proportionally.
 
-In the case of our caption, the game width is larger than the game height, so the FIXED_WIDTH policy act like SHOW_ALL, and the FIXED_HEIGHT policy act like NO_BORDER. On the contrary, if the game width is smaller than the game height, the FIXED_WIDTH policy will act like NO_BORDER, and the FIXED_HEIGHT policy will act like SHOW_ALL.
+In the case of our caption, the game width is larger than the game height, so the FIXED_WIDTH policy act like SHOW_ALL, and the FIXED_HEIGHT policy act like NO_BORDER. On the contrary, if the game width is smaller than the game height, the FIXED_WIDTH policy will act like NO_BORDER, and the FIXED_HEIGHT policy will act like SHOW_ALL. But FIXED_HEIGHT and FIXED_WIDTH policies will all take the whole frame as the viewport and game world rect.
 
 ##Customized resolution policy
 
@@ -180,25 +180,40 @@ If you are not satisfied with our predefined strategies, you can even implement 
 Extend the container strategy:
 >
 	var MyContainerStg = cc.ContainerStrategy.extend({
-		init: function (view) {
-			// This function is called once cocos2d-html5 initiated, 
-			// you can remove this function if you don't need any initialization
+		preApply: function (view) {
+			// This function is called before the process of adaptation,
+			// you can remove this function if you don't need
 		},
 >
 		apply: function (view, designedResolution) {
 			// Apply process
+		},
+>
+		postApply: function (view) {
+			// This function is called after the process of adaptation,
+			// you can remove this function if you don't need
 		}
 	});
 
 Extend the content strategy
 >
 	var MyContentStg = cc.ContentStrategy.extend({
+		preApply: function (view) {
+			// This function is called before the process of adaptation,
+			// you can remove this function if you don't need
+		},
+>
 		apply: function (view, designedResolution) {
 			var containerW = cc.canvas.width, containerH = cc.canvas.height;
 >			
 			// The process to calculate the content size, the x axe scale and the y axe scale
 >
 			return this._buildResult(containerW, containerH, contentW, contentH, scaleX, scaleY);
+		},
+>
+		postApply: function (view) {
+			// This function is called after the process of adaptation,
+			// you can remove this function if you don't need
 		}
 	});
 
