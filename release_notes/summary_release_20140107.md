@@ -28,9 +28,9 @@ We are happy to announce the release of:
 * `Director` emits the following events using the `EventDispatcher`: `AFTER_UPDATE`, `AFTER_DRAW`, `AFTER_VISIT` and `PROJECTION_CHANGED`
 * Added Cocos2dxActivity.java which inherits from native activity. Ingetrating 3rd Android SDK would be much easilier on v3.0.
 
-### Docs for v3.0 ###
-* [New Renderer](../manual/framework/native/renderer/en.md)
-* [Event Dispatcher](../manual/framework/native/input/event_dispatcher/en.md)
+### Documents for v3.0 ###
+* [Introdution of New Renderer](../manual/framework/native/renderer/en.md)
+* [Mechanism of Event Dispatcher](../manual/framework/native/input/event_dispatcher/en.md)
 * [Physcis Integration](../manual/framework/native/physics/physics_integration/en.md)
 * [Particle System Comparison of v2.x and v3.0](../manual/framework/native/graphic/particle/v3/en.md)
 * [Improved Label in v3.0](../manual/framework/native/gui/label/v3/en.md)
