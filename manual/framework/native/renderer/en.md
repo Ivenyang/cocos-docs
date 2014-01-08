@@ -1,4 +1,4 @@
-# Introduction to New Render
+# Introduction to New Renderer
 
 ## Overview
 This article is mainly a overview of cocos2d v3.x rendering pipeline from a developer's view. It is not a substitution of the original [roadmap](https://docs.google.com/document/d/17zjC55vbP_PYTftTZEuvqXuMb9PbYNxRFu0EGTULPK8/edit) provided by the core engine team.
