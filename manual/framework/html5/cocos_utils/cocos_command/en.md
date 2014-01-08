@@ -1,3 +1,5 @@
+cocos command
+========
 The default config is in `cocos.json`, so that you don\`t need to type options every moment.
 If there is something wrong while using `cocos` command, check this file first.
 
