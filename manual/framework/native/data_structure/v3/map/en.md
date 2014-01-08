@@ -24,7 +24,7 @@ Internally, the elements in the unordered_map are not sorted in any particular o
 
 Before cocos2d-x v3.0 beta, there is another sequence container named [cocos2d::CCDictionary](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCDictionary.h) which will be deprecated in the future.
 
-Because we carefully design the `cocos2d::Map<K,V>` container as a replacement for `cocos2d::CCDictionary`, please use cocos2d::Vector<T> instead of `cocos2d::CCDictionary`.
+Because we carefully design the `cocos2d::Map<K,V>` container as a replacement for `cocos2d::CCDictionary`, please use cocos2d::Map<T> instead of `cocos2d::CCDictionary`.
 ##Template parameters
 
 **K** - The type of the key values.

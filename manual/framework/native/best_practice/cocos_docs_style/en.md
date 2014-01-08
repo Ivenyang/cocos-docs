@@ -16,7 +16,7 @@ layer->addChild(sprite);
 ```
 </pre>
 
-# Floder Structure
+# Folder Structure
 
 We create such a folder structure to support multiple languages translation:
 
