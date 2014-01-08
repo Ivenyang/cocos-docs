@@ -1,4 +1,6 @@
-# Physicals in Cocos2d-x 3.0
+# Physics Integration
+
+* version: since 3.0 alpha1
 
 ## Introduction
 

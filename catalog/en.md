@@ -5,23 +5,23 @@
 	- Graphic
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
-		- New renderer
-			- [Introduction to New Render](../manual/framework/native/new_render/en.md) 
+		- Renderer since v3.0
+			- [Introduction to New Renderer](../manual/framework/native/renderer/en.md) 
 			- How to Draw Custom Nodes 
 	- GUI
 		- [Label v3.0](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
 		- 3.0 Data Structures
-            - [Vector\<T\>](../manual/framework/native/template_containers/vector/en.md)
-            - [Map\<K,V\>](../manual/framework/native/template_containers/map/en.md)
-            - [Value](../manual/framework/native/template_containers/value/en.md)
+            - [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md)
+            - [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md)
+            - [Value](../manual/framework/native/data_structure/v3/value/en.md)
 		- 2.x Data Structures
             - CCArray
             - CCDictionary
             - CCString
 	- Audio
 		- Audio Formats on Different Platforms
-	- [Physics integration](../manual/framework/native/physics/new_physicals/en.md)
+	- [Physics Integration](../manual/framework/native/physics/physics_integration/en.md)
 	- Console module
 	- Memory Management
 		- Objects Reference Count and Auto Release Pool
@@ -78,5 +78,6 @@
 		- [Add Coin and Obstacles](../tutorial/parkour_game_with_javascript/chapter8/en.md)
 		- [Add Game Over Logic And More](../tutorial/parkour_game_with_javascript/chapter9/en.md)
         - [Add Audio Effect into Parkour Game](../tutorial/parkour_game_with_javascript/chapter10/en.md)
-		
-		
+  
+- Release Notes
+	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release_notes/summary_release_20140107.md)		
