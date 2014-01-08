@@ -83,43 +83,33 @@ Read more about all the new features at [Cocos2d-html5 v2.2.2 release notes](htt
 
 <img src="http://upyun.cocimg.com/CocoStudio/Img/CocoStudio-Name-Logo.png" width=140>
 
-## V1.2 ##
+## v1.2 ##
 
-### download ###
+### Download ###
 
-[CocoStudio-1.2.0.0.exe](http://126.am/COCOSTUDIO1200FULL)
+[CocoStudio-v1.2.exe](http://126.am/COCOSTUDIO1200FULL)
 
 ### Highlights ###
 
- * Added Japanese and Spanish localizations
+#### Editor ####
+ * Added Japanese and Spanish localizations.
  * Added the function: the scale and the reference line.
- * Added the function: export the unformatted Json when exporting the project.
 
 #### Animation Editor ####
-
  * Improved the efficiency after several switching animation lists.
- * Drew the polygon collision : automatic image matching, profile tracing point, since the painting outline, etc.
- * Curve control easing up.
- * Added the shortcuts of the level adjustment.
-
+ * Edit the polygon collision zone : automatic image matching, contour tracing point, since the painting outline, etc.
+ * Added custom easing curve support.
+ 
 #### UI Editor ####
- * Merged UI controls: Button and TextButton, TextArea and TextBox.
  * Added UI controls: ListView and PageView.
- * Added the function: Curve control easing up.
- * Modified the custom front settings in the text controls.
- * Modified the bugs in UI Editor.
-   
+ * Added custom easing curve support.
+ * Modified the custom font settings in the text controls.
+
 #### Scene Editor ####
  * Added the Trigger setting.
- * Previewed Armature animation collision zone.
- * Set the simulator and the command line.
- * Download Scene Editor cloud optimized resources to support up to five devices simultaneously connected Scene Editor.
- * Download the open source scene editor Cloud Connector source code and the simulator source code.
- <https://github.com/chukong/CocoStudioConnector>
- 
-### Bugs fixed ###
- * Solved the problem when modifying the file name in the resource zone, it could not synchronize the modified file name to save the data.
- * Solved the problem when using the Plist to create a sequence Frame, resources were not displayed correctly.
- * Solved the problem when switching animation, mirroring reference was not set properly .
- * Solved the problem when modifying the properties in the properties area, it would cause multiple undo.
- * Solved the problem when input in the frame event , it would not be saved immediately.
+ * Added the function: Trigger automatic generate code.
+
+
+### More information ###
+
+Read more about all the new features at [CocoStudio V1.2.0.0 release notes](http://www.cocos2d-x.org/wiki/CocoStudio).
