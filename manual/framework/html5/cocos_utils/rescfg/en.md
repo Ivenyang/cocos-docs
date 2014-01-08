@@ -1,3 +1,5 @@
+resCfg
+========
 This is the main config for the dependencies of the project.
 It is the core to load js and resources, just like what `resources.js` and `appFiles` of `ccConfig` do in the develop branch.
 `cc.js` takes place of `jsLoader.js`, so `jsLoader` do not work in this npm branch.

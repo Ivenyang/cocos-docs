@@ -1,3 +1,5 @@
+resCfg
+========
 该配置是项目的依赖配置核心部分，同时也是`publish`的关键所在。
 由于npm分支里面已经移除了`jsLoader`，用`cc.js`取而代之，所以，需要注意的是`jsLoader`在该分支中是用不了的。
 我们采取了另外一种方式来进行js文件以及资源文件的加载配置，类似于develop分支中的`resources.js`以及`ccConfig`中的`appFiles`。
