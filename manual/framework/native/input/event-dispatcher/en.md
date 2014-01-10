@@ -1,30 +1,37 @@
-# Mechanism of EventDispatcher
+# EventDispatcher Mechanism
 
 * version: since cocos2d-x v3.0 alpha0
 
 ## Introduction
 
-When using this mechanism, you should create a event linstener in the first place. The event listener has five different kinds below:
+Cocos2d-X 3.0 introduces a new mechanism for responding to user events. This document explains how it works.
 
-* Touch Event (EventListenerTouch)
-* Keyboard Response Event (EventListenerKeyboard)
-* Acceleration Record Event (EventListenerAcceleration)
-* Mouse Response Event (EventListenMouse)
-* Custom Event (EventListenerCustom)
+The basics:
 
-The listen events above are all managed by `_eventDispatcher`. The jobs of `_eventDispatcher` conbined by three parts:
+- **Event listeners** encapsulate your event processing code.
+- **Event dispatcher** notifies listeners of user events.
+- **Event objects** contain information about the event.
 
-* Event Dispatcher such as: EventDispatcher.
-* Event types such as: EventTouh, EventKeyboard etc.
-* Event Listener such as: EventListenerTouch, EventListenerKeyboard etc.
+To respond to events, you must first create an **EventListener**. There are five different kinds of EventListeners:
 
-Listener has implemented all kinds of logics after event triggered. Dispatcher will dispatch event type at the appropriate time, then it calls the corrresponding type of listener.
+* `EventListenerTouch` - responds to touch events
+* `EventListenerKeyboard` - responds to keyboard events
+* `EventListenerAcceleration` - reponds to accelerometer events
+* `EventListenMouse` - responds to mouse events
+* `EventListenerCustom` - responds to custom events
 
-## Usages
+Then, attach your event processing code to the appropriate callback on the event listener (e.g., `onTouchBegan` for `EventListenerTouch` listeners, or `onKeyPressed` for keyboard event listeners).
 
-Now adding three buttons in a scene, and these buttons will cover each other. Moreover, they can trigger touch events, see the implementation as follow:
+Next, register your EventListener with the **EventDispatcher**.
 
-### Create three sprites as display picture of three buttons first.
+When events occur (for example, the user touches the screen, or types on the keyboard), the `EventDispatcher` distributes **Event objects** (e.g. `EventTouch`, `EventKeyboard`) to the appropriate EventListeners by calling your callbacks. Each Event object contains information about the event (for example, the coordinates where the touch occurred).
+
+
+## Example
+
+In the following example, we will add three overlapping buttons to a scene. Each will respond to touch events.
+
+### Create three sprites with images for the buttons
 
 
 ```c++
@@ -44,25 +51,27 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
                                                 
 ![touchable_sprite](res/touchable_sprite.png)
 
-### Create a single touch event listener, and complete the logics code
+### Create a single touch event listener and write the callback code
+
+(Note that in the following example, we use _C++11 lambda expressions_ to implement the callbacks. See the Keyboard event examples below for a different way of writing these, using the `CC_CALLBACK_N` macros.)
 
 ```c++
-    //Create a event listener OneByOne as single touch
+    //Create a "one by one" touch event listener (processes one touch at a time)
     auto listener1 = EventListenerTouchOneByOne::create();
-    //Setting of swallow event, when onTouchBegan method return true set as swallow
+    // When "swallow touches" is true, then returning 'true' from the onTouchBegan method will "swallow" the touch event, preventing other listeners from using it.
     listener1->setSwallowTouches(true);
 
-    //Using lambda expression implement onTouchBegan event callback function
+    // Example of using a lambda expression to implement onTouchBegan event callback function
     listener1->onTouchBegan = [](Touch* touch, Event* event){
-        //Get target, which is  binded to event 
+        // event->getCurrentTarget() returns the *listener's* sceneGraphPriority node.
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
 
-        //Get the coordinate of the current point's relative position of the button
+        //Get the position of the current point relative to the button
         Point locationInNode = target->convertToNodeSpace(touch->getLocation());
         Size s = target->getContentSize();
         Rect rect = Rect(0, 0, s.width, s.height);
 
-        //Checking click area
+        //Check the click area
         if (rect.containsPoint(locationInNode))
         {
             log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
@@ -79,7 +88,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
         target->setPosition(target->getPosition() + touch->getDelta());
     };
 
-    //Solve the touch end event
+    //Process the touch end event
     listener1->onTouchEnded = [=](Touch* touch, Event* event){
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
         log("sprite onTouchesEnded.. ");
@@ -97,7 +106,7 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 ```
 
-### Add event listener to event dispathcer
+### Add event listener to event dispatcher
 
 ```c++
     //Add listener
@@ -107,28 +116,38 @@ Now adding three buttons in a scene, and these buttons will cover each other. Mo
 
 ```
 
-**_eventDispatcher** is the property of the **Node**, you can use it manage the dispatch situation of all events of current node(such as scene, layer, sprite etc).
+**_eventDispatcher** is a property of **Node**. You can use it manage the dispatch situation of all events of the current node (such as Scene, Layer, Sprite, etc).
 
-*Note:* When using **listener1** again, `clone()` method is needed to create a new clone. Because when using `addEventListenerWithFixedPriority` or `addEventListenerWithFixedPriority` method, a registered mark will be added to current using event listener, so a listener can not be added serval times. One more thing you should keep in mind. If you add a fixed priority listener to a node, when the node is removed,you should also remove the listener manually. But the scene graph priority listener is different. It is binded to the node, when the node's destructor is called, the listener will be removed automatically.
+*Note:* In the example above, we use the `clone()` method in the second and third calls to `addEventListenerWithSceneGraphPriority`. This is because each event listener can be added only once. The methods `addEventListenerWithSceneGraphPriority` and `addEventListenerWithFixedPriority` set a registration flag on the event listener, and won't add the event listener again if the flag is already set.
+
+One more thing to keep in mind: if you add a _fixed priority_ listener to a node, you need to remove the listener manually when the node is removed. However, in the case of a _scene graph priority_ listener, the listener is bound to the node: when the node's destructor is called, the listener will be removed automatically.
 
 ### New touch mechanism
 
-The proceudres above seem a little bit difficult than version 2.x. Inheriting a delegate in old version, delegate defines onTouchBegan method etc. Then delegate recognizes the touched element and solving logics. But new version separate the event logical solving from the delegate and
-encapsulate it into a listener. However, the logics above implemented functions below:   
+The above procedures may seem more difficult compared to the event mechanism in version 2.x. In the old version, you would inherit from a delegate class, which defined `onTouchBegan()` methods, etc. Your event handling code would go into these delegate methods.
 
-1. By adding event listener, sprite can be added to event dispatcher with SceneGraphPriority. That is when clicking the sprite button, callback function will be called by sequence according to the sprite cover order.
-2. When Dealing with event logical, according to each kind of situations to solve the logics when touched(such as recognize click area, set clicked element as different transparency) to display the click effect.
+This new event mechanism removes the event processing logic from the delegate and encapsulates it into a listener. However, the logic above implements the functions below:
+
+1. By using an event listener, a sprite can be added to the event dispatcher with *SceneGraphPriority*. That is, when clicking a sprite button, callback functions will be called in the same order they are drawn in (that is, sprites that are in front of other sprites will get the touch events first).
+2. When dealing with event logical, according to each kind of situations to solve the logics when touched(such as recognize click area, set clicked element as different transparency) to display the click effect.
 3. As `listener1->setSwallowTouches(true)` is setted and some decisions has been made in onTouchBegan to get the return value, whether the display order of the touch event should pass back can be solved.   
 
-*Note:* **FixedPriority** is different from **SceneGraphPriority**, it can dicide the priority of event by manually setting `Priority` value, and the smaller the value is, the higher priority of the event.
+### FixedPriority vs SceneGraphPriority
+
+The EventDispatcher uses priorities to decide which listeners get delivered an event first.
+
+- **FixedPriority** is an integer value. Event listeners with lower `Priority` values get to process events before event listeners with higher `Priority` values.
+- **SceneGraphPriority** is a pointer to a `Node`. Event listeners whose Nodes have higher Z order values (that is, are drawn on top) receive events before event listeners whose Nodes have lower Z order values (that is, are drawn below). This ensures that touch events, for example, get delivered front-to-back, as you would expect.
 
 ##Other event dispatch handling modules
 
-In addition to touch event response, and the following modules using the same solving method.
+In addition to touch event response, the following modules using the same event handling approach.
 
-###Keyboard response event
+###Keyboard events
 
 In addition to keyboard, it also can be every menu of the device, they can use the same listener to deal with the event.
+
+In the mouse event example above, we used lambda expressions for the callback functions. You can also bind existing functions using the `CC_CALLBACK_N` macros, as follows:
 
 ```c++
     //Initializing and binding 
@@ -138,7 +157,7 @@ In addition to keyboard, it also can be every menu of the device, they can use t
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-    //key position responds for function prototype
+    // Implementation of the keyboard event callback function prototype
     void KeyboardTest::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
     {
         log("Key with keycode %d pressed", keyCode);
@@ -150,27 +169,29 @@ In addition to keyboard, it also can be every menu of the device, they can use t
     }   
 
 ```  
-### Accelerator Event
+### Accelerometer events
 
-Before using accelerator event listener, the function of the device should be enabled:
+Before using accelerometer events, you need to enable them on the device:
 
-`Device::setAccelerometerEnable(true);`
+`Device::setAccelerometerEnabled(true);`
 
-Then creating corrresponding listener, you can use lambda expression to create anonymous function when creating callback function, also it can bind exsit logical implementation, as following:
+Then create the corrresponding listener. 
 
 ```c++
     auto listener = EventListenerAcceleration::create(CC_CALLBACK_2(AccelerometerTest::onAcceleration, this));
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-    // Implementation of the accelerator callback function prototype
+    // Implementation of the accelerometer callback function prototype
     void AccelerometerTest::onAcceleration(Acceleration* acc, Event* event)
     {
-        //Logical solving code 
+        //  Processing logic here 
     }
 ```
-###Mouse Response Event
+###Mouse events
 
-Mouse click catching event dispatch is added in version 3.0, it is appropriate for multi-platformi, and enrich the user experience of the game.
+Mouse click event dispatching has been added in version 3.0. It works multi-platform, and enrich the user experience of the game.
+
+As with all event types, first we need to create the event listener:
 
 ```c++
     _mouseListener = EventListenerMouse::create();
@@ -182,7 +203,7 @@ Mouse click catching event dispatch is added in version 3.0, it is appropriate f
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_mouseListener, this);
 ```
 
-Using method above to create a mouse listener. Then implement every callback functions one by one and bind them to the listener;
+Then implement every callback functions one by one and bind them to the listener:
 
 ```c++
 void MouseTest::onMouseDown(Event *event)
@@ -221,7 +242,7 @@ void MouseTest::onMouseScroll(Event *event)
 
 ###Custom Event
 
-The event types above are defined by system, and the events(such as touch screen, keyboard response etc) triggered by system automatically. In addition, another custom event is available, it is not triggered by system but by user, as follow:
+The event types above are defined by the system, and the events (such as touch screen, keyboard response etc) are triggered by the system automatically. In addition, you can make your own _custom events_ which are not triggered by the system, but by your code, as follows:
 
 ```c++
     _listener = EventListenerCustom::create("game_custom_event1", [=](EventCustom* event){
@@ -236,7 +257,7 @@ The event types above are defined by system, and the events(such as touch screen
 
 ```
 
-A custom event listener has been defined above, it implemented some logics and it is added to event dispatcher. So in which situation the logics would respond for the event? Check it out:
+A custom event listener has been defined above, with a response method, and added to the event dispatcher. So how is the event handler triggered? Check it out:
 
 ```c++
     static int count = 0;
@@ -250,18 +271,18 @@ A custom event listener has been defined above, it implemented some logics and i
         
 ```
 
-A `EventCustom` defined and it's UserData setted by manually set `_eventDispatcher->dispatchEvent(&event);`. By dispatching the event, the implemented logics can be triggered.
+The above example creates an `EventCustom` object and sets its UserData. It is then dispatched manually with `_eventDispatcher->dispatchEvent(&event);`. This triggers the event handler defined previously.
 
-###Remove Event Listener
+###Removing event listeners
 
-A added listener can be removed by following method:
+An added listener can be removed with following method:
 
 ```c++
     _eventDispatcher->removeEventListener(listener);
 
 ```
 
-Also, using the method below, all the listeners of the current node can be removed:
+To remove all the listeners of the current node, use the following code:
 
 ```c++
     _eventDispatcher->removeAllEventListeners();
