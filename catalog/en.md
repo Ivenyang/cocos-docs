@@ -3,11 +3,11 @@
 	- Architecture and Modules
 	- Supported Platforms and Programming Languages
 - Release Notes
-	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release_notes/summary_release_20140107.md)
+	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release-notes/summary-release-20140107.md)
 - Framework 
 	- Getting Started	 
 		- Setting up Development Environments
-			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
+			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android-on-win7/en.md)
 			- Setting up Environments for Cocos2d-x on Mac OS X
 		- Starting Points of Cocos2d-x Programming
 			- Objects Reference Count and Auto Release Pool
@@ -34,13 +34,13 @@
 		- [Label](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
 		- v3.0: 
-			- [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md)
-			- [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md) 
-			- [Value](../manual/framework/native/data_structure/v3/value/en.md)
+			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
+			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
+			- [Value](../manual/framework/native/data-structure/v3/value/en.md)
 		- v2.x: CCArray, CCDictionary and CCString
-	- [Physics](../manual/framework/native/physics/physics_integration/en.md)
+	- [Physics](../manual/framework/native/physics/physics-integration/en.md)
 	- Network
-	- [Events System](../manual/framework/native/input/event_dispatcher/en.md)
+	- [Events System](../manual/framework/native/input/event-dispatcher/en.md)
 	- Scheduler and Timer Callbacks
 	- Inputs
 		- Handling Touch Events
@@ -51,31 +51,31 @@
 	    - Usage of binding-generator
 		- Lua
 		- Javascript
-		    - [Remote Debugging on Javascript Bindings](../manual/framework/native/scripting/javascript/js_remote_debugger/en.md)
+		    - [Remote Debugging on Javascript Bindings](../manual/framework/native/scripting/javascript/js-remote-debugger/en.md)
 	- Debugging
 		- CCLog
 		- CCConsole
 	- File Stream
 	- Intergrating with 3rd SDK
 	- Cocos2d-html5
-		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5_advantages/en.md)
-		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution_policy_design/en.md)
+		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
+		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution-policy-design/en.md)
 - Studio
 - Tutorials
-	- [Build a Game with CocoStudio](../tutorial/parkour_game_with_cocostudio/en.md)
-		- [What is CocoStudio](../tutorial/parkour_game_with_cocostudio/chapter1/en.md)
-		- [Getting Started](../tutorial/parkour_game_with_cocostudio/chapter2/en.md)
-		- [Let's Build a Parkour Game](../tutorial/parkour_game_with_cocostudio/chapter3/en.md)
-		- [Keep Going](../tutorial/parkour_game_with_cocostudio/chapter4/en.md)
+	- [Build a Game with CocoStudio](../tutorial/parkour-game-with-cocostudio/en.md)
+		- [What is CocoStudio](../tutorial/parkour-game-with-cocostudio/chapter1/en.md)
+		- [Getting Started](../tutorial/parkour-game-with-cocostudio/chapter2/en.md)
+		- [Let's Build a Parkour Game](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
+		- [Keep Going](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
 	- Pakour Game with Javascript
-		- [Setup Development Environment](../tutorial/parkour_game_with_javascript/chapter1/en.md)
-		- [Hello World Cocos2d-html5](../tutorial/parkour_game_with_javascript/chapter2/en.md)
-		- [Make your First Game Scene](../tutorial/parkour_game_with_javascript/chapter3/en.md)
-		- [Design and Make Main Game Scene](../tutorial/parkour_game_with_javascript/chapter4/en.md)
-		- [Let Player Run Animations](../tutorial/parkour_game_with_javascript/chapter5/en.md)
-		- [Add Chipmunk Physics to Our Game](../tutorial/parkour_game_with_javascript/chapter6/en.md)
-		- [Explorer with TiledMap and Camera](../tutorial/parkour_game_with_javascript/chapter7/en.md)
-		- [Add Coin and Obstacles](../tutorial/parkour_game_with_javascript/chapter8/en.md)
-		- [Add Game Over Logic And More](../tutorial/parkour_game_with_javascript/chapter9/en.md)
-        - [Add Audio Effect into Parkour Game](../tutorial/parkour_game_with_javascript/chapter10/en.md)
+		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/chapter1/en.md)
+		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/chapter2/en.md)
+		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/chapter3/en.md)
+		- [Design and Make Main Game Scene](../tutorial/parkour-game-with-javascript/chapter4/en.md)
+		- [Let Player Run Animations](../tutorial/parkour-game-with-javascript/chapter5/en.md)
+		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/chapter6/en.md)
+		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/chapter7/en.md)
+		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/chapter8/en.md)
+		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/chapter9/en.md)
+        - [Add Audio Effect into Parkour Game](../tutorial/parkour-game-with-javascript/chapter10/en.md)
 		

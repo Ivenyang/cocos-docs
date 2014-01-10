@@ -239,7 +239,7 @@ JSB_XObject_createClass(cx, myBinding, "XObject");
 
 ### 四、测试
 
-打开**Resources/src**文件夹下的**myApp.js**文件。在**MyScene**的**onEnter**方法中添加如下代码：
+打开**Resources/res**文件夹下的**myApp.js**文件。在**MyScene**的**onEnter**方法中添加如下代码：
 
 ```
 var MyScene = cc.Scene.extend({
@@ -264,4 +264,4 @@ var MyScene = cc.Scene.extend({
 
 如果绑定成功，将会获得如下显示：
 
-![logInfo](src/logInfo.png)
+![logInfo](res/logInfo.png)
