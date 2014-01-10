@@ -1,10 +1,10 @@
 We are happy to announce the release of:
 
-- [Cocos2d-x v3.0 beta](Cocos2d-x-v3.0-beta)
-- [v2.2.2 Coordinate Releases](#v2.2.2-coordinate-releases)
-	- [Cocos2d-x v2.2.2](#cocos2d-x-v2.2.2)
-	- [Cocos2d-html5 v2.2.2](#cocos2d-html5-v2.2.2)
-	- [CocoStudio v1.2](#cocostudio-v1.2)
+- [Cocos2d-x v3.0 beta](#cocos2d-x-v30-beta)
+- [v2.2.2 Coordinate Releases](#v222-coordinate-releases)
+	- [Cocos2d-x v2.2.2](#cocos2d-x-v222)
+	- [Cocos2d-html5 v2.2.2](#cocos2d-html5-v222)
+	- [CocoStudio v1.2](#cocostudio-v12)
 
 
 # Cocos2d-x v3.0 beta #
