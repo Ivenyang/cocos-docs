@@ -1,15 +1,15 @@
 We are happy to announce the release of:
 
-* cocos2d-x v3.0-beta and cocos2d-x v2.2.2
-* cocos2d-html5 v2.2.2
-* CocoStudio v1.2
+- [Cocos2d-x v3.0 beta](#Cocos2d-x-v3.0-beta)
+- [v2.2.2 Coordinate Releases](#v2.2.2-coordinate-releases)
+	- [Cocos2d-x v2.2.2](#cocos2d-x-v2.2.2)
+	- [Cocos2d-html5 v2.2.2](#cocos2d-html5-v2.2.2)
+	- [CocoStudio v1.2](#cocostudio-v1.2)
 
 
-# cocos2d-x #
+# Cocos2d-x v3.0 beta #
 
 <img src="https://lh3.googleusercontent.com/-glwwzmFyUmk/UQgPnlx40uI/AAAAAAAArzg/WPRW10kkecM/s800/cocos2d-x-logo.png">
-
-## v3.0beta ##
 
 ### Download ###
 
@@ -43,8 +43,9 @@ We are happy to announce the release of:
 
 Read more about all the new features at [cocos2d-x v3.0 release notes](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Node_v300).
 
+# v2.2.2 Coordinate Releases #
 
-## v2.2.2 ##
+## Cocos2d-x v2.2.2 ##
 
 ### Download ###
 
@@ -55,7 +56,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 * Added support for CocoStudio v1.2. It includes JS and Lua bindigns for CocoStudio
 * WinPhone8 & Windows8: added XAML support, updated to latest version of ANGLE
 
-# cocos2d-html5 #
+# Cocos2d-html5 v2.2.2 #
 
 <img src="http://www.cocos2d-x.org/attachments/download/1508" height=180>
 
@@ -79,11 +80,9 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 
 Read more about all the new features at [Cocos2d-html5 v2.2.2 release notes](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Notes_for_Cocos2d-html5_v222).
 
-# CocoStudio #
+## CocoStudio v1.2 ##
 
 <img src="http://upyun.cocimg.com/CocoStudio/Img/CocoStudio-Name-Logo.png" width=140>
-
-## v1.2 ##
 
 ### Download ###
 
