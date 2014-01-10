@@ -1,3 +1,5 @@
+unit test
+=======
 By default, we have provided some test functions for you.
 In the best situation, you just need to do some config in `resCfg.js`, then you can run test case for your code, without writing any test code. It sounds great, doesn't it?
 

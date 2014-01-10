@@ -35,13 +35,13 @@ The directory structures can be separated into four parts:
 
 - The **license** directory includes all the license files in this project, as we mentioned before, the license of Cocos2d-html5 is MIT,you can refer to the folder to get more details about the licenses of cocos2d-html5.
 
-- The **tools** directory includes JS Doc tool and closure compiler. The **template** folder contains a build.xml which is a config file for closure compiler, you can package your game into single file via Ant. 
+- The **tools** directory includes JS Doc tool and closure compiler. The **template** folder contains a build.xml which is a config file for closure compiler, you can package your game into one single file via Ant. 
 
 
 
 ## Taking a look at the built-in examples
 
-When you have downloaded and configured your Cocos2d-html5 development environment successfully. It is highly recommended you to take a look at the built-in examples. It covers over 95% features of Cocos2d-html5. And it is also the most valuable learning resource that you can get currently. 
+When you have downloaded and configured your Cocos2d-html5 development environment successfully. It is highly recommended  to take a look at the built-in examples. It covers over 90% features of Cocos2d-html5. And it is also the most valuable learning resource that you can get currently. 
 
 When you debug the index.html file within WebStorm, it will open the index.html file in Chrome and you will get the following result:
 
@@ -67,7 +67,7 @@ There are 2 types of full game samples built-in with Cocos2d-html5. All of the s
 
 #### MoonWarrior
 
-The first game I would like to show you is MoonWarrior. It is a vertical shooting game. In this game sample, many useful game techniques are applied, including tile-map, animation, parallax background etc. Here is the screenshot, you can dive into the source code for more information:
+The first game I would like to show you is MoonWarrior. It is a vertical shooting game. In this game sample, many useful game techniques are applied, including tiled-map, animation, parallax background etc. Here is the screenshot, you can dive into the source code for more information:
 
 **Figure 4**
 
@@ -75,17 +75,17 @@ The first game I would like to show you is MoonWarrior. It is a vertical shootin
 
 #### Fruit Attack
 
-This is a matching game. You can swap the position of the nearby fruit, if there are three or more same type fruits in vertical direction or horizontal direction. You are getting a match. And the same fruits will be cleared.  Here is the screenshot:
+This is a matching game. You can swap the position of the nearby fruits, if there are three or more  fruits with same type in vertical direction or horizontal direction. You are getting a match. And the same fruits will be cleared.  Here is the screenshot:
 
 **Figure 5**
 
 ![fruitattack](res/fruitaatack.png)
 
-There are also other type games, you to try it by yourself.
+There are also other type games, you could try it by yourself.
 
 ## Setting up your first "Hello World" Project
 
-Finally, we are reaching the final important part of this tutorial. Here I wil not really setup a "Hello World" project skeleton. I will take Parkour game as a example. In the future, all of these epic tutorials are about how to make a Parkour game with cocos2d-html5.
+Finally, we are reaching the final important part of this tutorial. Here I wil not really create a "Hello World" project. I will take Parkour game as a example. In the future, all of these epic tutorials are about how to make a Parkour game with cocos2d-html5.
 
 Can't help waiting? Let's do it right now!
 
@@ -121,7 +121,7 @@ to
 
 Why should we do this little change? What's the magic? Haha, It is a very long story of cocos2d-x's Multiple Resolution Adaption. If you want to know more about the mechanism of this topic, refer to [this link](http://cocos2d-x.org/wiki/Multi_resolution_support) for more information. We will cover this topic in the future tutorials.
 
-After modification, here is the classic **Hello World** screenshot:
+After this modification, save and run, it gives us the classic **Hello World** screenshot:
 
 **Figure 7**
 
@@ -145,20 +145,20 @@ At first, let take a look at all the files and the directory structure:
 
 In the Figure 8, we can see that:
 
-- the **res** directory. It contains all the resource filed need by our project. Now it only contains some pictures. But if you want to add some meta file of your game or some awesome game music files. You should also put them under this folder. You should choose a proper name for each of these files. You may notice that there are two folders named **HD** and **Normal** which have the exactly same file name but different resolutions. They are for **Multiple resolutions**. You can just skip it now. In the Figure 7, there is a HelloWrold picture shown on your screen which is the HelloWorld.png. You can double click to view the actual image file in the disk.
+- the **res** directory. It contains all the resource filed needed by our project. Now it only contains some sample pictures. But if you want to add some meta files of your game or some awesome game music files. You should also put them under this folder. You should choose a proper name for each file. You may notice that there are two folders named **HD** and **Normal** which have the exactly same file name but with different resolutions. They are for **Multiple resolutions adaption**. You can just skip it now. In the Figure 7, there is a HelloWrold picture shown on your screen which is the HelloWorld.png. You can double click to view the actual image file in the disk.
 
 - The **src** folder. It contains all of your actual game logic code. If there are hundreds of javascript source files, you'd better organized them into small chunks using subfolders. Now our template has two javascript source files. The **myApp.js** contains the first scene's code of our sample. The **resource.js** defines some global variables of the resource.
 
-- The **build.xm** file is used for package all of your game source code into one file. We have talked about it before.
+- The **build.xm** file is used for package all of your game source code into one compact file. We have talked about it before.
 
-- The **index.html** file is the entry point of a HTML5 based web application. It is a HTML5 compatible format. It defines some meta data like setting viewpoint and fullscreen.
+- The **index.html** file is the entry point of a HTML5 based web application. It is a HTML5 compatible format. It defines some meta data like setting viewpoint and fullscreen patameters.
 
 - The **ccos2d-jsb.js** file is a bridge file between cocos2d-html5 and cocos2d-x javascript bindings. You can safety leave it out currently.
 
 - The **cocos2d.js** file is the main entry point of our js engine. It uses a auto execution anonymous function to start our game engine.
 
 - The **main.js** is called by cocos2d-html5 framework after the cocos2d.js is loaded. It is 
-where the main function like c/c++ language lies in. The **applicationDidFinishLanching** function will define the screen orientation, color format and resource load strategy. It is also the place to create your first game scene and show it.
+where the main function like c/c++ language lies in. The **applicationDidFinishLanching** function will define the screen orientation, color format and resource load strategy. It is also the place to create your first game scene and show it on the browser.
 
 Ok, you have known what these files and folder are for. Now it's time to understand the source code and the execution path.
 
@@ -192,7 +192,7 @@ From Figure 9, we can see that our program is loaded into browser from index.htm
     };
 ```
 
-Loot at the code piece, there is a object property named **engineDir** and a commented object property named **SingleEngineFile** which are the key point to decide the execution path of the following program. In the default case, we have specify the engineDir and the execution path will go to **N** direction in Figure 9. Thus the min.'s will be loaded right after the engine files and before the files specified by **appFiles**. It is more clear to read the source code than reading my plain text. But the flow chart will do some favor for you to understand the process better.
+Loot at the code piece, there is a object property named **engineDir** and a commented object property named **SingleEngineFile** which are the key point to decide the execution path of the following program. In the default case, we have specify the engineDir and the execution path will go to **N** direction in Figure 9. Thus the main.js will be loaded right after the engine files and before the files specified by **appFiles**. It is more clear to read the source code than reading my plain text. But the flow chart will do some favor for you to understand the process better.
 
 
 ### Making Some little tweaks of the project
@@ -224,7 +224,7 @@ var c = {
     };
 ```
 
-There are many thing we can tweak by modifying this object's property. I will give your a table of each property's meaning.
+There are many thing we can tweak by modifying this object's property. I will give your a table of each property's intention.
 
 property name | options | explanation
 ------------ | ------------- | ------------
@@ -256,11 +256,11 @@ And you also should make resolution policy to **SHOW_ALL**:
         cc.EGLView.getInstance().setDesignResolutionSize(designSize.width, designSize.height, cc.RESOLUTION_POLICY.SHOW_ALL);
 ```
 
-If you are curious about why should we do this, please refer to [this post](http://cocos2d-x.org/wiki/Multi_resolution_support) for more information.
+If you are curious about why  we should do this, please refer to [this post](http://cocos2d-x.org/wiki/Multi_resolution_support) for more information.
 
 ## Summary
 
-In this tutorial, we talk about the directory structures and the built-in tests and sample games of cocos2d-html5. We also created our first project based on the template provided by cocos2d-html5. In the last part, we took effort to analysis the files and the code structures of the template we created.
+In this tutorial, we have talked about the directory structures and the built-in tests and sample games of cocos2d-html5. We also created our first project based on the template provided by cocos2d-html5. In the last part, we took effort to analysis the files and the code structures of the template.
 
 ## Where to go from here?
 

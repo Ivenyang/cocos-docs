@@ -1,3 +1,6 @@
+cocos json
+====
+
 This file is about config of `cocos` command.
 If there is something wrong while using `cocos` command, check this file first.
 

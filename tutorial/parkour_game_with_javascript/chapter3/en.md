@@ -1,10 +1,15 @@
 #Make Your First Game Scene
 
-Before creating the first scene for your game, you should be familiar with some basic concepts of Cocos2d-x. If you are already familiar with these concepts, you can skip to next chapter.
+Before creating the first scene for your game, you should be familiar with some basic concepts of Cocos2d-x. If you are already familiar with these concepts, you can skip to the next section.
+
+## Online Showcase
+
+<iframe src="./code/index.html" width="480" height="320" scrolling="yes" frameborder="0"> 
+</iframe> 
 
 ## Basic Concepts
 
-In a Cocos2d-x game, every element is a node. The game is constructed mostly by three kinds of node:
+In a Cocos2d game, every element is a node. The game is constructed mostly by three kinds of node:
 
 - Scene
 
@@ -16,14 +21,13 @@ Now we focus on the Layers in this game, and you can find more details about Sce
 
 #### Layer
 
-A cc.Layer is a cc.Node, which  knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, making players can see other layers behind them. cc.Layer are very useful in defining your game's appearance and behaviour, so it will take a lot of time to deal
-with cc.Layer subclasses to reach your expectation.
+A cc.Layer is a cc.Node, which  knows how to handle touch events. Layers know how to draw themselves and may be semi-transparent, making players can see other layers behind them. cc.Layer are very useful in defining your game's appearance and behaviour, so it will take a lot of time to deal with cc.Layer subclasses to reach your expectation.
 
 ![layer](res/layerstructure.png)
 
-The cc.Layer is where you can define touch event handlers. By implementing a method to handle one of touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled), a cc.Layer can interact with player. These touch events are transmit to all the layers within a scene, from front to back, until some layer catch the event and accept it.
+The cc.Layer is where you can define touch event handlers. By implementing a method to handle one of touch events (ccTouchBegan, ccTouchMoved, ccTouchEnded, or ccTouchCancelled), a cc.Layer can interact with the player. These touch events are transmited to all the layers within a scene, from front to back, until some layer catch the event and accept it.
 
-While complex applications will require you to define custom cc.Layer subclasses, Cocos2d-x provides several predefined layers. Some examples include cc.Menu (a simple menu layer), cc.ColorLayer (a layer that draws a solid color), and cc.LayerMultiplex (a layer that lets you multiplex its children, activating one at a time while disabling the others).
+While complex applications will require you to define custom cc.Layer subclasses, Cocos2d provides several predefined layers. Some examples include cc.Menu (a simple menu layer), cc.ColorLayer (a layer that draws a solid color), and cc.LayerMultiplex (a layer that lets you multiplex its children, activating one at a time while disabling the others).
 
 Layers may contain any cc.Node as a child, including cc.Sprite, cc.Label, and even other cc.Layer objects. Because layers are a subclass of cc.Node, they can be transformed manually or by using cc.Action.
 
@@ -81,7 +85,7 @@ More details about Scheduler and Timer Callback are in [here](http://cocos2d-x.o
 
 ### TouchEvent
 
-Cocos2d-x has two different ways to handle touch events. They are defined by two different types of delegates-TargetedTouchDelegate and StandardTouchDelegate(both of them defined in CCTouchDelegateProtocol.js).
+Cocos2d-html5 has two different ways to handle touch events. They are defined by two different types of delegates-TargetedTouchDelegate and StandardTouchDelegate(both of them defined in CCTouchDelegateProtocol.js).
 
 Using TargetedTouchDelegate has two benefits:
 
@@ -295,7 +299,7 @@ Once the scene is created, a **onEnter** function should be defined. It defined 
 
 ## Summary
 
-In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](res/Parkour.zip).
+In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d-html5 games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](res/Parkour.zip).
 
 ## Where to go from here
 

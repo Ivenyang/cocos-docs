@@ -18,7 +18,7 @@
 
 ![image](./res/2.png)
 
-- 浏览文件夹到**Cocos2d-html5-v2.1.5**目录，然后点击`Project Root`设定跟目录
+- 浏览文件夹到**Cocos2d-html5-v2.1.5**目录，然后点击`Project Root`设定根目录
 
 ![image](./res/3.png)
 
