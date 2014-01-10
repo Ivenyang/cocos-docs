@@ -33,7 +33,10 @@
         - UI Layouts
 		- [Label](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
-		- v3.0: [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md), [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md) and [Value](../manual/framework/native/data_structure/v3/value/en.md)
+		- v3.0: 
+			- [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md)
+			- [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md) 
+			- [Value](../manual/framework/native/data_structure/v3/value/en.md)
 		- v2.x: CCArray, CCDictionary and CCString
 	- [Physics](../manual/framework/native/physics/physics_integration/en.md)
 	- Network
