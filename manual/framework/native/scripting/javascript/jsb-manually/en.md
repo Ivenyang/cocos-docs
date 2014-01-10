@@ -214,7 +214,7 @@ You are almost complete the procedure. The last step is test the class, let's ch
 
 ### Test
 
-There is a **myApp.js** file at **Resources/src**. Add following codes in **onEnter** function of **MyScene**:
+There is a **myApp.js** file at **Resources/res**. Add following codes in **onEnter** function of **MyScene**:
 
 ```
 var MyScene = cc.Scene.extend({
@@ -242,4 +242,4 @@ var MyScene = cc.Scene.extend({
 If you see following result in output windows, congratulations you made it!
 
 
-![logInfo](src/logInfo.png)
+![logInfo](res/logInfo.png)
