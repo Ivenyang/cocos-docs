@@ -1,67 +1,67 @@
-- Manual
-	- Setting up Environments
-		- [Setting up Android Environments on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
-		- Setting up Environments on Mac OS X
-	- Graphic
+- Introduction
+	- About Us
+	- Architecture and Modules
+	- Supported Platforms and Programming Languages
+- Release Notes
+	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release_notes/summary_release_20140107.md)
+- Framework 
+	- Getting Started	 
+		- Setting up Development Environments
+			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android_on_win7/en.md)
+			- Setting up Environments for Cocos2d-x on Mac OS X
+		- Starting Points of Cocos2d-x Programming
+			- Objects Reference Count and Auto Release Pool
+			- Cocos API Style
+	- Graphics & Animation
+		- Cocos2d Coordinate System
+		- Sprite, Layer and Scene
 		- Particle System        
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
-		- Renderer since v3.0
-			- [Introduction to New Renderer](../manual/framework/native/renderer/en.md) 
-			- How to Draw Custom Nodes 
-	- GUI
-		- [Label v3.0](../manual/framework/native/gui/label/v3/en.md)
-	- Data Structure
-		- 3.0 Data Structures
-            - [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md)
-            - [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md)
-            - [Value](../manual/framework/native/data_structure/v3/value/en.md)
-		- 2.x Data Structures
-            - CCArray
-            - CCDictionary
-            - CCString
+		- Transitions
+		- Flipbook Animation
+		- Skeletal Animation
+		- Tile Map
+		- Actions
+		- Effects
+		- [Renderer](../manual/framework/native/renderer/en.md) 
+		- Mechanism to Work on Multiple Resolutions
 	- Audio
-		- Audio Formats on Different Platforms
-	- [Physics Integration](../manual/framework/native/physics/physics_integration/en.md)
-	- Console module
-	- Memory Management
-		- Objects Reference Count and Auto Release Pool
-		- Texture Cache
-		- Max Size of Textures on Each Platform
-	- Inputs
-		- [Event Dispatcher](../manual/framework/native/input/event_dispatcher/en.md)
-		- How to Receive and Response Touch Events
-		- How to Enable Multiple Touches
-		- How to Receive and Response Accelerometer Events
-    - GUI
-        - [Overview of GUI system](../manual/framework/native/gui/overview/en.md)
-        - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/container/en.md)
-        - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/widget/en.md)
+	- GUI
+		- [Overview of GUI system](../manual/framework/native/gui/overview/en.md)
+        - [UI Containers](../manual/framework/native/gui/container/en.md)
+        - [UI Widgets](../manual/framework/native/gui/widget/en.md)
+        - UI Layouts
+		- [Label](../manual/framework/native/gui/label/v3/en.md)
+	- Data Structure
+		- v3.0: 
+			- [Vector\<T\>](../manual/framework/native/data_structure/v3/vector/en.md)
+			- [Map\<K,V\>](../manual/framework/native/data_structure/v3/map/en.md) 
+			- [Value](../manual/framework/native/data_structure/v3/value/en.md)
+		- v2.x: CCArray, CCDictionary and CCString
+	- [Physics](../manual/framework/native/physics/physics_integration/en.md)
 	- Network
-		- How to Compile libCUrl
-	- Multi-Threading
-	- Physics
-	- Multiple Resolutions
+	- [Events System](../manual/framework/native/input/event_dispatcher/en.md)
+	- Scheduler and Timer Callbacks
+	- Inputs
+		- Handling Touch Events
+		- Handling Accelerometer Events
+	- Memory Management
+		- Max Size of Textures on Each Platform
 	- Scripting
 	    - Usage of binding-generator
 		- Lua
-		    - Invoke objective-c code from lua
-		    - Invoke Java code from lua
-		    - Call back from c++ to lua when an event is triggered
 		- Javascript
-		    - [Remote debugging](../manual/framework/native/scripting/javascript/js_remote_debugger/en.md)
-	- How to Integrate with 3rd SDK on Android Native Activity
+		    - [Remote Debugging on Javascript Bindings](../manual/framework/native/scripting/javascript/js_remote_debugger/en.md)
 	- Debugging
-		- Work with CCConsole
-	- Best Practice
-        - [Replaced Objective-C patterns with c++ 11 patterns and best practices](../manual/framework/native/best_practice/cpp11_patterns/en.md)
-        - [C++ Coding Style of Cocos2d-x](../manual/framework/native/best_practice/cpp_coding_style/en.md)
-	    - New script for Android building(include building for all platforms and generating APK)
-	    
+		- CCLog
+		- CCConsole
+	- File Stream
+	- Intergrating with 3rd SDK
 	- Cocos2d-html5
 		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5_advantages/en.md)
 		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution_policy_design/en.md)
-		
-- Tutorial
+- Studio
+- Tutorials
 	- [Build a Game with CocoStudio](../tutorial/parkour_game_with_cocostudio/en.md)
 		- [What is CocoStudio](../tutorial/parkour_game_with_cocostudio/chapter1/en.md)
 		- [Getting Started](../tutorial/parkour_game_with_cocostudio/chapter2/en.md)
@@ -78,6 +78,4 @@
 		- [Add Coin and Obstacles](../tutorial/parkour_game_with_javascript/chapter8/en.md)
 		- [Add Game Over Logic And More](../tutorial/parkour_game_with_javascript/chapter9/en.md)
         - [Add Audio Effect into Parkour Game](../tutorial/parkour_game_with_javascript/chapter10/en.md)
-  
-- Release Notes
-	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release_notes/summary_release_20140107.md)		
+		
