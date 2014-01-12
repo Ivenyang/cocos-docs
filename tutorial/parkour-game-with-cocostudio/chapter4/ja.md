@@ -1,0 +1,6 @@
+# 続けましょう
+
+CocoStudioをもっと知るには以下のサイトへどうぞ:
+
+- The Official Website:  ***http://www.cocostudio.org***
+- The Official Forum:    ***http://www.cocos2d-x.org/forums/24***
