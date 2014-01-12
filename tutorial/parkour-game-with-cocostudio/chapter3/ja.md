@@ -181,7 +181,7 @@ So, in this case, as the picture shows, we put all of the pictures into the main
 2.boneをかく
 3.create boneモードをoffにする
 4.画像とboneを合わせる
-5.親のパーツに子オブジェクトのぼね
+5.子のボーンを親オブジェクトにつなげる
 
 1. Choose “create bone” mode.
 2. Draw bones.
@@ -216,27 +216,36 @@ Figure 22: Repeat The Step 1-5 to Build a Whole Armature
 左上のボタンを押してアニメーションモードにしましょう
 Change the mode into animation (Press the button on the left upper corner.)
 
-
+このUIEditorのアニメーションモードとアニメーションエディターはほとんど同じです。
 The interface of animation mode in UI Editor and Animation Editor are almost the same, as well as their usages.
 
+タイムラインはアニメーション制作のキモです。もしflashやspineなどタイムラインツールを知っているなら、すぐなじめるでしょう。
 The timeline is the core of creating an animation. If you know anything about flash or spine, it should be easy to get started.
 
+タイムラインは多くのフレームがあります。ローテートやshiftを使って、キーフレームごとにボーンの状態やポーズをセットして
+アニメーションを作っていきます。
 There are many frames in the timeline. Each frame represents a time point for the armature. Using rotate or shift button to set up the status and poses for each bone of the armature on the key frames, in this way you can create an animation.
 
 ![](res/Key-Frames-of-CMRun.png)
 
 *Figure 24: Key Frames of CMRunFigure*
 
+これはrunning animationのキーフレームになります。フレーム40は0と同じです。Loop
+をチェックすればこのようにアニメーションをループできます。タイムラインのPlay
+ボタンでアニメーションをチェックできます。fpsを変えてアニメーション速度をコントロールさせることもできます。
 These are the key frames of running animation. The Frame 40 is missing because that is identical with Frame 0. In this way, you can make your animation coherence when it comes to a loop(tick the Loop). Pressing play button in the timeline can show the animation. You can also modify the fps to control the speed of your animation
 
 ### How To Use The Armature In The Program
+### 作ったアマーチュアをプログラムで使うには
 
 ![](res/Create-Armaute-and-Run.png)
 
 *Figure 25: Create Armaute and Run*
 
+アマーチュアとアニメーションをつくりました。エクスポートしたら、通常3つのファイルがエクスポートフォルダに出来ます。
 We have finished the armature and animation. You’ll find 3 files in the export folder after exporting(default way). 
 
+“ExportJson”ファイルは
 The “ExportJson” file is like the “json” file, which is rather informative. The function <code>*CMRunning()*</code> is a simple  way to create an armature and run its animations.(“Player.js”) 
 
 Using <code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> to read the resources from the path, just like the UI Editor. <code>*cc.Armature.create(“CMRun”)*</code> will try to create an armature called “CMRun” from all the ExportJson file. 
@@ -253,7 +262,7 @@ There are 2 ways to call back a function for the armatures. One is <code>*setMov
 
 *Figure 26: How to Set Callback Functions*
 
-## Scene Editor and Data Editor
+## Scene Editor と Data Editor
 
 ### Scene Editor
 
