@@ -1,6 +1,6 @@
-# Let's Build a Parkour Game
+# アクションゲームを作ろう
 
-## Overview
+## 概要
 
 ### IronCityの紹介
 
@@ -10,7 +10,7 @@ IronCityという名前で、Cocos2d-html5 と CocoStudio v1.0.2 で作られて
 ユーザーインターフェスとアニメーションはCocoStudioで作られています。
 githubからcloneできます:https://github.com/yuye-liu/CocostudioIronCity
 
-IronCityはメインメニューとゲームシーンの2つのシーンを持つシンプルなシューティングゲームです。
+IronCityはメインメニューとゲームシーンの2シーンを持つシンプルなシューティングゲームです。
 ゲームシーンではジェスチャーで主人公のCocoManが走って、ジャンプ、ストップ、ショットします。
 できるだけ長く走り多くのモンスターを撃ちハイスコアを目指しましょう。
 
@@ -27,23 +27,32 @@ IronCityはメインメニューとゲームシーンの2つのシーンを持�
 
 *Figure 7: Code Structure of IronCity*<br></br>
 
-The screenshot shows the structure of IronCity. We separated the sources into 3 parts.  I will talk about each part in a nutshell with special emphasis on the ones that used CocoStudio.  
+スクリーンショットはIronCityのファイル構成で、ソースは3つに別れています。
+それぞれどうCocoStudioを使っているか簡単に説明します。
 
-- MainMenuScene.js: The beginning scene of IronCity, including a background pictures and a start button. Tap start button and it will change to the next scene: the game scene.
+- MainMenuScene.js: 最初のシーンで、背景画像とスタートボタンがあります。スタートボタンを押すと次のGame Sceneに移ります。
 
-- GameScene.js: The main scene of IronCity. All the constants of resources have been defined here. The game scene has 3 layers: menu layer, play layer and gameover layer. It also controls all the collision detection for the CocoMan.
+- GameScene.js: ゲームのメインのシーンです。全constants of resourcesはここで定義されています。シーンは menu , play ,gameoverの3レイヤーから出来ています。CocoManの衝突判定もやっています。
 
-- Background.js: Create the background map of the game scene. Use tilemap to draw these maps and put them together into a complete background.
-  
-- GameOver.js: This is a UI layer. When CocoMan dies and the game scene will create the game over layer. The game over layer includes a UI that shows the score of player. The UI in game over layer is made by UI Editor, all of the 3 layers’ UI Editor’s projects can be found in the path “CocoStudioIronCity/IronCityCocoStudioProject/IronCityUI” .
+- Background.js: ゲームの背景マップを作ります。タイルマップを組み合わせて完全な背景となります。Use tilemap to draw these maps and put them together into a complete background.
+
+- GameOver.js: UI レイヤーです。CocoMan が死ぬと game over レイヤーを生成します。game overレイヤーはスコアのUIがあり、UI Editorで作られています。これら3レイヤーのUI Editorプロジェクトは“CocoStudioIronCity/IronCityCocoStudioProject/IronCityUI”にあります。
 
 ![](res/ironcityui.png)
 
 *Figure 8: IronCityUI*<br></br>
 
+- Laser.js: レーザーは CocoManの武器で、一度タップした場所にショットします。レーザーはcc.Spriteクラスを拡張しています。
+Laser.jsでは、レーザーのspriteを画面に追加したり消去するなどしています。
+
 - Laser.js: Laser is CocoMan’s weapon. Once you tap the screen in the game scene, the CocoMan will shoot laser to the touch point. The laser extend cc.Sprite class. In Laser.js, it provides several functions, for example, add or release a laser.
 
+- MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作られた3つのUI(体力バー、スコア、セッティングボタン)からなります。
+非常に単純なので次章のUI Editorの説明で使います。
+
 - MenuUI.js: MenuUI is a UI layer, too. It contains 3 basic user interfaces created by UI Editor as a game menu: a blood bar, a distance score and a setting button. This is a very simple example so I will choose this MenuUI to show how to use UI Editor in next section.
+
+- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームシーンは、ゲームをポーズしてSettingUIを生成します。音楽のon/offやボリューム設定をしたりGameSceneのゲームに戻ることができます。
 
 - SettingUI.js: SettingUI is a UI layer for setting. If you touch the setting button on the game scene (setting is belong to MenuUI), it will pause the game and create the SettingUI. It can switch off or switch on the music effect, regulate the volume of music , return to the game and back to the main menu scene.
 
