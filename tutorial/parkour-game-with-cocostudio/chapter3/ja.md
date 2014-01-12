@@ -52,21 +52,33 @@ Laser.jsでは、レーザーのspriteを画面に追加したり消去するな
 
 - MenuUI.js: MenuUI is a UI layer, too. It contains 3 basic user interfaces created by UI Editor as a game menu: a blood bar, a distance score and a setting button. This is a very simple example so I will choose this MenuUI to show how to use UI Editor in next section.
 
-- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームシーンは、ゲームをポーズしてSettingUIを生成します。音楽のon/offやボリューム設定をしたりGameSceneのゲームに戻ることができます。
+- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームシーンはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をします戻り先はGameSceneとmainmenuを選べます。
 
 - SettingUI.js: SettingUI is a UI layer for setting. If you touch the setting button on the game scene (setting is belong to MenuUI), it will pause the game and create the SettingUI. It can switch off or switch on the music effect, regulate the volume of music , return to the game and back to the main menu scene.
 
+- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。アニメーションはAnimation Editorで作られていますが、これはパラパラ漫画のような置き換えてやっています。jointやboneを使ったアニメーションは次の章で学びます。
+
 - Monster.js: There are two kinds of monsters in IronCity. The Monster class extends from cc.Node get the functions of generating, destroying, moving the monsters and playing the animations of monsters. The animations of monsters is created by Animation Ediotr. But they are just some pictures’s replacement work, they don’t use any armatures here. So I don’t talk too much about this animations here. Later we will see a complete armature animation in next section.
+
+- Player.js: このjsはcc.Layerを拡張しています。“imManArmature”というアマーチュアを使っています。これはcocoManのアマーチュアです。jsの主な機能はCocoManの7つのアニメーションをロードして再生することです。走るアニメーションを霊に、アニメーションエディターのアマーチュアの作り方を話しましょう。
 
 - Player.js: Player is a class extend from cc.Layer. Player includes an armature called “imManArmature”. This is CocoMan’s armature. The major functions of Player is to load and play 7 animations of CocoMan’s armature. I’m going to talk about the running anmation to show you how to build an armature by Animation Editor.
 
-## Design the Required Game Components
+## ゲームコンポーネントをデザインする
+
+ユーザーインターフェースを UIEditorとAnimationEditorを使って生成する方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要があればヘルプドキュメントを見てください。
 
 We are going to show how to build users interface and animations through UI Editor and Animation Editor. We didn’t use Scene Editor or Data Editor in the IronCity, you can get help from help documents if you need it. 
 
+IronCityにはcocoStudioで作った3つのメニューと9のアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
+
 We designed and created 3 menus and 9 animations by CocoStudio in IronCity. If you cloned the remote on the github site I just mentioned about, you can find all of these CocoStudio projects in the folder “IronCityCocoStudioProject”.
 
+3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”です。これらはIronCityのgame sceneの3つのレイヤーに対応します。cocoManの9のアニメーションは“CMRun” や “CMRunJump” などです。次章で “GameMenuUI” と “CMRun” を使ってUIEditorとAnimationEditorの使い方を説明します。
+
 The 3 menus are called “GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”.  They refer to the 3 layers in the game scene of IronCity. And the 9 animations like “CMRun” or “CMRunJump” are used to be the animations for CocosMan. In next section, I will choose the “GameMenuUI” and “CMRun” to show how to use UI Editor and Animation Editor.
+
+
 
 ![](res/cocosmanaction.png)
 
