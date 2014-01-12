@@ -4,7 +4,7 @@
 
 CocoStudioはオフィシャルサイトからダウンロードできます: http://download.cocos2d-x.org/
 
-ここでは、サンプルデモをエディタで確認しつつCocos2d-html5のtestsプロジェクト、CocoStudioを学ぶ方法をお伝えします。
+ここではCocoStudioを学ぶ方法(サンプルデモをエディタで確認たり、Cocos2d-html5を動かしたり)をお伝えします。
 ヘルプドキュメントも見るといいでしょう http://help.cocostudio.org/ 
 
 In this book,  we offers a number of ways for you to learn about CocoStudio on your own
