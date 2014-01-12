@@ -66,11 +66,11 @@ Laser.jsでは、レーザーのspriteを画面に追加したり消去するな
 
 ## ゲームコンポーネントをデザインする
 
-ユーザーインターフェースを UIEditorとAnimationEditorを使って生成する方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要があればヘルプドキュメントを見てください。
+ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要があればヘルプドキュメントを見てください。
 
 We are going to show how to build users interface and animations through UI Editor and Animation Editor. We didn’t use Scene Editor or Data Editor in the IronCity, you can get help from help documents if you need it. 
 
-IronCityにはcocoStudioで作った3つのメニューと9のアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
+IronCityにはcocoStudioで作った3メニューと9アニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
 We designed and created 3 menus and 9 animations by CocoStudio in IronCity. If you cloned the remote on the github site I just mentioned about, you can find all of these CocoStudio projects in the folder “IronCityCocoStudioProject”.
 
@@ -88,9 +88,9 @@ The 3 menus are called “GameMenuUI”, “GameSceneOverLayer”, “GameSceneS
 # "GameMenuUI"を作るプロセスを分解してみる
 
 ## Decide Which Kind of Widgets Shoule be Included
-## どのUIWidgetを使うか決める
+## 使うUIWidgetを決める
 
-まずUIに何が必要か考えます。IronCityの“GameMenuUI” は簡単で、体力バーとスコアとsettingボタンです。
+まずUIに何が必要か考えます。IronCityの“GameMenuUI” は、体力バーとスコアとsettingボタンです。
 CocoStudioを開いてUIEditorを選び、ファイルメニューから「プロジェクトを作成」を選びます。
 
 ![](res/imagination-of-ironcity.png)
@@ -103,13 +103,20 @@ CocoStudioを開いてUIEditorを選び、ファイルメニューから「プ�
 
 *Figure 11: UI Editor*<br></br>
 
-
+スクリーンショットはUIEditorです。Widgetsのパネルを使って必要なリソースをエディタに配置したところになります。
 
 This is a screenshot of UI Editor. I have put my resources into the editor by adding widgets. The yellow parts are comments.
 
+Toolsのパネルは左右の回転と、8種の整列ができます。Canvasの欄はUILayerの解像度を選んで指定します。左上のノーマルと書いたボタンはノーマル（配置）モードとアニメーション（タイムライン）モードを切り替えます。アニメーション部分はAnimationEditorと同じですから後ほどまとめて説明します。
+
 The tools provide 8 ways to help you align and 2 ways to rotate. You can set up the resolution of your UI Layer by canvas, which offers several different resolutions. You can see a normal button on the left side of canvas. This button changes UI Editor from normal mode to animation mode. The animation part is almost the same as the animation Editor, and I’d be talking about this in Animation Editor.
 
+Widgetsツールバーには14のウィジェットがあり、いくつかをこの先説明します。ツールバーのウィジェットはキャンバスにドラッグできます。スペースキーを押しっぱなしにすると、キャンバス自体をマウスでドラッグできます。ショートカットキーはPhotoshop
+に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグして適用できます。Resourceパネルにはpsdファイルもドラッグして取り込めます。その時ファイル名はアルファベットにしたほうがよいでしょう。
+
 There are 14 widgets in the widgets toolbar. I will introduce some of them later. All of the widgets can be dragged into the main render. If you hold down space on keyboard, you can move your canvas on the main render by your mouse. Some of shortcut keys in CocoStudio is similar to that in PhotoShop. Then you pull the picture resource from the Resources Menu into the Properties. In this case, I dragged a “bloodBar.png” to the my bloodBar’s texture. The resources menu supports importing or dragging a .psd file, but the names of the resources should be English.
+
+ウィジェットを追加して、リソースパネルから画像をセットしました。左下のオブジェクト構造パネルはレイヤーの階層構造が出ますが、これはゲーム内の前後関係ではありません。Cocos2d-x や Cocos2d-html5 では Zorder でスプライトの前後関係を指定できます。これはUIEditorではステータスパネルの下の「レンダリング・・・」で指定できます。
 
 Here I have added all widgets I need and set up the pictures from resources. The object structure shows the hierarchy of the layer, but that is not the actual order in the game. In Cocos2d-x and Cocos2d-html5, we use Zorder to represent the hierarchy of the sprites, while in UI Editor, it is called “render layer,” and can be found under Properties Menu of every widgets.
 
@@ -117,7 +124,9 @@ Here I have added all widgets I need and set up the pictures from resources. The
 
 *Figure 12: Drag Resource into the Texture*<br></br>
 
-## Set Properties and Export
+## プロパティをセットしてエクスポートする
+
+最後です。“GameMenuUI”の全準備準備をしましたから、ファイルメニューの「プロジェクトを出力」をクリックします。デフォルト設定でエクスポートすることが多いでしょう。widgetのステータスをセットし忘れないでください。例えばレイヤパネルWidgetの「インタラク・・・」をチェックしないと、パネルに属するwidgetを「インタラク・・・」にしてもタッチできなくなります。
 
 The final step is self-expalnatory. I have everything prepared for my “GameMenuUI”. Just click “export projects” in the File. Most of the time, we use the default setting for exporting. Don’t forget to set the properties of the widgets before exporting. For example, if you didn’t tick the “touchable” in the properties of Panel, everything belongs to Panel cannot be touched, even if the child node has ticked the “touchable” in its own property.
 
@@ -125,12 +134,14 @@ The final step is self-expalnatory. I have everything prepared for my “GameMen
 
 *Figure 13: Set Properties Before You Export* <br></br>
 
-## How to Use the Exported Resources
+## エクスポートしたリソースを利用する
 
 
 ![](res/put-all-files-into-resources.png)
 
 *Figure 14: Put all of the expoerted files into your game resources*<br></br>
+
+エクスポートしたらCocoStudioプエオジェクとの“export”フォルダにたくさんのファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットした設定が保存されます。jsonは人間にも読みやすいので、このファイルを調べて問題を解決することもあるでしょう。
 
 After exporting, you will see a number of files in the “export” folder of your CocoStudio project. Put all of them into your game resources. There would also be a “json” format file. This is a JavaScript Object Notation file, a kind of data exchange language. All of your settings in the UI Editor have been saved in this file. It’s not difficult to read a “json” format file. So sometimes you may figure out your problems through this file.
 
@@ -141,6 +152,8 @@ After exporting, you will see a number of files in the “export” folder of yo
 ![](res/menu-ui-js.png)
 
 *Figure 16: MenuUI.js*<br></br>
+
+IronCityがエクスポートしたリソースをどう使っているか見ます。IronCityではall the resources constantをGameScene.jsに持っています。
 
 Let’s see how to use the exported resources in IronCity. In IronCity, we arranged all the resources constant to another file.(GameScene.js) Here is the Layer Menu UI and its initial function. (MenuUI.js in IronCity Cocos2d-html5 version.) 
 
@@ -304,6 +317,8 @@ The picture is the sample called RPGGame on the start page of Scene Edtior. The 
 
 *Figure 33: Scene Editor Test*<br></br>
 
+画像はCocos2d-html5のTest casesの“SceneEditorTest”です。これはScene Editorのスタートページにある“FishJoy2”のサンプルです。
+
 The picture shows the “SceneEditorTest” in Cocos2d-html5. This is a test sample for the “FishJoy2” in the Scene Editor start page. 
 
 Using <code>*createNodeWithSceneFile()*</code> to create a CCNode from the exported resources by Scene Editor. As all of the widgets in Scene Editor can set a “Tag” property, you can get the widgets through <code>*getChildByTag()*</code> from their parent node. So there is nothing difficulty about using the exported Scene Editor resources. Try to learn more from the “CocoStudio Test” if you meet any kind of questions.
@@ -321,5 +336,8 @@ Using <code>*createNodeWithSceneFile()*</code> to create a CCNode from the expor
 ![](res/data-editor.png)
 
 *Figure 36: Data Editor*<br></br>
+
+Data EditorでExcelやCSVのデータを取り込めます。データデザイナーの人は、これらをDataEditorで編集してJson出力できます。出力したjsonはScene Editorでカスタムコンポーネントとして使えます。カスタムコンポーネントの使い方はSceneControllerのSceneControllerを見ればわかります。
+
 
 Data Editor can import template table from Excel or CSV files. The data designer can edit these data in the Data Editor and then export them to a “Json” format file. And the exported “Json” file can be used in the Scene Editor as a custom component. Then you can use the custom component in your code. See how to use custom component in “SceneController” from Components Test.
