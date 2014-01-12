@@ -30,24 +30,19 @@ UI EditorはCocos2d-xの全プラグインを含み、いくつかは拡張さ�
 ![](res/icon-animation.png)
 
 Animation Editorはキャラクターアニメーション、エフェクト、シーンアニメーションのようなダイナミックリソースを編集できます。
-デザイナーがよく使うことになります。用意した画像をエディタに配置し、
-
-After importing ready image resources into the editor, they are able to put on various animation effects 
-according to the design scheme and preview them in the editor. 
-
-The editor supports key frame animation, 
-sequence frame animation, bone animation, etc. Also, it allows for a wide range of resource optimization methods 
-like exporting individual images or the whole image, as well as parse of Flash, PSD and Plist resources.
-
+デザイナーがよく使うことになります。用意した画像をエディタに配置して多彩なアニメーション効果をつけ、プレビューできます。
+キーフレーム、ボーン、シーケンスフレームのアニメーションをサポートします。またFlashや、PSDとpListのように、個別の画像を大きな画像にまとめてエクスポートするなどの幅広いリソース最適化を行います。
 
 ## Scene Editor
 
 ![](res/icon-scene.png)
 
-An editor for designing scene elements and game levels. With the editor, planners are able to integrate a mix of diverse game resources, including animation resources, UI resources, map resources, particle resources, image resources, audio, etc. Meanwhile, it can also be used to edit logical resources such as collisions, triggers, and controllers. Furthermore, the editor supports simulation operation, meaning that one can run the current scene in the simulator or his/her phone via wireless connection.
+シーン要素やステージをデザインします。プランナーがアニメーションやマップやパーティクル、画像、オーディオなどのリソースを統合する一方で、コリジョンやトリガやコントローラなどプログラム寄りのリソースも編集できます。
+さらに携帯電話やシミュレータからワイヤレスでシーンをプレビューできます。
 
 ## Data Editor
 
 ![](res/icon-data.png)
 
-The data designers import tables of values into this editor, break down the complicated ones, and then export them as common data files such as table of attribute or data. A wide range of different data arrangements can be choosed from data manager while exporting as the editor supports index.anima
+data designersはテーブルを取り込んでブレイクダウンし、アトリビュート表やデータ表のような共通のデータ形式でエクスポートします。index.animaをサポートしているので、幅広いデータ編集ができます。
+
