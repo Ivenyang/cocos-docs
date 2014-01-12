@@ -85,20 +85,25 @@ The 3 menus are called “GameMenuUI”, “GameSceneOverLayer”, “GameSceneS
 *Figure 9: CocosManAction*<br></br>
 
 # A Step by Step Process to Make "GameMenuUI"
+# "GameMenuUI"を作るプロセスを分解してみる
 
 ## Decide Which Kind of Widgets Shoule be Included
+## どのUIWidgetを使うか決める
 
-Firstly, decide what is needed in the UI. The “GameMenuUI” of IronCity is easy to draw. Here I want a blood bar, distance score and setting button. I’d  open the CocoStudio, choose the UI Editor, create new project from the file. 
+まずUIに何が必要か考えます。IronCityの“GameMenuUI” は簡単で、体力バーとスコアとsettingボタンです。
+CocoStudioを開いてUIEditorを選び、ファイルメニューから「プロジェクトを作成」を選びます。
 
 ![](res/imagination-of-ironcity.png)
 
 *Figure 10. Imagination of IronCity*<br></br>
 
-## Put Everything You Need by Adding Widgets
+## ウィジェットを追加する
 
 ![](res/uieditor.png)
 
 *Figure 11: UI Editor*<br></br>
+
+
 
 This is a screenshot of UI Editor. I have put my resources into the editor by adding widgets. The yellow parts are comments.
 
