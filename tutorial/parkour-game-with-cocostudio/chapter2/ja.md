@@ -19,12 +19,7 @@ You are also welcome to take a further look at help documents at http://help.coc
 ### Testsプロジェクトを見る
 
 CocoStudioAPIの全サンプルがCocos2d-html5の中にあります。
-All tests of the CocoStudio’s API can be found in Cocos2d-html5. 
-例えばどのようにjointやboneを使ったフレームイベントを作るか知りたいなら、Cocos2d-html5を実行し、
-
-For example, to know how to make a frame event with armature, 
-you run the Cocos2d-html5 and you can see it under CocoStudio test called “Test Frame Event”, and the code of these tests is in the project 
-“Cocos2d-html5/samples/CocoStudioTest/ArmatureTest/ArmatureTest.js”.
+例えばjointやboneを使うフレームイベントの作り方を知りたいなら、Cocos2d-html5(のindex.html)を実行して「2.Test cases - Engine Testcases」のCocoStudio Testの中の"Test Frame Event"で実行し、コードはプロジェクトの中の“Cocos2d-html5/samples/CocoStudioTest/ArmatureTest/ArmatureTest.js”を見ます。
 
 ![](res/test-freame-event.png)
 
@@ -34,8 +29,9 @@ you run the Cocos2d-html5 and you can see it under CocoStudio test called “Tes
 
 *Figure 3: ArmatureTest.js*<br></br>
 
-### Taking a Look at the Sample Demos
+### サンプルデモを見る
 
+CocoStudioのUI Editor / Animation Editor , Scene Editorを開くと、スタートページにアンプルデモが出てきます。それを見れば自習の足がかりとなるでしょう。
 In CocoStudio, when you open the UI Editor, Animation Editor or the Scene Editor, you will find sample demos on the beginning page. So you here you can try to open these samples, or help you get started on your own.
 
 ![](res/demos-animation-editor.png)
