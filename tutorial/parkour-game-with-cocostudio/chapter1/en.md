@@ -5,7 +5,7 @@ CocoStudio is a professional game development  tool based on Cocos2d-x. It promi
 
 ![CocoStudio Launcher](res/cocostudio-launch.png)
 
-*Figure 1: CocoStudio*<br></br>
+*Figure 1: CocoStudio*
 
 The birth of CocoStudio was no accident. We have met so many problems when we get started with the FishJoy2 in 2012. As the Cocos2d-x didn't have any visualization tools when it came to UI appearence or animations of roles, it used to take a great deal of time for programers to modify their programs to fit the requirements from game deisigners. At that time, we were considering about developing a visual toolkit to help to solve these problems. Then we developed a toolkit called SP-II to support FishJoy2 at first. Half a year later, we processed this SP-II and released the first official version of this toolkit on April 2013, and that was CocoStudio.
 
