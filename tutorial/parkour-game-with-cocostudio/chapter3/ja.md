@@ -85,12 +85,12 @@ The 3 menus are called “GameMenuUI”, “GameSceneOverLayer”, “GameSceneS
 *Figure 9: CocosManAction*<br></br>
 
 # A Step by Step Process to Make "GameMenuUI"
-# "GameMenuUI"を作るプロセスを分解してみる
+# "GameMenuUI"の作り方
 
 ## Decide Which Kind of Widgets Shoule be Included
 ## 使うUIWidgetを決める
 
-まずUIに何が必要か考えます。IronCityの“GameMenuUI” は、体力バーとスコアとsettingボタンです。
+まずUIに何が必要か考えます。IronCityの“GameMenuUI” では体力バーとスコアとsettingボタンです。
 CocoStudioを開いてUIEditorを選び、ファイルメニューから「プロジェクトを作成」を選びます。
 
 ![](res/imagination-of-ironcity.png)
@@ -111,8 +111,8 @@ Toolsのパネルは左右の回転と、8種の整列ができます。Canvas�
 
 The tools provide 8 ways to help you align and 2 ways to rotate. You can set up the resolution of your UI Layer by canvas, which offers several different resolutions. You can see a normal button on the left side of canvas. This button changes UI Editor from normal mode to animation mode. The animation part is almost the same as the animation Editor, and I’d be talking about this in Animation Editor.
 
-Widgetsツールバーには14のウィジェットがあり、いくつかをこの先説明します。ツールバーのウィジェットはキャンバスにドラッグできます。スペースキーを押しっぱなしにすると、キャンバス自体をマウスでドラッグできます。ショートカットキーはPhotoshop
-に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグして適用できます。Resourceパネルにはpsdファイルもドラッグして取り込めます。その時ファイル名はアルファベットにしたほうがよいでしょう。
+Widgetsツールバーには14のウィジェットがあり、いくつかをこの先説明します。ツールバーのウィジェットはキャンバスにドラッグできます。スペースキーを押しっぱなしにすると、キャンバス自体もマウスでドラッグできます。こうしたショートカットキーはPhotoshop
+に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグできます。Resourceパネルにはpsdファイルもドラッグして取り込めます。ファイル名はアルファベットにしましょう。
 
 There are 14 widgets in the widgets toolbar. I will introduce some of them later. All of the widgets can be dragged into the main render. If you hold down space on keyboard, you can move your canvas on the main render by your mouse. Some of shortcut keys in CocoStudio is similar to that in PhotoShop. Then you pull the picture resource from the Resources Menu into the Properties. In this case, I dragged a “bloodBar.png” to the my bloodBar’s texture. The resources menu supports importing or dragging a .psd file, but the names of the resources should be English.
 
