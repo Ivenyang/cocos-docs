@@ -3,7 +3,7 @@
 ## Overview
 This article is mainly a overview of cocos2d v3.x rendering pipeline from a developer's view. It is not a substitution of the original [roadmap](https://docs.google.com/document/d/17zjC55vbP_PYTftTZEuvqXuMb9PbYNxRFu0EGTULPK8/edit) provided by the core engine team.
 
-**Note:** It will not cover most of the implementation details of the new rendering pipeline. If you want to contribute, please refer to that documentation.
+**Note:** It will not cover most of the implementation details of the new rendering pipeline. If you want to contribute, please refer to the roadmap documentation.
 
 At first, let's take a look at the vision of the new rendering pipeline.
 
@@ -36,7 +36,7 @@ Here is the illustration picture:
 
 The process of scene graph is running in a front-end thread while generating various **Command**. Each Command will be sent to the CommandQueue waited to be processed(such as sorting, rearrange etc.) in a separate back-end thread.
 
-The internal format of each Command is out of scope, please refer to that documentation.
+The internal format of each Command is out of scope in the documentation, please refer to the roadmap documentation.
 
 If you want to extend cocos2d engine v3.x. For example, if you want to define a Sprite with some customize drawing code. You can't put them into the old **draw()** function any longer.
 
