@@ -63,7 +63,7 @@
 - CocoStudio
 	- チュートリアル
 		- CocoStudioを使ったゲームのビルド
-			- CocoStudioとは
+			- [CocoStudioとは](../tutorial/parkour-game-with-cocostudio/chapter1/ja.md)
 			- はじめに
 			- パルクール(障害物競走)ゲームをビルドしてみよう
 			- さらに学ぶために
