@@ -11,16 +11,16 @@ IronCity consists of 2 scenes - the main menu scene, and the game scene. It’s 
 
 ![](res/main-menu-scene.png)
 
-*Figure 5: Main Menu Scene*<br></br>
+*Figure 5: Main Menu Scene*
 
 ![](res/game-scene.png)
 
-*Figure 6. Game Scene*<br></br>
+*Figure 6. Game Scene*
 
 
 ![](res/code-structure-of-ironcity.png)
 
-*Figure 7: Code Structure of IronCity*<br></br>
+*Figure 7: Code Structure of IronCity*
 
 The screenshot shows the structure of IronCity. We separated the sources into 3 parts.  I will talk about each part in a nutshell with special emphasis on the ones that used CocoStudio.  
 
@@ -34,7 +34,7 @@ The screenshot shows the structure of IronCity. We separated the sources into 3 
 
 ![](res/ironcityui.png)
 
-*Figure 8: IronCityUI*<br></br>
+*Figure 8: IronCityUI*
 
 - Laser.js: Laser is CocoMan’s weapon. Once you tap the screen in the game scene, the CocoMan will shoot laser to the touch point. The laser extend cc.Sprite class. In Laser.js, it provides several functions, for example, add or release a laser.
 
@@ -56,7 +56,7 @@ The 3 menus are called “GameMenuUI”, “GameSceneOverLayer”, “GameSceneS
 
 ![](res/cocosmanaction.png)
 
-*Figure 9: CocosManAction*<br></br>
+*Figure 9: CocosManAction*
 
 # A Step by Step Process to Make "GameMenuUI"
 
@@ -66,13 +66,13 @@ Firstly, decide what is needed in the UI. The “GameMenuUI” of IronCity is ea
 
 ![](res/imagination-of-ironcity.png)
 
-*Figure 10. Imagination of IronCity*<br></br>
+*Figure 10. Imagination of IronCity*
 
 ## Put Everything You Need by Adding Widgets
 
 ![](res/uieditor.png)
 
-*Figure 11: UI Editor*<br></br>
+*Figure 11: UI Editor*
 
 This is a screenshot of UI Editor. I have put my resources into the editor by adding widgets. The yellow parts are comments.
 
@@ -84,7 +84,7 @@ Here I have added all widgets I need and set up the pictures from resources. The
 
 ![](res/drag-resource.png)
 
-*Figure 12: Drag Resource into the Texture*<br></br>
+*Figure 12: Drag Resource into the Texture*
 
 ## Set Properties and Export
 
@@ -92,24 +92,24 @@ The final step is self-expalnatory. I have everything prepared for my “GameMen
 
 ![](res/set-properties-before-export.png)
 
-*Figure 13: Set Properties Before You Export* <br></br>
+*Figure 13: Set Properties Before You Export* 
 
 ## How to Use the Exported Resources
 
 
 ![](res/put-all-files-into-resources.png)
 
-*Figure 14: Put all of the expoerted files into your game resources*<br></br>
+*Figure 14: Put all of the expoerted files into your game resources*
 
 After exporting, you will see a number of files in the “export” folder of your CocoStudio project. Put all of them into your game resources. There would also be a “json” format file. This is a JavaScript Object Notation file, a kind of data exchange language. All of your settings in the UI Editor have been saved in this file. It’s not difficult to read a “json” format file. So sometimes you may figure out your problems through this file.
 
 ![](res/json-format-file.png)
 
-*Figure 15: Exported JSON format file*<br></br>
+*Figure 15: Exported JSON format file*
 
 ![](res/menu-ui-js.png)
 
-*Figure 16: MenuUI.js*<br></br>
+*Figure 16: MenuUI.js*
 
 Let’s see how to use the exported resources in IronCity. In IronCity, we arranged all the resources constant to another file.(GameScene.js) Here is the Layer Menu UI and its initial function. (MenuUI.js in IronCity Cocos2d-html5 version.) 
 
@@ -131,7 +131,7 @@ We are going to create a running animation for the cocoMan. First, same as the �
 
 ![](res/animation-editor-ironcity.png)
 
-*Fiture 17: Animation Editor*<br></br>
+*Fiture 17: Animation Editor*
 
 The picture is the screenshot. The default mode is in the Posing Mode, and you can change it into Animation Mode with the button in the upper left corner. 
 
@@ -145,7 +145,7 @@ A good design of an armature is important. In IronCity, we divided the cocoMan i
 
 ![](res/create-bone-in-animation-editor.png)
 
-*Figure 18: Create Bone in Animation Editor* <br></br>
+*Figure 18: Create Bone in Animation Editor* 
 
 So, in this case, as the picture shows, we put all of the pictures into the main render. This is a right leg, consisting of 4 skeletons: thigh, shank, knee and foot. Then you can draw the collision region part in the HitBox. Here I am just showing you one option, but we actually did it with another way. Because the more bones and its collision regions you create, the lower performance it will be on the browser. That’s why we didn’t use it. If you still need it, try to find the sample called “TestColliderDetector” in “CocoStudio Test”. After combination, we now have a whole right leg on the main render. It’s time to create bones now.
 
@@ -159,15 +159,15 @@ So, in this case, as the picture shows, we put all of the pictures into the main
 
 ![](res/step1-2a.png) ![](res/step1-2b.png)
 
-*Figure 19: Step 1-2*<br></br>
+*Figure 19: Step 1-2*
 
 ![](res/step3-4.png)
 
-*Figure 20: Step 3-4*<br></br>
+*Figure 20: Step 3-4*
 
 ![](res/step5.png)
 
-*Figure 21: Step 5*<br></br>
+*Figure 21: Step 5*
 
 After all the work, I have created all parts of the cocoMan and finally assembled them just like playing Jigsaw. Don’t forget to bind parent bones when it comes to the joint. This pose is going to be the start of running animation. All of the other poses will be extended or copied from this basic armature. Next section we are going to create animations.
 
@@ -225,13 +225,13 @@ There are 2 ways to call back a function for the armatures. One is <code>*setMov
 
 ![](res/Scene-Editor-Sample-RPGGame.png)
 
-*Figure 26: Scene Editor Sample: RPGGame on CocoStudio v1.1.0*<br></br>
+*Figure 26: Scene Editor Sample: RPGGame on CocoStudio v1.1.0*
 
-The picture is the sample called RPGGame on the start page of Scene Edtior. The interface of Scene Editor is similar to that of  UI Editor. And the general operation is the same story for the UI Editor. You add the resources, drag the widgets, set the properties and export the project. Here are some introduction to show the features.<br></br>
+The picture is the sample called RPGGame on the start page of Scene Edtior. The interface of Scene Editor is similar to that of  UI Editor. And the general operation is the same story for the UI Editor. You add the resources, drag the widgets, set the properties and export the project. Here are some introduction to show the features.
 
 ![](res/Play-stop-and-connect-to-device-button.png)
 
-*Figure 27. Play, stop and connect to device button*<br></br>
+*Figure 27. Play, stop and connect to device button*
 
 ![](res/connect-device.png)
 
@@ -239,17 +239,17 @@ The picture is the sample called RPGGame on the start page of Scene Edtior. The 
 
 **Play, stop and connect to device button**: These three buttons can be found on the right side of the Canvas. Single click "play", you'll get a win32 program running, and that is what you have been editing in Scene Editor.“stop” button would close the application. And the last button is named “connect to device”. It can start a server, which allows you can visit the IP address given to help you run the scene on other device, such as html5 or mobile phones.
 
-**Sprite:** CCSprite in Cocos2d-html5.<br></br>
+**Sprite:** CCSprite in Cocos2d-html5.
 
 ![](res/Names-of-the-widgets.png)
 
 *Figure 29: Names of the widgets in Scene Editor*
 
-**Armature Componet:** CCArmautre in Cocos2d-html5. Dragging your armautre resources (usually a “ExportJson” format file built by Animation Editor) into the Aramture File would load the armature to your Scene. Then you can choose which animation to play in the Animations List. <br></br>
+**Armature Componet:** CCArmautre in Cocos2d-html5. Dragging your armautre resources (usually a “ExportJson” format file built by Animation Editor) into the Aramture File would load the armature to your Scene. Then you can choose which animation to play in the Animations List. 
 
 ![](res/Fight-Scene.png)
 
-*Figure 30. Armature in the sample: Fight Scene*<br></br>
+*Figure 30. Armature in the sample: Fight Scene*
 
 **UI:** Similar to the Armature Component. You can add your UI resources into the UI widgets. The UI resources can be built by the UI Editor.
 
@@ -259,19 +259,19 @@ The picture is the sample called RPGGame on the start page of Scene Edtior. The 
 
 ![](res/Particle-Component-properties.png)
 
-*Figure 31. Particle Component properties*<br></br>
+*Figure 31. Particle Component properties*
 
 **Audio:** The audio in Scene Editor supports mp3 and wav format. Add your audio by dragging the Audio widget.
 
 ![](res/Audio-properties.png)
 
-*Figure 32: Audio properties*<br></br>
+*Figure 32: Audio properties*
 
-**Custom Property:** Custom Property is related to Data Editor so I’ll talk about it later.<br></br>
+**Custom Property:** Custom Property is related to Data Editor so I’ll talk about it later.
 
 ![](res/Scene-Editor-Test.png)
 
-*Figure 33: Scene Editor Test*<br></br>
+*Figure 33: Scene Editor Test*
 
 The picture shows the “SceneEditorTest” in Cocos2d-html5. This is a test sample for the “FishJoy2” in the Scene Editor start page. 
 
@@ -279,16 +279,16 @@ Using <code>*createNodeWithSceneFile()*</code> to create a CCNode from the expor
 
 ![](res/FishJo2.png)
 
-*Figure 34: Running the SceneEditorTest shows the image you edited in the Scene Editor*<br></br>
+*Figure 34: Running the SceneEditorTest shows the image you edited in the Scene Editor*
 
 ### Data Editor
-<br></br>
+
 ![](res/Data-in-the-Excel.png)
 
-*Figure 35: Data in the Excel*<br></br>
+*Figure 35: Data in the Excel*
 
 ![](res/data-editor.png)
 
-*Figure 36: Data Editor*<br></br>
+*Figure 36: Data Editor*
 
 Data Editor can import template table from Excel or CSV files. The data designer can edit these data in the Data Editor and then export them to a “Json” format file. And the exported “Json” file can be used in the Scene Editor as a custom component. Then you can use the custom component in your code. See how to use custom component in “SceneController” from Components Test.
