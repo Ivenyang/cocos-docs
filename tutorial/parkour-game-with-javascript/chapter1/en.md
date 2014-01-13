@@ -122,7 +122,7 @@ Now it's time for us to debugging cocos2d-html5 code.
 	
 	![debugindex](res/debugindex.png)
 2. Now it will open your Chrome automatically. If you put your mouse above the JB plugin,
-it will shows you that it has been connected with WebStrom 7.02:
+it will show you that it has been connected with WebStrom 7.02:
 
 	**Figure 10**
 	
@@ -145,10 +145,10 @@ Back to WebStorm and double click **HelloHTML5World/src/myApp.js** to view the s
 	
 	![debugview](res/debugview.png)
 
-3. Now you can do debugging thing like step out, step into, step over, continue executing etc. 
+3. Now you can do debugging things like step out, step into, step over, continue executing etc. 
 
 ## Summary
-In this tutorial, I have shown you the basic steps to configure cocos2d-html5 to work with WebStorm 7, including configuring syntax aware auto complete and debugging. The process is quite simple and straightforward. If you have any questions or suggestion of this tutorials, please let me know. I will appreciate your contribution.
+In this tutorial, I have shown you the basic steps to configure cocos2d-html5 to work with WebStorm 7, including configuring syntax aware auto complete and debugging. The process is quite simple and straightforward. If you have any questions or suggestion of this tutorials, please let us know. we will appreciate your contribution.
 
 ## Where to go from here
 In the next tutorial, I will show you how to setup a new cocos2d-html5 project. And we will walk through the built-in tests and sample games of cocos2d-html5.
