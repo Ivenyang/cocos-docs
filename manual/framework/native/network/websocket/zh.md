@@ -13,7 +13,6 @@ Cocos2d-x引擎集成libwebsockets，并在libwebsockets的客户端API基础上
 
 详细代码可参考引擎目录下的/samples/Cpp/TestCpp/Classes/ExtensionsTest/NetworkTest/WebSocketTest.cpp文件。
 
-
 ### 头文件中的准备工作
 
 首先需要include WebSocket的头文件。
@@ -51,7 +50,7 @@ WebSocket.org 提供了一个专门用来测试WebSocket的服务器"ws://echo.w
 ```
 cocos2d::network::WebSocket* _wsiSendText = new network::WebSocket();
 ```
-init第一个参数是delegate，设置为this，第二个参数是请求地址。
+init第一个参数是delegate，设置为this，第二个参数是服务器地址。
 URL中的"ws://"标识是WebSocket协议，加密的WebSocket为"wss://".
 
 ```
@@ -151,4 +150,72 @@ _wsiSendBinary->send((unsigned char*)buf, sizeof(buf));
 
 ```
 _wsiSendText->close();
+```
+
+## 在Lua中使用
+
+详细代码可参考引擎目录下的/samples/Lua/TestLua/Resources/luaScript/ExtensionTest/WebProxyTest.lua文件。
+
+### 创建WebSocket对象
+
+脚本接口相对C++要简单很多，没有头文件，创建WebSocket对象使用下面的一行代码搞定。
+参数是服务器地址。
+
+```
+wsSendText = WebSocket:create("ws://echo.websocket.org")
+```
+
+### 定义并注册消息回调函数
+
+回调函数是普通的Lua function，4个消息回调和c++的用途一直，参考上面的说明。
+
+```
+local function wsSendTextOpen(strData)
+	sendTextStatus:setString("Send Text WS was opened.")
+end
+
+local function wsSendTextMessage(strData)
+	receiveTextTimes= receiveTextTimes + 1
+	local strInfo= "response text msg: "..strData..", "..receiveTextTimes    
+	sendTextStatus:setString(strInfo)
+end
+
+local function wsSendTextClose(strData)
+	print("_wsiSendText websocket instance closed.")
+	sendTextStatus = nil
+	wsSendText = nil
+end
+
+local function wsSendTextError(strData)
+	print("sendText Error was fired")
+end
+```
+
+Lua的消息注册不同于C++的继承 & Override，有单独的接口registerScriptHandler。
+registerScriptHandler第一个参数是回调函数名，第二个参数是回调类型。
+每一个WebSocket实例都需要绑定一次。
+
+```
+if nil ~= wsSendText then
+        wsSendText:registerScriptHandler(wsSendTextOpen,cc.WEBSOCKET_OPEN)
+        wsSendText:registerScriptHandler(wsSendTextMessage,cc.WEBSOCKET_MESSAGE)
+        wsSendText:registerScriptHandler(wsSendTextClose,cc.WEBSOCKET_CLOSE)
+        wsSendText:registerScriptHandler(wsSendTextError,cc.WEBSOCKET_ERROR)
+end
+```
+
+### send消息
+
+Lua中发送不区分文本或二进制模式，均使用下面的接口。
+
+```
+wsSendText:sendString("Hello WebSocket中文, I'm a text message.")
+```
+
+### 主动关闭WebSocket
+
+当某个WebSocket的通讯不再使用的时候，我们必须手动关闭这个WebSocket与服务器的连接，以释放服务器和客户端的资源。close会触发**cc.WEBSOCKET_CLOSE**消息。
+
+```
+wsSendText:close()
 ```
