@@ -197,10 +197,10 @@ registerScriptHandler第一个参数是回调函数名，第二个参数是回�
 
 ```
 if nil ~= wsSendText then
-        wsSendText:registerScriptHandler(wsSendTextOpen,cc.WEBSOCKET_OPEN)
-        wsSendText:registerScriptHandler(wsSendTextMessage,cc.WEBSOCKET_MESSAGE)
-        wsSendText:registerScriptHandler(wsSendTextClose,cc.WEBSOCKET_CLOSE)
-        wsSendText:registerScriptHandler(wsSendTextError,cc.WEBSOCKET_ERROR)
+	wsSendText:registerScriptHandler(wsSendTextOpen,cc.WEBSOCKET_OPEN)
+	wsSendText:registerScriptHandler(wsSendTextMessage,cc.WEBSOCKET_MESSAGE)
+	wsSendText:registerScriptHandler(wsSendTextClose,cc.WEBSOCKET_CLOSE)
+	wsSendText:registerScriptHandler(wsSendTextError,cc.WEBSOCKET_ERROR)
 end
 ```
 
@@ -218,4 +218,88 @@ wsSendText:sendString("Hello WebSocket中文, I'm a text message.")
 
 ```
 wsSendText:close()
+```
+
+## 在JSB中使用
+
+详细代码可参考引擎目录下的/samples/Javascript/Shared/tests/ExtensionsTest/NetworkTest/WebSocketTest.js文件。
+
+### 创建WebSocket对象
+
+脚本接口相对C++要简单很多，没有头文件，创建WebSocket对象使用下面的一行代码搞定。
+参数是服务器地址。
+
+```
+this._wsiSendText = new WebSocket("ws://echo.websocket.org");
+```
+
+### 设置消息回调函数
+
+JSB中的回调函数是WebSocket实例的属性，使用匿名函数直接赋值给对应属性。可以看出JS语言的特性，让绑定回调函数更加优美。四个回调的含义，参考上面c++的描述。
+
+```
+this._wsiSendText.onopen = function(evt) {
+	self._sendTextStatus.setString("Send Text WS was opened.");
+};
+
+this._wsiSendText.onmessage = function(evt) {
+	self._sendTextTimes++;
+	var textStr = "response text msg: "+evt.data+", "+self._sendTextTimes;
+	cc.log(textStr);
+
+	self._sendTextStatus.setString(textStr);
+};
+
+this._wsiSendText.onerror = function(evt) {
+	cc.log("sendText Error was fired");
+};
+
+this._wsiSendText.onclose = function(evt) {
+	cc.log("_wsiSendText websocket instance closed.");
+	self._wsiSendText = null;
+};
+```
+
+### send消息
+
+发送文本，无需转换，代码如下：
+
+```
+this._wsiSendText.send("Hello WebSocket中文, I'm a text message.");
+```
+
+发送二进制，测试代码中，使用_stringConvertToArray函数来转换string为二进制数据，模拟二进制的发送。
+new Uint16Array创建一个16位无符号整数值的类型化数组，内容将初始化为0。然后，循环读取字符串的每一个字符的Unicode编码，并存入Uint16Array，最终得到一个二进制对象。
+
+```
+_stringConvertToArray:function (strData) {
+	if (!strData)
+		return null;
+
+	var arrData = new Uint16Array(strData.length);
+	for (var i = 0; i < strData.length; i++) {
+		arrData[i] = strData.charCodeAt(i);
+	}
+	return arrData;
+},
+```
+
+send二进制接口和send文本没有区别，区别在于传入的对象，JS内部自己知道对象是文本还是二进制数据，然后做不同的处理。
+
+```
+var buf = "Hello WebSocket中文,\0 I'm\0 a\0 binary\0 message\0.";
+var binary = this._stringConvertToArray(buf);
+            
+this._wsiSendBinary.send(binary.buffer);
+```
+
+### 主动关闭WebSocket
+
+当某个WebSocket的通讯不再使用的时候，我们必须手动关闭这个WebSocket与服务器的连接，以释放服务器和客户端的资源。close会触发**onclose**消息。
+
+```
+onExit: function() {
+	if (this._wsiSendText)
+		this._wsiSendText.close();
+},
 ```
