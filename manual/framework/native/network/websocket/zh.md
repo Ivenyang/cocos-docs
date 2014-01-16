@@ -113,7 +113,7 @@ void WebSocketTestLayer::onClose(network::WebSocket* ws)
 
 #### onError
 
-客户端发送的请求，如果发生错误，就会收到onError消息，游戏针对不同的错误吗，做出相应的处理。
+客户端发送的请求，如果发生错误，就会收到onError消息，游戏针对不同的错误码，做出相应的处理。
 
 ```
 void WebSocketTestLayer::onError(network::WebSocket* ws, const network::WebSocket::ErrorCode& error)
@@ -167,7 +167,7 @@ wsSendText = WebSocket:create("ws://echo.websocket.org")
 
 ### 定义并注册消息回调函数
 
-回调函数是普通的Lua function，4个消息回调和c++的用途一直，参考上面的说明。
+回调函数是普通的Lua function，4个消息回调和c++的用途一致，参考上面的说明。
 
 ```
 local function wsSendTextOpen(strData)
