@@ -30,14 +30,14 @@ We are happy to announce the release of:
 
 ### Documents for v3.0 ###
 * [Introdution of New Renderer](../manual/framework/native/renderer/en.md)
-* [Mechanism of Event Dispatcher](../manual/framework/native/input/event_dispatcher/en.md)
-* [Physcis Integration](../manual/framework/native/physics/physics_integration/en.md)
+* [Mechanism of Event Dispatcher](../manual/framework/native/input/event-dispatcher/en.md)
+* [Physcis Integration](../manual/framework/native/physics/physics-integration/en.md)
 * [Particle System Comparison of v2.x and v3.0](../manual/framework/native/graphic/particle/v3/en.md)
 * [Improved Label in v3.0](../manual/framework/native/gui/label/v3/en.md)
-* Template containers: [cocos2d::Map<>](../manual/framework/native/data_structure/v3/map/en.md), [cocos2d::Vector<>](../manual/framework/native/data_structure/v3/vector/en.md). v3.0 uses `cocos2d::Map<>` instead of CCDictionary, `cocos2d::Vector<>` instead of CCArray.
-* [cocos2d::Value](../manual/framework/native/data_structure/v3/value/en.md) wrapping many basic data types such as `int`,`float`,`double`,`bool`,`unsigned char`,`char*` and `std::string`.
+* Template containers: [cocos2d::Map<>](../manual/framework/native/data-structure/v3/map/en.md), [cocos2d::Vector<>](../manual/framework/native/data-structure/v3/vector/en.md). v3.0 uses `cocos2d::Map<>` instead of CCDictionary, `cocos2d::Vector<>` instead of CCArray.
+* [cocos2d::Value](../manual/framework/native/data-structure/v3/value/en.md) wrapping many basic data types such as `int`,`float`,`double`,`bool`,`unsigned char`,`char*` and `std::string`.
 * GUI System series: [Overview](../manual/framework/native/gui/overview/en.md), [UI Containers](../manual/framework/native/gui/container/en.md) like Layout, ScrollView, PageView, and [UI Widgets](../manual/framework/native/gui/widget/en.md) including  CheckBox, LoadingBar, Slider, Button, TextField etc.
-* [Javascript Remote Debugging with Firefox debugger](../manual/framework/native/scripting/javascript/js_remote_debugger/en.md) would be helpful to developers using JavaScript bindings on cocos2d-x
+* [Javascript Remote Debugging with Firefox debugger](../manual/framework/native/scripting/javascript/js-remote-debugger/en.md) would be helpful to developers using JavaScript bindings on cocos2d-x
 
 ### More Info ###
 

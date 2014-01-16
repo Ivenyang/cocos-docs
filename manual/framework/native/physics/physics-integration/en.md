@@ -158,4 +158,4 @@ _eventDispatcher is a member of base class Node, it can be used by a initialized
 
 You can get Demo of this document from this: <https://github.com/Yangtb/newPhysics.git>
 
-Demo is based on [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone it and put it in **cocos2d-x-3.0alpha1/projects**, if you don't have file you can create one.
+Demo is based on [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone it and put it in **cocos2d-x-3.0alpha1/projects**, you can create one if you don't have project folder.
