@@ -19,7 +19,7 @@
  			- [瓦片地图](../manual/framework/native/graphic/tiled-map/zh.md)
 			- [多分辨率支持策略和原理](../manual/framework/native/graphic/multi-resolution/zh.md)
 		- 数据结构
-			- 3.0数据结构: Vector<T>, Map<K,V>和弱类型Value
+			- 3.0数据结构: [Vector<T>](../manual/framework/native/data-structure/v3/vector/zh.md), Map<K,V>和弱类型Value
 			- 2.0数据结构：[CCArray](../manual/framework/native/data-structure/v2/array/zh.md), [CCDictionary](../manual/framework/native/data-structure/v2/dictionary/zh.md), [CCString](../manual/framework/native/data-structure/v2/string/zh.md)
 		- 声音
 			- [不同平台上所支持的音频格式](../manual/framework/native/audio/audio-formats/zh.md)
