@@ -66,7 +66,8 @@
 			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk-integration/wp8-webbrowser/zh.md)
 			- [Windows Phone 8:如何集成第三方SDk](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
 			- 如何在Android上集成第三方SDK
-			- 如何在iOS上集成第三方SDK
+			- [如何使用iOS游戏内付费IAP(C++篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-C++/zh.md)
+			- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-JSB/zh.md)
 		- 版本升级指南
 			- 从2.2升级到3.0
 		
