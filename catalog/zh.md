@@ -66,8 +66,7 @@
 			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk-integration/wp8-webbrowser/zh.md)
 			- [Windows Phone 8:如何集成第三方SDk](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
 			- 如何在Android上集成第三方SDK
-			- [如何使用iOS游戏内付费IAP(C++篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-C++/zh.md)
-			- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-JSB/zh.md)
+			- 如何在iOS上集成第三方SDK
 		- 版本升级指南
 			- 从2.2升级到3.0
 		
@@ -81,6 +80,9 @@
 		- [如何搭建 Cocos2d-html5 开发调试环境](../manual/framework/html5/setup-devenv/zh.md)
 		- [如何自定义cocos2d-html5加载界面](../manual/framework/html5/customize-loading-screen/zh.md)
 		- [Cocos2d-html5 2.2.2的屏幕适配方案](../manual/framework/html5/resolution-policy-design/zh.md)
+		- [如何使用iOS游戏内付费IAP(C++篇)](../manual/framework/html5/jsb-ios-iap/ios-storekit-integration-in-c++/zh.md)
+		- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework//html5/jsb-ios-iap/ios-storekit-integration-in-jsb/zh.md)
+
 	
 - 教程
 	- 入门篇：用C++写一个忍者射飞镖游戏

@@ -483,5 +483,5 @@ this.iAP.paymentWithProduct(product, 2);
 
 ## Demo获取
 
-你可以在这里获取文章配套Demo的完整[代码](../iOS-StoreKit-intergation-in-C++/code)。
+你可以在这里获取文章配套Demo的完整[代码](../ios-storekit-intergation-in-c++/code)。
 把整个code目录拷贝到Cocos2d-x 3.0 beta下的projects目录下即可运行。
