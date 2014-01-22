@@ -19,7 +19,7 @@
  			- [瓦片地图](../manual/framework/native/graphic/tiled-map/zh.md)
 			- [多分辨率支持策略和原理](../manual/framework/native/graphic/multi-resolution/zh.md)
 		- 数据结构
-			- 3.0数据结构: Vector<T>, Map<K,V>和弱类型Value
+			- 3.0数据结构: [Vector<T>](../manual/framework/native/data-structure/v3/vector/zh.md), [Map<K,V>](../manual/framework/native/data-structure/v3/map/zh.md)和弱类型[Value](../manual/framework/native/data-structure/v3/value/zh.md)
 			- 2.0数据结构：[CCArray](../manual/framework/native/data-structure/v2/array/zh.md), [CCDictionary](../manual/framework/native/data-structure/v2/dictionary/zh.md), [CCString](../manual/framework/native/data-structure/v2/string/zh.md)
 		- 声音
 			- [不同平台上所支持的音频格式](../manual/framework/native/audio/audio-formats/zh.md)
@@ -66,7 +66,8 @@
 			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk-integration/wp8-webbrowser/zh.md)
 			- [Windows Phone 8:如何集成第三方SDk](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
 			- 如何在Android上集成第三方SDK
-			- 如何在iOS上集成第三方SDK
+			- [如何使用iOS游戏内付费IAP(C++篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-C++/zh.md)
+			- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework/native/sdk-integration/iOS-IAP/iOS-StoreKit-integration-in-JSB/zh.md)
 		- 版本升级指南
 			- 从2.2升级到3.0
 		
