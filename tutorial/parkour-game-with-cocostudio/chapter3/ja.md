@@ -293,7 +293,7 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 31. Particle Component properties*<br></br>
 
-**Audio:** Scene Editor のaudioはmp3とwavに対応しており、Audio widgetをドラッグして追加できます。
+**Audio:** mp3とwavに対応しており、Audio widgetをドラッグして追加します。
 
 ![](res/Audio-properties.png)
 
