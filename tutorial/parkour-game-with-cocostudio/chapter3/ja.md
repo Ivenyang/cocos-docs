@@ -1,10 +1,10 @@
-# アクションゲームを作ろう
+# パルクール(障害物競走)ゲームをビルドしてみよう
 
 ## 概要
 
 ### IronCityの紹介
 
-これはCocoStudioの使い方が学べるシンプルなパルクールゲーム（アクションゲーム）です。
+これはCocoStudioの使い方が学べるシンプルなパルクールゲームです。
 タイトルはIronCityで、Cocos2d-html5 と CocoStudio v1.0.2 で作られています。
 （これを書いている間にCocoStudio1.1.0がリリースされました）
 ユーザーインターフェスとアニメーションはCocoStudioで作られています。
@@ -27,7 +27,7 @@ IronCityはメインメニューとゲームシーンの2シーンを持つシ�
 
 *Figure 7: Code Structure of IronCity*<br></br>
 
-スクリーンショットはIronCityのファイル構成で、ソースは3カテゴリに別れています。
+スクリーンショットはIronCityのファイル構成で、ソースは3パートに別れています。
 それぞれでどうCocoStudioを使っているか説明します。
 
 - MainMenuScene.js: 最初のシーン。背景画像とスタートボタンがあります。スタートボタンを押すと次のGame Sceneに移ります。
@@ -57,7 +57,7 @@ Laser.jsでは、レーザーのspriteを画面に追加したり消去したり
 
 ## ゲームコンポーネントをデザインする
 
-ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要ならヘルプドキュメントを見てください。
+ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要があればヘルプドキュメントを見てください。
 
 IronCityにはcocoStudioで作った3つのメニューと9つのアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
@@ -159,35 +159,24 @@ Next, let’s find out how to create a complete armature in Animation Editor.
 ### Boneの配置
 ### Drawing Bones
 
-アマーチュアを作るには、ボーンの各画像がしっかりしている必要があります。
-To create a whole armature, each picture of the bones should be complete. 
+アマーチュアを作るには、ボーンの各パーツの画像が必要です。
 
-IronCityではCocoManを6パーツに分けました。ボディを2-4ボーンで作り、それをつなげました。
-A good design of an armature is important. In IronCity, we divided the cocoMan into 6 parts. We created the body parts by using 2-4 bones and assembled them when they were finished.
+IronCityではCocoManを6パーツに分けました。ボディを2-4のボーンで作り、それをつなげました。
 
 ![](res/create-bone-in-animation-editor.png)
 
 *Figure 18: Create Bone in Animation Editor* <br></br>
 
 この場合、全画像をメインレンダーにおいています。これは右足で、太もも、すね、膝と足の４パーツになります。
-ヒットボックスで衝突領域を指定できます。これは一例ですが、実際は違うやり方をしています。ボーンや衝突領域を増やすほどブラウザ上でのパフォーマンスは下がるからです。なので使いません。それでも使うなら、“CocoStudio Test”の中の“TestColliderDetector”を参考にしてください。合成したら、右足全体がメインレンダーにある状態になります。ボーンを作りましょう。
+ヒットボックスで衝突領域を指定できます。これは一例ですが、実際は違うやり方をしています。ボーンや衝突領域を増やすほどブラウザ上でのパフォーマンスは下がるのでここでは使いません。あなたが使うなら、“CocoStudio Test”の中の“TestColliderDetector”を参考にしてください。合成したら、右足全体がメインレンダーにある状態になります。ボーンを作りましょう。
 
-So, in this case, as the picture shows, we put all of the pictures into the main render. This is a right leg, consisting of 4 skeletons: thigh, shank, knee and foot. Then you can draw the collision region part in the HitBox. Here I am just showing you one option, but we actually did it with another way. Because the more bones and its collision regions you create, the lower performance it will be on the browser. That’s why we didn’t use it. If you still need it, try to find the sample called “TestColliderDetector” in “CocoStudio Test”. After combination, we now have a whole right leg on the main render. It’s time to create bones now.
+アマーチュアを作る5ステップ:
 
-アマーチュアを作る5ステップ
-5 steps to create an armature:
-
-1.create boneモードにする
+1."create bone"モードにする
 2.boneをかく
-3.create boneモードをoffにする
+3."create bone"モードをoffにする
 4.画像とboneを合わせる
-5.子のボーンを親オブジェクトにつなげる
-
-1. Choose “create bone” mode.
-2. Draw bones.
-3. Disable “create bone” mode.
-4. Bind pictures to bones.
-5. Bind children bone to their parents.
+5.子のボーンを親につなげる
 
 ![](res/step1-2a.png) ![](res/step1-2b.png)
 
@@ -201,7 +190,7 @@ So, in this case, as the picture shows, we put all of the pictures into the main
 
 *Figure 21: Step 5*<br></br>
 
-After all the work, I have created all parts of the cocoMan and finally assembled them just like playing Jigsaw. Don’t forget to bind parent bones when it comes to the joint. This pose is going to be the start of running animation. All of the other poses will be extended or copied from this basic armature. Next section we are going to create animations.
+終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーあるいは拡張して作ります。次はアニメーションを作ります。
 
 Figure 22: Repeat The Step 1-5 to Build a Whole Armature
 
@@ -213,17 +202,15 @@ Figure 22: Repeat The Step 1-5 to Build a Whole Armature
 
 *Figure 23: Animation Mode*
 
-左上のボタンを押してアニメーションモードにしましょう
-Change the mode into animation (Press the button on the left upper corner.)
+左上のボタンを押してアニメモードにしましょう
 
-このUIEditorのアニメーションモードとアニメーションエディターはほとんど同じです。
-The interface of animation mode in UI Editor and Animation Editor are almost the same, as well as their usages.
+このUIEditorのアニメーションモードとAnimationEditorはほとんど同じです。
 
-タイムラインはアニメーション制作のキモです。もしflashやspineなどタイムラインツールを知っているなら、すぐなじめるでしょう。
-The timeline is the core of creating an animation. If you know anything about flash or spine, it should be easy to get started.
+タイムラインはアニメーション制作のキモです。flashやspineのタイムラインツールを知っていればすぐなじめるでしょう。
 
 タイムラインは多くのフレームがあります。ローテートやshiftを使って、キーフレームごとにボーンの状態やポーズをセットして
 アニメーションを作っていきます。
+
 There are many frames in the timeline. Each frame represents a time point for the armature. Using rotate or shift button to set up the status and poses for each bone of the armature on the key frames, in this way you can create an animation.
 
 ![](res/Key-Frames-of-CMRun.png)
@@ -231,36 +218,34 @@ There are many frames in the timeline. Each frame represents a time point for th
 *Figure 24: Key Frames of CMRunFigure*
 
 これはrunning animationのキーフレームになります。フレーム40は0と同じです。Loop
-をチェックすればこのようにアニメーションをループできます。タイムラインのPlay
-ボタンでアニメーションをチェックできます。fpsを変えてアニメーション速度をコントロールさせることもできます。
-These are the key frames of running animation. The Frame 40 is missing because that is identical with Frame 0. In this way, you can make your animation coherence when it comes to a loop(tick the Loop). Pressing play button in the timeline can show the animation. You can also modify the fps to control the speed of your animation
+をチェックしてアニメーションをループできます。タイムラインのPlay
+ボタンでアニメーションをチェックできます。fpsを変えてアニメーション速度も変えられます。
 
-### How To Use The Armature In The Program
-### 作ったアマーチュアをプログラムで使うには
+### 作ったアマーチュアをプログラムで使う
 
 ![](res/Create-Armaute-and-Run.png)
 
 *Figure 25: Create Armaute and Run*
 
-アマーチュアとアニメーションをつくりました。エクスポートしたら、通常3つのファイルがエクスポートフォルダに出来ます。
-We have finished the armature and animation. You’ll find 3 files in the export folder after exporting(default way). 
+アマーチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
 
-“ExportJson”ファイルは
-The “ExportJson” file is like the “json” file, which is rather informative. The function <code>*CMRunning()*</code> is a simple  way to create an armature and run its animations.(“Player.js”) 
+“ExportJson”ファイルはjsonですから読めばいろいろわかるでしょう。 <code>*CMRunning()*</code> の関数はアーマチュアを作って動かす簡単な例になります(“Player.js”) 
 
-Using <code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> to read the resources from the path, just like the UI Editor. <code>*cc.Armature.create(“CMRun”)*</code> will try to create an armature called “CMRun” from all the ExportJson file. 
+UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
+<code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
 
-“CMRun” is the name of your project, but you can also try to replace all the “CMRun”in the “ExportJson” file, this is a fast way to change the armature’s name.
+"CMRun"は今回のプロジェクト名です。この名前を変更するならExportJsonファイルの"CMRun"の文字を全部置換するのが照っとり早い方法です。
 
- <code>*armature.getAnimation().play(“Running”)* </code>will begin to look for the animation named “Running” in this armature’s “ExportJson” file. This name can be set in the animation list from Animation Editor. You can edit it in “ExportJon” file as well. 
+ <code>*armature.getAnimation().play(“Running”)* </code>  はExportJsonから"Running"というアニメーションを見つけます。
+  この名前はAnimationEditorのアニメーションリストで指定できますし、"ExportJson"ファイルを編集してもOKです。
 
-### How To Callback The Functions
+### Callback Functionsを呼び出すには
 
-There are 2 ways to call back a function for the armatures. One is <code>*setMovementEventCallFunc()*</code>, the other is <code>*setFrameEventCallFunc()*</code>. 
+アーマチュアでコールバックfunctionを呼ぶには2つ方法があります。ひとつは <code>*setMovementEventCallFunc()*</code>, もうひとつは <code>*setFrameEventCallFunc()*</code>です。
 
 ![](res/How-to-Set-Callback-Functions.png)
 
-*Figure 26: How to Set Callback Functions*
+*Figure 26: Callback Functions をセットする*
 
 ## Scene Editor と Data Editor
 
@@ -270,7 +255,10 @@ There are 2 ways to call back a function for the armatures. One is <code>*setMov
 
 *Figure 26: Scene Editor Sample: RPGGame on CocoStudio v1.1.0*<br></br>
 
-The picture is the sample called RPGGame on the start page of Scene Edtior. The interface of Scene Editor is similar to that of  UI Editor. And the general operation is the same story for the UI Editor. You add the resources, drag the widgets, set the properties and export the project. Here are some introduction to show the features.<br></br>
+画像はSceneEditorのスタートページにあるRPGGameというサンプルです。Scene Editorのインターフェースや使い方はUIEditorと似ています。
+リソースを追加してウィジェットをドラッグして、プロパティをセットしたらプロジェクトをエクスポートします。
+簡単に紹介しましょう。
+<br></br>
 
 ![](res/Play-stop-and-connect-to-device-button.png)
 
@@ -336,7 +324,4 @@ Using <code>*createNodeWithSceneFile()*</code> to create a CCNode from the expor
 
 *Figure 36: Data Editor*<br></br>
 
-Data EditorでExcelやCSVのデータを取り込めます。データデザイナーの人は、これらをDataEditorで編集してJson出力できます。出力したjsonはScene Editorでカスタムコンポーネントとして使えます。カスタムコンポーネントの使い方はSceneControllerのSceneControllerを見ればわかります。
-
-
-Data Editor can import template table from Excel or CSV files. The data designer can edit these data in the Data Editor and then export them to a “Json” format file. And the exported “Json” file can be used in the Scene Editor as a custom component. Then you can use the custom component in your code. See how to use custom component in “SceneController” from Components Test.
+Data EditorではExcelやCSVのデータを取り込めます。データデザイナーの人は、これらをDataEditorで編集してJson出力できます。出力したjsonはScene Editorでカスタムコンポーネントとして使えます。カスタムコンポーネントの使い方はSceneControllerのSceneControllerを見ればよいでしょう。
