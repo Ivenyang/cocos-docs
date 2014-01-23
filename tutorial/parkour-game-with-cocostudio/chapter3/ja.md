@@ -234,14 +234,13 @@ There are many frames in the timeline. Each frame represents a time point for th
 UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
 <code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
 
-"CMRun"は今回のプロジェクト名です。この名前を変更するならExportJsonファイルの"CMRun"の文字を全部置換するのが照っとり早い方法です。
-
+"CMRun"は今回のプロジェクト名です。名前を変更するならExportJsonファイルの"CMRun"を全部置換するのが早いでしょう。
  <code>*armature.getAnimation().play(“Running”)* </code>  はExportJsonから"Running"というアニメーションを見つけます。
   この名前はAnimationEditorのアニメーションリストで指定できますし、"ExportJson"ファイルを編集してもOKです。
 
 ### Callback Functionsを呼び出すには
 
-アーマチュアでコールバックfunctionを呼ぶには2つ方法があります。ひとつは <code>*setMovementEventCallFunc()*</code>, もうひとつは <code>*setFrameEventCallFunc()*</code>です。
+アーマチュアでコールバックfunctionを呼ぶには2つ方法があります。アニメーション完了時の <code>*setMovementEventCallFunc()*</code>  と、フレームごとにセットできる <code>*setFrameEventCallFunc()*</code>です。
 
 ![](res/How-to-Set-Callback-Functions.png)
 
@@ -268,7 +267,8 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 28: Connect Device*
 
-**Play, stop and connect to device button**: These three buttons can be found on the right side of the Canvas. Single click "play", you'll get a win32 program running, and that is what you have been editing in Scene Editor.“stop” button would close the application. And the last button is named “connect to device”. It can start a server, which allows you can visit the IP address given to help you run the scene on other device, such as html5 or mobile phones.
+**Play, stop and connect to device button**: この3ボタンはキャンバスの右にあります。"Play"をクリックすると、win32でプログラムが走ります。"stop"ボタンはアプリケーションを閉じます。
+最後のボタンは"connect to device"ボタンです。Webサーバーを起動して、IPアドレスを入力して、html5や携帯電話など他のデバイスでシーンを実行できます。
 
 **Sprite:** CCSprite in Cocos2d-html5.<br></br>
 
@@ -276,39 +276,39 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 29: Names of the widgets in Scene Editor*
 
-**Armature Componet:** CCArmautre in Cocos2d-html5. Dragging your armautre resources (usually a “ExportJson” format file built by Animation Editor) into the Aramture File would load the armature to your Scene. Then you can choose which animation to play in the Animations List. <br></br>
+**Armature Componet:**   Cocos2d-html5のCCArmautre。アマーチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストでどのアニメーションをプレイするか選びます。
+<br></br>
 
 ![](res/Fight-Scene.png)
 
-*Figure 30. Armature in the sample: Fight Scene*<br></br>
+*Figure 30. サンプルプロジェクト内のアマーチュア: Fight Scene*<br></br>
 
-**UI:** Similar to the Armature Component. You can add your UI resources into the UI widgets. The UI resources can be built by the UI Editor.
+**UI:** アマーチュアと同様に、UIEditorで作ったUIリソースもUIウィジェットに追加できます。
 
-**Map Component:** Drag your map resources into the Map Component. The map resources may be a “tmx” format file which is exported by the TileMap.
+**Map Component:** mapリソースをmapコンポーネントにドラッグ。mapリソースはTileMapでエクスポートした"tmx"ファイルになります。
 
-**Particle Component:** Particle resources can be built by Particle Designer. The Particle Component can help to add your particle resources to your scene.
+**Particle Component:** ParticleリソースはParticle Designerで作られたものでしょう。 Particle Componentを使ってparticleをシーンに追加します。
 
 ![](res/Particle-Component-properties.png)
 
 *Figure 31. Particle Component properties*<br></br>
 
-**Audio:** The audio in Scene Editor supports mp3 and wav format. Add your audio by dragging the Audio widget.
+**Audio:** Scene Editor のaudioはmp3とwavに対応しており、Audio widgetをドラッグして追加できます。
 
 ![](res/Audio-properties.png)
 
 *Figure 32: Audio properties*<br></br>
 
-**Custom Property:** Custom Property is related to Data Editor so I’ll talk about it later.<br></br>
+**Custom Property:** CustomPropertyはData Editorと関連するので後から説明します<br></br>
 
 ![](res/Scene-Editor-Test.png)
 
 *Figure 33: Scene Editor Test*<br></br>
 
 画像はCocos2d-html5のTest casesの“SceneEditorTest”です。これはScene Editorのスタートページにある“FishJoy2”のサンプルです。
-
-The picture shows the “SceneEditorTest” in Cocos2d-html5. This is a test sample for the “FishJoy2” in the Scene Editor start page. 
-
-Using <code>*createNodeWithSceneFile()*</code> to create a CCNode from the exported resources by Scene Editor. As all of the widgets in Scene Editor can set a “Tag” property, you can get the widgets through <code>*getChildByTag()*</code> from their parent node. So there is nothing difficulty about using the exported Scene Editor resources. Try to learn more from the “CocoStudio Test” if you meet any kind of questions.
+<code>*createNodeWithSceneFile()*</code> を使ってSceneEditorでエクスポートしたリソースからCCNodeを作ります。
+SceneEditorの全ウィジェットは"Tag"プロパティをち、親ノードから<code>*getChildByTag()*</code>を使ってウィジェットを探せます。
+エクスポートしたSceneEditorのリソースを使うのは難しくないので、わからないことも“CocoStudio Test”を見れば学べるでしょう。
 
 ![](res/FishJo2.png)
 
