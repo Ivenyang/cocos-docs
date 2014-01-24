@@ -99,7 +99,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ## プロパティをセットしてエクスポートする
 
-最後です。“GameMenuUI”の全準備をしたので、ファイルメニューの「プロジェクトを出力」をクリックします。デフォルト設定でエクスポートすることが多いでしょう。Widgetのステータスをセットし忘れないでください。例えばレイヤパネルの「インタラク・・・」をチェックしないと、パネルに属するWidgetを「インタラク・・・」にしてもタッチできなくなります。
+最後です。“GameMenuUI”の準備ができたので、ファイルメニューの「プロジェクトを出力」をクリックします。デフォルト設定でエクスポートすることが多いでしょう。Widgetのステータスをセットし忘れないでください。例えばレイヤパネルの「インタラク・・・」をチェックしないと、パネルに属するWidgetを「インタラク・・・」にしてもタッチできなくなります。
 
 ![](res/set-properties-before-export.png)
 
@@ -111,7 +111,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 *Figure 14: Put all of the expoerted files into your game resources*<br></br>
 
-エクスポートしたらCocoStudioプエオジェクトの“export”フォルダにたくさんのファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは人間にも読みやすいので、このファイルを調べて問題を解決することもあるでしょう。
+エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは人間にも読みやすいので、このファイルを調べて問題を解決することもあるでしょう。
 
 ![](res/json-format-file.png)
 
@@ -185,7 +185,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーや拡張して作ります。次はアニメーションを作ります。
 
-Figure 22: Repeat The Step 1-5 to Build a Whole Armature
+Figure 22: ステップ1-5を繰り返してアマーチュアを完成します。
 
 ![](res/Repeat-The-Step-1-5.png)
 
@@ -229,9 +229,9 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
  <code>*armature.getAnimation().play(“Running”)* </code>  はExportJsonから"Running"というアニメーションを見つけます。
   この名前はAnimationEditorのアニメーションリストで指定できますし、"ExportJson"ファイルを編集してもOKです。
 
-### Callback Functionsを呼び出すには
+### Callback Functionsを呼ぶ
 
-アーマチュアでコールバックfunctionを呼ぶには2つ方法があります。アニメーション完了時の <code>*setMovementEventCallFunc()*</code>  と、フレームごとにセットできる <code>*setFrameEventCallFunc()*</code>です。
+アーマチュアでコールバック関数を呼ぶ方法は2つあります。アニメーション完了時の <code>*setMovementEventCallFunc()*</code>  と、フレームごとの <code>*setFrameEventCallFunc()*</code>です。
 
 ![](res/How-to-Set-Callback-Functions.png)
 
@@ -299,7 +299,7 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 画像はCocos2d-html5のTest casesの“SceneEditorTest”です。これはScene Editorのスタートページにある“FishJoy2”のサンプルです。
 <code>*createNodeWithSceneFile()*</code> を使ってSceneEditorでエクスポートしたリソースからCCNodeを作ります。
 SceneEditorの全ウィジェットは"Tag"プロパティをち、親ノードから<code>*getChildByTag()*</code>を使ってウィジェットを探せます。
-エクスポートしたSceneEditorのリソースを使うのは難しくないので、わからないことも“CocoStudio Test”を見れば学べるでしょう。
+エクスポートしたSceneEditorのリソースを使うのは簡単なので、“CocoStudio Test”を見ればさらに学べるでしょう。
 
 ![](res/FishJo2.png)
 
@@ -309,10 +309,10 @@ SceneEditorの全ウィジェットは"Tag"プロパティをち、親ノード�
 <br></br>
 ![](res/Data-in-the-Excel.png)
 
-*Figure 35: Data in the Excel*<br></br>
+*Figure 35: Excelデータ*<br></br>
 
 ![](res/data-editor.png)
 
 *Figure 36: Data Editor*<br></br>
 
-Data EditorではExcelやCSVのデータを取り込めます。データデザイナーの人は、これらをDataEditorで編集してJson出力できます。出力したjsonはScene Editorでカスタムコンポーネントとして使えます。カスタムコンポーネントの使い方はSceneControllerのSceneControllerを見ればよいでしょう。
+Data EditorではExcelやCSVのデータを取り込めます。データデザイナーの人は、これらをDataEditorで編集してJson出力でき、jsonはScene Editorでカスタムコンポーネントとして使えます。カスタムコンポーネントの使い方はSceneControllerのSceneControllerを見ればよいでしょう。
