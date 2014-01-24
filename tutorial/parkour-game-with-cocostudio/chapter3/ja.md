@@ -25,7 +25,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなシュ�
 
 ![](res/code-structure-of-ironcity.png)
 
-*Figure 7: Code Structure of IronCity*<br></br>
+*Figure 7: IronCityのコード階層expoerted*<br></br>
 
 スクリーンショットはIronCityのファイル構成で、ソースは3パートに別れています。
 それぞれどうCocoStudioを使っているか説明します。
@@ -109,7 +109,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ![](res/put-all-files-into-resources.png)
 
-*Figure 14: Put all of the expoerted files into your game resources*<br></br>
+*Figure 14: エクスポートしたファイルをゲームに取り込む*<br></br>
 
 エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは人間にも読みやすいので、このファイルを調べて問題を解決することもあるでしょう。
 
