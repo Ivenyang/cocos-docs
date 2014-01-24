@@ -125,17 +125,19 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 *Figure 16: MenuUI.js*<br></br>
 
-IronCityがエクスポートしたリソースをどう使っているか見ます。IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替えて持っています(Cocos2d-html5ではMenuUI.jsになります)。Here is the Layer Menu UI and its initial function.
+IronCityがエクスポートしたリソースをどう使っているか見ます。
+IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替えて持っています(Cocos2d-html5ではMenuUI.jsになります)。
+Here is the Layer Menu UI and its initial function.
 
 <code>
 *this.addWidget( cc.UIHelper.getInstance().createWidgetFromJsonFile(Json_IronCityUI_1));*
 </code>
 
-<code>*createWidgetFromJsonFile()*</code> is the way to read the “json” file into your game. In the MenuUI, we have a setting button , blood bar(progress bar), distance score(atlas label), and they all need interaction during the game. So we get these widgets by the <code>*getWidgetByName()*</code> function as in the pictures. Remember that the names of the widgets can be found in your object structure. 
+<code>*createWidgetFromJsonFile()*</code> で"json"をゲームに読み込みます。MenuUIでは、セッティングボタン、ブラッドバー（プログレスバー）、距離スコア（atlas label）があります。
+<code>*getWidgetByName()*</code>のfunctionを使って、オブジェクト階層の名前からウィジェットを取得できます。
 
-Different widgets will have their own interfaces to be called in the program. For example, you use <code>*setPercent()*</code> to set the rate of a progress bar, and <code>*setStringValue()*</code> for the atlas label to change the value. All widgets can add a <code>*addTouchEventListener()*</code> to listen the touch event. In IronCity, we arranged all of the resources constant to another file. Try to learn more about from the “CocoStudio test” inside Cocos2d-html5. 
-
-
+ウィジェットはそれぞれのインターフェースでプログラムから呼ばれます。<code>*setPercent()*</code>でプログレスバーの割合をセットしたり、<code>*setStringValue()*</code>でアトラスラベルを書き換えます。
+全ウィジェットは<code>*addTouchEventListener()*</code>でタッチイベントを取得できます。IronCityでは、全リソース定数を別ファイルに移しました。Cocos2d-html5の“CocoStudio test”を見ればもっとわかるでしょう。
 
 # "CMRun"アニメーションの作り方
 
@@ -143,18 +145,12 @@ Different widgets will have their own interfaces to be called in the program. Fo
 
 cocoManが走るアニメーションを作りましょう。まず“GameMenuUI”と同じく新プロジェクトを作り“running,”と名付け、全部のリソースをリソースパネルにドラッグしましょう。
 
-We are going to create a running animation for the cocoMan. First, same as the “GameMenuUI”,  I built a new project named “running,” then I dragged all of my resources into Resources Menu.
-
 ![](res/animation-editor-ironcity.png)
 
 *Fiture 17: Animation Editor*<br></br>
 
 最初は「ポージングモード」ですから、左上のボタンで「アニメーションモード」に切り替えて使います。
 次にAnimationEditorでアマーチュアを作ります。
-
-The picture is the screenshot. The default mode is in the Posing Mode, and you can change it into Animation Mode with the button in the upper left corner. 
-
-Next, let’s find out how to create a complete armature in Animation Editor.
 
 ### Boneの配置
 ### Drawing Bones
@@ -165,9 +161,9 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 ![](res/create-bone-in-animation-editor.png)
 
-*Figure 18: Create Bone in Animation Editor* <br></br>
+*Figure 18: Animation EditorでのBone作成* <br></br>
 
-この場合、全画像をメインレンダーにおいています。これは右足で、太もも、すね、膝と足の４パーツになります。
+この場合、全画像をメインレンダーに置いています。これは右足で、太もも、すね、膝と足の４パーツになります。
 ヒットボックスで衝突領域を指定できます。これは一例ですが、実際は違うやり方をしています。ボーンや衝突領域を増やすほどブラウザ上でのパフォーマンスは下がるのでここでは使いません。あなたが使うなら、“CocoStudio Test”の中の“TestColliderDetector”を参考にしてください。合成したら、右足全体がメインレンダーにある状態になります。ボーンを作りましょう。
 
 アマーチュアを作る5ステップ:
@@ -190,7 +186,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 *Figure 21: Step 5*<br></br>
 
-終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーあるいは拡張して作ります。次はアニメーションを作ります。
+終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーや拡張して作ります。次はアニメーションを作ります。
 
 Figure 22: Repeat The Step 1-5 to Build a Whole Armature
 
@@ -208,10 +204,8 @@ Figure 22: Repeat The Step 1-5 to Build a Whole Armature
 
 タイムラインはアニメーション制作のキモです。flashやspineのタイムラインツールを知っていればすぐなじめるでしょう。
 
-タイムラインは多くのフレームがあります。ローテートやshiftを使って、キーフレームごとにボーンの状態やポーズをセットして
+タイムラインは多くのフレームがあります。ローテートやシフトのボタンを使って、キーフレームごとにボーンの状態やポーズをセットして
 アニメーションを作っていきます。
-
-There are many frames in the timeline. Each frame represents a time point for the armature. Using rotate or shift button to set up the status and poses for each bone of the armature on the key frames, in this way you can create an animation.
 
 ![](res/Key-Frames-of-CMRun.png)
 
@@ -261,22 +255,22 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 ![](res/Play-stop-and-connect-to-device-button.png)
 
-*Figure 27. Play, stop and connect to device button*<br></br>
+*Figure 27. Play, stop , connect to device ボタン*<br></br>
 
 ![](res/connect-device.png)
 
 *Figure 28: Connect Device*
 
-**Play, stop and connect to device button**: この3ボタンはキャンバスの右にあります。"Play"をクリックすると、win32でプログラムが走ります。"stop"ボタンはアプリケーションを閉じます。
-最後のボタンは"connect to device"ボタンです。Webサーバーを起動して、IPアドレスを入力して、html5や携帯電話など他のデバイスでシーンを実行できます。
+**Play, stop , connect to device ボタン**: この3ボタンはキャンバスの右にあります。"Play"をクリックすると、win32でプログラムが走ります。"stop"ボタンはアプリケーションを閉じます。
+最後のボタンは"connect to device"ボタンです。Webサーバーを起動してIPアドレスを入力し、html5や携帯電話など他のデバイスでシーンを実行できます。
 
 **Sprite:** CCSprite in Cocos2d-html5.<br></br>
 
 ![](res/Names-of-the-widgets.png)
 
-*Figure 29: Names of the widgets in Scene Editor*
+*Figure 29: Scene Editorでのウィジェット名*
 
-**Armature Componet:**   Cocos2d-html5のCCArmautre。アマーチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストでどのアニメーションをプレイするか選びます。
+**Armature Componet:**   Cocos2d-html5のCCArmautre。アマーチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストで実行するアニメーションを選びます。
 <br></br>
 
 ![](res/Fight-Scene.png)
@@ -312,7 +306,7 @@ SceneEditorの全ウィジェットは"Tag"プロパティをち、親ノード�
 
 ![](res/FishJo2.png)
 
-*Figure 34: Running the SceneEditorTest shows the image you edited in the Scene Editor*<br></br>
+*Figure 34: SceneEditorTestを実行するとScene Editorで編集した画像が見えます*<br></br>
 
 ### Data Editor
 <br></br>
