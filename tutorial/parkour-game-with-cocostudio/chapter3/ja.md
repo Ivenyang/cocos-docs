@@ -34,7 +34,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなシュ�
 
 - GameScene.js: メインのシーンです。全リソース情報(WidgetのプロパティなどUIEditorからExportしたもの)はここで定義しています。シーンは menu,play,gameoverの3つのレイヤーから出来ています。CocoManの衝突判定もやっています。
 
-- Background.js: ゲームの背景マップを作ります。タイルマップを組み合わせて完全な背景となります。Use tilemap to draw these maps and put them together into a complete background.
+- Background.js: ゲームの背景マップを作ります。タイルマップを使っています。
 
 - GameOver.js: UI レイヤーです。CocoMan が死ぬと game over レイヤーを生成します。game overレイヤーはスコアのUIがあり、UI Editorで作られています。これら3レイヤーのUI Editorプロジェクトは“CocoStudioIronCity/IronCityCocoStudioProject/IronCityUI”にあります。
 
@@ -50,7 +50,7 @@ Laser.jsでは、レーザーのspriteを画面に置いたり消したりして
 
 - SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻れます。
 
-- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。キャラクタの動きはAnimation Editorで作られていますが、これはパラパラ漫画のような画像の置き換えてやっています。jointやboneを使ったアニメーションは次の章で学びます。
+- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。キャラクタの動きはAnimation Editorで作られていますが、これはパラパラ漫画のような画像の置き換えてやっています。アマーチュア（jointやboneを使ったアニメーション）は次の章で学びます。
 
 - Player.js: このjsはcc.Layerを拡張しており、cocoManの動作アマーチュアである“imManArmature”を含みます。
 このjsはCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、アニメーションエディターを使ったアマーチュアの作り方を紹介します。
