@@ -129,7 +129,7 @@ IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替�
 *this.addWidget( cc.UIHelper.getInstance().createWidgetFromJsonFile(Json_IronCityUI_1));*
 </code>
 
-<code>*createWidgetFromJsonFile()*</code> で"json"をゲームに読み込みます。MenuUIでは、セッティングボタン、ブラッドバー（プログレスバー）、距離スコア（atlas label）があります。
+<code>*createWidgetFromJsonFile()*</code> で"json"をゲームに読み込みます。MenuUIでは、セッティングボタン、ブラッドバー（プログレスバー）、距離スコア（アトラスラベル）があります。
 <code>*getWidgetByName()*</code>のfunctionを使って、オブジェクト階層の名前からウィジェットを取得できます。
 
 ウィジェットはそれぞれのインターフェースでプログラムから呼ばれます。<code>*setPercent()*</code>でプログレスバーの割合をセットしたり、<code>*setStringValue()*</code>でアトラスラベルを書き換えます。
