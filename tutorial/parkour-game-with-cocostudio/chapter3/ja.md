@@ -11,7 +11,7 @@ IronCityという名で、Cocos2d-html5 と CocoStudio v1.0.2 で作られてい
 githubからcloneできます:https://github.com/yuye-liu/CocostudioIronCity
 
 IronCityはメニューとゲームの2シーンを持つシンプルなシューティングゲームです。
-ゲームシーンではジェスチャーで主人公のCocoManが走ったり、ジャンプ、ストップ、ショットします。
+ゲームシーンではジェスチャーで主人公のCocoManが走ったり(右フリック)、ジャンプ(上フリック)、ストップ(左フリック)、ショット(画面をタップ)します。
 長く走り多くのモンスターを撃ち、ハイスコアを目指しましょう。
 
 ![](res/main-menu-scene.png)
@@ -123,8 +123,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 IronCityがエクスポートしたリソースをどう使っているか見ます。
 IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替えて持っています(Cocos2d-html5ではMenuUI.jsになります)。
-これはLayer Menu UIとその初期化の関数になります。
-Here is the Layer Menu UI and its initial function.
+これはLayer Menu UIとその最初の関数です。
 
 <code>
 *this.addWidget( cc.UIHelper.getInstance().createWidgetFromJsonFile(Json_IronCityUI_1));*
@@ -140,17 +139,16 @@ Here is the Layer Menu UI and its initial function.
 
 ## プロジェクト作成
 
-cocoManが走るアニメーションを作りましょう。まず“GameMenuUI”と同じく新プロジェクトを作り“running,”と名付け、全部のリソースをリソースパネルにドラッグしましょう。
+cocoManが走るアニメーションを作りましょう。まず“GameMenuUI”と同じく新プロジェクトを作り“running”と名付け、全部のリソースをリソースパネルにドラッグしましょう。
 
 ![](res/animation-editor-ironcity.png)
 
 *Fiture 17: Animation Editor*<br></br>
 
-最初は「ポージングモード」ですから、左上のボタンで「アニメーションモード」に切り替えて使います。
+最初は「ポーズモード」ですから、左上のボタンで「アニメモード」に切り替えて使います。
 次にAnimationEditorでアマーチュアを作ります。
 
-### Boneの配置
-### Drawing Bones
+### Boneの作成
 
 アマーチュアを作るには、ボーンの各パーツの画像が必要です。
 
@@ -197,7 +195,7 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 
 左上のボタンを押してアニメモードにしましょう
 
-このUIEditorのアニメーションモードとAnimationEditorはほとんど同じです。
+このUIEditorのアニメモードとAnimationEditorはほとんど同じです。
 
 タイムラインはアニメーション制作のキモです。flashやspineのタイムラインツールを知っていればすぐなじめるでしょう。
 
