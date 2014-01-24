@@ -28,5 +28,5 @@ CocoStudioのUI Editor , Animation Editor , Scene Editorのスタートページ
 
 ![](res/demos-animation-editor.png)
 
-*Figure 4: Sample Demos in CocoStudio Animation Editor*<br></br>
+*Figure 4:  CocoStudio Animation Editorのサンプルデモ*<br></br>
 
