@@ -4,15 +4,15 @@
 
 ### IronCityの紹介
 
-これはCocoStudioの使い方が学べるシンプルなパルクールゲームです。
-タイトルはIronCityで、Cocos2d-html5 と CocoStudio v1.0.2 で作られています。
-（これを書いている間にCocoStudio1.1.0がリリースされました）
-ユーザーインターフェスとアニメーションはCocoStudioで作られています。
+これはCocoStudioの使い方がわかるシンプルなパルクールゲームです。
+IronCityという名で、Cocos2d-html5 と CocoStudio v1.0.2 で作られています。
+（書いている間にCocoStudio1.1.0がリリースされました）
+ユーザーインターフェースとアニメーションはCocoStudioで作られており、
 githubからcloneできます:https://github.com/yuye-liu/CocostudioIronCity
 
-IronCityはメインメニューとゲームシーンの2シーンを持つシンプルなシューティングゲームです。
+IronCityはメニューとゲームの2シーンを持つシンプルなシューティングゲームです。
 ゲームシーンではジェスチャーで主人公のCocoManが走ったり、ジャンプ、ストップ、ショットします。
-できるだけ長く走り多くのモンスターを撃って、ハイスコアを目指しましょう。
+長く走り多くのモンスターを撃ち、ハイスコアを目指しましょう。
 
 ![](res/main-menu-scene.png)
 
@@ -28,11 +28,11 @@ IronCityはメインメニューとゲームシーンの2シーンを持つシ�
 *Figure 7: Code Structure of IronCity*<br></br>
 
 スクリーンショットはIronCityのファイル構成で、ソースは3パートに別れています。
-それぞれでどうCocoStudioを使っているか説明します。
+それぞれどうCocoStudioを使っているか説明します。
 
-- MainMenuScene.js: 最初のシーン。背景画像とスタートボタンがあります。スタートボタンを押すと次のGame Sceneに移ります。
+- MainMenuScene.js: 最初のシーン。背景画像とスタートボタンがあり、スタートボタンを押すと次のGame Sceneに移ります。
 
-- GameScene.js: メインのシーンです。全リソース情報(wWidgetのプロパティなどUIEditorからExportしたもの)はここで定義しています。シーンは menu,play,gameoverの3つのレイヤーから出来ています。CocoManの衝突判定もやっています。
+- GameScene.js: メインのシーンです。全リソース情報(WidgetのプロパティなどUIEditorからExportしたもの)はここで定義しています。シーンは menu,play,gameoverの3つのレイヤーから出来ています。CocoManの衝突判定もやっています。
 
 - Background.js: ゲームの背景マップを作ります。タイルマップを組み合わせて完全な背景となります。Use tilemap to draw these maps and put them together into a complete background.
 
@@ -42,22 +42,22 @@ IronCityはメインメニューとゲームシーンの2シーンを持つシ�
 
 *Figure 8: IronCityUI*<br></br>
 
-- Laser.js: レーザーは CocoManの武器で、タッチした場所にショットします。レーザーはcc.Spriteクラスを拡張しています。
-Laser.jsでは、レーザーのspriteを画面に追加したり消去したりしています。
+- Laser.js: レーザーは CocoManの武器でcc.Spriteクラスを拡張しており、タッチした場所にショットします。
+Laser.jsでは、レーザーのspriteを画面に置いたり消したりしています。
 
-- MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作られた3つのUI(体力バー、スコア、セッティングボタン)からなります。
-非常に単純なので次章のUI Editorの説明で使います。
+- MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作った3つのUI(体力バー、スコア、セッティングボタン)からなります。
+単純なので次章のUI Editorの説明で使います。
 
-- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームシーンはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をし、GameSceneかMainMenuに戻れます。
+- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻れます。
 
 - Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。キャラクタの動きはAnimation Editorで作られていますが、これはパラパラ漫画のような画像の置き換えてやっています。jointやboneを使ったアニメーションは次の章で学びます。
 
 - Player.js: このjsはcc.Layerを拡張しており、cocoManの動作アマーチュアである“imManArmature”を含みます。
-このjsはCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、アニメーションエディターを使ったアマーチュアの作り方をお見せします。
+このjsはCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、アニメーションエディターを使ったアマーチュアの作り方を紹介します。
 
 ## ゲームコンポーネントをデザインする
 
-ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんから、必要があればヘルプドキュメントを見てください。
+ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんので、必要があればヘルプドキュメントを見てください。
 
 IronCityにはcocoStudioで作った3つのメニューと9つのアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
@@ -67,10 +67,8 @@ IronCityにはcocoStudioで作った3つのメニューと9つのアニメーシ
 
 *Figure 9: CocosManAction*<br></br>
 
-# A Step by Step Process to Make "GameMenuUI"
 # "GameMenuUI"の作り方
 
-## Decide Which Kind of Widgets Shoule be Included
 ## 使うUIWidgetを決める
 
 まずUIに何が必要か考えます。IronCityの“GameMenuUI” では体力バーとスコアとsettingボタンです。
@@ -86,13 +84,11 @@ CocoStudioを開いてUIEditorを選び、ファイルメニューから「プ�
 
 *Figure 11: UI Editor*<br></br>
 
-スクリーンショットはUIEditorです。Widgetsのパネルを使って必要なリソースをエディタに配置したところになります。
-
-This is a screenshot of UI Editor. I have put my resources into the editor by adding widgets. The yellow parts are comments.
+スクリーンショットはUIEditorです。Widgetsのパネルを使って必要なリソースをエディタに配置したところです。
 
 Toolsのパネルは左右の回転と、8種の整列ができます。Canvasの欄はUILayerの解像度を選んで指定します。左上のノーマルと書いたボタンはノーマル（配置）モードとアニメーション（タイムライン）モードを切り替えます。アニメーション部分はAnimationEditorと同じですから後で説明します。
 
-Widgetsツールバーには14のウィジェットがあり、キャンバスにドラッグできます。スペースキーを押し続けるてキャンバス自体をマウスでドラッグすることもできます。こうしたショートカットキーはPhotoshop
+Widgetsツールバーには14のウィジェットがあり、キャンバスにドラッグできます。スペースキーを押し続けてキャンバス自体をマウスでドラッグすることもできます。こうしたショートカットはPhotoshop
 に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグできます。Resourceパネルにはpsdファイルもドラッグして取り込めます。この例ではbloodBarのテクスチャに“bloodBar.png”をドラッグしました。ファイル名はアルファベットにしましょう。
 
 ウィジェットを追加し、リソースパネルから画像をセットしました。左下のオブジェクト構造パネルはレイヤーの階層構造が出ますが、ゲーム内の前後関係とは違います。Cocos2d-x や Cocos2d-html5 では Zorder でスプライトの前後関係を指定できます。これはUIEditorではステータスパネルの下の「レンダリング・・・」にあたります。
@@ -127,6 +123,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 IronCityがエクスポートしたリソースをどう使っているか見ます。
 IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替えて持っています(Cocos2d-html5ではMenuUI.jsになります)。
+これはLayer Menu UIとその初期化の関数になります。
 Here is the Layer Menu UI and its initial function.
 
 <code>
