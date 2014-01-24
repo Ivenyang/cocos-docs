@@ -64,7 +64,7 @@
 		- 第三方库集成
 			- [Android: 如何让Java和C++接口互相调用：JNI使用指南](../manual/framework/native/sdk-integration/android-jni/zh.md)
 			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk-integration/wp8-webbrowser/zh.md)
-			- [Windows Phone 8:如何集成第三方SDk](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
+			- [Windows Phone 8: 如何集成第三方SDK](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
 			- 如何在Android上集成第三方SDK
 			- 如何在iOS上集成第三方SDK
 		- 版本升级指南
