@@ -6,7 +6,7 @@
 
 これはCocoStudioの使い方がわかるシンプルなパルクールゲームです。
 IronCityという名で、Cocos2d-html5 と CocoStudio v1.0.2 で作られています。
-（書いている間にCocoStudio1.1.0がリリースされました）
+（書いている間にCocoStudio1.1.0がリリースされました。日本語翻訳中はすでに1.2.0.1）
 ユーザーインターフェースとアニメーションはCocoStudioで作られており、
 githubからcloneできます:https://github.com/yuye-liu/CocostudioIronCity
 
