@@ -56,6 +56,7 @@
 				- 如何实现Lua和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Lua
 				- LuaJavaBridge和LuaObjcBridge
+				- LuaScript的调试
 			- Javascript
 				- 如何实现Javascript和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Javascript
