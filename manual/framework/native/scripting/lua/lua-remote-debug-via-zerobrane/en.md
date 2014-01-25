@@ -23,8 +23,8 @@ How to Remote Debug Lua via ZeroBrane Studio
 
 ```lua
 local function main()
-	...
-	require('mobdebug').start() --<-- only insert this line
+    ...
+    require('mobdebug').start() --<-- only insert this line
     require "hello2"
     cclog("result is " .. myadd(1, 1))
     ...
@@ -73,8 +73,8 @@ The steps are similar to debugging on iOS simulator. The only differences are ho
 
 ```lua
 local function main()
-	...
-	require('mobdebug').start("192.168.1.110", 8172)
+    ...
+    require('mobdebug').start("192.168.1.110", 8172)
     require "hello2"
     cclog("result is " .. myadd(1, 1))
     ...
