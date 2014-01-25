@@ -19,7 +19,7 @@
 
 1.将`ZeroBrane Studio.app/Contents/ZeroBraneStudio/lualibs/mobdebug/mobdebug.lua`这个文件拷贝到`cocos2d-x/samples/Lua/HelloLua/Resources`目录下。这步过程在Cocos2d-x v3.0 Beta2及以上版本可以略过，引擎已经集成了这个文件。
 
-2.用Xcode打开cocos2d-x/cocos2d_samples.xcodeproj之后，先把mobdebug.lua文件加入HelloLua工程，然后在`HelloLua/Resources/hello.lua`文件里面添加debugger调用的指令，仅需要插入`require('mobdebug').start()`一句，插入在`require "hello2"`行之前，如下:
+2.用Xcode打开`cocos2d-x/build/cocos2d_samples.xcodeproj`之后，先把`mobdebug.lua`文件加入HelloLua工程，然后在`HelloLua/Resources/hello.lua`文件里面添加debugger调用的指令，仅需要插入`require('mobdebug').start()`一句，插入在`require "hello2"`行之前，如下:
 
 ```lua
 local function main()
@@ -47,7 +47,7 @@ end
 
 ![enterBreakPoint.png](res/enterBreakPoint.png)
 
-7.通过debug工具栏，进行setup in, step out, step over等相应操作。此处需要注意，ZeroBrane有个地方比较奇怪，以`local visibleSize = cc.Director:getInstance():getVisibleSize()`这行函数为例，需要step over三次才能走到下一行函数，因为此处有两个函数调用。
+7.通过debug工具栏，进行step in, step out, step over, continue等相应操作。此处需要注意，ZeroBrane有个地方比较奇怪，以`local visibleSize = cc.Director:getInstance():getVisibleSize()`这行函数为例，需要step over三次才能走到下一行函数，可能是因为此处有两个函数调用。
 
 ![debugBar.png](res/debugBar.png)
 
