@@ -56,7 +56,7 @@
 				- 如何实现Lua和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Lua
 				- LuaJavaBridge和LuaObjcBridge
-				- LuaScript的调试
+				- [如何使用ZeroBrane Studio远程调试Cocos2d-x的Lua脚本](../manual/framework/native/scripting/lua/lua-remote-debug-via-zerobrane/zh.md)
 			- Javascript
 				- 如何实现Javascript和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Javascript

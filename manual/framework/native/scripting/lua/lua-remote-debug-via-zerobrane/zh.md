@@ -1,11 +1,11 @@
-使用ZeroBrane Studio调试Cocos2d-x的LuaScript
+如何使用ZeroBrane Studio远程调试Cocos2d-x的Lua脚本
 ===========================================
 
-### 测试版本
+### 版本
 
 * Cocos2d-x Version 3.0 Beta2
 
-### 测试例子
+### 例子
 
 * HelloLua
 
@@ -17,35 +17,37 @@
 * Mac OS X 10.9
 * Xcode 5.01
 
-1.在ZBS文件夹中找到mobdebug.lua,将该模块加入HelloLua/Resources下
-2.`hello.lua`添加debugger调用的指令，如下:
+1.将`ZeroBrane Studio.app/Contents/ZeroBraneStudio/lualibs/mobdebug/mobdebug.lua`这个文件拷贝到`cocos2d-x/samples/Lua/HelloLua/Resources`目录下。这步过程在Cocos2d-x v3.0 Beta2及以上版本可以略过，引擎已经集成了这个文件。
 
-```
+2.用Xcode打开cocos2d-x/cocos2d_samples.xcodeproj之后，先把mobdebug.lua文件加入HelloLua工程，然后在`HelloLua/Resources/hello.lua`文件里面添加debugger调用的指令，仅需要插入`require('mobdebug').start()`一句，插入在`require "hello2"`行之前，如下:
+
+```lua
 local function main()
 	...
-	require('mobdebug').start() --<-- this line
+	require('mobdebug').start() --<-- only insert this line
     require "hello2"
     cclog("result is " .. myadd(1, 1))
     ...
-end
-    
+end    
 ```
-3.运行ZBS,将HelloLua的Resources导入到Project下，如图所示:
+
+3.运行ZeroBrane Studio，点击界面从左上角的Project下面的`...`按钮， 然后选中cocos2d-x/samples/Lua/HelloLua/Resources目录，将HelloLua的Resources导入到Project下，如图所示:
 
 ![importResource.png](res/importResource.png)
 
-4.打开hello.lua,加入断点：
+4.打开hello.lua，鼠标点击行号右边的空白处加入断点：
 
 ![insertBreakPoint.png](res/insertBreakPoint.png)
 
-5.ZBS开启Debugger Server:
+5.从ZeroBrane Studio的菜单栏开启Debugger Server:
 
 ![startDebuggerServer.png](res/startDebuggerServer.png)
 
-6.XCode运行HelloLua iOS测试例,触发断点:
+6.切换回XCode，运行HelloLua iOS测试例，触发断点:
 
 ![enterBreakPoint.png](res/enterBreakPoint.png)
-7.通过Bebug工具栏，进行相应操作:
+
+7.通过debug工具栏，进行setup in, step out, step over等相应操作。此处需要注意，ZeroBrane有个地方比较奇怪，以`local visibleSize = cc.Director:getInstance():getVisibleSize()`这行函数为例，需要step over三次才能走到下一行函数，因为此处有两个函数调用。
 
 ![debugBar.png](res/debugBar.png)
 
