@@ -93,7 +93,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ![](res/drag-resource.png)
 
-*Figure 12: Drag Resource into the Texture*<br></br>
+*Figure 12: ResourceをTextureにドラッグする*<br></br>
 
 ## プロパティをセットしてエクスポートする
 
@@ -101,7 +101,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ![](res/set-properties-before-export.png)
 
-*Figure 13: Set Properties Before You Export* <br></br>
+*Figure 13: エクスポート前にプロパティをセット* <br></br>
 
 ## エクスポートしたリソースを利用する
 
@@ -113,7 +113,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ![](res/json-format-file.png)
 
-*Figure 15: Exported JSON format file*<br></br>
+*Figure 15: エクスポートした JSON*<br></br>
 
 ![](res/menu-ui-js.png)
 
@@ -150,7 +150,7 @@ cocoManが走るアニメーションを作りましょう。まず“GameMenuUI
 
 アーマチュアを作るには、ボーンの各パーツの画像が必要です。
 
-IronCityではCocoManを6パーツに分けました。ボディを2-4のボーンで作り、それをつなげました。
+IronCityではCocoManを6パーツに分けました。ボディを2から4のボーンで作り、それをつなげました。
 
 ![](res/create-bone-in-animation-editor.png)
 
@@ -165,7 +165,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 2.boneをかく<br/>
 3."create bone"モードをoffにする<br/>
 4.画像とboneを合わせる<br/>
-5.子のボーンを親につなげる<br/>
+5.ボーンを親要素につなげる<br/>
 
 ![](res/step1-2a.png) ![](res/step1-2b.png)
 
@@ -179,7 +179,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 *Figure 21: Step 5*<br></br>
 
-終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーや拡張して作ります。次はアニメーションを作ります。
+終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーや拡張して作ります。次はアニメーションを作ります。
 
 Figure 22: ステップ1-5を繰り返してアーマチュアを完成します。
 
