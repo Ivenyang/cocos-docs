@@ -1,13 +1,10 @@
 How to Remote Debug Lua via ZeroBrane Studio
 ===========================================
+ZeroBrane Studio is a lightweight Lua IDE.Because it can run on `Windows`,`Mac OSX` and `Linux` and support `on-device debugging`,so it often is used to debug Lua.Now,Cocos2d-x imported `LuaSocket` module to support ZeroBrane Studio(except `Linux`).We described in detail how to use ZeroBrane Studio to debug based on  android device and iOS simulator through `HelloLua` test case.
 
 ### Version
 
 * Cocos2d-x Version 3.0 Beta2
-
-### Sample
-
-* HelloLua
 
 ### Dubugging on iOS Simulator
 
@@ -43,7 +40,7 @@ end
 
 ![startDebuggerServer.png](res/startDebuggerServer.png)
 
-6. Switch to Xcode, build and run HelloLua iOS 切换回XCode，运行`HelloLua iOS` Target from cocos2d_samples. Then you can see the break point will be triggered in ZeroBrane.
+6. Switch to Xcode, build and run HelloLua iOS.Then you can see the break point will be triggered in ZeroBrane(`Switch to Visual Studio 2012 based on Windows`).
 
 ![enterBreakPoint.png](res/enterBreakPoint.png)
 
@@ -69,18 +66,18 @@ end
 * Android Developer Tools
 * HTC G17
 
-The steps are similar to debugging on iOS simulator. The only differences are how to add debugger codes. For Android device, we need to add:
+The steps are similar to debugging on iOS simulator. The only differences are how to add debugger codes. For Android device(the same to IPhone and IPad), we need to add:
 
 ```lua
 local function main()
     ...
-    require('mobdebug').start("192.168.1.110", 8172)
+    require('mobdebug').start("192.168.1.110")
     require "hello2"
     cclog("result is " .. myadd(1, 1))
     ...
 end
 ```
 
-Note that `192.168.1.110` is your mac's IP addess, `8172` is the port you open for ZeroBrane Studio's debugger server. You need to connect this android device to the same IP segment, otherwise the debugger won't work properly. 
+Note that `192.168.1.110` is your mac's IP addess. You need to connect this android device to the same IP segment, otherwise the debugger won't work properly. 
 
 
