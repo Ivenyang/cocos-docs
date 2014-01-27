@@ -165,7 +165,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2から4の�
 2.boneをかく<br/>
 3."create bone"モードをoffにする<br/>
 4.画像とboneを合わせる<br/>
-5.ボーンを親要素につなげる<br/>
+5.boneを親要素につなげる<br/>
 
 ![](res/step1-2a.png) ![](res/step1-2b.png)
 
