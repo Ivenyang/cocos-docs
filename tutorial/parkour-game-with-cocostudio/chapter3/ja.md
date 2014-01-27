@@ -299,7 +299,7 @@ SceneEditorの全ウィジェットは"Tag"プロパティをち、親ノード�
 
 ![](res/FishJo2.png)
 
-*Figure 34: SceneEditorTestを実行するとScene Editorで編集した画像が見えます*<br></br>
+*Figure 34: SceneEditorTestを実行するとScene Editorで編集したシーンをプレビューできます*<br></br>
 
 ### Data Editor
 <br></br>
