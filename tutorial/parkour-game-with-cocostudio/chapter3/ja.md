@@ -195,7 +195,7 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 
 このUIEditorのアニメモードとAnimationEditorはほとんど同じです。
 
-タイムラインはアニメーション制作のキモです。flashやspineのタイムラインツールを知っていればすぐなじめるでしょう。
+タイムラインはアニメーション制作のキモです。flashやSpineのタイムラインツールを知っていればすぐなじめるでしょう。
 
 タイムラインは多くのフレームがあります。ローテートやシフトのボタンを使って、キーフレームごとにボーンの状態やポーズをセットして
 アニメーションを作っていきます。
@@ -204,9 +204,9 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 
 *Figure 24: Key Frames of CMRunFigure*
 
-これはrunning animationのキーフレームになります。フレーム40は0と同じです。Loop
+これはRunningAnimationのキーフレームになります。フレーム40は0と同じです。Loop
 をチェックしてアニメーションをループできます。タイムラインのPlay
-ボタンでアニメーションをチェックできます。fpsを変えてアニメーション速度も変えられます。
+ボタンでアニメーションを再生できます。fpsを変更してアニメーション速度も変えられます。
 
 ### 作ったアマーチュアをプログラムで使う
 
@@ -216,12 +216,12 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 
 アマーチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
 
-“ExportJson”ファイルはjsonですから読めばいろいろわかるでしょう。 <code>*CMRunning()*</code> の関数はアマーチュアを作って動かす簡単な例になります(“Player.js”) 
+“ExportJson”ファイルはjsonですからテキストとして読めばいろいろ理解できるでしょう。 <code>*CMRunning()*</code> の関数はアマーチュアを作って動かす簡単な例になります(“Player.js”) 
 
 UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
 <code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
 
-"CMRun"は今回のプロジェクト名です。名前を変更するならExportJsonファイルの"CMRun"を全部置換するのが早いでしょう。
+"CMRun"はプロジェクト名です。もし名前を変更するならExportJsonファイルの"CMRun"を全部置換するのが早いでしょう。
  <code>*armature.getAnimation().play(“Running”)* </code>  はExportJsonから"Running"というアニメーションを見つけます。
   この名前はAnimationEditorのアニメーションリストで指定できますし、"ExportJson"ファイルを編集してもOKです。
 
