@@ -47,19 +47,19 @@ IronCityはメニューとゲームの2シーンを持つシンプルなアク�
 - MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作った3つのUI(体力バー、スコア、セッティングボタン)からなります。
 単純なので次章のUI Editorの説明で使います。
 
-- SettingUI.js: SettingUIはセッティング画面のUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻れます。
+- SettingUI.js: セッティング画面のUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻るボタンがあります。
 
-- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimation Editorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（boneなど間接を使ったアニメーション）は次の章で学びます。
+- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimationEditorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（boneなど間接を使ったアニメーション）は次の章で学びます。
 
 - Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、AnimationEditorを使ったアマーチュアの作り方を紹介します。
 
 ## ゲームコンポーネントをデザインする
 
-ユーザーインターフェースを UIEditorとAnimationEditorで作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんので、必要があればヘルプドキュメントを見てください。
+UIEditorとAnimationEditorでユーザーインターフェースを作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんので、必要ならヘルプドキュメントを見てください。
 
-IronCityにはcocoStudioで作った3つのメニューと9つのアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
+IronCityにはcocoStudioで作った3つのメニューと9のアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
-3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、GameSceneの3つのレイヤーに対応します。cocoManの9つのアニメーションは“CMRun” や “CMRunJump” です。次章で “GameMenuUI” と “CMRun” を例にUIEditorとAnimationEditorの使い方を説明します。
+3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、GameSceneの3つのレイヤーに対応します。CocoManの9つのアニメーションは“CMRun” や “CMRunJump” です。次章で “GameMenuUI” と “CMRun” を例にUIEditorとAnimationEditorの使い方を説明します。
 
 ![](res/cocosmanaction.png)
 
@@ -82,12 +82,12 @@ CocoStudioを開いてUIEditorを選び、ファイルメニューから「プ�
 
 *Figure 11: UI Editor*<br></br>
 
-スクリーンショットはUIEditorです。Widgetsのパネルを使って必要なリソースをエディタに配置したところです。
+スクリーンショットはUIEditorで、Widgetsのパネルを使って必要なリソースをエディタに配置したところです。
 
-Toolsのパネルは左右の回転と、8種の整列ができます。Canvasの欄はUILayerの解像度を選んで指定します。左上のノーマルと書いたボタンはノーマル（配置）モードとアニメーション（タイムライン）モードを切り替えます。アニメーション部分はAnimationEditorと同じですから後で説明します。
+Toolsのパネルは左右の回転と、8種の整列ができます。Canvasの欄はUILayerの解像度を選んで指定します。左上のノーマルと書いたボタンはポーズ（配置）モードとアニメーション（タイムライン）モードを切り替えます。アニメーション部分はAnimationEditorと同じですから後で説明します。
 
-Widgetsツールバーには14のウィジェットがあり、キャンバスにドラッグできます。スペースキーを押し続けてキャンバス自体をマウスでドラッグすることもできます。こうしたショートカットはPhotoshop
-に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグできます。Resourceパネルにはpsdファイルもドラッグして取り込めます。この例ではbloodBarのテクスチャに“bloodBar.png”をドラッグしました。ファイル名はアルファベットにしましょう。
+Widgetsツールバーには14のウィジェットがあり、キャンバスにドラッグできます。スペースキーを押し続ければキャンバス自体をマウスでドラッグすることもできます。こうしたショートカットはPhotoshop
+に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグできます。Resourceパネルにはpsdファイルもドラッグして取り込めます。この例ではbloodBar（体力バー）のテクスチャに“bloodBar.png”をドラッグしました。ファイル名はアルファベットにしましょう。
 
 ウィジェットを追加し、リソースパネルから画像をセットしました。左下のオブジェクト構造パネルはレイヤーの階層構造が出ますが、ゲーム内の前後関係とは違います。Cocos2d-x や Cocos2d-html5 では Zorder でスプライトの前後関係を指定できます。これはUIEditorではステータスパネルの下の「レンダリング・・・」にあたります。
 
@@ -109,7 +109,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 *Figure 14: エクスポートしたファイルをゲームに取り込む*<br></br>
 
-エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは人間にも読みやすいので、このファイルを調べて問題を解決することもあるでしょう。
+エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは開発者にも読みやすいので、このファイルを調べて問題が解決することもあるでしょう。
 
 ![](res/json-format-file.png)
 
@@ -127,7 +127,7 @@ IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替�
 *this.addWidget( cc.UIHelper.getInstance().createWidgetFromJsonFile(Json_IronCityUI_1));*
 </code>
 
-<code>*createWidgetFromJsonFile()*</code> で"json"をゲームに読み込みます。MenuUIでは、セッティングボタン、ブラッドバー（プログレスバー）、距離スコア（アトラスラベル）があります。
+<code>*createWidgetFromJsonFile()*</code> で"json"をゲームに読み込みます。MenuUIでは、セッティングボタン、体力バー（プログレスバー）、距離スコア（アトラスラベル）があります。
 <code>*getWidgetByName()*</code>のfunctionを使って、オブジェクト階層の名前からウィジェットを取得できます。
 
 ウィジェットはそれぞれのインターフェースでプログラムから呼ばれます。<code>*setPercent()*</code>でプログレスバーの割合をセットしたり、<code>*setStringValue()*</code>でアトラスラベルを書き換えます。
