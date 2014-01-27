@@ -276,7 +276,7 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 **Map Component:** mapリソースをmapコンポーネントにドラッグ。mapリソースはTileMapでエクスポートした"tmx"ファイルになります。
 
-**Particle Component:** ParticleリソースはParticle Designerで作られたものでしょう。 Particle Componentを使ってparticleをシーンに追加します。
+**Particle Component:** ParticleリソースはParticle Designer(http://71squared.com/particledesigner)で作られたものでしょう。 Particle Componentを使ってparticleをシーンに追加します。
 
 ![](res/Particle-Component-properties.png)
 
