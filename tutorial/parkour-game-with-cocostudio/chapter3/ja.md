@@ -4,8 +4,8 @@
 
 ### IronCityの紹介
 
-これはCocoStudioの使い方がわかるシンプルなパルクールゲームです。
-IronCityという名で、Cocos2d-html5 と CocoStudio v1.0.2 で作られています。
+CocoStudioの使い方がわかるシンプルなゲームを紹介します。
+IronCityというタイトルで、Cocos2d-html5とCocoStudio v1.0.2 で作られています。
 （書いている間にCocoStudio1.1.0がリリースされ、日本語翻訳中はすでに1.2.0.1が出ています）
 ユーザーインターフェースとアニメーションはCocoStudioで作られており、
 githubからcloneできます:https://github.com/yuye-liu/CocostudioIronCity
@@ -36,7 +36,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなアク�
 
 - Background.js: ゲームの背景マップを作ります。タイルマップを使っています。
 
-- GameOver.js: UI レイヤーです。CocoMan が死ぬと game over レイヤーを生成します。game overレイヤーはスコアのUIがあり、UI Editorで作られています。これら3レイヤーのUI Editorプロジェクトは“CocoStudioIronCity/IronCityCocoStudioProject/IronCityUI”にあります。
+- GameOver.js: UI レイヤーです。CocoManが死ぬとGameOverレイヤーを生成します。GameOverレイヤーはスコアのUIがあり、UI Editorで作られています。これら3レイヤーのUI Editorプロジェクトは“CocoStudioIronCity/IronCityCocoStudioProject/IronCityUI”にあります。
 
 ![](res/ironcityui.png)
 
@@ -44,22 +44,22 @@ IronCityはメニューとゲームの2シーンを持つシンプルなアク�
 
 - Laser.js: レーザーはCocoManの武器でタッチした場所にショットします。Laser.jsはcc.Spriteクラスを拡張しており、レーザーのspriteを画面に置いたり消したりしています。
 
-- MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作った3つのUI(体力バー、スコア、セッティングボタン)からなります。
+- MenuUI.js: UIEditorで作った3つのUI(体力バー、スコア、セッティングボタン)からなるUIレイヤーです。
 単純なので次章のUI Editorの説明で使います。
 
 - SettingUI.js: セッティング画面のUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻るボタンがあります。
 
-- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimationEditorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（boneなど間接を使ったアニメーション）は次の章で学びます。
+- Monster.js: 2種類のモンスターの生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimationEditorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（Boneなど間接を使ったアニメーション）は次の章で学びます。
 
-- Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、AnimationEditorを使ったアマーチュアの作り方を紹介します。
+- Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例にAnimationEditorを使ったアマーチュアの作り方を紹介します。
 
 ## ゲームコンポーネントをデザインする
 
-UIEditorとAnimationEditorでユーザーインターフェースを作る方法を説明します。IronCityでは SceneEditorとDataEditorは使いませんので、必要ならヘルプドキュメントを見てください。
+UIEditorとAnimationEditorでユーザーインターフェースを作る方法を説明します。ここではSceneEditorとDataEditorは使いませんので必要ならヘルプドキュメントを見てください。
 
 IronCityにはcocoStudioで作った3つのメニューと9のアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
-3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、GameSceneの3つのレイヤーに対応します。CocoManの9つのアニメーションは“CMRun” や “CMRunJump” です。次章で “GameMenuUI” と “CMRun” を例にUIEditorとAnimationEditorの使い方を説明します。
+3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、GameSceneの3つのレイヤーに対応します。CocoManの9つのアニメーションは“CMRun”や“CMRunJump” です。次章で“GameMenuUI”と“CMRun”を例にUIEditorとAnimationEditorの使い方を説明します。
 
 ![](res/cocosmanaction.png)
 
@@ -69,7 +69,7 @@ IronCityにはcocoStudioで作った3つのメニューと9のアニメーショ
 
 ## 使うUIWidgetを決める
 
-まずUIに何が必要か考えます。IronCityの“GameMenuUI” では体力バーとスコアとsettingボタンです。
+まずUIに何が必要か考えます。IronCityの“GameMenuUI”では体力バーとスコアとsettingボタンです。
 CocoStudioを開いてUIEditorを選び、ファイルメニューから「プロジェクトを作成」を選びます。
 
 ![](res/imagination-of-ironcity.png)
@@ -89,7 +89,7 @@ Toolsのパネルは左右の回転と、8種の整列ができます。Canvas�
 Widgetsツールバーには14のウィジェットがあり、キャンバスにドラッグできます。スペースキーを押し続ければキャンバス自体をマウスでドラッグすることもできます。こうしたショートカットはPhotoshop
 に似せてあります。右のResourceパネルからはWidgetのPropertyのパネルに画像リソースをドラッグできます。Resourceパネルにはpsdファイルもドラッグして取り込めます。この例ではbloodBar（体力バー）のテクスチャに“bloodBar.png”をドラッグしました。ファイル名はアルファベットにしましょう。
 
-ウィジェットを追加し、リソースパネルから画像をセットしました。左下のオブジェクト構造パネルはレイヤーの階層構造が出ますが、ゲーム内の前後関係とは違います。Cocos2d-x や Cocos2d-html5 では Zorder でスプライトの前後関係を指定できます。これはUIEditorではステータスパネルの下の「RenderLayer」にあたります。
+ウィジェットを追加し、リソースパネルから画像をセットしました。左下のオブジェクト構造パネルはレイヤーの階層構造が出ますが、ゲーム内の前後関係とは違います。Cocos2d-xやCocos2d-html5ではZorder でスプライトの前後関係を指定できます。これはUIEditorではステータスパネルの下の「RenderLayer」にあたります。
 
 ![](res/drag-resource.png)
 
@@ -97,7 +97,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 ## プロパティをセットしてエクスポートする
 
-最後です。“GameMenuUI”の準備ができたので、ファイルメニューの「プロジェクトを出力」をクリックします。デフォルト設定でエクスポートすることが多いでしょう。Widgetのステータスをセットし忘れないでください。例えばレイヤパネルの「touchable」をチェックしないと、パネルに属するWidgetを「touchable」にしてもタッチできなくなります。
+“GameMenuUI”の準備ができたので、ファイルメニューの「プロジェクトを出力」をクリックします。デフォルト設定でエクスポートすることが多いでしょう。Widgetのステータスをセットし忘れないでください。例えばレイヤパネルの「touchable」をチェックしないと、パネルに属するWidgetを「touchable」にしてもタッチできなくなります。
 
 ![](res/set-properties-before-export.png)
 
@@ -109,7 +109,7 @@ Widgetsツールバーには14のウィジェットがあり、キャンバス�
 
 *Figure 14: エクスポートしたファイルをゲームに取り込む*<br></br>
 
-エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ますので、ゲームのリソースとして取り込みます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは開発者にも読みやすいので、このファイルを調べて問題が解決することもあるでしょう。
+エクスポートしたらCocoStudioプロジェクトの“export”フォルダにファイルが出来ます。jsonファイル(JavaScript Object Notation file＝データ交換フォーマットの一つであるJavascript式配列)ができ、UIEditorでセットしたウィジェットプロパティが保存されます。jsonは開発者にも読みやすいので、このファイルを調べて問題が解決することもあるでしょう。
 
 ![](res/json-format-file.png)
 
