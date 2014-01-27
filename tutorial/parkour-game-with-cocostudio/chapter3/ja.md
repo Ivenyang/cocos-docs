@@ -272,9 +272,9 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 **UI:** アマーチュアと同様に、UIEditorで作ったUIリソースもUIウィジェットに追加できます。
 
-**Map Component:** mapリソースをmapコンポーネントにドラッグします。mapリソースはtiled(http://www.mapeditor.org/)などのタイルマップ作成ツールでエクスポートした"tmx"ファイルになるでしょう。
+**Map Component:** mapリソースをmapコンポーネントにドラッグします。mapリソースは[Tiled](http://www.mapeditor.org/)などのタイルマップ作成ツールでエクスポートした"tmx"ファイルになります。
 
-**Particle Component:** ParticleリソースはParticle Designer(http://71squared.com/particledesigner)で作られたものになるでしょう。 Particle Componentを使ってparticleをシーンに追加します。
+**Particle Component:** Particleリソースは[ParticleDesigner](http://71squared.com/particledesigner)などで作れます。ParticleComponentを使ってparticleをシーンに追加します。
 
 ![](res/Particle-Component-properties.png)
 
