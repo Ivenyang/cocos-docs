@@ -163,15 +163,11 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 アマーチュアを作る5ステップ:
 
-1."create bone"モードにする
-
-2.boneをかく
-
-3."create bone"モードをoffにする
-
-4.画像とboneを合わせる
-
-5.子のボーンを親につなげる
+1."create bone"モードにする<br/>
+2.boneをかく<br/>
+3."create bone"モードをoffにする<br/>
+4.画像とboneを合わせる<br/>
+5.子のボーンを親につなげる<br/>
 
 ![](res/step1-2a.png) ![](res/step1-2b.png)
 
