@@ -254,8 +254,8 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 28: Connect Device*
 
-**Play, stop , connect to device ボタン**: この3ボタンはキャンバスの右にあります。"Play"をクリックすると、win32でプログラムが走ります。"stop"ボタンはアプリケーションを閉じます。
-最後のボタンは"connect to device"ボタンです。Webサーバーを起動してIPアドレスを入力し、html5や携帯電話など他のデバイスでシーンを実行できます。
+**Play, stop , connect to device ボタン**: この3ボタンはキャンバスの右にあります。"Play"をクリックするとPCでシーンをプレビューでき、"stop"ボタンでプレビューを閉じます。
+最後のボタンは"connect to device"ボタンです。Webサーバーが起動して、IPアドレスを入力すればhtml5や携帯電話など他のデバイスでシーンを実行できます。
 
 **Sprite:** CCSprite in Cocos2d-html5.<br></br>
 
