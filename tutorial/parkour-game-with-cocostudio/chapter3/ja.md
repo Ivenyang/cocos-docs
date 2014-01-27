@@ -42,18 +42,16 @@ IronCityはメニューとゲームの2シーンを持つシンプルなシュ�
 
 *Figure 8: IronCityUI*<br></br>
 
-- Laser.js: レーザーは CocoManの武器でcc.Spriteクラスを拡張しており、タッチした場所にショットします。
-Laser.jsでは、レーザーのspriteを画面に置いたり消したりしています。
+- Laser.js: レーザーはCocoManの武器でタッチした場所にショットします。Laser.jsはcc.Spriteクラスを拡張しており、レーザーのspriteを画面に置いたり消したりしています。
 
 - MenuUI.js: MenuUI はUIレイヤーです。UIEditorで作った3つのUI(体力バー、スコア、セッティングボタン)からなります。
 単純なので次章のUI Editorの説明で使います。
 
-- SettingUI.js: SettingUIはセッティングのUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻れます。
+- SettingUI.js: SettingUIはセッティング画面のUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻れます。
 
-- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。キャラクタの動きはAnimation Editorで作られていますが、これはパラパラ漫画のような画像の置き換えてやっています。アマーチュア（jointやboneを使ったアニメーション）は次の章で学びます。
+- Monster.js: IronCityには2種類のモンスターがいます。モンスターのclassは 生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimation Editorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（boneなど間接を使ったアニメーション）は次の章で学びます。
 
-- Player.js: このjsはcc.Layerを拡張しており、cocoManの動作アマーチュアである“imManArmature”を含みます。
-このjsはCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、アニメーションエディターを使ったアマーチュアの作り方を紹介します。
+- Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例に、AnimationEditorを使ったアマーチュアの作り方を紹介します。
 
 ## ゲームコンポーネントをデザインする
 
@@ -218,7 +216,7 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 
 アマーチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
 
-“ExportJson”ファイルはjsonですから読めばいろいろわかるでしょう。 <code>*CMRunning()*</code> の関数はアーマチュアを作って動かす簡単な例になります(“Player.js”) 
+“ExportJson”ファイルはjsonですから読めばいろいろわかるでしょう。 <code>*CMRunning()*</code> の関数はアマーチュアを作って動かす簡単な例になります(“Player.js”) 
 
 UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
 <code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
