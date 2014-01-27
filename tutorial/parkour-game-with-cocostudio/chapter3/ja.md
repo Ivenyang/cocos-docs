@@ -49,9 +49,9 @@ IronCityはメニューとゲームの2シーンを持つシンプルなアク�
 
 - SettingUI.js: セッティング画面のUIレイヤーです。セッティングボタンを押すとゲームはポーズしてSettingUIを生成します。SettingUIでは音楽のon/offやボリューム設定をして、GameSceneかMainMenuに戻るボタンがあります。
 
-- Monster.js: 2種類のモンスターの生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimationEditorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アマーチュア（Boneなど間接を使ったアニメーション）は次の章で学びます。
+- Monster.js: 2種類のモンスターの生成、消滅、移動とアニメーションのためにcc.Nodeを拡張しています。モンスターの動きはAnimationEditorで作られていますが、パラパラ漫画のような画像の置き換えてやっています。アーマチュア（Boneなど間接を使ったアニメーション）は次の章で学びます。
 
-- Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例にAnimationEditorを使ったアマーチュアの作り方を紹介します。
+- Player.js: このjsはcc.Layerを拡張しており、“imManArmature”などCocoManの7つのアニメーションをロードして再生します。走るアニメーションを例にAnimationEditorを使ったアーマチュアの作り方を紹介します。
 
 ## ゲームコンポーネントをデザインする
 
@@ -144,11 +144,11 @@ cocoManが走るアニメーションを作りましょう。まず“GameMenuUI
 *Fiture 17: Animation Editor*<br></br>
 
 最初は「ポーズモード」ですから、左上のボタンで「アニメモード」に切り替えて使います。
-次にAnimationEditorでアマーチュアを作ります。
+次にAnimationEditorでアーマチュアを作ります。
 
 ### Boneの作成
 
-アマーチュアを作るには、ボーンの各パーツの画像が必要です。
+アーマチュアを作るには、ボーンの各パーツの画像が必要です。
 
 IronCityではCocoManを6パーツに分けました。ボディを2-4のボーンで作り、それをつなげました。
 
@@ -159,7 +159,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 この場合、全画像をメインレンダーに置いています。これは右足で、太もも、すね、膝と足の４パーツになります。
 ヒットボックスで衝突領域を指定できます。これは一例ですが、実際は違うやり方をしています。ボーンや衝突領域を増やすほどブラウザ上でのパフォーマンスは下がるのでここでは使いません。あなたが使うなら、“CocoStudio Test”の中の“TestColliderDetector”を参考にしてください。合成したら、右足全体がメインレンダーにある状態になります。ボーンを作りましょう。
 
-アマーチュアを作る5ステップ:
+アーマチュアを作る5ステップ:
 
 1."create bone"モードにする<br/>
 2.boneをかく<br/>
@@ -181,7 +181,7 @@ IronCityではCocoManを6パーツに分けました。ボディを2-4のボー�
 
 終わったら、cocoManのパーツをジグソーパズルのように組み合わせます。間接を親のボーンに接続するのをお忘れなく。これは走るアニメーションの最初のポーズになります。ほかのポーンはこの基本形をコピーや拡張して作ります。次はアニメーションを作ります。
 
-Figure 22: ステップ1-5を繰り返してアマーチュアを完成します。
+Figure 22: ステップ1-5を繰り返してアーマチュアを完成します。
 
 ![](res/Repeat-The-Step-1-5.png)
 
@@ -208,15 +208,15 @@ Figure 22: ステップ1-5を繰り返してアマーチュアを完成します
 をチェックしてアニメーションをループできます。タイムラインのPlay
 ボタンでアニメーションを再生できます。fpsを変更してアニメーション速度も変えられます。
 
-### 作ったアマーチュアをプログラムで使う
+### 作ったアーマチュアをプログラムで使う
 
 ![](res/Create-Armaute-and-Run.png)
 
 *Figure 25: Create Armaute and Run*
 
-アマーチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
+アーマチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
 
-“ExportJson”ファイルはjsonですからテキストとして読めばいろいろ理解できるでしょう。 <code>*CMRunning()*</code> の関数はアマーチュアを作って動かす簡単な例になります(“Player.js”) 
+“ExportJson”ファイルはjsonですからAnimationEditorでの設定内容が開発者に読める形で書かれています。 <code>*CMRunning()*</code> の関数はアーマチュアを作って動かす簡単な例になります(“Player.js”) 
 
 UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
 <code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
@@ -263,14 +263,14 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 29: Scene Editorでのウィジェット名*
 
-**Armature Componet:**   Cocos2d-html5のCCArmautre。アマーチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストで実行するアニメーションを選びます。
+**Armature Componet:**   Cocos2d-html5のCCArmautre。アーマチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストで実行するアニメーションを選びます。
 <br></br>
 
 ![](res/Fight-Scene.png)
 
-*Figure 30. サンプルプロジェクト内のアマーチュア: Fight Scene*<br></br>
+*Figure 30. サンプルプロジェクト内のアーマチュア: Fight Scene*<br></br>
 
-**UI:** アマーチュアと同様に、UIEditorで作ったUIリソースもUIウィジェットに追加できます。
+**UI:** アーマチュアと同様に、UIEditorで作ったUIリソースもUIウィジェットに追加できます。
 
 **Map Component:** mapリソースをmapコンポーネントにドラッグします。mapリソースは[Tiled](http://www.mapeditor.org/)などのタイルマップ作成ツールでエクスポートした"tmx"ファイルになります。
 
