@@ -12,7 +12,7 @@ CocoStudioはオフィシャルサイトからダウンロードできます: ht
 ### Testsプロジェクトを見る
 
 CocoStudioAPIの全サンプルがCocos2d-html5の中にあります。
-例えばjointやboneを使うフレームイベントの作り方を知りたいなら、Cocos2d-html5(のindex.html)を実行して「2.Test cases - Engine Testcases」のCocoStudio Testの中の"Test Frame Event"を実行し、コードはプロジェクトの中の“Cocos2d-html5/samples/CocoStudioTest/ArmatureTest/ArmatureTest.js”を見ます。
+もしアーマチュア（boneを使った関節キャラクター）のフレームイベントの作り方を知りたいなら、Cocos2d-html5(のメニューであるindex.html)を実行して「2.Test cases - Engine Testcases」のCocoStudio Testの中の"Test Frame Event"を実行します。実行しながらプロジェクトの中の“Cocos2d-html5/samples/CocoStudioTest/ArmatureTest/ArmatureTest.js”のコードを見ます。
 
 ![](res/test-freame-event.png)
 
