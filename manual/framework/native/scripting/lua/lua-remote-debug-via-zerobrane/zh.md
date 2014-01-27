@@ -1,19 +1,15 @@
 如何使用ZeroBrane Studio远程调试Cocos2d-x的Lua脚本
 ===========================================
-
+ZeroBrane Studio做为一个轻量级的Lua IDE,因为它支持跨平台(支持`Windows`、`Mac`和`Linux`)和支持真机调试(`Andorid`、`IPhone`和`IPad`)，所以经常被用来调试Lua。目前，Cocos2d-x通过集成LuaSocket也支持应用ZeroBrane Studio进行测试例的调试(Linux除外)。我们以HelloLua为例，详细描述如何使用ZeroBrane Studio进行iOS模拟器和Android真机的调试。
 ### 版本
 
 * Cocos2d-x Version 3.0 Beta2
-
-### 例子
-
-* HelloLua
 
 ### iOS模拟器调试
 
 #### 测试环境
 
-* ZeroBrane Studio (0.39; MobDebug 0.542)
+* ZeroBrane Studio (0.39 for mac; MobDebug 0.542)
 * Mac OS X 10.9
 * Xcode 5.01
 
@@ -43,7 +39,7 @@ end
 
 ![startDebuggerServer.png](res/startDebuggerServer.png)
 
-6.切换回XCode，运行HelloLua iOS测试例，触发断点:
+6.切换回XCode，运行HelloLua iOS测试例，触发断点(`Windows环境下切换回Visual Studio 2012`):
 
 ![enterBreakPoint.png](res/enterBreakPoint.png)
 
@@ -65,22 +61,22 @@ end
 
 #### 测试环境
 
-* ZeroBrane Studio (0.39; MobDebug 0.542)
+* ZeroBrane Studio (0.39 for mac; MobDebug 0.542)
 * Android Developer Tools
 * HTC G17
 
-Android真机调试的流程和iOS模拟器调试，基本相同，主要的区别在于`hello.lua`添加debugger调用的指令，如下:
+Android(`IPhone`或`IPad`)真机调试的流程和iOS模拟器调试基本相同，主要的区别在于`hello.lua`中debugger调用的指令，如下:
 
 ```
 local function main()
 	...
-	require('mobdebug').start("192.168.1.110", 8172)
+	require('mobdebug').start('192.168.1.110')
     require "hello2"
     cclog("result is " .. myadd(1, 1))
     ...
 end
 ```
 
-其中，`192.168.1.110`为PC的IP地址，`8172`为ZBS开启Debugger server服务的端口号,测试手机的wifi IP需要与PC的IP地址同一网段，否则无法调试。但对于真机调试。不论哪一种调试操作，ZeroBrane0.39都会响应一个断点响应后直接运行程序。
+其中，`192.168.1.110`为PC的IP地址，测试手机的wifi IP需要与PC的IP地址同一网段，否则无法调试。
 
 
