@@ -137,7 +137,7 @@ IronCityではexportしたリソース情報のjsonをGameScene.jsに移し替�
 
 ## プロジェクト作成
 
-cocoManが走るアニメーションを作りましょう。まず“GameMenuUI”と同じく新プロジェクトを作り“running”と名付け、全部のリソースをリソースパネルにドラッグしましょう。
+cocoManが走るアニメーションを作りましょう。まず“GameMenuUI”と同じく新プロジェクトを作り“Running”と名付け、全部のリソースをリソースパネルにドラッグしましょう。
 
 ![](res/animation-editor-ironcity.png)
 
@@ -204,7 +204,7 @@ Figure 22: ステップ1-5を繰り返してアーマチュアを完成します
 
 *Figure 24: Key Frames of CMRunFigure*
 
-これはRunningAnimationのキーフレームになります。フレーム40は0と同じです。Loop
+これは"Running"アニメーションのキーフレームになります。フレーム40は0と同じです。Loop
 をチェックしてアニメーションをループできます。タイムラインのPlay
 ボタンでアニメーションを再生できます。fpsを変更してアニメーション速度も変えられます。
 
@@ -216,14 +216,14 @@ Figure 22: ステップ1-5を繰り返してアーマチュアを完成します
 
 アーマチュアとアニメーションをつくってエクスポートしたら、通常3ファイルがエクスポートフォルダに出来ます。 
 
-“ExportJson”ファイルはjsonですからAnimationEditorでの設定内容が開発者に読める形で書かれています。 <code>*CMRunning()*</code> の関数はアーマチュアを作って動かす簡単な例になります(“Player.js”) 
+ExportJsonファイルはjsonですからAnimationEditorでの設定内容が開発者に読める形で書かれています。 <code>*CMRunning()*</code> の関数はアーマチュアを作って動かす簡単な例になります(“Player.js”) 
 
 UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_CMRun)*</code> でパスを指定しリソースを読み込みます。
-<code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRunというアーマチュアを作ります。
+<code>*cc.Armature.create(“CMRun”)*</code> はExportJsonファイルから"CMRun"というアーマチュアを作ります。
 
 "CMRun"はプロジェクト名です。もし名前を変更するならExportJsonファイルの"CMRun"を全部置換するのが早いでしょう。
  <code>*armature.getAnimation().play(“Running”)* </code>  はExportJsonから"Running"というアニメーションを見つけます。
-  この名前はAnimationEditorのアニメーションリストで指定できますし、"ExportJson"ファイルを編集してもOKです。
+  この名前はAnimationEditorのアニメーションリストで指定できます。また、ExportJsonファイルを編集してもOKです。
 
 ### Callback Functionsを呼ぶ
 
@@ -263,7 +263,7 @@ UIEditorのように<code>*cc.ArmatureDataManager.getInstance().addArmatureFileI
 
 *Figure 29: Scene Editorでのウィジェット名*
 
-**Armature Componet:**   Cocos2d-html5のCCArmautre。アーマチュアをドラッグ（通常はAnimationEditorで作った"ExportJson"ファイルです）してシーンに置き、Animationリストで実行するアニメーションを選びます。
+**Armature Componet:**   Cocos2d-html5のCCArmautre。アーマチュアをドラッグ（通常はAnimationEditorで作ったExportJsonファイルです）してシーンに置き、Animationリストで実行するアニメーションを選びます。
 <br></br>
 
 ![](res/Fight-Scene.png)
