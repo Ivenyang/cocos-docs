@@ -25,7 +25,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなアク�
 
 ![](res/code-structure-of-ironcity.png)
 
-*Figure 7: IronCityのコード階層expoerted*<br></br>
+*Figure 7: IronCityのコード階層*<br></br>
 
 スクリーンショットはIronCityのファイル構成で、ソースは3パートに別れています。
 それぞれどうCocoStudioを使っているか説明します。
