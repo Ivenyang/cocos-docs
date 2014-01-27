@@ -30,7 +30,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなシュ�
 スクリーンショットはIronCityのファイル構成で、ソースは3パートに別れています。
 それぞれどうCocoStudioを使っているか説明します。
 
-- MainMenuScene.js: 最初のシーン。背景画像とスタートボタンがあり、スタートボタンを押すと次のGame Sceneに移ります。
+- MainMenuScene.js: 最初のシーン。背景画像とスタートボタンがあり、スタートボタンを押すと次のGameSceneに移ります。
 
 - GameScene.js: メインのシーンです。全リソース情報(WidgetのプロパティなどUIEditorからExportしたもの)はここで定義しています。シーンは menu,play,gameoverの3つのレイヤーから出来ています。CocoManの衝突判定もやっています。
 
@@ -59,7 +59,7 @@ IronCityはメニューとゲームの2シーンを持つシンプルなシュ�
 
 IronCityにはcocoStudioで作った3つのメニューと9つのアニメーションがあります。githubからcloneしたCocoStudioプロジェクトの“IronCityCocoStudioProject”のフォルダに入っています。
 
-3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、game sceneの3つのレイヤーに対応します。cocoManの9つのアニメーションは“CMRun” や “CMRunJump” です。次章で “GameMenuUI” と “CMRun” を例にUIEditorとAnimationEditorの使い方を説明します。
+3つのメニューは“GameMenuUI”, “GameSceneOverLayer”, “GameSceneSetMenu”で、GameSceneの3つのレイヤーに対応します。cocoManの9つのアニメーションは“CMRun” や “CMRunJump” です。次章で “GameMenuUI” と “CMRun” を例にUIEditorとAnimationEditorの使い方を説明します。
 
 ![](res/cocosmanaction.png)
 
