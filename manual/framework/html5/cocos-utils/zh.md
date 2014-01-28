@@ -175,7 +175,7 @@ cocos publish
 
 当你安装/移除了引擎模块(`cocos.json`中的`dependencies`)或者第三方模块(`package.json`中的`dependencies`)的时候，切记执行`cocos genBaseCfg`命令。
 
-其实你可以只执行`cocos build`这个命令就可以了，因为改命令包括了以上的3个命令。
+其实你可以只执行`cocos build`这个命令就可以了，因为该命令包括了以上的3个命令。
 
 确保`res.js`以及`jsRes.js`中生成的`key`是唯一的，key的生成规则如下：
 
