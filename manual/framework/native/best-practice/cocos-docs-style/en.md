@@ -1,4 +1,3 @@
-
 Cocos-docs Contribution Guide
 ========
 
@@ -8,9 +7,10 @@ All the documents should use [Github-Flavoured Markdown Format](http://github.gi
 
 Here are some really good markdown editors for this job
 
->[Dillinger](http://dillinger.io)
-
->[Sublime Text](http://www.sublimetext.com/) with [markdown plugin](https://github.com/revolunet/sublimetext-markdown-preview)
+* [Dillinger](http://dillinger.io)
+* [Sublime Text](http://www.sublimetext.com/) with [markdown plugin](https://github.com/revolunet/sublimetext-markdown-preview)
+* [Mou](http://mouapp.com/)
+* [Marked](marked2app.com/)
 
 
 ## Folder Structure
