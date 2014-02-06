@@ -19,7 +19,7 @@ layer->addChild(sprite);
 # Folder Structure
 
 We create such a folder structure to support multiple languages translation:
-
+```no-hightlight
 - catalog
 	- en.md  // catalog in English
 	- zh.md  // catalog in Chinese
@@ -40,7 +40,7 @@ We create such a folder structure to support multiple languages translation:
 		- html5  // cocos2d-html5
 	- studio
 - tutorials
-
+```
 # Creating a New Document
 
 When you create a new document, please follow these steps:
