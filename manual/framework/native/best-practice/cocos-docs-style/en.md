@@ -10,7 +10,7 @@ Here are some really good markdown editors for this job
 * [Dillinger](http://dillinger.io)
 * [Sublime Text](http://www.sublimetext.com/) with [markdown plugin](https://github.com/revolunet/sublimetext-markdown-preview)
 * [Mou](http://mouapp.com/)
-* [Marked](marked2app.com/)
+* [Marked](http://marked2app.com/)
 
 
 ## Folder Structure
