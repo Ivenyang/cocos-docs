@@ -85,7 +85,7 @@
 		- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework//html5/jsb-ios-iap/ios-storekit-integration-in-jsb/zh.md)
 
 	
-- 教程
+- 2.x教程
 	- 入门篇：用C++写一个忍者射飞镖游戏
 		- 新建一个跨平台游戏
 		- [怎样添加精灵](../tutorial/shooting-game-with-cpp/chapter2/zh.md)
@@ -110,5 +110,11 @@
 		- 游戏结束逻辑
 		- 对源码进行混淆
 		- 在浏览器中对Javascript代码进行调试
-		- 通过Cocos2d-x Javascript Binding以原生方式编译iOS和Android版
-
+		- 通过Cocos2d-x Javascript Binding以原生方式编译iOS和Android版		
+ - 3.x教程
+ 	- [在cocos2d-x3.0里如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)	
+ 	- 如何使用cocos2d-x 3.0来做一个简单的iphone游戏教程
+ 		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-space-shooter-game/chapter-1/zh.md)
+		- [part 2 添加更强力的武器](../tutorial/how-to-make-a-space-shooter-game/chapter-2/zh.md)
+		- [part 3 更猛的怪物和更多的关卡](../tutorial/how-to-make-a-space-shooter-game/chapter-3/zh.md)
+	- [如何在cocos2d里面使用动画和spritesheet](../tutorial/how-to-use-animations-and-spritesheets/zh.md)
