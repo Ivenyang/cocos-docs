@@ -3,7 +3,7 @@
 
 ##引言 
 
-　　本文是继续上一篇《[如何用cocos2d-x3.0制作一款简单的游戏：第二部分(旋转炮塔)][1]》，[原文链接](http://www.raywenderlich.com/782/harder-monsters-and-more-levels)。  
+　　本文是继续上一篇《[如何用cocos2d-x3.0制作一款简单的游戏：第二部分(旋转炮塔)][1]》。  
 　　  
 　　目前为止，我们的游戏有一个可以旋转的炮塔，有怪物可以射杀，还有很棒的音效。
 
@@ -213,7 +213,7 @@ if (monsterHit)
 
 　　希望你能喜欢这个系列的教程，希望这些教程能对你做项目有所帮助。
 
-
+[原文链接](http://www.raywenderlich.com/782/harder-monsters-and-more-levels)
 
 
 [p1]: ./res/game_screenshot1.png "游戏截图"

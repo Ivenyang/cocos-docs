@@ -16,7 +16,7 @@ cocos2d-x 具有以下特称:
 
 　　目前支持精灵（sprite）、动画、物理引擎、声音引擎以及许许多多非常酷的图像效果等等。
 
-　　目前已经有许多非常好的教程来教你如何使用cocos2d-x了。但关于cocos2d-x 3.0的资料非常少。同时很多人真正想要的是一个非常简单，但是可以跑起来的游戏。这个游戏包括怎么使用动画、碰撞检测和播放声音，这就够了，并不需要使用太多高级的特性。最终，把*子龙山人*的[教程](http://www.cnblogs.com/zilongshanren/archive/2011/03/22/1990716.html "子龙山人教程")及其[原版英文教程](http://www.raywenderlich.com/352/how-to-make-a-simple-iphone-game-with-cocos2d-tutorial "原版英文教程")改编了，希望对初学者有所帮助。
+　　目前已经有许多非常好的教程来教你如何使用cocos2d-x了。但关于cocos2d-x 3.0的资料非常少。同时很多人真正想要的是一个非常简单，但是可以跑起来的游戏。这个游戏包括怎么使用动画、碰撞检测和播放声音，这就够了，并不需要使用太多高级的特性。
 
 　　这篇教程将会从头至尾、一步一步地教你如何使用cocos2d来制作一个简单的iphone游戏。你可以按照教程一步步来，或者干脆直接跳到文章的最后，下载样例程序。没错！游戏里面有忍者。	
 
@@ -629,8 +629,8 @@ Director::getInstance()->replaceScene(gameOverScene);
 ##何去何从？
 
 　　这个项目对于一个cocos2d-x的初学者来说非常有帮助，而且你还可以自己往项目里面添加更多新的特性。或许你可以尝试一下，添加一个提示框，提示当前你已经打中了多少个怪物了。或者你可以增加一些很酷的动画，比如怪物被击中后不是直接消失，而是用一段动画来模拟死去。（可以参考cocs2d-x　TestCpp里面的ActionsTest，EffectsTest和EffectsAdvancedTest）。或者你还可以增加更多的图片和声音资源，或者更多的游戏逻辑。心情发挥吧！
-　　
-　　
+
+[原版英文教程](http://www.raywenderlich.com/352/how-to-make-a-simple-iphone-game-with-cocos2d-tutorial "原版英文教程")
 　　
 
 [p1]: ./res/game_screenshot.png "游戏截图"

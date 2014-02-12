@@ -3,7 +3,7 @@
 
 ##引言  
 
-　　本文是接着上一篇《[如何用cocos2d-x3.0制作一款简单的游戏:第一部分][1]》，属于上一篇的续集。按照惯例也先贴出[原文链接](http://www.raywenderlich.com/692/rotating-turrets)。本文将介绍如何旋转炮塔来改变射击的方向。许多游戏都有这个功能，包大家熟悉的塔防游戏！
+　　本文是接着上一篇《[如何用cocos2d-x3.0制作一款简单的游戏:第一部分][1]》，属于上一篇的续集。本文将介绍如何旋转炮塔来改变射击的方向。许多游戏都有这个功能，包大家熟悉的塔防游戏！
 
 　　接下来将详细地讲解如何实现这个功能，即如何把旋转炮塔的功能添加到一个游戏当中去。
 
@@ -186,7 +186,7 @@ void HelloWorld::finishShoot()
 
 　　或者期待接下来的cocos2d和box2d方面的教程吧！
 
-
+[原文链接](http://www.raywenderlich.com/692/rotating-turrets)
 
 [r1]: ./res/Player2.png "player sprite"
 [r2]: ./res/Projectile2.png "projectile sprite"

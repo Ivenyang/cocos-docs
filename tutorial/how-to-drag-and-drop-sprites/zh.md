@@ -4,9 +4,7 @@
 ##引言
 
 ###程序截图： 
-![][p1]
-
-原文链接:[http://www.raywenderlich.com/2343/how-to-drag-and-drop-sprites-with-cocos2d](http://www.raywenderlich.com/2343/how-to-drag-and-drop-sprites-with-cocos2d)  
+![][p1] 
 
 　　许多读者想要一个关于如何在cocos2d-x里面使用touch事件来拖拽精灵（sprite）的教程。既然你们这么要求，我就满足你们啦！
 
@@ -268,7 +266,7 @@ void HelloWorld::panForTranslation(Point translation)
 
 　　如果大家看教程有什么不明白的地方，都可以拿出来，大家一起讨论，共同提高！
 
-
+原文链接:[http://www.raywenderlich.com/2343/how-to-drag-and-drop-sprites-with-cocos2d](http://www.raywenderlich.com/2343/how-to-drag-and-drop-sprites-with-cocos2d) 
 
 
 

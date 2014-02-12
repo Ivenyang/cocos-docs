@@ -3,9 +3,7 @@
 ##引言
 
 ###教程截图：  
-![][p1]
-
-原文链接:[http://www.raywenderlich.com/1271/how-to-use-animations-and-sprite-sheets-in-cocos2d](http://www.raywenderlich.com/1271/how-to-use-animations-and-sprite-sheets-in-cocos2d)  
+![][p1]  
 
 　　由于有很多读者想要一个关于如何在cocos2d-x里面使用动画和spritesheet的教程。这篇教程就应运而生了！
 
@@ -353,6 +351,7 @@ HelloWorld::~HelloWorld()
 
 　　现在,你应该知道如何在项目里面使用 spritesheet 了吧。你可以在你的项目中创建自己 的动画,然后看看你到底能做些什么有趣的事情!just do it!
 
+原文链接:[http://www.raywenderlich.com/1271/how-to-use-animations-and-sprite-sheets-in-cocos2d](http://www.raywenderlich.com/1271/how-to-use-animations-and-sprite-sheets-in-cocos2d)
 
 [p1]: ./res/course_screenshot1.png "教程截图"
 [p2]: ./res/course_screenshot2.png "教程截图"
