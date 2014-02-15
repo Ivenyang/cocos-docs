@@ -51,7 +51,7 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 ![](./res/1021588ym.png)
 
-一定要注意：通用UI坐标系和DirectX坐标系是不一样的。
+一定要注意：通用UI坐标系和DirectX坐/attachments/1559/parent.jpeg)标系是不一样的。
 
 ### Parent and Childrens
 
@@ -75,7 +75,7 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 由于我们设置子对象的位置是ccp(0,0)，父对象位置是ccp(100,100)。所以，子对象位置是：
 
-![](http://www.cocos2d-x.org/attachments/1559/parent.jpeg）
+![](http://www.cocos2d-x.org/attachments/1559/parent.jpeg)
 
 锚点
 
