@@ -1,5 +1,10 @@
 - 模块说明 
 	- Cocos2d-x
+		- 综述  
+			- [关于我们](../manual/framework/native/about/about-us/zh.md)
+			- [易学易用——API类型](../manual/framework/native/about/easy-to-learn-api-style/zh.md)
+			- [Cocos2d系列产品关系](../manual/framework/native/about/relationships-in-cocos2d-family/zh.md)
+			- [支持](../manual/framework/native/about/support/zh.md)
 		- 环境搭建
 			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-win7/zh.md)
 			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-mac/zh.md)
