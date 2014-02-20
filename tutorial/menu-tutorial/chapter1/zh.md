@@ -225,7 +225,7 @@ return YES;
 
 　　当你编译并运行工程之后，你就能看到上面的截屏啦！祝贺你完成了第一部分教程的学习，接下来，我们将在第二部分教程中学到更多有意思的内容。
 
-　　
+原文链接:[http://www.iphonegametutorials.com/2010/09/07/cocos2d-menu-tutorial/](http://www.iphonegametutorials.com/2010/09/07/cocos2d-menu-tutorial/)
 
 
 
