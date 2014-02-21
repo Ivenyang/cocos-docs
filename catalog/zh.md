@@ -82,12 +82,20 @@
 		- [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画](../manual/studio/animation-editor/zh.md)
 			
 	- Cocos2d-html5	
+		- 综述
+			- [关于Cocos2d-html5](../manual/framework/html5/about/zh.md)
+			- [供NPM使用的Cocos-utils](../manual/framework/html5/cocos-utils-for-npm/zh.md)
+			- [Cocos2d-html5新手入门](../manual/framework/html5/getting-started_with-cocos2d-html5/zh.md)
+			- [Release Note](../manual/framework/html5/release-notes-for-cocos2d-html5/release-notes-for-cocos2d-html5-v222/zh.md)
+			- [升级指南](../manual/framework/html5/upgrade-guides-html5/zh.md)
 		- Cocos2d-html5的开发优势
 		- [如何搭建 Cocos2d-html5 开发调试环境](../manual/framework/html5/setup-devenv/zh.md)
 		- [如何自定义cocos2d-html5加载界面](../manual/framework/html5/customize-loading-screen/zh.md)
 		- [Cocos2d-html5 2.2.2的屏幕适配方案](../manual/framework/html5/resolution-policy-design/zh.md)
 		- [如何使用iOS游戏内付费IAP(C++篇)](../manual/framework/html5/jsb-ios-iap/ios-storekit-integration-in-c++/zh.md)
 		- [如何使用iOS游戏内付费IAP(JSB篇)](../manual/framework//html5/jsb-ios-iap/ios-storekit-integration-in-jsb/zh.md)
+		- [月亮战士——Cocos2d-html5展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
+		- [了解Cocos2d-html5 2.2.2分辨率策略](../manual/framework/html5/understand-the-resolution-policy-in-cocos2d-html5-2.2.2/zh.md)
 
 	
 - 2.x教程
