@@ -1,4 +1,61 @@
-- 模块说明 
+- 模块说明
+	- Getting Started
+		- [支持平台和编程语言](../manual/framework/native/getting-started/supported-platforms-and-programming-languages/zh.md)
+		- [架构和目录结构](../manual/framework/native/getting-started/architecture-and-directory-structure/zh.md)
+		- 环境搭建
+			- Android和NDK
+				- [如何在NDK R4和R5中运行HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/how-to-run-helloworld-on-ndk-r4-and-r5/zh.md)
+				- [Android 3.0运行注意事项](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/something-about-running-on-Android-3.0/zh.md)
+				- [Android 4.0新项目编译及创建提示](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/tips-compilation-and-creating-new-projects-on-android4.0/zh.md)
+				
+			- Bada环境搭建
+				- [如何用脚本创建Bada项目](../manual/framework/native/getting-started/setting-up-development-environments/bada-environment-setup/how-to-create-bada-project-with-script/zh.md)
+				- [如何在Bada系统运行HelloWorld及cocos2d-x测试项目](../manual/framework/native/getting-started/setting-up-development-environments/bada-environment-setup/how-to-run-helloworld-and-tests-of-cocos2d-x-on-bada/zh.md)
+			
+			- BlackBerry环境搭建
+				- [如何使用BBNDK1.0和BBNDK2.0创建项目](../manual/framework/native/getting-started/setting-up-development-environments/blackberry-environment-setup/how-to-build-project-by-using-bbndk1.0-and-bbndk2.0/zh.md)
+				- [如何用脚本创建QNX项目](../manual/framework/native/getting-started/setting-up-development-environments/blackberry-environment-setup/how-to-create-qnx-project-with-script/zh.md)
+				- [如何在黑莓平板系统中运行HelloWorld及测试项目](../manual/framework/native/getting-started/setting-up-development-environments/blackberry-environment-setup/how-to-run-helloworld-and-tests-on-blackberry-tablet-OS/zh.md)
+			
+			- emscripten
+				- [Emscripten用法介绍](../manual/framework/native/getting-started/setting-up-development-environments/emscripten/emscripten-usage/zh.md)
+			
+			- [如何创建支持多平台的项目](../manual/framework/native/getting-started/setting-up-development-environments/how-to-create-a-multi-platform-project-in-one-command-line/zh.md)
+			
+			- [搭建Linux开发环境](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/zh.md)
+				- [在Linux及Android平台创建项目](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/android-for-linux/zh.md)
+				- [如何在Linux平台运行HelloWorld及测试项目](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/how-to-run-helloworld-and-tests-on-linux/zh.md)
+				- [搭建Qt5开发环境](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/qt5-environment-setup/zh.md)
+				- [Linux平台搭建QtCreator项目](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/qtcreator-project-setup-on-linux/zh.md)
+			
+			- Mac OS X环境搭建
+				- [如何在Android平台中编译运行HelloWorld](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-build-and-run-helloworld-on-Android/zh.md)
+				- [如何在iPhone模拟器上运行cocos2d-x HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-helloworld-of-cocos2d-x-on-iphone-emulator/zh.md)
+				- [如何在iPhone模拟器上运行cocos2d测试项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-tests-of-cocos2d-x-on-iphone-emulator/zh.md)
+				- [Android NDK R4B开发环境安装指南](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/installation-guide-of-android-ndk-r4b-development-environment/zh.md)
+				- [Mac OSX平台搭建Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setting-up-android-development-environment-on-mac-osx/zh.md)
+				- [在Mac OS X狮山系统安装Emscripten说明](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setup-emscripten-on-mac_osx-mountain-lion/zh.md)
+				
+			- [搭建本地客户端开发环境](../manual/framework/native/getting-started/setting-up-development-environments/native-client-environment-setup/zh.md)
+
+			- [如何在Tizen平台中运行HelloWorld及测试项目](../manual/framework/native/getting-started/setting-up-development-environments/tizen-environment-setup/zh.md)
+			
+			- [搭建Windows Phone 8开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-phone8-environment-setup/zh.md)
+			
+			- Windows 7环境搭建
+				- [在Android x86平台编译HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/build-helloworld-on-android-x86-platform/zh.md)
+				- [Visual Studio环境Cocos2d-x Application Wizard用户指南](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/cocos2d-x-application-wizard-for-visual-studio-user-guide/zh.md)
+				- [NDK-R7编译介绍](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/compilation-on-ndk-r7/zh.md)
+				- [迁移VS Project及Solution文件](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/relocating-visual-studio-projects-and-solutions/zh.md)
+				- [如何用脚本创建Android项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-create-android-project-with-script/zh.md)
+				- [如何在Android NDK中运行测试项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-run-test-cases-on-android-ndk/zh.md)
+				- [如何在Windows 7平台搭建Android Cocos2d-x开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-set-up-the-android-cocos2d-x-development-environment-on-windows7/zh.md)
+				- [搭建WIN32开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/setup-win32-development-environment/zh.md)
+				
+			- Windows 8 metro环境搭建
+				- [如何在Windows 8 Metro上创建新项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/how-to-create-a-new-project-for-windows8-metro/zh.md)
+				- [在Windows 8 Metro平台搭建cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/setup-the-cocos2d-x-for-android-in-windows-8-metro/zh.md)
+			
 	- Cocos2d-x
 		- 综述  
 			- [关于我们](../manual/framework/native/about/about-us/zh.md)
@@ -93,6 +150,7 @@
 			- [Android设备Edge版本性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-android-devices/zh.md)
 			- [iOS设备性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-ios-devices/zh.md)
 	- CocoStudio
+		- [CocoStudio介绍](../manual/studio/about-cocostudio/zh.md)
 		- [CocoStudio UI编辑器的使用](../manual/studio/ui-editor/zh.md)
 		- [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面](../manual/studio/ui-sample-chaosfighter/zh.md)
 		- [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画](../manual/studio/animation-editor/zh.md)
@@ -113,6 +171,7 @@
 		- [月亮战士——Cocos2d-html5展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
 		- [了解Cocos2d-html5 2.2.2分辨率策略](../manual/framework/html5/understand-the-resolution-policy-in-cocos2d-html5-2.2.2/zh.md)
 
+	- [如何贡献](../manual/framework/native/contribution/zh.md)
 	
 - 2.x教程
 	- 入门篇：用C++写一个忍者射飞镖游戏
