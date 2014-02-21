@@ -5,6 +5,8 @@
 			- [易学易用——API类型](../manual/framework/native/about/easy-to-learn-api-style/zh.md)
 			- [Cocos2d系列产品关系](../manual/framework/native/about/relationships-in-cocos2d-family/zh.md)
 			- [支持](../manual/framework/native/about/support/zh.md)
+			- [跨平台游戏最佳做法](../manual/framework/native/advanced/optimizations/best-practice-of-cross-platform-games/zh.md)
+			- [从Objective-C转战C++](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/for-c++-programmers/moving-from-objective-c-to-c++/zh.md)
 		- 环境搭建
 			- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-win7/zh.md)
 			- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-mac/zh.md)
@@ -12,6 +14,9 @@
 		- 基础概念
 			- 引擎架构和目录结构
 			- 引擎支持的平台及编程语言
+			- [Android平台开发实践（C++/Java）](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/easy-ndk/how-to-work-on-android-C++-Java/zh.md)
+			- [iOS平台开发实践（C++/Object-C）](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/easy-ndk/how-to-work-on-ios-C++-and-objective-c/zh.md)
+			
 			- [导演，场景，层，以及精灵](../manual/framework/native/concept/director-scene-layer-sprite/zh.md)
 			- [定时器scheduler和timer](../manual/framework/native/concept/scheduler-and-timer/zh.md)
 		- 图像渲染和动画
@@ -32,6 +37,7 @@
 			- [Cocos2d-x的引用计数和AutoreleasePool](../manual/framework/native/memory/refcount-autoreleasepool/zh.md)
 			- [纹理缓存 Texture Cache](../manual/framework/native/memory/texture-cache/zh.md)
 			- [各平台硬件所允许的最大纹理尺寸](../manual/framework/native/memory/max-texture-size/zh.md)
+			- [如何优化内存使用](../manual/framework/native/advanced/optimizations/how-to-optimise-memory-usage/zh.md)
 		- 人机交互
 			- [事件分发机制 Event Dispatcher](../manual/framework/native/input/event-dispatcher/zh.md)
 			- 如何获得并响应触摸事件
@@ -62,20 +68,30 @@
 				- 如何通过自动绑定把C++接口批量导到Lua
 				- LuaJavaBridge和LuaObjcBridge
 				- [如何使用ZeroBrane Studio远程调试Cocos2d-x的Lua脚本](../manual/framework/native/scripting/lua/lua-remote-debug-via-zerobrane/zh.md)
+				- [如何将C++绑定至Lua](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/lua-binding/how-to-bind-c++-to-lua/zh.md)
 			- Javascript
 				- 如何实现Javascript和C++的相互调用
 				- 如何通过自动绑定把C++接口批量导到Javascript
 				- [Javascript Binding的手动绑定实现](../manual/framework/native/scripting/javascript/jsb-manually/zh.md)
 				- Javascript绑定的远程调试
+				- [JSB API 基本用法](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/javascript-binding/basic-usage-of-jsb-api/zh.md)
+				- [ 如何将C++绑定至Javascript](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/javascript-binding/how-to-bind-c++-to-Javascript/zh.md)
+				- [如何在JSB中调用Java脚本源代码](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/javascript-binding/how-to-obfuscate-javascript-source-code-on-jsb/zh.md)
+				- [JSB内存管理](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/javascript-binding/memory-management-of-jsb/zh.md)
 		- 第三方库集成
 			- [Android: 如何让Java和C++接口互相调用：JNI使用指南](../manual/framework/native/sdk-integration/android-jni/zh.md)
+			- [如何使用JNI(简要)](../manual/framework/native/advanced/scripting-and-translating-between-programming-languages/for-c++-programmers/how-to-use-jni/zh.md)
 			- [Windows Phone 8: 通过浏览器控件添加支付宝](../manual/framework/native/sdk-integration/wp8-webbrowser/zh.md)
 			- [Windows Phone 8: 如何集成第三方SDK](../manual/framework/native/sdk-integration/wp8-thirdSDK/zh.md)
 			- 如何在Android上集成第三方SDK
 			- 如何在iOS上集成第三方SDK
 		- 版本升级指南
 			- 从2.2升级到3.0
-		
+		- 性能测试
+			- [iOS设备cocos2d-x 0.7.1性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performace-test-of-cocos2d-x-071-on-iod-devices/zh.md)
+			- [Android设备cocos2d-x性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-cocos2d-x-on-android-devices/zh.md)
+			- [Android设备Edge版本性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-android-devices/zh.md)
+			- [iOS设备性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-ios-devices/zh.md)
 	- CocoStudio
 		- [CocoStudio UI编辑器的使用](../manual/studio/ui-editor/zh.md)
 		- [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面](../manual/studio/ui-sample-chaosfighter/zh.md)
