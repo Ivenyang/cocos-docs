@@ -6,7 +6,7 @@
 		- [Cocos2d-x支持的平台和编程语言](../manual/framework/native/getting-started/supported-platforms-and-programming-languages/zh.md)
 		- [架构和目录结构](../manual/framework/native/getting-started/architecture-and-directory-structure/zh.md)
 		- [获取支持](../manual/framework/native/about/support/zh.md)
-	- 上手入门
+	- cocos2d-x
 		- 环境搭建
 			- Android			
 				- [如何在NDK R4和R5中运行HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/how-to-run-helloworld-on-ndk-r4-and-r5/zh.md)
@@ -149,7 +149,7 @@
 		- [月亮战士——Cocos2d-html5展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
 		- [了解Cocos2d-html5 2.2.2分辨率策略](../manual/framework/html5/understand-the-resolution-policy-in-cocos2d-html5-2.2.2/zh.md)
 	- [如何贡献](../manual/framework/native/contribution/zh.md)
- - 完整的游戏示例教学
+- 完整的游戏示例教学
  	- [在cocos2d-x3.0里如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)
  	- 如何使用cocos2d-x 3.0来做一个简单的iphone游戏教程(v3.0)
  		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-space-shooter-game/chapter-1/zh.md)
