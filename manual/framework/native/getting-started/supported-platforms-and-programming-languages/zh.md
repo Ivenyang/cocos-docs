@@ -1,7 +1,7 @@
 ## 支持平台和编程语言
 
-“o”代表支持并正常工作。      
-“i”代表支持但未激活、不建议使用或未合并到主资源包           
+“o”代表支持并能正常工作，
+“i”代表支持但不在主干版本内，可以从历史版本里面找到           
 “w”代表正在研发      
 
 ### Cocos2d-x
@@ -10,14 +10,15 @@
 |--------|------|-----|------|-----|
 |**移动平台**| iOS | o| o| o|
 | | Android|  o|  o| o|
-| | WindowsPhone8|  o| | |
-| | BlackBerry|  o| | |
-| | Marmalade|  o| | |
+| | WindowsPhone8|  o|o | |
+| | BlackBerry|  i| | |
+| | Marmalade|  i| | |
 |**桌面平台**| win32| o|  o| o|
-| | Linux| o| o| |
-| | Win8 Metro|  o| | |
-| | Mac OS X|  o|o| |
-| | Native Client|o|o| |
+| | Linux| o| o| o|
+| | Mac OS X|  o|o|o |
+| | Win8 Metro|  o| o| |
+| | Native Client|i|| |
+| | Emscripten| i | | |
 
 ### Cocos2d-html5
 
