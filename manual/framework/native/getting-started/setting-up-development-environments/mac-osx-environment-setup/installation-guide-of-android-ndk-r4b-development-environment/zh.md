@@ -1,6 +1,9 @@
-# Android NDK R4B开发环境安装指南
+# Android NDK开发环境安装指南
+
+开发环境：Android NDK r4b
 
 ## 资源准备
+
 说明:本文以Mac系统为例,所以准备的软件都需要是适合Mac版本的.
 
 - Android SDK:android-sdk-mac_86
@@ -9,7 +12,9 @@
 - ADT
 - CDT
 - ANT
+
 ## 搭建Android SDK开发环境
+
 ### Android SDK还发环境搭建步骤:
 
 1. Jdk安装,要求1.5以上.一般的Mac OS中已经预装了jdk，我的是jdk 1.6.用"java -version"在terminal可以查看.

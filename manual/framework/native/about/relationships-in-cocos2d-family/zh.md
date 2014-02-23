@@ -10,5 +10,4 @@
 
 |分支引擎 | 编程语言 | 平台 |
 |---|---|---||cocos2d|Python	|桌面操作系统||cocos2d-iphone|Objective-C, JavaScript|iOS||cocos2d-x|C++, Lua, JavaScript	|参见支持平台和编程语言部分||cocos2d-html5|JavaScript|支持HTML5的浏览器||ShinyCocos|Ruby|iOS||cocos2d-windows|C++|Windows XP/7||cocos2d-android|Java|	Android||cocos2d-android-1|Java|	Android||cocos2d-xna|C#	|Microsoft and MonoGame platforms||cocos2d-javascript|JavaScript|	支持HTML5的浏览器||cocos-net|C#|Mono-supported 平台||cocos3d|Objective-c|iOS|
-如果此页中没有包括你所开发的分支引擎，请随时编辑维基网站，将其添加进去。
 
