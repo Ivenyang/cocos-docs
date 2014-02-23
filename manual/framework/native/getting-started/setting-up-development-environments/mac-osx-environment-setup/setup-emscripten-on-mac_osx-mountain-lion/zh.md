@@ -1,8 +1,8 @@
-# 在Mac OS X狮山系统安装Emscripten说明
+# 在Mac OS X系统安装Emscripten说明
 
 ## 系统Emscripten安装指南
 
-默认安装在狮山系统的python版本号为2.7.2。 
+默认安装在OS X Moutain Lion系统的python版本号为2.7.2。 
 
 编辑cocos2d-x/external/emscripten/emcc
 将以下代码         
