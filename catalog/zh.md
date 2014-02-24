@@ -51,6 +51,17 @@
 				- [如何在Windows 8 Metro上创建新项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/how-to-create-a-new-project-for-windows8-metro/zh.md)
 				- [在Windows 8 Metro平台搭建cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/setup-the-cocos2d-x-for-android-in-windows-8-metro/zh.md)
 			- [如何创建支持多平台的项目](../manual/framework/native/getting-started/setting-up-development-environments/how-to-create-a-multi-platform-project-in-one-command-line/zh.md)
+			
+		- 一步一步实现一个Cocos2d-x简单游戏	
+			- [第一章 如何在多平台新建cocos2d-x项目](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter1-how-to-create-a-new-cocos2dx-project-on-multi-platforms/zh.md)
+			- [第二章 如何增加精灵（sprite）](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter2-how-to-add-a-sprite/zh.md)
+			- [第三章 如何移动精灵（sprite）](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter3-how-to-move-a-sprite/zh.md)
+			- [第四章 如何发射子弹](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter4-how-to-fire-some-bullets/zh.md)
+			- [第五章 如何检测碰撞](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter5-how-to-detect-the-collisions/zh.md)
+			- [第六章 如何播放音乐和音效](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter6-how-to-play-music-and-sound-effect/zh.md)
+			- [第七章 锦上添花技巧部分](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter7-some-icing-on-the-cake/zh.md)
+			- [外部指南](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/external-tutorials/zh.md)
+			
 		- 基础概念			
 			- [导演，场景，层，以及精灵](../manual/framework/native/concept/director-scene-layer-sprite/zh.md)
 			- [定时器scheduler和timer](../manual/framework/native/concept/scheduler-and-timer/zh.md)
