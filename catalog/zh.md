@@ -6,22 +6,22 @@
 		- [Cocos2d-x支持的平台和编程语言](../manual/framework/native/getting-started/supported-platforms-and-programming-languages/zh.md)
 		- [架构和目录结构](../manual/framework/native/getting-started/architecture-and-directory-structure/zh.md)
 		- [获取支持](../manual/framework/native/about/support/zh.md)
-	- cocos2d-x
+	- Cocos2d-x
 		- 环境搭建
 			- Android			
 				- [如何在NDK R4和R5中运行HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/how-to-run-helloworld-on-ndk-r4-and-r5/zh.md)
 				- [Android 4.0新项目编译及创建提示](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/tips-compilation-and-creating-new-projects-on-android4.0/zh.md)
 				- [Android 3.0运行注意事项](../manual/framework/native/getting-started/setting-up-development-environments/android-and-NDK/something-about-running-on-Android-3.0/zh.md)
 			- Mac OS X
-				- [如何在Mac OS X上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-mac/zh.md)
+				- [如何在Mac OS X上搭建Cocos2d-x开发环境](../manual/framework/native/installation/android-on-mac/zh.md)
 				- [如何在Android平台中编译运行HelloWorld](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-build-and-run-helloworld-on-Android/zh.md)
-				- [如何在iPhone模拟器上运行cocos2d-x HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-helloworld-of-cocos2d-x-on-iphone-emulator/zh.md)
+				- [如何在iPhone模拟器上运行Cocos2d-x HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-helloworld-of-cocos2d-x-on-iphone-emulator/zh.md)
 				- [如何在iPhone模拟器上运行cocos2d测试项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-tests-of-cocos2d-x-on-iphone-emulator/zh.md)
 				- [Android NDK开发环境安装指南](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/installation-guide-of-android-ndk-r4b-development-environment/zh.md)
 				- [Mac OSX平台搭建Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setting-up-android-development-environment-on-mac-osx/zh.md)
 				- [在Mac OS X狮山系统安装Emscripten说明](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setup-emscripten-on-mac_osx-mountain-lion/zh.md)
 			- Windows 7环境搭建
-				- [如何在Windows 7上搭建cocos2d-x开发环境](../manual/framework/native/installation/android-on-win7/zh.md)
+				- [如何在Windows 7上搭建Cocos2d-x开发环境](../manual/framework/native/installation/android-on-win7/zh.md)
 				- [在Android x86平台编译HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/build-helloworld-on-android-x86-platform/zh.md)
 				- [Visual Studio环境Cocos2d-x Application Wizard用户指南](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/cocos2d-x-application-wizard-for-visual-studio-user-guide/zh.md)
 				- [NDK-R7编译介绍](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/compilation-on-ndk-r7/zh.md)
@@ -31,7 +31,7 @@
 				- [如何在Windows 7平台搭建Android Cocos2d-x开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-set-up-the-android-cocos2d-x-development-environment-on-windows7/zh.md)
 				- [搭建WIN32开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/setup-win32-development-environment/zh.md)
 			- Windows Phone 8
-				- [如何在WP8上搭建cocos2d-x开发环境](../manual/framework/native/installation/wp8-on-win8/zh.md)
+				- [如何在WP8上搭建Cocos2d-x开发环境](../manual/framework/native/installation/wp8-on-win8/zh.md)
 				- [搭建Windows Phone 8开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-phone8-environment-setup/zh.md)			- Native Client	
 				- [搭建本地客户端开发环境](../manual/framework/native/getting-started/setting-up-development-environments/native-client-environment-setup/zh.md)
 			- Tizen
@@ -49,11 +49,11 @@
 				- [搭建Qt5开发环境](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/qt5-environment-setup/zh.md)
 				- [Linux平台搭建QtCreator项目](../manual/framework/native/getting-started/setting-up-development-environments/linux-environment-setup/qtcreator-project-setup-on-linux/zh.md)			- Windows 8 Metro
 				- [如何在Windows 8 Metro上创建新项目](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/how-to-create-a-new-project-for-windows8-metro/zh.md)
-				- [在Windows 8 Metro平台搭建cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/setup-the-cocos2d-x-for-android-in-windows-8-metro/zh.md)
+				- [在Windows 8 Metro平台搭建Cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/setup-the-cocos2d-x-for-android-in-windows-8-metro/zh.md)
 			- [如何创建支持多平台的项目](../manual/framework/native/getting-started/setting-up-development-environments/how-to-create-a-multi-platform-project-in-one-command-line/zh.md)
 			
 		- 一步一步实现一个Cocos2d-x简单游戏	
-			- [第一章 如何在多平台新建cocos2d-x项目](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter1-how-to-create-a-new-cocos2dx-project-on-multi-platforms/zh.md)
+			- [第一章 如何在多平台新建Cocos2d-x项目](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter1-how-to-create-a-new-cocos2dx-project-on-multi-platforms/zh.md)
 			- [第二章 如何增加精灵（sprite）](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter2-how-to-add-a-sprite/zh.md)
 			- [第三章 如何移动精灵（sprite）](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter3-how-to-move-a-sprite/zh.md)
 			- [第四章 如何发射子弹](../manual/framework/native/getting-started/step-by-step-cocos2dx-simplegame-series/chapter4-how-to-fire-some-bullets/zh.md)
@@ -135,8 +135,8 @@
 			- 如何在Android上集成第三方SDK
 			- 如何在iOS上集成第三方SDK
 		- 性能测试
-			- [iOS设备cocos2d-x 0.7.1性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performace-test-of-cocos2d-x-071-on-iod-devices/zh.md)
-			- [Android设备cocos2d-x性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-cocos2d-x-on-android-devices/zh.md)
+			- [iOS设备Cocos2d-x 0.7.1性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performace-test-of-cocos2d-x-071-on-iod-devices/zh.md)
+			- [Android设备Cocos2d-x性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-cocos2d-x-on-android-devices/zh.md)
 			- [Android设备Edge版本性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-android-devices/zh.md)
 			- [iOS设备性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-ios-devices/zh.md)
 	- CocoStudio
@@ -160,13 +160,38 @@
 		- [月亮战士——Cocos2d-html5展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
 		- [了解Cocos2d-html5 2.2.2分辨率策略](../manual/framework/html5/understand-the-resolution-policy-in-cocos2d-html5-2.2.2/zh.md)
 	- [如何贡献](../manual/framework/native/contribution/zh.md)
+	
 - 完整的游戏示例教学
- 	- [在cocos2d-x3.0里如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)
- 	- 如何使用cocos2d-x 3.0来做一个简单的iphone游戏教程(v3.0)
+ 	- [在Cocos2d-x3.0里如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)
+ 	- [在Cocos2d-x里如何制作各种按钮](../tutorial/how-to-create-buttons-in-cocos2d-simple-radio-and-toggle/zh.md)
+ 	- [在Cocos2d-x3.0里面如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)
+ 	- [使用Cocos2d-x实现一款类似《Flappy Bird》的游戏](../tutorial/how-to-make-a-game-like-flappybird/zh.md)
+ 	
+ 	- 如何使用Cocos2d-x 3.0来做一个简单的iphone游戏教程(v3.0)
  		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-space-shooter-game/chapter-1/zh.md)
 		- [part 2 添加更强力的武器](../tutorial/how-to-make-a-space-shooter-game/chapter-2/zh.md)
 		- [part 3 更猛的怪物和更多的关卡](../tutorial/how-to-make-a-space-shooter-game/chapter-3/zh.md)
+		
+	- 如何使用Cocos2d-x来制作一个塔防游戏(v3.0)
+ 		- [如何使用Cocos2d-x制作一个塔防游戏：引子](../tutorial/how-to-make-a-tower-defense-game/preface/zh.md)
+		- [如何使用Cocos2d-x来制作一个塔防游戏：第一部分](../tutorial/how-to-make-a-tower-defense-game/chapter1/zh.md)
+		- [如何使用Cocos2d-x来制作一个塔防游戏：第二部分](../tutorial/how-to-make-a-tower-defense-game/chapter2/zh.md)
+		- [如何使用Cocos2d-x来制作一个塔防游戏：第三部分](../tutorial/how-to-make-a-tower-defense-game/chapter3/zh.md)
+		- [如何使用Cocos2d-x来制作一个塔防游戏：第四部分](../tutorial/how-to-make-a-tower-defense-game/chapter4/zh.md)
+		
 	- [如何在cocos2d里面使用动画和spritesheet](../tutorial/how-to-use-animations-and-spritesheets/zh.md)
+	- [Cocos2d-x里如何用TexturePacker和像素格式来优化spritesheet](../tutorial/how-to-use-texturepacker-to-optimize-the-spritesheet/zh.md)
+	
+	- Cocos2d-x菜单教程(v3.0)
+ 		- [Cocos2d-x3.0菜单教程：第一部分](../tutorial/menu-tutorial/chapter1/zh.md)
+ 		- [Cocos2d-x3.0菜单教程：第二部分](../tutorial/menu-tutorial/chapter2/zh.md)
+ 		- [Cocos2d-x3.0菜单教程：第三部分·完](../tutorial/menu-tutorial/chapter3/zh.md)
+ 		
+ 	- Cocos2d-x精灵教程(v3.0)
+ 		- [Cocos2d-x 精灵教程：第一部分](../tutorial/sprite-tutorial/chapter1/zh.md)
+ 		- [Cocos2d-x 精灵教程：第二部分](../tutorial/sprite-tutorial/chapter2/zh.md)
+ 		- [Cocos2d-x 精灵教程：第三部分](../tutorial/sprite-tutorial/chapter3/zh.md)
+	
 	- 入门篇：用C++写一个忍者射飞镖游戏（v2.2）
 		- 新建一个跨平台游戏
 		- [怎样添加精灵](../tutorial/shooting-game-with-cpp/chapter2/zh.md)
