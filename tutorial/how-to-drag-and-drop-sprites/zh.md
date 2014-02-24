@@ -1,9 +1,9 @@
-#在cocos2d-x3.0里面如何使用拖拽精灵
----------------------
+# 在cocos2d-x3.0里面如何使用拖拽精灵
 
-##引言
+## 引言
 
-###程序截图： 
+### 程序截图： 
+
 ![][p1] 
 
 　　许多读者想要一个关于如何在cocos2d-x里面使用touch事件来拖拽精灵（sprite）的教程。既然你们这么要求，我就满足你们啦！
@@ -20,7 +20,7 @@
 
 　　好了，不多说，准备好键盘，开始吧！
 
-##Getting Started
+## Getting Started
 
 　　在实现touch事件之前，首先你需要创建一个基本的cocos2d-x场景来显示背景和这些动物精灵。
 
@@ -30,19 +30,19 @@
 
 　　在你把图片导入到工程之后，在Xcode中展开Classes分组，然后选择HelloWorld.h。给HelloWorld类增加三个成员变量：
 
-<pre>
+
 ```
 public:
     cocos2d::Sprite * background;
     cocos2d::Sprite * selSprite;
     cocos2d::Vector<cocos2d::Sprite *> movableSprites;
 ```
-</pre>
+
 　　你将使用这些变量才追踪你的背景图片、当前选中的精灵以及一个在处理touch事件时需要移动的精灵的数组。
 
 　　现在，回到HelloWorldScene.cpp，找到init方法，把它替换成下面的代码：
 
-<pre>
+
 ```
 bool HelloWorld::init()
 {
@@ -78,9 +78,10 @@ bool HelloWorld::init()
     return true;
 }
 ```
-</pre>
+
 　　这里有一些新的知识点需要引入，让我们一步步来学习吧！
-##加载背景
+　　
+## 加载背景
 
 　　这个方法的第一部分加载了一张本场景的背景图片（blue-shooting-stars.png）。注意，这里把图片的锚点（anchor　point）设置成图片的左下角（０，０）点。
 
@@ -92,7 +93,7 @@ bool HelloWorld::init()
 
 　　当你加载大的图片的时候（比如背景图片），最佳实践是使用１６位的像素格式来加载--也就是牺牲一点质量来减少内存开销。cocos2d里面有很多不同的像素格式--这个教程中，我们选择１６位的像素格式，RGB565，因为背景一般不需要透明效果。（少了Alpha通道，RGBA就是有Alpha通道）
 
-##加载图片
+## 加载图片
 
 　　init方法的另外一部分，就是循环遍历一个图片数组，然后创建精灵并且计算精灵放置的坐标。这些精灵会一字排开，显示在屏幕上。同时把这些精灵的引用保存在movableSprites数组里面，这个数组后面会使用到。
 
@@ -100,13 +101,13 @@ bool HelloWorld::init()
 	![][p2]
 
 
-##基于touch事件选取精灵
+## 基于touch事件选取精灵
 
 　　现在，我们将编写一些代码基于用户的touch事件来决定哪一个精灵被选到了。
 
 　　本教程我们选择cocos2d-x 3.0新增并且推荐的事件监听，让它能够接收touch事件。在init方法的最后添加下列代码：
 
-<pre>
+
 ```
 auto listener = EventListenerTouchOneByOne::create();
 listener->setSwallowTouches(true);
@@ -115,13 +116,13 @@ listener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
 listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
 _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 ```
-</pre>
+
 
 　　注意，这是一种新的方式来处理touch事件。首先我们创建事件监听器，绑定onTouchBegan，onTouchMoved，onTouchEnded函数，后面再据情况而定实现它。
 
 　　接下来，在HelloWorldScene.cpp的底部添加一些新的方法：
 
-<pre>
+
 ```
 bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
 {
@@ -166,7 +167,7 @@ void HelloWorld::selectSpriteForTouch(Point touchLocation)
 }
 
 ```
-</pre>
+
 
 　　第一个方法（selectSpriteForTouch）是一个帮助方法，这个方法遍历movableSprites数组中的所有精灵，查找第一个精灵位置与touch点位置相交的精灵。
 
@@ -203,7 +204,7 @@ void HelloWorld::selectSpriteForTouch(Point touchLocation)
 
 　　现在，你了解了一些背景信息，让我们看看代码怎么写吧！在文件的最后添加下列新的方法：
 
-<pre>
+
 ```
 void HelloWorld::onTouchMoved(Touch* touch, Event* event)
 {
@@ -246,7 +247,7 @@ void HelloWorld::panForTranslation(Point translation)
     }
 }
 ```
-</pre>
+
 　　方法（boundLayerPos），用来确保你在滚动层的时候不会超出背景图片的边界。你传递一个目标点坐标，然后相应地修改x值，保证不会超出边界。如果你不是很理解的话，可以拿出纸和笔，结合上面给出的图片，自己动手画一画。那两句MAX和MIN代码等价于注释的代码。
 
 　　方法（panForTranslation）基于传入的目标点位置移动精灵（如果有精灵被选中就移动之，否则移动整个层）。具体的做法就是设置精灵或者层的位置。
