@@ -33,7 +33,7 @@
     //2 常用
     var color2 = cc.color(255,255,255,255);
     //3 拷贝
-    var color3 = cc.color(size2);
+    var color3 = cc.color(color2);
 	//4 固定颜色
 	var color4 = cc.color.white;
 	常用9种固定颜色类型
