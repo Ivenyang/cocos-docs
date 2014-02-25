@@ -36,6 +36,7 @@
     var color3 = cc.color(color2);
 	//4 固定颜色
 	var color4 = cc.color.white;
+
 	常用9种固定颜色类型
 	cc.color.white;//白色
 	cc.color.yellow;//黄色
