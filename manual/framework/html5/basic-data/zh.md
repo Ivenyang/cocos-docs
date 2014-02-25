@@ -26,7 +26,7 @@
     //3 拷贝
     var size3 = cc.size(size2);
 
-###4、颜色cc.Color 一共3种创建方式###
+###4、颜色cc.Color 一共4种创建方式###
 
     //1 快捷创建,返回相当于cc.color(0,0,0,255);
     var color1 = cc.color();
@@ -34,3 +34,15 @@
     var color2 = cc.color(255,255,255,255);
     //3 拷贝
     var color3 = cc.color(size2);
+	//4 固定颜色
+	var color4 = cc.color.white;
+	常用9种固定颜色类型
+	cc.color.white;//白色
+	cc.color.yellow;//黄色
+	cc.color.blue;//蓝色
+	cc.color.green;//绿色
+	cc.color.red;//红色
+	cc.color.magenta;//紫红色
+	cc.color.black;//黑色
+	cc.color.orange;//橙色
+	cc.color.gray;//灰色
