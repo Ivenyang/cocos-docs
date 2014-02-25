@@ -63,7 +63,7 @@ node.attr({
 });
 ```
 
-##5. List of properties
+##5. 属性列表
 
 ####cc.Node
 
