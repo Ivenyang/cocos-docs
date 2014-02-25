@@ -16,7 +16,7 @@
     //2 常用
     var size2 = cc.size(100,100);
     //3 拷贝
-    var size3 = cc.p(size2);
+    var size3 = cc.size(size2);
 
 ###3、区域cc.Rect  一共3种创建方式###
     //1 快捷创建,返回相当于cc.size(0,0)
