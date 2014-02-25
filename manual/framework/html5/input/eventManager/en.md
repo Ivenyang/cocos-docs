@@ -102,7 +102,7 @@ In the following example, we will add three overlapping buttons to a scene. Each
     });
 	
 ```
-**cc.EventListener.create** is a creator of all type of event listeners,  'event' use to set evnet listener's type. for example 'cc.EventListener.TOUCH_ONE_BY_ONE' as cc.EventListenerTouchOneByOne .
+**cc.EventListener.create** is a creator of all type of event listeners,  parameter 'event' can be used to set event listener's type. for example 'cc.EventListener.TOUCH_ONE_BY_ONE' and cc.EventListenerTouchOneByOne .
 
 ### Add event listener to event dispatcher
 
@@ -114,7 +114,7 @@ In the following example, we will add three overlapping buttons to a scene. Each
 	cc.eventManager.addListener(listener1.clone(), sprite3);
 ```
 
-**cc.eventManager** is a singleton object in Cocos2d-html5. You can use it manage the dispatch situation of all events. You can add listener to cc.eventManager through `addListener`,  `addListener` supports two parameters: `listener` and `nodeOrPriority`, if `nodeOrPriority` is a cc.Node or cc.Node's subclass object, it will add `listener` as SceneGraphPriority, and if `nodeOrPriority` is number value, it will add `listener` as FixedPriority. 
+**cc.eventManager** is a singleton object in Cocos2d-html5. You can use it to manage the dispatching state of all events. You can add listener to cc.eventManager through `addListener`,  `addListener` supports two parameters: `listener` and `nodeOrPriority`, if `nodeOrPriority` is a cc.Node or cc.Node's subclass object, it will add `listener` as SceneGraphPriority, and if `nodeOrPriority` is number value, it will add `listener` as FixedPriority. 
 
 *Note:* In the example above, we use the `clone()` method in the second and third calls to `addListener`. This is because each event listener can be added only once. The methods `addListener` set a registration flag on the event listener, and won't add the event listener again if the flag is already set.
 
