@@ -1,24 +1,24 @@
-#New property API in Cocos2d-html5 v3.0
+#Cocos2d-html5 v3.0中的属性风格API
 
 
-##1. The new style
+##1. 新的API风格
 
-Let's directly take an example to show you what will be available in Cocos2d-html5 v3.0:
+我们直接来看看你可以如何使用Cocos2d-html5 v3.0：
 
-| Old API       				| New API                            |
+| 以前的API       				| 新的API                             |
 | ---------------------------- |:----------------------------------:|
-| node.setPosition(x, y);		| node.x = x;<br/> node.y = y;            |
+| node.setPosition(x, y);		| node.x = x;<br/> node.y = y;       |
 | node.setRotation(r);			| node.rotation = r;                 |
 
-So as you can see in the table, functions invocation are replaced with properties modification. In version 3.0, not only `x`, `y` and `rotation`, almost all properties of your node can be accessed like this. The properties list can be found in the end of this documentation.
+如表格中可以看到的，设置position属性的函数调用在3.0版中会被替换为直接的对象属性存取。不仅仅是示例中的`x`，`y`和`rotation`，几乎所有节点类型中关于属性存取的函数都会被替换为直接的对象属性访问。具体的属性列表在文档最后。
 
-Thanks to Javascript [getter and setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters), we can define getter function and setter function to a property. That's how we defined our old functions for getter/setter of new properties.
+得益于Javascript的[getter/setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters)，我们可以为对象的某一个属性名分别设置其getter/setter函数。这就是Cocos2d-html5如何做到从函数到属性的转换。
 
-As for the name of the properties, we proposed names close to CSS style which is very familiar to javascript developers.
+至于属性的命名，我们尽可能提供了类似css风格的属性名，除此之外的属性都尽力维持与v2.2.2中一致。选择类似css的属性名是为了给Javascript开发者以最自然的开发体验。
 
-##2. `attr` function of cc.Node
+##2. cc.Node的`attr`函数
 
-Individually, the property API is just a replacement of functions which permit to have more compact code, it's not so exiting. But along with the properties access API, we also provided a even more useful function to cc.Node: `attr` function. Quite similar to jQuery's `attr` function, it helps you to config all the properties you want together with just one function call.
+新API使得Cocos2d-html5代码更加简洁，但这还不够，我们为cc.Node添加了更为简单易用的`attr`函数。与jQuery的`attr`函数相同，这个函数允许开发者批量设置多个属性。示例如下：
 
 ```
 node.attr({
@@ -32,23 +32,23 @@ node.attr({
 });
 ```
 
-It support not only all properties available in the list of the end, but also your custom properties.
+值得一提的是，这个函数不仅仅支持文末列表中的属性，也支持开发者的自定义属性。
 
-##3. Why and what changed
+##3. 改变的初衷
 
-Why we want to do such a enormous change to our stable API? I think the obvious answer is already in the previous examples: The new API is far easier to code than the old API.
+为什么Cocos2d-html5要对已稳定的API做出如此大的改变呢？我想最显而易见的答案已经体现在前面的示例中了：那就是更简单。
 
-But what we really want to change, is not just the simplicity. Cocos2d-html5 has been complained for a long time by web developers about how difficult it is to learn and use. After compared with other html5 game engines, we found our engine is not designed for javascript developers. And indeed, the API of Cocos2d-html5 has always been the same with Cocos2d-x which serves C++ developers, and the original Cocos2d-iPhone also leaves its objective-C style API everywhere in the engine. Obviously, those APIs, which have been ported to Cocos2d-html5, are sometimes very strange for javascript developers.
+但是我们真正想改变的目标，并不仅仅是更简单而已，或者说简单并不是目标，而是结果。长期以来，Cocos2d-html5一直被WEB开发者诟病其复杂程度导致难于学习和使用。在与其他html5游戏引擎比较之后，我们发现我们引擎最大的问题是，它并不是为Javascript开发者设计的。事实上确实如此，到目前为止，Cocos2d-html5引擎的实现目标一直是尽力与Cocos2d-x的API保持一致，而Cocos2d-x是为C++开发者设计的，与此同时，Cocos2d家族的起源Cocos2d-iPhone也在引擎中留下了非常多objective-C风格的API设计。很显然，正是由于这些API被直接移植到h5引擎中，Javascript开发者才会觉得引擎非常复杂难用。
 
-So the main task of version 3.0 is to propose a fully refactored javascript style API to our user, and we are willing to take such a huge risk to change everything and 'reboot' Cocos2d-html5. 
+所以引擎3.0版本的主要目标就是提供给开发者一套全新的Javascript风格API，所以开发团队决定冒着很大的风险推动这次重构。
 
-Back to properties, cc.Node and all its descendant classes are refactored with properties instead of `getXXX()` and `setXXX(value)` functions. There are also some property style API provided in a few other classes. All properties and related classes will be listed at the end of this document.
+回到属性风格API，cc.Node以及所有继承自cc.Node的类都使用属性风格重构。以往的大多数`getXXX()`和`setXXX(value)`都被直接属性存取取代了。同时也有也有少数其他适合属性风格的类使用这种方式重构，它们也可以在文末的列表中找到。
 
-##4. About closure compiler
+##4. 关于Closure Compiler
 
-As `attr` uses key-value pairs to config nodes, there could be problems when we try to use the advanced mode of closure compiler to compile our project.
+由于`attr`函数使用键值对来配置节点，当我们使用Closure Compiler的高级模式来混淆时，这可能会引起一些意想不到的错误。
 
-The problem is that keys won't be compressed in advanced mode while our properties' names will be compressed, this produce a mismatch issue between the `attr` function and the real properties. Fortunately, we have guaranteed the functionality of basic properties, which will be noted also in the list. For other properties or custom properties, you can add closure compiler `expose` annotation to avoid the problem. Note that this problem occurs only when developer try to use `attr` function to config properties.
+简单来说，键值对中的键实质上是String类型，混淆过程中它并不会被压缩，而与之相对应的属性名却会被压缩，这导致了两者命名的不匹配。所幸，在引擎中我们保障了最常用的基础属性不会被压缩，至于其他的属性和用户自定义属性，可以使用Closure Compiler的`expose`声明来避免出现问题。需要注意的是这个问题只有在开发者尝试使用`attr`函数来配置属性的时候才会出现，如果没有使用`attr`函数就不需要做任何额外的处理。
 
 ```
 /** @expose */
