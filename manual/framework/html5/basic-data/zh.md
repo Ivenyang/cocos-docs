@@ -3,6 +3,8 @@
 基础数据类型统一通过方法来创建。不再支持new方式
 
 ###1、坐标cc.Point 一共3种创建方式###
+结构:{x:0,y:0}
+
     //1 快捷创建,返回相当于cc.p(0,0)
     var point1 = cc.p();
     //2 常用
@@ -10,7 +12,10 @@
     //3 拷贝
     var point3 = cc.p(point2);
 
+
 ###2、尺寸cc.Size  一共3种创建方式###
+结构:{width:0,height:0}
+
     //1 快捷创建,返回相当于cc.size(0,0)
     var size1 = cc.size();
     //2 常用
@@ -19,14 +24,17 @@
     var size3 = cc.size(size2);
 
 ###3、区域cc.Rect  一共3种创建方式###
-    //1 快捷创建,返回相当于cc.size(0,0)
-    var size1 = cc.size();
+结构:{x:0,y:0,width:0,height:0}
+
+    //1 快捷创建,返回相当于cc.rect(0,0,0,0)
+    var rect1 = cc.rect();
     //2 常用
-    var size2 = cc.size(100,100);
+    var rect2 = cc.rect(100,100,100,100);
     //3 拷贝
-    var size3 = cc.size(size2);
+    var rect3 = cc.rect(rect2);
 
 ###4、颜色cc.Color 一共4种创建方式###
+结构:{r:0,g:0,b:0,a:0}
 
     //1 快捷创建,返回相当于cc.color(0,0,0,255);
     var color1 = cc.color();
