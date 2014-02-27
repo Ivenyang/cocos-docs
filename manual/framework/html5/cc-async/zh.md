@@ -42,8 +42,8 @@ cc.async.parallel([
     function(cb){
         cb(null, "B");//此处代替异步调用方法
     }
-], function(item, index, count){
-    console.log(item, index, count);
+], function(item, count, totalNum){
+    console.log(item, count, totalNum);
 }, function(err, results){
     if(err) return console.error(err);
     console.log(results);//["a", "B"]
@@ -55,9 +55,9 @@ cc.async.parallel([
 ```
 var tempObj = {
     name : "TempObj",
-    trigger : function(item, index, count){
+    trigger : function(item, count, totalNum){
         console.log(this.name);//TempObj
-        console.log(item, index, count);
+        console.log(item, count, totalNum);
     },
     cb : function(err, results){
         if(err) return console.error(err);

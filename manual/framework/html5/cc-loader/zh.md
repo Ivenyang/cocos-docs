@@ -70,7 +70,7 @@ cc.loader.loadJs("src/a.js", function(err){
 });
 ```
 
-##### loadJsWidthImg
+##### loadJsWithImg
 
 用法同`loadJs`，只是在加载js文件的时候会显示一个loading的图片而已。
 

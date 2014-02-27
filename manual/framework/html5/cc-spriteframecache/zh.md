@@ -1,8 +1,10 @@
 # cc.spriteFrameCache 改造说明
 
+## 统一引擎内部创建SpriteFrame的数据结构
+
 将Plist的解析工作转移到了cc.plistLoader中去，对SAXParser进行了改造。
 
-统一了引擎创建SpriteFrame的数据格式：
+统一了引擎创建SpriteFrame的数据结构：
 
 ```script
 {
@@ -22,7 +24,14 @@
 }
 ```
 
-SpriteFrame的各种格式的配置文件，只要转换成这个格式就行了。
+引擎在创建SpriteFrame的时候，读取了plist配置文件的信息后，会将其转换为以上的数据格式。
+
+
+## 自定义SpriteFrame的配置文件
+
+采用`cc.loader`的插件机制，我们可以很轻松的自定义自己的配置文件格式。SpriteFrame的各种格式的配置文件，只要转换成对应格式就行了。
+
+在引擎中，我们为大家实现了一个`pkgJsonLoader`文件。
 
 例如，我们自定义了一个文件，用于存储原本配置在多个plist(`res/ui/tcc_issue_1.plist, res/ui/tcc_issue_2.plist`)的SpriteFrame的打包信息，
 名为`res/ui/imgs.pkgJson`(plist的内容就不贴了)：
