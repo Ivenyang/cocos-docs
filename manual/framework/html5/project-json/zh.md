@@ -4,7 +4,7 @@
 
 项目相关配置，由原来的`cocos2d.js`中转移到`project.json`中，该文件需要与`index.html`同级，一般建议放在根目录下。
 
-有原来的`cocos2d.js`改为`project.json`的好处如下：
+由原来的`cocos2d.js`改为`project.json`的好处如下：
 
 * 原来的`cocos2d.js`中参杂了一些逻辑代码，无法很好体现其就是作为项目的配置文件。
 
@@ -22,15 +22,16 @@
 
 #### showFPS
 
-跟原来配置相同，表示是否开启帧率显示。
+跟原来配置相同，表示是否开启帧率显示。默认为false。
 
 #### frameRate
 
-跟原来配置相同，表示设置帧率。
+跟原来配置相同，表示设置帧率。默认为60。
 
 #### engineDir
 
 跟原来配置相同，用于指定引擎目录。区别在于，在v2版本中，指向的是`**/cocos2d-html5/cocos2d`，但在v3版本中，只要指向`**/cocos2d-html5`就行了。
+默认为"libs/cocos2d-html5"。
 
 #### jsList
 
@@ -52,3 +53,4 @@
 "modules" : ["extensions", "pluginx", "box2d", "chipmunk"]
 ```
 
+如果想知道引擎中具体提供了哪些模块，可以参见`moduleCofing.json`文件中的`module`字段。

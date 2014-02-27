@@ -2,7 +2,7 @@
 
 ## 概述
 
-该单例模仿的是`nodejs`的`async`模块，只抽取了`parallel`和`map`这两个api，今后会可能会根据需求继续添加。改单例的目的是简化异步调用的代码书写。
+该单例模仿的是`nodejs`的`async`模块，只抽取了`parallel`和`map`这两个api，今后可能会根据需求继续添加。该单例的目的是简化异步调用的代码书写。
 
 ## cc.async.parallel
 
@@ -82,6 +82,14 @@ cc.async.parallel([
 ```
 
 ## cc.async.map
+
+参数：
+
+|   name   |  type   |  remark |
+|:--------:|:-------:|:-------:|
+|tasks|Array/Object|必填，数组里的每一项都是一个function|
+|option|Object/Function|必填，该参数与nodejs的async模块有所不同，这里作为拓展参数。当为方法时作为iterator使用，为Object的时候结构为：{cb:function, cbTarget:object/null, iterator:function, iteratorTarget:object/null}|
+|cb|Function|选填，所有异步调用结束后的总回调函数。当tasks为数组时，返回的results为数组，如果tasks是object，则返回的results也为一个object，并且每个key对应其返回结果。|
 
 用法1：
 
