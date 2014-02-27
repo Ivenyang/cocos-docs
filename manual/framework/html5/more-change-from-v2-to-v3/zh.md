@@ -66,3 +66,24 @@ cc.TEXTURE_2D.PIXEL_FORMAT_DEFAULT = cc.TEXTURE_2D.PIXEL_FORMAT_RGBA8888;
 ## cc.Scheduler
 
 `cc.PRIORITY_SYSTEM`改为`cc.Scheduler.PRIORITY_SYSTEM`。
+
+
+## 数组操作函数
+
+这些函数有些将名字开头改为小写，有些废弃了直接用Array的函数进行操作。
+
+```
+cc.ArrayVerifyType --> cc.arrayVerifyType
+cc.ArrayRemoveObject --> cc.arrayRemoveObject
+cc.ArrayRemoveArray ---> cc.arrayRemoveArray
+cc.ArrayAppendObjectsToIndex --> cc.arrayAppendObjectsToIndex
+
+cc.ArrayRemoveObjectAtIndex(arr, index) --> arr.splice(index, 1)
+cc.ArrayGetIndexOfValue(arr, value) --> arr.indexOf(value)
+cc.ArrayAppendObject(arr, addObj) --> arr.push(addObj)
+cc.ArrayAppendObjectToIndex(arr, addObj, index) --> arr.splice(index, 0, addObj)
+cc.ArrayGetIndexOfObject(arr, findObj) --> arr.indexOf(findObj)
+cc.ArrayContainsObject(arr, findObj) --> arr.indexOf(findObj) != -1
+
+remove cc.HASH_FIND_INT
+```
