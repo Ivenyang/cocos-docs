@@ -33,17 +33,19 @@
     //3 拷贝
     var rect3 = cc.rect(rect2);
 
-###4、颜色cc.Color 一共4种创建方式###
+###4、颜色cc.Color 一共5种创建方式###
 结构:{r:0,g:0,b:0,a:0}
 
     //1 快捷创建,返回相当于cc.color(0,0,0,255);
     var color1 = cc.color();
-    //2 常用
-    var color2 = cc.color(255,255,255,255);
-    //3 拷贝
-    var color3 = cc.color(color2);
-	//4 固定颜色
-	var color4 = cc.color.white;
+    //2 常用，不包含alpha值
+    var color2 = cc.color(255,255,255);
+	//3 常用，包含alpha值
+    var color3 = cc.color(255,255,255,255);
+    //4 拷贝
+    var color4 = cc.color(color2);
+	//5 固定颜色
+	var color5 = cc.color.white;
 
 	常用9种固定颜色类型
 	cc.color.white;//白色
