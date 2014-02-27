@@ -259,9 +259,9 @@ An added listener can be removed with following method:
 	cc.eventManager.remvoeListener(aSprite);			//remove all listeners of aSprite from cc.eventManager
 ```
 
-To remove all the listeners of the current node, use the following code:
+To remove all the listeners of the cc.eventManager, use the following code:
 
-```c++
+```javascript
     cc.eventManager.removeAllListeners();
 
 ```

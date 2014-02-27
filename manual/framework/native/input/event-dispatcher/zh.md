@@ -260,7 +260,7 @@ void MouseTest::onMouseScroll(Event *event)
 
 ```
 
-也可以使用如下方法，移除当前节点所有的监听器。
+也可以使用如下方法，移除当前事件分发器中所有监听器。
 
 ```c++
 	_eventDispatcher->removeAllEventListeners();
