@@ -163,6 +163,11 @@
 			- [Android设备Edge版本性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-android-devices/zh.md)
 			- [iOS设备性能测试](../manual/framework/native/advanced/optimizations/benchmark-reports/performance-test-of-edge-version-on-ios-devices/zh.md)
 			
+		- 常用工具
+			- [CocosBuilder](../manual/framework/native/tools-and-editors/zh.md)
+			- [Cocos2d-x纹理动作及关数等编辑器](../manual/framework/native/tools-and-editors/editors-for-cocos2d-x-texturetilemapparticleactionlevel-etc/zh.md)
+			- [TexturePacker](../manual/framework/native/tools-and-editors/texturepacker/zh.md)
+			
 	- CocoStudio
 		- [CocoStudio介绍](../manual/studio/about-cocostudio/zh.md)
 		- [CocoStudio UI编辑器的使用](../manual/studio/ui-editor/zh.md)
