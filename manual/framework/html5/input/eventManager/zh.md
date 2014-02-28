@@ -235,7 +235,7 @@ _注意：_与 **SceneGraphPriority** 所不同的是 **FixedPriority** 将会�
 ```javascript
 
 	cc.eventManager.removeListener(listener);			//移除一个已添加的监听器
-	cc.eventManager.remvoeListener(aSprite);			//清除aSprite对象上所有的监听器
+	cc.eventManager.removeListener(aSprite);			//清除aSprite对象上所有的监听器
 ```
 
 也可以使用如下方法，移除cc.eventManager中所有监听器。

@@ -256,7 +256,7 @@ An added listener can be removed with following method:
 ```javascript
 
 	cc.eventManager.removeListener(listener);			//remove a listener from cc.eventManager
-	cc.eventManager.remvoeListener(aSprite);			//remove all listeners of aSprite from cc.eventManager
+	cc.eventManager.removeListener(aSprite);			//remove all listeners of aSprite from cc.eventManager
 ```
 
 To remove all the listeners of the cc.eventManager, use the following code:
