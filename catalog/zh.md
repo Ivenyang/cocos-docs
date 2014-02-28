@@ -194,9 +194,9 @@
  	- [使用Cocos2d-x实现一款类似《Flappy Bird》的游戏](../tutorial/how-to-make-a-game-like-flappybird/zh.md)
  	
  	- 如何使用Cocos2d-x 3.0来做一个简单的iphone游戏教程(v3.0)
- 		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-space-shooter-game/chapter-1/zh.md)
-		- [part 2 添加更强力的武器](../tutorial/how-to-make-a-space-shooter-game/chapter-2/zh.md)
-		- [part 3 更猛的怪物和更多的关卡](../tutorial/how-to-make-a-space-shooter-game/chapter-3/zh.md)
+ 		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-simple-cocos2dx-game/chapter-1/zh.md)
+		- [part 2 添加更强力的武器](../tutorial/how-to-make-a-simple-cocos2dx-game/chapter-2/zh.md)
+		- [part 3 更猛的怪物和更多的关卡](../tutorial/how-to-make-a-simple-cocos2dx-game/chapter-3/zh.md)
 		
 	- 如何使用Cocos2d-x来制作一个塔防游戏(v3.0)
  		- [如何使用Cocos2d-x制作一个塔防游戏：引子](../tutorial/how-to-make-a-tower-defense-game/preface/zh.md)
