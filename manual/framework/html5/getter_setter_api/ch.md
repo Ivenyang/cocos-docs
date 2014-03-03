@@ -12,7 +12,15 @@
 
 如表格中可以看到的，设置position属性的函数调用在3.0版中会被替换为直接的对象属性存取。不仅仅是示例中的`x`，`y`和`rotation`，几乎所有节点类型中关于属性存取的函数都会被替换为直接的对象属性访问。具体的属性列表在文档最后。
 
-得益于Javascript的[getter/setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters)，我们可以为对象的某一个属性名分别设置其getter/setter函数。这就是Cocos2d-html5如何做到从函数到属性的转换。
+得益于Javascript的[getter/setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters)，我们可以为对象的某一个属性名分别设置其getter/setter函数。这就是Cocos2d-html5如何做到从函数到属性的转换。比如说，`node.x = x;`实际上调用了`setPositionX`函数并传入x作为参数，所以在使用属性风格API的时候请不要因为它的简单而感到担心，在很多情况下这等同于以前的函数调用。
+
+你也可以给自己的对象属性定义getter/setter函数，只需要使用下面这行代码：
+
+```
+cc.defineGetterSetter(object, "propertyName", getterFunc, setterFunc);
+```
+
+这样的话，`var a = object.propertyName;`会通过`getterFunc`获取`propertyName`的当前值，`object.propertyName = newvalue;`则会通过`setterFunc`来给`propertyName`赋新值。
 
 至于属性的命名，我们尽可能提供了类似css风格的属性名，除此之外的属性都尽力维持与v2.2.2中一致。选择类似css的属性名是为了给Javascript开发者以最自然的开发体验。
 
@@ -63,108 +71,133 @@ node.attr({
 });
 ```
 
-##5. 属性列表
 
-####cc.Node
+##5. 通过继承来重载属性
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
+另一个重要的问题是在继承过程中，如何重载父类中的属性。好消息是我们已经将这一机制在Cocos2d-html5的cc.Class中实现了。只要你重载了父类中的getter/setter函数，那么不需要重新定义，新的getter/setter会自动被绑定到属性上。下面是一个重载Sprite类中的`x`属性的例子：
+
+```
+var MySprite = cc.Sprite.extend({
+	ctor: function() {
+		this._super();
+		this.init();
+	},
+	getPositionX: function() {
+		// Your own implementation
+	},
+	setPositionX: function(x) {
+		// Your own implementation
+	}
+});
+
+var mySprite = new MySprite();
+```
+
+`mySprite.x = x;`会调用`MySprite`类的`setPositionX`函数而不是`Sprite`类的，getter函数也是同理。用户代码中唯一需要保证的是重载的getter/setter函数名必须和父类中定义的属性的getter/setter函数同名。否则你将需要通过`cc.defineGetterSetter`重新定义属性。
+
+
+##6. 属性列表
+
+#### cc.Node
+
+| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|x|Number|R&W| n.getPositionX();<br/> n.setPositionX(x); | yes |
-|y|Number|R&W| n.getPositionX();<br/> n.setPositionX(x); | yes |
-|width|Number|R&W| n.getContentSize().width;<br/> n.setContentSize(width, height); | yes |
-|height|Number|R&W| n.getContentSize().height;<br/> n.setContentSize(width, height); | yes |
-|anchorX|Number|R&W| n.getAnchorPoint().x;<br/> n.setAnchorPoint(x, y); | yes |
-|anchorY|Number|R&W| n.getAnchorPoint().y;<br/> n.setAnchorPoint(x, y); | yes |
-|ignoreAnchor|Boolean|R&W| n.isIgnoreAnchorPointForPosition();<br/> n.ignoreAnchorPointForPosition(ignore); | yes |
-|skewX|Number|R&W| n.getSkewX();<br/> n.setSkewX(x); | yes |
-|skewY|Number|R&W| n.getSkewY();<br/> n.setSkewY(y); | yes |
-|rotation|Number|R&W| n.getRotation();<br/> n.setRotation(r); | yes |
-|rotationX|Number|R&W| n.getRotationX();<br/> n.setRotationX(rx); | yes |
-|rotationY|Number|R&W| n.getRotationY();<br/> n.setRotationY(ry); | yes |
-|scale|Number|R&W| n.getScale();<br/> n.setScale(s); | yes |
-|scaleX|Number|R&W| n.getScaleX();<br/> n.setScaleX(sx); | yes |
-|scaleY|Number|R&W| n.getScaleY();<br/> n.setScaleY(sy); | yes |
-|zIndex|Number|R&W| n.getZOrder();<br/> n.setZOrder(zOrder); | yes |
-|vertexZ|Number|R&W| n.getVertexZ();<br/> n.setVertexZ(zOrder); | yes |
-|children|Array|Readonly| n.getChildren(); | no |
-|childrenCount|Number|Readonly| n.getChildrenCount(); | no |
-|parent|cc.Node|R&W| n.getParent();<br/> n.setParent(parent); | yes |
-|visible|Boolean|R&W| n.isVisible();<br/> n.setVisible(visible); | yes |
-|running|Boolean|Readonly| n.isRunning(); | no |
-|tag|Number|R&W| n.getTag();<br/> n.setTag(tag); | yes |
-|userData|Object|R&W| n.getUserData();<br/> n.setUserData(data); | yes |
-|userObject|Object|R&W| n.getUserObject();<br/> n.setUserObject(obj); | yes |
-|arrivalOrder|Number|R&W| n.getArrivalOrder();<br/> n.setArrivalOrder(order); | yes |
-|actionManager|cc.ActionManager|R&W| n.getActionManager();<br/> n.setActionManager(mgr); | yes |
-|scheduler|cc.Scheduler|R&W| n.getScheduler();<br/> n.setScheduler(scheduler); | yes |
-|grid|cc.GridBase|R&W| n.getGrid();<br/> n.setGrid(grid); | no |
-|shaderProgram|cc.GLProgram|R&W| n.getShaderProgram();<br/> n.setShaderProgram(program); | no |
-|glServerState|Number|R&W| n.getGLServerState();<br/> n.setGLServerState(state); | no |
+|x|Number|R&W| getPositionX, setPositionX | yes |
+|y|Number|R&W| getPositionY, setPositionY | yes |
+|width|Number|R&W| _getWidth, _setWidth | yes |
+|height|Number|R&W| _getHeight, _setHeight | yes |
+|anchorX|Number|R&W| _getAnchorX, _setAnchorX | yes |
+|anchorY|Number|R&W| _getAnchorY, _setAnchorY | yes |
+|ignoreAnchor|Boolean|R&W| isIgnoreAnchorPointForPosition, ignoreAnchorPointForPosition | yes |
+|skewX|Number|R&W| getSkewX, setSkewX | yes |
+|skewY|Number|R&W| getSkewY, setSkewY | yes |
+|rotation|Number|R&W| getRotation, setRotation | yes |
+|rotationX|Number|R&W| getRotationX, setRotationX | yes |
+|rotationY|Number|R&W| getRotationY, setRotationY | yes |
+|scale|Number|R&W| getScale, setScale | yes |
+|scaleX|Number|R&W| getScaleX, setScaleX | yes |
+|scaleY|Number|R&W| getScaleY, setScaleY | yes |
+|zIndex|Number|R&W| getZOrder, setZOrder | yes |
+|vertexZ|Number|R&W| getVertexZ, setVertexZ | yes |
+|children|Array|Readonly| getChildren | no |
+|childrenCount|Number|Readonly| getChildrenCount | no |
+|parent|cc.Node|R&W| getParent, setParent | yes |
+|visible|Boolean|R&W| isVisible, setVisible | yes |
+|running|Boolean|Readonly| isRunning | no |
+|tag|Number|R&W| getTag, setTag | yes |
+|userData|Object|R&W| getUserData, setUserData | yes |
+|userObject|Object|R&W| getUserObject, setUserObject | yes |
+|arrivalOrder|Number|R&W| getArrivalOrder, setArrivalOrder | yes |
+|actionManager|cc.ActionManager|R&W| getActionManager, setActionManager | yes |
+|scheduler|cc.Scheduler|R&W| getScheduler, setScheduler | yes |
+|grid|cc.GridBase|R&W| getGrid, setGrid | no |
+|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
+|glServerState|Number|R&W| getGLServerState, setGLServerState | no |
 
-####cc.NodeRGBA
+#### cc.NodeRGBA
 
 Extend from cc.Node
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|opacity|Number|R&W| n.getOpacity();<br/> n.setOpacity(opacity); | yes |
-|opacityModifyRGB|Boolean|R&W| n.isOpacityModifyRGB();<br/> n.setOpacityModifyRGB(value); | yes |
-|cascadeOpacity|Boolean|R&W| n.isCascadeOpacity();<br/> n.setCascadeOpacity(value); | yes |
-|color|cc.Color|R&W| n.getColor();<br/> n.setColor(color); | yes |
-|cascadeColor|Boolean|R&W| n.isCascadeColor();<br/> n.setCascadeColor(value); | yes |
+|opacity|Number|R&W| getOpacity, setOpacity | yes |
+|opacityModifyRGB|Boolean|R&W| isOpacityModifyRGB, setOpacityModifyRGB | yes |
+|cascadeOpacity|Boolean|R&W| isCascadeOpacity, setCascadeOpacity | yes |
+|color|cc.Color|R&W| getColor, setColor | yes |
+|cascadeColor|Boolean|R&W| isCascadeColor, setCascadeColor | yes |
 
-####cc.Sprite
+#### cc.Sprite
 
 Extend from cc.NodeRGBA
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|dirty|Boolean|R&W| n.isDirty();<br/> n.setDirty(value); | yes |
-|flippedX|Boolean|R&W| n.isFlippedX();<br/> n.setFlippedX(value); | yes |
-|flippedY|Boolean|R&W| n.isFlippedY();<br/> n.setFlippedY(value); | yes |
-|offsetX|Number|Readonly| none | no |
-|offsetY|Number|Readonly| none | no |
-|atlasIndex|Number|R&W| n.getAtlasIndex();<br/> n.setAtlasIndex(value); | yes |
-|texture|cc.Texture2D|R&W| n.getTexture();<br/> n.setTexture(tex); | yes |
-|textureRectRotated|Boolean|Readonly| n.isTextureRectRotated(); | no |
-|textureAtlas|cc.TextureAtlas|R&W| n.getTextureAtlas();<br/> n.setTextureAtlas(tex); | yes |
-|batchNode|cc.SpriteBatchNode|R&W| n.getSpriteBatchNode();<br/> n.setSpriteBatchNode(node); | yes |
-|quad|cc.V3F_C4B_T2F_Quad|Readonly| n.getQuad(); | no |
+|dirty|Boolean|R&W| isDirty, setDirty | yes |
+|flippedX|Boolean|R&W| isFlippedX, setFlippedX | yes |
+|flippedY|Boolean|R&W| isFlippedY, setFlippedY | yes |
+|offsetX|Number|Readonly| _getOffsetX | no |
+|offsetY|Number|Readonly| _getOffsetY | no |
+|atlasIndex|Number|R&W| getAtlasIndex, setAtlasIndex | yes |
+|texture|cc.Texture2D|R&W| getTexture, setTexture | yes |
+|textureRectRotated|Boolean|Readonly| isTextureRectRotated | no |
+|textureAtlas|cc.TextureAtlas|R&W| getTextureAtlas, setTextureAtlas | yes |
+|batchNode|cc.SpriteBatchNode|R&W| getSpriteBatchNode, setSpriteBatchNode | yes |
+|quad|cc.V3F_C4B_T2F_Quad|Readonly| getQuad | no |
 
-####cc.LabelTTF
+#### cc.LabelTTF
 
 Extend from cc.Sprite
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|string|String|R&W| n.getString();<br/> n.setString(str); | yes |
-|textAlign|Number|R&W| n.getHorizontalAlignement();<br/> n.setHorizontalAlignement(value); | yes |
-|verticalAlign|Number|R&W| n.getVerticalAlignement();<br/> n.setVerticalAlignement(value); | yes |
-|font|String|R&W| none | yes |
-|fontSize|Number|R&W| n.getFontSize();<br/> n.setFontSize(value); | yes |
-|fontName|String|R&W| n.getFontName();<br/> n.setFontName(value); | yes |
-|boundingWidth|Number|R&W| n.getDimensions().width;<br/> n.setDimensions(size); | yes |
-|boundingHeight|Number|R&W| n.getDimensions().height;<br/> n.setDimensions(size); | yes |
-|fillStyle|cc.Color|R&W| n.setFontFillColor(color); | yes |
-|strokeStyle|cc.Color|R&W| n.enableStroke(strokeColor, strokeSize); | yes |
-|lineWidth|Number|R&W| n.enableStroke(strokeColor, strokeSize); | yes |
-|shadowOffsetX|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowOffsetY|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowOpacity|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowBlur|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
+|string|String|R&W| getString, setString | yes |
+|textAlign|Number|R&W| getHorizontalAlignement, setHorizontalAlignement | yes |
+|verticalAlign|Number|R&W| getVerticalAlignement, setVerticalAlignement | yes |
+|font|String|R&W| _getFont, _setFont | yes |
+|fontSize|Number|R&W| getFontSize, setFontSize | yes |
+|fontName|String|R&W| getFontName, setFontName | yes |
+|boundingWidth|Number|R&W| _getBoundingWidth,  _setBoundingWidth | yes |
+|boundingHeight|Number|R&W| _getBoundingHeight,  _setBoundingHeight | yes |
+|fillStyle|cc.Color|R&W| setFontFillColor | yes |
+|strokeStyle|cc.Color|R&W| _getStrokeStyle, _setStrokeStyle | yes |
+|lineWidth|Number|R&W| _getLineWidth, _setLineWidth | yes |
+|shadowOffsetX|Number|R&W| _getShadowOffsetX, _setShadowOffsetX | yes |
+|shadowOffsetY|Number|R&W| _getShadowOffsetY, _setShadowOffsetY | yes |
+|shadowOpacity|Number|R&W| _getShadowOpacity, _setShadowOpacity | yes |
+|shadowBlur|Number|R&W| _getShadowBlur, _setShadowBlur | yes |
 
-####cc.Texture2D
+#### cc.Texture2D
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|name|String|Readonly| tex.getName; | no |
-|pixelFormat|Number|Readonly| tex.getPixelFormat(); | no |
-|pixelsWidth|Number|Readonly| tex.getPixelsWide(); | no |
-|pixelsHeight|Number|Readonly| tex.getPixelsHigh(); | no |
-|width|Number|R&W| tex.getContentSize().width;<br/> tex.setContentSize(size); | no |
-|height|Number|R&W| tex.getContentSize().height;<br/> tex.setContentSize(size); | no |
-|shaderProgram|cc.GLProgram|R&W| tex.getShaderProgram();<br/> tex.setShaderProgram(program) | no |
-|maxS|Number|R&W| tex.getMaxS();<br/> tex.setMaxS(value); | no |
-|maxT|Number|R&W| tex.getMaxT();<br/> tex.setMaxT(value); | no |
+|name|String|Readonly| getName | no |
+|pixelFormat|Number|Readonly| getPixelFormat | no |
+|pixelsWidth|Number|Readonly| getPixelsWide | no |
+|pixelsHeight|Number|Readonly| getPixelsHigh | no |
+|width|Number|R&W| _getWidth, _setWidth | no |
+|height|Number|R&W| _getHeight, _setHeight | no |
+|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
+|maxS|Number|R&W| getMaxS, setMaxS | no |
+|maxT|Number|R&W| getMaxT, setMaxT | no |
 
 // IN CONSTRUCTION

@@ -13,7 +13,15 @@ Let's directly take an example to show you what will be available in Cocos2d-htm
 
 So as you can see in the table, functions invocation are replaced with properties modification. In version 3.0, not only `x`, `y` and `rotation`, almost all properties of your node can be accessed like this. The properties list can be found in the end of this documentation.
 
-Thanks to Javascript [getter and setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters), we can define getter function and setter function to a property. That's how we defined our old functions for getter/setter of new properties.
+Thanks to Javascript [getter and setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters), we can define getter function and setter function to a property. That's how we defined our old functions for getter/setter of new properties. For example, `node.x = x;` actually invoked `setPositionX` function with the new x value, so don't be afraid of the simplified APIs, it's equivalent to the old function calls.
+
+To define your own getter setter function for a property of an object, you can just use this line of code:
+
+```
+cc.defineGetterSetter(object, "propertyName", getterFunc, setterFunc);
+```
+
+Then each time you do `var a = object.propertyName;`, this retrieve the value of propertyName via `getterFunc`, and each time you want to modify the value: `object.propertyName = newvalue;` this pass the new value to `setterFunc` and try to modify its value.
 
 As for the name of the properties, we proposed names close to CSS style which is very familiar to javascript developers.
 
@@ -43,7 +51,7 @@ Why we want to do such a enormous change to our stable API? I think the obvious 
 
 But what we really want to change, is not just the simplicity. Cocos2d-html5 has been complained for a long time by web developers about how difficult it is to learn and use. After compared with other html5 game engines, we found our engine is not designed for javascript developers. And indeed, the API of Cocos2d-html5 has always been the same with Cocos2d-x which serves C++ developers, and the original Cocos2d-iPhone also leaves its objective-C style API everywhere in the engine. Obviously, those APIs, which have been ported to Cocos2d-html5, are sometimes very strange for javascript developers.
 
-So the main task of version 3.0 is to propose a fully refactored javascript style API to our user, and we are willing to take such a huge risk to change everything and 'reboot' Cocos2d-html5. 
+So the main task of version 3.0 is to propose a fully refactored javascript style API to our user, and we are willing to take such a huge risk to change everything and 'reboot' Cocos2d-html5.
 
 Back to properties, cc.Node and all its descendant classes are refactored with properties instead of `getXXX()` and `setXXX(value)` functions. There are also some property style API provided in a few other classes. All properties and related classes will be listed at the end of this document.
 
@@ -67,44 +75,70 @@ node.attr({
 });
 ```
 
-5. List of properties
+
+5. Inherit property
+---------------------
+
+Another problem is that how can you inherit a class, and override the getter/setter function of the property. Good news for you, we have implement a built in solution to make this happen automatically. Here is an example when you want to override the `x` getter/setter in your custom Sprite sub class.
+
+```
+var MySprite = cc.Sprite.extend({
+	ctor: function() {
+		this._super();
+		this.init();
+	},
+	getPositionX: function() {
+		// Your own implementation
+	},
+	setPositionX: function(x) {
+		// Your own implementation
+	}
+});
+
+var mySprite = new MySprite();
+```
+
+Then `mySprite.x = x;` will invoke your custom `setPositionX` function, same for getter. What you have to make sure is the inherited getter/setter functions' names must be the same as the parent class. Otherwise, you will need to redefine the property via `cc.defineGetterSetter`.
+
+
+6. List of properties
 ---------------------
 
 #### cc.Node
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
+| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|x|Number|R&W| n.getPositionX(); n.setPositionX(x); | yes |
-|y|Number|R&W| n.getPositionX(); n.setPositionX(x); | yes |
-|width|Number|R&W| n.getContentSize().width; n.setContentSize(width, height); | yes |
-|height|Number|R&W| n.getContentSize().height; n.setContentSize(width, height); | yes |
-|anchorX|Number|R&W| n.getAnchorPoint().x; n.setAnchorPoint(x, y); | yes |
-|anchorY|Number|R&W| n.getAnchorPoint().y; n.setAnchorPoint(x, y); | yes |
-|ignoreAnchor|Boolean|R&W| n.isIgnoreAnchorPointForPosition(); n.ignoreAnchorPointForPosition(ignore); | yes |
-|skewX|Number|R&W| n.getSkewX(); n.setSkewX(x); | yes |
-|skewY|Number|R&W| n.getSkewY(); n.setSkewY(y); | yes |
-|rotation|Number|R&W| n.getRotation(); n.setRotation(r); | yes |
-|rotationX|Number|R&W| n.getRotationX(); n.setRotationX(rx); | yes |
-|rotationY|Number|R&W| n.getRotationY(); n.setRotationY(ry); | yes |
-|scale|Number|R&W| n.getScale(); n.setScale(s); | yes |
-|scaleX|Number|R&W| n.getScaleX(); n.setScaleX(sx); | yes |
-|scaleY|Number|R&W| n.getScaleY(); n.setScaleY(sy); | yes |
-|zIndex|Number|R&W| n.getZOrder(); n.setZOrder(zOrder); | yes |
-|vertexZ|Number|R&W| n.getVertexZ(); n.setVertexZ(zOrder); | yes |
-|children|Array|Readonly| n.getChildren(); | no |
-|childrenCount|Number|Readonly| n.getChildrenCount(); | no |
-|parent|cc.Node|R&W| n.getParent(); n.setParent(parent); | yes |
-|visible|Boolean|R&W| n.isVisible(); n.setVisible(visible); | yes |
-|running|Boolean|Readonly| n.isRunning(); | no |
-|tag|Number|R&W| n.getTag(); n.setTag(tag); | yes |
-|userData|Object|R&W| n.getUserData(); n.setUserData(data); | yes |
-|userObject|Object|R&W| n.getUserObject(); n.setUserObject(obj); | yes |
-|arrivalOrder|Number|R&W| n.getArrivalOrder(); n.setArrivalOrder(order); | yes |
-|actionManager|cc.ActionManager|R&W| n.getActionManager(); n.setActionManager(mgr); | yes |
-|scheduler|cc.Scheduler|R&W| n.getScheduler(); n.setScheduler(scheduler); | yes |
-|grid|cc.GridBase|R&W| n.getGrid(); n.setGrid(grid); | no |
-|shaderProgram|cc.GLProgram|R&W| n.getShaderProgram(); n.setShaderProgram(program); | no |
-|glServerState|Number|R&W| n.getGLServerState(); n.setGLServerState(state); | no |
+|x|Number|R&W| getPositionX, setPositionX | yes |
+|y|Number|R&W| getPositionY, setPositionY | yes |
+|width|Number|R&W| _getWidth, _setWidth | yes |
+|height|Number|R&W| _getHeight, _setHeight | yes |
+|anchorX|Number|R&W| _getAnchorX, _setAnchorX | yes |
+|anchorY|Number|R&W| _getAnchorY, _setAnchorY | yes |
+|ignoreAnchor|Boolean|R&W| isIgnoreAnchorPointForPosition, ignoreAnchorPointForPosition | yes |
+|skewX|Number|R&W| getSkewX, setSkewX | yes |
+|skewY|Number|R&W| getSkewY, setSkewY | yes |
+|rotation|Number|R&W| getRotation, setRotation | yes |
+|rotationX|Number|R&W| getRotationX, setRotationX | yes |
+|rotationY|Number|R&W| getRotationY, setRotationY | yes |
+|scale|Number|R&W| getScale, setScale | yes |
+|scaleX|Number|R&W| getScaleX, setScaleX | yes |
+|scaleY|Number|R&W| getScaleY, setScaleY | yes |
+|zIndex|Number|R&W| getZOrder, setZOrder | yes |
+|vertexZ|Number|R&W| getVertexZ, setVertexZ | yes |
+|children|Array|Readonly| getChildren | no |
+|childrenCount|Number|Readonly| getChildrenCount | no |
+|parent|cc.Node|R&W| getParent, setParent | yes |
+|visible|Boolean|R&W| isVisible, setVisible | yes |
+|running|Boolean|Readonly| isRunning | no |
+|tag|Number|R&W| getTag, setTag | yes |
+|userData|Object|R&W| getUserData, setUserData | yes |
+|userObject|Object|R&W| getUserObject, setUserObject | yes |
+|arrivalOrder|Number|R&W| getArrivalOrder, setArrivalOrder | yes |
+|actionManager|cc.ActionManager|R&W| getActionManager, setActionManager | yes |
+|scheduler|cc.Scheduler|R&W| getScheduler, setScheduler | yes |
+|grid|cc.GridBase|R&W| getGrid, setGrid | no |
+|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
+|glServerState|Number|R&W| getGLServerState, setGLServerState | no |
 
 #### cc.NodeRGBA
 
@@ -112,11 +146,11 @@ Extend from cc.Node
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|opacity|Number|R&W| n.getOpacity(); n.setOpacity(opacity); | yes |
-|opacityModifyRGB|Boolean|R&W| n.isOpacityModifyRGB(); n.setOpacityModifyRGB(value); | yes |
-|cascadeOpacity|Boolean|R&W| n.isCascadeOpacity(); n.setCascadeOpacity(value); | yes |
-|color|cc.Color|R&W| n.getColor(); n.setColor(color); | yes |
-|cascadeColor|Boolean|R&W| n.isCascadeColor(); n.setCascadeColor(value); | yes |
+|opacity|Number|R&W| getOpacity, setOpacity | yes |
+|opacityModifyRGB|Boolean|R&W| isOpacityModifyRGB, setOpacityModifyRGB | yes |
+|cascadeOpacity|Boolean|R&W| isCascadeOpacity, setCascadeOpacity | yes |
+|color|cc.Color|R&W| getColor, setColor | yes |
+|cascadeColor|Boolean|R&W| isCascadeColor, setCascadeColor | yes |
 
 #### cc.Sprite
 
@@ -124,17 +158,17 @@ Extend from cc.NodeRGBA
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|dirty|Boolean|R&W| n.isDirty(); n.setDirty(value); | yes |
-|flippedX|Boolean|R&W| n.isFlippedX(); n.setFlippedX(value); | yes |
-|flippedY|Boolean|R&W| n.isFlippedY(); n.setFlippedY(value); | yes |
-|offsetX|Number|Readonly| none | no |
-|offsetY|Number|Readonly| none | no |
-|atlasIndex|Number|R&W| n.getAtlasIndex(); n.setAtlasIndex(value); | yes |
-|texture|cc.Texture2D|R&W| n.getTexture(); n.setTexture(tex); | yes |
-|textureRectRotated|Boolean|Readonly| n.isTextureRectRotated(); | no |
-|textureAtlas|cc.TextureAtlas|R&W| n.getTextureAtlas(); n.setTextureAtlas(tex); | yes |
-|batchNode|cc.SpriteBatchNode|R&W| n.getSpriteBatchNode(); n.setSpriteBatchNode(node); | yes |
-|quad|cc.V3F_C4B_T2F_Quad|Readonly| n.getQuad(); | no |
+|dirty|Boolean|R&W| isDirty, setDirty | yes |
+|flippedX|Boolean|R&W| isFlippedX, setFlippedX | yes |
+|flippedY|Boolean|R&W| isFlippedY, setFlippedY | yes |
+|offsetX|Number|Readonly| _getOffsetX | no |
+|offsetY|Number|Readonly| _getOffsetY | no |
+|atlasIndex|Number|R&W| getAtlasIndex, setAtlasIndex | yes |
+|texture|cc.Texture2D|R&W| getTexture, setTexture | yes |
+|textureRectRotated|Boolean|Readonly| isTextureRectRotated | no |
+|textureAtlas|cc.TextureAtlas|R&W| getTextureAtlas, setTextureAtlas | yes |
+|batchNode|cc.SpriteBatchNode|R&W| getSpriteBatchNode, setSpriteBatchNode | yes |
+|quad|cc.V3F_C4B_T2F_Quad|Readonly| getQuad | no |
 
 #### cc.LabelTTF
 
@@ -142,34 +176,34 @@ Extend from cc.Sprite
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|string|String|R&W| n.getString(); n.setString(str); | yes |
-|textAlign|Number|R&W| n.getHorizontalAlignement(); n.setHorizontalAlignement(value); | yes |
-|verticalAlign|Number|R&W| n.getVerticalAlignement(); n.setVerticalAlignement(value); | yes |
-|font|String|R&W| none | yes |
-|fontSize|Number|R&W| n.getFontSize(); n.setFontSize(value); | yes |
-|fontName|String|R&W| n.getFontName(); n.setFontName(value); | yes |
-|boundingWidth|Number|R&W| n.getDimensions().width; n.setDimensions(size); | yes |
-|boundingHeight|Number|R&W| n.getDimensions().height; n.setDimensions(size); | yes |
-|fillStyle|cc.Color|R&W| n.setFontFillColor(color); | yes |
-|strokeStyle|cc.Color|R&W| n.enableStroke(strokeColor, strokeSize); | yes |
-|lineWidth|Number|R&W| n.enableStroke(strokeColor, strokeSize); | yes |
-|shadowOffsetX|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowOffsetY|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowOpacity|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
-|shadowBlur|Number|R&W| n.enableShadow(offset, opacity, blur); | yes |
+|string|String|R&W| getString, setString | yes |
+|textAlign|Number|R&W| getHorizontalAlignement, setHorizontalAlignement | yes |
+|verticalAlign|Number|R&W| getVerticalAlignement, setVerticalAlignement | yes |
+|font|String|R&W| _getFont, _setFont | yes |
+|fontSize|Number|R&W| getFontSize, setFontSize | yes |
+|fontName|String|R&W| getFontName, setFontName | yes |
+|boundingWidth|Number|R&W| _getBoundingWidth,  _setBoundingWidth | yes |
+|boundingHeight|Number|R&W| _getBoundingHeight,  _setBoundingHeight | yes |
+|fillStyle|cc.Color|R&W| setFontFillColor | yes |
+|strokeStyle|cc.Color|R&W| _getStrokeStyle, _setStrokeStyle | yes |
+|lineWidth|Number|R&W| _getLineWidth, _setLineWidth | yes |
+|shadowOffsetX|Number|R&W| _getShadowOffsetX, _setShadowOffsetX | yes |
+|shadowOffsetY|Number|R&W| _getShadowOffsetY, _setShadowOffsetY | yes |
+|shadowOpacity|Number|R&W| _getShadowOpacity, _setShadowOpacity | yes |
+|shadowBlur|Number|R&W| _getShadowBlur, _setShadowBlur | yes |
 
 #### cc.Texture2D
 
 | Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|name|String|Readonly| tex.getName; | no |
-|pixelFormat|Number|Readonly| tex.getPixelFormat(); | no |
-|pixelsWidth|Number|Readonly| tex.getPixelsWide(); | no |
-|pixelsHeight|Number|Readonly| tex.getPixelsHigh(); | no |
-|width|Number|R&W| tex.getContentSize().width; tex.setContentSize(size); | no |
-|height|Number|R&W| tex.getContentSize().height; tex.setContentSize(size); | no |
-|shaderProgram|cc.GLProgram|R&W| tex.getShaderProgram(); tex.setShaderProgram(program) | no |
-|maxS|Number|R&W| tex.getMaxS(); tex.setMaxS(value); | no |
-|maxT|Number|R&W| tex.getMaxT(); tex.setMaxT(value); | no |
+|name|String|Readonly| getName | no |
+|pixelFormat|Number|Readonly| getPixelFormat | no |
+|pixelsWidth|Number|Readonly| getPixelsWide | no |
+|pixelsHeight|Number|Readonly| getPixelsHigh | no |
+|width|Number|R&W| _getWidth, _setWidth | no |
+|height|Number|R&W| _getHeight, _setHeight | no |
+|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
+|maxS|Number|R&W| getMaxS, setMaxS | no |
+|maxT|Number|R&W| getMaxT, setMaxT | no |
 
 // IN CONSTRUCTION
