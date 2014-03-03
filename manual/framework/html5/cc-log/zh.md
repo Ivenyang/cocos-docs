@@ -97,20 +97,20 @@ cc.msgCode = {
 在代码中使用时变成：
 
 ```
-cc.log(cc.msgCode.cc1);
-cc.log(cc.msgCode.cc2, "cocos2d-html5");
+cc.log(cc.msgCode.log1);
+cc.log(cc.msgCode.log2, "cocos2d-html5");
 
-cc.warn(cc.msgCode.cc201);
-cc.warn(cc.msgCode.cc202, "cocos2d-html5");
+cc.warn(cc.msgCode.warn1);
+cc.warn(cc.msgCode.warn2, "cocos2d-html5");
 
-cc.error(cc.msgCode.cc401);
-cc.error(cc.msgCode.cc402, "cocos2d-html5");
+cc.error(cc.msgCode.error1);
+cc.error(cc.msgCode.error2, "cocos2d-html5");
 
-cc.assert(false, cc.msgCode.cc601);
-cc.assert(false, cc.msgCode.cc602, "cocos2d-html5");
+cc.assert(false, cc.msgCode.assert1);
+cc.assert(false, cc.msgCode.assert2, "cocos2d-html5");
 
-cc.throw(cc.msgCode.cc801);
-cc.throw(cc.msgCode.cc802, "cocos2d-html5");
+cc.throw(cc.msgCode.throw1);
+cc.throw(cc.msgCode.throw2, "cocos2d-html5");
 ```
 
 而且，关于区间，引擎部分这么分，而其他模块再多加前缀，例如定`cocostudio`前缀为10，那么其log区间为：`cc10001 <= log <= cc10200`。以此类推。
