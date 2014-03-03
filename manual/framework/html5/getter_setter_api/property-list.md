@@ -5,8 +5,8 @@
 
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
-| x | Number | R&W | getPositionX, setPositionX | NO |
-| y | Number | R&W | getPositionY, setPositionY | NO |
+| x | Number | R&W | getPositionX, setPositionX | YES |
+| y | Number | R&W | getPositionY, setPositionY | YES |
 | width | Number | R&W | _getWidth, _setWidth | YES |
 | height | Number | R&W | _getHeight, _setHeight | YES |
 | anchorX | Number | R&W | _getAnchorX, _setAnchorX | YES |
