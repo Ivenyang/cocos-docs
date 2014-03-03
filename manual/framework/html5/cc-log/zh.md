@@ -112,3 +112,5 @@ cc.assert(false, cc.msgCode.cc602, "cocos2d-html5");
 cc.throw(cc.msgCode.cc801);
 cc.throw(cc.msgCode.cc802, "cocos2d-html5");
 ```
+
+而且，关于区间，引擎部分这么分，而其他模块再多加前缀，例如定`cocostudio`前缀为10，那么其log区间为：`cc10001 <= log <= cc10200`。以此类推。
