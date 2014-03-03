@@ -105,6 +105,14 @@ cc.setup ---> cc._setup
 cc.initDebugSetting ---> cc._initDebugSetting
 ```
 
+## 统一方法名命名规范
+
+```
+cc.RectFromString --> cc.rectFromString
+cc.PointFromString --> cc.pointFromString
+cc.SizeFromString --> cc.sizeFromString
+```
+
 ## 常量
 
 去除了一下常量：
@@ -112,5 +120,14 @@ cc.initDebugSetting ---> cc._initDebugSetting
 ```
 cc.IS_SHOW_DEBUG_ON_PAGE
 cc.COCOS2D_DEBUG
+```
+
+
+## 其他
+
+```
+cc.renderContextType ---> cc.renderType
+cc.CANVAS ---> cc.RENDER_TYPE_CANVAS
+cc.WEBGL ---> cc.RENDER_TYPE_CANVAS
 ```
 
