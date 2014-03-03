@@ -200,4 +200,4 @@ Extend from cc.Sprite
 |maxS|Number|R&W| getMaxS, setMaxS | no |
 |maxT|Number|R&W| getMaxT, setMaxT | no |
 
-// IN CONSTRUCTION
+[完整列表](property-list.md)

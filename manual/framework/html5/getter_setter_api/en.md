@@ -156,7 +156,7 @@ Extend from cc.Node
 
 Extend from cc.NodeRGBA
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
+| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
 |dirty|Boolean|R&W| isDirty, setDirty | yes |
 |flippedX|Boolean|R&W| isFlippedX, setFlippedX | yes |
@@ -174,7 +174,7 @@ Extend from cc.NodeRGBA
 
 Extend from cc.Sprite
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
+| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
 |string|String|R&W| getString, setString | yes |
 |textAlign|Number|R&W| getHorizontalAlignement, setHorizontalAlignement | yes |
@@ -194,7 +194,7 @@ Extend from cc.Sprite
 
 #### cc.Texture2D
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
+| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
 |:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
 |name|String|Readonly| getName | no |
 |pixelFormat|Number|Readonly| getPixelFormat | no |
@@ -206,4 +206,4 @@ Extend from cc.Sprite
 |maxS|Number|R&W| getMaxS, setMaxS | no |
 |maxT|Number|R&W| getMaxT, setMaxT | no |
 
-// IN CONSTRUCTION
+[Full list](property-list.md)
