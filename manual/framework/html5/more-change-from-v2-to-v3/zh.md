@@ -63,6 +63,16 @@ cc.TEXTURE_2D.PIXEL_FORMAT_PVRTC2 = 9;
 cc.TEXTURE_2D.PIXEL_FORMAT_DEFAULT = cc.TEXTURE_2D.PIXEL_FORMAT_RGBA8888;
 ```
 
+删除了`cc.Texture2D.setDefaultAlphaPixelFormat`, `cc.Texture2D.getDefaultAlphaPixelFormat`, `cc.Texture2D.defaultAlphaPixelFormat`。
+
+直接改成：
+
+```
+cc.Texture2D.setDefaultAlphaPixelFormat(format) ---> cc.Texture2D.defaultPixelFormat = format
+cc.Texture2D.getDefaultAlphaPixelFormat() ---> cc.Texture2D.defaultPixelFormat
+cc.Texture2D.defaultAlphaPixelFormat() ---> cc.Texture2D.defaultPixelFormat
+```
+
 ## cc.Scheduler
 
 `cc.PRIORITY_SYSTEM`改为`cc.Scheduler.PRIORITY_SYSTEM`。
