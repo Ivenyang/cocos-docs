@@ -97,3 +97,20 @@ cc.ArrayContainsObject(arr, findObj) --> arr.indexOf(findObj) != -1
 
 remove cc.HASH_FIND_INT
 ```
+
+## 共有方法变成私有方法：
+
+```
+cc.setup ---> cc._setup
+cc.initDebugSetting ---> cc._initDebugSetting
+```
+
+## 常量
+
+去除了一下常量：
+
+```
+cc.IS_SHOW_DEBUG_ON_PAGE
+cc.COCOS2D_DEBUG
+```
+

@@ -14,7 +14,9 @@
 
 #### debugMode
 
-相当于原来的`COCOS2D_DEBUG`，0表示关闭调试模式，1表示开启基础调试，2表示开启所有调试。
+相当于原来的`COCOS2D_DEBUG`，其中：
+
+0表示关闭调试模式，1表示log，2表示warn，3表示error，5表示logForWebPage，6表示warnForWebPage，7表示errorForWebPage。
 
 #### renderMode
 
