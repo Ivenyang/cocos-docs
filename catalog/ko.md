@@ -37,7 +37,7 @@
 			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
 			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
 			- [Value](../manual/framework/native/data-structure/v3/value/en.md)
-		- v2.x: CCArray, CCDictionary and CCString
+		- v2.x: CCArray, CCDictionary 및 CCString
 	- [물리](../manual/framework/native/physics/physics-integration/en.md)
 	- 네트워크
 	- [이벤트 시스템](../manual/framework/native/input/event-dispatcher/en.md)
@@ -56,7 +56,7 @@
 		- CCLog
 		- CCConsole
 	- File Stream
-	- Intergrating with 3rd SDK
+	- 3rd SDK와의 통합
 	- Cocos2d-html5
 		- [왜 Cocos2d-html5 로 게임을 만들어야 하는가](../manual/framework/html5/cocosh5-advantages/en.md)
 		- [Cocos2d-html5 2.2.2의 화면 해상도 지원 정책](../manual/framework/html5/resolution-policy-design/en.md)
