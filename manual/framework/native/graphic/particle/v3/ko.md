@@ -1,4 +1,4 @@
-##Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 차이점
+##Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 비교
 ---
 ###CCParticleBatchNode & ParticleBatchNode
 ###*공통점:*
