@@ -7,7 +7,7 @@
 - 프레임워크 
 	- 시작하기	 
 		- 개발 환경 세팅
-			- [윈도우7에서 Cocos2d-x 안드로이드 환경 세팅하기](../manual/framework/native/installation/android-on-win7/en.md)
+			- [윈도우7에서 Cocos2d-x 안드로이드 환경 세팅하기(v2.x)](../manual/framework/native/installation/android-on-win7/en.md)
 			- Mac OS X에서 Cocos2d-x 개발 환경 세팅하기
 		- Cocos2d-x 개발에 앞서 알아둬야 할 것
 			- 레퍼런스 카운트와 Auto Release Pool
