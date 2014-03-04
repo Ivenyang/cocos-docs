@@ -17,34 +17,9 @@ Physics engines integrated into Cocos2d-x:
 
 ## Create a game project with physics engines
 
-You can create a 3.0 project by script in this path **/tools/project-creator下的create_project.py**
+You can create a 3.0 project by script in this path **/tools/project-creator/create_project.py**
 
-The project you created default using Chipmunk as physics engine. You can change it as Box2D as you want and it makes no difference for game.
-
-Using Box2D in android, you should change something in **projects/youPorjecyName/proj.android/jni/Application.mk**:
-change 
-
-```
-DCC_ENABLE_CHIPMUNK_INTEGRATION=1
-```
-
-as 
-
-```
-DCC_ENABLE_BOX2D_INTEGRATION=1
-```
-and in "Preprocessor Macros" in project setting
-change
-
-```
-CC_ENABLE_CHIPMUNK_INTEGRATION=1
-```
-
-as
-
-```
-CC_ENABLE_BOX2D_INTEGRATION=1
-```
+The project you created using Chipmunk as physics engine by default. 
 
 as following image:
 
@@ -85,11 +60,15 @@ return scene;
 }
 ```
 
-Scene class has a new static factory method-createWithPhysics() to create scene with physics world. You can get PhysicsWorld instance by Scene's **getPhysicsWorld()** method.
+Scene class has a new static factory method-createWithPhysics() to create scene with physics world. You can get PhysicsWorld instance by Scene's `getPhysicsWorld()` method.
 
-PhysicsWorld's **setDebugDrawMask()** method is very useful when debugging physics engine, it can make shape, joint and contact visible in physics world. Remember switch off the debug function when you want to release your game.
+PhysicsWorld's `setDebugDrawMask()` method is very useful when debugging physics engine, it can make shape, joint and contact visible in physics world. Remember switch off the debug function when you want to release your game.
 
-You can pass on PhysicsWorld to ChildLayer by **setPhyWorld()**, and there is only one PhysicsWorld instance in a scene, which shared by other layers.
+You can pass on PhysicsWorld to ChildLayer by `setPhyWorld()`, and there is only one PhysicsWorld instance in a scene, which shared by other layers.
+
+PhysicsWorld has default gravity setting, witch is `Vect(0.0f, -98.0f)`, you can invoke `setGravity()` to set it by yourself.
+
+You can change the speed of physics world by `setSpeed()`.
 
 ## Create Physics Boundary
 
@@ -138,6 +117,8 @@ void HelloWorld::addNewSpriteAtPosition(Point p)
 
 Create a sprite first, and then create a circle body that attach on sprite by PhysicsBody::createCircle. The whole process is as same as create a boundary.
 
+You can create PhysicsShape and add them to the body by `addShape()`, but be notice, the mess(counted by density and area) and moment of the shape will added to the body automatically, and you cann't change relative position and rotation of this shape after added to the body. You can remove it with `removeShape()` if you don't need it anymore.
+
 ## Collision detect
 
 Cocos2d-x has refactored event dispatch, all the events are managed by event dispatcher. So physics engine's collision event is managed by event dispatcher now.
@@ -146,13 +127,23 @@ Register a collision callback function **begin** by following codes:
 
 ```
 auto contactListener = EventListenerPhysicsContact::create();
-contactListener->onContactBegin = CC_CALLBACK_2(HelloWorld::onContactBegin, this);
+contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::onContactBegin, this);
 _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 ```
 
-Every collision detect event is listened by **EventListenerPhysicsContact**. Create a instance, then set its callback function **conContactBegin**. **CC_CALLBACK_2** is callback pointer transform function used by C++ 11. Because **onContactBegin** callback function has two parameters, so we use **CC_CALLBACK_2** to transform them.
+Every collision detect event is listened by **EventListenerPhysicsContact**. Create a instance, then set its callback function **conContactBegin**. **CC_CALLBACK_1** is callback pointer transform function used by C++ 11. Because **onContactBegin** callback function has two parameters, so we use **CC_CALLBACK_1** to transform them.
 
 _eventDispatcher is a member of base class Node, it can be used by a initialized Layer.
+
+You also can use `EventListenerPhysicsContactWithBodies`, `EventListenerPhysicsContactWithShapes`, `EventListenerPhysicsContactWithGroup` to listen the event you interested with bodys, shapes or group. But you also need to set the physics contact related bitmask value, because the contact event won't be received by default, even you create the relative EventListener.
+
+The contact relative bitmask setting and group setting are the same like Box2D. There are three values: **CategoryBitmask**， **ContactTestBitmask** and **CollisionBitmask**. you can use corresponding get/set method to get/set them. They are tested by logical and operation. When **CategoryBitmask** of one body and with **ContactTestBitmask** of another body with the result doesn't equal to zero, the contact event will be sended, overwise the contact event won't be sended. When **CategoryBitmask** of one body and with **CollisionBitmask** of another body with the result doesn't equal to zero, they will collied, overwise it won't. be ware, in default, **CategoryBitmask** value is 0xFFFFFFFF, **ContactTestBitmask** value is 0x00000000, and **CollisionBitmask** value is 0xFFFFFFFF, it means all body will collide with each other but with out send contact event by default.
+
+There are four contact callback functions in `EventListenerPhysicsContact`: `onContactBegin`, `onContactPreSolve`, `onContactPostSolve` and `onContactSeperate`.
+`onContactBegin` will be invoked at contact begin, and only invoke once at this contact. You can decide two shapes have collision or not by return true or false. you can use `PhysicsContact::setData()` to set user data for coming contact operation. Be noticed, `onContactPreSolve` and `onContactPostSolve` will not be invoked when `onContactBegin` return false, but however `onContactSeperate` will be invoked once.
+`onContactPreSolve` will be invoked at each step, you can use `PhysicsContactPreSolve` setting functions to set contact parameters, like restitution, friction and etc. You can also decide two shapes have collision or not by return true or false, and you can invoke `PhysicsContactPreSolve::ignore()` to skip subsequent `onContactPreSolve` and `onContactPostSolve` callbacks(return true in default).
+`onContactPostSolve`will be invoked at two shapes collision response has been processed in each step. You can do some subsequent contact operations in it, destory a body for example.
+`onContactSeperate` will be invoked at two shapes seperated. It also invoked once at this contact. It must be in pair with `onContactBegin`, so you can destory you own userdata at here which you seted with `PhysicsContact::setData()`.
 
 ## Demo
 
