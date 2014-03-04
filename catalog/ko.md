@@ -16,7 +16,7 @@
 		- Cocos2d의 좌표 시스템
 		- 스프라이트, 레이어 및 씬
 		- 파티클 시스템        
-			- [Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 차이점](../manual/framework/native/graphic/particle/v3/en.md)
+			- [Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 차이점](../manual/framework/native/graphic/particle/v3/ko.md)
 		- 화면 전환
 		- 책 넘기기 애니메이션
 		- 스켈레톤 애니메이션
@@ -63,7 +63,7 @@
 - Studio
 - 튜토리얼
 	- [CocoStudio로 게임 만들기](../tutorial/parkour-game-with-cocostudio/en.md)
-		- [CocoStudio란?](../tutorial/parkour-game-with-cocostudio/chapter1/en.md)
+		- [CocoStudio란?](../tutorial/parkour-game-with-cocostudio/chapter1/ko.md)
 		- [시작하기](../tutorial/parkour-game-with-cocostudio/chapter2/en.md)
 		- [달리기 게임을 만들어 보자](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
 		- [더 알아보기](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
