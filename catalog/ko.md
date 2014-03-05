@@ -36,7 +36,7 @@
 		- v3.0: 
 			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
 			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
-			- [Value](../manual/framework/native/data-structure/v3/value/en.md)
+			- [Value](../manual/framework/native/data-structure/v3/value/ko.md)
 		- v2.x: CCArray, CCDictionary 및 CCString
 	- [물리](../manual/framework/native/physics/physics-integration/en.md)
 	- 네트워크
@@ -62,9 +62,9 @@
 		- [Cocos2d-html5 2.2.2의 화면 해상도 지원 정책](../manual/framework/html5/resolution-policy-design/en.md)
 - Studio
 - 튜토리얼
-	- [CocoStudio로 게임 만들기](../tutorial/parkour-game-with-cocostudio/en.md)
+	- [CocoStudio로 게임 만들기](../tutorial/parkour-game-with-cocostudio/ko.md)
 		- [CocoStudio란?](../tutorial/parkour-game-with-cocostudio/chapter1/ko.md)
-		- [시작하기](../tutorial/parkour-game-with-cocostudio/chapter2/en.md)
+		- [시작하기](../tutorial/parkour-game-with-cocostudio/chapter2/ko.md)
 		- [달리기 게임을 만들어 보자](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
 		- [더 알아보기](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
 	- 자바스크립트로 달리기 게임 만들기
