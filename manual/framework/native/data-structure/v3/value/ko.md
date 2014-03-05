@@ -84,7 +84,7 @@ delete vecV;
 //----------------------------------------------------
 Map<std::string, Object*>* mapV = new Map<std::string, Object*>();
 mapV->insert(strV,sp0);
-Value val4(mapV);   // Map으로 초기화
+Value val4(mapV);   // Value 타입으로 초기화
 log("Map값에 대한 설명:%s",val4.getDescription().c_str());
 delete mapV;
 //----------------------------------------------------
