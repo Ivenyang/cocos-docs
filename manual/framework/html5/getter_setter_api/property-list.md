@@ -7,10 +7,10 @@
 |:------:|:------:|:-------:|:-------:|:------:|
 | x | Number | R&W | getPositionX, setPositionX | YES |
 | y | Number | R&W | getPositionY, setPositionY | YES |
-| width | Number | R&W | _getWidth, _setWidth | YES |
-| height | Number | R&W | _getHeight, _setHeight | YES |
-| anchorX | Number | R&W | _getAnchorX, _setAnchorX | YES |
-| anchorY | Number | R&W | _getAnchorY, _setAnchorY | YES |
+| width | Number | R&W | \_getWidth, _setWidth | YES |
+| height | Number | R&W | \_getHeight, _setHeight | YES |
+| anchorX | Number | R&W | \_getAnchorX, _setAnchorX | YES |
+| anchorY | Number | R&W | \_getAnchorY, _setAnchorY | YES |
 | skewX | Number | R&W | getSkewX, setSkewX | YES |
 | skewY | Number | R&W | getSkewY, setSkewY | YES |
 | zIndex | Number | R&W | getLocalZOrder, setLocalZOrder | YES |
@@ -46,8 +46,8 @@
 | pixelFormat | Number | readonly | getPixelFormat | NO |
 | pixelsWidth | Number | readonly | getPixelsWide | NO |
 | pixelsHeight | Number | readonly | getPixelsHigh | NO |
-| width | Number | R&W | _getWidth, _setWidth | NO |
-| height | Number | R&W | _getHeight, _setHeight | NO |
+| width | Number | R&W | \_getWidth, _setWidth | NO |
+| height | Number | R&W | \_getHeight, _setHeight | NO |
 | shaderProgram | cc.GLProgram | R&W | None | NO |
 | maxS | Number | R&W | None | NO |
 | maxT | Number | R&W | None | NO |
@@ -153,16 +153,16 @@ Extend from cc.Sprite
 | verticalAlign | Number | R&W | getVerticalAlignment, setVerticalAlignment | YES |
 | fontSize | Number | R&W | getFontSize, setFontSize | YES |
 | fontName | String | R&W | getFontName, setFontName | YES |
-| font | String | R&W | _getFont, _setFont | YES |
-| boundingWidth | Number | R&W | _getBoundingWidth, _setBoundingWidth | YES |
-| boundingHeight | Number | R&W | _getBoundingHeight, _setBoundingHeight | YES |
-| fillStyle | cc.Color | R&W | _getFillStyle, setFontFillColor | YES |
-| strokeStyle | cc.Color | R&W | _getStrokeStyle, _setStrokeStyle | YES |
-| lineWidth | Number | R&W | _getLineWidth, _setLineWidth | YES |
-| shadowOffsetX | Number | R&W | _getShadowOffsetX, _setShadowOffsetX | YES |
-| shadowOffsetY | Number | R&W | _getShadowOffsetY, _setShadowOffsetY | YES |
-| shadowOpacity | Number | R&W | _getShadowOpacity, _setShadowOpacity | YES |
-| shadowBlur | Number | R&W | _getShadowBlur, _setShadowBlur | YES |
+| font | String | R&W | \_getFont, _setFont | YES |
+| boundingWidth | Number | R&W | \_getBoundingWidth, _setBoundingWidth | YES |
+| boundingHeight | Number | R&W | \_getBoundingHeight, _setBoundingHeight | YES |
+| fillStyle | cc.Color | R&W | \_getFillStyle, setFontFillColor | YES |
+| strokeStyle | cc.Color | R&W | \_getStrokeStyle, _setStrokeStyle | YES |
+| lineWidth | Number | R&W | \_getLineWidth, _setLineWidth | YES |
+| shadowOffsetX | Number | R&W | \_getShadowOffsetX, _setShadowOffsetX | YES |
+| shadowOffsetY | Number | R&W | \_getShadowOffsetY, _setShadowOffsetY | YES |
+| shadowOpacity | Number | R&W | \_getShadowOpacity, _setShadowOpacity | YES |
+| shadowBlur | Number | R&W | \_getShadowBlur, _setShadowBlur | YES |
 
 
 ### cc.LabelAtlas
@@ -212,6 +212,16 @@ Extend from cc.MenuItem
 | string | String | R&W | getString, setString | YES |
 | label | cc.Node | R&W | getLabel, setLabel | NO |
 | disabledColor | cc.Color | R&W | getDisabledColor, setDisabledColor | NO |
+
+
+### cc.MenuItemFont
+
+Extend from 
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| fontSize | Number | R&W | fontSize, setFontSize | YES |
+| fontName | String | R&W | fontName, setFontName | YES |
 
 
 ### cc.MenuItemSprite
@@ -326,10 +336,25 @@ Extend from cc.SpriteBatchNode
 | layerOrientation | Number | R&W | None | NO |
 | properties | Array | R&W | None | NO |
 | layerName | String | R&W | None | NO |
-| layerWidth | Number | R&W | _getLayerWidth, _setLayerWidth | NO |
-| layerHeight | Number | R&W | _getLayerHeight, _setLayerHeight | NO |
-| tileWidth | Number | R&W | _getTileWidth, _setTileWidth | NO |
-| tileHeight | Number | R&W | _getTileHeight, _setTileHeight | NO |
+| layerWidth | Number | R&W | \_getLayerWidth, _setLayerWidth | NO |
+| layerHeight | Number | R&W | \_getLayerHeight, _setLayerHeight | NO |
+| tileWidth | Number | R&W | \_getTileWidth, _setTileWidth | NO |
+| tileHeight | Number | R&W | \_getTileHeight, _setTileHeight | NO |
+
+
+### cc.TMXTiledMap
+
+Extend from cc.NodeRGBA
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| properties | Array | R&W | None | NO |
+| mapOrientation | Number | R&W | None | NO |
+| objectGroups | Array | R&W | None | NO |
+| mapWidth | Number | R&W | \_getMapWidth, _setMapWidth | NO |
+| mapHeight | Number | R&W | \_getMapHeight, _setMapHeight | NO |
+| tileWidth | Number | R&W | \_getTileWidth, _setTileWidth | NO |
+| tileHeight | Number | R&W | \_getTileHeight, _setTileHeight | NO |
 
 
 ### ccs.Armature
@@ -398,16 +423,25 @@ Extend from ccs.Sprite
 | displayName | String | readonly | getDisplayName | NO |
 
 
+### ccs.ColliderDetector
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| colliderFilter | ccs.ColliderFilter | R&W | getColliderFilter, setColliderFilter | NO |
+| active | Boolean | readonly | getActive, setActive | NO |
+| body | Object | R&W | getBody, setBody | NO |
+
+
 ### ccs.Widget
 
 Extend from ccs.NodeRGBA
 
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
-| xPercent | Number | R&W | _getXPercent, _setXPercent | NO |
-| yPercent | Number | R&W | _getYPercent, _setYPercent | NO |
-| widthPercent | Number | R&W | _getWidthPercent, _setWidthPercent | NO |
-| heightPercent | Number | R&W | _getHeightPercent, _setHeightPercent | NO |
+| xPercent | Number | R&W | \_getXPercent, _setXPercent | NO |
+| yPercent | Number | R&W | \_getYPercent, _setYPercent | NO |
+| widthPercent | Number | R&W | \_getWidthPercent, _setWidthPercent | NO |
+| heightPercent | Number | R&W | \_getHeightPercent, _setHeightPercent | NO |
 | widgetParent | ccs.Widget | readonly | getWidgetParent | NO |
 | enabled | Boolean | R&W | isEnabled, setEnabled | NO |
 | focused | Boolean | R&W | isFocused, setFocused | NO |
@@ -438,7 +472,7 @@ Extend from ccs.Widget
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
 | titleText | String | R&W | getTitleText, setTitleText | NO |
-| titleFont | String | R&W | _getTitleFont, _setTitleFont | NO |
+| titleFont | String | R&W | \_getTitleFont, _setTitleFont | NO |
 | titleFontSize | Number | R&W | getTitleFontSize, setTitleFontSize | NO |
 | titleFontName | String | R&W | getTitleFontName, setTitleFontName | NO |
 | titleFontColor | cc.Color | R&W | None | NO |
@@ -460,16 +494,25 @@ Extend from ccs.Widget
 
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
-| boundingWidth | Number | R&W | _getBoundingWidth, _setBoundingWidth | NO |
-| boundingHeight | Number | R&W | _getBoundingHeight, _setBoundingHeight | NO |
+| boundingWidth | Number | R&W | \_getBoundingWidth, _setBoundingWidth | NO |
+| boundingHeight | Number | R&W | \_getBoundingHeight, _setBoundingHeight | NO |
 | string | String | R&W | getStringValue, setText | NO |
 | stringLength | Number | readonly | getStringLength | NO |
-| font | String | R&W | _getFont, _setFont | NO |
-| fontName | String | R&W | _getFontName, setFontName | NO |
-| fontSize | Number | R&W | _getFontSize, setFontSize | NO |
-| textAlign | Number | R&W | _getHorizontalAlignment, setTextHorizontalAlignment | NO |
-| verticalAlign | Number | R&W | _getVerticalAlignment, setTextVerticalAlignment | NO |
+| font | String | R&W | \_getFont, _setFont | NO |
+| fontName | String | R&W | getFontName, setFontName | NO |
+| fontSize | Number | R&W | getFontSize, setFontSize | NO |
+| textAlign | Number | R&W | getHorizontalAlignment, setTextHorizontalAlignment | NO |
+| verticalAlign | Number | R&W | getVerticalAlignment, setTextVerticalAlignment | NO |
 | touchScaleEnabled | Boolean | R&W | None | NO |
+
+
+### ccs.LabelAtlas
+
+Extend from 
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| string | String | R&W | getStringValue, setStringValue | NO |
 
 
 ### ccs.LabelBMFont
@@ -517,11 +560,24 @@ Extend from ccs.Layout
 
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
-| innerWidth | Number | R&W | _getInnerWidth, _setInnerWidth | NO |
-| innerHeight | Number | R&W | _getInnerHeight, _setInnerHeight | NO |
+| innerWidth | Number | R&W | \_getInnerWidth, _setInnerWidth | NO |
+| innerHeight | Number | R&W | \_getInnerHeight, _setInnerHeight | NO |
 | direction | ccs.ScrollViewDir | R&W | None | NO |
 | bounceEnabled | Boolean | R&W | None | NO |
 | inertiaScrollEnabled | Boolean | R&W | None | NO |
+
+
+### cc.EditBox
+
+Extend from 
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| font | String | writeonly | _setFont | NO |
+| fontName | String | writeonly | setFontName | NO |
+| fontSize | Number | writeonly | setFontSize | NO |
+| string | String | R&W | getText, setText | NO |
+| maxLength | Number | R&W | getMaxLength, setMaxLength | NO |
 
 
 ### cc.Control
@@ -633,6 +689,15 @@ Extend from cc.Control
 | plusSLabel | cc.LabelTTF | R&W | None | NO |
 
 
+### cc.ControlSwitchSprite
+
+Extend from 
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| thumbSprite | Number | readonly | getThumbSprite, setThumbSprite | NO |
+
+
 ### cc.Scale9Sprite
 
 Extend from cc.NodeRGBA
@@ -645,6 +710,13 @@ Extend from cc.NodeRGBA
 | insetTop | Number | R&W | getInsetTop, setInsetTop | NO |
 | insetRight | Number | R&W | getInsetRight, setInsetRight | NO |
 | insetBottom | Number | R&W | getInsetBottom, setInsetBottom | NO |
+
+
+### cc.ScrollView
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| direction | ccs.ScrollViewDir | R&W | getDirection, setDirection | NO |
 
 
 ### cc.TableViewCell
