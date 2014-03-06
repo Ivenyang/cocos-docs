@@ -35,7 +35,7 @@
 
 如果你们不相信我的话，可以打开Waypoint类的头文件和实现文件看一看，下面是它们的定义：
 Waypoint.h:
-
+```
 	#pragma  once
 	#include "cocos2d.h"
 	
@@ -47,9 +47,11 @@ Waypoint.h:
 		virtual bool init();
 		CREATE_FUNC(WayPoint);
 	};
+```
 
 Waypoint.cpp:
 
+```
 	#include "WayPoint.h"
 
 	USING_NS_CC;
@@ -63,10 +65,11 @@ Waypoint.cpp:
 	
 		return true;
 	}
-	
+```	
 
 对于DataModel类，让我们直接看看代码吧：
 
+```
 	#pragma once
 	#include "cocos2d.h"
 	#include "CCVector.h"
@@ -94,26 +97,29 @@ Waypoint.cpp:
 		DataModel(){};
 		static DataModel * m_pInstance;
 	};
+```
 
 所以，这里大部分代码都是很直白的。DataModel是一个单例的类.我们这样做有两个原因：其一，我们这样做的目的是用来保存之后游戏的状态，其二，我们把它做成单例是因为整个游戏中，我们只想让一个DataModel对象存在。我们可以从任何类中访问DataModel，只需要包含相应的头文件，然后调用下面的方法就行了：
-
+```
 	DataModel *m = DataModel::getModel();
+```
 
 下面是单例的具体实现：
-
+```
 	DataModel* DataModel::getModel()
 	{
 		if (m_pInstance == NULL)
 			m_pInstance = new DataModel();
 		return m_pInstance;
 	}
-
+```
 我们也保存了游戏里面所有的主要角色--“targets”是我们的缓慢爬行的敌人，“waypoints”是敌人要沿着走的路径点，而“waves“则存储wave类，wave类包含了已经出了多少个敌人了，出现敌人的速度是多少等等。
 
 那么 UIPanGestureRecognizer和CCLayer对象呢？呃，CCLayer是指向game layer的一个引用，所有的游戏逻辑都在这个层里面发生。这里保存一个引用的话，你在其它类中可以非常方便地访问到主GameScene。而 UIPanGestureRecognizer类是用来实现平滑地滚动iphone屏幕用的。因为塔防游戏不能局限于480×320的范围，经常需要滑动地图。有了这个类，我们就可以定义任何大小的地图了。
 
 现在，我们已经消除了对上面给出的这么多类的恐惧了。那么具体代码看起来怎么样呢。首先，让我们来看看”坏人“吧！我们已经知道”Wave“和”DataModel“类是干嘛用的了，这两个类对大家来说应该不会陌生了。先看看Creep的代码：
 
+```
 	#pragma once
 	#include "cocos2d.h"
 	#include "WayPoint.h"
@@ -147,11 +153,12 @@ Waypoint.cpp:
 	public:
 		static Creep* creep();
 	};
+```
 
 我们创建了一个creep类，里面定义了生命值，移动速度和当前处于地图上的哪个点。这里包含了我们目前为止需要了解的全部信息。我们还定义了其他两种类型的creep，因为，哪个塔防游戏没有不同类型的敌人呢？有一个快速移动的红色creep和一个行动缓慢，但是生命值很多的creep---我们还可以添加更多其它类型的creep类型，但是，这里为了简单，我们只实现这3种。
 
 现在，因为我们已经看到头文件了，我想你肯定想知道实现文件是什么样的。但是，也是考虑简单的因素，目前我只向你展示那些对我们来说比较重要的内容。首先，让我们看看，具体creep类是怎么实现的：
-
+```
 	Creep* FastRedCreep::creep()
 	{
 		auto creep = Creep::create();
@@ -162,11 +169,12 @@ Waypoint.cpp:
 		creep->curWaypoint = 0;
 		return creep;
 	}
+```
 
 这就是我们怎么实现creep的-我们只定义了一个类方法，可以用 “[FastRedCreep creep]”的方式来调用，调有之后会返回一个creep对象，然后我们就可以把它加到scene里面去，并让它工作了。因为，Creep是从CCSprite派生出来的，所以我们可以自动获得CCSprite的所有好处。当然，你也可以从CCNode派生，然后里面包含一个CCSprite的引用。具体是从CCSprite派生还是CCNode，这两者都各有利弊。（我本人喜欢从CCNode继承，因为符合”优先使用组合而不是继承“的面向对象原则，但是，有时候，为了使之能加到CCSpriteBatchNode里面去，而选择继承CCSprite，反正各有好处，大家自己去权衡）。
 
 　　接下来，在Creep类中，我们要用到DataModel类和WayPoint类，先看下面代码：
-
+```
 	WayPoint* Creep::getCurrentWaypoint()
 	{
 		DataModel* m = DataModel::getModel();
@@ -185,11 +193,12 @@ Waypoint.cpp:
 		WayPoint *waypoint = (WayPoint *)m->waypoints.at(curWaypoint);
 		return waypoint;
 	}
+```
 
 这里定义了creep的获得当前位置点的方法，还有得到下一个行进点的方法。你可以看到两处同样的  “WayPoint *waypoint = (WayPoint *) [m._waypoints objectAtIndex:self.curWaypoint];” 调用，它调用DataModel类来查找并返回一个”curWayPoint“所指示的WayPoint对象。当我们想走下一步的时候，我们就递增”curWaypoint”的值，然后看它是否超过数组的最大值。如果是，则减1.然后从DataModel类中查找出具体的WayPoint。这样子可以循环获得waypoint。这样的话，在还没有塔的情况下，我们的creep会一波接一波的循环进攻。
 
 creep创建之后并能够前进的代码在TutorialScene类中，如下所示：
-
+```
 	void TutorialSence::FollowPath(Node* sender)
 	{
 		Creep *creep = (Creep *)sender;
@@ -202,11 +211,12 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 		creep->stopAllActions();
 		creep->runAction(Sequence::create(actionMove,actionMoveDone,NULL));
 	}
+```
 
 基于我们前面所讨论过的，这里面的代码应该比较容易懂。但是，这里面执行动画的方法，如果你之前没有看到一些教程的话，可能会觉得有点陌生。在AddTarget方法被调用之后，一个creep对象被创建了。上面这个函数会重复地调用自身。它不断地判断“sender”参数，这个参数在任何情况下都等于creep对象，因为是creep对象run的action。得到creep对象之后，就计算得到下一个waypoint。这时，我们让creep运行两个action，从当前点移动到下一点，并且在移动结束后又递归调自身。“MoveTo”action把精灵从一个（x，y）点变换到目标点的（x，y）处。
 
 我们将要涉及到的大部分内容都在“TutorialScene”类中。它的头文件目前还比较干净，但是，它需要和我们的txm文件地图系统关联起来，因此，定义成下面的样子：
-
+```
 	#pragma  once
 	#include "cocos2d.h"
 	#include "Creep.h"
@@ -242,10 +252,10 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 		Point boundLayerPos(Point newPos);
 		CREATE_FUNC(TutorialSence);
 	};
-
+```
 
 下面是TutorialScene的init方法：
-
+```
 	bool TutorialSence::init()
 	{
 		if (!Layer::init()) 
@@ -268,6 +278,7 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 	
 		return true;
 	}
+```
 
 我们加载并保存了新创建的“CCTMXTiledMap”对象，然后在第四步的时候加到游戏层里面去了。然后，调用“addWayPoint”方法，下面会有详细说明。同时，还调用了“addWaves”方法，这里我们设定的游戏总共有2波。
 
@@ -279,6 +290,7 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 
 好，开始工作---我们不能把教程搞得60页长。所以，上面这个图我特意把它缩小了，这样我们的教程看起来就很短啦：）。这里面定义了我们的creep将要行走的路径。因为，它太小了，我们可能看不出什么东西来，所以直接打开.tmx文件，看看里面有些什么对象。（就是上图中的灰色矩形，很小的，在路径的每个拐弯处）
 
+```
 	<objectgroup name="Objects" width="27" height="20">
 	<object name="Waypoint0" x="887" y="292"/>
 	<object name="Waypoint1" x="438" y="296"/>
@@ -289,9 +301,11 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 	<object name="Waypoint6" x="437" y="337"/>
 	<object name="Waypoint7" x="888" y="339"/>
 	</objectgroup>
+```
 
 现在，这里坐标点倒底能干什么呢？在解释之前，先让我们看一看“addWaypoint”方法：
 
+```
 	void TutorialSence::addWaypoint()
 	{
 		DataModel *m = DataModel::getModel();
@@ -313,11 +327,12 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 		}
 		wp = NULL;
 	}
+```
 
 我们将遍历TMX文件中所有的对象，然后把相应的数据拿出来！每一个对象都被命名为“WayPoint＃”，因为这个顺序，所以加载进行非常方便。然后，我们创建一个WayPoint类，并且设置它的位置，然后把它加到DataModel的_waypoints数组中去，方便后来查找。
 
 　　好，那你又是怎么加载creep的呢？容易吗？你看看吧：
-
+```
 	void TutorialSence::addTarget()
 	{
 	
@@ -351,11 +366,12 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 		target->tag = 1;
 		m->targets.pushBack(target);
 	}
+```
 
 当addTarget被调用的时候，我们首先获得当前的波数，然后判断是否结束。然后，我们随机产生一个“Fast Creep”或者是一个“Strong Creep”，然后基于第一个waypoint来设置它的位置。（你应该记得，如果curWayPoint是0的话，那么就会得到tmx文件中的Waypoint0所代表的位置）。最后，我们把对象tag设置为1，然后把它添加到DataModel里去。
 
 但是，谁来调addTarge方法呢？好吧，在下面的scheduler方法中调用：
-
+```
 	void TutorialSence::gameLogic(float dt)
 	{
 		DataModel *m = DataModel::getModel();
@@ -419,6 +435,7 @@ creep创建之后并能够前进的代码在TutorialScene类中，如下所示�
 			this->removeChild(projectile,true);
 		}
 	}
+```
 
 因此，目前”gameLogic“决定什么时候添加一个新的target，考虑的因素就是”spawnRate“，也就是怪物出现的频率。我们的update方法这里只是列出来，并没有实现，因为暂时还不需要用到。
 

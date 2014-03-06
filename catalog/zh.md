@@ -198,7 +198,7 @@
  	- [在Cocos2d-x3.0里面如何使用拖拽精灵](../tutorial/how-to-drag-and-drop-sprites/zh.md)
  	- [使用Cocos2d-x实现一款类似《Flappy Bird》的游戏](../tutorial/how-to-make-a-game-like-flappybird/zh.md)
  	- [cocos2d-x3.x实现屏幕画线并添加刚体属性](../tutorial/line-with-physic-property/zh.md)
- 	
+ 	- [怎样在Cocos2d-x中使用A*算法（v3.0）](../tutorial/how-to-use-a-star-in-cocos2dx/zh.md)
  	- 如何使用Cocos2d-x 3.0来做一个简单的iphone游戏教程(v3.0)
  		- [part 1 游戏主逻辑实现](../tutorial/how-to-make-a-simple-cocos2dx-game/chapter-1/zh.md)
 		- [part 2 添加更强力的武器](../tutorial/how-to-make-a-simple-cocos2dx-game/chapter-2/zh.md)
