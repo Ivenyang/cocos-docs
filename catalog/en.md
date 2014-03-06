@@ -9,6 +9,7 @@
 		- Setting up Development Environments
 			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android-on-win7/en.md)
 			- Setting up Environments for Cocos2d-x on Mac OS X
+			- [Setting up WP8 Development on Win8](../manual/framework/native/installation/wp8-on-win8/en.md)
 		- Starting Points of Cocos2d-x Programming
 			- Objects Reference Count and Auto Release Pool
 			- Cocos API Style
