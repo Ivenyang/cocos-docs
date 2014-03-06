@@ -48,12 +48,12 @@
 	var color5 = cc.color.white;
 
 	常用9种固定颜色类型
-	cc.color.white;//白色
-	cc.color.yellow;//黄色
-	cc.color.blue;//蓝色
-	cc.color.green;//绿色
-	cc.color.red;//红色
-	cc.color.magenta;//紫红色
-	cc.color.black;//黑色
-	cc.color.orange;//橙色
-	cc.color.gray;//灰色
+	cc.color.WHITE;//白色
+	cc.color.YELLOW;//黄色
+	cc.color.BLUE;//蓝色
+	cc.color.GREEN;//绿色
+	cc.color.RED;//红色
+	cc.color.MAGENTA;//紫红色
+	cc.color.BLACK;//黑色
+	cc.color.ORANGE;//橙色
+	cc.color.GRAY;//灰色
