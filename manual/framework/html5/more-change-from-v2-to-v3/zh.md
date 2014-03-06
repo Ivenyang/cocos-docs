@@ -98,11 +98,20 @@ cc.ArrayContainsObject(arr, findObj) --> arr.indexOf(findObj) != -1
 remove cc.HASH_FIND_INT
 ```
 
-## 共有方法变成私有方法：
+## 共有方法或对象变成私有方法或对象：
 
 ```
 cc.setup ---> cc._setup
 cc.initDebugSetting ---> cc._initDebugSetting
+cc.canvas ---> cc._canvas
+cc.drawingUtil ---> cc._drawingUtil
+cc.renderContext ---> cc._renderContext
+cc.gameDiv ---> cc._gameDiv
+cc.setContextMenuEnable ---> cc._setContextMenuEnable
+cc.renderContextType ---> cc._renderType
+cc.CANVAS ---> cc._RENDER_TYPE_CANVAS
+cc.WEBGL ---> cc._RENDER_TYPE_CANVAS
+cc.mainRenderContextBackup ---> cc._mainRenderContextBackup
 ```
 
 ## 统一方法名命名规范
@@ -126,8 +135,11 @@ cc.COCOS2D_DEBUG
 ## 其他
 
 ```
-cc.renderContextType ---> cc.renderType
-cc.CANVAS ---> cc.RENDER_TYPE_CANVAS
-cc.WEBGL ---> cc.RENDER_TYPE_CANVAS
+cc.dumpConfig ---> cc.sys.dump
+
+
+去除：
+cc.isAddedHiddenEvent
+cc.Browser.supportWebGL
 ```
 

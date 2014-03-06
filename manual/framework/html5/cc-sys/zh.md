@@ -20,7 +20,6 @@ _sys.language = ...     <-->Application 实例的 getCurrentLanguage()
 _sys.isNative = false; <-->新的api。在JSB中将自动被设置为true。相当于原来的sys.platform
 _sys.isMobile = ...     <-->cc.Browser.isMobile
 _sys.browserType = ...  <-->cc.Browser.browserType
-_sys.supportWebGL = ... <-->cc.Browser.supportWebGL
 _sys.supportWebAudio = ...  <-->cc.Browser.supportWebAudio
 _sys._supportRender = ...    <-->cc.RenderDoesnotSupport
 _sys.localStorage = ...     <-->sys.localStorage

@@ -202,6 +202,44 @@ cc.loader.load(res, option);
 cc.loader.load(res);
 ```
 
+#### loadAliases
+
+加载plist配置文件从而获得别名。
+
+```
+参数：
+url             配置文件url
+                配置文件的格式如下：
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                    <plist version="1.0">
+                    <dict>
+                        <key>metadata</key>
+                        <dict>
+                            <key>version</key>
+                            <integer>1</integer>
+                        </dict>
+                        <key>filenames</key>
+                        <dict>
+                            <key>grossini.bmp</key>
+                            <string>res/Images/grossini.png</string>
+                        </dict>
+                    </dict>
+                    </plist>
+
+cb              回调
+
+用法：
+
+cc.loader.loadAliases("res/lookup-html5.plist", function(){
+    var sprite = cc.Sprite.create("grossini.bmp");
+    self.addChild( sprite );
+    sprite.x = winSize.width/2;
+    sprite.y = winSize.height/2;
+});
+
+```
+
 ##### register
 
 注册loader。
