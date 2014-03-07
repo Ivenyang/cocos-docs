@@ -1,29 +1,39 @@
-# Windows Phone 8上调用第三方库SDK
+# integrate third SDK in Windows Phone 8
 
-## 简介
+## introduction
 
-cocos2d-x wp8平台上支持xaml后，方便了第三方Sdk的调用。本文以微软的广告这个第三方sdk为例，介绍如何在XAML工程中集成该sdk。微软官方文档：[http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx](http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx " Integrating the AdControl")，不过这种方式是在xaml页面上直接添加控件，本文介绍如何通过c++调用在c#页面里面添加控件，及对c#控件事件的回调在c++里面进行响应处理，即c++和c#的互相调用。代码均在gitbub上个人仓库adcontrol分支中，链接：[https://github.com/koowolf/cocos2d-x/tree/adcontrol](https://github.com/koowolf/cocos2d-x/tree/adcontrol "adcontrol")，详细集成教程见下文。
+ With the support of xaml in cocos2d-x wp8，it's much convenient to invoke third SDK. I will show you how to integrate third SDK using Microsoft's advertise system as a example，integrae in the XAML project. Microsoft offical doc：
 
-## 下载Microsoft Advertising SDK for Windows Phone 
+[http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx](http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx " Integrating the AdControl")
 
-下载链接：[http://www.microsoft.com/en-us/download/details.aspx?id=8729](http://www.microsoft.com/en-us/download/details.aspx?id=8729 "SDK ")，下载完成后手动安装.msi文件。打开HelloCpp工程，右键选择"Add Reference",在Reference Mangager中通过"Extensions"页面添加。如下图：
+but this page just show how to add control deirectly in the xaml page，I will show you how to add control in the c# page by C++ invocation，and how to deal with the C# controls response and call back in c++, that is c++ and c# to call each other. The example are all in myselve's adcontrol branch in github, link：
+
+[https://github.com/koowolf/cocos2d-x/tree/adcontrol](https://github.com/koowolf/cocos2d-x/tree/adcontrol "adcontrol")
+
+detail tutorial as following.
+
+## download Microsoft Advertising SDK for Windows Phone 
+
+link：[http://www.microsoft.com/en-us/download/details.aspx?id=8729](http://www.microsoft.com/en-us/download/details.aspx?id=8729 "SDK ")
+
+Install the .msi file while download ok. Open HelloCpp project，right click and select "Add Reference", select "Extensions"　in Reference Mangager like as following：
 
 ![application](res/1.jpg)
 
 ![application](res/2.jpg)
 
-## 配置WMAppManifest.xml
-在**Solution Explorer**=〉**Properties** 里面，打开**WMAppManifest.xml**
+## setting WMAppManifest.xml
+find **Solution Explorer**=〉**Properties**，open **WMAppManifest.xml**
 
 ![application](res/3.jpg)
 
-选择**Capabilities **，勾选 **ID_CAP_IDENTITY_USER**、 **ID_CAP_MEDIALIB_PHOTO**、**ID_CAP_PHONEDIALER**
+select **Capabilities **，check the item of **ID_CAP_IDENTITY_USER**, **ID_CAP_MEDIALIB_PHOTO**, **ID_CAP_PHONEDIALER**
 
 ![application](res/4.jpg)
 
-## 准备AdControl调用接口
+## add AdControl invoke interface
 
-在HelloCppComponent中添加ICallback.h文件，并在里面添加ICallback interface。添加回掉事件处理函数和调用接口。代码如下：
+Add ICallback.h file to HelloCppComponent，and add ICallback interface. Add call back event and invoke interface as following：
 
 ``` c++
 namespace PhoneDirect3DXamlAppComponent
@@ -61,11 +71,11 @@ namespace PhoneDirect3DXamlAppComponent
 }
 ```
 
-CompletedEventArgs是对响应信息的封装，包含响应代码和出错信息。SwitchBottomBar()是c++调用c#的函数。OnBannerRefreshed和OnBannerReceivedFailed是回调处理函数，在C#代码中调用，响应了该函数即完成了回调。
+CompletedEventArgs is the encapsulation of responds information，contain error code and error information. SwitchBottomBar() is the function of c++ invoke c#. OnBannerRefreshed and OnBannerReceivedFailed is call back event handler，invoke in C#，respond such event handler and finish call back.
 
-## c#中实现ICallback接口
+## implement ICallback interface in c# 
 
-在HelloCpp工程中添加AdControlCallback.cs代码文件，定义类AdControlCallback继承实现ICallback接口。如下：
+add AdControlCallback.cs in HelloCpp project，implement AdControlCallback and derive from ICallback interface as following：
 
 ``` c++
 
@@ -121,22 +131,23 @@ namespace PhoneDirect3DXamlAppComponent
 }
 ```
 
-注意以下几点：
+note：
 
-1.AdControl为Microsoft.Advertising.Mobile.UI中的类，需要添加命名空间：using Microsoft.Advertising.Mobile.UI;。
+1.AdControl is the class in Microsoft.Advertising.Mobile.UI，you need to add the need namespace: using Microsoft.Advertising.Mobile.UI;.
 
-2.AdControlCallback必须继承ICallback的成员函数和成员变量，在SwitchBottomBar()的实现中可以添加C#的代码实现，这里调用了私有方法CreateBannerAd()来处理AdControl控件。
+2.AdControlCallback must derive memeber function and member variables from ICallback， you can add C# implement in the SwitchBottomBar() function，it call private function CreateBannerAd() to deal with AdControl.
 
-3.处理C#控件可以使用Deployment.Current.Dispatcher.BeginInvoke，让c#控件跟C++游戏界面处于不同线程中，这样调用第三方sdk时，即使处理时间长，也不会影响游戏界面造成卡顿的现象，并且如果跟MainPage.xaml有调用关系的话也必须使处理逻辑位于主线程中。其实通过调试可以发现，MainPage.xaml.cs跟native c++是出于不同的线程中的，MainPage是在主线程即MainThread中执行，而c++的游戏界面是在worker thread中执行的。
+3.you can use Deployment.Current.Dispatcher.BeginInvoke to enclose C# control，let c# control and C++ game interface in the difference thread，so if call thirdSDK with long time respond，it will not slow down the game interface，and if you call any control in MainPage.xaml you must place it in the main thread. We can find from debug that，MainPage.xaml.cs and native c++ interface is in the difference thread，MainPage is in the MainThread，but c++ game interface is working in the worker thread.
 
-4.adControl_AdRefreshed为AdControl的响应函数，通过响应该函数可以判断是否成功添加AdControl控件
+4.adControl_AdRefreshed is the response of AdControl，using this responds function we can judge as if we succeed to add the AdControl.
 
-5.adControl_AdRefreshed的响应处理，不能直接调用c++的代码，否则会产生不可预期的错误，因为当前响应函数位于主线程中（第3点已分析）。需要注意线程安全。后面我们将会介绍怎么正确处理响应函数。
+5.we can not directly call C++ method in adControl_AdRefreshed， or we will face with some unexpected errors，because the responds locate in the main thread（as the third point described above）, we need to attention to the problem of thread safe. I will describe how to deal with responds later.
 
-## 修改MainPage.xaml
+## modify MainPage.xaml
 
-当c++调用SwitchBottomBar()时，我们可以调整MainPage.xaml页面，使上面显示游戏界面，下面显示一个广告窗口。调整界面如下：
-直接打开MainPage.xaml页面文件，修改ContentPanel内代码，添加StackPanel，这里先将stackContainer的Visibility属性设置为Collapsed不可见，后面将在stackContainer添加AdControl控件
+When c++ call SwitchBottomBar() function， we need to adjust the MainPage.xaml page，make it show game UI in the upper place，and show advertisement in the down place. Ajust as following：
+
+open MainPage.xaml page directly，modify code in ContentPanel，add StackPanel，set stackContainer's Visibility property as Collapsed，will add AdControl in stackContainer later.
 
 ``` c++
 		<!--ContentPanel - place additional content here-->
@@ -151,7 +162,7 @@ namespace PhoneDirect3DXamlAppComponent
         </Grid>
 ```
 
-在MainPage.xaml.cs里面添加SwitchBottomBar函数，调用时，将显示stackContainer，并且修改DrawingSurface大小。添加AddBannerAd函数，添加AdControl控件到stackContainer显示
+when add SwitchBottomBar function in MainPage.xaml.cs，will show stackContainer while invoke，we modify the size of  DrawingSurface. Add AddBannerAd function，and add AdControl in stackContainer to show.
 
 ``` c++
         // add to the container
@@ -181,11 +192,11 @@ namespace PhoneDirect3DXamlAppComponent
         }
 ```
 
-注意MainPage.xaml.cs的SwitchBottomBar()在AdControlCallback的SwitchBottomBar()调用，在AdControlCallback中保存MainPage的类实例即可，同时MainPage.xaml.cs的SwitchBottomBar()添加public属性。
+note that SwitchBottomBar() in MainPage.xaml.cs invoked in SwitchBottomBar() in AdControlCallback， we need to add a MainPage instance as a memeber variable in AdControlCallback class， and set SwitchBottomBar()'s property as public in MainPage.xaml.cs.
 
-## 在WinRT组件中实现调用代理
+## implement invoke delegate in WinRT component
 
-在HelloCppComponent中创建**AdControlDelegate**托管类，方便C++和C#中调用。
+add managed class **AdControlDelegate** in HelloCppComponent，convinent to call between C++ and C#.
 
 ``` c++
 
@@ -205,7 +216,7 @@ namespace PhoneDirect3DXamlAppComponent
 	}
 }
 ```
-这里以static保存实现了**ICallback的类实例**，SetCallback函数在c#中调用。SetCallback函数中GlobalCallback保存实参callback。 如果在C++中多次使用到**AdControlDelegate**类，可以使用单例模式来创建AdControlDelegate。SetCallback函数调用可以在HelloCpp工程里的MainPage的DrawingSurface_Loaded中实现，如下：
+we use static instance to save **ICallback's instance**，SetCallback function invoked in c# code. Set GlobalCallback as callback in SetCallback implement. If we use **AdControlDelegate** class many time，use singleton to create AdControlDelegate. Call SetCallback in the DrawingSurface_Loaded function in HelloCpp as following：
 
 ``` c++
 				AdControlDelegate adDelegate = new AdControlDelegate();
@@ -213,9 +224,9 @@ namespace PhoneDirect3DXamlAppComponent
                 adDelegate.SetCallback(adObj);
 ```
 
-## 游戏逻辑中调用并处理回掉函数
+## deal with call back function in the game logic
 
-在menuCallbackBottom函数中测试调用sdk，并实现c#调用的响应处理事件OnBannerReceivedFailed。
+test and call sdk in menuCallbackBottom，implement call back event handler OnBannerReceivedFailed in C# code 
 
 ``` c++
 	AdControlDelegate^ AdControlObj = ref new AdControlDelegate();
@@ -229,12 +240,13 @@ namespace PhoneDirect3DXamlAppComponent
 	});
 	AdControlObj->GlobalCallback->SwitchBottomBar();
 ```
-在该函数中实现了OnBannerReceivedFailed响应函数，并且调用SwitchBottomBar来调用C# sdk。使用GlobalCallback来调用在c#中创建的实例。
 
-## 不同线程处理
+implent OnBannerReceivedFailed responds in the function and call SwitchBottomBar to invoke C# sdk. Using GlobalCallback to get the instance that created in c# code.
 
-可以使用主线程(即xaml页面所处线程)来调用Sdk，也可以创建一个任务来处理。如上面介绍过的Deployment.Current.Dispatcher.BeginInvoke调用，
-Deployment.Current.Dispatcher.BeginInvoke可以获取主线程，并在里面实现调用sdk。也可以使用任务来调用，如下：
+## handle in difference thread 
+
+we can use main thread to invoke Sdk and can create a task to invoke too. Like   Deployment.Current.Dispatcher.BeginInvoke described above to invoke，
+Deployment.Current.Dispatcher.BeginInvoke can get the main thread，and call sdk in it. We can use task to call too. As following：
 
 ``` c++
         //Create the Ad at runtime and add to the container
@@ -260,11 +272,11 @@ Deployment.Current.Dispatcher.BeginInvoke可以获取主线程，并在里面实
 
 ```
 
-最好回调时候能够切回游戏逻辑所处的线程，所以下一步进行回调处理。
+It has better to return to the game thread, so we have to deal with the call back.
 
-## 回调处理
+## deal with call back
 
-在Direct3DInterop实现文件中，可以发现，所有的点击、按键处理事件通过mInputEvents的事件队列来处理，只要向该线程投递该事件，然后由ProcessEvents函数来处理该事件。这样，我们定义一个AdControlEvent类继承InputEvent，如下：
+in the Direct3DInterop implement，we can find that，all the click and keyboad event handle by the mInputEvents queue，just throw event to the thread， and use ProcessEvents function to handle. So we define a AdControlEvent  class and derived from InputEvent as following：
 
 ``` c++
 namespace PhoneDirect3DXamlAppComponent
@@ -283,7 +295,7 @@ namespace PhoneDirect3DXamlAppComponent
 }
 
 ```
-在AdControlEventt构造函数中，最后一个参数是EventHandler类型参数，避免了通过Cocos2dRenderer层层转发。因为在handler中已实现了回调函数，在execute实现中直接Invoke调用即可。如下：
+in the contrustor in AdControlEvent function，the last param is type of EventHandler，we handle it directly not to use Cocos2dRenderer. As we implement the call back in handler， invoke it in the execute function as following：
 
 ``` c++
 	void AdControlEvent::execute( Cocos2dRenderer ^ renderer )
@@ -292,7 +304,7 @@ namespace PhoneDirect3DXamlAppComponent
 	}
 ```
 
-在Direct3DInterop类中，添加OnAdControlEvent响应函数。如下：
+in the class of Direct3DInterop，add the OnAdControlEvent responds function as following：
 
 ``` c++
 void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args, Windows::Foundation::EventHandler<CompletedEventArgs^>^ handler)
@@ -303,7 +315,7 @@ void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args,
 }
 ```
 
-只要handler事件处理函数有不同的实现，就可以调用OnAdControlEvent这个函数，比如可以再实现一个OnBannerReceivedFailed来调用。相应的，修改直接回调函数AdView_AdRequestFailed的代码：
+according to different implement in different handler instance，just call the only OnAdControlEvent function， such as implement another OnBannerReceivedFailed to invoke. We modify the code in call back function AdView_AdRequestFailed：
 ``` c++
         private void AdView_AdRequestFailed(object sender, Microsoft.Advertising.AdErrorEventArgs e)
         {
@@ -319,7 +331,7 @@ void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args,
         }      
 ```
 
-在AdControlCallback中设置并保存Direct3DInterop实例的函数：
+add SetDirect3DInterop function in AdControlCallback to save the Direct3DInterop instance
 ``` c++
 		public void SetDirect3DInterop(Direct3DInterop d3dInterop)
         {
@@ -327,7 +339,7 @@ void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args,
         }
 ```
 
-以上代码整个调用过程就完成了，假如需要在通过MainPage调用其它xaml页面，可以用SetMainPage在AdControlCallback中保存该MainPage类实例，如：
+we finish the procedure of call and call back, and if you we want to invoke other XAML page in MainPage, add SetMainPage function in AdControlCallback to save the MainPage instance as following:
 ``` c++
         public void SetMainPage(MainPage mainPage)
         {
@@ -343,9 +355,9 @@ void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args,
             });
         }
 ```
-如果有点击按钮，弹出整个全屏页面的情况，便可以使用上面的CallToShowPage方法。
+you can add button and use CallToShowPage above to popup a full-screen xaml page.
 
-## 运行效果
+## Results in windows phone
 
 
 ![application](res/3.png)
