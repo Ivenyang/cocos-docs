@@ -216,9 +216,16 @@
 	- [在cocos2d-x3.0里面如何使用物理引擎：弹球](../tutorial/intro-to-box2d-with-cocos2dx-tutorial-bouncing-balls/zh.md)
 	- [如何使用cocos2d-x 3.0制作一个太空射击游戏](../tutorial/how-to-make-a-space-shooter-game/zh.md)
 	- [如何使用cocos2d-x3.0来给Sprite添加遮罩](../tutorial/how-to-mask-a-sprite-with-cocos2dx/zh.md)
+	- [使用cocos2d-x3.0和物理引擎实现碰撞检测](../tutorial/how-to-use-box2d-for-just-collision-detection-with-cocos2dx/zh.md)
+	- [使用cocos2d-x3.0和物理引擎制作滚动背景](../tutorial/side-scrolling-the-background-in-box2d/zh.md)
+	- [使用cocos2d-x3.0和物理引擎制作简单的platformer游戏](../tutorial/simple-platformer-using-cocos2d-and-box2d-with-collision-detection/zh.md)
+
+	- 如何使用cocos2d-x3.0和物理引擎来制作一个Breakout游戏
+ 		- [如何使用cocos2d-x3.0和物理引擎来制作一个Breakout游戏：第一部分](../tutorial/how-to-create-a-simple-breakout-game-with-box2d-and-cocos2dx-tutorial/part1/zh.md)
+ 		- [如何使用cocos2d-x3.0和物理引擎来制作一个Breakout游戏：第二部分](../tutorial/how-to-create-a-simple-breakout-game-with-box2d-and-cocos2dx-tutorial/part2/zh.md)
 	
 	- 使用cocos2d-x3.0制作一个打地鼠的游戏
- 		- [如何使用cocos2d-x3.0制作一个打地鼠的游戏:第一部分](../tutorial/how-to-create-a-mole-whacking-game/part1/zh.md)
+ 		- [如何使用cocos2d-x3.0制作一个打地鼠的游戏：第一部分](../tutorial/how-to-create-a-mole-whacking-game/part1/zh.md)
  		- [如何使用cocos2d-x3.0制作一个打地鼠的游戏：第二部分](../tutorial/how-to-create-a-mole-whacking-game/part2/zh.md)
  		
  	- 使用cocos2d-x3.0制作一个滑动图片游
@@ -229,7 +236,9 @@
  		- [如何使用cocos2dx3.0制作基于tilemap的游戏：第一部分](../tutorial/how-to-make-a-tile-based-game-with-cocos2d/part1/zh.md)
  		- [如何使用cocos2dx3.0制作基于tilemap的游戏：第二部分](../tutorial/how-to-make-a-tile-based-game-with-cocos2d/part2/zh.md)
  		- [如何使用cocos2dx3.0制作基于tilemap的游戏：第三部分·完](../tutorial/how-to-make-a-tile-based-game-with-cocos2d/part3/zh.md)
- 			
+ 		
+ 	- [怎样用cocostudio制作一个标准的卡牌游戏主界面](../tutorial/how-to-use-cocostudio-to-make-a-main-scene-of-cardgame/zh.md)
+
 	- Cocos2d-x菜单教程(v3.0)
  		- [Cocos2d-x3.0菜单教程：第一部分](../tutorial/menu-tutorial/chapter1/zh.md)
  		- [Cocos2d-x3.0菜单教程：第二部分](../tutorial/menu-tutorial/chapter2/zh.md)
@@ -239,6 +248,11 @@
  		- [Cocos2d-x 精灵教程：第一部分](../tutorial/sprite-tutorial/chapter1/zh.md)
  		- [Cocos2d-x 精灵教程：第二部分](../tutorial/sprite-tutorial/chapter2/zh.md)
  		- [Cocos2d-x 精灵教程：第三部分](../tutorial/sprite-tutorial/chapter3/zh.md)
+ 		
+ 	- 怎样用Cocos2d-html5制作一款横版动作游戏
+ 		- [怎样用Cocos2d-html5制作一款横版动作游戏 (1)](../tutorial/how-to-to-make-a-acting-game-by-cocos-html5/part1/zh.md)
+ 		- [怎样用Cocos2d-html5制作一款横版动作游戏 (2)](../tutorial/how-to-to-make-a-acting-game-by-cocos-html5/part2/zh.md)
+ 		- [怎样用Cocos2d-html5制作一款横版动作游戏 (3)](../tutorial/how-to-to-make-a-acting-game-by-cocos-html5/part3/zh.md)
 	
 	- 入门篇：用C++写一个忍者射飞镖游戏（v2.2）
 		- 新建一个跨平台游戏
