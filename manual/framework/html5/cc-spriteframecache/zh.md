@@ -85,10 +85,72 @@
 
 （由于`meta.image`为对应plist文件名改后缀名为`png`，故可以不配置`meta`属性。）
 
-接着我们可以自定义一个loader插件用于加载、解析pkgJson，参见CCLoaders.js中的`cc.pkgJsonLoader`代码。
+接着我们可以自定义一个loader插件用于加载、解析pkgJson，loader插件代码如下：
+
+
+```
+
+/**
+ * This is a loader to merge plist files to one file.
+ */
+cc._pkgJsonLoader = {
+    /**
+     * @constant
+     */
+    KEY : {
+        frames : "frames",
+        rect : "rect", size : "size", offset : "offset", rotated : "rotated", aliases : "aliases",
+
+        meta : "meta",
+        image : "image"
+    },
+    /**
+     * @constant
+     */
+    MIN_KEY : {
+        frames : 0,
+        rect : 0, size : 1, offset : 2, rotated : 3, aliases : 4,
+
+        meta : 1,
+        image : 0
+    },
+    _parse : function(data){
+        var KEY = data instanceof Array ? this.MIN_KEY : this.KEY;
+        var frames = {}, meta = data[KEY.meta] ? {image : data[KEY.meta][KEY.image]} : {};
+        var tempFrames = data[KEY.frames];
+        for (var frameName in tempFrames) {
+            var f = tempFrames[frameName];
+            var rect = f[KEY.rect];
+            var size = f[KEY.size];
+            var offset = f[KEY.offset];
+            frames[frameName] = {
+                rect : {x : rect[0], y : rect[1], width : rect[2], height : rect[3]},
+                size : {width : size[0], height : size[1]},
+                offset : {x : offset[0], y : offset[1]},
+                rotated : f[KEY.rotated],
+                aliases : f[KEY.aliases]
+            }
+        }
+        return {_inited : true, frames : frames, meta : meta};
+    },
+    load : function(realUrl, url, res, cb){
+        var self = this, locLoader = cc.loader, cache = locLoader.cache;
+        locLoader.loadJson(realUrl, function(err, pkg){
+            if(err) return cb(err);
+            var dir = cc.path.dirname(url);
+            for (var key in pkg) {
+                var filePath = cc.path.join(dir, key);
+                cache[filePath] = self._parse(pkg[key]);
+            }
+            cb(null, true);
+        });
+    }
+};
+cc.loader.register(["pkgJson"], cc._pkgJsonLoader);
+```
 
 pkgJson其实就是一个json文件，那为什么不直接叫做json呢？因为每个loader插件是根据后缀名进行处理的，
-如果也叫json那就会使用`cc.jsonLoader`进行加载了。
+如果也叫json那就会使用`cc._jsonLoader`进行加载了。
 
 还可以支持混淆压缩模式：
 
@@ -115,3 +177,5 @@ pkgJson其实就是一个json文件，那为什么不直接叫做json呢？因�
 
 用这种方式可以很好的解决`plist`文件在H5上带来的各种问题，同时可以让开发者在开发的时候用plist进行开发，在发布的时候使用pkgJson进行发布，
 却不需要改动项目代码，只需要把资源加载列表中的plsit替换成对于的pkgJson就可以了。
+
+但是目前，jsb尚无法支持自定义资源加载器插件，该功能只能在HTML5上使用。

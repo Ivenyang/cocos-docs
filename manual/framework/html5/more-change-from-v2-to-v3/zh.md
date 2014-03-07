@@ -31,7 +31,7 @@ cc.computeImageFormatType
 
 移除了`cc.tgaLoad`。
 
-## cc.Texuture2D
+## cc.Texture2D
 
 ```
 cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888 = 0;
@@ -50,17 +50,17 @@ cc.TEXTURE_2D_PIXEL_FORMAT_DEFAULT = cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888;
 改为：
 
 ```
-cc.TEXTURE_2D.PIXEL_FORMAT_RGBA8888 = 0;
-cc.TEXTURE_2D.PIXEL_FORMAT_RGB888 = 1;
-cc.TEXTURE_2D.PIXEL_FORMAT_RGB565 = 2;
-cc.TEXTURE_2D.PIXEL_FORMAT_A8 = 3;
-cc.TEXTURE_2D.PIXEL_FORMAT_I8 = 4;
-cc.TEXTURE_2D.PIXEL_FORMAT_AI88 = 5;
-cc.TEXTURE_2D.PIXEL_FORMAT_RGBA4444 = 6;
-cc.TEXTURE_2D.PIXEL_FORMAT_RGB5A1 = 7;
-cc.TEXTURE_2D.PIXEL_FORMAT_PVRTC4 = 8;
-cc.TEXTURE_2D.PIXEL_FORMAT_PVRTC2 = 9;
-cc.TEXTURE_2D.PIXEL_FORMAT_DEFAULT = cc.TEXTURE_2D.PIXEL_FORMAT_RGBA8888;
+cc.Texture2D.PIXEL_FORMAT_RGBA8888 = 0;
+cc.Texture2D.PIXEL_FORMAT_RGB888 = 1;
+cc.Texture2D.PIXEL_FORMAT_RGB565 = 2;
+cc.Texture2D.PIXEL_FORMAT_A8 = 3;
+cc.Texture2D.PIXEL_FORMAT_I8 = 4;
+cc.Texture2D.PIXEL_FORMAT_AI88 = 5;
+cc.Texture2D.PIXEL_FORMAT_RGBA4444 = 6;
+cc.Texture2D.PIXEL_FORMAT_RGB5A1 = 7;
+cc.Texture2D.PIXEL_FORMAT_PVRTC4 = 8;
+cc.Texture2D.PIXEL_FORMAT_PVRTC2 = 9;
+cc.Texture2D.PIXEL_FORMAT_DEFAULT = cc.Texture2D.PIXEL_FORMAT_RGBA8888;
 ```
 
 删除了`cc.Texture2D.setDefaultAlphaPixelFormat`, `cc.Texture2D.getDefaultAlphaPixelFormat`, `cc.Texture2D.defaultAlphaPixelFormat`。
@@ -112,14 +112,14 @@ cc.renderContextType ---> cc._renderType
 cc.CANVAS ---> cc._RENDER_TYPE_CANVAS
 cc.WEBGL ---> cc._RENDER_TYPE_CANVAS
 cc.mainRenderContextBackup ---> cc._mainRenderContextBackup
+cc.RectFromString --> cc.spriteFrameCache._rectFromString
+cc.PointFromString --> cc.spriteFrameCache._pointFromString
+cc.SizeFromString --> cc.spriteFrameCache._sizeFromString
 ```
 
 ## 统一方法名命名规范
 
 ```
-cc.RectFromString --> cc.rectFromString
-cc.PointFromString --> cc.pointFromString
-cc.SizeFromString --> cc.sizeFromString
 ```
 
 ## 常量
@@ -140,6 +140,5 @@ cc.dumpConfig ---> cc.sys.dump
 
 去除：
 cc.isAddedHiddenEvent
-cc.Browser.supportWebGL
 ```
 

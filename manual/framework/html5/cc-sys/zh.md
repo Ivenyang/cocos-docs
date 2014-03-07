@@ -4,33 +4,31 @@
 
 将原来的cc.Browser以及sys合并。
 
-下面是api改造情况，左侧是新api，右侧是旧api：
+下面是api改造情况：
 
 ```
-window._sys = cc.sys = {};
-isMobile
+//左侧是新api，右侧是旧api
 //常量
-_sys.LANGUAGE_***   <-->cc.LANGUAGE_***，并且，原API是数字，新API是String。
-_sys.PLATFORM_***   <-->cc.PLATFORM_***
-_sys.MULTIPLE_AUDIO_WHITE_LIST     <-->cc.Browser.multipleAudioWhiteList
-_sys.WEBGL_WHITE_LIST <-->cc.Browser.webglWhiteList
-_sys.BROWSER_TYPE_***   <-->新的api。对应于_sys.browserType
+cc.sys.LANGUAGE_***   <-->cc.LANGUAGE_***，并且，原API是数字，新API是String。
+cc.sys.PLATFORM_***   <-->cc.PLATFORM_***
+cc.sys.MULTIPLE_AUDIO_WHITE_LIST     <-->cc.Browser.multipleAudioWhiteList
+cc.sys.WEBGL_WHITE_LIST <-->cc.Browser.webglWhiteList
+cc.sys.BROWSER_TYPE_***   <-->新的api。对应于cc.sys.browserType
 
-_sys.language = ...     <-->Application 实例的 getCurrentLanguage()
-_sys.isNative = false; <-->新的api。在JSB中将自动被设置为true。相当于原来的sys.platform
-_sys.isMobile = ...     <-->cc.Browser.isMobile
-_sys.browserType = ...  <-->cc.Browser.browserType
-_sys.supportWebAudio = ...  <-->cc.Browser.supportWebAudio
-_sys._supportRender = ...    <-->cc.RenderDoesnotSupport
-_sys.localStorage = ...     <-->sys.localStorage
-_sys.capabilities = ...     <-->sys.capabilities
-_sys.os = ...     <-->sys.os
-_sys.garbageCollect  <-->sys.garbageCollect
-_sys.dumpRoot  <-->sys.dumpRoot
-_sys.restartVM  <-->sys.restartVM
-_sys.version    <-->sys.version
+cc.sys.language = ...     <-->Application 实例的 getCurrentLanguage()
+cc.sys.isNative = false; <-->新的api。在JSB中将自动被设置为true。相当于原来的sys.platform
+cc.sys.isMobile = ...     <-->cc.Browser.isMobile
+cc.sys.browserType = ...  <-->cc.Browser.browserType
+cc.sys._supportWebAudio = ...  <-->cc.Browser.supportWebAudio
+cc.sys._supportRender = ...    <-->cc.RenderDoesnotSupport
+cc.sys.localStorage = ...     <-->sys.localStorage
+cc.sys.capabilities = ...     <-->sys.capabilities
+cc.sys.os = ...     <-->sys.os
+cc.sys.garbageCollect  <-->sys.garbageCollect
+cc.sys.dumpRoot  <-->sys.dumpRoot
+cc.sys.restartVM  <-->sys.restartVM
+cc.sys.version    <-->sys.version
 
-delete window._sys
 
 cc.openURL = function(url){}  <-->cc.Browser.openURL
 
@@ -47,6 +45,9 @@ cc.PLATFORM_EMSCRIPTEN
 
 cc.Browser.mode
 cc.Browser.ua
+cc.Browser.multipleAudioWhiteList
+cc.Browser.webglWhiteList
+
 sys
 cc.Browser
 

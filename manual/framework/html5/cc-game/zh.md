@@ -21,29 +21,6 @@ cc.game.run();
 
 当`run`的时候，引擎会自动读取`project.json`配置文件获取配置信息。
 
-但如果`cc.game.config`已经被设置了，则不会读取`project.json`文件，例如：
-
-```
-var config = cc.game.config = {};
-var CONFIG_KEY = cc.game.CONFIG_KEY;
-config[CONFIG_KEY.engineDir] = "../cocos2d-html5";
-
-cc.game.onEnter = function(){
-    cc.Director.getInstance().runScene(new MyScene());
-};
-cc.game.run();
-```
-
-如果只是为了写简单的demo，可以这么写，但是如果是作为项目的话，推荐的方式是使用`project.json`。
-
-## pause
-
-暂停游戏：`cc.game.pause()`。
-
-## resume
-
-继续游戏：`cc.game.resume()`。
-
 ## 几个事件监听
 
 ```
@@ -68,3 +45,34 @@ document.getElementById("myBtn").addEventListener("click", function(){
 });
 ```
 
+## debugMode 常量
+
+对应于`project.json`中的`debugMode`字段的配置：
+
+```
+DEBUG_MODE_NONE : 0                     //都不开启
+DEBUG_MODE_INFO : 1                     //用控制台输出INFO、WARN、ERROR级别日志
+DEBUG_MODE_WARN : 2                     //用控制台输出WARN、ERROR级别日志
+DEBUG_MODE_ERROR : 3                    //用控制台输出ERROR级别日志
+DEBUG_MODE_INFO_FOR_WEB_PAGE : 4        //用HTML界面（jsb为控制台）输出INFO、WARN、ERROR级别日志
+DEBUG_MODE_WARN_FOR_WEB_PAGE : 5        //用HTML界面（jsb为控制台）输出WARN、ERROR级别日志
+DEBUG_MODE_ERROR_FOR_WEB_PAGE : 6       //用HTML界面（jsb为控制台）输出ERROR级别日志
+```
+
+## CONFIG_KEY 常量
+
+`project.json`配置文件的key名称：
+
+```
+engineDir : "engineDir",
+dependencies : "dependencies",
+debugMode : "debugMode",
+showFPS : "showFPS",
+frameRate : "frameRate",
+id : "id",
+renderMode : "renderMode",
+jsList : "jsList",
+classReleaseMode : "classReleaseMode"
+```
+
+要获取配置文件的值，可以这么使用：`cc.game.config[cc.game.CONFIG_KEY.showFPS]`。

@@ -320,6 +320,7 @@ cc.loader.releaseAll();
 
 引擎自带loader写在CCLoaders.js中。实现方式也很简单，相信看下源码就懂了，这里就不多说了。
 
+
 ## 资源配置格式
 
 这次`cc.loader`的改造，也废除了v2版本中一直让人诟病的资源列表的配置。
