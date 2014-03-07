@@ -59,6 +59,7 @@
 	- File Stream
 	- Intergrating with 3rd SDK
 		- [use webbroswer to integrate Alipay on Windows Phone 8](../manual/framework/native/sdk-integration/wp8-webbrowser/en.md)
+		- [integrate third SDK in Windows Phone 8](../manual/framework/native/sdk-integration/wp8-thirdSDK/en.md)
 	- Cocos2d-html5
 		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
 		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution-policy-design/en.md)
