@@ -21,7 +21,7 @@ We are happy to announce that cocos2d-x v3.0-rc0 is available for download:
 
 ### Full Changelog
 
-Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-x-3.0rc0/CHANGELOG)
+Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-x-3.0rc/CHANGELOG)
 
 
 ### Release Notes
