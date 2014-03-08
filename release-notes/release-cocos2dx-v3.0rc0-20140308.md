@@ -3,7 +3,9 @@
 
 We are happy to announce that cocos2d-x v3.0-rc0 is available for download:
 
-* [cocos2d-x-3.0rc0.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc0.zip)
+* [cocos2d-x-3.0rc.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc.zip)
+
+** This package only includes cpp version. Lua binding is moved into [this repo](https://github.com/cocos2d/cocos2d-lua), and JS binding is moved into [this repo](https://github.com/cocos2d/cocos2d-js). **
 
 ### Highlights
 
@@ -11,6 +13,10 @@ We are happy to announce that cocos2d-x v3.0-rc0 is available for download:
     * Added auto-culling for Sprites
     * Transforms are updated only when needed
 * New way to create cocos2d games
+* Added setup.py to set up enrivonment varialbes
+* New Label supports custom effect of shadow and outline
+* Scheduler supports `std::function<>` as parameter
+* Added many usefule commands into Console module
 * Many bug fixes!
 
 
