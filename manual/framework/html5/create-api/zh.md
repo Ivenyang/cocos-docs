@@ -1,4 +1,4 @@
-##create的使用改动部分##
+##create##
 所有的对象统一使用create方法创建，不再存在createXXX之类的方法
 ###1、精灵Sprite 一共4种创建方式###
 
