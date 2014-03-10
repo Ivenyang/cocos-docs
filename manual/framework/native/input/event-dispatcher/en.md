@@ -282,7 +282,7 @@ An added listener can be removed with following method:
 
 ```
 
-To remove all the listeners of the current node, use the following code:
+To remove all the listeners of the event dispatcher, use the following code:
 
 ```c++
     _eventDispatcher->removeAllEventListeners();

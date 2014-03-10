@@ -17,30 +17,7 @@
 
 在3.0中创建工程由/tools/project-creator下的create_project.py脚本完成。
 
-默认创建的工程已支持物理引擎，内部启用的是chipmunk。如果你愿意，也可以改为Box2D，但这对游戏开发没有影响。
-
-android修改内部使用Box2D物理引擎，打开projects/youPorjecyName/proj.android/jni/Application.mk.
-修改
-
-	DCC_ENABLE_CHIPMUNK_INTEGRATION=1
-
-为
-
-	DCC_ENABLE_BOX2D_INTEGRATION=1
-
-android修改内部使用Box2D物理引擎，修改项目配置中的"Preprocessor Macros"，把
-
-	CC_ENABLE_CHIPMUNK_INTEGRATION=1
-
-修改为
-
-	CC_ENABLE_BOX2D_INTEGRATION=1
-
-如下图所示：
-
-![iOS Preprocess](res/iosPreprocess.png)
-
-Debug和Release都需要修改。
+默认创建的工程已支持物理引擎，内部启用的是chipmunk。
 
 ## 创建带物理世界的scene
 
@@ -72,6 +49,11 @@ Scene的getPhysicsWorld()方法获取PhysicsWorld实例，
 PhysicsWorld的setDebugDrawMask()方法，在调试物理引擎中是很有用的，它把物理世界中不可见的shape，joint，contact可视化。当调试结束，游戏发布的时候，你需要把这个debug开关关闭。
 
 通过setPhyWorld()方法来传递PhysicsWorld给ChildLayer。一个scene只有一个PhysicsWorld，其下的所有layer共用一个PhysicsWorld实例。
+
+PhysicsWorld默认是有带重力的，默认大小为`Vect(0.0f, -98.0f)`, 你也可以通过的`setGravity()`方法来设置Physics的重力参数。
+
+你还可以通过`setSpeed()`来设置物理世界的模拟速度。
+
 
 ## 创建物理边界
 
@@ -123,6 +105,8 @@ void HelloWorld::addNewSpriteAtPosition(Point p)
 首先创建一个sprite，然后用PhysicsBody::createCircle创建一个圆形的body附加在sprite上。
 整个过程和之前创建边界的过程是一致的。
 
+你也可以创建自己的PhysicsShape然后通过PhysicsBody的addShape()方法加入到body中，但需要注意的是，shape的重量（mess,通过密度和体积计算得出）和转动惯量(moment)是会自动加到body上的，并且shape加到body后是不能改变它相对于body的位置和角度的，不需要时可以通过removeShape()来移除。
+
 ## 碰撞检测
 
 Cocos2d-x中，事件派发机制做了重构，所有事件均有事件派发器统一管理。物理引擎的碰撞事件也不例外，
@@ -130,13 +114,25 @@ Cocos2d-x中，事件派发机制做了重构，所有事件均有事件派发�
 
 ```
 auto contactListener = EventListenerPhysicsContact::create();
-contactListener->onContactBegin = CC_CALLBACK_2(HelloWorld::onContactBegin, this);
+contactListener->onContactBegin = CC_CALLBACK_1(HelloWorld::onContactBegin, this);
 _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 ```
 
-碰撞检测的所有事件由EventListenerPhysicsContact来监听，创建一个实例，然后设置它的onContactBegin回调函数，CC_CALLBACK_2是Cocos2d-x 3.0使用C++ 11的回调函数指针转换助手函数，由于onContactBegin回调有两个参数，所有这里使用CC_CALLBACK_2来做转换。
+碰撞检测的所有事件由EventListenerPhysicsContact来监听，创建一个实例，然后设置它的onContactBegin回调函数，CC_CALLBACK_1是Cocos2d-x 3.0使用C++ 11的回调函数指针转换助手函数，由于onContactBegin回调有一个参数，所有这里使用CC_CALLBACK_1来做转换。
 
 _eventDispatcher是基类Node的成员，Layer初始化后就可直接使用。
+
+你还可以使用`EventListenerPhysicsContactWithBodies`, `EventListenerPhysicsContactWithShapes`, `EventListenerPhysicsContactWithGroup` 来监听你感兴趣的两个物体、两个形状，或者某组物体的碰撞事件，但是要注意设置物体碰撞相关的mask值（下面会详细说明），因为物体碰撞事件在默认情况下是不接收的，即使你创建了相应的EventListener。
+
+PhysicsBody碰撞相关的mask设置和group设置跟Box2D的设置是一致的，
+mask设置分为**CategoryBitmask**， **ContactTestBitmask** 和 **CollisionBitmask**，你可以通过相关的get/set接口来获得或者设置他们。他们是通过逻辑与来进行测试的，当一个物体的**CategoryBitmask**跟另一个物体的**ContactTestBitmask**的逻辑与测试结果不为零时，将会发送相应的事件，否则不发送。而当一个物体的**CategoryBitmask**跟另一个物体的**CollisionBitmask**的逻辑与测试结果不为零时，将会发生碰撞，否则不发生碰撞。注意，在默认情况下**CategoryBitmask**的值为0xFFFFFFFF，**ContactTestBitmask**的值为0x00000000，**CollisionBitmask**的值为0xFFFFFFFF，也就是说默认情况下所有物体都会发生碰撞但不发送通知。
+另一个碰撞相关的设置是**group**（组），当它大于零时，同组的物体将发生碰撞，当它小于零时，同组的物体不碰撞。注意，当**group**不为零时，他将忽略mask的碰撞设置（是否通知的设置依然有效）。
+
+在`EventListenerPhysicsContact`里有四个碰撞回调函数，他们分别是`onContactBegin`，`onContactPreSolve`，`onContactPostSolve`和`onContactSeperate`。
+在碰撞刚发生时，`onContactBegin`会被调用，并且在此次碰撞中只会被调用一次。你可以通过返回true或者false来决定物体是否发生碰撞。你可以通过`PhysicsContact::setData()`来保存自己的数据以便用于后续的碰撞处理。需要注意的是，当`onContactBegin`返回flase时，`onContactPreSolve`和`onContactPostSolve`将不会被调用，但`onContactSeperate`必定会被调用。
+`onContactPreSolve`发生在碰撞的每个step，你可以通过调用`PhysicsContactPreSolve`的设置函数来改变碰撞处理的一些参数设定，比如弹力，阻力等。同样你可以通过返回true或者false来决定物体是否发生碰撞。你还可以通过调用`PhysicsContactPreSolve::ignore()`来跳过后续的`onContactPreSolve`和`onContactPostSolve`回调事件通知（默认返回true）。
+`onContactPostSolve`发生在碰撞计算完毕的每个step，你可以在此做一些碰撞的后续处理，比如摧毁某个物体等。
+`onContactSeperate`发生在碰撞结束两物体分离时，同样只会被调用一次。它跟`onContactBegin`必定是成对出现的，所以你可以在此摧毁你之前通过`PhysicsContact::setData()`设置的用户数据。
 
 ## Demo
 
