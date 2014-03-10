@@ -12,7 +12,6 @@
 cc.sys.LANGUAGE_***   <-->cc.LANGUAGE_***，并且，原API是数字，新API是String。
 cc.sys.PLATFORM_***   <-->cc.PLATFORM_***
 cc.sys.MULTIPLE_AUDIO_WHITE_LIST     <-->cc.Browser.multipleAudioWhiteList
-cc.sys.WEBGL_WHITE_LIST <-->cc.Browser.webglWhiteList
 cc.sys.BROWSER_TYPE_***   <-->新的api。对应于cc.sys.browserType
 
 cc.sys.language = ...     <-->Application 实例的 getCurrentLanguage()
@@ -42,14 +41,6 @@ sys.PLATFORM_IPAD
 cc.PLATFORM_BLACKBERRY
 cc.PLATFORM_NACL
 cc.PLATFORM_EMSCRIPTEN
-
-cc.Browser.mode
-cc.Browser.ua
-cc.Browser.multipleAudioWhiteList
-cc.Browser.webglWhiteList
-
-sys
-cc.Browser
 
 cc.config
 ```
