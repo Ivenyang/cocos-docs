@@ -19,6 +19,8 @@
 
 默认创建的工程已支持物理引擎，内部启用的是chipmunk。
 
+你可以注释掉`ccConfig.h`里的`CC_USE_PHYSICS`宏定义去关闭它。
+
 ## 创建带物理世界的scene
 
 下面的代码创建带物理世界的scene，并传递给child layer。
@@ -139,3 +141,5 @@ mask设置分为**CategoryBitmask**， **ContactTestBitmask** 和 **CollisionBit
 你可以在这里获取文章配套Demo：<https://github.com/Yangtb/newPhysics.git>
 
 Demo基于 [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone后放到引擎的projects（如果没有自行创建）文件夹下。
+
+你也可以运行引擎自带的test-cpp下的PhysicsTest查看和学习物理集成的使用方式。
