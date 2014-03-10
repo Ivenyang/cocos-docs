@@ -6,7 +6,7 @@
 
 ![](res/./ParticleBatchNode@2.x.png)   ![](res/./ParticleBatchNode@3.0.png)
 
-Both classes are inheritant from Node(or CCNode in v3.x) and TextureProtocol(or CCTextureProtocol in v2.x).
+Both classes are inheritant from Node(or CCNode in v2.x) and TextureProtocol(or CCTextureProtocol in v2.x).
 
 (**Note:** In the rest of this article, we use the notion of v3.x which means all the **CC** prefix will be removed from the class name.)
 
