@@ -1,10 +1,10 @@
-# v3相对于v2版本的api变动
+# More
 
 ## CCAudio.js
 
-`SimpleAudioEngine.js`改名为`CCAudio.js`。
+`SimpleAudioEngine.js` is renamed as `CCAudio.js`。
 
-`AudioEngine`中删除了以下几个方法：
+Some APIs has been removed in `AudioEngine`:
 
 ```
 preloadMusic
@@ -13,11 +13,11 @@ isFormatSupported
 preloadSound
 ```
 
-`cc.AudioEngine.end`被移到了实例中，而不是作为类的静态方法。
+`cc.AudioEngine.end` is move to its instance.
 
 ## cc.TextureCache
 
-删除了以下的几个api：
+Removed:
 
 ```
 cc.loadImg
@@ -25,15 +25,15 @@ cc.loadImage.handler
 cc.computeImageFormatType
 ```
 
-`addImageAsync`方法被合并到了`addImage`中去了。
+`addImageAsync` is merged into `addImage`.
 
 ## CCTGAlib.js
 
-移除了`cc.tgaLoad`。
+Remove `cc.tgaLoad`。
 
 ## cc.Texture2D
 
-改动：
+Changed:
 
 ```
 cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888     --> cc.Texture2D.PIXEL_FORMAT_RGBA8888
@@ -54,12 +54,12 @@ cc.Texture2D.defaultAlphaPixelFormat()          --> cc.Texture2D.defaultPixelFor
 
 ## cc.Scheduler
 
-`cc.PRIORITY_SYSTEM`改为`cc.Scheduler.PRIORITY_SYSTEM`。
+`cc.PRIORITY_SYSTEM` --> `cc.Scheduler.PRIORITY_SYSTEM`.
 
 
 ## 数组操作函数
 
-这些函数有些将名字开头改为小写，有些废弃了直接用Array的函数进行操作。
+Changed:
 
 ```
 cc.ArrayVerifyType --> cc.arrayVerifyType
@@ -77,7 +77,7 @@ cc.ArrayContainsObject(arr, findObj) --> arr.indexOf(findObj) != -1
 remove cc.HASH_FIND_INT
 ```
 
-## 共有方法或对象变成私有方法或对象：
+## Public to private
 
 ```
 cc.setup                    --> cc._setup
@@ -96,9 +96,9 @@ cc.PointFromString          --> cc.spriteFrameCache._pointFromString
 cc.SizeFromString           --> cc.spriteFrameCache._sizeFromString
 ```
 
-## 常量
+## Constants
 
-删除：
+Removed:
 
 ```
 cc.IS_SHOW_DEBUG_ON_PAGE
@@ -106,23 +106,23 @@ cc.COCOS2D_DEBUG
 ```
 
 
-## 其他
+## Others
 
-修改
+Changed:
 
 ```
 cc.dumpConfig ---> cc.sys.dump
 
 ```
 
-删除：
+Removed:
 
 ```
 cc.isAddedHiddenEvent
 cc.originalCanvasSize
 ```
 
-新增：
+Added:
 
 ```
 cc.BuilderReader.registerController

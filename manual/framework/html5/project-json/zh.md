@@ -33,7 +33,7 @@
 #### engineDir
 
 跟原来配置相同，用于指定引擎目录。区别在于，在v2版本中，指向的是`**/cocos2d-html5/cocos2d`，但在v3版本中，只要指向`**/cocos2d-html5`就行了。
-默认为"libs/cocos2d-html5"。
+默认为"frameworks/cocos2d-html5"。
 
 #### jsList
 

@@ -21,15 +21,6 @@ cc.game.run();
 
 当`run`的时候，引擎会自动读取`project.json`配置文件获取配置信息。
 
-## 几个事件监听
-
-```
-cc.game.onBeforeResume = function(){};
-cc.game.onAfterResume = function(){};
-cc.game.onBeforePause = function(){};
-cc.game.onAfterPause = function(){};
-```
-
 ## 延迟运行
 
 有种需求是先加载完js，游戏主循环并还未开启，等响应了某一事件之后才开始运行游戏，例如：
