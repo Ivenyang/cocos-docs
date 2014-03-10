@@ -4,8 +4,8 @@
 	- Supported Platforms and Programming Languages
 - Release Notes
 	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release-notes/summary-release-20140107.md)
-- Framework 
-	- Getting Started	 
+- Framework
+	- Getting Started
 		- Setting up Development Environments
 			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android-on-win7/en.md)
 			- Setting up Environments for Cocos2d-x on Mac OS X
@@ -16,7 +16,7 @@
 	- Graphics & Animation
 		- Cocos2d Coordinate System
 		- Sprite, Layer and Scene
-		- Particle System        
+		- Particle System
 			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
 		- Transitions
 		- Flipbook Animation
@@ -24,7 +24,7 @@
 		- Tile Map
 		- Actions
 		- Effects
-		- [Renderer](../manual/framework/native/renderer/en.md) 
+		- [Renderer](../manual/framework/native/renderer/en.md)
 		- Mechanism to Work on Multiple Resolutions
 	- Audio
 	- GUI
@@ -34,9 +34,9 @@
         - UI Layouts
 		- [Label](../manual/framework/native/gui/label/v3/en.md)
 	- Data Structure
-		- v3.0: 
+		- v3.0:
 			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
-			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
+			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md)
 			- [Value](../manual/framework/native/data-structure/v3/value/en.md)
 		- v2.x: CCArray, CCDictionary and CCString
 	- [Physics](../manual/framework/native/physics/physics-integration/en.md)
@@ -61,8 +61,13 @@
 		- [use webbroswer to integrate Alipay on Windows Phone 8](../manual/framework/native/sdk-integration/wp8-webbrowser/en.md)
 		- [integrate third SDK in Windows Phone 8](../manual/framework/native/sdk-integration/wp8-thirdSDK/en.md)
 	- Cocos2d-html5
-		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
-		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution-policy-design/en.md)
+		- Startup
+			- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
+			- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution-policy-design/en.md)
+			- [Cocos utils based on node.js and NPM](../manual/framework/html5/cocos-utils/en.md))
+		- New features and API changes in version 3.0:
+			- [New event manager](../manual/framework/html5/v3.0/eventManager/en.md)
+			- [New property API](../manual/framework/html5/v3.0/getter-setter-api/en.md)
 - Studio
 - Tutorials
 	- [Build a Game with CocoStudio](../tutorial/parkour-game-with-cocostudio/en.md)
@@ -81,4 +86,3 @@
 		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/chapter8/en.md)
 		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/chapter9/en.md)
         - [Add Audio Effect into Parkour Game](../tutorial/parkour-game-with-javascript/chapter10/en.md)
-		
