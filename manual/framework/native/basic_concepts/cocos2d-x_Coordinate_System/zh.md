@@ -74,10 +74,6 @@ Parent and Childrens
     parent-&gt;addChild(child);//add child sprite into parent sprite.
 
 
-由于我们设置子对象的位置是ccp(0,0)，父对象位置是ccp(100,100)。所以，子对象位置是：
-
-![](http://www.cocos2d-x.org/attachments/1559/parent.jpeg）
-
 锚点
 
 作为例子，下面这个精灵有的锚点位于 ccp(0,0)，位置位于ccp(0,0)。
