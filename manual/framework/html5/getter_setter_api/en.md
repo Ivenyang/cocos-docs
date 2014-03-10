@@ -30,7 +30,7 @@ As for the name of the properties, we proposed names close to CSS style which is
 
 Individually, the property API is just a replacement of functions which permit to have more compact code, it's not so exiting. But along with the properties access API, we also provided a even more useful function to cc.Node: `attr` function. Quite similar to jQuery's `attr` function, it helps you to config all the properties you want together with just one function call.
 
-```
+```javascript
 node.attr({
 	x: 20,
 	y: 20,
@@ -62,7 +62,7 @@ As `attr` uses key-value pairs to config nodes, there could be problems when we 
 
 The problem is that keys won't be compressed in advanced mode while our properties' names will be compressed, this produce a mismatch issue between the `attr` function and the real properties. Fortunately, we have guaranteed the functionality of basic properties, which will be noted also in the list. For other properties or custom properties, you can add closure compiler `expose` annotation to avoid the problem. Note that this problem occurs only when developer try to use `attr` function to config properties.
 
-```
+```javascript
 /** @expose */
 node.shaderProgram;
 
@@ -81,7 +81,7 @@ node.attr({
 
 Another problem is that how can you inherit a class, and override the getter/setter function of the property. Good news for you, we have implement a built in solution to make this happen automatically. Here is an example when you want to override the `x` getter/setter in your custom Sprite sub class.
 
-```
+```javascript
 var MySprite = cc.Sprite.extend({
 	ctor: function() {
 		this._super();

@@ -180,6 +180,11 @@ Extend from cc.SpriteBatchNode
 
 | Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
 |:------:|:------:|:-------:|:-------:|:------:|
+| opacity | Number | R&W | getOpacity, setOpacity | YES |
+| opacityModifyRGB | Boolean | R&W | isOpacityModifyRGB, setOpacityModifyRGB | YES |
+| cascadeOpacity | Boolean | R&W | isCascadeOpacityEnabled, setCascadeOpacityEnabled | YES |
+| color | cc.Color | R&W | getColor, setColor | YES |
+| cascadeColor | Boolean | R&W | isCascadeColorEnabled, setCascadeColorEnabled | YES |
 | string | String | R&W | getString, _setStringForSetter | YES |
 | textAlign | enum | R&W | _getAlignment, setAlignment | YES |
 | boundingWidth | Number | R&W | _getBoundingWidth, setBoundingWidth | YES |

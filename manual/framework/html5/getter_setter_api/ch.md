@@ -28,7 +28,7 @@ cc.defineGetterSetter(object, "propertyName", getterFunc, setterFunc);
 
 新API使得Cocos2d-html5代码更加简洁，但这还不够，我们为cc.Node添加了更为简单易用的`attr`函数。与jQuery的`attr`函数相同，这个函数允许开发者批量设置多个属性。示例如下：
 
-```
+```javascript
 node.attr({
 	x: 20,
 	y: 20,
@@ -58,7 +58,7 @@ node.attr({
 
 简单来说，键值对中的键实质上是String类型，混淆过程中它并不会被压缩，而与之相对应的属性名却会被压缩，这导致了两者命名的不匹配。所幸，在引擎中我们保障了最常用的基础属性不会被压缩，至于其他的属性和用户自定义属性，可以使用Closure Compiler的`expose`声明来避免出现问题。需要注意的是这个问题只有在开发者尝试使用`attr`函数来配置属性的时候才会出现，如果没有使用`attr`函数就不需要做任何额外的处理。
 
-```
+```javascript
 /** @expose */
 node.shaderProgram;
 
@@ -76,7 +76,7 @@ node.attr({
 
 另一个重要的问题是在继承过程中，如何重载父类中的属性。好消息是我们已经将这一机制在Cocos2d-html5的cc.Class中实现了。只要你重载了父类中的getter/setter函数，那么不需要重新定义，新的getter/setter会自动被绑定到属性上。下面是一个重载Sprite类中的`x`属性的例子：
 
-```
+```javascript
 var MySprite = cc.Sprite.extend({
 	ctor: function() {
 		this._super();
