@@ -133,7 +133,7 @@ _eventDispatcher is a member of base class Node, it can be used by a initialized
 
 You also can use `EventListenerPhysicsContactWithBodies`, `EventListenerPhysicsContactWithShapes`, `EventListenerPhysicsContactWithGroup` to listen the event you interested with bodys, shapes or group. But you also need to set the physics contact related bitmask value, because the contact event won't be received by default, even you create the relative EventListener.
 
-The contact relative bitmask setting and group setting are the same like Box2D. 
+The contact relative bitmask setting and group setting are the same as Box2D. 
 
 There are three values: **CategoryBitmask**， **ContactTestBitmask** and **CollisionBitmask**. you can use corresponding get/set method to get/set them. They are tested by logical and operation. When **CategoryBitmask** of one body and with **ContactTestBitmask** of another body with the result doesn't equal to zero, the contact event will be sended, overwise the contact event won't be sended. When **CategoryBitmask** of one body and with **CollisionBitmask** of another body with the result doesn't equal to zero, they will collied, overwise it won't. be ware, in default, **CategoryBitmask** value is 0xFFFFFFFF, **ContactTestBitmask** value is 0x00000000, and **CollisionBitmask** value is 0xFFFFFFFF, it means all body will collide with each other but with out send contact event by default.
 
