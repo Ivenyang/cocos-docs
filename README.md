@@ -6,7 +6,7 @@ These are documents for Cocos2d-x, Cocos2d-html5 and CocoStudio. Please select y
 - [__English__](catalog/en.md)
 - [__中文__](catalog/zh.md)
 - [__日本語__](catalog/ja.md)
-- __한국의__   // waiting for your contribution
+- [__한국어__](catalog/ko.md)   // waiting for your contribution
 
 
 ### Contributing
