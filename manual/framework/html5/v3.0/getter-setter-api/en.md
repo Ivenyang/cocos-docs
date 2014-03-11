@@ -25,6 +25,7 @@ Then each time you do `var a = object.propertyName;`, this retrieve the value of
 
 As for the name of the properties, we proposed names close to CSS style which is very familiar to javascript developers.
 
+
 2. `attr` function of cc.Node
 -----------------------------
 
@@ -44,6 +45,7 @@ node.attr({
 
 It support not only all properties available in the list of the end, but also your custom properties.
 
+
 3. Why and what changed
 -----------------------
 
@@ -56,7 +58,28 @@ So the main task of version 3.0 is to propose a fully refactored javascript styl
 Back to properties, cc.Node and all its descendant classes are refactored with properties instead of `getXXX()` and `setXXX(value)` functions. There are also some property style API provided in a few other classes. All properties and related classes will be listed at the end of this document.
 
 
-4. Inherit property
+4. About closure compiler
+-------------------------
+
+As `attr` uses key-value pairs to config nodes, there could be problems when we try to use the advanced mode of closure compiler to compile our project.
+
+The problem is that keys won't be compressed in advanced mode while our properties' names will be compressed, this produce a mismatch issue between the `attr` function and the real properties. Fortunately, we have guaranteed the functionality of most properties, which will be noted also in the list. For other properties or custom properties, you can add closure compiler `expose` annotation to avoid the problem. Note that this problem occurs only when developer try to use `attr` function to config properties.
+
+```javascript
+/** @expose */
+node.shaderProgram;
+
+/** @expose */
+node.customProperty;
+
+node.attr({
+	shaderProgram: program,
+	customProperty: 0
+});
+```
+
+
+5. Inherit property
 ---------------------
 
 Another problem is that how can you inherit a class, and override the getter/setter function of the property. Good news for you, we have implement a built in solution to make this happen automatically. Here is an example when you want to override the `x` getter/setter in your custom Sprite sub class.
@@ -81,7 +104,7 @@ var mySprite = new MySprite();
 Then `mySprite.x = x;` will invoke your custom `setPositionX` function, same for getter. What you have to make sure is the inherited getter/setter functions' names must be the same as the parent class. Otherwise, you will need to redefine the property via `cc.defineGetterSetter`.
 
 
-5. List of properties
+6. List of properties
 ---------------------
 
 ### cc.Node
