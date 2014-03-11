@@ -1,59 +1,137 @@
-如何使用ScriptHandlerMgr去回调lua函数
+如何使用ScriptHandlerMgr回调lua函数
 ===========================================
-由于cocos2d-x 2.x版本中，c++对象回调lua函数存在一定的缺陷，所以在cocos2d-x 3.0版本中采用`ScriptHandlerMgr`中管理c++对象回调lua函数。
+在cocos2d-x V2.x中，c++对象回调lua函数需要在相应类内增加成员变量以及一些成员函数，这些代码大大增加了lua脚本引擎和c++引擎的耦合度。因此，cocos2d-x V3.0对此机制进行了优化，对于从Ref类派生出来的类，通过建立`c++对象`、`HandlerType`和`lua函数索引`的映射关系，应用`ScriptHandlerMgr`进行统一管理。
 
-###cocos2d-x 2.x，c++对象回调lua函数基本步骤:
+假设现在有一个类TestCallback,基于该类分别用V2.x和V3.0的机制实现对lua函数的回调，从而详解使用V3.0`ScriptHanderMgr`回调lua函数的好处。
+    
+###cocos2d-x V2.x:
+```
+//TestCallback.h
 
-1.类中增加成员变量`m_nScriptHandler`用于保存lua函数的索引
+class TestCallback
+{
+	...
+public:
+    //2.增加成员方法
+    virtual void registerScriptHandler(int nHandler);
+    virtual void unregisterScriptHandler(void);
+    inline int getScriptHandler() { return m_nScriptHandler; };
+private:
+    //1.增加成员变量增加，用于保存lua函数索引
+    int m_nScriptHandler;
+	...
+}
 
-2.类中增加`registerScriptHandler`、`unregisterScriptHandler`和`getScriptHandler`函数
+//TestCallback.cpp
 
-3.事件触发时，调用`getScriptHandler`获取lua函数索引，完成对lua函数的回调
+TestCallback::~TestCallback()
+{
+	...
+	//4.调用unregisterScriptHandler
+	unregisterScriptHandler();
+	...
+}
+/**------新增成员函数实现 begin------*/
+void TestCallback::registerScriptHandler(int nHandler)
+{
+	unregisterScriptHandler();
+	m_nScriptHandler = nHandler
+}
 
-4.类析构函数中添加`unregisterScriptHandler`删除`lua函数索引`对应的函数信息
+void TestCallback::unregisterScriptHandler(int nHandler)
+{
+	if(m_nScriptHandler != 0)
+	{
+		CCScriptEngineManager::sharedManager()->getScriptEngine()->removeScriptHandler(m_nScriptHandler);
+        m_nScriptHandler = 0;
+	}	
+}
+/**------新增成员函数实现 end------*/
 
-每增加一个lua函数的回调，这种操作流程都要往引擎c++类代码中增加对应代码，这些代码对于那些不需要使用lua脚本的开发者来说是没有必要的，增加了lua脚本引擎和c++引擎的耦合度。
-
-###cocos2d-x 3.0，ScriptHandlerMger使用基本步骤:
-
-1.对于不同类型的lua回调，增加一个`HandlerType`
-
-2.调用`addObjectHandler`添加`c++对象`、`HandlerType`和`lua函数索引`的映射关系。实现如下：
+void TestCallback::onEvent()
+{
+	...
+    //3.事件触发对lua函数的回调
+	if(m_nScriptHandler != 0)
+	{
+		CCScriptEngineManager::sharedManager()->getScriptEngine()->executeSomething(eventype);
+	}
+	...
+}
 
 ```
-void ScriptHandlerMgr::addObjectHandler(void* object,int handler,ScriptHandlerMgr::HandlerType handlerType)
+
+上述代码为TestCallback类新增了一个lua函数回调机制。在lua脚本中，我们可以这样使用：
+
+```
+    local function callback()
+    	--do something
+    end
+    
+    testCallbackObj:registerScriptHandler(callback)
+```
+
+###cocos2d-x 3.0:
+
+```
+/*C++ begin --**/
+
+//TestCallback.h
+//1.继承自cocos2d::Ref
+class TestCallback : public cocos2d::Ref
 {
-    if (NULL == object)
-        return;
-    
-    //may be not need
-    removeObjectHandler(object,handlerType);
-    
-    auto iter = _mapObjectHandlers.find(object);
-    VecHandlerPairs vecHandlers;
-    vecHandlers.clear();
-    if (_mapObjectHandlers.end() != iter)
-    {
-        vecHandlers = iter->second;
-    }
-    
-    HandlerPair eventHanler = std::make_pair(handlerType, handler);
-    vecHandlers.push_back(eventHanler);
-    _mapObjectHandlers[object] = vecHandlers;
+	...
 }
+
+//LuaScriptHanlderMgr.h
+enum class HandlerType: int
+{
+	...
+	//2.增加一个HandlerType
+	EVENT_TESTCALLBACK,
+};
+
+//TestCallback.cpp
+void TestCallback::onEvent()
+{
+	...
+    //3.事件触发对lua函数的回调
+#if CC_ENABLE_SCRIPT_BINDING
+	if ( kScriptTypeNone != _scriptType)
+	{
+		ScriptEngineManager::getInstance()->getScriptEngine()->sendEvent(event);
+	}
+#endif // #if CC_ENABLE_SCRIPT_BINDING
+	...
+}
+/*C++ end --**/
+
+/*Lua begin**/
+//cocos/scripting/lua-bindings/script/Cocos2dConstants.lua
+...
+cc.Handler.EVENT_PHYSICS_CONTACT_SEPERATE = 56
+...
+cc.Hadnler.EVENT_TESTCALLBACK = numValues
+...
+/*Lua end**/
+```
+
+上述代码为TestCallback类新增了一个lua函数回调机制。在lua脚本中，我们可以这样使用：
+
+```
+    local function callback()
+    	--do something
+    end
+    
+    ScriptHandlerMgr:getInstance():registerScriptHandler(testCallbackObj,callback,EVENT_TESTCALLBACK)
 ```
 
 这里有几点需要注意:
 
-1).当前设计机制下同一个`HandlerType`只能对应一个`lua函数索引`，所以在`addObjectHandler`入口处会先调用`removeObjectHandler`
+* 一个对象可以对应多个不同`HandlerType`
+* 当前版本只支持对类Ref派生出的类对象进行统一管理，因为在`Ref`的析构函数中会自动调用`removeObjectAllHandlers`，所以对于所有从`Ref`派生出来的类无需在析构中添加`removeObjectAllHandlers`的调用，能进一步降低lua脚本引擎和c++引擎的耦合度。
 
-2).一个对象可以对应多个不同`HandlerType`的`lua函数索引`，所以用到了`VecHandlerPairs`类型
 
-3.事件触发时，调用`getObjectHandler`获取`lua函数索引`后，完成对lua函数的回调
-
-4.在类析构函数中调用`removeObjectAllHandlers`移除对应对象所有`lua函数索引`对应的lua函数信息
-
-由于在`Ref`的析构函数中会自动调用`removeObjectAllHandlers`，所以对于所有从`Ref`派生出来的类无需在析构中添加`removeObjectAllHandlers`的调用。
 
 ###结论
-cocos2d-x 3.0使用`ScriptHandlerMgr`管理c++对象回调lua函数，无需增加类的成员变量和成员函数，实现了统一管理，大大降低的脚本引擎和cocos2d-x的耦合度。
+cocos2d-x 3.0使用`ScriptHandlerMgr`管理c++对象回调lua函数，实现了统一管理，减化了实现步骤，大大降低的脚本引擎和c++引擎的耦合度。
