@@ -104,6 +104,15 @@ In the following example, we will add three overlapping buttons to a scene. Each
 ```
 **cc.EventListener.create** is a creator of all type of event listeners,  parameter 'event' can be used to set event listener's type. for example 'cc.EventListener.TOUCH_ONE_BY_ONE' and cc.EventListenerTouchOneByOne .
 
+Event type list: 
+
+1. cc.EventListener.TOUCH_ONE_BY_ONE
+2. cc.EventListener.TOUCH_ALL_AT_ONCE
+3. cc.EventListener.KEYBOARD
+4. cc.EventListener.MOUSE
+5. cc.EventListener.ACCELERATION
+6. cc.EventListener.CUSTOM
+
 ### Add event listener to event dispatcher
 
 ```javascript
@@ -256,7 +265,16 @@ An added listener can be removed with following method:
 ```javascript
 
 	cc.eventManager.removeListener(listener);			//remove a listener from cc.eventManager
-	cc.eventManager.removeListener(aSprite);			//remove all listeners of aSprite from cc.eventManager
+```
+
+All of added listeners by event listener type or by a node object can be removed with following method:
+
+```javascript
+
+	//remove listeners by EventListener type (TOUCH_ONE_BY_ONE)
+	cc.eventManager.removeListeners(cc.EventListener.TOUCH_ONE_BY_ONE);	
+	//remove listener by a node object(aSprite)
+	cc.eventManager.removeListeners(aSprite);		
 ```
 
 To remove all the listeners of the cc.eventManager, use the following code:
@@ -269,3 +287,158 @@ To remove all the listeners of the cc.eventManager, use the following code:
 When using `removeAll`, all the listeners of this node can be removed. Removing specific listener is a recommending way. 
 
 Note: After using `removeAll` menu can not respond, because it also needs accepting touch event.
+
+### pause/resume all listeners of a cc.Node object (SceneGraph Type)
+
+In the game development process, we often encounter such a situation: we want to disable a node object's event, and need to resume this node on some event later. For example: developers want a model dialog, it needs to disable all event handlers of background when the dialog is showing. If user closes the dialog, it should resume all event handler of background.
+
+We need to pause the root node's event handlers, let all event listeners of it and its children paused, use the following code: 
+
+```javascript
+
+	//pause aLayer and its children's event listener
+	cc.eventManager.pauseTarget(aLayer, true);						
+```
+And resuming the event listeners of a node is very simple, use this code:
+
+```javascript
+
+	//resume aLayer and its children's event listener
+	cc.eventManager.resumeTarget(aLayer, true);						
+```
+
+_Note:_ The second parameter (recursive) is optional, default value is false. It indicates whether calling its children's pauseTarget/resumeTarget function recursively
+
+## Properties and functions list
+
+### cc.Event
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| getType | Number | no | Gets the event type：TOUCH, KEYBOARD, ACCELERATION, MOUSE, CUSTOM|
+| stopPropagation | void | no | Stops propagation for current event |
+| isStopped | Boolean | no | Checks whether the event has been stopped |
+| getCurrentTarget | cc.Node | no | Gets current target of the event |
+
+### cc.EventCustom
+
+`cc.EventCustom` inherits from `cc.Event`
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| setUserData | void | data: user data | Sets user data |
+| getUserData | * | no | Gets user data |
+| getEventName | String | no | Gets event name |
+
+### cc.EventMouse
+
+`cc.EventMouse` inherits from `cc.Event`
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| setScrollData | void | scrollX， scrollY | sets scroll data |
+| getScrollX | Number | no | gets scrollX data |
+| getScrollY | Number | no | gets scrollY data |
+| setLocation | void | x, y | Set cursor location |
+| getLocation | cc.Point | no | Get cursor location |
+| getLocationInView | cc.Point | no | Returns the current cursor location in screen coordinates |
+| getDelta | cc.Point | no | Get delta data |
+| setButton | void | button | Sets mouse button |
+| getButton | Number | no | Gets mouse button |
+
+### cc.EventTouch
+
+`cc.EventTouch` inherits from `cc.Event`
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| getEventCode | Number | no | Gets event code: BEGAN, MOVED, ENDED, CANCELLED |
+| getTouches | Array | no | Get touches of event |
+
+
+### cc.EventListener
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| checkAvailable | boolean | no | Checks whether the listener is available.|
+| clone | cc.EventListener | no | Clones the listener, its subclasses have to override this method. |
+| create <static> | cc.EventListener | json object | create event listener by json object |
+
+### `cc.EventListener.create` parameter details:
+
+**Create an EventListenerTouchOneByOne object:**
+
+event: cc.EventListener.TOUCH_ONE_BY_ONE
+
+optional parameters:
+
+1. swallowTouches, boolean, checks whether swallow touches
+2. onTouchBegan, function, Touch began event callback
+3. onTouchMoved, function, Touch moved event callback
+4. onTouchEnded, function, Touch ended event callback
+5. onTouchCancelled, function, Touch cancelled event callback
+
+**Create an EventListenerTouchAllAtOnce object:**
+
+event: cc.EventListener.TOUCH_ALL_AT_ONCE
+
+optional parameters:
+
+1. onTouchesBegan, function, Touches began event callback
+2. onTouchesMoved, function, Touches moved event callback
+3. onTouchesEnded, function, Touches ended event callback
+4. onTouchesCancelled, function, Touches cancelled event callback
+
+**Create an EventListenerKeyboard object:**
+
+event: cc.EventListener.KEYBOARD
+
+optional parameters:
+
+1. onKeyPressed, function, Key pressed (key down) event callback
+2. onKeyReleased, function, key release (key up) event callback
+
+**Create an EventListenerMouse object:**
+
+event: cc.EventListener.MOUSE
+
+optional parameters:
+
+1. onMouseDown, function, Mouse down event callback
+2. onMouseUp, function, Mouse up event callback
+3. onMouseMove, function, Mouse move event callback
+4. onMouseScroll, function, Mouse scroll event callback
+
+**Create an EventListenerAcceleration object:**
+
+event: cc.EventListener.ACCELERATION
+
+optional parameters:
+
+1. callback, function, Acclerometer event callback
+
+**Create an EventListenerCustom object:**
+
+event: cc.EventListener.CUSTOM
+
+optional parameters:
+
+1. callback, function, Custom event callback
+
+### cc.eventManager
+
+| Properties/functions | Type | Parameters | Usage |
+|:------:|:--:|:----------:|:-------:|
+| pauseTarget | void | node, recursive | Pauses all listeners which are associated the specified target. |
+| resumeTarget | void | node, recursive | Resumes all listeners which are associated the specified target. |
+| addListener | void | json object|cc.EventListener, node|priority | Adds a event listener for a specified event. |
+| addCustomListener | void | eventName, callback | Adds a Custom event listener. |
+| removeListener | void | listener | Remove a listener |
+| removeListeners | void | listenerType|cc.Node, recursive | Removes all listeners with the same event listener type or removes all listeners of a node |
+| removeCustomListeners | void | customEventName | Removes all custom listeners with the same event name |
+| removeAllListeners | void | no | Removes all listeners |
+| setPriority | void | listener, fixedPriority | Sets listener's priority with fixed value. |
+| setEnabled | void | enabled | Whether to enable dispatching events |
+| isEnabled | boolean | no | Checks whether dispatching events is enabled |
+| dispatchEvent | void | event | Dispatches the event, also removes all EventListeners marked for deletion from the event dispatcher list. |
+| dispatchCustomEvent | void | eventName, optionalUserData | Dispatches a Custom Event with a event name an optional user data |

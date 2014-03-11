@@ -90,6 +90,16 @@
 ```
 **cc.EventListener.create** 是一个创建事件监听器的总接口，你可以使用 `event` 来设置创建的监听器类型，如上例中的cc.EventListener.TOUCH_ONE_BY_ONE 为单次触摸事件监听器。
 
+Event类型列表: 
+
+1. cc.EventListener.TOUCH_ONE_BY_ONE
+2. cc.EventListener.TOUCH_ALL_AT_ONCE
+3. cc.EventListener.KEYBOARD
+4. cc.EventListener.MOUSE
+5. cc.EventListener.ACCELERATION
+6. cc.EventListener.CUSTOM
+
+
 ### 添加事件监听器到事件管理器
 
 ```javascript
@@ -230,15 +240,21 @@ _注意：_与 **SceneGraphPriority** 所不同的是 **FixedPriority** 将会�
 
 ### 移除事件监听器
 
-我们可以通过以下方法移除一个已经被添加了的监听器或清除一个cc.Node对象的所有注册的监听器。
+我们可以通过以下方法移除一个已经被添加了的监听器。
 
 ```javascript
 
 	cc.eventManager.removeListener(listener);			//移除一个已添加的监听器
-	cc.eventManager.removeListener(aSprite);			//清除aSprite对象上所有的监听器
+```
+也可以使用如下方法，移除注册到cc.eventManager中以一种类型注册的所有监听器，也可以用这个方法移除注册到cc.eventManager以同一node对象注册的所有监听器。
+
+```javascript
+
+	cc.eventManager.removeListeners(cc.EventListener.TOUCH_ONE_BY_ONE);			//移除所有TOUCH_ONE_BY_ONE类型的监听器
+	cc.eventManager.removeListeners(aSprite);									//移除所有与aSprite相关的监听器
 ```
 
-也可以使用如下方法，移除cc.eventManager中所有监听器。
+还可以使用如下方法，移除cc.eventManager中所有监听器。
 
 ```javascript
 
@@ -248,3 +264,151 @@ _注意：_与 **SceneGraphPriority** 所不同的是 **FixedPriority** 将会�
 
 _注意：_removeAll 之后 菜单 也不能响应。因为它也需要接受触摸事件。
 
+### 暂停/恢复 cc.Node(SceneGraph类型)的监听器
+
+开发过程中，我们经常会遇到这样的情况：想要让一个Layer中所有的Node对象的事件都停止响应。 在响应用户事件后，又要恢复该Layer的所有事件响应。如： 用户想要显示一个模式对话框，显示对话框后，禁止对话框后所有对象的事件响应。 在用户关闭对话框后，又恢复这些对象的事件响应。
+
+我们只需要暂停根node的事件，就可以让根节点以及其子节点暂停事件响应。 代码如下：
+
+```javascript
+
+	cc.eventManager.pauseTarget(aLayer, true);						//让aLayer对象暂停响应事件
+```
+而恢复对象的事件响应也非常简单：
+
+```javascript
+
+	cc.eventManager.resumeTarget(aLayer, true);						//让aLayer对象恢复响应事件
+```
+
+_注意_: 第二个参数为可选参数，默认值为false, 表示是否递归调用子节点的暂停/恢复操作.
+
+## 属性与方法列表
+
+### cc.Event (事件类)
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------|
+| getType | Number | no | 返回事件类型，包含：TOUCH, KEYBOARD, ACCELERATION, MOUSE, CUSTOM|
+| stopPropagation | void | no | 停止当前事件的冒泡 |
+| isStopped | Boolean | no | 事件是否已停止 |
+| getCurrentTarget | cc.Node | no | 返回事件相关的Node对象, 如果事件未与cc.Node对象关联，则返回null |
+
+### cc.EventCustom (自定义事件)
+`cc.EventCustom` 继承自 `cc.Event`
+
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------|
+| setUserData | void | data: 要设置的自定义数据 | 设置用户自定义数据 |
+| getUserData | * | no | 返回用户设置的自定义数据 |
+| getEventName | String | no | 返回自定义事件名称 |
+
+### cc.EventMouse (鼠标事件)
+`cc.EventMouse` 继承自 `cc.Event`
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------|
+| setScrollData | void | scrollX， scrollY | 设置滚轮数据 |
+| getScrollX | Number | no | 返回x轴滚轮数据 |
+| getScrollY | Number | no | 返回y轴滚轮数据 |
+| setLocation | void | x, y | 设置鼠标光标位置 |
+| getLocation | cc.Point | no | 获取鼠标光标位置 |
+| getLocationInView | cc.Point | no | 返回鼠标光标在屏幕上的位置 |
+| getDelta | cc.Point | no | 获取当前光标与上一光标的偏移量 |
+| setButton | void | button | 设置鼠标按键 |
+| getButton | Number | no | 获取鼠标按键 |
+
+### cc.EventTouch ()
+
+`cc.EventTouch` 继承自 `cc.Event`
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------:|
+| getEventCode | Number | no | 获取触摸事件类型代码: BEGAN, MOVED, ENDED, CANCELLED |
+| getTouches | Array | no | 获取触摸事件中所有点信息 |
+
+
+### cc.EventListener (事件监听器)
+
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------:|
+| checkAvailable | boolean | no | 检测监听器是否有效 |
+| clone | cc.EventListener | no | 克隆一个监听器,其子类会重写本函数 |
+| create <static> | cc.EventListener | json object | 通过json对象创建事件监听器 |
+
+### `cc.EventListener.create` 函数参数列表：
+
+**创建EventListenerTouchOneByOne对象:**
+
+event: cc.EventListener.TOUCH_ONE_BY_ONE
+ 
+可选参数:
+
+1. swallowTouches, boolean, 是否吞下该touch点
+2. onTouchBegan, function, TouchBegan 事件回调
+3. onTouchMoved, function, TouchMoved 事件回调
+4. onTouchEnded, function, TouchEnded 事件回调
+5. onTouchCancelled, function, TouchCancelled 事件回调
+
+**创建EventListenerTouchAllAtOnce对象：**
+
+event: cc.EventListener.TOUCH_ALL_AT_ONCE
+
+可选参数:
+
+1. onTouchesBegan, function, TouchesBegan 事件回调
+2. onTouchesMoved, function, TouchesMoved 事件回调
+3. onTouchesEnded, function, TouchesEnded 事件回调
+4. onTouchesCancelled, function, TouchesCancelled 事件回调
+
+
+**创建EventListenerKeyboard对象:**
+
+event: cc.EventListener.KEYBOARD
+
+可选参数:
+
+1. onKeyPressed, function, KeyPressed (键按下) 事件回调
+2. onKeyReleased, function, keyRelease (键放开) 事件回调
+
+**创建EventListenerMouse对象:**
+
+event: cc.EventListener.MOUSE
+
+可选参数:
+
+1. onMouseDown, function, MouseDown 事件回调
+2. onMouseUp, function, MouseUp 事件回调
+3. onMouseMove, function, MouseMove 事件回调
+4. onMouseScroll, function, MouseScroll 事件回调
+
+**创建EventListenerAcceleration对象:**
+
+event: cc.EventListener.ACCELERATION
+
+可选参数:
+
+1. callback, function, Acclerometer 事件回调
+
+**创建EventListenerCustom对象:**
+
+event: cc.EventListener.CUSTOM
+
+可选参数:
+
+1. callback, function, 自定义事件回调
+
+### cc.eventManager
+
+| 属性/方法 | 类型 | 参数说明 | 用法说明 |
+|:------:|:--:|:----------:|:-------:|
+| pauseTarget | void | node, recursive(是否递归调用子类)  | 暂停传入的node相关的所有监听器的事件响应 |
+| resumeTarget | void | node, recursive | 恢复传入的node相关的所有监听器的事件响应 |
+| addListener | void | json对象或cc.EventListener, node对象或优化值 |  向事件管理器添加一个监听器 |
+| addCustomListener | void | eventName, callback | 向事件管理器添加一个自定义事件监听器 |
+| removeListener | void | listener | 移除一个事件监听器 |
+| removeListeners | void | listenerType|cc.Node, recursive | 移除某一类型或某一node对象相关的所有监听器 |
+| removeCustomListeners | void | customEventName | 移除同一事件名的自定义事件监听器 |
+| removeAllListeners | void | no | 移除所有事件监听器 |
+| setPriority | void | listener, fixedPriority | 设置FixedPriority类型监听器的优先集 |
+| setEnabled | void | enabled | 是否允许分发事件 |
+| isEnabled | boolean | no | 检测事件管理器是否分发事件 |
+| dispatchEvent | void | event | 分发事件 |
+| dispatchCustomEvent | void | eventName, optionalUserData | 分发自定义事件 |
