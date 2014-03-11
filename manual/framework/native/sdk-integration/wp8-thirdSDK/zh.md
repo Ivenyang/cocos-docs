@@ -6,7 +6,7 @@ cocos2d-x wp8平台上支持xaml后，方便了第三方Sdk的调用。本文以
 
 ## 下载Microsoft Advertising SDK for Windows Phone 
 
-下载链接：[http://www.microsoft.com/en-us/download/details.aspx?id=8729](http://www.microsoft.com/en-us/download/details.aspx?id=8729 "SDK ")，下载完成后手动安装.msi文件。打开HelloCpp工程，右键选择"Add Reference",在Reference Mangager中通过"Extensions"页面添加，或者在"Browse"手动添加本地下载的dll。如下图：
+下载链接：[http://www.microsoft.com/en-us/download/details.aspx?id=8729](http://www.microsoft.com/en-us/download/details.aspx?id=8729 "SDK ")，下载完成后手动安装.msi文件。打开HelloCpp工程，右键选择"Add Reference",在Reference Mangager中通过"Extensions"页面添加。如下图：
 
 ![application](res/1.jpg)
 
@@ -23,7 +23,7 @@ cocos2d-x wp8平台上支持xaml后，方便了第三方Sdk的调用。本文以
 
 ## 准备AdControl调用接口
 
-在HelloCppComponent中添加ICallback.h文件，并在里面实现ICallback interface。添加回掉事件处理函数和调用接口。代码如下：
+在HelloCppComponent中添加ICallback.h文件，并在里面添加ICallback interface。添加回掉事件处理函数和调用接口。代码如下：
 
 ``` c++
 namespace PhoneDirect3DXamlAppComponent
@@ -51,7 +51,6 @@ namespace PhoneDirect3DXamlAppComponent
 			// Submit a score completed event.
 			event Windows::Foundation::EventHandler<CompletedEventArgs^>^ OnBannerRefreshed;
 			event Windows::Foundation::EventHandler<CompletedEventArgs^>^ OnBannerReceivedFailed;
-			void CreateBannerAd();
 
 			// switch bottombar in mainpage to add or remove panel
 			void SwitchBottomBar();
@@ -62,9 +61,11 @@ namespace PhoneDirect3DXamlAppComponent
 }
 ```
 
+CompletedEventArgs是对响应信息的封装，包含响应代码和出错信息。SwitchBottomBar()是c++调用c#的函数。OnBannerRefreshed和OnBannerReceivedFailed是回调处理函数，在C#代码中调用，响应了该函数即完成了回调。
+
 ## c#中实现ICallback接口
 
-在HelloCpp工程中添加AdControlCallback.cs代码文件，定义类AdControlCallback实现ICallback接口。如下：
+在HelloCpp工程中添加AdControlCallback.cs代码文件，定义类AdControlCallback继承实现ICallback接口。如下：
 
 ``` c++
 
@@ -90,7 +91,7 @@ namespace PhoneDirect3DXamlAppComponent
         }
 
         //Create the Ad at runtime and add to the container
-        public void CreateBannerAd()
+        private void CreateBannerAd()
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
@@ -111,10 +112,6 @@ namespace PhoneDirect3DXamlAppComponent
 
         private void adControl_AdRefreshed(object sender, EventArgs e)
         {
-            //if (OnBannerReceivedFailed != null)
-            //{
-            //    OnBannerReceivedFailed(sender, new CompletedEventArgs(true, (int)errorCode.ErrorCode,h "Failed to receive ad with error " + errorCode.ToString()));
-            //}
             if (OnBannerRefreshed != null && m_d3dInterop != null)
             {
                 m_d3dInterop.OnAdControlEvent(sender, new CompletedEventArgs(true, 200, "Received ad successfully"), OnBannerRefreshed);
@@ -123,12 +120,23 @@ namespace PhoneDirect3DXamlAppComponent
     }
 }
 ```
-AdControl为Microsoft.Advertising.Mobile.UI中的类，需要添加命名空间：using Microsoft.Advertising.Mobile.UI;。CreateBannerAd函数调用该类，并用adControl_AdRefreshed完成调用，函数内用OnBannerRefreshed实现回调。注意，这里仅当CreateBannerAd在opengl界面里面直接调用，才能直接回调OnBannerRefreshed事件处理函数，因为这边涉及到一些UI类调用，需要使用Deployment.Current.Dispatcher.BeginInvoke执行，使用这个Dispatcher可以与MainPage.xaml页面处于同一线程中，即MainThread中执行，如果使用上面注释掉的代码，会产生一些不可预期的错误，OnAdControlEvent相关代码在下文中将介绍。对于一些调用，如果从调用到回调函数都是在同一个线程中执行，如果调用sdk运行时间较长，会导致游戏界面出现卡顿的现象。
-m_MainPage.SwitchBottomBar() 及 m_MainPage.AddBannerAd(adControl) 的调用在下面实现。
+
+注意以下几点：
+
+1.AdControl为Microsoft.Advertising.Mobile.UI中的类，需要添加命名空间：using Microsoft.Advertising.Mobile.UI;。
+
+2.AdControlCallback必须继承ICallback的成员函数和成员变量，在SwitchBottomBar()的实现中可以添加C#的代码实现，这里调用了私有方法CreateBannerAd()来处理AdControl控件。
+
+3.处理C#控件可以使用Deployment.Current.Dispatcher.BeginInvoke，让c#控件跟C++游戏界面处于不同线程中，这样调用第三方sdk时，即使处理时间长，也不会影响游戏界面造成卡顿的现象，并且如果跟MainPage.xaml有调用关系的话也必须使处理逻辑位于主线程中。其实通过调试可以发现，MainPage.xaml.cs跟native c++是出于不同的线程中的，MainPage是在主线程即MainThread中执行，而c++的游戏界面是在worker thread中执行的。
+
+4.adControl_AdRefreshed为AdControl的响应函数，通过响应该函数可以判断是否成功添加AdControl控件
+
+5.adControl_AdRefreshed的响应处理，不能直接调用c++的代码，否则会产生不可预期的错误，因为当前响应函数位于主线程中（第3点已分析）。需要注意线程安全。后面我们将会介绍怎么正确处理响应函数。
 
 ## 修改MainPage.xaml
 
-直接打开MainPage.xaml页面文件，修改ContentPanel内代码，添加StackPanel，这里将stackContainer的Visibility属性设置为Collapsed不可见，后面将在stackContainer添加AdControl控件
+当c++调用SwitchBottomBar()时，我们可以调整MainPage.xaml页面，使上面显示游戏界面，下面显示一个广告窗口。调整界面如下：
+直接打开MainPage.xaml页面文件，修改ContentPanel内代码，添加StackPanel，这里先将stackContainer的Visibility属性设置为Collapsed不可见，后面将在stackContainer添加AdControl控件
 
 ``` c++
 		<!--ContentPanel - place additional content here-->
@@ -173,6 +181,8 @@ m_MainPage.SwitchBottomBar() 及 m_MainPage.AddBannerAd(adControl) 的调用在�
         }
 ```
 
+注意MainPage.xaml.cs的SwitchBottomBar()在AdControlCallback的SwitchBottomBar()调用，在AdControlCallback中保存MainPage的类实例即可，同时MainPage.xaml.cs的SwitchBottomBar()添加public属性。
+
 ## 在WinRT组件中实现调用代理
 
 在HelloCppComponent中创建**AdControlDelegate**托管类，方便C++和C#中调用。
@@ -195,7 +205,7 @@ namespace PhoneDirect3DXamlAppComponent
 	}
 }
 ```
-这里以static保存实现了**ICallback的类实例**，SetCallback函数在c#中调用。如果在C++中多次使用到**AdControlDelegate**类，可以使用单例模式来创建AdControlDelegate。SetCallback函数调用可以在HelloCpp工程里的MainPage的DrawingSurface_Loaded中实现，如下：
+这里以static保存实现了**ICallback的类实例**，SetCallback函数在c#中调用。SetCallback函数中GlobalCallback保存实参callback。 如果在C++中多次使用到**AdControlDelegate**类，可以使用单例模式来创建AdControlDelegate。SetCallback函数调用可以在HelloCpp工程里的MainPage的DrawingSurface_Loaded中实现，如下：
 
 ``` c++
 				AdControlDelegate adDelegate = new AdControlDelegate();
@@ -205,7 +215,7 @@ namespace PhoneDirect3DXamlAppComponent
 
 ## 游戏逻辑中调用并处理回掉函数
 
-在HelloWorld添加一个测试按钮，并实现按钮点击调用函数menuCallbackBottom，在menuCallbackBottom函数中调用sdk，并实现回调函数OnBannerReceivedFailed。
+在menuCallbackBottom函数中测试调用sdk，并实现c#调用的响应处理事件OnBannerReceivedFailed。
 
 ``` c++
 	AdControlDelegate^ AdControlObj = ref new AdControlDelegate();
@@ -219,11 +229,11 @@ namespace PhoneDirect3DXamlAppComponent
 	});
 	AdControlObj->GlobalCallback->SwitchBottomBar();
 ```
-在该函数中实现了OnBannerReceivedFailed回调函数，并且调用SwitchBottomBar来调用sdk。
+在该函数中实现了OnBannerReceivedFailed响应函数，并且调用SwitchBottomBar来调用C# sdk。使用GlobalCallback来调用在c#中创建的实例。
 
 ## 不同线程处理
 
-游戏渲染界面所处线程并非主线程，以上代码是在游戏界面中直接实现调用的，为同步操作，如果Sdk处理时间长会导致界面运行不流畅。可以使用主线程(即xaml页面所处线程)来调用Sdk，也可以创建一个任务来处理。如上面介绍过的Deployment.Current.Dispatcher.BeginInvoke调用，
+可以使用主线程(即xaml页面所处线程)来调用Sdk，也可以创建一个任务来处理。如上面介绍过的Deployment.Current.Dispatcher.BeginInvoke调用，
 Deployment.Current.Dispatcher.BeginInvoke可以获取主线程，并在里面实现调用sdk。也可以使用任务来调用，如下：
 
 ``` c++
@@ -250,7 +260,7 @@ Deployment.Current.Dispatcher.BeginInvoke可以获取主线程，并在里面实
 
 ```
 
-但是用其他线程来调用SDK并不完整，这里回调的时候也使用了其他线程，当回调函数里面使用了游戏逻辑里的东西，比如画界面，会带来多线程不安全问题。最好回调时候能够切回游戏逻辑所处的线程，所以下一步进行回调处理。
+最好回调时候能够切回游戏逻辑所处的线程，所以下一步进行回调处理。
 
 ## 回调处理
 
@@ -309,7 +319,7 @@ void Direct3DInterop::OnAdControlEvent(Object^ sender, CompletedEventArgs^ args,
         }      
 ```
 
-在AdControlCallback中设置并保存Direct3DInterop实例的函数，在MainPage的DrawingSurface_Loaded函数中调用SetCallback保存：
+在AdControlCallback中设置并保存Direct3DInterop实例的函数：
 ``` c++
 		public void SetDirect3DInterop(Direct3DInterop d3dInterop)
         {

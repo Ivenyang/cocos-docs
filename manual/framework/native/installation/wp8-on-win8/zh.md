@@ -6,6 +6,7 @@ WP8 是微软公司最新一代的手机操作系统，由于采用和 Win8 相�
 别于 iOS、Android 的优点，使得它发展迅速。目前已拥有超过 17 万个应用，并且数量还在
 不断增加中。现在看来越来越多的开发者包括游戏开发者正向 WP8 平台迁移，想在这个平
 台上一显身手。
+
 所以采用 cocos2d-x 引擎开发 WP8 手机游戏是一件顺理成章的事。鉴于这种趋势，笔者提
 供这个示例。希望通过本示例，能让各位学习到如何在 WP8 平台上搭建 cocos2d-x 的游戏
 开发环境，并预先告知搭建平台可能会遇到的一些问题及其解决办法。握起你手中的
@@ -27,8 +28,10 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 开发者账号的费用：$19 一年；学生账号免费但不能发布收费应用
 
 ### 安装编译环境
-安装 visual studio 2003
+安装 visual studio 2013
+
 安装 windows phone SDK 8.0
+
 [http://dev.windowsphone.com/en-US/downloadsdk](http://dev.windowsphone.com/en-US/downloadsdk)
 [http://dev.windowsphone.com/zh-cn/downloadsdk](http://dev.windowsphone.com/zh-cn/downloadsdk)
 
@@ -37,6 +40,7 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 ###获取最新的 cocos2d-x 的代码（本文以 2.2 版本为例）
 
 从官网下载最新代码：http://www.cocos2d-x.org/download
+
 把下载的 zip 包解压后就是 cocos2d-x 的整个工程:
 
 ![](res/2.png)
@@ -48,11 +52,13 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 ###创建自己的 cocos2d-x 的 HelloWorld：
 
 下载并安装 Python，注意不要安装 3.0 版本以上的【Tip1】
+
 [http://www.python.org/download/](http://www.python.org/download/)
 
 ![](res/4.png)
 
 设置电脑的环境变量，加入 Python 的安装路径：
+
 我的电脑→右键→属性→高级→环境变量→系统变量→path→加入你的 python 安装目录
 
 ![](res/5.png)
@@ -62,13 +68,16 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 ![](res/6.png)
 
 创建 HelloWorld 工程：
+
 进入 cocos2d-x-2.2.0\tools\project-creator 目录，在 cmd 下执行：
        Python create_project.py project #PROJECT_NAME –package #PACKAGE_NAME 
     –language #PROGRAMING_LANGUAGE
 Note：上面的脚本中有三个变量需要根据自己的情况替换
- '#PROJECT_NAME' ：工程的名称
- '#PACKAGE_NAME'：包名称（格式：com.mycompany.mygame）
- '#PROGRAMING_LANGUAGE'：编程语言（cpp, lua, javascript） 
+
+ 	'#PROJECT_NAME' ：工程的名称
+ 	'#PACKAGE_NAME'：包名称（格式：com.mycompany.mygame）
+ 	'#PROGRAMING_LANGUAGE'：编程语言（cpp, lua, javascript） 
+
 如果看到如下界面，表示工程创建成功，恭喜！
 
 ![](res/7.png)
@@ -146,6 +155,7 @@ HelloWorldScene.cpp)。大家开发游戏的时候也应该把代码放在此目
     }; 
 
 跨平台特性的体现：
+
 AppDelegate.cpp, HelloWorldScene.cpp 等代码在任何平台的工程里都是一样的
 Resources 目录存放的是游戏资源，各个平台都是统一的一份
 
@@ -176,6 +186,7 @@ CocosDenshion，物理库 Box2D 等并没有导入，所以我们需要手动将
 ![](res/16.png)
 
 为了更方便使用添加的库，最好增加新库的包含路径【Tip3】：
+
 选中项目名(MyDemo)右键，选择“属性”，在“C/C++通用”里面，选择“附加包含目
 录”，增添新路径( $(ProjectDir)..\..\..\CocosDenshion\include )
 
@@ -218,6 +229,7 @@ Assets 目录。中图是 Assets 目录、右图是 Assets/Resources 目录包�
 
 ###进一步认识 Assets 目录（本节内容可以跳过）
 利用 cocos2d-x 的跨平台特性，我们可以做一个实验
+
 分别编译并运行 MyDemo 的 proj.win32 和 proj.wp8 工程，成功后分别出现如下画面
 
 ![](res/24.png)
@@ -228,6 +240,7 @@ Assets 目录。中图是 Assets 目录、右图是 Assets/Resources 目录包�
 ![](res/25.png)
 
 打开 HelloWorldScene.cpp，找到 bool HelloWorld::init()函数做如下修改
+
 （此文件在两个工程内都被调用，只要在任一个工程修改，另一个工程内会自动更新）
 
     // CCSprite* pSprite = CCSprite::create("HelloWorld.png");
@@ -263,14 +276,19 @@ HelloWorld.png 的贴图，根本没有 HelloWorld1.png 的贴图。所以仅仅
 ![](res/29.png)
 
 WP8 工程里的 Assets/Resources 目录：
+
 (原来的 HelloWorld.png 和改过名的 HelloWorld1.png 都在)
 
 ![](res/30.png)
 
 把”MyDemo/Resources” 目录定义为 A 目录，
+
 把”MyDemo/proj.wp8/Assets/Resources”目录定义为 B 目录。
+
 我们得出如下结论：
+
 **VS 里面引用的都是 B 目录下的资源，即真正打入到 XAP 包的是 B 目录下的资源；**
+
 **VS 编译时会把 A 目录下的资源拷贝到 B 目录下；只会增加、覆盖，不会删除；**
 
 为了证实有拷贝这个过程，再次仔细查看编译后的输出，发现有如下提示
@@ -281,12 +299,13 @@ WP8 工程里的 Assets/Resources 目录：
 
 ###阶段小结
 根据以上结论，我们可以用如下顺序来处理资源【Tip4】：
- 清空 B 目录
- 在 A 目录下增加、删除、修改资源
- 打开并编译工程，确保 A 拷贝到 B
- 在打开工程的 Assets 下引用 B 目录的资源，并做修改
-（如果引用 A 目录下的资源情况会是怎样呢？读者可以自己去测试一下）
- 再次编译并生成 XAP
+
+ 	清空 B 目录
+ 	在 A 目录下增加、删除、修改资源
+ 	打开并编译工程，确保 A 拷贝到 B
+ 	在打开工程的 Assets 下引用 B 目录的资源，并做修改
+	（如果引用 A 目录下的资源情况会是怎样呢？读者可以自己去测试一下）
+ 	再次编译并生成 XAP
 我们用上述方法，请读者试着增加 HelloWorld1.png、删除 HelloWorld.png，并创建加入
 一个文本文件 1.txt。成功后 VS 工程的 Assets 内容和 XAP/Assets/Resources 内容应如
 下所示：
@@ -300,7 +319,8 @@ Assets 下。编译后，查看一下 XAP 文件，看看 1.123 有没有。
 ![](res/33.png)
 
 结果如上所示，虽然我们放入了 1.123，但是却没有打入 XAP/Assets/Resources/。
-  这是因为引入到 Assets 目录下的资源，VS 只将认识的资源类型，默认打包进 XAP。如
+
+这是因为引入到 Assets 目录下的资源，VS 只将认识的资源类型，默认打包进 XAP。如
 果不是的话，则不会打进 XAP。这个可以设置，设置方法：对资源右击，选择属性
 
 ![](res/34.png)
