@@ -7,7 +7,7 @@ New property API in Cocos2d-html5 v3.0
 Let's directly take an example to show you what will be available in Cocos2d-html5 v3.0:
 
 | Old API       				| New API                            |
-| ---------------------------- |:----------------------------------:|
+|:----------------------------:|:----------------------------------:|
 | node.setPosition(x, y);		| node.x = x; node.y = y;            |
 | node.setRotation(r);			| node.rotation = r;                 |
 
@@ -24,6 +24,7 @@ cc.defineGetterSetter(object, "propertyName", getterFunc, setterFunc);
 Then each time you do `var a = object.propertyName;`, this retrieve the value of propertyName via `getterFunc`, and each time you want to modify the value: `object.propertyName = newvalue;` this pass the new value to `setterFunc` and try to modify its value.
 
 As for the name of the properties, we proposed names close to CSS style which is very familiar to javascript developers.
+
 
 2. `attr` function of cc.Node
 -----------------------------
@@ -44,6 +45,7 @@ node.attr({
 
 It support not only all properties available in the list of the end, but also your custom properties.
 
+
 3. Why and what changed
 -----------------------
 
@@ -55,12 +57,13 @@ So the main task of version 3.0 is to propose a fully refactored javascript styl
 
 Back to properties, cc.Node and all its descendant classes are refactored with properties instead of `getXXX()` and `setXXX(value)` functions. There are also some property style API provided in a few other classes. All properties and related classes will be listed at the end of this document.
 
+
 4. About closure compiler
 -------------------------
 
 As `attr` uses key-value pairs to config nodes, there could be problems when we try to use the advanced mode of closure compiler to compile our project.
 
-The problem is that keys won't be compressed in advanced mode while our properties' names will be compressed, this produce a mismatch issue between the `attr` function and the real properties. Fortunately, we have guaranteed the functionality of basic properties, which will be noted also in the list. For other properties or custom properties, you can add closure compiler `expose` annotation to avoid the problem. Note that this problem occurs only when developer try to use `attr` function to config properties.
+The problem is that keys won't be compressed in advanced mode while our properties' names will be compressed, this produce a mismatch issue between the `attr` function and the real properties. Fortunately, we have guaranteed the functionality of most properties, which will be noted also in the list. For other properties or custom properties, you can add closure compiler `expose` annotation to avoid the problem. Note that this problem occurs only when developer try to use `attr` function to config properties.
 
 ```javascript
 /** @expose */
@@ -104,106 +107,110 @@ Then `mySprite.x = x;` will invoke your custom `setPositionX` function, same for
 6. List of properties
 ---------------------
 
-#### cc.Node
+### cc.Node
 
-| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
-|:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|x|Number|R&W| getPositionX, setPositionX | yes |
-|y|Number|R&W| getPositionY, setPositionY | yes |
-|width|Number|R&W| _getWidth, _setWidth | yes |
-|height|Number|R&W| _getHeight, _setHeight | yes |
-|anchorX|Number|R&W| _getAnchorX, _setAnchorX | yes |
-|anchorY|Number|R&W| _getAnchorY, _setAnchorY | yes |
-|ignoreAnchor|Boolean|R&W| isIgnoreAnchorPointForPosition, ignoreAnchorPointForPosition | yes |
-|skewX|Number|R&W| getSkewX, setSkewX | yes |
-|skewY|Number|R&W| getSkewY, setSkewY | yes |
-|rotation|Number|R&W| getRotation, setRotation | yes |
-|rotationX|Number|R&W| getRotationX, setRotationX | yes |
-|rotationY|Number|R&W| getRotationY, setRotationY | yes |
-|scale|Number|R&W| getScale, setScale | yes |
-|scaleX|Number|R&W| getScaleX, setScaleX | yes |
-|scaleY|Number|R&W| getScaleY, setScaleY | yes |
-|zIndex|Number|R&W| getZOrder, setZOrder | yes |
-|vertexZ|Number|R&W| getVertexZ, setVertexZ | yes |
-|children|Array|Readonly| getChildren | no |
-|childrenCount|Number|Readonly| getChildrenCount | no |
-|parent|cc.Node|R&W| getParent, setParent | yes |
-|visible|Boolean|R&W| isVisible, setVisible | yes |
-|running|Boolean|Readonly| isRunning | no |
-|tag|Number|R&W| getTag, setTag | yes |
-|userData|Object|R&W| getUserData, setUserData | yes |
-|userObject|Object|R&W| getUserObject, setUserObject | yes |
-|arrivalOrder|Number|R&W| getArrivalOrder, setArrivalOrder | yes |
-|actionManager|cc.ActionManager|R&W| getActionManager, setActionManager | yes |
-|scheduler|cc.Scheduler|R&W| getScheduler, setScheduler | yes |
-|grid|cc.GridBase|R&W| getGrid, setGrid | no |
-|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
-|glServerState|Number|R&W| getGLServerState, setGLServerState | no |
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| x | Number | R&W | getPositionX, setPositionX | YES |
+| y | Number | R&W | getPositionY, setPositionY | YES |
+| width | Number | R&W | \_getWidth, _setWidth | YES |
+| height | Number | R&W | \_getHeight, _setHeight | YES |
+| anchorX | Number | R&W | \_getAnchorX, _setAnchorX | YES |
+| anchorY | Number | R&W | \_getAnchorY, _setAnchorY | YES |
+| skewX | Number | R&W | getSkewX, setSkewX | YES |
+| skewY | Number | R&W | getSkewY, setSkewY | YES |
+| zIndex | Number | R&W | getLocalZOrder, setLocalZOrder | YES |
+| vertexZ | Number | R&W | getVertexZ, setVertexZ | YES |
+| rotation | Number | R&W | getRotation, setRotation | YES |
+| rotationX | Number | R&W | getRotationX, setRotationX | YES |
+| rotationY | Number | R&W | getRotationY, setRotationY | YES |
+| scale | Number | R&W | getScale, setScale | YES |
+| scaleX | Number | R&W | getScaleX, setScaleX | YES |
+| scaleY | Number | R&W | getScaleY, setScaleY | YES |
+| children | Array | readonly | getChildren | YES |
+| childrenCount | Number | readonly | getChildrenCount | YES |
+| parent | cc.Node | R&W | getParent, setParent | YES |
+| visible | Boolean | R&W | isVisible, setVisible | YES |
+| running | Boolean | readonly | isRunning | YES |
+| ignoreAnchor | Boolean | R&W | isIgnoreAnchorPointForPosition, ignoreAnchorPointForPosition | YES |
+| tag | Number | R&W | None | YES |
+| userData | Object | R&W | None | YES |
+| userObject | Object | R&W | None | YES |
+| arrivalOrder | Number | R&W | None | YES |
+| actionManager | cc.ActionManager | R&W | getActionManager, setActionManager | YES |
+| scheduler | cc.Scheduler | R&W | getScheduler, setScheduler | YES |
+| grid | cc.GridBase | R&W | None | NO |
+| shaderProgram | cc.GLProgram | R&W | getShaderProgram, setShaderProgram | YES |
+| glServerState | Number | R&W | getGLServerState, setGLServerState | YES |
 
-#### cc.NodeRGBA
+
+### cc.Texture2D
+
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| name | WebGLTexture | readonly | getName | NO |
+| pixelFormat | Number | readonly | getPixelFormat | NO |
+| pixelsWidth | Number | readonly | getPixelsWide | NO |
+| pixelsHeight | Number | readonly | getPixelsHigh | NO |
+| width | Number | R&W | \_getWidth, _setWidth | NO |
+| height | Number | R&W | \_getHeight, _setHeight | NO |
+| shaderProgram | cc.GLProgram | R&W | None | NO |
+| maxS | Number | R&W | None | NO |
+| maxT | Number | R&W | None | NO |
+
+
+### cc.NodeRGBA
 
 Extend from cc.Node
 
-| Property    | Type   | Accessibility | Old API                    | Advanced Compress Ready |
-|:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|opacity|Number|R&W| getOpacity, setOpacity | yes |
-|opacityModifyRGB|Boolean|R&W| isOpacityModifyRGB, setOpacityModifyRGB | yes |
-|cascadeOpacity|Boolean|R&W| isCascadeOpacity, setCascadeOpacity | yes |
-|color|cc.Color|R&W| getColor, setColor | yes |
-|cascadeColor|Boolean|R&W| isCascadeColor, setCascadeColor | yes |
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| opacity | Number | R&W | getOpacity, setOpacity | YES |
+| opacityModifyRGB | Boolean | R&W | isOpacityModifyRGB, setOpacityModifyRGB | YES |
+| cascadeOpacity | Boolean | R&W | isCascadeOpacityEnabled, setCascadeOpacityEnabled | YES |
+| color | cc.Color | R&W | getColor, setColor | YES |
+| cascadeColor | Boolean | R&W | isCascadeColorEnabled, setCascadeColorEnabled | YES |
 
-#### cc.Sprite
+
+### cc.Sprite
 
 Extend from cc.NodeRGBA
 
-| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
-|:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|dirty|Boolean|R&W| isDirty, setDirty | yes |
-|flippedX|Boolean|R&W| isFlippedX, setFlippedX | yes |
-|flippedY|Boolean|R&W| isFlippedY, setFlippedY | yes |
-|offsetX|Number|Readonly| _getOffsetX | no |
-|offsetY|Number|Readonly| _getOffsetY | no |
-|atlasIndex|Number|R&W| getAtlasIndex, setAtlasIndex | yes |
-|texture|cc.Texture2D|R&W| getTexture, setTexture | yes |
-|textureRectRotated|Boolean|Readonly| isTextureRectRotated | no |
-|textureAtlas|cc.TextureAtlas|R&W| getTextureAtlas, setTextureAtlas | yes |
-|batchNode|cc.SpriteBatchNode|R&W| getSpriteBatchNode, setSpriteBatchNode | yes |
-|quad|cc.V3F_C4B_T2F_Quad|Readonly| getQuad | no |
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| dirty | Boolean | R&W | None | YES |
+| flippedX | Boolean | R&W | isFlippedX, setFlippedX | YES |
+| flippedY | Boolean | R&W | isFlippedY, setFlippedY | YES |
+| offsetX | Number | readonly | _getOffsetX | YES |
+| offsetY | Number | readonly | _getOffsetY | YES |
+| atlasIndex | Number | R&W | None | YES |
+| texture | cc.Texture2D | R&W | getTexture, setTexture | YES |
+| textureRectRotated | Boolean | readonly | isTextureRectRotated | YES |
+| textureAtlas | cc.TextureAtlas | R&W | None | YES |
+| batchNode | cc.SpriteBatchNode | R&W | getBatchNode, setBatchNode | YES |
+| quad | cc.V3F_C4B_T2F_Quad | readonly | getQuad | YES |
 
-#### cc.LabelTTF
+
+### cc.LabelTTF
 
 Extend from cc.Sprite
 
-| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
-|:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|string|String|R&W| getString, setString | yes |
-|textAlign|Number|R&W| getHorizontalAlignement, setHorizontalAlignement | yes |
-|verticalAlign|Number|R&W| getVerticalAlignement, setVerticalAlignement | yes |
-|font|String|R&W| _getFont, _setFont | yes |
-|fontSize|Number|R&W| getFontSize, setFontSize | yes |
-|fontName|String|R&W| getFontName, setFontName | yes |
-|boundingWidth|Number|R&W| _getBoundingWidth,  _setBoundingWidth | yes |
-|boundingHeight|Number|R&W| _getBoundingHeight,  _setBoundingHeight | yes |
-|fillStyle|cc.Color|R&W| setFontFillColor | yes |
-|strokeStyle|cc.Color|R&W| _getStrokeStyle, _setStrokeStyle | yes |
-|lineWidth|Number|R&W| _getLineWidth, _setLineWidth | yes |
-|shadowOffsetX|Number|R&W| _getShadowOffsetX, _setShadowOffsetX | yes |
-|shadowOffsetY|Number|R&W| _getShadowOffsetY, _setShadowOffsetY | yes |
-|shadowOpacity|Number|R&W| _getShadowOpacity, _setShadowOpacity | yes |
-|shadowBlur|Number|R&W| _getShadowBlur, _setShadowBlur | yes |
-
-#### cc.Texture2D
-
-| Property    | Type   | Accessibility | Getter/Setter function  | Advanced Compress Ready |
-|:-----------:|:------:|:-------------:|:--------------------------:|:-----------:|
-|name|String|Readonly| getName | no |
-|pixelFormat|Number|Readonly| getPixelFormat | no |
-|pixelsWidth|Number|Readonly| getPixelsWide | no |
-|pixelsHeight|Number|Readonly| getPixelsHigh | no |
-|width|Number|R&W| _getWidth, _setWidth | no |
-|height|Number|R&W| _getHeight, _setHeight | no |
-|shaderProgram|cc.GLProgram|R&W| getShaderProgram, setShaderProgram | no |
-|maxS|Number|R&W| getMaxS, setMaxS | no |
-|maxT|Number|R&W| getMaxT, setMaxT | no |
+| Property | Type | Accessibility | Getter/Setter function | Advanced Compress Ready |
+|:------:|:------:|:-------:|:-------:|:------:|
+| string | String | R&W | getString, setString | YES |
+| textAlign | Number | R&W | getHorizontalAlignment, setHorizontalAlignment | YES |
+| verticalAlign | Number | R&W | getVerticalAlignment, setVerticalAlignment | YES |
+| fontSize | Number | R&W | getFontSize, setFontSize | YES |
+| fontName | String | R&W | getFontName, setFontName | YES |
+| font | String | R&W | \_getFont, _setFont | YES |
+| boundingWidth | Number | R&W | \_getBoundingWidth, _setBoundingWidth | YES |
+| boundingHeight | Number | R&W | \_getBoundingHeight, _setBoundingHeight | YES |
+| fillStyle | cc.Color | R&W | \_getFillStyle, setFontFillColor | YES |
+| strokeStyle | cc.Color | R&W | \_getStrokeStyle, _setStrokeStyle | YES |
+| lineWidth | Number | R&W | \_getLineWidth, _setLineWidth | YES |
+| shadowOffsetX | Number | R&W | \_getShadowOffsetX, _setShadowOffsetX | YES |
+| shadowOffsetY | Number | R&W | \_getShadowOffsetY, _setShadowOffsetY | YES |
+| shadowOpacity | Number | R&W | \_getShadowOpacity, _setShadowOpacity | YES |
+| shadowBlur | Number | R&W | \_getShadowBlur, _setShadowBlur | YES |
 
 [Full list](property-list.md)
