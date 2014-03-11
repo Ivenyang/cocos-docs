@@ -43,7 +43,7 @@
     Instead, we refactored them to provide developers a much easier procedure for game creation with `cc.game`.
 
     ```
-    cc.game.onEnter = function(){
+    cc.game.onStart = function(){
         cc.Director.getInstance().runScene(new MyScene());
     };
     cc.game.run();
@@ -317,6 +317,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     ```
     cc.warn
     cc.error
+    cc.defineGetterSetter
     cc.BuilderReader.registerController
     ```
 
