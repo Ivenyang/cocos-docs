@@ -7,7 +7,7 @@
 
 	All events(mouse, touch, keyboard, accelerometer, custom) should be dispatched by cc.eventManager in v3.0
 
-	More information about cc.eventManager is in this [documentation](../../eventManager/en.md)
+	More information about cc.eventManager is in this [documentation](../../../v3.0/eventManager/en.md)
 
 	If you want to give us some suggest, please comment in this [topic](http://www.cocos2d-x.org/forums/19/topics/45954)
 
@@ -49,18 +49,18 @@
     cc.game.run();
     ```
 
-    For more details, check out this documentation: [cc.game](../../cc-game/en.md)
+    For more details, check out this documentation: [cc.game](../../../v3.0/cc-game/en.md)
 
 * **2.2** Configuration
 
     Instead of putting your configurations with other initialization code in cocos2d.js, we have removed `cocos2d.js` and put all configurations into `project.json` which is a pure config file.
-    The options available can be found in this document: [project.json](../../project-json/en.md)
+    The options available can be found in this document: [project.json](../../../v3.0/project-json/en.md)
 
 * **2.3** Cocos2d module configuration
 
     Cocos2d-html5 has became a 2d game engine very competitive in almost all aspect of 2d game developement, so we have numerous features in our engine. As a result, our engine is larger than some other simpler html5 game engine. In case you don't need all the features and you want to keep our engine package within a small size, v3.0 have provided you the ability to configure the engine by your own need. All module definitions are in `cocos2d-html5/moduleConfig.json`, you can specify the modules that your game needed in the `modules` parameter of your `project.json`. By default, `cocos2d` is given as value of this parameter, it include all sub modules of Cocos2d-html5, you can change it to a set of specifique sub modules.
 
-    Documentation for [moduleConfig.json](../../moduleconfig-json/en.md)
+    Documentation for [moduleConfig.json](../../../v3.0/moduleconfig-json/en.md)
 
 
 ##3. Resource loading process
@@ -82,14 +82,14 @@
     });
     ```
 
-    Detailed documentation can be found here: [cc.loader](../../cc-loader/en.md)
+    Detailed documentation can be found here: [cc.loader](../../../v3.0/cc-loader/en.md)
 
 * **3.2** Utilities for loading process
 
     Along with cc.loader, v3.0 have also provided you some tools:
 
-    - A singleton module imitates async module of nodejs: [cc.async](../../cc-async/en.md)
-    - A singleton module provides conveniences for handling the file path: [cc.path](../../cc-path/en.md)
+    - A singleton module imitates async module of nodejs: [cc.async](../../../v3.0/cc-async/en.md)
+    - A singleton module provides conveniences for handling the file path: [cc.path](../../../v3.0/cc-path/en.md)
 
 
 ##4. Property APIs
@@ -119,7 +119,7 @@
     });
     ```
 
-    Detailed documentation and a full list of properties can be found here: [Property API](../../getter-setter-api/en.md)
+    Detailed documentation and a full list of properties can be found here: [Property API](../../../v3.0/getter-setter-api/en.md)
 
 
 ##5. Basic data structures
@@ -157,7 +157,7 @@
 	cc.gray                            -->	cc.color.gray
 	```
 
-	[Detailed documentation](../../basic-data/en.md)
+	[Detailed documentation](../../../v3.0/basic-data/en.md)
 
 
 ##6. Singleton objects
@@ -252,7 +252,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
 
 ##9. Other API changements
 
-* **9.1** `cc.Broswser` and `sys` are replaced with `cc.sys`: [documentation](../../cc-sys/en.md).
+* **9.1** `cc.Broswser` and `sys` are replaced with `cc.sys`: [documentation](../../../v3.0/cc-sys/en.md).
 
 * **9.2** Some functions of `cc.AudioEngine` have been deleted :
     ```
@@ -275,7 +275,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     getList
     ```
 
-	And `cc.PlistParser` is added to parse plist files: [cc.SAXParser documentation](../../cc-saxparser/en.md)
+	And `cc.PlistParser` is added to parse plist files: [cc.SAXParser documentation](../../../v3.0/cc-saxparser/en.md)
 
 * **9.4** `addImageAsync` is merged into `addImage` of `cc.textureCache`.
 
@@ -286,7 +286,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     fontSize    --> getFontSize
     ```
 
-* **9.6** Retina display have been supported for Apple devices, you can disable or enable it with `cc.view.enableRetina(enableOrNot)`, you can also detect whether retina display is currently on or not with `cc.view.isRetinaEnabled()`. At last, you can retrieve the retina display's pixel ratio by using `cc.view.getDevicePixelRatio()`, on Apple devices, it will return 2 when retina display is applied. By default, retina display is automatically activated for your game on Apply devices. If you want to change it, note that after you enable or disable retina display, you have to call `cc.view.setDesignResolutionSize(width, height, policy)` to make it applied to your game.
+* **9.6** Retina display have been supported for Apple devices, you can disable or enable it with `cc.view.enableRetina(enableOrNot)`, you can also detect whether retina display is currently on or not with `cc.view.isRetinaEnabled()`. At last, you can retrieve the retina display's pixel ratio by using `cc.view.getDevicePixelRat io()`, on Apple devices, it will return 2 when retina display is applied. By default, retina display is automatically activated for your game on Apply devices. If you want to change it, note that after you enable or disable retina display, you have to call `cc.view.setDesignResolutionSize(width, height, policy)` to make it applied to your game.
 
 * **9.7** Global APIs deleted :
 
@@ -375,6 +375,6 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
 
 Other documentation can be found here:
 
-* [cc.log](cocos-docs/manual/framework/html5/cc-log)
-* [cc.spriteFrameCache](cocos-docs/manual/framework/html5/cc-spriteframecache)
-* [more](cocos-docs/manual/framework/html5/more-change-from-v2-to-v3)
+* [cc.log](../../../v3.0/cc-log/en.md)
+* [cc.spriteFrameCache](../../../v3.0/cc-spriteframecache/en.md)
+* [more](../../../v3.0/more-change-from-v2-to-v3/en.md)
