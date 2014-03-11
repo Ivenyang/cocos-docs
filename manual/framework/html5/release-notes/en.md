@@ -17,3 +17,4 @@
 - [Cocos2d-html5 upgrade guide from v2.1.5 to v2.2](v2.2/upgrade-guide-from-v215-to-v22/zh.md)
 - [Cocos2d-html5 upgrade guide from v2.2 to v2.2.1](v2.2.1/upgrade-guide-from-v22-to-v221/zh.md)
 - [Cocos2d-html5 upgrade guide from v2.2.1 to v2.2.2](v2.2.2/upgrade-guide-from-v221-to-v222/zh.md)
+- [Cocos2d-html5 upgrade guide from v2.2.2 to v3.0a](v3.0a/upgrade-guide/en.md)
