@@ -28,7 +28,7 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 开发者账号的费用：$19 一年；学生账号免费但不能发布收费应用
 
 ### 安装编译环境
-安装 visual studio 2003
+安装 visual studio 2013
 
 安装 windows phone SDK 8.0
 
