@@ -201,6 +201,8 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
+[Detialed documentation](../../../v3.0/singleton-objs/en.md).
+
 
 ##7. GUI widgets
 
