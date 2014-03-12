@@ -6,7 +6,8 @@
 	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release-notes/summary-release-20140107.md)
 - Framework
 	- Getting Started
-		- [How to run `cpp-tests` on Android](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Andrond/en.md)
+		- [How to run cpp-tests on Android](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Andrond/en.md)
+		- [How to run 'cpp-tests' on Mac OS X](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Mac OS X/en.md)
 		- [How to start a new game](../manual/framework/native/getting-started/v3.0/how to start a new game/en.md)
 	- Graphics & Animation
 		- Cocos2d Coordinate System
