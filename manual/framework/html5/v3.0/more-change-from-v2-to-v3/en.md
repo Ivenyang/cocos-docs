@@ -13,7 +13,7 @@ isFormatSupported
 preloadSound
 ```
 
-`cc.AudioEngine.end` is move to its instance.
+`cc.AudioEngine.end` is moved to its instance.
 
 ## cc.TextureCache
 
@@ -57,7 +57,7 @@ cc.Texture2D.defaultAlphaPixelFormat()          --> cc.Texture2D.defaultPixelFor
 `cc.PRIORITY_SYSTEM` --> `cc.Scheduler.PRIORITY_SYSTEM`.
 
 
-## 数组操作函数
+## Array operations
 
 Changed:
 
