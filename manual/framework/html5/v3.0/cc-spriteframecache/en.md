@@ -173,6 +173,6 @@ In this way, we can:
 
 2). Reduce the num of http request.
 
-And in this way, we can use plist files in develop mode, and use pkgJson files in release mode, without change your code.
+And in this way, we can use plist files in develop mode, and use pkgJson files in release mode, without changing your code.
 
 But customized loader plugin is not support in jsb.
