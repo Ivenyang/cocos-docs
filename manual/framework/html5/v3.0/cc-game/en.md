@@ -13,7 +13,7 @@ Then you can type the code to boot your game, which is usually put in `main.js`.
 And you should config settings of project in `project.json`.
 
 ```
-cc.game.onEnter = function(){
+cc.game.onStart = function(){
     cc.Director.getInstance().runScene(new MyScene());
 };
 cc.game.run();
@@ -27,7 +27,7 @@ The engine will read `project.json` while `cc.game.run` is called.
 There is a requirement that all scripts have prepared but the main loop of the game will be run latter.
 
 ```
-cc.game.onEnter = function(){
+cc.game.onStart = function(){
     cc.Director.getInstance().runScene(new MyScene());
 };
 cc.game.prepare();

@@ -13,7 +13,7 @@
 项目启动代码的编写较v2版本是大大的精简了，使用起来会更加舒服：
 
 ```
-cc.game.onEnter = function(){
+cc.game.onStart = function(){
     cc.Director.getInstance().runScene(new MyScene());
 };
 cc.game.run();
@@ -26,7 +26,7 @@ cc.game.run();
 有种需求是先加载完js，游戏主循环并还未开启，等响应了某一事件之后才开始运行游戏，例如：
 
 ```
-cc.game.onEnter = function(){
+cc.game.onStart = function(){
     cc.Director.getInstance().runScene(new MyScene());
 };
 cc.game.prepare();
