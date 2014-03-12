@@ -6,13 +6,7 @@
 	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release-notes/summary-release-20140107.md)
 - Framework
 	- Getting Started
-		- Setting up Development Environments
-			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android-on-win7/en.md)
-			- Setting up Environments for Cocos2d-x on Mac OS X
-			- [Setting up WP8 Development on Win8](../manual/framework/native/installation/wp8-on-win8/en.md)
-		- Starting Points of Cocos2d-x Programming
-			- Objects Reference Count and Auto Release Pool
-			- Cocos API Style
+		- [How to run `cpp-tests` on Android](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Andrond/en.md)
 	- Graphics & Animation
 		- Cocos2d Coordinate System
 		- Sprite, Layer and Scene
