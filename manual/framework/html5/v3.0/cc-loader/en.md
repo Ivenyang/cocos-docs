@@ -7,7 +7,7 @@ The old `cc.Loader` has been refactored as `cc.loader` with plugin mode.
 
 All kinds of loader plugins of resources are registered in each module. Quite different from which in version 2.x.
 
-In this way we can manager resources better and developers can customize their own resource loader plugins.
+In this way we can manage resources better and developers can customize their own resource loader plugins.
 
 `cc.loader` has some APIs for base operations of resources like loadJs, loadImg and so on.
 
