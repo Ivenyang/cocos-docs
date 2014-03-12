@@ -7,6 +7,7 @@
 - Framework
 	- Getting Started
 		- [How to run `cpp-tests` on Android](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Andrond/en.md)
+		- [How to start a new game](../manual/framework/native/getting-started/v3.0/how to start a new game/en.md)
 	- Graphics & Animation
 		- Cocos2d Coordinate System
 		- Sprite, Layer and Scene
