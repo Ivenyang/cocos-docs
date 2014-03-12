@@ -10,6 +10,7 @@
 		- [How to run cpp-tests on Mac OS X](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Mac OS X/en.md)
 		- [How to run cpp-tests on iOS](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on iOS/en.md)
 		- [How to run cpp-tests on Linux](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Linux/en.md)
+		- [How to run cpp-tests on Win32](../manual/framework/native/getting-started/v3.0/how to run cpp-tests on Win32/en.md)
 		- [How to start a new game](../manual/framework/native/getting-started/v3.0/how to start a new game/en.md)
 	- Graphics & Animation
 		- Cocos2d Coordinate System
