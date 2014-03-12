@@ -43,7 +43,7 @@
     Instead, we refactored them to provide developers a much easier procedure for game creation with `cc.game`.
 
     ```
-    cc.game.onEnter = function(){
+    cc.game.onStart = function(){
         cc.Director.getInstance().runScene(new MyScene());
     };
     cc.game.run();
@@ -201,6 +201,8 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
+[Detialed documentation](../../../v3.0/singleton-objs/en.md).
+
 
 ##7. GUI widgets
 
@@ -317,6 +319,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     ```
     cc.warn
     cc.error
+    cc.defineGetterSetter
     cc.BuilderReader.registerController
     ```
 
