@@ -58,7 +58,7 @@ The document is suitable for version v3.0rc or newer.
 
 	Run `make` to compile
 
-    	$ make cpp-tests
+    	$ make
 
 	Application will be generated in `cocos2dx_root/build/linux-build/bin/cpp-tests/` if compile correctly.
 
