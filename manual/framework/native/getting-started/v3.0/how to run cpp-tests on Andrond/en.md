@@ -1,6 +1,6 @@
 ## How to Run Cocos2D-X Samples on Android
 
-Let's take MacOS as an example, the process in win32 and linux is more or less the same.
+Let's take MacOS as an example, the processes on win32 and linux are more or less the same.
 
 ### Prerequisite
 
@@ -11,19 +11,19 @@ Double click the folder *cocos2d-x* and you will find a lot of files and folders
 
 ![directory](./res/cocos2dxdirectory.png)
 
-Before we configuring our development environment, let's download some dependency software at first.
+Before configuring the development environment, let's download some dependency software at first.
 
 #### Download JDK, SDK and NDK
 Since we are trying to develop Android games, so Java is a must have toolkit.
 
-- Open Your Terminal(You can hit Control-Space to open Spotlight and enter "Terminal" plus "Enter" key), input the following commands to verify whether your machine support java or not.
+- Open Your Terminal(You can hit Control-Space to open Spotlight and enter "Terminal" and hit "Enter" key), input the following commands to verify whether your machine supports java or not.
 
 ```
 java -version
 ```
-If the following lines shown on your Terminal then you may have installed [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) before.
+If the following lines shown on your Terminal then you may have get [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) properly installed.
 
-(Note, the java version number maybe different, but it's no problem, cocos2d-x, you could upgrade your java. We recommend you install JDK 1.6 or 1.7)
+(Note, the java version number may be different, but it's doesn't matter. As to cocos2d-x, you could upgrade the JDK and we recommend you to install JDK 1.6 or 1.7)
 
 ```
 java version "1.7.0_51"
@@ -33,37 +33,36 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 - Download the Android SDK. If you are using Mac, click [this link](https://developer.android.com/sdk/index.html?hl=sk) to download *ADT Bundle for Mac*.
 
 The bundle includes the newest Android SDK version plus an Eclipse version with Android Development Tool installed. So we don't need to download an extra Eclipse and install
-the ADK any more.
+the ADK manually any more.
 
-After downloading, unzip it at ~/AndroidDev directory. The folder contains two folders: *sdk* and *eclipse*. The first one contains some toolkits and a almost newest Android SDK,
-the other is an Eclipse version with ADT installed.
+After downloading it, unzip the package at ~/AndroidDev directory. The folder contains two folders: *sdk* and *eclipse*. 
 
-You could launch the Eclipse and install another SDK versions. Here is a sample:
+You could launch the Eclipse and install other SDK versions. Here is an example:
 ![donwloadSDK](./res/donwloadSDK.png)
 
-- Download NDK. Here is the [download link](https://developer.android.com/tools/sdk/ndk/index.html). You could always prefer the newest version. When we are writing this article, the newest version of NDK is *r9d*. 
+- Download NDK. Here is the [download link](https://developer.android.com/tools/sdk/ndk/index.html). You could always prefer the latest version. When we are writing this article, the latest version of NDK is *r9d*. 
 
-After downloading, unzip it at the same location of SDK. In our case, it is under *~/AndroidDev* directory.
+After downloading it, unzip the package at the same location of the Android SDK. In our case, it is under the *~/AndroidDev* directory.
 
 
 #### Verify Your Environment
 Aha, we have installed all the required softwares. Let's do the final verification.
 
-At first, we should verify that *python 2.7* is installed and is accessible under the current user's environment which means you could type `python --version` in your Terminal(or Command Line on win32) and it gives you the following result:
+At first, we should verify that *python 2.7* is installed and it is accessible under the current user's environment which means you could type `python --version` in your Terminal(or Command Line on win32) and it will give you the following result:
 
 ```
 -> % python --version
 Python 2.7.5
 ```
 
-If there is a prompt like "command not found: python", you should install it. We recommend you install python with homebrew.
+If there is a prompt like "command not found: python" which means your python environment is not correct, you should install it. We recommend you install python with homebrew.
 
 ```
 brew install python
 ```
-If the homebrew isn't be installed on your computer, please refer to [this link](http://brew.sh/) for more information.
+If the homebrew isn't  installed on your system, please refer to [this link](http://brew.sh/) for more information.
 
-At last, let's install *ant* tools. You are a homebrew user, you can simply type the following command in your terminal to install it:
+At last, let's install *ant* tools. If you are a homebrew user, you could simply type the following command in your terminal to install ant:
 
 ```
 brew install ant
@@ -98,7 +97,11 @@ Here is the screenshot:
 
 Now it's time to repeat the last procee to configure the *ANDROID_SDK_ROOT*. You can simply input `/Users/guanghui/AndroidDev/adt-bundle-mac-x86_64-20130522/sdk/`. The adt-bundle-mac-x86_64-xxxx, the xxxx number maybe different. So please note this non-trival difference.
 
-If you don't install *ant* program, it will prompt you to install *ant* first.
+If you don't install *ant* program, you should install *ant* first.
+
+After you have installed *ant*, when the scripts ask you to config the *ANT_ROOT*, you can simply hit *Enter* key and let the scripts do the remaining job for you.
+
+![setuppy03](./res/setuppy03.png)
 
 If all the environment variables are correctly configured, you should let them take effect.
 
