@@ -147,7 +147,7 @@ cc._pkgJsonLoader = {
 cc.loader.register(["pkgJson"], cc._pkgJsonLoader);
 ```
 
-`***.pkgJson` is json file, we name it `.pkgJson` because need to use our loader plugin to handle it,
+`***.pkgJson` is json file, we name it `.pkgJson` because we need to use our loader plugin to handle it,
 not `cc._jsonLoader`.
 
 And it also support ugly mode:
