@@ -1,4 +1,4 @@
-# How to run cpp-tests on Linux #
+# How to Run Cpp-tests on Linux #
 
 * [Overview](#anchor1)
 * [Document Scope](#anchor2)
