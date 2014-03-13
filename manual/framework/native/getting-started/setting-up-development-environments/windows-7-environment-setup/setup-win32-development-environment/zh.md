@@ -1,4 +1,4 @@
-# 在Windows7上搭建Cocos2d-x开发环境
+# 在Windows7上搭建Cocos2d-x win32开发环境
 ---
 
 在windows7上搭建COCOS2D-X开发环境并不难， 但是由于框架更新过快，很多用户都有困难。我希望你们认为这个教程有用。
