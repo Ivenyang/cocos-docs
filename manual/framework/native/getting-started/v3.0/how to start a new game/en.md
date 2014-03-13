@@ -45,6 +45,8 @@ Folder structure of generated project is
 * `-s`: directory of the new project
 * `-p`: which platform to run on
 
+(Note: You are a tmux user, you should add `reattach-to-user-namespace` before the command `cocos`. For more information, please refer to [this link](https://github.com/phonegap/ios-sim) for more information.)
+
 You can run `cocos run --help` for more detail information.
 
 ![run scree](res/run_screen.png)
