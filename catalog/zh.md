@@ -8,8 +8,8 @@
 			- [如何在iPhone模拟器上运行Cocos2d-x HelloWorld项目](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/how-to-run-helloworld-of-cocos2d-x-on-iphone-emulator/zh.md)
 			- [Mac OSX平台搭建Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setting-up-android-development-environment-on-mac-osx/zh.md)
 		- Cocos2d-x v3.x
-			- [Xcode下运行HelloWorld](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-mac-with-xcode/zh.md)
-			- [Eclipse下运行HelloWorld](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-mac-with-eclipse/zh.md )
+			- [如何在Mac下搭建Cocos2d-x iPhone开发环境](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-mac-with-xcode/zh.md)
+			- [如何在Mac下搭建Android开发环境](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-mac-with-eclipse/zh.md )
 	- 环境说明
 		- [在Mac OS X山狮系统安装Emscripten说明](../manual/framework/native/getting-started/setting-up-development-environments/mac-osx-environment-setup/setup-emscripten-on-mac_osx-mountain-lion/zh.md)
 
