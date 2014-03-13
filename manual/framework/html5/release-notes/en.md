@@ -6,6 +6,7 @@
 - [Cocos2d-html5 v2.2 release note](v2.2/release-note/zh.md)
 - [Cocos2d-html5 v2.2.1 release note](v2.2.1/release-note/zh.md)
 - [Cocos2d-html5 v2.2.2 release note](v2.2.2/release-note/zh.md)
+- [Cocos2d-html5 v3.0a release note](v3.0a/release-note/en.md)
 
 #Cocos2d-html5 change log
 
