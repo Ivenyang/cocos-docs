@@ -1,4 +1,4 @@
-# How to run cpp-tests on iOS
+# How to Run Cpp-tests on iOS
    
 ## Environmental Requirements
 

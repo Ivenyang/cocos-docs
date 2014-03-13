@@ -1,4 +1,4 @@
-# How to run cpp-tests on Mac OS X
+# How to Run Cpp-tests on Mac OSX
    
 
 ## Environmental Requirements
