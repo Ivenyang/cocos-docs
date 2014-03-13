@@ -1,4 +1,4 @@
-# Mac搭建cococs2d-x v3.x Android开发环境
+# Mac搭建Cocos2d-x v3.x Android开发环境
 
 #准备工作
 
