@@ -1,4 +1,4 @@
-# 如何在Windows 7平台搭建Android Cocos2d-x开发环境
+# 如何在Windows 7平台搭建Cocos2d-x Android开发环境
 
 **注意：**本指南主要以cocos2d-x 2.x版本引擎为例。因为cocos2d-x 3.x引擎不需要安装cygwin即可编译Android样本程序，欲了解更多信息可参见本贴。
 
