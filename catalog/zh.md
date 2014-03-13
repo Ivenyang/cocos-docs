@@ -17,10 +17,10 @@
 	- 环境搭建
 		- Cocos2d-x v2.x
 			- [在Windows7上搭建Cocos2d-x win32开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/setup-win32-development-environment/zh.md)
-			- [如何在Windows 7平台搭建Cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-set-up-the-android-cocos2d-x-development-environment-on-windows7/zh.md)
+			- [如何在Windows7平台搭建Cocos2d-x Android开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-7-environment-setup/how-to-set-up-the-android-cocos2d-x-development-environment-on-windows7/zh.md)
 		- Cocos2d-x v3.x
-			- win32环境
-			- Android环境
+			- [在Windows7上搭建Cocos2d-x win32开发环境](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-windows7-with-vs2013/zh.md)
+			- [在Windows7平台搭建Cocos2d-x Android开发环境](../manual/framework/native/getting-started/v3.0/setting-up-development-environments-on-windows7-with-eclipse/zh.md)
 	- 环境说明
 		- [如何在WP8上搭建Cocos2d-x开发环境](../manual/framework/native/getting-started/setting-up-development-environments/windows-8-metro-environment-setup/setup-the-cocos2d-x-for-android-in-windows-8-metro/zh.md)
 - Linux
