@@ -29,7 +29,7 @@ We are happy to announce the release of:
 
 ### Documentation ###
 
-* [how to run cpp-tests on Android](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-andrond/en.md)
+* [how to run cpp-tests on Android](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-android/en.md)
 * [how to run cpp-tests on iOS](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-ios/en.md)
 * [how to run cpp-tests on Mac OS X](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-Mac-OSX/en.md)
 * [how to run cpp-tests on Linux](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-Linux/en.md)
