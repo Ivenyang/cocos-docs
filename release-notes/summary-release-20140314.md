@@ -29,12 +29,12 @@ We are happy to announce the release of:
 
 ### Documentation ###
 
-* [how to run cpp-tests on Android](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20run%20cpp-tests%20on%20Andrond/en.md)
-* [how to run cpp-tests on iOS](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20run%20cpp-tests%20on%20iOS/en.md)
-* [how to run cpp-tests on Mac OS X](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20run%20cpp-tests%20on%20Mac%20OS%20X/en.md)
-* [how to run cpp-tests on Linux](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20run%20cpp-tests%20on%20Linux/en.md)
-* [how to run cpp-tests on Windows](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20run%20cpp-tests%20on%20Win32/en.md)
-* [how to start a new game](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how%20to%20start%20a%20new%20game/en.md)
+* [how to run cpp-tests on Android](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-andrond/en.md)
+* [how to run cpp-tests on iOS](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-ios/en.md)
+* [how to run cpp-tests on Mac OS X](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-Mac-OSX/en.md)
+* [how to run cpp-tests on Linux](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-Linux/en.md)
+* [how to run cpp-tests on Windows](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-Win32/en.md)
+* [how to start a new game](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-start-a-new-game/en.md)
 
 
 ### Full Changelog
