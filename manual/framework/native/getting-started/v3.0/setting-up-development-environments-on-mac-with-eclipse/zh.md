@@ -1,4 +1,4 @@
-#Eclipese下运行HelloWorld
+# Mac搭建cococs2d-x v3.x Android开发环境
 
 #准备工作
 
