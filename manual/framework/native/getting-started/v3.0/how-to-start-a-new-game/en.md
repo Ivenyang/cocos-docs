@@ -16,7 +16,7 @@ This documentation will show you how to use [cocos console](https://github.com/c
 * Xcode 4.6 (for iOS or Mac)
 * gcc 4.7 for Linux or Android. For Android ndk-r9 or newer is required.
 * Visual Studio 2012 (for Windows)
-* Python 2.7
+* Python 2.7.5
 
 
 ## Create A New Project
