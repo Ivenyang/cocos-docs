@@ -374,6 +374,9 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     cc.SizeFromString           --> cc.spriteFrameCache._sizeFromString
 
     ccs.CocoStudioVersion       --> ccs.cocostudioVersion
+    
+    // Typo correction
+    ccs.DecotativeDisplay       --> ccs.DecorativeDisplay
     ```
 
 Other documentation can be found here:
