@@ -127,7 +127,7 @@ cd build
 and then 
 
 ```
-python android-build.py -p 10 testcpp
+python android-build.py -p 10 cpp-tests
 ```
 Bang! Hit enter and the scripts will handle all the remaining things for you.
 
