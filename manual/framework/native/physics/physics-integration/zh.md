@@ -19,6 +19,8 @@
 
 默认创建的工程已支持物理引擎，内部启用的是chipmunk。
 
+你可以注释掉`ccConfig.h`里的`CC_USE_PHYSICS`宏定义去关闭它。
+
 ## 创建带物理世界的scene
 
 下面的代码创建带物理世界的scene，并传递给child layer。
@@ -124,14 +126,20 @@ _eventDispatcher是基类Node的成员，Layer初始化后就可直接使用。
 
 你还可以使用`EventListenerPhysicsContactWithBodies`, `EventListenerPhysicsContactWithShapes`, `EventListenerPhysicsContactWithGroup` 来监听你感兴趣的两个物体、两个形状，或者某组物体的碰撞事件，但是要注意设置物体碰撞相关的mask值（下面会详细说明），因为物体碰撞事件在默认情况下是不接收的，即使你创建了相应的EventListener。
 
-PhysicsBody碰撞相关的mask设置和group设置跟Box2D的设置是一致的，
+PhysicsBody碰撞相关的mask设置和group设置跟Box2D的设置是一致的。
+
 mask设置分为**CategoryBitmask**， **ContactTestBitmask** 和 **CollisionBitmask**，你可以通过相关的get/set接口来获得或者设置他们。他们是通过逻辑与来进行测试的，当一个物体的**CategoryBitmask**跟另一个物体的**ContactTestBitmask**的逻辑与测试结果不为零时，将会发送相应的事件，否则不发送。而当一个物体的**CategoryBitmask**跟另一个物体的**CollisionBitmask**的逻辑与测试结果不为零时，将会发生碰撞，否则不发生碰撞。注意，在默认情况下**CategoryBitmask**的值为0xFFFFFFFF，**ContactTestBitmask**的值为0x00000000，**CollisionBitmask**的值为0xFFFFFFFF，也就是说默认情况下所有物体都会发生碰撞但不发送通知。
+
 另一个碰撞相关的设置是**group**（组），当它大于零时，同组的物体将发生碰撞，当它小于零时，同组的物体不碰撞。注意，当**group**不为零时，他将忽略mask的碰撞设置（是否通知的设置依然有效）。
 
 在`EventListenerPhysicsContact`里有四个碰撞回调函数，他们分别是`onContactBegin`，`onContactPreSolve`，`onContactPostSolve`和`onContactSeperate`。
+
 在碰撞刚发生时，`onContactBegin`会被调用，并且在此次碰撞中只会被调用一次。你可以通过返回true或者false来决定物体是否发生碰撞。你可以通过`PhysicsContact::setData()`来保存自己的数据以便用于后续的碰撞处理。需要注意的是，当`onContactBegin`返回flase时，`onContactPreSolve`和`onContactPostSolve`将不会被调用，但`onContactSeperate`必定会被调用。
+
 `onContactPreSolve`发生在碰撞的每个step，你可以通过调用`PhysicsContactPreSolve`的设置函数来改变碰撞处理的一些参数设定，比如弹力，阻力等。同样你可以通过返回true或者false来决定物体是否发生碰撞。你还可以通过调用`PhysicsContactPreSolve::ignore()`来跳过后续的`onContactPreSolve`和`onContactPostSolve`回调事件通知（默认返回true）。
+
 `onContactPostSolve`发生在碰撞计算完毕的每个step，你可以在此做一些碰撞的后续处理，比如摧毁某个物体等。
+
 `onContactSeperate`发生在碰撞结束两物体分离时，同样只会被调用一次。它跟`onContactBegin`必定是成对出现的，所以你可以在此摧毁你之前通过`PhysicsContact::setData()`设置的用户数据。
 
 ## Demo
@@ -139,3 +147,5 @@ mask设置分为**CategoryBitmask**， **ContactTestBitmask** 和 **CollisionBit
 你可以在这里获取文章配套Demo：<https://github.com/Yangtb/newPhysics.git>
 
 Demo基于 [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone后放到引擎的projects（如果没有自行创建）文件夹下。
+
+你也可以运行引擎自带的test-cpp下的PhysicsTest查看和学习物理集成的使用方式。

@@ -19,13 +19,9 @@ Physics engines integrated into Cocos2d-x:
 
 You can create a 3.0 project by script in this path **/tools/project-creator/create_project.py**
 
-The project you created using Chipmunk as physics engine by default. 
+The physics integration is opened by default, and it use chipmunk as the base physics engine.
 
-as following image:
-
-![iOS Precess](res/iosPreprocess.png)
-
-Both Debug and Release has to be changed.
+You can comment the definition of `CC_USE_PHYSICS` in `ccConfig.h` to disable it.
 
 ## Create a scene with physics world
 
@@ -137,12 +133,20 @@ _eventDispatcher is a member of base class Node, it can be used by a initialized
 
 You also can use `EventListenerPhysicsContactWithBodies`, `EventListenerPhysicsContactWithShapes`, `EventListenerPhysicsContactWithGroup` to listen the event you interested with bodys, shapes or group. But you also need to set the physics contact related bitmask value, because the contact event won't be received by default, even you create the relative EventListener.
 
-The contact relative bitmask setting and group setting are the same like Box2D. There are three values: **CategoryBitmask**， **ContactTestBitmask** and **CollisionBitmask**. you can use corresponding get/set method to get/set them. They are tested by logical and operation. When **CategoryBitmask** of one body and with **ContactTestBitmask** of another body with the result doesn't equal to zero, the contact event will be sended, overwise the contact event won't be sended. When **CategoryBitmask** of one body and with **CollisionBitmask** of another body with the result doesn't equal to zero, they will collied, overwise it won't. be ware, in default, **CategoryBitmask** value is 0xFFFFFFFF, **ContactTestBitmask** value is 0x00000000, and **CollisionBitmask** value is 0xFFFFFFFF, it means all body will collide with each other but with out send contact event by default.
+The contact relative bitmask setting and group setting are the same as Box2D. 
+
+There are three values: **CategoryBitmask**， **ContactTestBitmask** and **CollisionBitmask**. you can use corresponding get/set method to get/set them. They are tested by logical and operation. When **CategoryBitmask** of one body and with **ContactTestBitmask** of another body with the result doesn't equal to zero, the contact event will be sended, overwise the contact event won't be sended. When **CategoryBitmask** of one body and with **CollisionBitmask** of another body with the result doesn't equal to zero, they will collied, overwise it won't. be ware, in default, **CategoryBitmask** value is 0xFFFFFFFF, **ContactTestBitmask** value is 0x00000000, and **CollisionBitmask** value is 0xFFFFFFFF, it means all body will collide with each other but with out send contact event by default.
+
+The another setting for physics contact is **group**, the objects in the same group will collide with each other when it's value lager than zero, and won't collide with each other when it's value less than zero. Be noticed, when **group** doesn't equal to zero, it will ignore the collide bitmask setting (The cotact test setting still works.).
 
 There are four contact callback functions in `EventListenerPhysicsContact`: `onContactBegin`, `onContactPreSolve`, `onContactPostSolve` and `onContactSeperate`.
+
 `onContactBegin` will be invoked at contact begin, and only invoke once at this contact. You can decide two shapes have collision or not by return true or false. you can use `PhysicsContact::setData()` to set user data for coming contact operation. Be noticed, `onContactPreSolve` and `onContactPostSolve` will not be invoked when `onContactBegin` return false, but however `onContactSeperate` will be invoked once.
+
 `onContactPreSolve` will be invoked at each step, you can use `PhysicsContactPreSolve` setting functions to set contact parameters, like restitution, friction and etc. You can also decide two shapes have collision or not by return true or false, and you can invoke `PhysicsContactPreSolve::ignore()` to skip subsequent `onContactPreSolve` and `onContactPostSolve` callbacks(return true in default).
+
 `onContactPostSolve`will be invoked at two shapes collision response has been processed in each step. You can do some subsequent contact operations in it, destory a body for example.
+
 `onContactSeperate` will be invoked at two shapes seperated. It also invoked once at this contact. It must be in pair with `onContactBegin`, so you can destory you own userdata at here which you seted with `PhysicsContact::setData()`.
 
 ## Demo
@@ -150,3 +154,5 @@ There are four contact callback functions in `EventListenerPhysicsContact`: `onC
 You can get Demo of this document from this: <https://github.com/Yangtb/newPhysics.git>
 
 Demo is based on [cocos2d-x-3.0alpha1](http://cdn.cocos2d-x.org/cocos2d-x-3.0alpha1.zip), clone it and put it in **cocos2d-x-3.0alpha1/projects**, you can create one if you don't have project folder.
+
+You can also run PhysicsTest in test-cpp to learn how to use the physics integration.
