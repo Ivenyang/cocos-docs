@@ -6,8 +6,6 @@ We are happy to announce the release of:
 	- [Cocos2d-x v2.2.3](#cocos2d-x-v223)
 	- [CocoStudio v1.3](#cocostudio-v13)
 
-
-
 # Cocos2d-x v3.0 rc0 #
 
 <img src="https://lh3.googleusercontent.com/-glwwzmFyUmk/UQgPnlx40uI/AAAAAAAArzg/WPRW10kkecM/s800/cocos2d-x-logo.png">
@@ -29,6 +27,7 @@ We are happy to announce the release of:
 * Scheduler supports `std::function<>` as parameter
 * Added many useful commands for the `Console`
 * Many bug fixes!
+* Support Xcode 5.1 to build arm64 version, `but can not require socket module in lua, will fix it soon`
 
 ### Documentation ###
 
@@ -53,6 +52,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](https://g
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.
 
 Thank you!
+
 
 # Cocos2d-JS v3.0 alpha #
 
