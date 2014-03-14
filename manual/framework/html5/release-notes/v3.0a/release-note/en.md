@@ -14,7 +14,6 @@
 * Refactor some properties of all rendering classes with getter setter for providing a new set of Javascript user friendly APIs, and `attr` function is provided for cc.Node to modify multiple properties, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
 * Add new event manager to cocos2d-html5, all events are dispatched via cc.eventManager with several types of event listener including custom event listener, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
 * A new all-type extendable loader is added for resource loading process, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
-* Use `moduleConfig.json` to config the paths and modules of engine scripts, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
 * Refactor foundational data structures for better maintainability, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/basic-data/en).
 
 ### More information ###

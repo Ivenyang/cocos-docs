@@ -85,13 +85,13 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/C
 
 ## Highlights
 
-* Provide a python tool which make the development of Html5 and JSB application much simpler and more convenient, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
-* Incredibly simplified game creation process via cc.game which replaced old cc.Application, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
-* Cocos2d-html5 engine core is separated into modules and can be configured via `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
-* Refactor some properties of all rendering classes with getter setter for providing a new set of Javascript user friendly APIs, and `attr` function is provided for cc.Node to modify multiple properties, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
-* Add new event manager to cocos2d-html5, all events are dispatched via cc.eventManager with several types of event listener including custom event listener, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
-* A new all-type extendable loader is added for resource loading process, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
-* Use `moduleConfig.json` to config the paths and modules of engine scripts, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
+* Added a new tool to create & run cocos2d-html5 and JSB project, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
+* `cc.Application` -> `cc.game`, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
+* `coco2d.js` is replaced by `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
+* Supported `Attributes` getter/setter for some classes, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
+* Added `node.attr` function to initialize properties
+* Supported new event manager, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
+* Supported 3rd resource loader, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
 * Refactor foundational data structures for better maintainability, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/basic-data/en).
 
 ### More information ###
