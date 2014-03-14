@@ -85,12 +85,13 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/C
 
 ## Highlights
 
-* A new python tool to make Html5 and JSB application, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
-* cc.Application replaces to cc.game, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
-* Engine configuration by `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
-* Using getter setter APIs and `attr` function, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
+* Added a new tool to create & run cocos2d-html5 and JSB project, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
+* `cc.Application` -> `cc.game`, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
+* `coco2d.js` is replaced by `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
+* Supported `Attributes` getter/setter for some classes, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
+* Added `node.attr` function to initialize properties
 * New event manager supports, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
-* A new all-type extendable loader for resource loading process, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
+* Supported 3rd resource loader, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
 * Refactor foundational data structures for better maintainability, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/basic-data/en).
 
 ### More information ###
