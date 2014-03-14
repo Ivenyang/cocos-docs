@@ -1,9 +1,11 @@
 We are happy to announce the release of:
 
 - [Cocos2d-x v3.0 rc0](#cocos2d-x-v30-rc0)
+- [Cocos2d-JS v3.0 alpha](#cocos2d-js-v30-alpha)
 - [v2.2.3 Coordinate Releases](#v223-coordinate-releases)
 	- [Cocos2d-x v2.2.3](#cocos2d-x-v223)
-- [Cocos2d-JS v3.0 alpha](#Cocos2d-JS-v3.0-alpha)
+	- [CocoStudio v1.3](#cocostudio-v13)
+
 
 
 # Cocos2d-x v3.0 rc0 #
@@ -52,31 +54,9 @@ We would greatly appreciate if you can test this version and report any kind of 
 
 Thank you!
 
-# v2.2.3 Coordinate Releases #
-
-## Cocos2d-x v2.2.3 ##
-
-### Download ###
-
-[cocos2d-x-2.2.3.zip](http://cdn.cocos2d-x.org/cocos2d-x-2.2.3.zip)
-
-### Highlights ###
-
-* Support CocoStudio v1.3
-* Added Lua bindings support for WP8 and WinRT
-* Added EditBox support for WP8
-* Added XAML project template
-
-### Documentation
-
-* [Setup WP8 Development on Win8](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/installation/wp8-on-win8/en.md)
-* [How to integrate 3rd part SDK on Windows Phone 8](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/sdk-integration/wp8-thirdSDK/en.md)
-
-### Full Changelog
-
-Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/CHANGELOG)
-
 # Cocos2d-JS v3.0 alpha #
+
+<img src="http://www.cocos2d-x.org/attachments/download/1508" height=180>
 
 `Cocos2d-JS` consists of `Cocos2d-html5` and `Cocos2d-x JSBinding`. It provides a tool that makes it much simpler and more convenient to develop Html5 and JSB application. For more informations please see [Cocos2d-JS github site](https://github.com/cocos2d/cocos2d-js)
 
@@ -99,4 +79,61 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/C
 
 Read more about all the new features at [Cocos2d-JS v3.0 alpha full change log](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Notes_for_Cocos2d-JS_v30alpha).
 
+# v2.2.3 Coordinate Releases #
+
+## Cocos2d-x v2.2.3 ##
+
+<img src="https://lh3.googleusercontent.com/-glwwzmFyUmk/UQgPnlx40uI/AAAAAAAArzg/WPRW10kkecM/s800/cocos2d-x-logo.png">
+
+### Download ###
+
+[cocos2d-x-2.2.3.zip](http://cdn.cocos2d-x.org/cocos2d-x-2.2.3.zip)
+
+### Highlights ###
+
+* Support CocoStudio v1.3
+* Added Lua bindings support for WP8 and WinRT
+* Added EditBox support for WP8
+* Added XAML project template
+
+### Documentation
+
+* [Setup WP8 Development on Win8](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/installation/wp8-on-win8/en.md)
+* [How to integrate 3rd part SDK on Windows Phone 8](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/sdk-integration/wp8-thirdSDK/en.md)
+
+### Full Changelog
+
+Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/CHANGELOG)
+
+## Cocostudio v1.3 ##
+
+<img src="http://upyun.cocimg.com/CocoStudio/Img/CocoStudio-Name-Logo.png" width=140>
+
+
+### Download ###
+
+
+[CocoStudio-v1.3.exe](http://cocostudio.download.appget.cn/Cocostudio/Download/v1.3.0.0/CocoStudio_V1.3.0.0.exe)
+
+### Highlights ###
+
+- Animation Editor
+    - Added View Bones relationship
+    - Added Frames and Frames property
+    - Added Bones and Bones property
+- UI Editor 
+    - Added UI controls:Custom property controls.
+    - Added UI toolbar:Vertical equidistance and horizontal equidistance.
+    - Support to set different canvas sizes.
+- Scene Editor 
+    - Created CCP, JS, LUA’s cocos2dx game project.
+    - Created UI, Animation, Scene, all share a resource folder.
+    - Components optimized Custom property, you can modify the custom property values in Scene Editor.
+    - Node in the structure was dragged to condition in the trigger, NodeID and component names are automatically added.
+    - MultiNode types, support for multiple NodeID in an input box.
+    - Adjustment Scene Editor interface, resource area and next to the project area to facilitate the operation.
+
+### More information ###
+
+Read more about all the new features at [CocoStudio V1.3.0.0 release notes](http://www.cocos2d-x.org/wiki/CocoStudio).
 
