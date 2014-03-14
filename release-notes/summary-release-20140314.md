@@ -3,6 +3,7 @@ We are happy to announce the release of:
 - [Cocos2d-x v3.0 rc0](#cocos2d-x-v30-rc0)
 - [v2.2.3 Coordinate Releases](#v223-coordinate-releases)
 	- [Cocos2d-x v2.2.3](#cocos2d-x-v223)
+- [Cocos2d-JS v3.0 alpha](#Cocos2d-JS-v3.0-alpha)
 
 
 # Cocos2d-x v3.0 rc0 #
@@ -75,15 +76,15 @@ Thank you!
 
 Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/CHANGELOG)
 
-# Cocos2d-JS v3.0 alpha
+# Cocos2d-JS v3.0 alpha #
 
 `Cocos2d-JS` consists of `Cocos2d-html5` and `Cocos2d-x JSBinding`. It provides a tool that makes it much simpler and more convenient to develop Html5 and JSB application. For more informations please see [Cocos2d-JS github site](https://github.com/cocos2d/cocos2d-js)
 
-## Download
+## Download ##
 
 [Cocos2d-JS-v3.0-alpha.zip](http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-alpha.zip)
 
-## Highlights
+## Highlights ##
 
 * Added a new tool to create & run cocos2d-html5 and JSB project, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
 * `cc.Application` -> `cc.game`, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
