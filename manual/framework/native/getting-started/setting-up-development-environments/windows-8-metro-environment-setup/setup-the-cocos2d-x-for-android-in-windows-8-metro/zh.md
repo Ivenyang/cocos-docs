@@ -1,13 +1,15 @@
 # 在Windows 8 Metro平台搭建cocos2d-x Android开发环境
 
-- 1.下载Android SDK：一般情况下用户只下载SDK，不过这里推荐下载集合Android SDK、Eclipse及Android Plugin for Eclipse（Android插件）的ADT Bundle工具。最新版下载地址为http://developer.android.com/sdk/index.html。下载后解压ADT，本机解压路径为“E:\ Drive”。本机ADT路径为“E:\adt-bundle-windows-x86_64-20130717”。本机SDK路径为“E:\adt-bundle-windows-x86_64-20130717\sdk”。此外记得更新SDK。选择最新版的API以及Android 2.2（API 8）。
+- 1.下载Android SDK：一般情况下用户只下载SDK，不过这里推荐下载集合Android SDK、Eclipse及Android Plugin for Eclipse（Android插件）的ADT Bundle工具。最新版下载地址为
+[http://developer.android.com/sdk/index.html](http://developer.android.com/sdk/index.html)
+下载后解压ADT，本机解压路径为“E:\ Drive”。本机ADT路径为“E:\adt-bundle-windows-x86_64-20130717”。本机SDK路径为“E:\adt-bundle-windows-x86_64-20130717\sdk”。此外记得更新SDK。选择最新版的API以及Android 2.2（API 8）。
 
-- 2.从http://developer.android.com/tools/sdk/ndk/index.html下载NDK。本机使用64位Windows 8系统。所以本机下载的NDK版本为“android-ndk-r9-windows-x86_64.zip”。将下载的NDK压缩文件解压至“C:\ Drive”。本机解压路径为“E:\android-ndk-r9”。
+- 2.从[http://developer.android.com/tools/sdk/ndk/index.html](http://developer.android.com/tools/sdk/ndk/index.html)下载NDK。本机使用64位Windows 8系统。所以本机下载的NDK版本为“android-ndk-r9-windows-x86_64.zip”。将下载的NDK压缩文件解压至“C:\ Drive”。本机解压路径为“E:\android-ndk-r9”。
 
-- 3.从http://www.cygwin.com/install.html下载安装Cygwin。Cygwin程序可以让你在Windows平台体验Linux效果。你可以在Cygwin中安装某些资源包，从而打造一个小型的类Linux环境。安装Cygwin之后，当出现选择资源包选项时，请搜索以下资源包并安装：autoconf、automake、binutils、gcc-core、gcc-g++、gcc4-core、gcc4-g++、gdb、pcre、pcre-devel、gawk以及 make。           
+- 3.从[http://www.cygwin.com/install.html](http://www.cygwin.com/install.html)下载安装Cygwin。Cygwin程序可以让你在Windows平台体验Linux效果。你可以在Cygwin中安装某些资源包，从而打造一个小型的类Linux环境。安装Cygwin之后，当出现选择资源包选项时，请搜索以下资源包并安装：autoconf、automake、binutils、gcc-core、gcc-g++、gcc4-core、gcc4-g++、gdb、pcre、pcre-devel、gawk以及 make。           
 注意：选择GUI版本的“make”资源包，否则将无法使用NDK编译项目。
 
-- 4.从http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html下载JDK。不管你的系统是32位还是64位，你都只需要下载32位版本的JDK。将Java安装至“C:\Java”中。
+- 4.从[http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)下载JDK。不管你的系统是32位还是64位，你都只需要下载32位版本的JDK。将Java安装至“C:\Java”中。
 
 
 - 5.下载最新版本的cocos2d-x引擎并解压至“C:\ Drive”。本机解压路径为“E:\cocos2d-x-2.2”。
