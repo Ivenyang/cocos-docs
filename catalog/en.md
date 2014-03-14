@@ -1,45 +1,84 @@
-- Manual
-	- Setting up Environments
-		- Setting up Environments on Windows 7
-		- Setting up Environments on Mac OS X
-	- 2D Graphics
+- Introduction
+	- About Us
+	- Architecture and Modules
+	- Supported Platforms and Programming Languages
+- Release Notes
+	- [Cocos2d-x v3.0 beta & v2.2, CocoStudio v1.2, Cocos2d-html5 v2.2.2 on 2014-01-07](../release-notes/summary-release-20140107.md)
+- Framework 
+	- Getting Started	 
+		- Setting up Development Environments
+			- [Setting up Android Environments for Cocos2d-x on Windows 7](../manual/framework/native/installation/android-on-win7/en.md)
+			- Setting up Environments for Cocos2d-x on Mac OS X
+			- [Setting up WP8 Development on Win8](../manual/framework/native/installation/wp8-on-win8/en.md)
+		- Starting Points of Cocos2d-x Programming
+			- Objects Reference Count and Auto Release Pool
+			- Cocos API Style
+	- Graphics & Animation
+		- Cocos2d Coordinate System
+		- Sprite, Layer and Scene
 		- Particle System        
-			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/particle_system/en.md)
-	- Data Structure
-		- 3.0: Vector\<T\>, Map\<K,V\> and Value
+			- [Particle System Comparison of v2.x and v3.x](../manual/framework/native/graphic/particle/v3/en.md)
+		- Transitions
+		- Flipbook Animation
+		- Skeletal Animation
+		- Tile Map
+		- Actions
+		- Effects
+		- [Renderer](../manual/framework/native/renderer/en.md) 
+		- Mechanism to Work on Multiple Resolutions
 	- Audio
-	- Memory Management
-	- Inputs
-		- [Event Dispatcher](../manual/framework/native/event_dispatcher/en.md)
-		- How to Receive and Response Touch Events
-		- How to Receive and Response Accelerometer Events
-    - GUI
-        - [Overview of GUI system](../manual/framework/native/gui/part-1/en.md)
-        - [Containers: Layout, ScrollView and PageView](../manual/framework/native/gui/part-2/en.md)
-        - [Widgets: CheckBox, LoadingBar, Slider, Button, TextField](../manual/framework/native/gui/part-3/en.md)
+	- GUI
+		- [Overview of GUI system](../manual/framework/native/gui/overview/en.md)
+        - [UI Containers](../manual/framework/native/gui/container/en.md)
+        - [UI Widgets](../manual/framework/native/gui/widget/en.md)
+        - UI Layouts
+		- [Label](../manual/framework/native/gui/label/v3/en.md)
+	- Data Structure
+		- v3.0: 
+			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
+			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
+			- [Value](../manual/framework/native/data-structure/v3/value/en.md)
+		- v2.x: CCArray, CCDictionary and CCString
+	- [Physics](../manual/framework/native/physics/physics-integration/en.md)
 	- Network
-	- Multi-Threading
-	- Physics
-	- Multiple Resolutions
+	- [Events System](../manual/framework/native/input/event-dispatcher/en.md)
+	- Scheduler and Timer Callbacks
+	- Inputs
+		- Handling Touch Events
+		- Handling Accelerometer Events
+	- Memory Management
+		- Max Size of Textures on Each Platform
 	- Scripting
+	    - Usage of binding-generator
 		- Lua
 		- Javascript
-	- How to Integrate with 3rd SDK
-- Tutorial
-	- [Build a Game with CocoStudio](../tutorial/build-a-game-with-cocostudio/en.md)
-		- [What is CocoStudio](../tutorial/build-a-game-with-cocostudio/what-is-cocostudio/en.md)
-		- [Getting Started](../tutorial/build-a-game-with-cocostudio/getting-started/en.md)
-		- [Let's Build a Parkour Game](../tutorial/build-a-game-with-cocostudio/lets-build-a-parkour-game/en.md)
-		- [Keep Going](../tutorial/build-a-game-with-cocostudio/keep-going/en.md)
+		    - [Remote Debugging on Javascript Bindings](../manual/framework/native/scripting/javascript/js-remote-debugger/en.md)
+	- Debugging
+		- CCLog
+		- CCConsole
+	- File Stream
+	- Intergrating with 3rd SDK
+		- [use webbroswer to integrate Alipay on Windows Phone 8](../manual/framework/native/sdk-integration/wp8-webbrowser/en.md)
+		- [integrate third SDK in Windows Phone 8](../manual/framework/native/sdk-integration/wp8-thirdSDK/en.md)
+	- Cocos2d-html5
+		- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
+		- [Resolution Policy Design for Cocos2d-html5 2.2.2](../manual/framework/html5/resolution-policy-design/en.md)
+- Studio
+- Tutorials
+	- [Build a Game with CocoStudio](../tutorial/parkour-game-with-cocostudio/en.md)
+		- [What is CocoStudio](../tutorial/parkour-game-with-cocostudio/chapter1/en.md)
+		- [Getting Started](../tutorial/parkour-game-with-cocostudio/chapter2/en.md)
+		- [Let's Build a Parkour Game](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
+		- [Keep Going](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
 	- Pakour Game with Javascript
-		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/1.0-setup-development-environment/en.md)
-		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/1.1-hello-world-cocos2d-html5/en.md)
-		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/2.0-make-your-first-game-scene/en.md)
-		- [Design and Make Main Game Scene](../tutorial/parkour-game-with-javascript/3.0-design-and-make-main-game-scene/en.md)
-		- [Let Player Run Animations](../tutorial/parkour-game-with-javascript/4.0-let-player-run-animations/en.md)
-		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/5.0-Add-Chipmunk-Physics-to-Our-Game/en.md)
-		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/6.0-explorer-with-tiledMap-and-camera/en.md)
-		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/7.0-add-coin-and-obstacles/en.md)
-		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/8.0-game-over-logic-and-more/en.md)
-		
+		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/chapter1/en.md)
+		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/chapter2/en.md)
+		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/chapter3/en.md)
+		- [Design and Make Main Game Scene](../tutorial/parkour-game-with-javascript/chapter4/en.md)
+		- [Let Player Run Animations](../tutorial/parkour-game-with-javascript/chapter5/en.md)
+		- [Add Chipmunk Physics to Our Game](../tutorial/parkour-game-with-javascript/chapter6/en.md)
+		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/chapter7/en.md)
+		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/chapter8/en.md)
+		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/chapter9/en.md)
+        - [Add Audio Effect into Parkour Game](../tutorial/parkour-game-with-javascript/chapter10/en.md)
 		
