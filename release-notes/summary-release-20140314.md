@@ -27,7 +27,7 @@ We are happy to announce the release of:
 * Scheduler supports `std::function<>` as parameter
 * Added many useful commands for the `Console`
 * Many bug fixes!
-* Support Xcode 5.1 to build arm64 version, `but lua project can not work, will fix it soon`
+* Support Xcode 5.1 to build arm64 version, `but can not require socket module in lua, will fix it soon`
 
 ### Documentation ###
 
