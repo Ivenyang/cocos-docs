@@ -1,5 +1,12 @@
 # 用户手册
 ## 综述
+- [关于我们](../manual/framework/native/about/about-us/zh.md)
+- [Cocos2d系列产品关系](../manual/framework/native/about/relationships-in-cocos2d-family/zh.md)
+- [Cocos2d-x API风格说明](../manual/framework/native/about/easy-to-learn-api-style/zh.md)
+- [Cocos2d-x支持的平台和编程语言](../manual/framework/native/getting-started/supported-platforms-and-programming-languages/zh.md)
+- [架构和目录结构](../manual/framework/native/getting-started/architecture-and-directory-structure/zh.md)
+- [获取支持](../manual/framework/native/about/support/zh.md)
+
 ## 开发前期准备和基础技术
 ### 开发环境
 - Mac
