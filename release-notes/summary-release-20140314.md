@@ -90,7 +90,7 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/master/C
 * `coco2d.js` is replaced by `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
 * Supported `Attributes` getter/setter for some classes, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
 * Added `node.attr` function to initialize properties
-* New event manager supports, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
+* Supported new event manager, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
 * Supported 3rd resource loader, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
 * Refactor foundational data structures for better maintainability, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/basic-data/en).
 
