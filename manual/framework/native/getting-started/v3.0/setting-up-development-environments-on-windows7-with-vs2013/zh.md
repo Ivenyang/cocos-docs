@@ -67,7 +67,7 @@ Visual Studio 的安装过程略过，本教程主要讲解phython2.7.3和cocos2
 ![](./res/create2.jpg)
 
 
-- 查看项目路径，你会发现目录中会出现新建的“test1”新项目。依次打开“ test1/proj.win32 ”文件夹，“ test1.sln ”解决方案，单击运行项目。出现下面的界面则项目创建成功        
+- 查看项目路径，你会发现目录中会出现新建的“test1”项目。依次打开“ test1/proj.win32 ”文件夹，“ test1.sln ”解决方案，单击运行项目。出现下面的界面则项目创建成功        
 ![](./res/hello.jpg)
 
 
