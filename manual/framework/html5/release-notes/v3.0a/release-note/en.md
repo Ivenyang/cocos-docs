@@ -18,4 +18,4 @@
 
 ### More information ###
 
-Read more about all the new features at [Cocos2d-JS v3.0 alpha full change log](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Notes_for_Cocos2d-JS_v30alpha).
+Read more about all the new features at [Cocos2d-JS v3.0 alpha changelog](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0a/changelog/en) and [Cocos2d-JS v3.0 alpha upgrade guide](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0a/upgrade-guide/en)
