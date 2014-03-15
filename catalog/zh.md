@@ -103,6 +103,8 @@
     - [Cocos2d-html5的屏幕适配方案](../manual/framework/html5/resolution-policy-design/zh.md)
     - [月亮战士——Cocos2d-html5游戏展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
 - Cocos2d-html5 v3.0的新功能
+    - [事件管理器](../manual/framework/html5/v3.0/eventManager/en.md)
+    - [属性风格API](../manual/framework/html5/v3.0/getter-setter-api/en.md)
     
 ## 开发进阶和高级实例教程
 ### Cocos2d-x V2.x教程
