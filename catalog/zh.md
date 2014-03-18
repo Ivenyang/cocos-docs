@@ -105,6 +105,17 @@
 - Cocos2d-html5 v3.0的新功能
     - [事件管理器](../manual/framework/html5/v3.0/eventManager/en.md)
     - [属性风格API](../manual/framework/html5/v3.0/getter-setter-api/en.md)
+    - [使用cocos console创建工程](../manual/framework/html5/cocos-console/zh.md)
+    - [简化的游戏启动流程](../manual/framework/html5/v3.0/cc-game/zh.md)
+    - [Cocos2d-html5模块化](../manual/framework/html5/v3.0/moduleconfig-json/zh.md)
+    - [项目配置文件](../manual/framework/html5/v3.0/project-json/zh.md)
+    - [基础数据类型重构](../manual/framework/html5/v3.0/basic-data/zh.md)
+    - [单例对象重构](../manual/framework/html5/v3.0/singleton-objs/zh.md)
+    - [统一create函数](../manual/framework/html5/v3.0/create-api/zh.md)
+    - [使用cc.loader加载资源](../manual/framework/html5/v3.0/cc-loader/zh.md)
+    - [资源路径工具cc.path](../manual/framework/html5/v3.0/cc-path/zh.md)
+    - [系统信息](../manual/framework/html5/v3.0/cc-sys/zh.md)
+    - [异步函数工具cc.async](../manual/framework/html5/v3.0/cc-async/zh.md)
     
 ## 开发进阶和高级实例教程
 ### Cocos2d-x V2.x教程
