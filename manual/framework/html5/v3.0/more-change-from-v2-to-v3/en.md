@@ -15,7 +15,7 @@ preloadSound
 
 `cc.AudioEngine.end` is moved to its instance.
 
-## cc.TextureCache
+## cc.textureCache
 
 Removed:
 

@@ -1,5 +1,7 @@
 ##create##
+
 所有的对象统一使用create方法创建，不再存在createXXX之类的方法
+
 ###1、精灵Sprite 一共4种创建方式###
 
 (1) 根据图片资源路径创建
@@ -17,13 +19,13 @@
 
 (3) 根据sprite frame创建
 
-    var spriteFrame = cc.SpriteFrameCache.getInstance().getSpriteFrame("grossini_dance_01.png");
+    var spriteFrame = cc.spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
     //参数1：cc.SpriteFrame对象
     var sprite = cc.Sprite.create(spriteFrame);
 
 (4) 根据纹理texture创建
 
-    var texture = cc.TextureCache.getInstance().addImage("HelloHTML5World.png");
+    var texture = cc.textureCache.addImage("HelloHTML5World.png");
     //参数1：纹理
     var sprite1 = cc.Sprite.create(texture);
     //参数1：纹理，参数2：显示区域
@@ -83,7 +85,7 @@
     var spriteBatchNode = cc.SpriteBatchNode.create("res/animations/grossini.png", 50);
 (2)根据纹理
 
-    var texture = cc.TextureCache.getInstance().addImage("res/animations/grossini.png");
+    var texture = cc.textureCache.addImage("res/animations/grossini.png");
     //参数1：纹理,参数2：容量
     var spriteBatchNode = cc.SpriteBatchNode.create(texture,50);
 
@@ -96,7 +98,7 @@
     var frame2 = cc.SpriteFrame.create("res/grossini_dance.png",cc.rect(0,0,90,128),false,0,cc.size(90,128));
 (2)根据纹理
 
-    var texture = cc.TextureCache.getInstance().addImage("res/grossini_dance.png");
+    var texture = cc.textureCache.addImage("res/grossini_dance.png");
     //参数1：图片路径，参数2:区域
     var frame1 = cc.SpriteFrame.create(texture, cc.rect(0,0,90,128));
     //参数1：图片路径，参数2:区域，参数3：是否旋转，参数4：偏移量，参数5：原区域
@@ -129,13 +131,13 @@
 
 (3) 根据sprite frame创建
 
-    var spriteFrame = cc.SpriteFrameCache.getInstance().getSpriteFrame("grossini_dance_01.png");
+    var spriteFrame = cc.spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
     //参数1：cc.SpriteFrame对象
     var physicsSprite = cc.PhysicsSprite.create(spriteFrame);
 
 (4) 根据纹理texture创建
 
-    var texture = cc.TextureCache.getInstance().addImage("HelloHTML5World.png");
+    var texture = cc.textureCache.addImage("HelloHTML5World.png");
     //参数1：纹理
     var physicsSprite1 = cc.PhysicsSprite.create(texture);
     //参数1：纹理，参数2：显示区域
@@ -149,6 +151,6 @@
     var textureAtlas = cc.TextureAtlas.create("res/animations/grossini.png", 50);
 (2)根据纹理
 
-    var texture = cc.TextureCache.getInstance().addImage("res/animations/grossini.png");
+    var texture = cc.textureCache.addImage("res/animations/grossini.png");
     //参数1：纹理,参数2：容量
     var textureAtlas = cc.TextureAtlas.create(texture,50);
