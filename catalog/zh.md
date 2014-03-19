@@ -90,7 +90,7 @@
 
 - [Cocos2d-JS与Cocos2d-html5 v3.0a发布说明](../manual/framework/html5/release-notes/v3.0a/release-note/zh.md)
 - [Cocos2d-html5 v3.0a改动列表](../manual/framework/html5/release-notes/v3.0a/changelog/en.md)
-- [从Cocos2d-html5 v2.2.2到v3.0a的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/en.md)
+- [从Cocos2d-html5 v2.2.2到v3.0a的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
 - 综述
 	- [关于Cocos2d-html5](../manual/framework/html5/about/zh.md)
 	- [供NPM使用的Cocos-utils](../manual/framework/html5/cocos-utils-for-npm/zh.md)
@@ -103,8 +103,27 @@
     - [Cocos2d-html5的屏幕适配方案](../manual/framework/html5/resolution-policy-design/zh.md)
     - [月亮战士——Cocos2d-html5游戏展示](../manual/framework/html5/moonwarriors-cocos2d-html5-showcase/zh.md)
 - Cocos2d-html5 v3.0的新功能
-    - [事件管理器](../manual/framework/html5/v3.0/eventManager/en.md)
-    - [属性风格API](../manual/framework/html5/v3.0/getter-setter-api/en.md)
+    - [事件管理器](../manual/framework/html5/v3.0/eventManager/zh.md)
+    - [属性风格API](../manual/framework/html5/v3.0/getter-setter-api/zh.md)
+    - [使用cocos console创建工程](../manual/framework/html5/cocos-console/zh.md)
+    - [简化的游戏启动流程](../manual/framework/html5/v3.0/cc-game/zh.md)
+    - [Cocos2d-html5模块化](../manual/framework/html5/v3.0/moduleconfig-json/zh.md)
+    - [项目配置文件](../manual/framework/html5/v3.0/project-json/zh.md)
+    - [基础数据类型重构](../manual/framework/html5/v3.0/basic-data/zh.md)
+    - [单例对象重构](../manual/framework/html5/v3.0/singleton-objs/zh.md)
+    - [统一create函数](../manual/framework/html5/v3.0/create-api/zh.md)
+    - [使用cc.loader加载资源](../manual/framework/html5/v3.0/cc-loader/zh.md)
+    - [资源路径工具cc.path](../manual/framework/html5/v3.0/cc-path/zh.md)
+    - [系统信息](../manual/framework/html5/v3.0/cc-sys/zh.md)
+    - [异步函数工具cc.async](../manual/framework/html5/v3.0/cc-async/zh.md)
+    - [cc.saxParser的改造](../manual/framework/html5/v3.0/cc-saxparser/zh.md)
+    - [cc.spriteFrameCache的改造](../manual/framework/html5/v3.0/cc-spriteframecache/zh.md)
+    - [cc.FileUtils的移除](../manual/framework/html5/v3.0/cc-fileutils/zh.md)
+    - [cc.log的改造](../manual/framework/html5/v3.0/cc-log/zh.md)
+    - [其他3.0版的API改动](../manual/framework/html5/v3.0/more-change-from-v2-to-v3/zh.md)
+    - Bake Node（进行中）
+    - 简化action的使用（进行中）
+    - 引擎类的继承（进行中）
     
 ## 开发进阶和高级实例教程
 ### Cocos2d-x V2.x教程

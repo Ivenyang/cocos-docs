@@ -81,8 +81,14 @@
             - [System information in cc.sys](../manual/framework/html5/v3.0/cc-sys/en.md)
             - [Path management with cc.path](../manual/framework/html5/v3.0/cc-path/en.md)
             - [Asynchronised process with cc.async](../manual/framework/html5/v3.0/cc-async/en.md)
+            - [Modification to cc.saxParser](../manual/framework/html5/v3.0/cc-saxparser/zh.md)
+            - [Modification to cc.spriteFrameCache](../manual/framework/html5/v3.0/cc-spriteframecache/zh.md)
+            - [About cc.FileUtils](../manual/framework/html5/v3.0/cc-fileutils/zh.md)
+            - [About cc.log](../manual/framework/html5/v3.0/cc-log/zh.md)
+            - [Other change from v2.2.2 to v3.0](../manual/framework/html5/v3.0/more-change-from-v2-to-v3/zh.md)
             - Bake Node (In progress)
             - Simplified action APIs (In progress)
+            - The inheritance of engine classes (In progress)
 - Studio
 - Tutorials
 	- [Build a Game with CocoStudio](../tutorial/parkour-game-with-cocostudio/en.md)
