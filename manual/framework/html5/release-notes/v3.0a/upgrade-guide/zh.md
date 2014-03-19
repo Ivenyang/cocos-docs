@@ -1,17 +1,15 @@
-#Cocos2d-html5 upgrade guide from v2.2.2 to v3.0a
+#Cocos2d-html5从v2.2.2到v3.0a升级指南
 
 
-##1. Event Manager
+##1. 事件管理机制
 
-* **1.1** cc.TouchDispatcher, cc.MouseDispatcher, cc.KeyboardDispatcher, cc.AccelerometerDispatcher have all been merged into cc.eventManager
+* **1.1** 在2.2.2版中分散的事件分发器cc.TouchDispatcher, cc.MouseDispatcher, cc.KeyboardDispatcher, cc.AccelerometerDispatcher的所有功能都已经被合并到cc.eventManager，所以事件（鼠标，触摸，键盘，陀螺仪，用户自定义）都将由cc.eventManager负责分发，也都将通过它进行注册。
 
-	All events(mouse, touch, keyboard, accelerometer, custom) should be dispatched by cc.eventManager in v3.0
+	更多关于cc.eventManager的信息可以查看这篇[详细文档](../../../v3.0/eventManager/en.md)
 
-	More information about cc.eventManager is in this [documentation](../../../v3.0/eventManager/en.md)
+	如果你希望给我们一些关于事件管理的建议或者反馈，请访问[论坛讨论贴](http://www.cocos2d-x.org/forums/19/topics/45954)
 
-	If you want to give us some suggest, please comment in this [topic](http://www.cocos2d-x.org/forums/19/topics/45954)
-
-* **1.2** All event switch of cc.Layer have been deleted, these functions list :
+* **1.2** 由于新的事件管理机制支持开发者在任何对象上绑定事件，所以在2.2.2版中的cc.Layer的事件处理相关函数都被删除了，具体被删除的函数列表如下：
 
 	```
 	isMouseEnabled
@@ -26,21 +24,21 @@
 	getTouchMode
 	setTouchMode
 	isAccelerometerEnabled
-	setAccelerometerEnabled			(it's moved to cc.inputManager) --> cc.inputManager.setAccelerometerEnabled
-	setAccelerometerInterval		   (it's moved to cc.inputManager) --> cc.inputManager.setAccelerometerInterval
+	setAccelerometerEnabled            (被移到cc.inputManager中) --> cc.inputManager.setAccelerometerEnabled
+	setAccelerometerInterval           (被移到cc.inputManager中) --> cc.inputManager.setAccelerometerInterval
 	isKeyboardEnabled
 	setKeyboardEnabled
 	setKeypadEnabled
 	```
 
 
-##2. Game creation and configuration
+##2. 游戏创建和配置流程
 
-* **2.1** Game creation
+* **2.1** 游戏创建
 
-    `cc.Application` and `cc.AppControl` classes have been removed.
+    在3.0 alpha版本中，`cc.Application`和`cc.AppControl`已经被移除了。
 
-    Instead, we refactored them to provide developers a much easier procedure for game creation with `cc.game`.
+    取而代之，我们重构了整个游戏创建的流程，在3.0中游戏项目创建将变得前所未有的简单，开发者可以使用`cc.game`来创建并开始游戏。
 
     ```
     cc.game.onStart = function(){
@@ -49,63 +47,63 @@
     cc.game.run();
     ```
 
-    For more details, check out this documentation: [cc.game](../../../v3.0/cc-game/en.md)
+    更详细的信息请参见这个文档：[cc.game](../../../v3.0/cc-game/en.md)
 
-* **2.2** Configuration
+* **2.2** 游戏配置
 
-    Instead of putting your configurations with other initialization code in cocos2d.js, we have removed `cocos2d.js` and put all configurations into `project.json` which is a pure config file.
-    The options available can be found in this document: [project.json](../../../v3.0/project-json/en.md)
+    在2.2.2版中，游戏的配置列表（包含renderMode, fps...）与初始化代码混在cocos2d.js文件中，这样很不美观，所以3.0版中我们移除了`cocos2d.js`文件并将配置列表单独抽出来放在了`project.json`中，所以修改配置非常简单直观。
+    所有配置项可以参见这篇文档：[project.json](../../../v3.0/project-json/en.md)
 
-* **2.3** Cocos2d module configuration
+* **2.3** Cocos2d-html5模块配置
 
-    Cocos2d-html5 has became a 2d game engine very competitive in almost all aspect of 2d game developement, so we have numerous features in our engine. As a result, our engine is larger than some other simpler html5 game engine. In case you don't need all the features and you want to keep our engine package within a small size, v3.0 have provided you the ability to configure the engine by your own need. All module definitions are in `cocos2d-html5/moduleConfig.json`, you can specify the modules that your game needed in the `modules` parameter of your `project.json`. By default, `cocos2d` is given as value of this parameter, it include all sub modules of Cocos2d-html5, you can change it to a set of specifique sub modules.
+    Cocos2d-html5已经成为了在2d游戏开发的各个方面都非常有竞争力的游戏引擎，引擎拥有覆盖面非常广泛的特性。也正因此，我们的引擎比市面上大多数的2d游戏引擎占用空间要更大。假设开发者只需要引擎中一部分特性，并且希望引擎占有空间更小，3.0版中我们提供了按需定制引擎的功能。首先，引擎被分割成了不同的模块，所有模块定义可以参见`cocos2d-html5/moduleConfig.json`，开发者可以在`project.json`的`modules`字段中指定自己需要的模块。默认情况下，`cocos2d`是默认模块，它包含完整的Cocos2d-html5，开发者可以将它替换为自己需要的子模块。
 
-    Documentation for [moduleConfig.json](../../../v3.0/moduleconfig-json/en.md)
+    [moduleConfig.json文档](../../../v3.0/moduleconfig-json/en.md)
 
 
-##3. Resource loading process
+##3. 资源加载过程
 
 * **3.1** cc.loader
 
-    `cc.Loader` and `cc.FileUtils` have been replaced by a singleton object `cc.loader`
+    `cc.Loader`和`cc.FileUtils`已经被`cc.loader`单例对象所取代。
 
     ```
-    // Set resources path
+    // 设定图片资源路径
     cc.loader.resPath = "./res";
 
-    // Set audio files path
+    // 设定音频资源路径
     cc.loader.resPath = "./audio";
 
-    // Load a list of resources
+    // 加载资源并获得回调
     cc.loader.load(res, function(err){
         if(err) return console.log("load failed");
     });
     ```
 
-    Detailed documentation can be found here: [cc.loader](../../../v3.0/cc-loader/en.md)
+    详细文档请参见：[cc.loader](../../../v3.0/cc-loader/en.md)
 
-* **3.2** Utilities for loading process
+* **3.2** 资源加载工具
 
-    Along with cc.loader, v3.0 have also provided you some tools:
+    3.0版不仅提供了更统一易用的cc.loader，还提供了一些配套工具：
 
-    - A singleton module imitates async module of nodejs: [cc.async](../../../v3.0/cc-async/en.md)
-    - A singleton module provides conveniences for handling the file path: [cc.path](../../../v3.0/cc-path/en.md)
+    - 异步函数调用模块（模仿node.js）：[cc.async](../../../v3.0/cc-async/en.md)
+    - 资源路径配置工具：[cc.path](../../../v3.0/cc-path/en.md)
 
 
-##4. Property APIs
+##4. 属性风格API
 
-* **4.1** Javascript style property access
+* **4.1** 使用Javascript风格的API对对象属性进行直接存取
 
-    |  Old API  |  New API  |
+    |  旧API  |  新API  |
     |:---------:|:---------:|
     | node.setPosition(x, y); | node.x = x; node.y = y; |
     | node.setRotation(r); | node.rotation = r; |
 
-    As you can see in the table, functions invocation can be replaced with properties modifications. In version 3.0, not only `x`, `y` and `rotation`, almost all properties of your node can be accessed like this.
+    如表格所示，函数调用可以被属性的直接賦值所替代。在3.0版中不仅是`x`，`y`和`rotation`，cc.Node及其所有子类的属性都可以使用这种方式存取。
 
-* **4.2** Function `attr`
+* **4.2** `attr`函数
 
-    V3.0 also provided an useful function to cc.Node: `attr` function which helps you to config all the properties you want together with just one function call.
+    3.0版同时还提供了一个更加强大的对象配置方法：类似jQuery的`attr`函数可以让你一次性配置多个属性。
 
     ```
     node.attr({
@@ -119,12 +117,12 @@
     });
     ```
 
-    Detailed documentation and a full list of properties can be found here: [Property API](../../../v3.0/getter-setter-api/en.md)
+    详细文档和具体属性列表参见：[Property API](../../../v3.0/getter-setter-api/en.md)
 
 
-##5. Basic data structures
+##5. 基本数据结构重构
 
-* Deleted APIs :
+* 移除的API：
 
     ```
     cc.integerToColor3B
@@ -138,7 +136,7 @@
     cc.V2F_C4F_T2F_Quad
     ```
 
-* Modified APIs :
+* 修改的API：
 
 	```
 	cc.Color3B, cc.Color4B, cc.Color4F -->	cc.Color
@@ -157,15 +155,15 @@
 	cc.gray                            -->	cc.color.gray
 	```
 
-	[Detailed documentation](../../../v3.0/basic-data/en.md)
+	[详细文档](../../../v3.0/basic-data/en.md)
 
 
-##6. Singleton objects
+##6. 单例对象
 
-v3.0 refactored singleton classes with Javascript objects, so that developers can access to them much easier than before. Here are the list of objects that have been refactored.
+3.0版将以前的C++风格单例类重构为Javascript对象，方便开发者的使用。下面是被重构的类列表：
 
 ```
-// In engine core
+// 引擎核心类
 cc.AudioEngine.getInstance()                       --> cc.audioEngine
 cc.Configuration.getInstance()                     --> cc.configuration
 cc.Configuration.purgeConfiguration()              removed
@@ -184,7 +182,7 @@ cc.Screen.getInstance()                            --> cc.screen
 cc.TIFFReader.getInstance()                        --> cc.tiffReader
 cc.IMEDispatcher.getInstance()                     --> cc.imeDispatcher
 
-// In extension
+// 扩展包中的类
 ccs.GUIReader.getInstance()                 --> ccs.guiReader
 ccs.GUIReader.purge()                       --> ccs.guiReader.clear()
 ccs.SceneReader.getInstance()               --> ccs.sceneReader
@@ -201,12 +199,12 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
-[Detialed documentation](../../../v3.0/singleton-objs/en.md).
+[详细文档](../../../v3.0/singleton-objs/zh.md).
 
 
-##7. GUI widgets
+##7. GUI控件
 
-* **7.1** GUI widgets of Cocostudio extension have been removed from Cocostudio and have been put into ccui package, so their prefix have also changed from `ccs.` to `ccui.`. The reason is that they are some useful widget components that can not only be used for Cocostudio but also for any other purpose. All classes and functions that have been refactored is listed below :
+* **7.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
 
     ```
     ccs.Layout                  --> ccui.Layout
@@ -228,20 +226,20 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
     ccs.TextField               --> ccui.TextField
     ```
 
-* **7.2** A new ui widget `ccui.RichText` has been added to v3.0a.
+* **7.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
 
 
 ##8. NodeGrid
 
-A new node `cc.NodeGrid` have been added to version 3.0a. This node should be used to host a target node and permit it to have the ability to run ActionGrid type action. In v2.2.2, cc.Node can directly play such actions, but this ability will be removed to keep cc.Node as simple as possible. So the comparaision between v2.2.2 and v3.0a is like the example below :
+3.0版提供了一个新的节点`cc.NodeGrid`，这个节点可以包含一个目标节点并允许在这个目标节点上应用ActionGrid类型的动作。在2.2.2版中cc.Node可以直接应用这种动作，但是这个行为会在未来版本中被移除，因为我们希望cc.Node的逻辑可以更纯粹。下面是2.2.2版与3.0版中的ActionGrid动作使用示例比较：
 
 ```
-// In v2.2.2
+// 2.2.2版
 var shaky = cc.Shaky3D.create( duration, cc.size(15,10), 5, false );
 var sprite = cc.Sprite.create();
 sprite.runAction( shaky );
 
-// In v3.0
+// 3.0版
 var shaky = cc.Shaky3D.create( duration, cc.size(15,10), 5, false );
 var sprite = cc.Sprite.create();
 var nodeGrid = cc.NodeGrid.create();
@@ -249,14 +247,14 @@ nodeGrid.addChild( sprite );
 nodeGrid.runAction( shaky );
 ```
 
-Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you want your game to be ported to native plateform with JSB, only the new way is supported.
+注意：在Cocos2d-html5 3.0a版中，第一种方式仍然有效，但是如果你希望你的游戏可以运行在JSB中，那么必须使用第二种方式。另外，在3.0正式版中，第一种方式也将被移除。
 
 
-##9. Other API changements
+##9. 其他API变动
 
-* **9.1** `cc.Broswser` and `sys` are replaced with `cc.sys`: [documentation](../../../v3.0/cc-sys/en.md).
+* **9.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
 
-* **9.2** Some functions of `cc.AudioEngine` have been deleted :
+* **9.2** 一些`cc.AudioEngine`的API被删除：
 
     ```
     preloadMusic
@@ -267,7 +265,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
 
 * **9.3** cc.SAXParser
 
-	These functions of `cc.SAXParser` have been deleted :
+	一些`cc.SAXParser`的API被删除：
 
     ```
     tmxParse
@@ -278,20 +276,20 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     getList
     ```
 
-	And `cc.PlistParser` is added to parse plist files: [cc.SAXParser documentation](../../../v3.0/cc-saxparser/en.md)
+	同时添加`cc.PlistParser`用于解析plist文件：[cc.SAXParser文档](../../../v3.0/cc-saxparser/zh.md)
 
-* **9.4** `addImageAsync` is merged into `addImage` of `cc.textureCache`.
+* **9.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
 
-* **9.5** Two of `MenuItemFont`'s functions have been refactored to fit the standard API sytle:
+* **9.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
 
     ```
     fontName    --> getFontName
     fontSize    --> getFontSize
     ```
 
-* **9.6** Retina display have been supported for Apple devices, you can disable or enable it with `cc.view.enableRetina(enableOrNot)`, you can also detect whether retina display is currently on or not with `cc.view.isRetinaEnabled()`. At last, you can retrieve the retina display's pixel ratio by using `cc.view.getDevicePixelRat io()`, on Apple devices, it will return 2 when retina display is applied. By default, retina display is automatically activated for your game on Apply devices. If you want to change it, note that after you enable or disable retina display, you have to call `cc.view.setDesignResolutionSize(width, height, policy)` to make it applied to your game.
+* **9.6** 3.0版已经支持所有苹果设备的视网膜屏分辨率，你可以使用`cc.view.enableRetina(enableOrNot)`来开启或关闭这项功能，你也可以使用`cc.view.isRetinaEnabled()`来检测当前视网膜屏适配是否已经开启。最后，你可以通过`cc.view.getDevicePixelRat io()`来获取视网膜屏的像素缩放比例，在目前的苹果设备上，该比例返回值为2。默认情况下，视网膜屏适配在苹果设备上自动开启，如果希望改变这一行为，在关闭这项功能之后，你将需要调用一次`cc.view.setDesignResolutionSize(width, height, policy)`来让改变生效。
 
-* **9.7** Global APIs deleted :
+* **9.7** 其他被删除的API
 
     ```
     cc.IS_SHOW_DEBUG_ON_PAGE
@@ -315,7 +313,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     cc.tgaLoad
     ```
 
-* **9.8** Global APIs added :
+* **9.8** 其他添加的API：
 
     ```
     cc.warn
@@ -324,7 +322,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     cc.BuilderReader.registerController
     ```
 
-* **9.9** Global APIs refactored :
+* **9.9** 其他修改的API：
 
     ```
     cc.Assert                       --> cc.assert
@@ -380,7 +378,7 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     ccs.DecotativeDisplay       --> ccs.DecorativeDisplay
     ```
 
-Other documentation can be found here:
+其他详细文档列表：
 
 * [cc.log](../../../v3.0/cc-log/en.md)
 * [cc.spriteFrameCache](../../../v3.0/cc-spriteframecache/en.md)
