@@ -14,7 +14,10 @@ And you should config settings of project in `project.json`.
 
 ```
 cc.game.onStart = function(){
-    cc.Director.getInstance().runScene(new MyScene());
+    //load resources
+    cc.LoaderScene.preload(resource_list, function () {
+        cc.director.runScene(new MyScene());
+    }, this);
 };
 cc.game.run();
 ```
@@ -28,7 +31,10 @@ There is a requirement that all scripts have prepared but the main loop of the g
 
 ```
 cc.game.onStart = function(){
-    cc.Director.getInstance().runScene(new MyScene());
+    //load resources
+    cc.LoaderScene.preload(resource_list, function () {
+        cc.director.runScene(new MyScene());
+    }, this);
 };
 cc.game.prepare();
 

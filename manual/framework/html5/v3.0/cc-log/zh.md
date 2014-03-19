@@ -6,7 +6,7 @@ api改动情况，左边为新增，右边为原来的。
 cc.log  不变
 cc.warn 新增
 cc.error 新增
-cc.assert <--> cc.Assert
+cc.assert <-- cc.Assert
 ```
 
 此次改造有以下几点原因：

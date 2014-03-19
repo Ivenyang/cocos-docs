@@ -1,5 +1,7 @@
 ##create##
+
 Refactor all createWithXXX functions into unified create function with different parameters
+
 ###1、Sprite (4 ways)###
 
 (1) create with a image path
@@ -17,13 +19,13 @@ Refactor all createWithXXX functions into unified create function with different
 
 (3) create with a sprite frame
 
-    var spriteFrame = cc.SpriteFrameCache.getInstance().getSpriteFrame("grossini_dance_01.png");
+    var spriteFrame = cc.spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
     //param0:cc.SpriteFrame
     var sprite = cc.Sprite.create(spriteFrame);
 
 (4) create with a texture
 
-    var texture = cc.TextureCache.getInstance().addImage("HelloHTML5World.png");
+    var texture = cc.textureCache.addImage("HelloHTML5World.png");
     //param0:texture
     var sprite1 = cc.Sprite.create(texture);
     //param0:texture,  param1:rectangle
@@ -83,7 +85,7 @@ Refactor all createWithXXX functions into unified create function with different
     var spriteBatchNode = cc.SpriteBatchNode.create("res/animations/grossini.png",  50);
 (2)create with a texture
 
-    var texture = cc.TextureCache.getInstance().addImage("res/animations/grossini.png");
+    var texture = cc.textureCache.addImage("res/animations/grossini.png");
     //param0:texture, param1:capacity
     var spriteBatchNode = cc.SpriteBatchNode.create(texture, 50);
 
@@ -96,7 +98,7 @@ Refactor all createWithXXX functions into unified create function with different
     var frame2 = cc.SpriteFrame.create("res/grossini_dance.png", cc.rect(0, 0, 90, 128), false, 0, cc.size(90, 128));
 (2)create with a texture
 
-    var texture = cc.TextureCache.getInstance().addImage("res/grossini_dance.png");
+    var texture = cc.textureCache.addImage("res/grossini_dance.png");
     //param0:image path, param1:rectangle
     var frame1 = cc.SpriteFrame.create(texture,  cc.rect(0, 0, 90, 128));
     //param0:image path, param1:rectangle, param2:rotated, param3:offset, param4:originalSize
@@ -129,13 +131,13 @@ Refactor all createWithXXX functions into unified create function with different
 
 (3) create with a sprite frame
 
-    var spriteFrame = cc.SpriteFrameCache.getInstance().getSpriteFrame("grossini_dance_01.png");
+    var spriteFrame = cc.spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
     //param0:cc.SpriteFrame
     var physicsSprite = cc.PhysicsSprite.create(spriteFrame);
 
 (4) create with a texture
 
-    var texture = cc.TextureCache.getInstance().addImage("HelloHTML5World.png");
+    var texture = cc.textureCache.addImage("HelloHTML5World.png");
     //param0:texture
     var physicsSprite1 = cc.PhysicsSprite.create(texture);
     //param0:texture, param1:rectangle
@@ -149,6 +151,6 @@ Refactor all createWithXXX functions into unified create function with different
     var textureAtlas = cc.TextureAtlas.create("res/animations/grossini.png",  50);
 (2)create with a texture
 
-    var texture = cc.TextureCache.getInstance().addImage("res/animations/grossini.png");
+    var texture = cc.textureCache.addImage("res/animations/grossini.png");
     //param0:texture, param1:capacity
     var textureAtlas = cc.TextureAtlas.create(texture, 50);

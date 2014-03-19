@@ -15,7 +15,7 @@ preloadSound
 
 `cc.AudioEngine.end`被移到了实例中，而不是作为类的静态方法。
 
-## cc.TextureCache
+## cc.textureCache
 
 删除了以下的几个api：
 
