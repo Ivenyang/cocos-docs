@@ -28,7 +28,7 @@ Base path of audios.
 
 ##### getXMLHttpRequest
 
-The way to get XMPHttpRequest.
+The way to get XMLHttpRequest.
 
 ##### loadJs
 
