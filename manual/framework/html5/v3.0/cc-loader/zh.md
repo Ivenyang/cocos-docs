@@ -25,7 +25,7 @@
 
 ##### getXMLHttpRequest
 
-获取XMPHttpRequest对象。
+获取XMLHttpRequest对象。
 
 ##### loadJs
 
