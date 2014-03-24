@@ -54,5 +54,8 @@ You can run `cocos run --help` for more detail information.
 
 ![run scree](res/run_screen.png)
 
+### For Win32 Users
+
+
 
 
