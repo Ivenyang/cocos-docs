@@ -1,16 +1,16 @@
 # How to Build an Android Project with Eclipse
 
-In this document, I will show you how to build cocos2d-x android project with Eclipse. Since Eclipse is a multi-platform software, here I just use MacOS as an example.
+In this document, I will show you how to build cocos2d-x and android project with Eclipse. Since Eclipse is a multi-platform software, here I just use MacOS as an example.
 The processes in other platforms should be more or less the same.
 
 ## Prerequisite
 
 - Download Eclipse with ADT bundle
 
-If you had downloaded [Android SDK](https://developer.android.com/sdk/index.html?hl=sk) before,  there maybe a Eclipse folder under the Android SDK folder.
+If you had downloaded [Android SDK](https://developer.android.com/sdk/index.html?hl=sk) before,  there maybe an Eclipse folder under the Android SDK folder.
 You can just double click the Eclipse icon to launch the program.
 
-- JDK, Android NDK, python.
+- Install JDK, Android NDK, python and configure them.
 
 I highly recommend you to refer to [this documentation](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-android/en.md) to configure a command line development environment for Android.
 
@@ -21,7 +21,7 @@ If you can run the python command to build the android project successfully, it 
 
 ## The Workflow
 
-When we deal with building Android project with Eclipse, the suggested workflow would be as follows:
+When we deal with building Android project with Eclipse, the suggested the workflow would be as follows:
 
 - Go to proj.android directory and run `python build_native.py`. (Note: If you are trying to build the Cpp-Tests, you should go to `build` directory and run `python android-build.py -p 10 cpp-tests`
 command.) If you don't know how to do this, please refer to [this link](https://github.com/cocos2d/cocos-docs/blob/master/manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-android/en.md) for more information.
@@ -96,6 +96,7 @@ Then, you should make sure your computer can recognize your phone which means yo
 At last, Just Right Click The `CppTests` project and choose `Run as...` -> `Android Application`.
 
 Here is the screenshot:
+
 ![image6](./res/image6.png)
 
 ## Build an Empty Project Created with the `cocos` command
