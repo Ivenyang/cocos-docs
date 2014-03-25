@@ -124,6 +124,10 @@ Tedious, it's still the same.
 - If you installed the project in your Android phone but it crashed when launching. You should make sure there is a `libxxx.so` file under the `libs/armeabi` directory.
 
 ## In Summary
-Build and run Android project with Eclipse is not very hard if you perform these process. If you are getting suck, try to clean you workspace and redo it again.
+Build and run Android project with Eclipse is not very hard if you follow these processes. 
 
-Sometimes you relaunching the Eclipse software might solve your problems. If you still can't figure out how to do this, please open ticket in the [forum](http://www.cocos2d-x.org/forums/6).
+If you are getting sucked, try to clean you workspace and redo these process again.
+
+Sometimes you might need to relaunch the Eclipse software for solving your problems.
+
+If you still can't figure it out after struggling two more hours, please open ticket in the [forum](http://www.cocos2d-x.org/forums/6).
