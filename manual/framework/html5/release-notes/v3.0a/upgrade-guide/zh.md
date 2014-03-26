@@ -224,6 +224,7 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
     ccs.TextAtlas               --> ccui.TextAtlas
     ccs.TextBMFont              --> ccui.TextBMFont
     ccs.TextField               --> ccui.TextField
+    ccs.UILayer                 --> deleted
     ```
 
 * **7.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
@@ -311,6 +312,8 @@ nodeGrid.runAction( shaky );
     cc.loadImage.handler
     cc.computeImageFormatType
     cc.tgaLoad
+    
+    ccs.UILayer
     ```
 
 * **9.8** 其他添加的API：
