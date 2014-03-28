@@ -226,6 +226,7 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
     ccs.TextAtlas               --> ccui.TextAtlas
     ccs.TextBMFont              --> ccui.TextBMFont
     ccs.TextField               --> ccui.TextField
+    ccs.UILayer                 --> deleted
     ```
 
 * **7.2** A new ui widget `ccui.RichText` has been added to v3.0a.
@@ -327,6 +328,8 @@ Note: In Cocos2d-html5 v3.0 version web, the old way still work fine, but if you
     cc.loadImage.handler
     cc.computeImageFormatType
     cc.tgaLoad
+    
+    ccs.UILayer
     ```
 
 * **9.8** Global APIs added :
