@@ -112,7 +112,7 @@ We could use `cocos run -s ~/MyCompany/MyGame -p android` command instead of the
 ###Open the proj.android project with Eclipse
 It's exactly as the process we do in the previous section.
 ###Import the Libcocos2dx Project
-The same..
+The same.. Again, to be verbose, don't forget to import the libcocos2dx project under `MyGame` folder, not the engine root.)
 ###Build and Run the Android Project
 Tedious, it's still the same. 
 
