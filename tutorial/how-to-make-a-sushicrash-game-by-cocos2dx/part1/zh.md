@@ -59,77 +59,88 @@ setContentScaleFactor()方法设置内容缩放因子，顾名思义，就是设
 
 SushiSprite类继承于Sprite，用来创建单个的寿司精灵，下面是它的类定义：
 
-	class SushiSprite :  public Sprite
-	{
-	public:
-		static SushiSprite *create(int row, int col);//随机创建不同种类的寿司精灵
-    	static float getContentWidth();//得到精灵图片的宽（精灵图片为正方形，宽等于高），方便后面计算精灵在场景中的位置。
-    	//暂时没用到，在下一节的教程中我们将用来定位行列。
-    	CC_SYNTHESIZE(int, m_row, Row);
-    	CC_SYNTHESIZE(int, m_col, Col);
-    	CC_SYNTHESIZE(int, m_imgIndex, ImgIndex);
-	};
+```cpp
+class SushiSprite :  public Sprite
+{
+public:
+	static SushiSprite *create(int row, int col);// 随机创建不同种类的寿司精灵
+	static float getContentWidth();// 得到精灵图片的宽（精灵图片为正方形，宽等于高），方便后面计算精灵在场景中的位置。
+	// 暂时没用到，在下一节的教程中我们将用来定位行列。
+	CC_SYNTHESIZE(int, m_row, Row);
+	CC_SYNTHESIZE(int, m_col, Col);
+	CC_SYNTHESIZE(int, m_imgIndex, ImgIndex);
+};
+```
 
 CC_SYNTHESIZE的定义如下：
-```#define CC_SYNTHESIZE(varType, varName, funName)\
+```
+#define CC_SYNTHESIZE(varType, varName, funName)\
 protected: varType varName;\
 public: virtual varType get##funName(void) const { return varName; }\
 public: virtual void set##funName(varType var){ varName = var; }
 ```
-CC_SYNTHESIZE的作用是定义一个保护型的变量，并声明一个getfunName函数和setfunName函数，你可以用getfunName函数得到变量的值，用setfunName函数设置变量得值。        
-参数varType是变量的类型，m_row是变量名，funName是要声明函数的“后半截”名字，如：`CC_SYNTHESIZE(int, m_row, Row)`的作用是声明一个int型的m_row变量和一个函数名为getRow以及setRow的函数。
+
+CC_SYNTHESIZE的作用是定义一个保护型的变量，并声明一个`getfunName`函数和`setfunName`函数，你可以用`getfunName`函数得到变量的值，用`setfunName`函数设置变量得值。        
+参数varType是变量的类型，`m_row`是变量名，funName是要声明函数的“后半截”名字，如：`CC_SYNTHESIZE(int, m_row, Row)`的作用是声明一个int型的`m_row`变量和一个函数名为`getRow`以及`setRow`的函数。
 	
 寿司精灵的创建：
+```cpp
+SushiSprite *SushiSprite::create(int row, int col)
+{
+	SushiSprite *sushi = new SushiSprite();
+	sushi->m_row = row;
+	sushi->m_col = col;
+	sushi->m_imgIndex = arc4random() % TOTAL_SUSHI;
+	sushi->initWithSpriteFrameName(sushiNormal[sushi->m_imgIndex]);
+	sushi->autorelease();
+	return sushi;
+}
+```
 
-	SushiSprite *SushiSprite::create(int row, int col)
-	{
-		SushiSprite *sushi = new SushiSprite();
-		sushi->m_row = row;
-		sushi->m_col = col;
-    	sushi->m_imgIndex = arc4random() % TOTAL_SUSHI;
-    	sushi->initWithSpriteFrameName(sushiNormal[sushi->m_imgIndex]);
-		sushi->autorelease();
-		return sushi;
-	}	
-arc4random()方法获取随机数比较精确，并且不需要生成随即种子，`arc4random() % TOTAL_SUSHI`是获得 0 ～ TOTAL_SUSHI － 1之间的整数。
+`arc4random()`方法获取随机数比较精确，并且不需要生成随即种子，`arc4random() % TOTAL_SUSHI`是获得 0 ～ TOTAL_SUSHI － 1之间的整数。
 
 ## 游戏主场景 PlayLayer
+
 PlayLayer是游戏的主场景，同时也负责管理SushiSprite，在该章教程中，PlayLayer里我们只实现了寿司的布局和它的下落。下面我们会详细讲解，先看看PlayLayer的初始化：
 
-	bool PlayLayer::init()
+```cpp
+bool PlayLayer::init()
+{
+	if (!Layer::init()) 
 	{
-    	if (!Layer::init()) {
-       		return false;
-    	}    
-    	// 创建游戏背景
-    	Size winSize = Director::getInstance()->getWinSize();
-    	auto background = Sprite::create("background.png");
-    	background->setAnchorPoint(Point(0, 1));
-    	background->setPosition(Point(0, winSize.height));
-    	this->addChild(background);
+		return false;
+	}    
+    	
+	// 创建游戏背景
+	Size winSize = Director::getInstance()->getWinSize();
+	auto background = Sprite::create("background.png");
+	background->setAnchorPoint(Point(0, 1));
+	background->setPosition(Point(0, winSize.height));
+	this->addChild(background);
     
-    	// 初始化寿司精灵表单
-    	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sushi.plist");
-    	spriteSheet = SpriteBatchNode::create("sushi.pvr.ccz");
-    	addChild(spriteSheet);
+	// 初始化寿司精灵表单
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sushi.plist");
+	spriteSheet = SpriteBatchNode::create("sushi.pvr.ccz");
+	addChild(spriteSheet);
     
-    	// 初始化矩阵的宽和高，MATRIX_WIDTH、MATRIX_HEIGHT通过宏定义
-    	m_width = MATRIX_WIDTH;
-    	m_height = MATRIX_HEIGHT;
+	// 初始化矩阵的宽和高，MATRIX_WIDTH、MATRIX_HEIGHT通过宏定义
+	m_width = MATRIX_WIDTH;
+	m_height = MATRIX_HEIGHT;
     
-    	// 初始化寿司矩阵左下角的点
-    	m_matrixLeftBottomX = (winSize.width - SushiSprite::getContentWidth() * m_width - (m_width - 1) * SUSHI_GAP) / 2;
-    	m_matrixLeftBottomY = (winSize.height - SushiSprite::getContentWidth() * m_height - (m_height - 1) * SUSHI_GAP) / 2;
+	// 初始化寿司矩阵左下角的点
+	m_matrixLeftBottomX = (winSize.width - SushiSprite::getContentWidth() * m_width - (m_width - 1) * SUSHI_GAP) / 2;
+	m_matrixLeftBottomY = (winSize.height - SushiSprite::getContentWidth() * m_height - (m_height - 1) * SUSHI_GAP) / 2;
     
-    	// 初始化数组
-    	int arraySize = sizeof(SushiSprite *) * m_width * m_height;//数组尺寸大小
-    	m_matrix = (SushiSprite **)malloc(arraySize);//为m_matrix分配内存，这里m_matrix是指向指针类型的指针，其定义为：SushiSprite **m_matrix。所以可以理解为m_matrix是一个指针数组
-    	memset((void*)m_matrix, 0, arraySize);//初始化数组m_matrix
+	// 初始化数组
+	int arraySize = sizeof(SushiSprite *) * m_width * m_height;//数组尺寸大小
+	m_matrix = (SushiSprite **)malloc(arraySize);//为m_matrix分配内存，这里m_matrix是指向指针类型的指针，其定义为：SushiSprite **m_matrix。所以可以理解为m_matrix是一个指针数组
+	memset((void*)m_matrix, 0, arraySize);//初始化数组m_matrix
     
-		//初始化寿司矩阵
-    	initMatrix();
-    	return true;
-	}
+	//初始化寿司矩阵
+	initMatrix();
+	return true;
+}
+```
 
 上面的初始化函数中有以下几点需要说明一下：
 
@@ -155,7 +166,6 @@ plist文件是图片信息的属性列表文件。
 
 PVR图像是专门为ios设备上面的PowerVR图形芯片指定的图像容器。它们在ios设备上非常好用，因为可以直接加载到显卡上面，而不需要经过中间的转化。pvr.ccz文件则是pvr文件格式的压缩格式，使用这种图片格式的好处有两点：1、可以使你的应用程序更小，因为图片是被压缩过了的。2、你的游戏能够启动地更快。
 	
-
 ### 2. SpriteFrameCache和SpriteBatchNode
 
 上面，我们用TexturePacker工具打包生成了plist和pvr.ccz文件，那么下一步，我们就该获取plist中的信息了。       
@@ -184,45 +194,52 @@ Cocos2d中SpriteFrameCache通常用来处理plist文件，并能与SpriteBatchNo
 看原理图其实就已经一目了然了，上图N代表的是横向布局的寿司精灵数，m_matrixLeftBottomX的值 ＝ （ 屏幕的宽 － 寿司的宽＊N个寿司 － （ N-1 ）＊寿司之间的间隙） ／ 2。
 
 ### 4. 如何布局
+
 加载完寿司精灵图片，计算好寿司精灵布局的起始点以后，我们就可以开始寿司精灵的布局和它的下落显示了，下面是代码行：
 
-	//矩阵的初始化
-	void PlayLayer::initMatrix()
+```cpp
+// 矩阵的初始化
+void PlayLayer::initMatrix()
+{
+	for (int row = 0; row < m_height; row++) 
 	{
-		for (int row = 0; row < m_height; row++) {
-			for (int col = 0; col < m_width; col++) {
-            	createAndDropSushi(row, col);
-        	}
-    	}
+		for (int col = 0; col < m_width; col++) 
+		{
+			createAndDropSushi(row, col);
+		}
 	}
-	//创建SushiSprite，并下落到指定位置
-	void PlayLayer::createAndDropSushi(int row, int col)
-	{
-    	Size size = Director::getInstance()->getWinSize();
+}	
+
+// 创建SushiSprite，并下落到指定位置
+void PlayLayer::createAndDropSushi(int row, int col)
+{
+	Size size = Director::getInstance()->getWinSize();
+
+	SushiSprite *sushi = SushiSprite::create(row, col);
     
-    	SushiSprite *sushi = SushiSprite::create(row, col);
-    
-    	// 创建并执行下落动画
-    	Point endPosition = positionOfItem(row, col);
-    	Point startPosition = Point(endPosition.x, endPosition.y + size.height / 2);
-    	sushi->setPosition(startPosition);
-    	float speed = startPosition.y / (2 * size.height);
-    	sushi->runAction(MoveTo::create(speed, endPosition));
+	// 创建并执行下落动画
+	Point endPosition = positionOfItem(row, col);
+	Point startPosition = Point(endPosition.x, endPosition.y + size.height / 2);
+	sushi->setPosition(startPosition);
+	float speed = startPosition.y / (2 * size.height);
+	sushi->runAction(MoveTo::create(speed, endPosition));
     	
-    	//将寿司添加到精灵表单里。注意，如果没有添加到精灵表单里，而是添加到层里的话，就不会得到性能的优化。
-    	spriteSheet->addChild(sushi);
+	// 将寿司添加到精灵表单里。注意，如果没有添加到精灵表单里，而是添加到层里的话，就不会得到性能的优化。
+	spriteSheet->addChild(sushi);
     	
-		//给指定位置的数组赋值
-    	m_matrix[row * m_width + col] = sushi;
-	}
-	//得到对应行列精灵的坐标值
-	Point PlayLayer::positionOfItem(int row, int col)
-	{
-    	float x = m_matrixLeftBottomX + (SushiSprite::getContentWidth() + SUSHI_GAP) * col + SushiSprite::getContentWidth() / 2;
-    	float y = m_matrixLeftBottomY + (SushiSprite::getContentWidth() + SUSHI_GAP) * row + SushiSprite::getContentWidth() / 2;
-    	return Point(x, y);
-	}
-	
+	// 给指定位置的数组赋值
+	m_matrix[row * m_width + col] = sushi;
+}
+
+// 得到对应行列精灵的坐标值
+Point PlayLayer::positionOfItem(int row, int col)
+{
+	float x = m_matrixLeftBottomX + (SushiSprite::getContentWidth() + SUSHI_GAP) * col + SushiSprite::getContentWidth() / 2;
+	float y = m_matrixLeftBottomY + (SushiSprite::getContentWidth() + SUSHI_GAP) * row + SushiSprite::getContentWidth() / 2;
+	return Point(x, y);
+}
+```
+
 我们先来看怎样获取指定行列精灵在屏幕上的坐标值，即positionOfItem(row, col)方法的实现。同样附上原理图，方便理解。     
 ![](./res/positionOfItem.png)    
 上图矩阵的起始点已知（m_matrixLeftBottomX，m_matrixLeftBottomY），计算第row行col列的寿司精灵的坐标值。        
