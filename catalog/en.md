@@ -11,6 +11,7 @@
 		- [How to run cpp-tests on iOS](../manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-ios/en.md)
 		- [How to run cpp-tests on Linux](../manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-linux/en.md)
 		- [How to run cpp-tests on Win32](../manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-win32/en.md)
+		- [How to run cpp-tests on WP8](../manual/framework/native/getting-started/v3.0/how-to-run-cpp-tests-on-wp8/en.md)
 		- [How to start a new game](../manual/framework/native/getting-started/v3.0/how-to-start-a-new-game/en.md)
 		- [How to Build and Run Android Project with Eclipse](../manual/framework/native/getting-started/v3.0/how-to-build-android-project-with-eclipse/en.md)
 	- Graphics & Animation
