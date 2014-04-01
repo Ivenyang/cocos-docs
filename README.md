@@ -1,4 +1,4 @@
-Documents
+Documentations
 ===============
 
 These are documents for Cocos2d-x, Cocos2d-html5 and CocoStudio. Please select your language entry:
