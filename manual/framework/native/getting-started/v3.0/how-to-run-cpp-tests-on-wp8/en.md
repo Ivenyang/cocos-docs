@@ -31,12 +31,15 @@ the fee of developer account: $19 per year, while students account is free but c
 
 ![](res/1.png)
 
-- Open file "cocos2d-win32.vc2012.sln" in "build" folder as fllowing:
+- Open file "cocos2d-wp8.vc2012.sln" in "build" folder as fllowing:
 
 ![](res/2.png)
 
 ![](res/3.png)
 
-- Right click the "TestCpp" project, and select "Set as StartUp Project", then you can compile and run the TestCpp project, here is the screenshot:
+- Right click the "cpp-tests" project, and select "Set as StartUp Project", you can select "Emulator" or a "Device" to run project, if you use Device, you need to connect your phone device using usb.
+![](res/6.png)
+
+then you can compile and run the TestCpp project, here is the screenshot in Emulator:
 
 ![](res/5.png)
