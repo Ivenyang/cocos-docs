@@ -43,3 +43,13 @@ the fee of developer account: $19 per year, while students account is free but c
 then you can compile and run the TestCpp project, here is the screenshot in Emulator:
 
 ![](res/5.png)
+
+## How to debug in project
+
+right click cpp-tests, select "Properties", in "Debug", you can select debug target:
+
+![](res/7.png)
+
+If you select "Managed Only" in "UI Task", it's to debug c# code in cpp-tests. And if you select "Native Only", it's to debug c++ code in cpp-testsComponent. Note that If you select "Native Only" and want to use CCLog function to write log in Output, right click cpp-testsComponent and define "COCOS2D_DEBUG=1" in "Preprocessor Definitions"：
+
+![](res/8.png)
