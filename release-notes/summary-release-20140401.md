@@ -17,6 +17,7 @@ We are happy to announce the release of:
 * update to Chipmunk2D v6.2.1
 * fix the issue that Application will be black on some Android devices
 * many other bugs fixed
+* initial version of WP8 support, `accelerometer`, `custome shaders`, `console`, `tools for creating wp8 sample` are not supported
 
 ### Documentation ###
 
