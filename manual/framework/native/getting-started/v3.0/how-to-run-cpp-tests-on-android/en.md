@@ -160,7 +160,7 @@ cd ~/cocos2d-x/tests/cpp-tests/proj.android/bin
 Then you could use adb to install the apk to your android phone:
 
 ```
-adb install TestsDemo-debug.apk
+adb install CppTests-debug.apk
 ```
 
 If it prompts you the adb is not a command, then you could run the following commands in your Terminal or add this code line into your ~/.bashrc file.
