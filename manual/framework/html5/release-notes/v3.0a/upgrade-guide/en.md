@@ -231,6 +231,20 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 
 * **7.2** A new ui widget `ccui.RichText` has been added to v3.0a.
 
+* **7.3** `ccs.UILayer` has been deleted from v3.0a, please add to node directly, for example:
+
+	```
+	// usage in v2.2.2: A widget object need to through ccs.UILayer.addWidget to add to node object
+	var uiLayer = ccs.UILayer.create();
+	uiLayer.addWidget(aWidget);
+	var node = cc.Node.create();
+	node .addChild(uiLayer);
+	...
+	
+	// usage in v3.0a: A widget object can add to node object directly through addChild function
+	var node = cc.Node.create();
+	node .addChild(aWidget);	
+	```
 
 ##8. NodeGrid
 
