@@ -8,7 +8,7 @@
 >sc->addRegisterCallback(register_jsb_websocket);
 
 3.在解决方案内添加libNetwork子项目
-![](res/1.png)
+![](res/1.PNG)
 
 在解决方案上右键选择add->Existing Project
 ![](res/2.png)
