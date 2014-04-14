@@ -247,7 +247,7 @@ var enemy1 = new Enemy(100);
 如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d（不包括extension）类都被重构以支持这种风格，而且JSB也同样完美支持。关于`new`对象构造和类的继承的详细文档将在近期推出。
 
 
-##7. GUI控件
+##8. GUI控件
 
 * **7.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
 
@@ -272,9 +272,9 @@ var enemy1 = new Enemy(100);
     ccs.UILayer                 --> deleted
     ```
 
-* **7.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
+* **8.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
 
-* **7.3** `ccs.UILayer` 已经从v3.0a中删除，Widget对象要加到场景中，直接通过addChild加到Node节点中就可以了。示例如下：
+* **8.3** `ccs.UILayer` 已经从v3.0a中删除，Widget对象要加到场景中，直接通过addChild加到Node节点中就可以了。示例如下：
 
 	```
 	// v2.2.2用法:  widget必须要通过UILayer的addWidget方法加入到UILayer之后,再将UILayer加入场景才行
@@ -289,7 +289,7 @@ var enemy1 = new Enemy(100);
 	node .addChild(aWidget);	
 	``` 
 
-##8. NodeGrid
+##9. NodeGrid
 
 3.0版提供了一个新的节点`cc.NodeGrid`，这个节点可以包含一个目标节点并允许在这个目标节点上应用ActionGrid类型的动作。在2.2.2版中cc.Node可以直接应用这种动作，但是这个行为会在未来版本中被移除，因为我们希望cc.Node的逻辑可以更纯粹。下面是2.2.2版与3.0版中的ActionGrid动作使用示例比较：
 
@@ -310,7 +310,7 @@ nodeGrid.runAction( shaky );
 注意：在Cocos2d-html5 3.0a版中，第一种方式仍然有效，但是如果你希望你的游戏可以运行在JSB中，那么必须使用第二种方式。另外，在3.0正式版中，第一种方式也将被移除。
 
 
-##9. JSB相关
+##10. JSB相关
 
 虽然我们尽力使Cocos2d-html5和Cocos2d-JSB的API趋于一致，但是我们发现Web应用开发者和JSB原生开发者需求还是有一定的区别，有一些需求也很难在两个不同平台上完全融合起来，所以我们提供下面这些仅在JSB项目中支持的API，如果你需要使用它们，请首先进行平台检查。
 
@@ -320,7 +320,7 @@ if (cc.sys.isNative) {
 }
 ```
 
-* **9.1** C++宏定义
+* **10.1** C++宏定义
 
     在JSB项目中，有一些宏定义只可能在C++代码中修改，这些宏定义如下，它们都可以在ccMacros.h或ccConfig.h中找到：
     
@@ -348,7 +348,7 @@ if (cc.sys.isNative) {
     CC_ENABLE_SCRIPT_BINDING
     ```
     
-* **9.2** **[New in alpha 2]** cc.fileUtils
+* **10.2** **[New in alpha 2]** cc.fileUtils
 
     在Cocos2d-html5中，cc.FileUtils已经被cc.loader取代了，但是在JSB项目中，有一些需求cc.loader无法满足，所以我们决定将cc.FileUtils作为仅JSB支持的API开放出来。并且为了符合新的单例对象API风格，开发者可以直接通过`cc.fileUtils`来获取cc.FileUtils单例对象。下面是详细API列表：
     
@@ -370,7 +370,7 @@ if (cc.sys.isNative) {
     
     所有关于搜索路径的函数都被去除了，因为它们会导致在Cocos2d-html5和Cocos2d-JSB中路径的不一致，而最终使得游戏代码很难维护。
 
-* **9.3** cc.AssetsManager
+* **10.3** cc.AssetsManager
 
     cc.AssetsManager是用于管理和使用远程服务器资源的类，它也支持简单的版本控制和更新。下面是它的API列表：
     
@@ -391,11 +391,11 @@ if (cc.sys.isNative) {
     ```
 
 
-##10. 其他API变动
+##11. 其他API变动
 
-* **10.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
+* **11.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
 
-* **10.2** 一些`cc.AudioEngine`的API被删除：
+* **11.2** 一些`cc.AudioEngine`的API被删除：
 
     ```
     preloadMusic
@@ -404,7 +404,7 @@ if (cc.sys.isNative) {
     preloadSound
     ```
 
-* **10.3** cc.SAXParser
+* **11.3** cc.SAXParser
 
 	一些`cc.SAXParser`的API被删除：
 
@@ -419,7 +419,7 @@ if (cc.sys.isNative) {
 
 	同时添加`cc.PlistParser`用于解析plist文件：[cc.SAXParser文档](../../../v3.0/cc-saxparser/zh.md)
 
-* **10.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
+* **11.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
 
     ```
     addImage(url)                           --> addImage(url)
@@ -428,14 +428,14 @@ if (cc.sys.isNative) {
     
     **[New in alpha 2]** 新的`addImage`使用方式也被JSB支持了。
 
-* **10.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
+* **11.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
 
     ```
     fontName    --> getFontName
     fontSize    --> getFontSize
     ```
 
-* **10.6** cc.view
+* **11.6** cc.view
 
     3.0版已经支持所有苹果设备的视网膜屏分辨率，你可以使用`cc.view.enableRetina(enableOrNot)`来开启或关闭这项功能，你也可以使用`cc.view.isRetinaEnabled()`来检测当前视网膜屏适配是否已经开启。最后，你可以通过`cc.view.getDevicePixelRat io()`来获取视网膜屏的像素缩放比例，在目前的苹果设备上，该比例返回值为2。默认情况下，视网膜屏适配在苹果设备上自动开启，如果希望改变这一行为，在关闭这项功能之后，你将需要调用一次`cc.view.setDesignResolutionSize(width, height, policy)`来让改变生效。
     
@@ -446,7 +446,7 @@ if (cc.sys.isNative) {
     cc.view.isAutoFullScreenEnabled(); // 该函数返回当前值
     ```
 
-* **10.7** 其他被删除的API
+* **11.7** 其他被删除的API
 
     ```
     cc.IS_SHOW_DEBUG_ON_PAGE
@@ -472,7 +472,7 @@ if (cc.sys.isNative) {
     ccs.UILayer
     ```
 
-* **10.8** 其他添加的API：
+* **11.8** 其他添加的API：
 
     ```
     cc.warn
@@ -481,7 +481,7 @@ if (cc.sys.isNative) {
     cc.BuilderReader.registerController
     ```
 
-* **10.9** 其他修改的API：
+* **11.9** 其他修改的API：
 
     ```
     cc.Assert                       --> cc.assert
@@ -566,7 +566,7 @@ if (cc.sys.isNative) {
     ccs.DecotativeDisplay       --> ccs.DecorativeDisplay
     ```
     
-* **10.10** **[New in alpha 2]** Alpha 2中其他API改动
+* **11.10** **[New in alpha 2]** Alpha 2中其他API改动
 
     - cc.Node中重命名的函数 :
     
