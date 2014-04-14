@@ -202,7 +202,7 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 [详细文档](../../../v3.0/singleton-objs/zh.md)。
 
 
-##7. **[New in alpha 2]** 对象创建与类的继承
+##7. **[Alpha 2新添加]** 对象创建与类的继承
 
 在Cocos2d-html5 2.2.x中，创建一个引擎对象比如cc.Sprite，开发者需要使用正确的`create`函数：
 
@@ -249,7 +249,7 @@ var enemy1 = new Enemy(100);
 
 ##8. GUI控件
 
-* **7.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
+* **8.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
 
     ```
     ccs.Layout                  --> ccui.Layout
@@ -348,7 +348,7 @@ if (cc.sys.isNative) {
     CC_ENABLE_SCRIPT_BINDING
     ```
     
-* **10.2** **[New in alpha 2]** cc.fileUtils
+* **10.2** **[Alpha 2新添加]** cc.fileUtils
 
     在Cocos2d-html5中，cc.FileUtils已经被cc.loader取代了，但是在JSB项目中，有一些需求cc.loader无法满足，所以我们决定将cc.FileUtils作为仅JSB支持的API开放出来。并且为了符合新的单例对象API风格，开发者可以直接通过`cc.fileUtils`来获取cc.FileUtils单例对象。下面是详细API列表：
     
@@ -426,7 +426,7 @@ if (cc.sys.isNative) {
     addImageAsync(url, target, callback)    --> addImage(url, callback, target)
     ```
     
-    **[New in alpha 2]** 新的`addImage`使用方式也被JSB支持了。
+    **[Alpha 2新添加]** 新的`addImage`使用方式也被JSB支持了。
 
 * **11.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
 
@@ -499,34 +499,34 @@ if (cc.sys.isNative) {
     
     // 修改大写函数为小写函数以符合命名规范
     cc.PRIORITY_SYSTEM              --> cc.Scheduler.PRIORITY_SYSTEM
-    cc.SWAP                         --> cc.swap **[New in alpha 2]**
-    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 **[New in alpha 2]**
-    cc.RANDOM_0_1                   --> cc.random0To1 **[New in alpha 2]**
-    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians **[New in alpha 2]**
-    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress **[New in alpha 2]**
-    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup **[New in alpha 2]**
-    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates **[New in alpha 2]**
-    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates **[New in alpha 2]**
-    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws **[New in alpha 2]**
-    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor **[New in alpha 2]**
-    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels **[New in alpha 2]**
-    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels **[New in alpha 2]**
-    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints **[New in alpha 2]**
-    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut **[New in alpha 2]**
-    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints **[New in alpha 2]**
-    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut **[New in alpha 2]**
-    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints **[New in alpha 2]**
-    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels **[New in alpha 2]**
-    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug **[New in alpha 2]**
+    cc.SWAP                         --> cc.swap **[Alpha 2新添加]**
+    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 **[Alpha 2新添加]**
+    cc.RANDOM_0_1                   --> cc.random0To1 **[Alpha 2新添加]**
+    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians **[Alpha 2新添加]**
+    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress **[Alpha 2新添加]**
+    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup **[Alpha 2新添加]**
+    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates **[Alpha 2新添加]**
+    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates **[Alpha 2新添加]**
+    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws **[Alpha 2新添加]**
+    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor **[Alpha 2新添加]**
+    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels **[Alpha 2新添加]**
+    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels **[Alpha 2新添加]**
+    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints **[Alpha 2新添加]**
+    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut **[Alpha 2新添加]**
+    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints **[Alpha 2新添加]**
+    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut **[Alpha 2新添加]**
+    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints **[Alpha 2新添加]**
+    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels **[Alpha 2新添加]**
+    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug **[Alpha 2新添加]**
 
-    cc.CardinalSplineAt	            --> cc.cardinalSplineAt **[New in alpha 2]**
+    cc.CardinalSplineAt	            --> cc.cardinalSplineAt **[Alpha 2新添加]**
 
     // 常量
-    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT **[New in alpha 2]**
+    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED **[Alpha 2新添加]**
+    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D **[Alpha 2新添加]**
+    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D **[Alpha 2新添加]**
+    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM **[Alpha 2新添加]**
+    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT **[Alpha 2新添加]**
     cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888     --> cc.Texture2D.PIXEL_FORMAT_RGBA8888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB888       --> cc.Texture2D.PIXEL_FORMAT_RGB888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB565       --> cc.Texture2D.PIXEL_FORMAT_RGB565
@@ -566,7 +566,7 @@ if (cc.sys.isNative) {
     ccs.DecotativeDisplay       --> ccs.DecorativeDisplay
     ```
     
-* **11.10** **[New in alpha 2]** Alpha 2中其他API改动
+* **11.10** **[Alpha 2新添加]** Alpha 2中其他API改动
 
     - cc.Node中重命名的函数 :
     
