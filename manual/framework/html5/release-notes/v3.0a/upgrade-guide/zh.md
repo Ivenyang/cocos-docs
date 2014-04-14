@@ -1,4 +1,4 @@
-#Cocos2d-html5从v2.2.2到v3.0a2升级指南
+#Cocos2d-html5从v2.2.x到v3.0a2升级指南
 
 
 ##1. 事件管理机制
@@ -199,7 +199,52 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
-[详细文档](../../../v3.0/singleton-objs/zh.md).
+[详细文档](../../../v3.0/singleton-objs/zh.md)。
+
+
+##7. **[New in alpha 2]** 对象创建与类的继承
+
+在Cocos2d-html5 2.2.x中，创建一个引擎对象比如cc.Sprite，开发者需要使用正确的`create`函数：
+
+```
+var sprite = cc.Sprite.create(filename, rect);
+var sprite = cc.Sprite.createWithTexture(texture, rect);
+var sprite = cc.Sprite.createWithSpriteFrameName(spriteFrameName);
+```
+
+在Cocos2d-JS v3.0 alpha中，我们做到一个非常重要的API进化，所有`createXXX`都被合并为统一的`create`函数：
+
+```
+var sprite = cc.Sprite.create(filename, rect);
+var sprite = cc.Sprite.create(texture, rect);
+var sprite = cc.Sprite.create(spriteFrameName);
+```
+
+这个改动不仅适用于cc.Sprite，同样适用于引擎中所有有类似API的类，支持的类列表以及关于`create`函数改造的更详细信息请参见[create API文档](../../../v3.0/create-api/en.md)。
+
+我们从未停止改进我们的引擎，所以在Cocos2d-JS v3.0 alpha2中，引擎支持`new`直接构造对象！构造函数和`create`函数共享完全相同的参数：
+
+```
+var sprite = new cc.Sprite(filename, rect);
+var sprite = new cc.Sprite(texture, rect);
+var sprite = new cc.Sprite(spriteFrameName);
+```
+
+与此同时，为了向后兼容性，所有`create`函数也被保留，使用哪种API风格完全是开发者自由的选择。更重要的是，这个改进使得类的继承变得前所未有的简单。开发者现在可以完全忽略所有的`initXXX`函数，你可以简单得通过重载`ctor`函数并使用正确的参数调用`this._super`即可完成对象的初始化：
+
+```
+var Enemy = cc.Sprite.extend({
+    hp: 0,
+    fileName: "enemy.png"
+    ctor: function (hp) {
+        this._super(fileName);
+        this.hp = hp;
+    }
+});
+var enemy1 = new Enemy(100);
+```
+
+如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d（不包括extension）类都被重构以支持这种风格，而且JSB也同样完美支持。关于`new`对象构造和类的继承的详细文档将在近期推出。
 
 
 ##7. GUI控件
