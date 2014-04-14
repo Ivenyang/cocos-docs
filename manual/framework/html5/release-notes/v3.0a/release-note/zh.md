@@ -5,6 +5,7 @@
 ## 下载
 
 [Cocos2d-JS-v3.0-alpha.zip](http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-alpha.zip)
+[在线API索引](http://www.cocos2d-x.org/reference/html5-js/V3.0alpha/index.html)
 
 ## 核心特性
 

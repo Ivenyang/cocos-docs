@@ -5,6 +5,7 @@
 ## Download
 
 [Cocos2d-JS-v3.0-alpha.zip](http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-alpha.zip)
+[Online API reference](http://www.cocos2d-x.org/reference/html5-js/V3.0alpha/index.html)
 
 ## Highlights
 
