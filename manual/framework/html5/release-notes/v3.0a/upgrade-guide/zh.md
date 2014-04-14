@@ -499,34 +499,34 @@ if (cc.sys.isNative) {
     
     // 修改大写函数为小写函数以符合命名规范
     cc.PRIORITY_SYSTEM              --> cc.Scheduler.PRIORITY_SYSTEM
-    cc.SWAP                         --> cc.swap **[Alpha 2新添加]**
-    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 **[Alpha 2新添加]**
-    cc.RANDOM_0_1                   --> cc.random0To1 **[Alpha 2新添加]**
-    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians **[Alpha 2新添加]**
-    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress **[Alpha 2新添加]**
-    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup **[Alpha 2新添加]**
-    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates **[Alpha 2新添加]**
-    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates **[Alpha 2新添加]**
-    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws **[Alpha 2新添加]**
-    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor **[Alpha 2新添加]**
-    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels **[Alpha 2新添加]**
-    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels **[Alpha 2新添加]**
-    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints **[Alpha 2新添加]**
-    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut **[Alpha 2新添加]**
-    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints **[Alpha 2新添加]**
-    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut **[Alpha 2新添加]**
-    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints **[Alpha 2新添加]**
-    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels **[Alpha 2新添加]**
-    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug **[Alpha 2新添加]**
+    cc.SWAP                         --> cc.swap // [Alpha 2新添加]
+    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 // [Alpha 2新添加]
+    cc.RANDOM_0_1                   --> cc.random0To1 // [Alpha 2新添加]
+    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians // [Alpha 2新添加]
+    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress // [Alpha 2新添加]
+    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup // [Alpha 2新添加]
+    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates // [Alpha 2新添加]
+    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates // [Alpha 2新添加]
+    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws // [Alpha 2新添加]
+    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor // [Alpha 2新添加]
+    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels // [Alpha 2新添加]
+    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels // [Alpha 2新添加]
+    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints // [Alpha 2新添加]
+    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut // [Alpha 2新添加]
+    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints // [Alpha 2新添加]
+    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut // [Alpha 2新添加]
+    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints // [Alpha 2新添加]
+    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels // [Alpha 2新添加]
+    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug // [Alpha 2新添加]
 
     cc.CardinalSplineAt	            --> cc.cardinalSplineAt **[Alpha 2新添加]**
 
     // 常量
-    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED **[Alpha 2新添加]**
-    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D **[Alpha 2新添加]**
-    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D **[Alpha 2新添加]**
-    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM **[Alpha 2新添加]**
-    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT **[Alpha 2新添加]**
+    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT // [Alpha 2新添加]
     cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888     --> cc.Texture2D.PIXEL_FORMAT_RGBA8888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB888       --> cc.Texture2D.PIXEL_FORMAT_RGB888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB565       --> cc.Texture2D.PIXEL_FORMAT_RGB565
