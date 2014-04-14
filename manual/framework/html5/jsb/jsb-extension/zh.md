@@ -42,9 +42,11 @@
 
 ##添加Spine
 1.添加libJSBingdingForSpine
+
 ![](.\res\5.png)
 
 在libJSBinding文件夹上右键添加已有项目
+
 ![](.\res\6.png)
 
 选择frameworks\js-bindings\bindings\proj.win32\libJSBindingForSpine.vcxproj
