@@ -2,7 +2,9 @@
 
 ## introduction
 
- With the support of xaml in cocos2d-x wp8，it's much convenient to invoke third SDK. I will show you how to integrate third SDK using Microsoft's advertise system as a example，integrae in the XAML project. Microsoft offical doc：
+ With the support of xaml in cocos2d-x wp8，it's much convenient to invoke third SDK. I will show you how to integrate third SDK using Microsoft's advertise system and IAP as a example，integrae in the XAML project. 
+
+### Microsoft's offical doc of Integrating the AdControl
 
 [http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx](http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx " Integrating the AdControl")
 
@@ -10,7 +12,56 @@ but this page just show how to add control deirectly in the xaml page，I will s
 
 [https://github.com/koowolf/cocos2d-x/tree/adcontrol](https://github.com/koowolf/cocos2d-x/tree/adcontrol "adcontrol")
 
-detail tutorial as following.
+### Microsoft's offical doc of In App Purchase
+
+[http://msdn.microsoft.com/zh-cn/library/windowsphone/develop/jj206949%28v=vs.105%29.aspx](http://msdn.microsoft.com/zh-cn/library/windowsphone/develop/jj206949%28v=vs.105%29.aspx)
+
+[http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj681689%28v=vs.105%29.aspx](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj681689%28v=vs.105%29.aspx)
+
+I had add an example in myselve's adcontrol branch in github, just adding the mock in-app purchase library to my  solution, link：
+
+[https://github.com/koowolf/cocos2d-x/tree/IAP](https://github.com/koowolf/cocos2d-x/tree/IAP)
+
+detail tutorial as following, the model in AdControl and IAP are nearly the same, so we mostly describe the integrating of the adcontrol.
+
+## Calling Model
+
+We use the the following code to show the model, from the link [http://stackoverflow.com/questions/17304386/how-does-one-make-function-calls-or-trigger-events-from-a-native-component-into](http://stackoverflow.com/questions/17304386/how-does-one-make-function-calls-or-trigger-events-from-a-native-component-into)
+
+``` c++
+//.h
+[Windows::Foundation::Metadata::WebHostHidden]
+public interface class ICallback
+{
+public:
+    virtual void Exec( Platform::String ^Command, Platform::String ^Param);
+};
+//.cpp
+ICallback ^CSCallback = nullptr;
+void Direct3DInterop::SetCallback( ICallback ^Callback)
+{
+    CSCallback = Callback;
+}
+//...
+
+if (CSCallback != nullptr)
+    CSCallback->Exec( "Command", "Param" );
+
+C#
+public class CallbackImpl : ICallback
+{
+    public void Exec(String Command, String Param)
+    {
+        //Execute some C# code, if you call UI stuff you will need to call this too
+        //Deployment.Current.Dispatcher.BeginInvoke(() => { 
+        // //Lambda code
+        //}
+    }
+}
+//...
+CallbackImpl CI = new CallbackImpl();
+D3DComponent.SetCallback( CI);
+```
 
 ## download Microsoft Advertising SDK for Windows Phone 
 
@@ -363,3 +414,37 @@ you can add button and use CallToShowPage above to popup a full-screen xaml page
 ![application](res/3.png)
 
 ![application](res/2.png)
+
+## IAP integration
+
+As an example, I download and add the mock in-app purchase library to solution, following [http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj681689%28v=vs.105%29.aspx#IAP_MockLibrary](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj681689%28v=vs.105%29.aspx#IAP_MockLibrary).
+
+Note:
+
+1. after download the library, compile it and generate the MockIAPLib.dll file. Add it to HelloCpp as a reference, the result as following:
+
+![application](res/5.png)
+
+2. add the StoreFront.xaml and StoreManager.cs and Res resources files to the project.
+
+3. when navigate back from other page like StoreFront.xaml, **never** use  
+
+``` c++
+
+this.NavigationService.Navigate(new Uri("/PhoneDirect3DXamlAppInterop;component/MainPage.xaml", UriKind.Relative));
+
+```
+
+because the line above will cause the MainPage.xaml reloading and will result some errors, use this:
+
+``` c++
+
+this.NavigationService.GoBack();
+
+```
+
+### result 
+
+![application](res/6.png)
+
+![application](res/7.png)

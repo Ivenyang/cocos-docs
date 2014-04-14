@@ -24,11 +24,10 @@ Cocos2d-JS提供了一个终端工具来简化html5和JSB游戏的创建和开�
     - 将Ant解压到你指定的文件夹。
     - 设置JAVA_HOME环境变量到你的Java路径，ANT_HOME到刚刚解压的文件夹，再将${ANT_HOME}/bin (Unix)或%ANT_HOME%/bin (Windows)加入到PATH中。
     
-    ```            
+    ```
     // Example: 在命令行中运行或添加到.bash_profile(Mac)
-    export ANT_HOME=/usr/local/ant
+    export ANT_ROOT=/usr/local/ant/bin
     export JAVA_HOME=/usr/local/jdk1.7.0_51
-    export PATH=${PATH}:${ANT_HOME}/bin
     ```
 
 ##Usage
