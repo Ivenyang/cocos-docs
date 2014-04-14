@@ -8,20 +8,20 @@
 >sc->addRegisterCallback(register_jsb_websocket);
 
 3.在解决方案内添加libNetwork子项目
-![](res\\1.png)
+![](res/1.png)
 
 在解决方案上右键选择add->Existing Project
-![](res\\2.png)
+![](res/2.png)
 
 在你创建的项目文件夹中选择js-bindings\cocos2d-x\cocos\network\proj.win32\libNetwork.vcxproj
 
 4.添加libNetwrok静态库
 
-![](res\\3.png)
+![](res/3.png)
 
 在jsb子项目上右键选择属性对话框
 
-![](res\\4.png)
+![](res/4.png)
 在Linker->Input->Additionnal Dependencies中添加libNetwork.lib
 
 5.编译运行
@@ -53,11 +53,11 @@ todo
 ###Visual Studio
 1.添加libJSBingdingForSpine
 
-![](res\\5.png)
+![](res/5.png)
 
 在libJSBinding文件夹上右键添加已有项目
 
-![](res\\6.png)
+![](res/6.png)
 
 选择frameworks\js-bindings\bindings\proj.win32\libJSBindingForSpine.vcxproj
 
