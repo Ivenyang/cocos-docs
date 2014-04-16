@@ -33,7 +33,7 @@ we actually call:
 
 	cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0, arg1);
 
-![](res\1.PNG)
+![](res/1.PNG)
 
 
 ## 2.constructor ##
@@ -54,7 +54,7 @@ In this way we actually call js\_cocos2dx\_Sprite\_constructor in C++ code. In t
 | cc.Sprite.initWithTexture    | js_cocos2dx_Sprite_initWithTexture    | cocos2d::Sprite::initWithTexture           |
 
 
-![](res\2.PNG)
+![](res/2.PNG)
 
 
 #How to extend a class #
@@ -102,5 +102,5 @@ In \_super funciton we will call Sprite's ctor function(js\_cocos2dx\_Sprite_cto
 
 In the C++ code, js\_cocos2dx\_Sprite\_constructor execute cc.Sprite.prototype_ctor. In _ctor function we will call initWithXXX functions according to filename and rect arguments.
 
-![](res\3.PNG)
+![](res/3.PNG)
 
