@@ -1,4 +1,4 @@
-#Cocos2d-html5 upgrade guide from v2.2.x to v3.0a2
+#Upgrade guide from Cocos2d-html5 v2.2.x to Cocos2d-JS v3.0 alpha2
 
 
 ##1. Event Manager
