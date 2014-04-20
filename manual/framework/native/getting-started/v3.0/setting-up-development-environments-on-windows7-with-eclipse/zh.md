@@ -2,7 +2,7 @@
 
 
 **建议：**为避免安全相关问题，所有操作请在管理员身份下进行，在运行命令时，请确保以管理员身份打开控制台（console）。      
-本指南将介绍如何在Windows 7平台搭建cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2010的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
+本指南将介绍如何在Windows 7平台搭建cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2012/2013的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
 
 
 搭建开发环境需要安装工具包括
@@ -29,7 +29,7 @@
 
 打开 “D:\Cocos2d-x\cocos2d-x 3.beta2\build”目录，如下所示：           
 ![](./res/cocos2dxdirectory.jpg)         
-双击“cocos2d-win32.vs2012.sln”文件，然后会自动启动Visual Studio 2013。
+双击“cocos2d-win32.vs2012.sln”文件，然后会自动启动Visual Studio 2012/2013。
 现在你便可以将HelloCpp项目当作默认启动项目来编译，按CTRL-F5运行样本程序。如果编译没有什么错误，同时运行成功的话，你会看到如下画面。
 
 ![](./res/hello.jpg)
