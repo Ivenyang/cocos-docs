@@ -90,13 +90,14 @@
 
 - [Cocos2d-JS与Cocos2d-html5 v3.0a发布说明](../manual/framework/html5/release-notes/v3.0a/release-note/zh.md)
 - [Cocos2d-html5 v3.0a改动列表](../manual/framework/html5/release-notes/v3.0a/changelog/en.md)
-- [从Cocos2d-html5 v2.2.2到v3.0a的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
+- [Cocos2d-html5 v3.0a2改动列表](../manual/framework/html5/release-notes/v3.0a2/changelog/en.md)
+- [从Cocos2d-html5 v2.2.2到v3.0a2的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
 - 综述
 	- [关于Cocos2d-html5](../manual/framework/html5/about/zh.md)
 	- [供NPM使用的Cocos-utils](../manual/framework/html5/cocos-utils-for-npm/zh.md)
 	- [Cocos2d-html5新手入门](../manual/framework/html5/getting-started_with-cocos2d-html5/zh.md)
-	- [Release Note](../manual/framework/html5/release-notes-for-cocos2d-html5/release-notes-for-cocos2d-html5-v222/zh.md)
-	- [升级指南](../manual/framework/html5/upgrade-guides-html5/zh.md)
+    - [如何在jsb项目中使用extension](../manual/framework/html5/jsb/jsb-extension/zh.md)
+	- [Release Notes](../manual/framework/html5/release-notes/zh.md)
 - 初步了解Cocos2d-html5
     - [如何搭建Cocos2d-html5开发调试环境](../manual/framework/html5/setup-devenv/zh.md)
     - [如何自定义Cocos2d-html5加载界面](../manual/framework/html5/customize-loading-screen/zh.md)

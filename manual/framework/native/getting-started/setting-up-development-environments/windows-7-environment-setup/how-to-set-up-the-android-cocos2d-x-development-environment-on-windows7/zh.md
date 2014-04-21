@@ -90,7 +90,7 @@
 操作如下：    
 
 ```
-1cd /cygdrive/c/cocos2d-x-2.2.0/samples/Cpp/HelloCpp/proj.android/
+cd /cygdrive/c/cocos2d-x-2.2.0/samples/Cpp/HelloCpp/proj.android/
 ```
 
 再执行以下命令：    
@@ -105,7 +105,7 @@
 用户可使用如下命令在Android手机中安装HelloCpp.apk应用：
 
 ```
-1adb install  bin/HelloCpp.apk
+adb install  bin/HelloCpp.apk
 ```
 
 （注意：如果上述操作失败，请对环境进行配置，参见以下疑难解答部分。）

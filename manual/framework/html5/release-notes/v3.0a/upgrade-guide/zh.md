@@ -1,4 +1,4 @@
-#Cocos2d-html5从v2.2.2到v3.0a升级指南
+#从Cocos2d-html5 v2.2.x到Cocos2d-JS v3.0 alpha2升级指南
 
 
 ##1. 事件管理机制
@@ -199,12 +199,57 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
-[详细文档](../../../v3.0/singleton-objs/zh.md).
+[详细文档](../../../v3.0/singleton-objs/zh.md)。
 
 
-##7. GUI控件
+##7. **[Alpha 2新添加]** 对象创建与类的继承
 
-* **7.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
+在Cocos2d-html5 2.2.x中，创建一个引擎对象比如cc.Sprite，开发者需要使用正确的`create`函数：
+
+```
+var sprite = cc.Sprite.create(filename, rect);
+var sprite = cc.Sprite.createWithTexture(texture, rect);
+var sprite = cc.Sprite.createWithSpriteFrameName(spriteFrameName);
+```
+
+在Cocos2d-JS v3.0 alpha中，我们做到一个非常重要的API进化，所有`createXXX`都被合并为统一的`create`函数：
+
+```
+var sprite = cc.Sprite.create(filename, rect);
+var sprite = cc.Sprite.create(texture, rect);
+var sprite = cc.Sprite.create(spriteFrameName);
+```
+
+这个改动不仅适用于cc.Sprite，同样适用于引擎中所有有类似API的类，支持的类列表以及关于`create`函数改造的更详细信息请参见[create API文档](../../../v3.0/create-api/en.md)。
+
+我们从未停止改进我们的引擎，所以在Cocos2d-JS v3.0 alpha2中，引擎支持`new`直接构造对象！构造函数和`create`函数共享完全相同的参数：
+
+```
+var sprite = new cc.Sprite(filename, rect);
+var sprite = new cc.Sprite(texture, rect);
+var sprite = new cc.Sprite(spriteFrameName);
+```
+
+与此同时，为了向后兼容性，所有`create`函数也被保留，使用哪种API风格完全是开发者自由的选择。更重要的是，这个改进使得类的继承变得前所未有的简单。开发者现在可以完全忽略所有的`initXXX`函数，你可以简单得通过重载`ctor`函数并使用正确的参数调用`this._super`即可完成对象的初始化：
+
+```
+var Enemy = cc.Sprite.extend({
+    hp: 0,
+    fileName: "enemy.png"
+    ctor: function (hp) {
+        this._super(fileName);
+        this.hp = hp;
+    }
+});
+var enemy1 = new Enemy(100);
+```
+
+如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d（不包括extension）类都被重构以支持这种风格，而且JSB也同样完美支持。关于`new`对象构造和类的继承的详细文档将在近期推出。
+
+
+##8. GUI控件
+
+* **8.1** Cocostudio扩展包中的GUI控件已经被移出单独作为独立的扩展包：ccui，所以所有这些控件类的命名空间都从`ccs.`变为`ccui.`。这样做的原因在于这些UI控件不仅可以被Cocostudio使用，也可以被不使用Cocostudio的开发者单独使用。下面是所有被重命名的类：
 
     ```
     ccs.Layout                  --> ccui.Layout
@@ -227,9 +272,9 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
     ccs.UILayer                 --> deleted
     ```
 
-* **7.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
+* **8.2** 除此之外，3.0版还提供了一个新的富文本控件`ccui.RichText`.
 
-* **7.3** `ccs.UILayer` 已经从v3.0a中删除，Widget对象要加到场景中，直接通过addChild加到Node节点中就可以了。示例如下：
+* **8.3** `ccs.UILayer` 已经从v3.0a中删除，Widget对象要加到场景中，直接通过addChild加到Node节点中就可以了。示例如下：
 
 	```
 	// v2.2.2用法:  widget必须要通过UILayer的addWidget方法加入到UILayer之后,再将UILayer加入场景才行
@@ -244,7 +289,7 @@ ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 	node .addChild(aWidget);	
 	``` 
 
-##8. NodeGrid
+##9. NodeGrid
 
 3.0版提供了一个新的节点`cc.NodeGrid`，这个节点可以包含一个目标节点并允许在这个目标节点上应用ActionGrid类型的动作。在2.2.2版中cc.Node可以直接应用这种动作，但是这个行为会在未来版本中被移除，因为我们希望cc.Node的逻辑可以更纯粹。下面是2.2.2版与3.0版中的ActionGrid动作使用示例比较：
 
@@ -265,11 +310,92 @@ nodeGrid.runAction( shaky );
 注意：在Cocos2d-html5 3.0a版中，第一种方式仍然有效，但是如果你希望你的游戏可以运行在JSB中，那么必须使用第二种方式。另外，在3.0正式版中，第一种方式也将被移除。
 
 
-##9. 其他API变动
+##10. JSB相关
 
-* **9.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
+虽然我们尽力使Cocos2d-html5和Cocos2d-JSB的API趋于一致，但是我们发现Web应用开发者和JSB原生开发者需求还是有一定的区别，有一些需求也很难在两个不同平台上完全融合起来，所以我们提供下面这些仅在JSB项目中支持的API，如果你需要使用它们，请首先进行平台检查。
 
-* **9.2** 一些`cc.AudioEngine`的API被删除：
+```
+if (cc.sys.isNative) {
+    cc.fileUtils.isFileExist("filename");
+}
+```
+
+* **10.1** C++宏定义
+
+    在JSB项目中，有一些宏定义只可能在C++代码中修改，这些宏定义如下，它们都可以在ccMacros.h或ccConfig.h中找到：
+    
+    ```
+    CC_ENABLE_STACKABLE_ACTIONS
+    CC_ENABLE_GL_STATE_CACHE
+    CC_FIX_ARTIFACTS_BY_STRECHING_TEXEL
+    CC_DIRECTOR_STATS_INTERVAL
+    CC_DIRECTOR_STATS_POSITION
+    CC_DIRECTOR_FPS_POSITION
+    CC_DIRECTOR_DISPATCH_FAST_EVENTS
+    CC_DIRECTOR_MAC_USE_DISPLAY_LINK_THREAD
+    CC_NODE_RENDER_SUBPIXEL
+    CC_SPRITEBATCHNODE_RENDER_SUBPIXEL
+    CC_TEXTURE_ATLAS_USE_VAO
+    CC_USE_LA88_LABELS
+    CC_SPRITE_DEBUG_DRAW
+    CC_SPRITEBATCHNODE_DEBUG_DRAW
+    CC_LABELBMFONT_DEBUG_DRAW
+    CC_LABELATLAS_DEBUG_DRAW
+    CC_NODE_DEBUG_VERIFY_EVENT_LISTENERS
+    CC_ENABLE_PROFILERS
+    CC_LUA_ENGINE_DEBUG
+    CC_USE_PHYSICS
+    CC_ENABLE_SCRIPT_BINDING
+    ```
+    
+* **10.2** **[Alpha 2新添加]** cc.fileUtils
+
+    在Cocos2d-html5中，cc.FileUtils已经被cc.loader取代了，但是在JSB项目中，有一些需求cc.loader无法满足，所以我们决定将cc.FileUtils作为仅JSB支持的API开放出来。并且为了符合新的单例对象API风格，开发者可以直接通过`cc.fileUtils`来获取cc.FileUtils单例对象。下面是详细API列表：
+    
+    ```
+    cc.fileUtils
+    cc.fileUtils.fullPathForFilename(filename)
+    cc.fileUtils.loadFilenameLookup(filename)
+    cc.fileUtils.getStringFromFile(filename)
+    cc.fileUtils.isAbsolutePath(path)
+    cc.fileUtils.isPopupNotify()
+    cc.fileUtils.getValueVectorFromFile(filename)
+    cc.fileUtils.writeToFile(object, filename)
+    cc.fileUtils.getValueMapFromFile(filename)
+    cc.fileUtils.isFileExist(filename)
+    cc.fileUtils.purgeCachedEntries()
+    cc.fileUtils.fullPathFromRelativeFile(filename, relativeFile)
+    cc.fileUtils.getWritablePath()
+    ```
+    
+    所有关于搜索路径的函数都被去除了，因为它们会导致在Cocos2d-html5和Cocos2d-JSB中路径的不一致，而最终使得游戏代码很难维护。
+
+* **10.3** cc.AssetsManager
+
+    cc.AssetsManager是用于管理和使用远程服务器资源的类，它也支持简单的版本控制和更新。下面是它的API列表：
+    
+    ```
+    var assetsMgr = cc.AssetsManager.create(packageUrl, versionFileUrl, storagePath, errorCallback, progressCallback, successCallback);
+    assetsMgr.setStoragePath(storagePath)
+    assetsMgr.setPackageUrl(packageUrl)
+    assetsMgr.checkUpdate()
+    assetsMgr.getStoragePath()
+    assetsMgr.update()
+    assetsMgr.setConnectionTimeout(timeout)
+    assetsMgr.setVersionFileUrl(versionFileUrl)
+    assetsMgr.getPackageUrl()
+    assetsMgr.getConnectionTimeout()
+    assetsMgr.getVersion()
+    assetsMgr.getVersionFileUrl()
+    assetsMgr.deleteVersion()
+    ```
+
+
+##11. 其他API变动
+
+* **11.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
+
+* **11.2** 一些`cc.AudioEngine`的API被删除：
 
     ```
     preloadMusic
@@ -278,7 +404,7 @@ nodeGrid.runAction( shaky );
     preloadSound
     ```
 
-* **9.3** cc.SAXParser
+* **11.3** cc.SAXParser
 
 	一些`cc.SAXParser`的API被删除：
 
@@ -293,18 +419,34 @@ nodeGrid.runAction( shaky );
 
 	同时添加`cc.PlistParser`用于解析plist文件：[cc.SAXParser文档](../../../v3.0/cc-saxparser/zh.md)
 
-* **9.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
+* **11.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
 
-* **9.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
+    ```
+    addImage(url)                           --> addImage(url)
+    addImageAsync(url, target, callback)    --> addImage(url, callback, target)
+    ```
+    
+    **[Alpha 2新添加]** 新的`addImage`使用方式也被JSB支持了。
+
+* **11.5** `MenuItemFont`的两个方法被重命名以适应统一的API风格：
 
     ```
     fontName    --> getFontName
     fontSize    --> getFontSize
     ```
 
-* **9.6** 3.0版已经支持所有苹果设备的视网膜屏分辨率，你可以使用`cc.view.enableRetina(enableOrNot)`来开启或关闭这项功能，你也可以使用`cc.view.isRetinaEnabled()`来检测当前视网膜屏适配是否已经开启。最后，你可以通过`cc.view.getDevicePixelRat io()`来获取视网膜屏的像素缩放比例，在目前的苹果设备上，该比例返回值为2。默认情况下，视网膜屏适配在苹果设备上自动开启，如果希望改变这一行为，在关闭这项功能之后，你将需要调用一次`cc.view.setDesignResolutionSize(width, height, policy)`来让改变生效。
+* **11.6** cc.view
 
-* **9.7** 其他被删除的API
+    3.0版已经支持所有苹果设备的视网膜屏分辨率，你可以使用`cc.view.enableRetina(enableOrNot)`来开启或关闭这项功能，你也可以使用`cc.view.isRetinaEnabled()`来检测当前视网膜屏适配是否已经开启。最后，你可以通过`cc.view.getDevicePixelRat io()`来获取视网膜屏的像素缩放比例，在目前的苹果设备上，该比例返回值为2。默认情况下，视网膜屏适配在苹果设备上自动开启，如果希望改变这一行为，在关闭这项功能之后，你将需要调用一次`cc.view.setDesignResolutionSize(width, height, policy)`来让改变生效。
+    
+    **[Alpha 2新添加]** cc.view会在移动浏览器上自动尝试进入全屏。现在我们为这项功能添加了开关函数，默认情况下这项功能仍然是开启的。
+    
+    ```
+    cc.view.enableAutoFullScreen(enabled); // enabled参数值可以是true或false
+    cc.view.isAutoFullScreenEnabled(); // 该函数返回当前值
+    ```
+
+* **11.7** 其他被删除的API
 
     ```
     cc.IS_SHOW_DEBUG_ON_PAGE
@@ -330,7 +472,7 @@ nodeGrid.runAction( shaky );
     ccs.UILayer
     ```
 
-* **9.8** 其他添加的API：
+* **11.8** 其他添加的API：
 
     ```
     cc.warn
@@ -339,7 +481,7 @@ nodeGrid.runAction( shaky );
     cc.BuilderReader.registerController
     ```
 
-* **9.9** 其他修改的API：
+* **11.9** 其他修改的API：
 
     ```
     cc.Assert                       --> cc.assert
@@ -354,7 +496,37 @@ nodeGrid.runAction( shaky );
     cc.ArrayAppendObjectToIndex(arr, addObj, index) --> arr.splice(index, 0, addObj)
     cc.ArrayGetIndexOfObject(arr, findObj)          --> arr.indexOf(findObj)
     cc.ArrayContainsObject(arr, findObj)            --> arr.indexOf(findObj) != -1
+    
+    // 修改大写函数为小写函数以符合命名规范
+    cc.PRIORITY_SYSTEM              --> cc.Scheduler.PRIORITY_SYSTEM
+    cc.SWAP                         --> cc.swap // [Alpha 2新添加]
+    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 // [Alpha 2新添加]
+    cc.RANDOM_0_1                   --> cc.random0To1 // [Alpha 2新添加]
+    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians // [Alpha 2新添加]
+    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress // [Alpha 2新添加]
+    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup // [Alpha 2新添加]
+    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates // [Alpha 2新添加]
+    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates // [Alpha 2新添加]
+    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws // [Alpha 2新添加]
+    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor // [Alpha 2新添加]
+    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels // [Alpha 2新添加]
+    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels // [Alpha 2新添加]
+    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints // [Alpha 2新添加]
+    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut // [Alpha 2新添加]
+    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints // [Alpha 2新添加]
+    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut // [Alpha 2新添加]
+    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints // [Alpha 2新添加]
+    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels // [Alpha 2新添加]
+    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug // [Alpha 2新添加]
 
+    cc.CardinalSplineAt	            --> cc.cardinalSplineAt **[Alpha 2新添加]**
+
+    // 常量
+    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM // [Alpha 2新添加]
+    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT // [Alpha 2新添加]
     cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888     --> cc.Texture2D.PIXEL_FORMAT_RGBA8888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB888       --> cc.Texture2D.PIXEL_FORMAT_RGB888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB565       --> cc.Texture2D.PIXEL_FORMAT_RGB565
@@ -370,10 +542,9 @@ nodeGrid.runAction( shaky );
     cc.Texture2D.getDefaultAlphaPixelFormat()       --> cc.Texture2D.defaultPixelFormat
     cc.Texture2D.defaultAlphaPixelFormat()          --> cc.Texture2D.defaultPixelFormat
 
-    cc.PRIORITY_SYSTEM      --> cc.Scheduler.PRIORITY_SYSTEM
     cc.dumpConfig           --> cc.sys.dump
 
-    //public to private
+    // 公有转为私有
     cc.setup                    --> cc._setup
     cc.initDebugSetting         --> cc._initDebugSetting
     cc.canvas                   --> cc._canvas
@@ -391,13 +562,39 @@ nodeGrid.runAction( shaky );
 
     ccs.CocoStudioVersion       --> ccs.cocostudioVersion
     
-    // Typo correction
+    // 修正拼写错误
     ccs.DecotativeDisplay       --> ccs.DecorativeDisplay
+    ```
+    
+* **11.10** **[Alpha 2新添加]** Alpha 2中其他API改动
+
+    - cc.Node中重命名的函数 :
+    
+    ```
+    pauseSchedulerAndActions    --> pause
+    resumeSchedulerAndActions   --> resume
+    ```
+    
+    - cc.CallFunc的`initWithTarget`函数被重命名为`initWithFunction`
+    
+    - cc.MoveBy的`create`函数现在支持`x`和`y`分开作为位置参数
+    
+    ```
+    cc.MoveBy.create(duration, x, y);
+    cc.MoveBy.create(duration, cc.p(x, y));
+    ```
+    
+    - ccs.comAttribute中重命名的函数 :
+    
+    ```
+    getCString  --> getString
+    setCString  --> setString
     ```
 
 其他详细文档列表：
 
-* [cc.log](../../../v3.0/cc-log/en.md)
-* [cc.spriteFrameCache](../../../v3.0/cc-spriteframecache/en.md)
-* [cc.FileUtils](../../../v3.0/cc-fileutils/en.md)
-* [more](../../../v3.0/more-change-from-v2-to-v3/en.md)
+* [cc.log](../../../v3.0/cc-log/zh.md)
+* [cc.spriteFrameCache](../../../v3.0/cc-spriteframecache/zh.md)
+* [cc.FileUtils](../../../v3.0/cc-fileutils/zh.md)
+* [如何在JSB项目中使用extension](../../../jsb/jsb-extension/zh.md)
+* [more](../../../v3.0/more-change-from-v2-to-v3/zh.md)
