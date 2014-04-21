@@ -1,6 +1,12 @@
 # Cocos2d-JS v3.0 alpha
 
-`Cocos2d-JS` consists of `Cocos2d-html5` and `Cocos2d-x JSBinding`. It provides a tool that makes it much simpler and more convenient to develop Html5 and JSB application. For more informations please see [Cocos2d-JS github site](https://github.com/cocos2d/cocos2d-js)
+Cocos2d-JS is Cocos2d-x engine's javascript version which include Cocos2d-html5 and Cocos2d-x JSBinding. It support full Cocos2d-x features with a set of simplified javascript friendly APIs.
+
+Cocos2d-JS provides a consistent development experience for whichever platform you want to distribute to, both web and native. "Code once, run everywhere" is incredibly easy and natural in Cocos2d-JS. With one single javascript code base, you can run your game on both web browsers and native platform including Mac OS, Windows, iOS, Android. This will bring your game great opportunities in almost all canals of distribution.
+
+Furthermore, javascript friendly API makes your game development experience a breeze, easy to code, test and distribute. Cocos2d-JS also offers Cocos Console, a script tool, to simplify the creation of projects and let you start coding right away. You can use it to create a new project and publish it to android, iOS, Mac OS or web.
+
+For more informations please see [Cocos2d-JS github site](https://github.com/cocos2d/cocos2d-js)
 
 ## Download
 
