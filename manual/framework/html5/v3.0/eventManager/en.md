@@ -211,7 +211,7 @@ Mouse click event dispatching and touch event dispatching have been managed by c
     cc.eventManager.addListener({
 	    event: cc.EventListener.MOUSE,
 	    onMouseMove: function(event){
-		    var str = "MousePosition X: " + event.getCursorX() + "  Y:" + event.getCursorY();
+		    var str = "MousePosition X: " + event.getLocationX() + "  Y:" + event.getLocationY();
 		    // do something...
 	    },
 	    onMouseUp: function(event){
@@ -223,7 +223,7 @@ Mouse click event dispatching and touch event dispatching have been managed by c
 		    // do something...
 	    },
 	    onMouseScroll: function(event){
-		    var str = "Mouse Scroll detected, X: " + event.getCursorX() + "  Y:" + event.getCursorY();
+		    var str = "Mouse Scroll detected, X: " + event.getLocationX() + "  Y:" + event.getLocationY();
 		    // do something...
 	    }
     },this);

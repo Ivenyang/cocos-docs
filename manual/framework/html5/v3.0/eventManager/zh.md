@@ -191,7 +191,7 @@ _注意：_与 **SceneGraphPriority** 所不同的是 **FixedPriority** 将会�
     cc.eventManager.addListener({
 	    event: cc.EventListener.MOUSE,
 	    onMouseMove: function(event){
-		    var str = "MousePosition X: " + event.getCursorX() + "  Y:" + event.getCursorY();
+		    var str = "MousePosition X: " + event.getLocationX() + "  Y:" + event.getLocationY();
 		    // do something...
 	    },
 	    onMouseUp: function(event){
@@ -203,7 +203,7 @@ _注意：_与 **SceneGraphPriority** 所不同的是 **FixedPriority** 将会�
 		    // do something...
 	    },
 	    onMouseScroll: function(event){
-		    var str = "Mouse Scroll detected, X: " + event.getCursorX() + "  Y:" + event.getCursorY();
+		    var str = "Mouse Scroll detected, X: " + event.getLocationX() + "  Y:" + event.getLocationY();
 		    // do something...
 	    }
     },this);

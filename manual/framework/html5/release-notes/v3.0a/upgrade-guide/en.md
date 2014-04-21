@@ -1,4 +1,4 @@
-#Cocos2d-html5 upgrade guide from v2.2.x to v3.0a2
+#Upgrade guide from Cocos2d-html5 v2.2.x to Cocos2d-JS v3.0 alpha2
 
 
 ##1. Event Manager
@@ -500,35 +500,35 @@ if (cc.sys.isNative) {
     cc.ArrayContainsObject(arr, findObj)            --> arr.indexOf(findObj) != -1
     
     // Upper case functions have been renamed to lower case to fit the API style
-    cc.SWAP                         --> cc.swap **[New in alpha 2]**
-    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 **[New in alpha 2]**
-    cc.RANDOM_0_1                   --> cc.random0To1 **[New in alpha 2]**
-    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians **[New in alpha 2]**
-    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress **[New in alpha 2]**
-    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup **[New in alpha 2]**
-    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates **[New in alpha 2]**
-    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates **[New in alpha 2]**
-    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws **[New in alpha 2]**
-    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor **[New in alpha 2]**
-    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels **[New in alpha 2]**
-    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels **[New in alpha 2]**
-    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints **[New in alpha 2]**
-    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut **[New in alpha 2]**
-    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints **[New in alpha 2]**
-    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut **[New in alpha 2]**
-    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints **[New in alpha 2]**
-    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels **[New in alpha 2]**
-    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug **[New in alpha 2]**
+    cc.SWAP                         --> cc.swap // [New in alpha 2]
+    cc.RANDOM_MINUS1_1              --> cc.randomMinus1To1 // [New in alpha 2]
+    cc.RANDOM_0_1                   --> cc.random0To1 // [New in alpha 2]
+    cc.DEGREES_TO_RADIANS           --> cc.degreesToRadians // [New in alpha 2]
+    cc.RADIANS_TO_DEGREES           --> cc.radiansToDegress // [New in alpha 2]
+    cc.NODE_DRAW_SETUP              --> cc.nodeDrawSetup // [New in alpha 2]
+    cc.ENABLE_DEFAULT_GL_STATES     --> cc.enableDefaultGLStates // [New in alpha 2]
+    cc.DISABLE_DEFAULT_GL_STATES    --> cc.disableDefaultGLStates // [New in alpha 2]
+    cc.INCREMENT_GL_DRAWS           --> cc.incrementGLDraws // [New in alpha 2]
+    cc.CONTENT_SCALE_FACTOR         --> cc.contentScaleFactor // [New in alpha 2]
+    cc.POINT_POINTS_TO_PIXELS       --> cc.pointPointsToPixels // [New in alpha 2]
+    cc.SIZE_POINTS_TO_PIXELS        --> cc.sizePointsToPixels // [New in alpha 2]
+    cc.SIZE_PIXELS_TO_POINTS        --> cc.sizePixelsToPoints // [New in alpha 2]
+    cc._SIZE_PIXELS_TO_POINTS_OUT   --> cc._sizePixelsToPointsOut // [New in alpha 2]
+    cc.POINT_PIXELS_TO_POINTS       --> cc.pointPixelsToPoints // [New in alpha 2]
+    cc._POINT_PIXELS_TO_POINTS_OUT  --> cc._pointPixelsToPointsOut // [New in alpha 2]
+    cc.RECT_PIXELS_TO_POINTS        --> cc.rectPixelsToPoints // [New in alpha 2]
+    cc.RECT_POINTS_TO_PIXELS        --> cc.rectPointsToPixels // [New in alpha 2]
+    cc.CHECK_GL_ERROR_DEBUG         --> cc.checkGLErrorDebug // [New in alpha 2]
 
-    cc.CardinalSplineAt	            --> cc.cardinalSplineAt **[New in alpha 2]**
+    cc.CardinalSplineAt	            --> cc.cardinalSplineAt // [New in alpha 2]
 
     // Constants
     cc.PRIORITY_SYSTEM                      --> cc.Scheduler.PRIORITY_SYSTEM
-    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM **[New in alpha 2]**
-    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT **[New in alpha 2]**
+    cc.SPRITE_INDEX_NOT_INITIALIZED         --> cc.Sprite.INDEX_NOT_INITIALIZED // [New in alpha 2]
+    cc.DIRECTOR_PROJECTION_2D               --> cc.Director.PROJECTION_2D // [New in alpha 2]
+    cc.DIRECTOR_PROJECTION_3D               --> cc.Director.PROJECTION_3D // [New in alpha 2]
+    cc.DIRECTOR_PROJECTION_CUSTOM           --> cc.Director.PROJECTION_CUSTOM // [New in alpha 2]
+    cc.DIRECTOR_PROJECTION_DEFAULT          --> cc.Director.PROJECTION_DEFAULT // [New in alpha 2]
     cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888     --> cc.Texture2D.PIXEL_FORMAT_RGBA8888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB888       --> cc.Texture2D.PIXEL_FORMAT_RGB888
     cc.TEXTURE_2D_PIXEL_FORMAT_RGB565       --> cc.Texture2D.PIXEL_FORMAT_RGB565
