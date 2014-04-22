@@ -10,7 +10,7 @@
 先决条件
 ===
 ---
-如果你还没有安装好 Cocos Code IDE，请先参考[Code IDE 入门指南](../getting-started/zh)
+如果你还没有安装好 Cocos Code IDE，请先参考[Code IDE 入门指南](../getting-started/zh.md)
 
 IDE 配置
 ===
