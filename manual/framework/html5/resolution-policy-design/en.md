@@ -68,7 +68,7 @@ Exit full screen mode: `cc.Screen.getInstance().exitFullScreen();`
 
 ####4. The benefit
 
-The benefit in using resolution policy is obvious, you can ignore all varieties of browser and device size. And even more important, you don't need to scale everything in your game manually, everything is occupied by Cocos2d-html5. Imagine if you setup the designed resolution size to 320 * 480, you should always focus on this size in your game logic code. The right top corner of your game will always be (320, 480).
+The benefit in using resolution policy is obvious, you can ignore all varieties of browser and device size. And even more important, you don't need to scale everything in your game manually, everything is occupied by Cocos2d-html5. Imagine if you setup the designed resolution size to 320 * 480, you should always focus on this size in your game logic code. The right top corner of your game will always be (320, 480)(In FIXED_WIDTH mode,height may be resized.And in FIXED_HEIGHT mode, width may be resized.).
 
 ####5. API Changes
 
