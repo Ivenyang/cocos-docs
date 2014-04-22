@@ -88,7 +88,7 @@
 
 ### Cocos2d-html5
 
-- [Cocos2d-JS与Cocos2d-html5 v3.0a发布说明](../manual/framework/html5/release-notes/v3.0a/release-note/zh.md)
+- [Cocos2d-JS与Cocos2d-html5 v3.0a2发布说明](../manual/framework/html5/release-notes/v3.0a2/release-note/zh.md)
 - [Cocos2d-html5 v3.0a改动列表](../manual/framework/html5/release-notes/v3.0a/changelog/en.md)
 - [Cocos2d-html5 v3.0a2改动列表](../manual/framework/html5/release-notes/v3.0a2/changelog/en.md)
 - [从Cocos2d-html5 v2.2.2到v3.0a2的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
@@ -108,6 +108,7 @@
     - [属性风格API](../manual/framework/html5/v3.0/getter-setter-api/zh.md)
     - [使用cocos console创建工程](../manual/framework/html5/cocos-console/zh.md)
     - [简化的游戏启动流程](../manual/framework/html5/v3.0/cc-game/zh.md)
+    - [对象构造与类继承](../manual/framework/html5/v3.0/inheritance/zh.md)
     - [Cocos2d-html5模块化](../manual/framework/html5/v3.0/moduleconfig-json/zh.md)
     - [项目配置文件](../manual/framework/html5/v3.0/project-json/zh.md)
     - [基础数据类型重构](../manual/framework/html5/v3.0/basic-data/zh.md)
