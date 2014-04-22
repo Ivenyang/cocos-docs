@@ -251,6 +251,11 @@
 	- CocoStudio简介
 	- 准备开发环境
 	- 建立一个跑酷游戏
+	
+### Cocos Code IDE
+- [Cocos Code IDE入门指南](../manual/studio/cocos-code-ide/getting-started/zh.md)
+- [使用Code IDE调试Cocos2d-x Lua游戏](../manual/studio/cocos-code-ide/debug-lua/zh.md)
+- [使用Code IDE调试Cocos2d-x JavaScript游戏](../manual/studio/cocos-code-ide/debug-js/zh.md)
 
 ### 其他工具
 - [CocosBuilder](../manual/framework/native/tools-and-editors/zh.md)
