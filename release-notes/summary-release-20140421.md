@@ -1,6 +1,7 @@
 We are happy to announce the release of:
 
 - [Cocos2d-x v3.0](#cocos2d-x-v30)
+- [Cocos Code IDE](#Cocos Code IDE)
 
 # Cocos2d-x v3.0 #
 
@@ -28,6 +29,31 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](https://g
 
 
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.
+
+Thank you!
+
+# Cocos Code IDE #
+
+<img src="./cocos-code-ide-icon.png">
+
+## What Is It?
+If you are a Cocos2d-x Lua/JavaScript engineer, are you satisfied with:
+
+* Typing character by character.
+* Debuging by adding a lot of logs.
+* Checking the result by restarting game again and again.
+* ...
+
+No, certainly not!
+Now we are so happy to announce that Cocos Code IDE beta is released!
+
+Using this IDE, you can edit code with a **smart editor**, **debug lua and javascript**, **hot swapping** script files without restarting game, and so on.
+
+Hope it can help you.
+
+## More Information
+
+Read more at [wiki](http://cocos2d-x.org/wiki/Code_Editor).
 
 Thank you!
 
