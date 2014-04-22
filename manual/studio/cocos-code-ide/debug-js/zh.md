@@ -1,4 +1,4 @@
-使用Code IDE调试cocos2d-x lua游戏
+使用Code IDE调试Cocos2d-x JavaScript游戏
 ===
 ---
 支持的调试环境：
