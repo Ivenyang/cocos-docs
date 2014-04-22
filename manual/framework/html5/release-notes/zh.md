@@ -7,6 +7,8 @@
 - [Cocos2d-html5 v2.2.1发布说明](v2.2.1/release-note/zh.md)
 - [Cocos2d-html5 v2.2.2发布说明](v2.2.2/release-note/zh.md)
 - [Cocos2d-html5 v2.2.3发布说明](v2.2.3/change-log/en.md)
+- [Cocos2d-html5 v3.0a发布说明](v3.0a/release-note/zh.md)
+- [Cocos2d-html5 v3.0a2发布说明](v3.0a2/release-note/zh.md)
 
 #Cocos2d-html5 更新日志
 

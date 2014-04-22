@@ -26,6 +26,9 @@ Cocos2d-html5-v3.0 alpha2 @ April.14, 2014
 * [JSB]Add `tag` property to cc.Action.
 * [JSB]Add `boundingBox` function to ccs.Armature.
 * [JSB]Add `textureLoaded` function to cc.Sprite.
+* [JSB]Add `allLayers` function to cc.TMXTiledMap.
+* [JSB]Refactor `cc.EventMouse`'s `getCursorX`, `getCursorY`, `setCursorPosition` to `getLocationX`, `getLocationY`, `setLocation`, and add `getLocation` function.
+* [JSB]Add `getLocationX`, `getLocationY` to `cc.Touch`.
 
 * Bugs fix:
     1. Fixed ccs.comAttribute API incompatible issue
@@ -52,7 +55,7 @@ Cocos2d-html5-v3.0 alpha2 @ April.14, 2014
 		
 * Known Issues:
     1. [JSB]Property's getter/setter functions can not be overrided automatically in custom subclasses.
-    2. [JSB]CocoStudio's scene reloading can cause memory release issues and crash.
+    2. [JSB]CocoStudio's scene reloading may cause memory release issues and crash.
     3. [JSB]OpenGL test is not functionnable in JSB.
     4. EventListener is not extendable.
     5. [JSB]PhysicsSprite is not updating with physics node.
