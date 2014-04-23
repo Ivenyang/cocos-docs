@@ -15,11 +15,11 @@ For more informations please see [Cocos2d-JS github site](https://github.com/coc
 
 ## Highlights
 
-* Provided a python tool which make the development of Html5 and JSB application much simpler and more convenient, [Cocos Console document](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
+* Provided a console tool which make the development of HTML5 and JSB application much simpler and more convenient, [Cocos Console document](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
 * Incredibly simplified game creation process via cc.game which replaced old cc.Application, [cc.game document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
 * Cocos2d-html5 engine core was separated into modules and can be configured via `project.json`, see [project.json guide](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/en) and [module config doc](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/en).
 * Refactored some properties of all rendering classes with getter setter for providing a new set of Javascript user friendly APIs, and provided `attr` function for cc.Node to modify multiple properties, [property APIs document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
-* Added new event manager to cocos2d-html5, all events are dispatched via cc.eventManager with several types of event listener including custom event listener, [event manager document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
+* Added new event manager to Cocos2d-JS, all events are dispatched via cc.eventManager with several types of event listener including custom event listener, [event manager document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
 * A new all-type extendable loader was added for resource loading process, [cc.loader document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-loader/en).
 * Refactored foundational data structures for better maintainability, [basic datas document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/basic-data/en).
 
