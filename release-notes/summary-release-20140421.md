@@ -79,6 +79,10 @@ Read more about all the new features at [Cocos2d-JS v3.0 alpha2 changelog](http:
 * Added a browser white list that support multiple audio playback in parallel.
 * Removed in/hasOwnProperty usage in engine for better performance.
 
+### More information ###
+
+Read more about all the new features at [Cocos2d-html5 v2.2.3 changelog](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v2.2.3/changelog/en) and [Cocos2d-html5 v2.2.3 upgrade guide](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v2.2.3/upgrade-guide/en)
+
 
 # Cocos Code IDE #
 
