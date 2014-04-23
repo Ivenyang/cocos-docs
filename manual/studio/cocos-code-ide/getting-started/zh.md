@@ -5,9 +5,9 @@ Cocos Code IDE入门指南
 
 {{toc}}
 
-Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x Lua & JavaScript 开发人员准备，通过此工具，你可以方便的创建游戏工程、编写并且调试代码、实时查看代码被改变后的效果，最终直接发布成一个可上架的安装包。当前发布的是第一个 alpha 版本，我们有信心将它打造成众多X-man的开发神器。
+Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x Lua & JavaScript 开发人员准备，通过此工具，你可以方便的创建游戏工程、编写并且调试代码、实时查看代码被改变后的效果，最终直接发布成一个可上架的安装包。当前发布的是 beta 版本，我们有信心将它打造成众多X-man的开发神器。
 
-**已实现的功能（1.0-beta）：**
+**已实现的功能（1.0.0-beta）：**
 
 * 简单地创建 Cocos2d-x Lua & JavaScript 工程
 * 提供 Cocos2d-x Lua & JavaScript 代码提示
@@ -16,7 +16,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 * 保存代码后不需要重启游戏就可以看到改动后的效果
 * 打包并发布apk
 
-**暂未实现的功能（1.0-beta）：**
+**暂未实现的功能（1.0.0-beta）：**
 
 * 将工程打包成 ipa
 * 与现有的编辑器（如CocoStudio等）集成
@@ -44,7 +44,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 
 	**Note : **
 	
-	**1、Cocos Code IDE(1.0-beta)是基于Cocos2d-x 3.0 stable/Cocos2d-js alpha2 的引擎版本做的开发，其他版本的引擎在该版本的IDE上将无法工作，所以为了使用IDE请下载相应的版本的引擎。**
+	**1、Cocos Code IDE(1.0.0-beta)是基于Cocos2d-x 3.0 stable/Cocos2d-js alpha2 的引擎版本做的开发，其他版本的引擎在该版本的IDE上将无法工作，所以为了使用IDE请下载相应的版本的引擎。**
 	
 	**2、引擎和所创建的工程所在的路径都不能包含非英文字符，即路径中不能包含中文。**
 	
@@ -80,7 +80,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 [Python link]: http://www.python.org/download
 [cocos2d-x global link]: http://cdn.cocos2d-x.org/cocos2d-x-3.0.zip
 [cocos2d-x Chinese link]: http://cocos2d-x.org/filedown/cocos2d-x-3.0-zip-cncdn
-[cocos2d-js global link]: http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-alpha2.zip
+[cocos2d-js global link]: http://cdn.cocos2d-x.org/cocos2d-js-v3.0-alpha2.zip
 [cocos2d-js Chinese link]: http://cocos2d-x.org/filedown/cocos2d-js-v3.0-alpha2-zip-cncdn
 [mac ide global link]: http://cdn.cocos2d-x.org/cocos-code-ide-mac64-1.0.0-beta.zip
 [mac ide Chinese link]: http://cocos2d-x.org/filedown/cocos-code-ide-mac64-1.0.0-beta-zip-cncdn
