@@ -63,7 +63,7 @@ Read more about all the new features at [Cocos2d-JS v3.0 alpha2 changelog](http:
 
 ## Download
 
-- [Cocos2d-html5-v2.2.3.zip](http://cdn.cocos2d-x.org/Cocos2d-html5-v2.2.3.zip)
+- [cocos2d-html5-v2.2.3.zip](http://cdn.cocos2d-x.org/cocos2d-html5-v2.2.3.zip)
 - [Downloadable API reference](http://cdn.cocos2d-x.org/Cocos2d-html5_v2.2.3_API_Doc.zip)
 
 ## Highlights
