@@ -15,7 +15,7 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
 
 ## 核心特性
 
-* 提供基于python的cocos console来统一并极大简化Html5与JSB各平台的开发流程，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/zh)。
+* 提供基于python的cocos console来统一并极大简化HTML5与JSB各平台的开发流程，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/zh)。
 * 实现了简单得难以置信得游戏创建与设置代码，为此我们用cc.game取代了cc.Application，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/zh)。
 * Cocos2d-html5引擎核心被分拆为不同模块并提供模块化定制功能，参见[project.json项目配置向导](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/project-json/zh)与[引擎具体模块定义](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/moduleconfig-json/zh)。
 * 使用getter/setter重构所有游戏节点类，提供了对Javascript开发者非常友好得属性风格API和`attr`批量设置函数，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/zh)。
