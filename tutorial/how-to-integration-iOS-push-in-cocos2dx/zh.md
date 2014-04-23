@@ -5,7 +5,7 @@
 使用推送消息，可提醒用户，召回玩家。延长游戏的寿命和收益！下面我们就一起来学习，cocos2d-x iOS集成push。
 
 收到push消息：
-![img](res/Push1.png)![img](res/Push2.png)
+![img](res/push1.png)![img](res/push2.png)
 
 本文主要内容：
 
@@ -319,7 +319,7 @@ void HelloWorld::removeNotificationListener()
 	2. 收到push消息  
 ![img](res/BPush5.png)  
 	3. 系统通知栏显示   
-![img](res/Push1.png)![img](res/Push2.png)
+![img](res/push1.png)![img](res/push2.png)
 
 ### 后记
 
