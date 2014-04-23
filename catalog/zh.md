@@ -88,10 +88,9 @@
 
 ### Cocos2d-html5
 
-- [Cocos2d-JS与Cocos2d-html5 v3.0a2发布说明](../manual/framework/html5/release-notes/v3.0a2/release-note/zh.md)
-- [Cocos2d-html5 v3.0a改动列表](../manual/framework/html5/release-notes/v3.0a/changelog/en.md)
-- [Cocos2d-html5 v3.0a2改动列表](../manual/framework/html5/release-notes/v3.0a2/changelog/en.md)
-- [从Cocos2d-html5 v2.2.2到v3.0a2的升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
+- [Cocos2d-JS v3.0a2发布说明](../manual/framework/html5/release-notes/v3.0a2/release-note/zh.md)
+- [Cocos2d-JS v3.0a2改动列表](../manual/framework/html5/release-notes/v3.0a2/changelog/en.md)
+- [Cocos2d-JS v3.0a2升级指南](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/zh.md)
 - 综述
 	- [关于Cocos2d-html5](../manual/framework/html5/about/zh.md)
 	- [供NPM使用的Cocos-utils](../manual/framework/html5/cocos-utils-for-npm/zh.md)
