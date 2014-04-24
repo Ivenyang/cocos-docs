@@ -69,7 +69,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 如何使用
 ----------
 
-+ [使用Code IDE调试Cocos2d-x Lua游戏](../debug-Lua/zh.md)
++ [使用Code IDE调试Cocos2d-x Lua游戏](../debug-lua/zh.md)
 + [使用Code IDE调试Cocos2d-x JavaScript游戏](../debug-js/zh.md)
 
 [JDK link]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
