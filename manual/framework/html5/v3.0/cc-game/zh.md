@@ -73,3 +73,13 @@ classReleaseMode : "classReleaseMode"
 ```
 
 要获取配置文件的值，可以这么使用：`cc.game.config[cc.game.CONFIG_KEY.showFPS]`。
+
+## EVENT\_HIDE和EVENT\_SHOW事件
+在cocos-js3.0中可以添加事件监听，在游戏进入后台（切换浏览器tab或者手机app进入后台）和返回游戏时做一些处理,这2个事件是可以重复注册的。例如：
+
+	cc.eventManager.addCustomListener(cc.game.EVENT_HIDE, function(){
+        //处理游戏进入后台的情况
+    });
+    cc.eventManager.addCustomListener(cc.game.EVENT_SHOW, function(){
+        //处理返回游戏的情况
+    });
