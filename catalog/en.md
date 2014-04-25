@@ -66,9 +66,10 @@
         - [Changelog of Cocos2d-JS v3.0a2](../manual/framework/html5/release-notes/v3.0a2/changelog/en.md)
         - [Upgrade guide to Cocos2d-JS v3.0a2](../manual/framework/html5/release-notes/v3.0a/upgrade-guide/en.md)
 		- Startup
+            - [About Cocos2d-html5](../manual/framework/html5/en.md)
 			- [Why use Cocos2d-html5 for Game Development](../manual/framework/html5/cocosh5-advantages/en.md)
 			- [Resolution Policy Design for Cocos2d-html5](../manual/framework/html5/resolution-policy-design/en.md)
-			- [Cocos utils based on node.js and NPM](../manual/framework/html5/cocos-utils/en.md)
+            - [History release notes](../manual/framework/html5/release-notes/en.md)
         - New features and API changes in version 3.0:
             - [New workflow with cocos console](../manual/framework/html5/cocos-console/en.md)
             - [New event manager](../manual/framework/html5/v3.0/eventManager/en.md)
@@ -91,7 +92,6 @@
             - [Other change from v2.2.2 to v3.0](../manual/framework/html5/v3.0/more-change-from-v2-to-v3/en.md)
             - Bake Node (In progress)
             - Simplified action APIs (In progress)
-            - The inheritance of engine classes (In progress)
 - Studio
 - Tutorials
 	- [Build a Game with CocoStudio](../tutorial/parkour-game-with-cocostudio/en.md)
