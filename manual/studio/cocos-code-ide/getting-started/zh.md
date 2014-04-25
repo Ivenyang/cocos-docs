@@ -27,6 +27,8 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 
 下载
 ----------
+**请下载与你安装的JDK对应的版本**
+
 | 平台        | 充分测试版本 | 主站下载（国内较慢）| 国内镜像（较快） |
 | ----------- |:--------------:| ----------------------:|-------------------------:|
 | Mac OS X      | 10.9 		| [Mac OS X 64][mac ide global link] |[Mac OS X 64][mac ide Chinese link] 
@@ -63,7 +65,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 	| 目标平台      | 工具 |
 	| ------------- |:----------------------------:|
 	| Mac OS X/iOS      | XCode 		|
-	| Windows       | VS2012 或更高版本     |
+	| Windows       | VS2012 |
 	| Android       | [Android SDK][Android SDK link], [NDK][NDK link], [ANT][ANT link] |
 
 如何使用
