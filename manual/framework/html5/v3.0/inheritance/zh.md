@@ -1,106 +1,112 @@
-# How Cocos2d-js create a Sprite object#
+#Cocos2d-js v3.0的对象构造和类继承#
 
-In cocos2d-js we have two ways to create a Sprite object: Unified create function and constructor.
-They are supported both in html5 and jsb, but the implementations of them are quiet different.
-## 1. Unified create function ##
+在Cocos2d-JS中，对象的构造方式和Cocos2d-x一样，使用各个类的`create`函数来构造。在Cocos2d-JS v3.0我们还将为你带来一种传统的方式，即使用`new`操作符。另外，在v3.0 alpha1版本中，因为我们还没有找到较好的解决办法，所以不能继承JSB中的引擎类。但是在v3.0 alpha2中，这个问题已经解决了。由于使用`new`操作符，编写继承代码也更加容易了。
 
-In Cocos2d-html5 2.x, we need to use different create functions to create a sprite, such as:
+在这篇文档中，我们将会介绍如何使用它们，以及简要的实现原理。
+##在Cocos2d-js如何构造一个对象##
+
+我们以使用最多的Sprite类作为例子。
+
+开发者有两种方式构造一个Sprite对象：统一的`create`函数和`new`操作符调用构造函数，它们接受相同的参数。在html5和jsb中都支持这2种方式，但是他们的实现原理大不相同。
+
+###1.1 统一的create函数###
+
+
+在Cocos2-html5 2.x中，我们需要使用不同的create函数来构造精灵，例如：
 
 	var sprite = cc.Sprite.create(filename, rect);
 	var sprite = cc.Sprite.createWithTexture(texture, rect);
 	var sprite = cc.Sprite.createWithSpriteFrameName(spriteFrameName);
-But in Cocos2d-js 3.0, we only need a unified create function:
-	
+
+这确实很痛苦，但是在Cocos2d-js 3.0 alpha中，我们只需要一个统一的create函数：
+
 	var sprite = cc.Sprite.create(filename, rect);
 	var sprite = cc.Sprite.create(texture, rect);
 	var sprite = cc.Sprite.create(spriteFrameName);
 
+为了使它在JSB中同样有效，我们在js层为cc.Sprite.create做了一些包装，所以如果我们使用cc.Sprite.create，将会根据参数的数量和类型调用对应的C++层的create函数。
 
+| Javascript | JSB | cocos2d-x |
+| ---------- |-----|-----------|              
+| cc.Sprite._create | js_cocos2dx_Sprite_create | cocos2d::Sprite::create |
+| cc.Sprite.createWithSpriteFrame | js_cocos2dx_Sprite_createWithSpriteFrameName | cocos2d::Sprite::createWithSpriteFrameName |
+| cc.Sprite.createWithTexture | js_cocos2dx_Sprite_createWithTexture | cocos2d::Sprite::createWithTexture |
 
-In jsb\_create\_apis.js we make some js wrapper for cc.Sprite.create, so if we use cc.Sprite.create function we will call someone of cc.Sprite._create and cc.Sprite.createWithXXX according to the length and type of arguments, and they are C++ functions' bindings:
-
-| Javascript       				| JSB                         | cocos2d-x                         |
-| ---------------------------- |------------------------------|----------------------------------|              
-| cc.Sprite._create		       | js_cocos2dx_Sprite_create    | cocos2d::Sprite::create              |
-| cc.Sprite.createWithSpriteFrame | js_cocos2dx_Sprite_createWithSpriteFrameName          | cocos2d::Sprite::createWithSpriteFrameName |
-| cc.Sprite.createWithTexture    | js_cocos2dx_Sprite_createWithTexture    | cocos2d::Sprite::createWithTexture           |
-
-So if we use:
+如果我们这样使用：
     
     var sprite = cc.Sprite.create(texture,cc.rect(0,0,480,320));
 
-we actually call:
+事实上我们调用的c++代码是:
 
 	cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0, arg1);
+
+这个过程的顺序图如下:
 
 ![](res/1.PNG)
 
 
-## 2.constructor ##
-Another improvement is that we can use new operator to call class' constructor now. For example, we can use constructor to make a Sprite object by:
+###2.构造函数###
+
+另一个重要的改进是我们现在可以直接使用`new`操作符来调用类的构造函数了。例如，我们可以这样来构造一个Sprite对象：
 
 	var sprite = new cc.Sprite(filename, rect);
 	var sprite = new cc.Sprite(texture, rect);
 	var sprite = new cc.Sprite(spriteFrameName);
 
+在html5引擎中，我们重构了所有引擎类的`ctor`函数，使它们可以接受和create函数相同的参数。
 
-In this way we actually call js\_cocos2dx\_Sprite\_constructor in C++ code. In this C++ function we allocate memory for this sprite and add it to autorelease pool, and then execute _ctor function in javascript for initialization. In _ctor function we will call someone of initWithXXX, and they are also C++ functions' bindings:
+在JSB中如果使用new操作符来调用cc.Sprite的构造函数，我们实际上在C++层会调用js\_cocos2dx\_Sprite\_constructor函数。在这个C++函数中，会为这个精灵对象分配内存，并把它添加到自动回收池，然后调用js层的`_ctor`函数来完成初始化。在`_ctor`函数中会根据参数类型和数量调用不同的init函数，这些init函数也是C++函数的绑定：
 
-| Javascript       				| JSB                         | cocos2d-x                         |
-| ---------------------------- |------------------------------|----------------------------------|              
-| cc.Sprite.initWithSpriteFrameName	       | js_cocos2dx_Sprite_initWithSpriteFrameName    | cocos2d::Sprite::initWithSpriteFrameName              |
-| cc.Sprite.initWithSpriteFrame | js_cocos2dx_Sprite_initWithSpriteFrame          | cocos2d::Sprite::initWithSpriteFrame |
-| cc.Sprite.initWithFile    | js_cocos2dx_Sprite_initWithFile    | cocos2d::Sprite::initWithFile           |
-| cc.Sprite.initWithTexture    | js_cocos2dx_Sprite_initWithTexture    | cocos2d::Sprite::initWithTexture           |
+| Javascript | JSB | cocos2d-x |
+| ---------- |-----|-----------|              
+| cc.Sprite.initWithSpriteFrameName | js_cocos2dx_Sprite_initWithSpriteFrameName | cocos2d::Sprite::initWithSpriteFrameName |
+| cc.Sprite.initWithSpriteFrame | js_cocos2dx_Sprite_initWithSpriteFrame | cocos2d::Sprite::initWithSpriteFrame |
+| cc.Sprite.initWithFile | js_cocos2dx_Sprite_initWithFile | cocos2d::Sprite::initWithFile |
+| cc.Sprite.initWithTexture | js_cocos2dx_Sprite_initWithTexture | cocos2d::Sprite::initWithTexture |
 
+这个过程的顺序图如下:
 
 ![](res/2.PNG)
 
 
-#How to extend a class #
+##继承##
 
-In cocos2d-html5 2.x, we need to use different init functions in create when extending a class, such as:
+在Cocos2d-html5 2.x中，当我们继承一个类时，我们需要在`create`函数中使用不同的init函数，例如：
 
 	var MySprite = cc.Sprite.extend({
 		ctor:function(){
 			this._super();
-			//do something
+			// 自定义初始化
 		}
-		//add your properties and functions
+		// 添加自己的属性和方法
 	});
 	MySprite.create = function(filename,rect){
 		var sprite = new MySprite();
-		if (filename && typeof(filename) === "object") {
-			if (fileName instanceof cc.Texture2D) {
-				// Init  with texture and rect
-				sprite.initWithTexture(fileName, rect);
-			}
-			else{
-				//...
-			}
-		}else{
-			//.....
-		}
+		// 使用材质和矩形区域初始化
+		sprite.initWithTexture(fileName, rect);
 		return sprite;
-	}
-In cocos2d-js, we only need to override ctor function with correct arguments, and call _super function.
+	};
+    
+    // 创建你的精灵
+    var sprite = MySprite.create(texture,cc.rect(0,0,480,320));
+
+在Cocos2d-JS中，我们只需要编写带有正确参数的ctor函数，并调用_super函数就可以了。
 
 	var MySprite = cc.Sprite.extend({
 		ctor:function(filename,rect){
 			this._super(filename,rect);
-			//do something
+			// 自定义初始化
 		}
-		//add your properties and functions
+		// 添加自己的属性和方法
 	});
+    
+    // 创建你的精灵
+    var sprite = new MySprite(texture,cc.rect(0,0,480,320));
 
+在html5引擎中这很好理解，因为我们支持使用`new`操作符。
 
-In \_super funciton we will call Sprite's ctor function(js\_cocos2dx\_Sprite_ctor) and do some other things for construction. Thus you can create your "MySprite" object:
+但在JSB中这有点复杂，在`_super`函数中我们会调用Sprite的C++层ctor函数：`js_cocos2dx_Sprite_ctor`，这个函数不仅实例化精灵对象，也会调用`cc.Sprite.prototype._ctor`并传递参数。`_ctor`函数对精灵类真正的初始化函数做了封装，会根据传递的参数来调用不同的初始化函数，这样我们最终就完成了自定义ctor函数的执行。
 
-
-	var sprite = new MySprite(texture,cc.rect(0,0,480,320))
-
-
-In the C++ code, js\_cocos2dx\_Sprite\_constructor execute cc.Sprite.prototype_ctor. In _ctor function we will call initWithXXX functions according to filename and rect arguments.
+这个过程的顺序图如下：
 
 ![](res/3.PNG)
-
