@@ -62,7 +62,7 @@ In the following example, we will add three overlapping buttons to a scene. Each
     listener1->setSwallowTouches(true);
 
     // Example of using a lambda expression to implement onTouchBegan event callback function
-    listener1->onTouchBegan = [](Touch* touch, Event* event){
+    listener1->onTouchBegan = [](Touch* touch, Event* event)->bool{
         // event->getCurrentTarget() returns the *listener's* sceneGraphPriority node.
         auto target = static_cast<Sprite*>(event->getCurrentTarget());
 
