@@ -100,7 +100,7 @@ void HelloWorld::setPlayerPosition(Point position)
 
 　　对了，什么是GID呢？GID代表”全球唯一标志符“（我个人意见）。但是，在这个例子中，我认为它只是我们使用的tile的一种标识，它可以是我们想要移动的红色区域。
 
-　　当我们使用GID来查找指定tile的属性的时候。它返回一个属性字典，因此，我们可以遍历一下，看是否有”可碰撞的“物体被设置成”true“，或者是gij仅仅就是那样。编译并运行工程，因此还没有设置玩家的位置。
+　　当我们使用GID来查找指定tile的属性的时候。它返回一个属性字典，因此，我们可以遍历一下，看是否有”可碰撞的“物体被设置成”True“，或者是仅仅就是那样。编译并运行工程，因此还没有设置玩家的位置。
 
 　　就这么多！编译并运行程序，它将会向你展示，现在你不能够通过那些红色的tile组成的地方了吧：
 
@@ -253,7 +253,7 @@ using namespace CocosDenshion;
 SimpleAudioEngine::getInstance()->preloadEffect("pickup.mp3");
 SimpleAudioEngine::getInstance()->preloadEffect("hit.mp3");
 SimpleAudioEngine::getInstance()->preloadEffect("move.mp3");
-SimpleAudioEngine::getInstance()->playBackgroundMusic("TileMap.mp3");
+SimpleAudioEngine::getInstance()->playBackgroundMusic("TileMap.mp3", true);
 
 // In case for collidable tile
 SimpleAudioEngine::getInstance()->playEffect("hit.mp3");
@@ -270,7 +270,7 @@ SimpleAudioEngine::getInstance()->playEffect("move.mp3");
 
 ##何去何从？
 
-　　通过这个教程的学习，你对cocos2d里面的tiled　map的使用，应该有一个非常好的理解了。这里有这个教程的完整源代码。
+　　通过这个教程的学习，你对cocos2d里面的tiled map的使用，应该有一个非常好的理解了。这里有这个教程的完整源代码。
 
 　　接下来，是原作者的一个朋友写的，这个系列教程的终结版：[《如何使用cocos2dx3.0制作基于tilemap的游戏：第三部分·完》][2]————加入敌人和战斗。
 
