@@ -11,13 +11,13 @@
 搭建开发环境需要安装工具包括
 
 - Visual Studio    
-- phython  ———(本教程以phython2.7.3版本为例），下载地址：[http://www.python.org/download/releases/2.7.2/](http://www.python.org/download/releases/2.7.3/)。     
+- python  ———(本教程以python2.7.3版本为例），下载地址：[http://www.python.org/download/releases/2.7.2/](http://www.python.org/download/releases/2.7.3/)。     
 - cocos2d-x ———(本教程以cocos2d-x-2.2.2版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
     
 ## 安装配置过程
-Visual Studio 的安装过程略过，本教程主要讲解phython2.7.3和cocos2d-x-2.2.2的安装配置过程。
-### 安装配置phython2.7.3
-#### 1. 下载并安装phython2.7.3。         
+Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d-x-2.2.2的安装配置过程。
+### 安装配置python2.7.3
+#### 1. 下载并安装python2.7.3。         
 ![](./res/python1.png)
 #### 2. 配置环境
 
