@@ -105,7 +105,7 @@ In Cocos2d-JS, we only need to override ctor function with correct arguments, an
 
 It's very easy to understand this for html5 engine, because we supported `new` operator.
 
-But in JSB it's a little bit tricky, the `\_super` funciton we will call Sprite's ctor function in C++ level: `js\_cocos2dx\_Sprite_ctor`, and this function not only instantiate the Sprite object, but also invoked `cc.Sprite.prototype._ctor` and pass all parameters. This `_ctor` function is a js level wrapper for the real initialization of the Sprite object according to the parameters passed, and finally user's custom ctor process will be done.
+But in JSB it's a little bit tricky, the `_super` funciton we will call Sprite's ctor function in C++ level: `js_cocos2dx_Sprite_ctor`, and this function not only instantiate the Sprite object, but also invoked `cc.Sprite.prototype._ctor` and pass all parameters. This `_ctor` function is a js level wrapper for the real initialization of the Sprite object according to the parameters passed, and finally user's custom ctor process will be done.
 
 The sequence dialog of the process is showing below:
 

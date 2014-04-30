@@ -75,3 +75,13 @@ classReleaseMode : "classReleaseMode"
 ```
 
 Use ``cc.game.config[cc.game.CONFIG_KEY.***]` to get the config value of game.
+
+## EVENT\_HIDE & EVENT\_SHOW
+With cocos-js3.0 we can add event listeners for entering background or foreground,such as switching broswer's tab or pressing your home button on cellphone.And you can add two or more handlers to the same event. 
+
+	cc.eventManager.addCustomListener(cc.game.EVENT_HIDE, function(){
+        //onEnterBackground handler
+    });
+    cc.eventManager.addCustomListener(cc.game.EVENT_SHOW, function(){
+        //onEnterForeground handler
+    });

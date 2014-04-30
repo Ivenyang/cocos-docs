@@ -85,4 +85,4 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
     - [其他3.0版的API改动](./v3.0/more-change-from-v2-to-v3/zh.md)
     - Bake Node（进行中）
     - 简化action的使用（进行中）
-    - 引擎类的继承（进行中）
+    

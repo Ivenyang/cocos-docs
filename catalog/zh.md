@@ -124,7 +124,7 @@
     - [其他3.0版的API改动](../manual/framework/html5/v3.0/more-change-from-v2-to-v3/zh.md)
     - Bake Node（进行中）
     - 简化action的使用（进行中）
-    - 引擎类的继承（进行中）
+    
     
 ## 开发进阶和高级实例教程
 ### Cocos2d-x V2.x教程
