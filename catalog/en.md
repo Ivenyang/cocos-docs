@@ -109,4 +109,10 @@
 		- [Explorer with TiledMap and Camera](../tutorial/parkour-game-with-javascript/chapter7/en.md)
 		- [Add Coin and Obstacles](../tutorial/parkour-game-with-javascript/chapter8/en.md)
 		- [Add Game Over Logic And More](../tutorial/parkour-game-with-javascript/chapter9/en.md)
-        - [Add Audio Effect into Parkour Game](../tutorial/parkour-game-with-javascript/chapter10/en.md)
+        - [Add Audio Effect into Parkour Game](../tutorial/parkour-game-with-javascript/chapter10/en.md)        
+        
+- Cocos Code IDE
+    - Custom runtime
+        - [How to bind a custom class to lua runtime](../manual/studio/cocos-code-ide/binding-custom-class-to-lua/en.md)
+        - [How to bind a custom class to js runtime](../manual/studio/cocos-code-ide/binding-custom-class-to-js/en.md)
+        
