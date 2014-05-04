@@ -58,7 +58,7 @@ Such methods are used for the editor to retrieve the configurable attributes, so
 	
   1. The methods must be named with “CS_Set” or “CS_Get” as the prefix, case sensitive. 
   2.  The Set/Get methods must be in pairs, i.e. except the prefix, the remaining parts of the method names must be the same. The Set method now only supports single parameters, but it must be of the same type as the return value of the Get method. 
-  3. Now they support 3 basic types, i.e. string, figure and color. 
+  3. Now they support  string, figure , color and resource type.In the "Particle" demo ,there have one resource type to set particle resource. 
 
 The internal realization of CS_SetStringTest is shown as follows: 
 
@@ -72,6 +72,28 @@ To sum up, the editor packaging class shall be written in the following 2 steps:
   2. According to the pre-determined naming rules, package the self-defined attributes of the control to be disclosed. 
 
 
+###Writing parsing code for self-defined control attribute 
+
+Sample code of CustomImageViewReader:   
+     The self-defined class shall be inherited from cocos2d::CCOject. 
+     
+![image](./res/10.png)
+    
+ The method for static creation of the single object of CustomImageViewReader: 
+ 
+![image](./res/11.png)  
+
+The callback method of CustomImageViewReader parsing the self-defined attribute of CustomImageView: 
+
+![image](./res/12.png)
+
+  For the notes on Part 1 and 2, see CustomImageView.cpp and CustomImageViewReader.cpp in cocos2d-x TestCpp project.
+
+ After completing the above work，please regist the analytical functions。
+
+
+![image](./res/13.png)
+
 ###Writing Swig generation script 
 Double click to open Swig script, with the following contents: 
 
@@ -81,7 +103,7 @@ Designate as the self-defined control
 Import the default configuration and assist parsing  
 Define the name of the program set generated   
 
-![image](./res/10.png)
+![image](./res/14.png)
 
 Such Swig script file includes 5 parts:   
 Part 1 and 2 are default configurations, requiring no amendment. When adding the self-defined control, only Part 3, 4 and/or 5 shall be amended.   
@@ -95,7 +117,7 @@ After writing the Swig script, right click the file (SwigCustomImageView.i) in �
 
 If the execution is successful, 3 CS files shall be generated under the directory of CustomImageViewWarp project. Include the 3 files into CustomImageViewWarp project, 
 
-![image](./res/11.png)
+![image](./res/15.png)
 
 and SwigCustomImageView_wrap.cxx file will be generated under the directory of CustomImageView project. Include the file in CustomImageView project. In the Compile options of Swig script, set the output path. 
 
@@ -122,34 +144,18 @@ Pay attention to the following:
 
 After putting in the plugin, start the UI editor. If the plugin is successfully configured, the corresponding self-defined control will directly appear at the left side menu bar.
 
-![image](./res/12.png)
+![image](./res/16.png)
 
 When the mouse is placed on the last icon, the class name of the self-defined control will appear, then the control can be directly dragged to the canvas for use, similar to the use of other controls. Choose the control, and the configurable attributes disclosed before the display in the CSCustomImageView class shall appear in the attribute window at the right. Directly make the settings and editing, and save the project. 
 
 
-###Writing parsing code for self-defined control attribute 
-
-Sample code of CustomImageViewReader:   
-     The self-defined class shall be inherited from cocos2d::CCOject. 
-     
-![image](./res/13.png)
-    
- The method for static creation of the single object of CustomImageViewReader: 
- 
-![image](./res/14.png)  
-
-The callback method of CustomImageViewReader parsing the self-defined attribute of CustomImageView: 
-
-![image](./res/15.png)
-
-  For the notes on Part 1 and 2, see CustomImageView.cpp and CustomImageViewReader.cpp in cocos2d-x TestCpp project.
 
 
 ###Loading UI interface display in game
 
 Sample code CustomImageTest:
 
-![image](./res/16.png)
+![image](./res/17.png)
 
    Notes on registerTypeAndCallBack method:   
    Notes on parameters:   
