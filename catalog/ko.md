@@ -7,7 +7,7 @@
 - 프레임워크 
 	- 시작하기	 
 		- 개발 환경 세팅
-			- [윈도우7에서 Cocos2d-x 안드로이드 환경 세팅하기(v2.x)](../manual/framework/native/installation/android-on-win7/en.md)
+			- [윈도우7에서 Cocos2d-x 안드로이드 환경 세팅하기(v2.x)](../manual/framework/native/v2/installation/android-on-win7/en.md)
 			- Mac OS X에서 Cocos2d-x 개발 환경 세팅하기
 		- Cocos2d-x 개발에 앞서 알아둬야 할 것
 			- 레퍼런스 카운트와 Auto Release Pool
@@ -16,31 +16,31 @@
 		- Cocos2d의 좌표 시스템
 		- 스프라이트, 레이어 및 씬
 		- 파티클 시스템        
-			- [Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 차이점](../manual/framework/native/graphic/particle/v3/ko.md)
+			- [Cocos2d-x v2.x 와 v3.x 의 파티클 시스템 차이점](../manual/framework/native/v3/particle/ko.md)
 		- 화면 전환
 		- 책 넘기기 애니메이션
 		- 스켈레톤 애니메이션
 		- 타일맵
 		- 액션
 		- Effects
-		- [Renderer](../manual/framework/native/renderer/en.md) 
+		- [Renderer](../manual/framework/native/v3/new-renderer/en.md) 
 		- 다양한 해상도를 지원하는 방법
 	- 오디오
 	- GUI
-		- [GUI 시스템 개요](../manual/framework/native/gui/overview/en.md)
-        - [UI Containers](../manual/framework/native/gui/container/en.md)
-        - [UI Widgets](../manual/framework/native/gui/widget/en.md)
+		- [GUI 시스템 개요](../manual/framework/native/v2/gui/overview/en.md)
+        - [UI Containers](../manual/framework/native/v2/gui/container/en.md)
+        - [UI Widgets](../manual/framework/native/v2/gui/widget/en.md)
         - UI Layouts
-		- [Label](../manual/framework/native/gui/label/v3/en.md)
+		- [Label](../manual/framework/native/v3/label/en.md)
 	- 자료구조
 		- v3.0: 
-			- [Vector\<T\>](../manual/framework/native/data-structure/v3/vector/en.md)
-			- [Map\<K,V\>](../manual/framework/native/data-structure/v3/map/en.md) 
-			- [Value](../manual/framework/native/data-structure/v3/value/ko.md)
+			- [Vector\<T\>](../manual/framework/native/v3/data-structure/vector/en.md)
+			- [Map\<K,V\>](../manual/framework/native/v3/data-structure/map/en.md) 
+			- [Value](../manual/framework/native/v3/data-structure/value/ko.md)
 		- v2.x: CCArray, CCDictionary 및 CCString
-	- [물리](../manual/framework/native/physics/physics-integration/en.md)
+	- [물리](../manual/framework/native/v3/physics-integration/en.md)
 	- 네트워크
-	- [이벤트 시스템](../manual/framework/native/input/event-dispatcher/en.md)
+	- 이벤트 시스템
 	- Scheduler 와 Timer Callbacks
 	- 입력
 		- 터치 이벤트 핸들링
@@ -51,31 +51,31 @@
 	    - binding-generator 사용법
 		- 루아
 		- 자바스크립트
-		    - [자바스크립트 바인딩 후 원격 디버깅](../manual/framework/native/scripting/javascript/js-remote-debugger/en.md)
+		    - [자바스크립트 바인딩 후 원격 디버깅](../manual/framework/native/v3/js-remote-debugger/en.md)
 	- 디버깅
 		- CCLog
 		- CCConsole
 	- File Stream
 	- 3rd SDK와의 통합
 	- Cocos2d-html5
-		- [왜 Cocos2d-html5 로 게임을 만들어야 하는가](../manual/framework/html5/cocosh5-advantages/en.md)
-		- [Cocos2d-html5 2.2.2의 화면 해상도 지원 정책](../manual/framework/html5/resolution-policy-design/en.md)
+		- [왜 Cocos2d-html5 로 게임을 만들어야 하는가](../manual/framework/html5/v2/cocosh5-advantages/en.md)
+		- [Cocos2d-html5 2.2.2의 화면 해상도 지원 정책](../manual/framework/html5/v2/resolution-policy-design/en.md)
 - Studio
 - 튜토리얼
-	- [CocoStudio로 게임 만들기](../tutorial/parkour-game-with-cocostudio/ko.md)
-		- [CocoStudio란?](../tutorial/parkour-game-with-cocostudio/chapter1/ko.md)
-		- [시작하기](../tutorial/parkour-game-with-cocostudio/chapter2/ko.md)
-		- [달리기 게임을 만들어 보자](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
-		- [더 알아보기](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
+	- [CocoStudio로 게임 만들기](../tutorial/studio/parkour-game-with-cocostudio/ko.md)
+		- [CocoStudio란?](../tutorial/studio/parkour-game-with-cocostudio/chapter1/ko.md)
+		- [시작하기](../tutorial/studio/parkour-game-with-cocostudio/chapter2/ko.md)
+		- [달리기 게임을 만들어 보자](../tutorial/studio/parkour-game-with-cocostudio/chapter3/en.md)
+		- [더 알아보기](../tutorial/studio/parkour-game-with-cocostudio/chapter4/en.md)
 	- 자바스크립트로 달리기 게임 만들기
-		- [개발환경 세팅](../tutorial/parkour-game-with-javascript/chapter1/en.md)
-		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/chapter2/en.md)
-		- [첫 번째 게임 씬 만들기](../tutorial/parkour-game-with-javascript/chapter3/en.md)
-		- [메인 게임 씬을 디자인하고 만들기](../tutorial/parkour-game-with-javascript/chapter4/en.md)
-		- [게임 캐릭터에 애니메이션 적용하기](../tutorial/parkour-game-with-javascript/chapter5/en.md)
-		- [Chipmunk 물리 엔진 적용하기](../tutorial/parkour-game-with-javascript/chapter6/en.md)
-		- [타일맵과 카메라 시스템](../tutorial/parkour-game-with-javascript/chapter7/en.md)
-		- [동전과 장애물들을 추가해보자](../tutorial/parkour-game-with-javascript/chapter8/en.md)
-		- [게임오버 로직 및 기타등등](../tutorial/parkour-game-with-javascript/chapter9/en.md)
-        - [오디오 효과 추가하기](../tutorial/parkour-game-with-javascript/chapter10/en.md)
+		- [개발환경 세팅](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/en.md)
+		- [Hello World Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
+		- [첫 번째 게임 씬 만들기](../tutorial/framework/html5/parkour-game-with-javascript/chapter3/en.md)
+		- [메인 게임 씬을 디자인하고 만들기](../tutorial/framework/html5/parkour-game-with-javascript/chapter4/en.md)
+		- [게임 캐릭터에 애니메이션 적용하기](../tutorial/framework/html5/parkour-game-with-javascript/chapter5/en.md)
+		- [Chipmunk 물리 엔진 적용하기](../tutorial/framework/html5/parkour-game-with-javascript/chapter6/en.md)
+		- [타일맵과 카메라 시스템](../tutorial/framework/html5/parkour-game-with-javascript/chapter7/en.md)
+		- [동전과 장애물들을 추가해보자](../tutorial/framework/html5/parkour-game-with-javascript/chapter8/en.md)
+		- [게임오버 로직 및 기타등등](../tutorial/framework/html5/parkour-game-with-javascript/chapter9/en.md)
+        - [오디오 효과 추가하기](../tutorial/framework/html5/parkour-game-with-javascript/chapter10/en.md)
 		
