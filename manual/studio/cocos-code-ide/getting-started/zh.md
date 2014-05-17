@@ -39,7 +39,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 
 ### 基本需求
 
-+ 安装 [JDK][JDK link]并把<jdkhome>/bin 添加到的系统变量中。如果你使用的是 Mac OS X 10.9，你可能需要安装这个 [苹果修改版本][Apple modified Java package link]。
++ 安装 [JDK][JDK link]并把\<jdkhome>/bin 添加到的系统变量中。如果你使用的是 Mac OS X 10.9，你可能需要安装这个 [苹果修改版本][Apple modified Java package link]。
 + 安装 [Python][Python link], 最好是2.7版本，windows用户还需要手动的将 python 路径加入到系统环境变量中。
 + 开发 Cocos2d-x Lua binding 游戏请下载Cocos2d-x 3.0 stable ( [主站下载（国内较慢）][cocos2d-x global link] | [国内镜像（较快）][cocos2d-x Chinese link] )
 + 开发 Cocos2d-x JavaScript binding 游戏请下载 Cocos2d-js alpha2 ( [主站下载（国内较慢）][cocos2d-js global link] | [国内镜像（较快）][cocos2d-js Chinese link]）

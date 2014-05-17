@@ -40,6 +40,8 @@ public:
     ~CustomClass();
 
     bool init();
+    
+    std::string helloMsg();
 
     CREATE_FUNC(CustomClass);
 };
