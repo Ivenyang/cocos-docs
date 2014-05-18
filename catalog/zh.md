@@ -185,12 +185,15 @@
  	- [Cocos2d-x 精灵教程：第二部分](../tutorial/framework/native/sprite-tutorial/chapter2/zh.md)
  	- [Cocos2d-x 精灵教程：第三部分](../tutorial/framework/native/sprite-tutorial/chapter3/zh.md)
  	
-### Cocos2d-html5教程
+### Cocos2d-JS教程
 - 怎样用Cocos2d-html5制作一款横版动作游戏
  	- [怎样用Cocos2d-html5制作一款横版动作游戏 (1)](../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part1/zh.md)
  	- [怎样用Cocos2d-html5制作一款横版动作游戏 (2)](../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part2/zh.md)
  	- [怎样用Cocos2d-html5制作一款横版动作游戏 (3)](../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part3/zh.md)
-- 脚本篇：用Javascript来写一个跑酷游戏(v2.2)
+- 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-JS v3.0)
+	- [建立Cocos2d-JS开发环境](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/zh.md)
+	- [你好Cocos2d-JS](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
+- 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-html5 v2.2.2)
 	- [建立html5开发环境](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
 	- [你好Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
 	- [建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript/chapter3/en.md)
