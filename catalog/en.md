@@ -99,7 +99,10 @@
 		- [Getting Started](../tutorial/parkour-game-with-cocostudio/chapter2/en.md)
 		- [Let's Build a Parkour Game](../tutorial/parkour-game-with-cocostudio/chapter3/en.md)
 		- [Keep Going](../tutorial/parkour-game-with-cocostudio/chapter4/en.md)
-	- Pakour Game with Javascript
+	- Pakour Game with Javascript (Cocos2d-JS v3.0)
+		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/chapter1/en.md)
+		- [Hello World of Cocos2d-JS](../tutorial/parkour-game-with-javascript-v3.0/chapter2/en.md)
+	- Pakour Game with Javascript (Cocos2d-html5 v2.2.2)
 		- [Setup Development Environment](../tutorial/parkour-game-with-javascript/chapter1/en.md)
 		- [Hello World Cocos2d-html5](../tutorial/parkour-game-with-javascript/chapter2/en.md)
 		- [Make your First Game Scene](../tutorial/parkour-game-with-javascript/chapter3/en.md)
