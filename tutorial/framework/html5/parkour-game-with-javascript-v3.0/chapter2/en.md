@@ -1,4 +1,4 @@
-#Hello World Cocos2d-JS
+#Hello World of Cocos2d-JS
 In the tutorial, I will show you how to setup a new Cocos2d-JS project from scratch. Before that, I want to
 give you a brief description of Cocos2d-JS's directory structures.
 
@@ -219,12 +219,12 @@ modules | engine modules  | you could customize your engine by modules. Module n
 
 #### Modify the design resolution size
 
-Now Cocos2d-JS take web browser as a full screen game canvas. We don't need to manually adjust the canvas size any more. We just need to care about the design resolution size. In order to let our game to run seamlessly on iOS and Android with javascript binding technics. We should change the design resolution size to 480*320. Open you main.js and in function **cc.game.onStart** change Resolution Size to cc.Size(480,320).
+Now Cocos2d-JS take web browser as a full screen game canvas. We don't need to manually adjust the canvas size any more. We just need to care about the design resolution size. In order to let our game to run seamlessly on iOS and Android with javascript binding technics. We should change the design resolution size to 480*320. Open you main.js and in function **cc.game.onStart** change Resolution Size to 480, 320.
 
 And you also should make resolution policy to **SHOW_ALL**:
 
 ```
-    cc.view.setDesignResolutionSize(800, 450, cc.ResolutionPolicy.SHOW_ALL);
+    cc.view.setDesignResolutionSize(480, 320, cc.ResolutionPolicy.SHOW_ALL);
 ```
 
 If you are curious about why  we should do this, please refer to [Resolution Policy Design for Cocos2d-html5](http://www.cocos2d-x.org/docs/manual/framework/html5/v2/resolution-policy-design/en) for more information.
