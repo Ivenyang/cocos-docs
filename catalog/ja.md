@@ -63,10 +63,10 @@
 - CocoStudio
 	- チュートリアル
 		- CocoStudioを使ったゲームのビルド
-			- [CocoStudioとは](../tutorial/parkour-game-with-cocostudio/chapter1/ja.md)
-			- [はじめに](../tutorial/parkour-game-with-cocostudio/chapter2/ja.md)
-			- [パルクール(障害物競走)ゲームをビルドしてみよう](../tutorial/parkour-game-with-cocostudio/chapter3/ja.md)
-			- [さらに学ぶために](../tutorial/parkour-game-with-cocostudio/chapter4/ja.md)
+			- [CocoStudioとは](../tutorial/studio/parkour-game-with-cocostudio/chapter1/ja.md)
+			- [はじめに](../tutorial/studio/parkour-game-with-cocostudio/chapter2/ja.md)
+			- [パルクール(障害物競走)ゲームをビルドしてみよう](../tutorial/studio/parkour-game-with-cocostudio/chapter3/ja.md)
+			- [さらに学ぶために](../tutorial/studio/parkour-game-with-cocostudio/chapter4/ja.md)
 		- Javascriptを使ったパルクール(障害物競走)ゲーム
 			- 開発環境の構築
 			- Cocos2d-html5でHello World
