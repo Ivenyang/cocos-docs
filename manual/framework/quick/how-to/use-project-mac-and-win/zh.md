@@ -15,7 +15,7 @@
 
 6.  第三个参数是指定启动时的屏幕尺寸。如果是横屏，用 -landscape，如果是竖屏用 -portrait。
 
-![](res/how-to-use-project-mac-and-win-xcode.png)
+![](res/xcode.png)
 
 ~
 
@@ -35,5 +35,5 @@
 
 6.  第三个参数是指定启动时的屏幕尺寸。如果是横屏，用 -landscape，如果是竖屏用 -portrait。
 
-![](res/how-to-use-project-mac-and-win-vs.png)
+![](res/visualstudio.png)
 
