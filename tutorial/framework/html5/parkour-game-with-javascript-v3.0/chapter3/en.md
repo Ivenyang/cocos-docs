@@ -28,6 +28,8 @@ Layers may contain any cc.Node as a child, including cc.Sprite, cc.Label, and ev
 
 Cocos2d-JS uses the same coordinate system as OpenGL, which is so call “Right-handed Cartesian Coordinate System”. It is popular in game industry, however, it is  different from traditional top left coordinate system which used in web-page design. 
 
+![Coordination](res/coordinatesystem.png)
+
 More details about coordinate system you can find at [here](http://cocos2d-x.org/wiki/Coordinate_System)
 
 ####Anchor Point
@@ -151,7 +153,9 @@ cc.director.runScene(new MenuScene());
 ```
 Yeah, I guess you have got the point. We will define our first class which name is MenuScene.
 
-At last, we should define some resource variables for easy access.
+At last, we should add the needed resources and define some resource variables for easy access.
+
+![res](res/resdirectory.png)
 
 Open resource.js and change its content to this:
 
