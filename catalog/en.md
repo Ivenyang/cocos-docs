@@ -102,6 +102,7 @@
 	- Pakour Game with Javascript (Cocos2d-JS v3.0)
 		- [Setup Development Environment](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/en.md)
 		- [Hello World Cocos2d-JS](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
+		- [Make your First Game Scene](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter3/en.md)
 	- Pakour Game with Javascript (Cocos2d-html5 v2.2.2)
 		- [Setup Development Environment](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/en.md)
 		- [Hello World Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
