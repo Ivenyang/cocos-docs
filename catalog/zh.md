@@ -193,6 +193,7 @@
 - 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-JS v3.0)
 	- [建立Cocos2d-JS开发环境](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/zh.md)
 	- [你好Cocos2d-JS](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
+	- [建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter3/en.md)
 - 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-html5 v2.2.2)
 	- [建立html5开发环境](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
 	- [你好Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
