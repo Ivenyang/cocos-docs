@@ -7,14 +7,14 @@ Let's take MacOS as an example, the processes on win32 and linux are more or les
 #### Download Cocos2D-X
 At first, you should download [cocos2d-x](http://cocos2d-x.org/download) and unzip it. We could simply unzip it on the root directory of your home folder.
 
-Double click the folder *cocos2d-x* and you will find a lot of files and folders. Here it the screenshot:
+Double click the folder *cocos2d-x* and you will find a lot of files and folders. Here is the screenshot:
 
 ![directory](./res/cocos2dxdirectory.png)
 
-Before configuring the development environment, let's download some dependency software at first.
+Before configuring the development environment, let's download some dependency softwares at first.
 
 #### Download JDK, SDK and NDK
-Since we are trying to develop Android games, so Java is a must have toolkit.
+Since we are trying to develop Android games, so Java is a necessary toolkit.
 
 - Open Your Terminal(You can hit Control-Space to open Spotlight and enter "Terminal" and hit "Enter" key), input the following commands to verify whether your machine supports java or not.
 
@@ -32,11 +32,10 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 ```
 - Download the Android SDK. If you are using Mac, click [this link](https://developer.android.com/sdk/index.html?hl=sk) to download *ADT Bundle for Mac*.
 
-The bundle includes the newest Android SDK version plus an Eclipse version with Android Development Tool installed. So we don't need to download an extra Eclipse and install
+The bundle includes the newest Android SDK version plus an Eclipse version with Android Development Tool installed. So we don't need to download an extra Eclipse and install it
 the ADK manually any more.
 
-After downloading it, unzip the package at ~/AndroidDev directory. The folder contains two folders: *sdk* and *eclipse*. 
-
+After downloaded it, unzip the package into ~/AndroidDev directory. The folder contains two folders: *sdk* and *eclipse*. 
 You could launch the Eclipse and install other SDK versions. Here is an example:
 ![donwloadSDK](./res/donwloadSDK.png)
 
@@ -95,11 +94,11 @@ Here is the screenshot:
 
 ![setuppy02](./res/setuppy02.png)
 
-Now it's time to repeat the last procee to configure the *ANDROID_SDK_ROOT*. You can simply input `/Users/guanghui/AndroidDev/adt-bundle-mac-x86_64-20130522/sdk/`. The adt-bundle-mac-x86_64-xxxx, the xxxx number maybe different. So please note this non-trival difference.
+Now it's time to repeat the last process to configure the *ANDROID_SDK_ROOT*. You can simply input `/Users/guanghui/AndroidDev/adt-bundle-mac-x86_64-20130522/sdk/`. The adt-bundle-mac-x86_64-xxxx, the xxxx number maybe different. So please note this non-trival difference.
 
 If you don't install *ant* program, you should install *ant* first.
 
-After you have installed *ant*, when the scripts ask you to config the *ANT_ROOT*, you can simply hit *Enter* key and let the scripts do the remaining job for you.
+After you have installed *ant*, when the scripts ask you to config the *ANT_ROOT*, you can simply hit *Enter* key and let the scripts do the remaining jobs for you.
 
 ![setuppy03](./res/setuppy03.png)
 
@@ -118,7 +117,7 @@ on win32 system, you can just close the command line windows and restart it.
 
 Now it's time to compile the built-in samples of cocos2d-x.
 
-At first, you should change your directory to the where the android-build.py scripts lays.
+At first, you should change your directory to the android-build.py scripts lays.
 
 ```
 cd build
@@ -133,21 +132,21 @@ Bang! Hit enter and the scripts will handle all the remaining things for you.
 
 Let's over all the parameters to android-build.py. 
 
-If you only type `python android-build.py` in the Terminal, it will give you the following result:
+If you only type `python android-build.py` in the Terminal, it will give you the following results:
 
 ![buildandroidpy](./res/buildandroidpy.png)
 
 Please read the help information carefully when this is your first time trying to build cocos2d-x.
 
-If all things are going well, you will get the following meesage:
+If all things are going well, you will get the following meesages:
 
 ![buildsuccess](./res/buildsuccess.png)
 
 
 #### How to deploy it on your Android phone via command line
-Now it's time to test on your Android phone.
+Now it's time to test on your Android device.
 
-At first, you should enable *[USB Debugging](http://stackoverflow.com/questions/16707137/how-to-find-and-turn-on-usb-debugging-mode-on-nexus-4)* on your phone and then connect your phone via an USB line.
+At first, you should enable *[USB Debugging](http://stackoverflow.com/questions/16707137/how-to-find-and-turn-on-usb-debugging-mode-on-nexus-4)* on your phone and then connect your device via an USB line.
 
 At first, change your directory to the the *bin* directory of *testcpp* android project:
 
@@ -182,6 +181,6 @@ If it gives you the following screenshot, congratulations, it's done!
 ### In Summary
 In this article, we use the MacOS system as our development environment. But it should work well on other platform. 
 
-If you are create a new project with cocos2d-console, you should try [this documentation]() for more help to get it run on your Android phone.
+If you are creating a new project with cocos2d-console, you should try [this documentation]() for more help to get it run on your Android phone.
 
 If you have any problems, please post it on the [forum](http://cocos2d-x.org/forums/6).
