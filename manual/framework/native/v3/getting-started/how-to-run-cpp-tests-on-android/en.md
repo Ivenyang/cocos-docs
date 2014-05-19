@@ -14,7 +14,7 @@ Double click the folder *cocos2d-x* and you will find a lot of files and folders
 Before configuring the development environment, let's download some dependency software at first.
 
 #### Download JDK, SDK and NDK
-Since we are trying to develop Android games, so Java is a must have toolkit.
+Since we are trying to develop Android games, so Java is a necessary toolkit.
 
 - Open Your Terminal(You can hit Control-Space to open Spotlight and enter "Terminal" and hit "Enter" key), input the following commands to verify whether your machine supports java or not.
 
