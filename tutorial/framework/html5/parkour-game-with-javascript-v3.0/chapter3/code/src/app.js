@@ -12,18 +12,18 @@ var MenuLayer = cc.Layer.extend({
         //2. get the screen size of your game canvas
         var winsize = cc.director.getWinSize();
 
-        //4. calculate the center point
+        //3. calculate the center point
         var centerpos = cc.p(winsize.width / 2, winsize.height / 2);
 
-        //5. create a background image and set it's position at the center of the screen
+        //4. create a background image and set it's position at the center of the screen
         var spritebg = cc.Sprite.create(res.helloBG_png);
         spritebg.setPosition(centerpos);
         this.addChild(spritebg);
 
-        //6.
+        //5.
         cc.MenuItemFont.setFontSize(60);
 
-        //7.create a menu and assign onPlay event callback to it
+        //6.create a menu and assign onPlay event callback to it
         var menuItemPlay= cc.MenuItemSprite.create(
             cc.Sprite.create(res.start_n_png), // normal state image
             cc.Sprite.create(res.start_s_png), //select state image
