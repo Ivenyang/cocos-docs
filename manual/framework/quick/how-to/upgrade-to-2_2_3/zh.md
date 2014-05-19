@@ -1,8 +1,10 @@
-# quick-cocos2d-x 升级说明
+# 升级到 2.2.3
 
 本文档描述了升级到 quick-cocos2d-x 2.2.3 需要的注意的事项和代码修改范例。
 
-项目运行时，如果出现 [DEPRECATED] 相关信息，应该将这些已经作废的 API 替换为新 API。已作废 API 请参考 framework/deprecated.lua 文件。
+项目运行时，如果出现 [DEPRECATED] 相关信息，应该将这些已经作废的 API 替换为新 API。
+
+已作废 API 请参考 framework/deprecated.lua 文件。
 
 ~
 
