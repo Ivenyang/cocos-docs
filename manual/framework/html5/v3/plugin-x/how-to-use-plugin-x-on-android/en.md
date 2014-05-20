@@ -39,7 +39,7 @@ Select the plugins you need, and click 'Finish' button, the needed modification 
 
 ###manual modification
 
-- Modify the ndk-build command parameter : add the publish directory into parameter NDK\_MODULE\_PATH , such as : NDK\_MODULE\_PATH=${PLUGIN_ROOT}/publish
+- Modify the ndk-build command parameter : add the publish directory into parameter NDK\_MODULE\_PATH , such as : NDK\_MODULE\_PATH=${PLUGIN_ROOT}/publish. An easy way to do that is add the publish directory into `ndk_module_path` array in build-cfg.json file.
 
 - Add code in jni/main.cpp:
 

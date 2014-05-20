@@ -39,7 +39,7 @@
 
 ###一些手工修改
 
-- 把publish文件夹路径添加到NDK\_MODULE\_PATH环境变量，例如: NDK\_MODULE\_PATH=${PLUGIN_ROOT}/publish
+- 把publish文件夹路径添加到NDK\_MODULE\_PATH环境变量，例如: NDK\_MODULE\_PATH=${PLUGIN_ROOT}/publish。一个简单的方法就是在工程的`build-cfg.json`文件中，吧publish文件夹路径添加到ndk\_module\_path数组中。
 
 - 在jni/main.cpp中添加代码:
 
