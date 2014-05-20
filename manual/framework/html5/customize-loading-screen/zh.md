@@ -43,7 +43,7 @@ jsloader.js 里面设置了一堆需要加载的可执行脚本，保存在 engi
 	// 调用 cc.LoaderScene Loading 界面，用以加载资源
 	cc.LoaderScene.preload(g_resources, function () {
 	    // 当资源加载完毕，回调函数，运行第一个场景，而这个场景是由 cocos2dApp 的构造函数传入
-	    director.replaceScene(new this.startScene());
+	    director.runScene(new this.startScene());
 	}, this);
 	 
 	// main.js 最后一行
