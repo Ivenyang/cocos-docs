@@ -73,7 +73,7 @@ At first, let's add a new member variable named *space*  in *PlayScene.js* file:
 space:null,
 ```
 
-In general, one game needs only a *space* object. The space object can be shared by different layers.
+In general, one game just needs a *space* object. The space object can be shared by different layers.
 We usually put the *space initialize code* in PlayScene.
 
 Here is the code to setup the physic world:
