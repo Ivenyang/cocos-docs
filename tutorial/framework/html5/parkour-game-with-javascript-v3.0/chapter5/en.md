@@ -43,22 +43,23 @@ Ok, we have successfully generate the running animation files. Next let's play w
 At first, we should add the running.plist and running.png  to *resource.js* file.
 
 ```
-var s_HelloBG = "helloBG.png";
-var s_start_n = "start_n.png";
-var s_start_s = "start_s.png";
-var s_PlayBG = "PlayBG.png";
-var s_runner = "running.png";
-var s_runnerplist = "running.plist";
-
+var res = {
+    helloBG_png : "res/helloBG.png",
+    start_n_png : "res/start_n.png",
+    start_s_png : "res/start_s.png",
+    PlayBG_png  : "res/PlayBG.png",
+    runner_png  : "res/running.png",
+    runner_plist : "res/running.plist"
+};
 
 var g_resources = [
     //image
-    {src:s_HelloBG},
-    {src:s_start_n},
-    {src:s_start_s},
-    {src:s_PlayBG},
-    {src:s_runner},
-    {src:s_runnerplist}
+    res.helloBG_png,
+    res.start_n_png,
+    res.start_s_png,
+    res.PlayBG_png,
+    res.runner_png,
+    res.runner_plist
 ];
 ```
 
@@ -85,13 +86,13 @@ We can easily create a animation with the following code:
 
 ```
 //1.load spritesheet 
- cc.SpriteFrameCache.getInstance().addSpriteFrames(res.runner_plist);
+ cc.spriteFrameCache.addSpriteFrames(res.runner_plist);
 
 //2.create spriteframe array
 var animFrames = [];
 for (var i = 0; i < 8; i++) {
     var str = "runner" + i + ".png";
-    var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+    var frame = cc.spriteFrameCache.getSpriteFrame(str);
     animFrames.push(frame);
 }
 //3.create a animation with the spriteframe array along with a period time
@@ -110,7 +111,7 @@ Here is the completely process to create a animation in Cocos2d-JS:
 3. Create a cc.Animation object from the animation frame array along with a delay time between each sprite frame.
 4. Create the final cc.Animate object and wrap it when a RepeatForever action. Thus the animation will run infinite.
 
-Generally, if we use animations in Cocos2-JS, we always use *SpriteBatchNode* to boost game performance.
+Generally, if we use animations in Cocos2-JS, we always use *SpriteBatchNode* to boost game performance in WebGL mode or in Cocos2d-x JSB mode.
 
 The final code of the *AnimationLayer.js* is:
 
@@ -128,23 +129,23 @@ var AnimationLayer = cc.Layer.extend({
         this._super();
 
         // create sprite sheet
-        cc.SpriteFrameCache.getInstance().addSpriteFrames(s_runnerplist);
-        this.spriteSheet = cc.SpriteBatchNode.create(s_runner);
+        cc.spriteFrameCache.addSpriteFrames(res.runner_plist);
+        this.spriteSheet = cc.SpriteBatchNode.create(res.runner_png);
         this.addChild(this.spriteSheet);
 
-        
+
         // init runningAction
         var animFrames = [];
         for (var i = 0; i < 8; i++) {
             var str = "runner" + i + ".png";
-            var frame = cc.SpriteFrameCache.getInstance().getSpriteFrame(str);
+            var frame = cc.spriteFrameCache.getSpriteFrame(str);
             animFrames.push(frame);
         }
 
         var animation = cc.Animation.create(animFrames, 0.1);
         this.runningAction = cc.RepeatForever.create(cc.Animate.create(animation));
-        this.sprite = cc.Sprite.createWithSpriteFrameName("runner0.png");
-        this.sprite.setPosition(cc.p(80, 85));
+        this.sprite = cc.Sprite.create("#runner0.png");
+        this.sprite.attr({x:80, y:85});
         this.sprite.runAction(this.runningAction);
         this.spriteSheet.addChild(this.sprite);
     }
