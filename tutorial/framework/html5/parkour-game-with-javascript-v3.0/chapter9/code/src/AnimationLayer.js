@@ -171,7 +171,7 @@ var AnimationLayer = cc.Layer.extend({
     update:function (dt) {
 
         // update meter
-        var statusLayer = this.getParent().getChildByTag(TagOfLayer.Status);
+        var statusLayer = this.getParent().getParent().getChildByTag(TagOfLayer.Status);
         statusLayer.updateMeter(this.sprite.getPositionX() - g_runnerStartX);
 
         // check and update runner stat
@@ -190,11 +190,6 @@ var AnimationLayer = cc.Layer.extend({
             }
         }
 
-        var eyeX = this.sprite.getPositionX() - g_runnerStartX;
-        var camera = this.getCamera();
-        var eyeZ = cc.Camera.getZEye();
-        camera.setEye(eyeX, 0, eyeZ);
-        camera.setCenter(eyeX, 0, 0);
     }
 
 });

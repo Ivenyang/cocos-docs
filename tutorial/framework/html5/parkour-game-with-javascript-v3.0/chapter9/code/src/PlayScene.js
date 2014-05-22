@@ -2,6 +2,7 @@
 var PlayScene = cc.Scene.extend({
     space:null,
     shapesToRemove:[],
+    gameLayer:null,
 
     // init space of chipmunk
     initPhysics:function() {
@@ -42,9 +43,12 @@ var PlayScene = cc.Scene.extend({
         this._super();
         this.initPhysics();
 
+        this.gameLayer = cc.Layer.create();
+
         //add three layer in the right order
-        this.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
-        this.addChild(new AnimationLayer(this.space), 0, TagOfLayer.Animation);
+        this.gameLayer.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
+        this.gameLayer.addChild(new AnimationLayer(this.space), 0, TagOfLayer.Animation);
+        this.addChild(this.gameLayer);
         this.addChild(new StatusLayer(), 0, TagOfLayer.Status);
 
         this.scheduleUpdate();
@@ -57,8 +61,13 @@ var PlayScene = cc.Scene.extend({
         // Simulation cpSpaceAddPostStepCallback
         for(var i = 0; i < this.shapesToRemove.length; i++) {
             var shape = this.shapesToRemove[i];
-            this.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
+            this.gameLayer.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
         }
         this.shapesToRemove = [];
+
+        var animationLayer = this.gameLayer.getChildByTag(TagOfLayer.Animation);
+        var eyeX = animationLayer.getEyeX();
+
+        this.gameLayer.setPosition(cc.p(-eyeX,0));
     }
 });

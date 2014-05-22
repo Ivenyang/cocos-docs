@@ -24,7 +24,7 @@ Open AnimationLayer.js and add the following code at the beginning of *update* f
 
 ```
         // update meter
-        var statusLayer = this.getParent().getChildByTag(TagOfLayer.Status);
+        var statusLayer = this.getParent().getParent().getChildByTag(TagOfLayer.Status);
         statusLayer.updateMeter(this.sprite.getPositionX() - g_runnerStartX);
 ```
 
