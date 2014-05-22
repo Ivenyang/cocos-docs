@@ -196,6 +196,7 @@
 	- [建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter3/en.md)
 	- [设计实现主场景](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter4/en.md)
 	- [让角色运行动画](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter5/en.md)
+	- [在游戏中加入Chipmunk物理引擎](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter6/en.md)
 - 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-html5 v2.2.2)
 	- [建立html5开发环境](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
 	- [你好Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
