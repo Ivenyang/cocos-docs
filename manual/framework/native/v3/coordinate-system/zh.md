@@ -14,7 +14,7 @@ Cocos2d-x坐标系和OpenGL坐标系相同，都是起源于笛卡尔坐标系�
 
 iOS, Android, Windows Phone等在开发应用时使用的是标准屏幕坐标系，原点为屏幕左上角，x向右，y向下。
 
-Cocos2d坐标系和OpenGL坐标系一样，原点为屏幕左下角，x向右，y向下。
+Cocos2d坐标系和OpenGL坐标系一样，原点为屏幕左下角，x向右，y向上。
 
 ![UICoordinate](res/UICoordinate.png)
 

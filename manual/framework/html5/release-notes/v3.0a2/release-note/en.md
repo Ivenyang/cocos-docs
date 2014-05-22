@@ -1,59 +1,29 @@
-Cocos2d-html5-v3.0 alpha2 @ April.14, 2014
+# Cocos2d-JS v3.0 alpha2
 
-* Minimize the size of core from 254k to 113k.
-* Make engine classes can be constructed via `new` with the same parameters as create functions.
-* Make engine classes extendable directly via ctor.
-* cc.DrawNode supports some DrawingPrimitive's drawing function on WebGL mode.
-* Use undefined check in cc.loader for better performance.
-* cc.Sprite supports creating a sprite through external URL.
-* Add the warning information to notice developers that their project.json cannot be loaded or parsed.
-* Add retina display support to cc.Editbox.
-* cc.Node's pauseSchedulerAndActions and resumeSchedulerAndActions are deprecated, please use pause and resume instead.
-* Add render mode checking to 3D action classes.
-* Add SocketIO.
-* Sync cc.eventManager to the latest version of Cocos2d-x v3.0 Stable.
-* ccui.Layout's doLayout function has been set to private function "_doLayout".
-* Rename all Uppercase functions to lowercase in CCMacro.
-* Add more necessary GL constants in engine.
-* Rename ccs.comAttribute's `getCString` function to `getString`.
-* [JSB]Make engine classes extendable via ctor in JSB.
-* [JSB]Fix cc.DrawNode API inconsistence between Cocos2d-html5 and JSB.
-* [JSB]Rebind cc.fileUtils for JSB only APIs.
-* [JSB]Make JS level subclass of cc.Component support override of onEnter/onExit/update functions.
-* [JSB]Update precompiled SpiderMonkey to support iOS 64 bit devices.
-* [JSB]Fix constants inconsistence between Cocos2d-html5 and JSB.
-* [JSB]Add macro functions in CCMacro.js into JSB.
-* [JSB]Add `tag` property to cc.Action.
-* [JSB]Add `boundingBox` function to ccs.Armature.
-* [JSB]Add `textureLoaded` function to cc.Sprite.
+Cocos2d-JS is Cocos2d-x engine's javascript version which include Cocos2d-html5 and Cocos2d-x JSBinding. It support full Cocos2d-x features with a set of simplified javascript friendly APIs.
 
-* Bugs fix:
-    1. Fixed ccs.comAttribute API incompatible issue
-    2. Fixed a bug of CocoStudio's data reader that getting isTween value is incorrect when the attribute value is false.
-    3. Fixed a bug of Sprite that it stops to work when its texture doesn't preload and its parent is a SpriteBatchNode
-    4. Fixed a bug in CCBoot.js that console.error is invalid on firefox.
-    5. Fixed a bug of cc.LabelBMFont that it's multiline works incorrectly.
-    6. Fixed a bug that Touches event doesn't work in release mode on IE browser.
-    7. Fixed a bug that cc.winSize has not been reset after cc.view.setDesignResolutionSize. 
-    8. Fixed typo error in ccui.Widget.TOUCH_BEGAN
-    9. Fixed a bug of cc.MenuItemSprite.create that  
-    10. Fixed a bug of cc.loader that it need to set value before calling the callback.
-    11. Fixed a bug of cc.log that it doesn't work in IE9
-    12. Fixed IE incompatible issue with __lookupGetter__ 
-    13. Fixed a bug of cc.Node that it returns a reference of _position in getPosition
-    14. Fixed a bug of cc.ClippingNode that its _super is undefined
-    15. Fixed a bug of inputManager's touch event in IE browser
-    16. Add callback null check to avoid bugs in cc.textureCache.addImage.
-    17. [JSB]Fix ccui.Widget's addNode function no longer exists bug in JSB.
-    18. [JSB]Fix a bug that main loop get stated twice.
-    19. [JSB]API inconsistence of ccs.ArmatureAnimation.play fixed.
-    20. [JSB]Fix JSB compiling issues by removing `DEBUG` preprocessor macro.
-    21. Fixed some comment errors of framework.
-		
-* Known Issues:
-    1. [JSB]Property's getter/setter functions can not be overrided automatically in custom subclasses.
-    2. [JSB]CocoStudio's scene reloading can cause memory release issues and crash.
-    3. [JSB]OpenGL test is not functionnable in JSB.
-    4. EventListener is not extendable.
-    5. [JSB]PhysicsSprite is not updating with physics node.
-    6. [JSB]ccui.TextField's is not responding to keyboard backspace button.
+Cocos2d-JS provides a consistent development experience for whichever platform you want to distribute to, both web and native. "Code once, run everywhere" is incredibly easy and natural in Cocos2d-JS. With one single javascript code base, you can run your game on both web browsers and native platform including Mac OS, Windows, iOS, Android. This will bring your game great opportunities in almost all canals of distribution.
+
+Furthermore, javascript friendly API makes your game development experience a breeze, easy to code, test and distribute. Cocos2d-JS also offers Cocos Console, a script tool, to simplify the creation of projects and let you start coding right away. You can use it to create a new project and publish it to android, iOS, Mac OS or web.
+
+For more informations please see [Cocos2d-JS github site](https://github.com/cocos2d/cocos2d-js)
+
+## Download
+
+- [cocos2d-js-v3.0-alpha2.zip](http://cdn.cocos2d-x.org/cocos2d-js-v3.0-alpha2.zip)
+- [Online API reference](http://www.cocos2d-x.org/reference/html5-js/V3.0alpha2/index.html)
+- [Downloadable API reference](http://cdn.cocos2d-x.org/Cocos2d-html5_v3.0_Alpha2_API_Doc.zip)
+
+## Highlights
+
+* **[Alpha2 Feature]** Provided a download page for web developers to choose modules and download customized Cocos2d-JS web engine, in one single file, compressed or not, [Online link](http://www.cocos2d-x.org/jsbuilder).
+* **[Alpha2 Feature]** Supported `new` operator for engine classes, constructor started to accept the same parameters as create functions, and developer can pass initilization parameters in `ctor` while extend engine classes, [document reference](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/inheritance/en).
+* **[Alpha2 Feature]** Added Cocos Console support to test cases and Moon Warriors game sample.
+* Provided a console tool which make the development of HTML5 and JSB application much simpler and more convenient, [Cocos Console document](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/en).
+* Incredibly simplified game creation process via cc.game which replaced old cc.Application, [cc.game document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/en).
+* Refactored some properties of all rendering classes with getter setter for providing a new set of Javascript user friendly APIs, and provided `attr` function for cc.Node to modify multiple properties, [property APIs document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/en).
+* Added new event manager to Cocos2d-JS, all events are dispatched via cc.eventManager with several types of event listener including custom event listener, [event manager document](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/en).
+
+### More information ###
+
+Read more about all the new features at [Cocos2d-JS v3.0 alpha2 changelog](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0a2/changelog/en) and [Cocos2d-JS v3.0 alpha2 upgrade guide](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0a/upgrade-guide/en)
