@@ -270,3 +270,7 @@
 - [TexturePacker](../manual/framework/native/v2/tools-and-editors/texturepacker/zh.md)
 	- [Cocos2d-x里如何用TexturePacker和像素格式来优化spritesheet](../tutorial/framework/native/how-to-use-texturepacker-to-optimize-the-spritesheet/zh.md)
 	- [如何在cocos2d里面使用动画和spritesheet](../tutorial/framework/native/how-to-use-animations-and-spritesheets/zh.md)
+## 1. [Native](framework/native/zh.md)
+## 2. [Html5](framework/html5/zh.md)
+## 3. [Quick](framework/native/zh.md)
+## 4. [CocoStudio](studio/zh.md)
