@@ -45,5 +45,5 @@ You should be familiar with the corresponding **Command** and construct the Comm
 For more information, you can take a look at [DrawNode](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/2d/CCDrawNode.cpp) built-in with cocos2d-x v3.0beta.
 
 ## Summary
-Since the new rendering pipeline of cocos2d-x v3.x is still young. It needs more time and patient to be mature. We eager to hear your invaluable suggestions and comments of any kinds and definitely welcome to contribute by sending us pull request via [github](https://github.com/cocos2d/cocos2d-x).
+Since the new rendering pipeline of cocos2d-x v3.x is still young. It needs more time and patient to be mature. We are eager to hear your invaluable suggestions and comments of any kinds and definitely welcome to contribute by sending us pull request via [github](https://github.com/cocos2d/cocos2d-x).
 
