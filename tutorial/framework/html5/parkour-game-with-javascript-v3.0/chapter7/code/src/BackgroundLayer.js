@@ -47,9 +47,6 @@ var BackgroundLayer = cc.Layer.extend({
         var animationLayer = this.getParent().getChildByTag(TagOfLayer.Animation);
         var eyeX = animationLayer.getEyeX();
         this.checkAndReload(eyeX);
-        var camera = this.getCamera();
-        var eyeZ = cc.Camera.getZEye();
-        camera.setEye(eyeX, 0, eyeZ);
-        camera.setCenter(eyeX, 0, 0);
+
     }
 });

@@ -405,7 +405,7 @@ this.shapesToRemove = [];
 
 2. Secondly, modify the creation of BackgroundLayer. Here we simply pass the space object into BackgroundLayer's constructor.
 ```
-    this.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
+    this.gameLayer.addChild(new BackgroundLayer(this.space), 0, TagOfLayer.background);
 ```
 
 ### Add Collision Detection Callbacks
@@ -441,7 +441,7 @@ The *addCollisionHandler* method needs a callback when collision occurs.
         // Simulation cpSpaceAddPostStepCallback
         for(var i = 0; i < this.shapesToRemove.length; i++) {
             var shape = this.shapesToRemove[i];
-            this.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
+            this.gameLayer.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
         }
         this.shapesToRemove = [];
 ```

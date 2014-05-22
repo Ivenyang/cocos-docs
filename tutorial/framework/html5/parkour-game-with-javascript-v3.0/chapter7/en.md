@@ -1,11 +1,11 @@
-# Explorer with TiledMap and Camera
+# Explorer with TiledMap and Display
 
 ## Introduction
 In this tutorial, I will show you how to add TiledMap to the parkour game as the new background.
 
 We will also learn how to make the background to scroll infinitely and the player to run infinitely.
 
-The magic behind these is all about moving the cocos2d camera.
+The magic behind these is all about moving the cocos2d layer.
 
 ## Do Some Preparation Stuff
 Before we get our hands dirty, let's add the resource files and the corresponding names to our game.
@@ -137,48 +137,46 @@ Save all the changes and run it:
 
 Here, we add two maps. The *map01* is right beside the *map00* background. In the later section, We will explain why we should add two maps.
 
-## Introduction to Camera
-Camera seems a little bit complex in 3D graphic programming. But it is very trivial in 2D game. In this section, we won't cover the theory of camera.
-
-Nor do we go deep into the implementation details of moving a node's camera.
-
-We will just show you how to implement the logic of moving a node's camera.
-
-### Move the Animation Layer Camera
-At first, we need to move the animation layer's camera. So that player and chipmunk rigid body will go with the same speed.
+## Introduction to Scene Display
 
 Since the physic body will move right infinitely and the sprite will synchronize it's position with the physic body.
 
 A few seconds later, the player will go outside of the screen, just as it is in the last tutorial.
 
-So we need to move the camera's x position each frame. Here is the code snippets of AnimationLayer.js:
+So we need to move the game layer's x position each frame to make it in a visible range. Here is the code snippets of AnimationLayer.js:
 
 ```
 getEyeX:function () {
     return this.sprite.getPositionX() - g_runnerStartX;
 },
-update:function (dt) {
-    var eyeX = this.sprite.getPositionX() - g_runnerStartX;
-    var camera = this.getCamera();
-    var eyeZ = cc.Camera.getZEye();
-    camera.setEye(eyeX, 0, eyeZ);
-    camera.setCenter(eyeX, 0, 0);
-}
 ```
 
-Here the *getEyeX* function computes the *delta* movement of animation layer's camera. And in *update* function, in each frame we will modify the node's camera.
+Here the *getEyeX* function computes the *delta* movement of animation layer. 
 
-You will notice that we have stored the *eyeZ* variable before we call camera's *setEye* and *setCenter* function. One more tips: You should always keep the first argument of
-*setEye* and *setCenter* the same value. Otherwise you will suffer some wired display problems.
-
-In the end, we should call the *update* method each frame by adding the following code at the end of *init* method in AnimationLayer.js:
+We should move the same *delta* movement of *this.gameLayer* which contains background layer and animation layer in opposite direction, so we could call the *update* method each frame by adding the following code at the end of *update* method in PlayScene.js:
 
 ```
-this.scheduleUpdate();
+     update:function (dt) {
+        // chipmunk step
+        this.space.step(dt);
+
+        // Simulation cpSpaceAddPostStepCallback
+        for(var i = 0; i < this.shapesToRemove.length; i++) {
+            var shape = this.shapesToRemove[i];
+            this.gameLayer.getChildByTag(TagOfLayer.background).removeObjectByShape(shape);
+        }
+        this.shapesToRemove = [];
+
+        var animationLayer = this.gameLayer.getChildByTag(TagOfLayer.Animation);
+        var eyeX = animationLayer.getEyeX();
+
+        this.gameLayer.setPosition(cc.p(-eyeX,0));
+    }
+    
 ```
 
 
-### Move the Background Layer Camera
+### Move the Background Layer
 The process to setup the movement of background layer is almost the same as we do in the last section. But we need to do some calculations of the two tiled map.
 
 So let's do it. Add a new member function *checkAndReload* to BackgroundLayer:
@@ -201,7 +199,7 @@ So let's do it. Add a new member function *checkAndReload* to BackgroundLayer:
     },
 ```
 
-When the camera eyeX has exceeded the width of the screen, the expression *parseInt(eyeX / this.mapWidth)* will get a value greater than 0.
+When the eyeX has exceeded the width of the screen, the expression *parseInt(eyeX / this.mapWidth)* will get a value greater than 0.
 
 We will use the *newMapIndex* to decide which map need to move and how many pixels need to move.
 
@@ -212,10 +210,6 @@ Then we should call this function in each frame.
         var animationLayer = this.getParent().getChildByTag(TagOfLayer.Animation);
         var eyeX = animationLayer.getEyeX();
         this.checkAndReload(eyeX);
-        var camera = this.getCamera();
-        var eyeZ = cc.Camera.getZEye();
-        camera.setEye(eyeX, 0, eyeZ);
-        camera.setCenter(eyeX, 0, 0);
     }
 ```
 
@@ -228,15 +222,20 @@ At last, we should call *scheduleUpdate* at the end of background layer's init m
 ## Wrap it up
 Ok. We should do some last ending work.
 
-Modify the *onEnter* method of PlayScene to add **tag** of layers:
+Modify the *onEnter* method of PlayScene to add **tag** of layers, and add background layer and animation layer to game layer:
 
 ```
     onEnter:function () {
         this._super();
         this.initPhysics();
-        this.addChild(new BackgroundLayer(), 0, TagOfLayer.background);
-        this.addChild(new AnimationLayer(this.space),0, TagOfLayer.Animation );
-        this.addChild(new StatusLayer(),0, TagOfLayer.Status);
+        this.gameLayer = cc.Layer.create();
+
+        //add Background layer and Animation layer to gameLayer
+        this.gameLayer.addChild(new BackgroundLayer(), 0, TagOfLayer.background);
+        this.gameLayer.addChild(new AnimationLayer(this.space), 0, TagOfLayer.Animation);
+        this.addChild(this.gameLayer);
+        this.addChild(new StatusLayer(), 0, TagOfLayer.Status);
+        
         this.scheduleUpdate();
     },
 ```
@@ -251,7 +250,7 @@ this._debugNode.setVisible(false);
 ```
 
 ## Summary
-In this tutorial, we have met TiledMap and Cocos2d camera. These two concepts are very important ones when you development a physic endless running game.
+In this tutorial, we have met TiledMap and display. These two concepts are very important ones when you development a physic endless running game.
 
 You can download the entire project from [here](res/Parkour.zip).
 
