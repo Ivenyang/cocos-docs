@@ -1,1 +1,1 @@
-# Quick-x
+#QuickX
