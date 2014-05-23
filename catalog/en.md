@@ -71,6 +71,7 @@
 			- [Resolution Policy Design for Cocos2d-html5](../manual/framework/html5/v2/resolution-policy-design/en.md)
             - [History release notes](../manual/framework/html5/release-notes/en.md)
         - New features and API changes in version 3.0:
+            - [New Actions API](../manual/framework/html5/v3/cc-actions/en.md)
             - [New workflow with cocos console](../manual/framework/html5/v2/cocos-console/en.md)
             - [New event manager](../manual/framework/html5/v3/eventManager/en.md)
             - [New property API](../manual/framework/html5/v3/getter-setter-api/en.md)
