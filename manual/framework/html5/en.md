@@ -60,6 +60,7 @@ Furthermore, javascript friendly API makes your game development experience a br
     - [History release notes](./release-notes/en.md)
 - New features and API changes in version 3.0:
     - [New workflow with cocos console](./v2/cocos-console/en.md)
+    - [Assets manager](./v3/assets-manager/en.md)
     - [New event manager](./v3/eventManager/en.md)
     - [New property API](./v3/getter-setter-api/en.md)
     - [Game creation](./v3/cc-game/en.md)

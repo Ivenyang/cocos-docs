@@ -64,6 +64,7 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
     - [Cocos2d-html5的屏幕适配方案](./v2/resolution-policy-design/zh.md)
     - [月亮战士——Cocos2d-html5游戏展示](./v2/moonwarriors-cocos2d-html5-showcase/zh.md)
 - Cocos2d-html5 v3.0的新功能
+    - [资源管理器](./v3/assets-manager/en.md)
     - [事件管理器](./v3/eventManager/zh.md)
     - [属性风格API](./v3/getter-setter-api/zh.md)
     - [使用cocos console创建工程](./v2/cocos-console/zh.md)
