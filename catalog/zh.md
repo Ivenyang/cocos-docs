@@ -105,6 +105,7 @@
     - [月亮战士——Cocos2d-html5游戏展示](../manual/framework/html5/v2/moonwarriors-cocos2d-html5-showcase/zh.md)
 - Cocos2d-html5 v3.0的新功能
     - [资源管理器](../manual/framework/html5/v3/assets-manager/en.md)
+    - [Actions API](../manual/framework/html5/v3/cc-actions/en.md)
     - [事件管理器](../manual/framework/html5/v3/eventManager/zh.md)
     - [属性风格API](../manual/framework/html5/v3/getter-setter-api/zh.md)
     - [使用cocos console创建工程](../manual/framework/html5/v2/cocos-console/zh.md)
