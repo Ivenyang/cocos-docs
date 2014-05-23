@@ -25,7 +25,7 @@ In the manifest file, you can describe the online address of the remote manifest
 
 Here is an example of the manifest file in json format:
 
-```json
+```
 {
 	"packageUrl" : "http://example.com/assets_manager/TestScene/",
 	"remoteVersionUrl" : "http://example.com/assets_manager/TestScene/version.manifest",
@@ -71,7 +71,7 @@ The `version.manifest` file should contain exact same informations with the firs
 
 Here is an example of usage:
 
-```javascript
+```
 var manager = new cc.AssetsManager(string manifestUrl, string storagePath);
 
 manager.update();
