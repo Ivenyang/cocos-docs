@@ -167,7 +167,7 @@ run tools/tolua/genbindings.py, then you would find `lua_cocos2dx_custom.cpp` an
 add .h/.cpp in Xcode project:
 ![](./res/addScriptToXcode.png)
 
-### Add CustomClass auto complete for Cocos Code IDE(1.0.1.beta or above)
+### Add CustomClass auto completion for Cocos Code IDE(1.0.1.beta or above)
 zip `CustomClass.lua` to a zip file, such as CustomClass.zip by follow command:
 
 ```
