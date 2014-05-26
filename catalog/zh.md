@@ -103,6 +103,9 @@
     - [如何自定义Cocos2d-html5加载界面](../manual/framework/html5/v2/customize-loading-screen/zh.md)
     - [Cocos2d-html5的屏幕适配方案](../manual/framework/html5/v2/resolution-policy-design/zh.md)
     - [月亮战士——Cocos2d-html5游戏展示](../manual/framework/html5/v2/moonwarriors-cocos2d-html5-showcase/zh.md)
+	- [Plugin-x架构](../manual/framework/html5/v3/plugin-x/plugin-x-architecture/en.md)
+    - [如何在android上使用plugin-x](../manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/en.md)
+    - [如何编写自己的插件](../manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/en.md)
 - Cocos2d-html5 v3.0的新功能
     - [事件管理器](../manual/framework/html5/v3/eventManager/zh.md)
     - [属性风格API](../manual/framework/html5/v3/getter-setter-api/zh.md)
