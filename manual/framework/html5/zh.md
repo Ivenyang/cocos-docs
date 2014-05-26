@@ -78,7 +78,7 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
 	- [10. 添加游戏音频](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter10/en.md)
 
 - Cocos2d-html5 v3.0的新功能
-    - [资源管理器](./v3/assets-manager/en.md)
+    - [资源管理器](./v3/assets-manager/zh.md)
     - [事件管理器](./v3/eventManager/zh.md)
     - [属性风格API](./v3/getter-setter-api/zh.md)
     - [使用cocos console创建工程](./v2/cocos-console/zh.md)

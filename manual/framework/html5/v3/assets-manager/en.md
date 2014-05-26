@@ -17,7 +17,7 @@ For all of this, if you have a chance to make things happen overnight, wouldn't 
 
 ##Usage
 
-It's quite simple to use the assets manager, firstly, you need an initial manifest file in your app package.
+It's quite simple to use the assets manager, firstly, you need an initial manifest file in JSON format in your app package.
 
 In the manifest file, you can describe the online address of the remote manifest file, the current version and a set of resources, then you will be able to use the `cc.AssetsManager` class to update it during the game process. 
 
@@ -124,6 +124,7 @@ You can also refer to the test case Extensions/AssetsManagerTest in our js-tests
 
 The assets manager already offers a very powerful support for updating your game resources, but it's still the first version, so there is some features which haven't been included into it. The future features we are planning to implement is the following:
 
+- Multi thread support for download
 - Real progression support (Today it's file level progression)
 - Compressed file support
 - Download resuming with registed download state

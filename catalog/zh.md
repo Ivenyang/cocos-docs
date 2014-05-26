@@ -107,7 +107,7 @@
     - [如何在android上使用plugin-x](../manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/zh.md)
     - [如何编写自己的插件](../manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/zh.md)
 - Cocos2d-html5 v3.0的新功能
-    - [资源管理器](../manual/framework/html5/v3/assets-manager/en.md)
+    - [资源管理器](../manual/framework/html5/v3/assets-manager/zh.md)
     - [Actions API](../manual/framework/html5/v3/cc-actions/en.md)
     - [事件管理器](../manual/framework/html5/v3/eventManager/zh.md)
     - [属性风格API](../manual/framework/html5/v3/getter-setter-api/zh.md)
