@@ -19,7 +19,7 @@ For more informations please see [Cocos2d-JS github site](https://github.com/coc
 
 ## Highlights
 
-** **[Beta Feature]** Added `AssetManager` for Cocos2d-x JSB asset hot updating, please refer to [AssetManager document]().  
+** **[Beta Feature]** Added `AssetManager` for Cocos2d-x JSB asset hot updating, please refer to [AssetManager document](http://cocos2d-x.org/docs/manual/framework/html5/v3/assets-manager/en).  
 * **[Beta Feature]** Enabled `Baseline compiler` of SpiderMonkey to boost the performance of JSB on Android, mostly it is **really faster than Lua**.
 * **[Beta Feature]** Integrated `Spine` skeleton animation feature.
 * **[Beta Feature]** Re-enable `Plugin-x` for third party SDK integration, please refer to [Plugin-x Architecture](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/plugin-x-architecture/en), [How to use plugin-x in android](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/en) and [How to write your own plugin for android](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/en).

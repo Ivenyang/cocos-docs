@@ -20,7 +20,7 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
 
 ## 核心特性
 
-* **[Beta特性]** 增加AssetManager组件，可支持Cocos2d-x游戏热更新，请参考文档[在线地址](http://www.cocos2d-x.org/jsbuilder)。
+* **[Beta特性]** 增加AssetManager组件，可支持Cocos2d-x游戏热更新，请参考文档[资源管理器AssetManager](http://cocos2d-x.org/docs/manual/framework/html5/v3/assets-manager/zh)。
 * **[Beta特性]** 默认启用SpiderMonkey的Baseline编译器，提升JSB性能。在Android平台纯语言测试，循环，函数调用，矩阵计算的性能比较测试中，绝大多数情况JSB的速度都比Lua快。
 * **[Beta Feature]** 集成Spine骨骼动画功能。
 * **[Beta Feature]** 集成Plugin-x用于方便集成第三方SDK，请参考文档[Plugin-x架构](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/plugin-x-architecture/zh), [如何在Android上使用plugin-x](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/zh)和[如何编写自己的android插件](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/zh)。
