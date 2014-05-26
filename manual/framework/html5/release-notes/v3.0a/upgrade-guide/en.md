@@ -678,6 +678,43 @@ var anAction = cc.Sequence.create(
 	 cc.EaseBackIn.create(action)		 | action.easing(cc.easeBackIn())
 	 cc.EaseBackOut.create(action)		 | action.easing(cc.easeBackOut())
 	 cc.EaseBackInOut.create(action)		 | action.easing(cc.easeBackInOut())     
+
+##13.[New in Beta]Changed setText，getText to unified API of SetString, getString
+
+* ccui.Text refactoration :
+
+    
+  ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* ccui.TextAtlas
+ 
+  ```
+  getStringValue ==> getString
+  ```
+
+* ccui.TextBMFont
+
+   ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* ccui.TextField
+
+   ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* cc.EditBox
+
+   ```
+  setText --> setString
+  getText --> getString
+  ```
        
 
 ####Other documentation can be found here:

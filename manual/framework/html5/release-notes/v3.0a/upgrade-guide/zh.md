@@ -671,7 +671,44 @@ var anAction = cc.Sequence.create(
 	 cc.EaseBounceInOut.create(action)	 | action.easing(cc.easeBounceInOut())
 	 cc.EaseBackIn.create(action)		 | action.easing(cc.easeBackIn())
 	 cc.EaseBackOut.create(action)		 | action.easing(cc.easeBackOut())
-	 cc.EaseBackInOut.create(action)		 | action.easing(cc.easeBackInOut())      ```
+	 cc.EaseBackInOut.create(action)		 | action.easing(cc.easeBackInOut())      
+	 
+##13.[Beta新变动]修改setText，getText为统一的API SetString, getString
+
+* ccui.Text refactoration :
+
+    
+  ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* ccui.TextAtlas
+ 
+  ```
+  getStringValue ==> getString
+  ```
+
+* ccui.TextBMFont
+
+   ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* ccui.TextField
+
+   ```
+  setText --> setString
+  getStringValue --> getString
+  ```
+
+* cc.EditBox
+
+   ```
+  setText --> setString
+  getText --> getString
+  ```
 
 其他详细文档列表：
 
