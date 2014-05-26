@@ -40,6 +40,14 @@ Select the plugins you need, and click 'Finish' button, the needed modification 
 ###manual modification
 
 - Modify the ndk-build command parameter : add the publish directory into parameter NDK\_MODULE\_PATH , such as : NDK\_MODULE\_PATH=${PLUGIN_ROOT}/publish. An easy way to do that is add the publish directory into `ndk_module_path` array in build-cfg.json file.
+- in`build-cfg.json`file，add code in `copy_resources` like this：
+
+```
+{
+    "from": "../../../../frameworks/js-bindings/cocos2d-x/plugin/jsbindings/script", 
+    "to": ""
+}
+```
 
 - Add code in jni/main.cpp:
 
