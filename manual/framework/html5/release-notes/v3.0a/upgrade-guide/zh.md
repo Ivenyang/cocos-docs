@@ -589,7 +589,89 @@ if (cc.sys.isNative) {
     ```
     getCString  --> getString
     setCString  --> setString
+    
+##12.[Beta新添加]Actions API变动
+
+* **12.1 提供action的短方法创建方式**
+    我们还针对action的相关类，增加了更加简单的创建方法，通过类名第一个字母改为小写就能创建出一个新的对象：
+ 
+    比如: 
+
     ```
+ var action =  cc.MoveBy.create(2, cc.p(10, 10))
+    ```
+    这个action可以通过下面更简单的方式创建：
+
+    ```
+ var action = cc.moveBy(2,cc.p(10,10))
+    ```
+
+* **12.2 重新设计ease actions**
+
+    所有的ease action其实是修饰性的action, 他们无法脱离目标action独立使用. 其有效部分也只是update函数，所以我们可以添加一个`easing` 到 `cc.ActionInterval`中, 它可以接受不同的ease对象来实现不同的ease动作效果。
+
+    新旧使用方法的比较，新的调用方式采用链式的调用更加简单、易用:
+
+    **旧的调用方式:**
+
+    ```
+    var easeMoveBy = cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3);
+    ```
+
+    **新的调用方式:**
+
+    ```
+    var easeMoveBy = cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3);
+    ```
+
+
+* **12.3 关于 cc.Repeat, cc.RepeatForever, cc.Speed 的新设计**
+
+    以下的 cc.Repeat, cc.RepeatForever, cc.Speed 都是修饰性的actions, 所以我们添加对应的函数  `repeat`,`repeatForever`,`speed`,`getSpeed`,`setSpeed` 到 `cc.ActionInterval`中. 通过这邪恶函数，开发者可以将原来复杂的动作以清晰的方式进行表示。All these changes allow developers to write complex actions more clearly.
+
+
+    **旧的调用方式:**
+    ```
+var anAction = cc.Sequence.create(
+    cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
+    cc.RepeatForever.create(cc.RotateBy.create(2, 30)));
+    ```
+
+    **新的调用方式:**
+    ```
+    var anAction = cc.sequence(
+		    cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3).repeat(5).speed(1.7), 
+		    cc.rotateBy(2,30).repeatForever());
+    ```
+
+    **注意**: 所有的Actions的旧API都保留，并向前兼容。
+* **12.4 新增Actions API列表**
+   
+     旧的调用方法       				     | 新的调用方法
+     ------------ 					     | ------------
+     cc.Repeat.create(action, num)       | action.repeat(num)
+     cc.RepeatForever.create(action)     | action.repeatForever()
+ 	 cc.Speed.create(action, speed)      | action.speed(speed)
+     cc.Speed.setSpeed(speed)  	         | action.setSpeed(speed)
+	 cc.Speed.getSpeed()  			     | action.getSpeed()
+	 cc.EaseIn.create(action, rate)      | action.easing(cc.easeIn(rate))
+	 cc.EaseOut.create(action, rate)     | action.easing(cc.easeOut(rate))
+	 cc.EaseInOut.create(action, rate)   | action.easing(cc.easeInOut(rate))
+	 cc.EaseExponentialIn.create(action) | action.easing(cc.easeExponentialIn())
+	 cc.EaseExponentialOut.create(action)| action.easing(cc.easeExponentialOut())
+	 cc.EaseExponentialInOut.create(action)| action.easing(cc.easeExponentialInOut())
+	 cc.EaseSineIn.create(action)		 | action.easing(cc.easeSineIn())
+	 cc.EaseSineOut.create(action)		 | action.easing(cc.easeSineOut())
+	 cc.EaseSineInOut.create(action)		 | action.easing(cc.easeSineInOut())
+	 cc.EaseElasticIn.create(action)		 | action.easing(cc.easeElasticIn())
+	 cc.EaseElasticOut.create(action)	 | action.easing(cc.easeElasticOut())
+	 cc.EaseElasticInOut.create(action, rate)| action.easing(cc.easeElasticInOut(rate))
+	 cc.EaseBounceIn.create(action)		 | action.easing(cc.easeBounceIn())
+	 cc.EaseBounceOut.create(action)		 | action.easing(cc.easeBounceOut())
+	 cc.EaseBounceInOut.create(action)	 | action.easing(cc.easeBounceInOut())
+	 cc.EaseBackIn.create(action)		 | action.easing(cc.easeBackIn())
+	 cc.EaseBackOut.create(action)		 | action.easing(cc.easeBackOut())
+	 cc.EaseBackInOut.create(action)		 | action.easing(cc.easeBackInOut())      ```
 
 其他详细文档列表：
 

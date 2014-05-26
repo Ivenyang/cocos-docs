@@ -89,9 +89,9 @@
 
 ### Cocos2d-html5
 
-- [Cocos2d-JS v3.0a2发布说明](../manual/framework/html5/v2/release-notes/v3.0a2/release-note/zh.md)
-- [Cocos2d-JS v3.0a2改动列表](../manual/framework/html5/v2/release-notes/v3.0a2/changelog/en.md)
-- [Cocos2d-JS v3.0a2升级指南](../manual/framework/html5/v2/release-notes/v3.0a/upgrade-guide/zh.md)
+- [Cocos2d-JS v3.0 beta发布说明](../manual/framework/html5/v2/release-notes/v3.0b/release-note/zh.md)
+- [Cocos2d-JS v3.0 beta改动列表](../manual/framework/html5/v2/release-notes/v3.0b/changelog/en.md)
+- [Cocos2d-JS v3.0 beta升级指南](../manual/framework/html5/v2/release-notes/v3.0a/upgrade-guide/zh.md)
 - 综述
 	- [关于Cocos2d-html5](../manual/framework/html5/zh.md)
 	- [供NPM使用的Cocos-utils](../manual/framework/html5/v2/cocos-utils/zh.md)
@@ -129,7 +129,7 @@
     - [cc.log的改造](../manual/framework/html5/v3/cc-log/zh.md)
     - [其他3.0版的API改动](../manual/framework/html5/v3/more-change-from-v2-to-v3/zh.md)
     - Bake Node（进行中）
-    - 简化action的使用（进行中）
+    - [简化action的使用](http://cocos2d-x.org/docs/manual/framework/html5/v3/cc-actions/zh.md)
     
     
 ## 开发进阶和高级实例教程
