@@ -75,15 +75,21 @@ std::string CustomClass::helloMsg() {
 
 ```
 
-add CustomClass.h/CustomClass.cpp to Xcode project:
+add CustomClass.h/CustomClass.cpp to Xcode project, Please check **cocos2dx iOS** on the bottom:
+![](./res/select_files_in_targets.png)
+
+then you will see the new project structure: 
+
 ![](./res/customClassXCode.png)
 
-add search path
+add search path:
+
 ![](./res/searchPath.png)
 
 ### Add cocos2dx_custom.ini
 
 open `tools/tolua` directory and add `cocos2dx_custom.ini` file:
+
 ![](./res/custom_ini_directory.png)
 
 content of this file is, please leave `target_namespace` blank, embed custom class in a namespace’s code auto-complete is not yet supported by Cocos Code IDE:
@@ -161,10 +167,12 @@ find `cmd_args` in tools/tolua/genbindings.py and add a line:
 
 ### Run tools/tolua/genbindings.py
 
-run tools/tolua/genbindings.py, then you would find `lua_cocos2dx_custom.cpp` and `lua_cocos2dx_custom.h` in cocos/scripting/lua-bindings/auto directory, and `CustomClass.lua` in cocos/scripting/lua-bindings/auto/api :
+run tools/tolua/genbindings.py, then you would find `lua_cocos2dx_custom.cpp` and `lua_cocos2dx_custom.h` in cocos/scripting/lua-bindings/auto directory, and `CustomClass.lua` in cocos/scripting/lua-bindings/auto/api:
+
 ![](./res/auto_generate_directory.png)
 
 add .h/.cpp in Xcode project:
+
 ![](./res/addScriptToXcode.png)
 
 ### Add CustomClass auto completion for Cocos Code IDE(1.0.1.beta or above)
@@ -185,7 +193,7 @@ In Cocos Code IDE:
 
 open `lua_cocos2dx_custom.h`, that is a global function declare --> `register_all_cocos2dx_custom(lua_State* tolua_S);`
 
-call this function before CustomClass is used, for example, in AppDelegate.cpp before run `main.lua`:
+call this function before CustomClass is used, for example, in AppDelegate.cpp before run Lua entry file:
 
 ```
     ...
