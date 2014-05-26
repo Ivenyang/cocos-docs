@@ -651,7 +651,33 @@ var anAction = cc.Sequence.create(
     ```
 
     **Note**: All actions changes are backward compatible.
-        
+* **12.4 The new design list**
+   
+     Old usage       				     | New usage
+     ------------ 					     | ------------
+     cc.Repeat.create(action, num)       | action.repeat(num)
+     cc.RepeatForever.create(action)     | action.repeatForever()
+ 	 cc.Speed.create(action, speed)      | action.speed(speed)
+     cc.Speed.setSpeed(speed)  	         | action.setSpeed(speed)
+	 cc.Speed.getSpeed()  			     | action.getSpeed()
+	 cc.EaseIn.create(action, rate)      | action.easing(cc.easeIn(rate))
+	 cc.EaseOut.create(action, rate)     | action.easing(cc.easeOut(rate))
+	 cc.EaseInOut.create(action, rate)   | action.easing(cc.easeInOut(rate))
+	 cc.EaseExponentialIn.create(action) | action.easing(cc.easeExponentialIn())
+	 cc.EaseExponentialOut.create(action)| action.easing(cc.easeExponentialOut())
+	 cc.EaseExponentialInOut.create(action)| action.easing(cc.easeExponentialInOut())
+	 cc.EaseSineIn.create(action)		 | action.easing(cc.easeSineIn())
+	 cc.EaseSineOut.create(action)		 | action.easing(cc.easeSineOut())
+	 cc.EaseSineInOut.create(action)		 | action.easing(cc.easeSineInOut())
+	 cc.EaseElasticIn.create(action)		 | action.easing(cc.easeElasticIn())
+	 cc.EaseElasticOut.create(action)	 | action.easing(cc.easeElasticOut())
+	 cc.EaseElasticInOut.create(action, rate)| action.easing(cc.easeElasticInOut(rate))
+	 cc.EaseBounceIn.create(action)		 | action.easing(cc.easeBounceIn())
+	 cc.EaseBounceOut.create(action)		 | action.easing(cc.easeBounceOut())
+	 cc.EaseBounceInOut.create(action)	 | action.easing(cc.easeBounceInOut())
+	 cc.EaseBackIn.create(action)		 | action.easing(cc.easeBackIn())
+	 cc.EaseBackOut.create(action)		 | action.easing(cc.easeBackOut())
+	 cc.EaseBackInOut.create(action)		 | action.easing(cc.easeBackInOut())     
        
 
 ####Other documentation can be found here:
