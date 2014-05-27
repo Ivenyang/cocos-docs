@@ -372,23 +372,45 @@ if (cc.sys.isNative) {
 
 * **10.3** cc.AssetsManager
 
-    cc.AssetsManager是用于管理和使用远程服务器资源的类，它也支持简单的版本控制和更新。下面是它的API列表：
+    cc.AssetsManager是用于管理和使用远程服务器资源的类，它也支持简单的版本控制和更新。下面是它的使用方式：
     
     ```
-    var assetsMgr = cc.AssetsManager.create(packageUrl, versionFileUrl, storagePath, errorCallback, progressCallback, successCallback);
-    assetsMgr.setStoragePath(storagePath)
-    assetsMgr.setPackageUrl(packageUrl)
-    assetsMgr.checkUpdate()
-    assetsMgr.getStoragePath()
-    assetsMgr.update()
-    assetsMgr.setConnectionTimeout(timeout)
-    assetsMgr.setVersionFileUrl(versionFileUrl)
-    assetsMgr.getPackageUrl()
-    assetsMgr.getConnectionTimeout()
-    assetsMgr.getVersion()
-    assetsMgr.getVersionFileUrl()
-    assetsMgr.deleteVersion()
+    var manager = new cc.AssetsManager(manifestPath, storagePath);
+    // As the process is asynchronised, you need to retain the assets manager to make sure it won't be released before the process is ended.
+    manager.retain();
+
+    if (!manager.getLocalManifest().isLoaded()) {
+        cc.log("Fail to update assets, step skipped.");
+    }
+    else {
+        var listener = new cc.EventListenerAssetsManager(manager, function(event) {
+            switch (event.getEventCode())
+            {
+                case cc.EventAssetsManager.UPDATE_PROGRESSION:
+                    var percent = event.getPercent();
+                    cc.log("Download percent : " + percent);
+                    break;
+                case cc.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
+                case cc.EventAssetsManager.ERROR_PARSE_MANIFEST:
+                    cc.log("Fail to download manifest file, update skipped.");
+                    break;
+                case cc.EventAssetsManager.ALREADY_UP_TO_DATE:
+                case cc.EventAssetsManager.UPDATE_FINISHED:
+                    cc.log("Update finished.");
+                    // You need to release the assets manager while you are sure you don't need it any more
+                    manager.release();
+                    break;
+                case cc.EventAssetsManager.ERROR_UPDATING:
+                    cc.log("Asset update error: " + event.getAssetId() + ", " + event.getMessage());
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
     ```
+    
+    更多信息请参考[cc.AssetsManager文档](../../../v3.0/assets-manager/zh.md).
 
 
 ##11. 其他API变动
@@ -675,7 +697,7 @@ var anAction = cc.Sequence.create(
 	 
 ##13.[Beta新变动]修改setText，getText为统一的API SetString, getString
 
-* ccui.Text refactoration :
+* ccui.Text :
 
     
   ```
@@ -683,27 +705,27 @@ var anAction = cc.Sequence.create(
   getStringValue --> getString
   ```
 
-* ccui.TextAtlas
+* ccui.TextAtlas :
  
   ```
   getStringValue ==> getString
   ```
 
-* ccui.TextBMFont
+* ccui.TextBMFont :
 
    ```
   setText --> setString
   getStringValue --> getString
   ```
 
-* ccui.TextField
+* ccui.TextField :
 
    ```
   setText --> setString
   getStringValue --> getString
   ```
 
-* cc.EditBox
+* cc.EditBox :
 
    ```
   setText --> setString
