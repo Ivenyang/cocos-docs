@@ -12,9 +12,9 @@ For more informations please see [Cocos2d-JS github site](https://github.com/coc
 
 ## Download
 
-- [cocos2d-js-v3.0-beta.zip](http://cdn.cocos2d-x.org/cocos2d-js-v3.0-beta.zip)
+- [cocos2d-js-v3.0-beta.zip](http://www.cocos2d-x.org/filedown/cocos2d-js-v3.0-beta.zip)
 - [Online API reference](http://www.cocos2d-x.org/reference/html5-js/V3.0beta/index.html)
-- [Downloadable API Reference](http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-beta-API.zip)
+- [Downloadable API Reference](http://www.cocos2d-x.org/filedown/Cocos2d-JS-v3.0-beta-API.zip)
 - [For Web Development Only](http://www.cocos2d-x.org/jsbuilder)
 
 ## Highlights

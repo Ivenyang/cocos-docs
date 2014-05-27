@@ -13,7 +13,7 @@ Furthermore, javascript friendly API makes your game development experience a br
 - [Cocos2d-JS github repo](http://github.com/cocos2d/cocos2d-js/)
 - [Cocos2d-JS release](http://www.cocos2d-x.org/download)
 - [Online API reference](http://www.cocos2d-x.org/wiki/Reference)
-- [Downloadable API reference](http://cdn.cocos2d-x.org/Cocos2d-JS-v3.0-beta-API.zip)
+- [Downloadable API reference](http://www.cocos2d-x.org/filedown/Cocos2d-JS-v3.0-beta-API.zip)
 
 ## Main features
 
