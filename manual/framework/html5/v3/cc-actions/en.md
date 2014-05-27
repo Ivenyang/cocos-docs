@@ -47,14 +47,14 @@ There is a comparison between old usage and new usage:
 ```
 var anAction = cc.Sequence.create(
     cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
-    cc.RepeatForever.create(cc.RotateBy.create(2, 30)));
+    cc.RotateBy.create(2, 30));
 ```
 
 **New usage:**
 ```
 var anAction = cc.sequence(
 		cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3).repeat(5).speed(1.7), 
-		cc.rotateBy(2,30).repeatForever());
+		cc.rotateBy(2,30));
 ```
 
 **Note**: All changes are backward compatible.
