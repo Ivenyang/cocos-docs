@@ -16,18 +16,19 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 * 保存代码后不需要重启游戏就可以看到改动后的效果
 * 打包并发布apk
 
-**暂未实现的功能（1.0.2-beta）：**
-
-* 将工程打包成 ipa
-* 与现有的编辑器（如CocoStudio等）集成
-
 **不会支持的特性**
 
 * Code IDE 是为 Lua 和 Javascript 等脚本语言设计的，不支持也不打算做对C++等其他语言的支持
 
-下载
+下载 Cocos Code IDE
 ----------
-**请下载与你安装的JDK对应的版本**
+### 下载哪个版本的IDE(Windows用户)
+在控制台中输入下面的命令来检查安装的java版本:
+
+`java -version`
+
+如果已经安装过java, 你可以从控制台的输出中知道java版本是 **32-Bit** 或者 **64-Bit**, 然后选择相应版本的IDE。
+### 下载
 
 | 平台        | 充分测试版本 | 下载地址 |
 | ----------- |:--------------:| ----------------------:|
@@ -40,7 +41,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 ### 基本需求
 
 + 安装 [JDK][JDK link]，windows用户要下载合适的jdk版本，例如，X64的jdk对于64位版本的Cocos IDE。
-+ 安装 [Python][Python link], 最好是2.7版本。
++ 安装 [Python 2.7][Python link]。
 + 开发 Cocos2d-x Lua binding 游戏请下载 [Cocos2d-x 3.1][engine download link]
 + 开发 Cocos2d-x JavaScript binding 游戏请下载 [Cocos2d-js 3.0 beta][engine download link]
 
@@ -64,7 +65,7 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 
 	| 目标平台      | 工具 |
 	| ------------- |:----------------------------:|
-	| Mac OS X/iOS      | XCode 		|
+	| Mac OS X/iOS      | XCode 5.0或以上版本 		|
 	| Windows       | VS2012 |
 	| Android       | [Android SDK][Android SDK link], [NDK][NDK link], [ANT][ANT link] |
 
