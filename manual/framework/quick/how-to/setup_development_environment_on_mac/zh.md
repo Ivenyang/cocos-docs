@@ -178,3 +178,6 @@ Android 官方文档：http://developer.android.com/tools/device.html
 3. 在项目 LuajavaBridge 上点击鼠标右键, 选择菜单 Debug As -> Android Application. 如果一切正常，等一会儿就可以在设备上看到运行画面了：
 
 ![](res/howto_setup_development_environment_mac_09.png)
+
+#### 提示 ####
+截止2014.5.28, ** NDK ** 已更新到 ** android-ndk-r9d **,请用新的NDK版本
