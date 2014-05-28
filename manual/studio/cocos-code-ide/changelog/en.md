@@ -15,7 +15,7 @@ Cocos Code IDE 1.0.1.beta
     [NEW] Code Auto-complete feature enhancement
     [NEW] Use more CPU to build/publish android runtime
     [NEW] Support ignoring some files and directories to upload when debug
-    [NEW] Give resolution when debug failed
+    [NEW] Give solutions when debug failed
     [NEW] JS: Support displaying value of variable in callstacks
     [NEW] Publish Android apk with debug.keystore
     [NEW] JS Runtime bind more C++ interface to script
