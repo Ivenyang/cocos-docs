@@ -81,9 +81,13 @@ then you will see the new project structure:
 
 ![](./res/customClassXCode.png)
 
-add search path:
+add source file path to search path:
 
 ![](./res/searchPath.png)
+
+add binding file path to search path:
+
+![](./res/binding_search_path.png)
 
 ### Add cocos2dx_custom.ini
 
