@@ -74,12 +74,20 @@ std::string CustomClass::helloMsg() {
 
 ```
 
-add CustomClass.h/CustomClass.cpp to Xcode project:
+add CustomClass.h/CustomClass.cpp to Xcode project, Please check **cocos2dx iOS** on the bottom:
+![](./res/select_files_in_targets.png)
+
+then you will see the new project structure: 
 
 ![](./res/customClassXCode.png)
 
-add search path
+add source file path to search path:
+
 ![](./res/searchPath.png)
+
+add binding file path to search path:
+
+![](./res/binding_search_path.png)
 
 ### Add cocos2dx_custom.ini
 
@@ -89,8 +97,6 @@ open `tools/tojs` directory and add `cocos2dx_custom.ini` file:
 content of this file is:
 
 ```
-[cocos2dx_custom]
-
 [cocos2dx_custom]
 # the prefix to be added to the generated functions. You might or might not use this in your own
 # templates
@@ -106,7 +112,7 @@ android_flags = -D_SIZE_T_DEFINED_
 clang_headers = -I%(clangllvmdir)s/lib/clang/3.3/include 
 clang_flags = -nostdinc -x c++ -std=c++11
 
-cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/my -I%(cocosdir)s/cocos/2d -I%(cocosdir)s/cocos/base -I%(cocosdir)s/cocos/physics -I%(cocosdir)s/cocos/2d/platform -I%(cocosdir)s/cocos/2d/platform/android -I%(cocosdir)s/cocos/math/kazmath
+cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/my -I%(cocosdir)s/cocos/base -I%(cocosdir)s/cocos/platform/android
 cocos_flags = -DANDROID -DCOCOS2D_JAVASCRIPT
 
 cxxgenerator_headers = 
@@ -150,11 +156,12 @@ abstract_classes =
 # Determining whether to use script object(js object) to control the lifecycle of native(cpp) object or the other way around. Supported values are 'yes' or 'no'.
 script_control_cpp = no
 
+
 ```
 
 ### Change tools/tojs/genbindings.py
 
-find `cmd_args` in tools/tojs/genbindings.py and add a line:
+find `custom_cmd_args`(old version including cocos2d-js 3.0 alpha 2, it was `cmd_args` only) in tools/tojs/genbindings.py and add a line:
 
 ```
   'cocos2dx_custom.ini' : ('cocos2dx_custom', 'jsb_cocos2dx_custom'), \
@@ -163,19 +170,20 @@ find `cmd_args` in tools/tojs/genbindings.py and add a line:
 
 ### Run tools/tojs/genbindings.py
 
-run tools/tojs/genbindings.py, then you would find `jsb_cocos2dx_custom_auto.cpp` and `jsb_cocos2dx_custom_auto.h` in frameworks/js-bindings/bindings/auto directory:
+run tools/tojs/genbindings.py, then you would find `jsb_cocos2dx_custom.cpp` and `jsb_cocos2dx_custom.h` in frameworks/custom/auto directory(or frameworks/js-bindings/bindings/auto directory if you use `cmd_args` replace `custom_cmd_args`):
 ![](./res/auto_generate_directory.png)
 
 add them in Xcode project:
+
 ![](./res/addScriptToXcode.png)
 
 ### Register it to js
 
-open `jsb_cocos2dx_custom_auto.hpp`, that is a global function declare --> 
+open `jsb_cocos2dx_custom.hpp`, that is a global function declare --> 
 
 `register_all_cocos2dx_custom(JSContext* cx, JSObject* obj);`
 
-call this function before CustomClass is used, for example, in AppDelegate.cpp before run `main.js`:
+call this function before CustomClass is used, for example, in AppDelegate.cpp before run JavaScript entry file:
 
 ```
     ...
@@ -184,7 +192,7 @@ call this function before CustomClass is used, for example, in AppDelegate.cpp b
     
 	sc->addRegisterCallback(register_all_cocos2dx_custom);
     
-#ifdef COCOS2D_DEBUG
+#if (COCOS2D_DEBUG>0)
     if (startRuntime())
         return true;
 #endif
@@ -192,7 +200,7 @@ call this function before CustomClass is used, for example, in AppDelegate.cpp b
     ScriptingCore::getInstance()->start();
     auto engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    ScriptingCore::getInstance()->runScript("main.js");     
+    ScriptingCore::getInstance()->runScript(ConfigParser::getInstance()->getEntryFile().c_str());   
 ```
 
 ### Build runtime
