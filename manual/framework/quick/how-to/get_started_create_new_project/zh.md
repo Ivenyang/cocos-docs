@@ -20,7 +20,7 @@ cd ~/Desktop
 
 ~~~
 
-$QUICK_COCOS2DX_ROOT/bin/create_project.sh com.mycompany.games.game01
+$QUICK_COCOS2DX_ROOT/bin/create_project.sh -p com.mycompany.games.game01
 
 ~~~
 
@@ -52,7 +52,7 @@ create_project.sh 命令会以 package name 的最后一节作为新项目的目
 
 ~~~
 
-$QUICK_COCOS2DX_ROOT/bin/create_project.sh -o landscape com.mycompany.games.game01
+$QUICK_COCOS2DX_ROOT/bin/create_project.sh -r landscape -p com.mycompany.games.game01
 
 ~~~
 
