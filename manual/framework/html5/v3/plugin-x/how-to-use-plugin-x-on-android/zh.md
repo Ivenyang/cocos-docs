@@ -49,6 +49,26 @@
 }
 ```
 
+- 在AppDelegate.cpp中添加：
+
+```
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "jsb_cocos2dx_pluginx_auto.hpp"
+#include "jsb_pluginx_extension_registration.h"
+#endif
+
+
+bool AppDelegate::applicationDidFinishLaunching()
+{
+    //...
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    sc->addRegisterCallback(register_all_pluginx_protocols);
+    sc->addRegisterCallback(register_pluginx_js_extensions);
+#endif
+    //...
+}
+```
+
 - 在jni/main.cpp中添加代码:
 
 ```
