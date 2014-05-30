@@ -30,18 +30,18 @@ create_project.sh 命令会以 package name 的最后一节作为新项目的目
 
 ![](res/create_new_project_01.png)
 
-接下来就可以用 player 运行项目了。或者打开 ** proj.ios ** , ** proj.android ** 里的工程文件，在真机上进行测试。
+接下来就可以用 player 运行项目了。或者打开 **proj.ios** , **proj.android** 里的工程文件，在真机上进行测试。
 
 
 ## 在 Windows 环境里创建新项目 ##
 
 与 Mac 环境类似，只不过是在“命令提示符”窗口中执行 create_project.bat。
 
-** 注意 **：不要在 cygwin 窗口里执行 create_project.bat 或者 create_project.sh
+**注意**：不要在 cygwin 窗口里执行 create_project.bat 或者 create_project.sh
 
 ~~~
 
-%QUICK_COCOS2DX_ROOT%\bin\create_project.bat com.mycompany.games.game01
+%QUICK_COCOS2DX_ROOT%\bin\create_project.bat -p com.mycompany.games.game01
 
 ~~~
 
@@ -57,5 +57,5 @@ $QUICK_COCOS2DX_ROOT/bin/create_project.sh -r landscape -p com.mycompany.games.g
 ~~~
 
 #### 提示 ####
-更多create_project的用法可以在终端/命令行中输入 ** $QUICK_COCOS2DX_ROOT/bin/create_project.sh -h ** 了解
+更多create_project的用法可以在终端/命令行中输入 **$QUICK_COCOS2DX_ROOT/bin/create_project.sh -h** 了解
 
