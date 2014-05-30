@@ -44,7 +44,7 @@ PunchBoxAdSDK.h
 5.在framework中加入
 
 - cc.ad.PunchBox.lua // punchbox工厂类，根据平台创建对的实例类
-- cc.ad.punchbox.ProviderIOS.lua // ** 调用PunchBoxAdSDK接口 **
+- cc.ad.punchbox.ProviderIOS.lua // **调用PunchBoxAdSDK接口**
 - cc.ad.init.lua // 加入根据参数是否启动调用punchbox Ad的判断
 
 ### Android集成 ###
@@ -107,7 +107,7 @@ cc.ad:doCommand{command = "banner", args = {id = PUNCHBOX_AD_SDK_BANNER_ID, posi
 
 ~~~
 
-** 提示 **: 具体实际请参见samples/punchbox_ad及SDK对应的集成说明文档
+**提示**: 具体实际请参见samples/punchbox_ad及SDK对应的集成说明文档
 
 ## 集成友盟统计SDK ##
 
@@ -150,7 +150,7 @@ $proj表示当前工程目录
 
 ![](res/integration_third_party_05.png)
 
-** 注意 ** : cocos2d-x项目默认使用libstdc++编译,如果您的项目正在使用libc++编译请使用libMobClickCppWithLibCpp.a
+**注意** : cocos2d-x项目默认使用libstdc++编译,如果您的项目正在使用libc++编译请使用libMobClickCppWithLibCpp.a
 
 依赖框架中添加libz.dylib
 
@@ -210,4 +210,4 @@ cc.analytics:doCommand{command = "payCoin", args = {cash = 10, source = 2, coin 
 
 ~~~
 
-** 提示 ** : 具体实际请参见samples/umeng_analytics及SDK对应的集成说明文档
+**提示** : 具体实际请参见samples/umeng_analytics及SDK对应的集成说明文档

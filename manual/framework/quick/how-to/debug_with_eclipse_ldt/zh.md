@@ -3,11 +3,11 @@
 
 目前，quick-cocos2d-x 已经内置了对 Eclipse LDT 的调试器支持，要用 LDT 进行调试需要以下几步:
 
-1. 在Eclipse中安装 ** LDT **
+1. 在Eclipse中安装 **LDT**
 2. 创建一个lua工程
-3. 开启Player的 ** debugger ** 功能
+3. 开启Player的 **debugger** 功能
 4. 在Eclipse LDT设置断点
-5. 配置LDT的 ** Debug Configuration **
+5. 配置LDT的 **Debug Configuration**
 6. 刷新Player
 7. 再次开启调试
 
@@ -50,7 +50,7 @@ $QUICK_COCOS2DX_ROOT/samples/luajavabridge/scripts/
 
 ## 开启Player的debugger功能 ##
 
-启动 quick-x-player，打开要调试的项目，然后选择菜单 ** Player ** -> ** Auto Connect Debugger ** 。
+启动 quick-x-player，打开要调试的项目，然后选择菜单 **Player** -> **Auto Connect Debugger** 。
 
 ![](res/debug_with_eclipse_ldt_05.png)
 

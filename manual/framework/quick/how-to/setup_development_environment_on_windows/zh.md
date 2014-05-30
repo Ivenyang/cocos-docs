@@ -190,4 +190,4 @@ Android 官方文档：<http://developer.android.com/tools/device.html>
 
 
 #### 提示 ####
-截止2014.5.28, ** NDK ** 已更新到 ** android-ndk-r9d **,请用新的NDK版本
+截止2014.5.28, **NDK** 已更新到 **android-ndk-r9d**,请用新的NDK版本
