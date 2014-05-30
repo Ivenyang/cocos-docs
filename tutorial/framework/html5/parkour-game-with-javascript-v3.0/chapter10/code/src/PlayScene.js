@@ -28,7 +28,7 @@ var PlayScene = cc.Scene.extend({
         // shapes[0] is runner
         this.shapesToRemove.push(shapes[1]);
 
-        cc.audioEngine.playEffect(res.pickup_coin_ogg);
+        cc.audioEngine.playEffect(res.pickup_coin_mp3);
 
         var statusLayer = this.getChildByTag(TagOfLayer.Status);
         statusLayer.addCoin(1);
