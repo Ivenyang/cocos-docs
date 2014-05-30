@@ -38,6 +38,8 @@ var g_resources = [
     res.pickup_coin_ogg
 ];
 ```
+**Note:** It is recommended to have the same audio file in both `"mp3"` and `"ogg"` format at the same time to ensure compatibility across all browsers. And you only need to list one of them in the resource.js file, not matter "mp3" or "ogg".
+
 #### Add Audio Handling Code into The Game
 
 At first, add the background music when entering the PlayScene:
