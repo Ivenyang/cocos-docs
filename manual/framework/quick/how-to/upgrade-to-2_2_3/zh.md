@@ -8,6 +8,24 @@
 
 ~
 
+### 快速升级已有项目
+
+在现有游戏的 config.lua 中添加如下代码：
+
+```lua
+LOAD_DEPRECATED_API = true               -- 在框架初始化时载入过时的 API 定义
+USE_DEPRECATED_EVENT_ARGUMENTS = true    -- 使用过时的事件回调参数
+DISABLE_DEPRECATED_WARNING = false       -- true: 不显示过时 API 警告，false: 要显示警告
+```
+
+加入上述三行代码后，现有项目的绝大部分功能都可以正常运行，但可能出现以下错误：
+
+-   `CCNodeExtend.extend()` 未定义：这类错误直接去掉 CCNodeExtend.extend() 调用即可，类似的错误还有 CCLayer.extend() 等
+
+快速升级适合当前项目在新版框架下的测试，但产品发布前还是应该按照本文档修改相关的代码。将过时 API 的使用改为新 API，因为过时的 API 在下一版本发布时可能会删除。
+
+~
+
 
 ### 事件机制的改变
 

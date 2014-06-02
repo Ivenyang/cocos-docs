@@ -89,9 +89,9 @@
 
 ### Cocos2d-html5
 
-- [Cocos2d-JS v3.0a2发布说明](../manual/framework/html5/v2/release-notes/v3.0a2/release-note/zh.md)
-- [Cocos2d-JS v3.0a2改动列表](../manual/framework/html5/v2/release-notes/v3.0a2/changelog/en.md)
-- [Cocos2d-JS v3.0a2升级指南](../manual/framework/html5/v2/release-notes/v3.0a/upgrade-guide/zh.md)
+- [Cocos2d-JS v3.0 beta发布说明](../manual/framework/html5/v2/release-notes/v3.0b/release-note/zh.md)
+- [Cocos2d-JS v3.0 beta改动列表](../manual/framework/html5/v2/release-notes/v3.0b/changelog/en.md)
+- [Cocos2d-JS v3.0 beta升级指南](../manual/framework/html5/v2/release-notes/v3.0a/upgrade-guide/zh.md)
 - 综述
 	- [关于Cocos2d-html5](../manual/framework/html5/zh.md)
 	- [供NPM使用的Cocos-utils](../manual/framework/html5/v2/cocos-utils/zh.md)
@@ -103,7 +103,12 @@
     - [如何自定义Cocos2d-html5加载界面](../manual/framework/html5/v2/customize-loading-screen/zh.md)
     - [Cocos2d-html5的屏幕适配方案](../manual/framework/html5/v2/resolution-policy-design/zh.md)
     - [月亮战士——Cocos2d-html5游戏展示](../manual/framework/html5/v2/moonwarriors-cocos2d-html5-showcase/zh.md)
+    - [Plugin-x架构](../manual/framework/html5/v3/plugin-x/plugin-x-architecture/zh.md)
+    - [如何在android上使用plugin-x](../manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/zh.md)
+    - [如何编写自己的插件](../manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/zh.md)
 - Cocos2d-html5 v3.0的新功能
+    - [资源管理器](../manual/framework/html5/v3/assets-manager/zh.md)
+    - [Actions API](../manual/framework/html5/v3/cc-actions/en.md)
     - [事件管理器](../manual/framework/html5/v3/eventManager/zh.md)
     - [属性风格API](../manual/framework/html5/v3/getter-setter-api/zh.md)
     - [使用cocos console创建工程](../manual/framework/html5/v2/cocos-console/zh.md)
@@ -124,7 +129,7 @@
     - [cc.log的改造](../manual/framework/html5/v3/cc-log/zh.md)
     - [其他3.0版的API改动](../manual/framework/html5/v3/more-change-from-v2-to-v3/zh.md)
     - Bake Node（进行中）
-    - 简化action的使用（进行中）
+    - [简化action的使用](http://cocos2d-x.org/docs/manual/framework/html5/v3/cc-actions/zh.md)
     
     
 ## 开发进阶和高级实例教程
@@ -191,19 +196,27 @@
  	- [怎样用Cocos2d-html5制作一款横版动作游戏 (2)](../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part2/zh.md)
  	- [怎样用Cocos2d-html5制作一款横版动作游戏 (3)](../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part3/zh.md)
 - 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-JS v3.0)
-	- [建立Cocos2d-JS开发环境](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/zh.md)
-	- [你好Cocos2d-JS](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
+	- [1. 建立Cocos2d-JS开发环境](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/zh.md)
+	- [2. 你好Cocos2d-JS](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
+	- [3. 建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter3/en.md)
+	- [4. 设计实现主场景](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter4/en.md)
+	- [5. 让角色运行动画](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter5/en.md)
+	- [6. 在游戏中加入Chipmunk物理引擎](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter6/en.md)
+	- [7. 使用瓦片地图和相机](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter7/en.md)
+	- [8. 增加金币和障碍物](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter8/en.md)
+	- [9. 游戏结束逻辑](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter9/en.md)
+	- [10. 添加游戏音频](../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter10/en.md)
 - 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-html5 v2.2.2)
-	- [建立html5开发环境](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
-	- [你好Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
-	- [建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript/chapter3/en.md)
-	- [设计实现主场景](../tutorial/framework/html5/parkour-game-with-javascript/chapter4/en.md)
-	- [让角色运行动画](../tutorial/framework/html5/parkour-game-with-javascript/chapter5/en.md)
-	- [在游戏中加入Chipmunk物理引擎](../tutorial/framework/html5/parkour-game-with-javascript/chapter6/en.md)
-	- [使用瓦片地图和相机](../tutorial/framework/html5/parkour-game-with-javascript/chapter7/en.md)
-	- [增加金币和障碍物](../tutorial/framework/html5/parkour-game-with-javascript/chapter8/en.md)
-	- [游戏结束逻辑](../tutorial/framework/html5/parkour-game-with-javascript/chapter9/en.md)
-	- [对源码进行混淆](../tutorial/framework/html5/parkour-game-with-javascript/chapter10/en.md)
+	- [1. 建立html5开发环境](../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
+	- [2. 你好Cocos2d-html5](../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
+	- [3. 建立第一个游戏场景](../tutorial/framework/html5/parkour-game-with-javascript/chapter3/en.md)
+	- [4. 设计实现主场景](../tutorial/framework/html5/parkour-game-with-javascript/chapter4/en.md)
+	- [5. 让角色运行动画](../tutorial/framework/html5/parkour-game-with-javascript/chapter5/en.md)
+	- [6. 在游戏中加入Chipmunk物理引擎](../tutorial/framework/html5/parkour-game-with-javascript/chapter6/en.md)
+	- [7. 使用瓦片地图和相机](../tutorial/framework/html5/parkour-game-with-javascript/chapter7/en.md)
+	- [8. 增加金币和障碍物](../tutorial/framework/html5/parkour-game-with-javascript/chapter8/en.md)
+	- [9. 游戏结束逻辑](../tutorial/framework/html5/parkour-game-with-javascript/chapter9/en.md)
+	- [10. 添加游戏音频](../tutorial/framework/html5/parkour-game-with-javascript/chapter10/en.md)
 	- 在浏览器中对Javascript代码进行调试
 	- 通过Cocos2d-x Javascript Binding以原生方式编译iOS和Android版
 
@@ -267,3 +280,7 @@
 - [TexturePacker](../manual/framework/native/v2/tools-and-editors/texturepacker/zh.md)
 	- [Cocos2d-x里如何用TexturePacker和像素格式来优化spritesheet](../tutorial/framework/native/how-to-use-texturepacker-to-optimize-the-spritesheet/zh.md)
 	- [如何在cocos2d里面使用动画和spritesheet](../tutorial/framework/native/how-to-use-animations-and-spritesheets/zh.md)
+## 1. [Native](framework/native/zh.md)
+## 2. [Html5](framework/html5/zh.md)
+## 3. [Quick](framework/native/zh.md)
+## 4. [CocoStudio](studio/zh.md)
