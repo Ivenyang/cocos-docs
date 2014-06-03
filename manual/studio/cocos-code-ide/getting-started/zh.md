@@ -28,6 +28,10 @@ Cocos Code IDE 是一个基于 Eclipse 的跨平台 IDE ，专门为 Cocos2d-x L
 `java -version`
 
 如果已经安装过java, 你可以从控制台的输出中知道java版本是 **32-Bit** 或者 **64-Bit**, 然后选择相应版本的IDE。
+
+### cocos2d-x 3.1 补丁包
+cocos2d-x 3.1 的 lua-template-runtime/runtime/win32/PrebuiltRuntimeLua.exe 存在无法输出日志的bug，请下载并解压[此文件](http://cdn.cocos2d-x.org/cocos2dx-3.1-templates.zip)到指定目录。
+
 ### 下载
 
 | 平台        | 充分测试版本 | 下载地址 |
