@@ -70,15 +70,18 @@ More details about Animation are in [here](http://cocos2d-x.org/wiki/Animations)
 Example of playing animation:
 
 ```
- var animation = cc.Animation.create ( ) ; 
-        for ( var i = 1 ; i < 15 ; i ++ ) {         
-        var frameName = "res/Images/grossini_dance_" + ( ( i < 10 ) ? ( "0" + i ) : i ) + ".png" ; 
-           animation. addSpriteFrameWithFile ( frameName ) ; 
-        } 
-        animation.setDelayPerUnit ( 2.8 / 14 ) ; 
-        animation.setRestoreOriginalFrame ( true ) ; 
-        var action = cc.Animate.create ( animation ) ; 
-        sprite. runAction ( cc.Sequence.create( action, action. reverse ( ) ) ) ;
+ var animation = cc.Animation.create ( ) ;
+ 
+ for ( var i = 1 ; i < 15 ; i ++ ) {         
+ 	var frameName = "res/Images/grossini_dance_" + ( ( i < 10 ) ? ( "0" + i ) : i ) + ".png" ; 
+	animation. addSpriteFrameWithFile ( frameName ) ;
+ }
+ 
+ animation.setDelayPerUnit ( 2.8 / 14 ) ; 
+ animation.setRestoreOriginalFrame ( true ) ; 
+ var action = cc.Animate.create ( animation ) ; 
+ sprite. runAction ( cc.Sequence.create( action, action. reverse ( ) ) ) ;
+ 
 ```
 ### Scheduler and Timer Callback
 

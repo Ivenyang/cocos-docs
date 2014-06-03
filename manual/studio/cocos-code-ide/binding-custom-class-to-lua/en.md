@@ -75,22 +75,26 @@ std::string CustomClass::helloMsg() {
 
 ```
 
-add CustomClass.h/CustomClass.cpp to Xcode project:
+add CustomClass.h/CustomClass.cpp to Xcode project, Please check **cocos2dx iOS** on the bottom:
+![](./res/select_files_in_targets.png)
+
+then you will see the new project structure: 
+
 ![](./res/customClassXCode.png)
 
-add search path
+add search path:
+
 ![](./res/searchPath.png)
 
 ### Add cocos2dx_custom.ini
 
 open `tools/tolua` directory and add `cocos2dx_custom.ini` file:
+
 ![](./res/custom_ini_directory.png)
 
-content of this file is:
+content of this file is, please leave `target_namespace` blank, embed custom class in a namespace’s code auto-complete is not yet supported by Cocos Code IDE:
 
 ```
-[cocos2dx_custom]
-
 [cocos2dx_custom]
 # the prefix to be added to the generated functions. You might or might not use this in your own
 # templates
@@ -98,7 +102,7 @@ prefix = cocos2dx_custom
 
 # create a target namespace (in javascript, this would create some code like the equiv. to `ns = ns || {}`)
 # all classes will be embedded in that namespace
-target_namespace = cc
+target_namespace =
 
 android_headers = -I%(androidndkdir)s/platforms/android-14/arch-arm/usr/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.7/libs/armeabi-v7a/include -I%(androidndkdir)s/sources/cxx-stl/gnu-libstdc++/4.7/include
 android_flags = -D_SIZE_T_DEFINED_ 
@@ -106,8 +110,8 @@ android_flags = -D_SIZE_T_DEFINED_
 clang_headers = -I%(clangllvmdir)s/lib/clang/3.3/include 
 clang_flags = -nostdinc -x c++ -std=c++11
 
-cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/my -I%(cocosdir)s/cocos/2d -I%(cocosdir)s/cocos/base -I%(cocosdir)s/cocos/physics -I%(cocosdir)s/cocos/2d/platform -I%(cocosdir)s/cocos/2d/platform/android -I%(cocosdir)s/cocos/math/kazmath
-cocos_flags = -DANDROID -DCOCOS2D_JAVASCRIPT
+cocos_headers = -I%(cocosdir)s/cocos -I%(cocosdir)s/my -I%(cocosdir)s/cocos/base -I%(cocosdir)s/cocos/platform/android
+cocos_flags = -DANDROID
 
 cxxgenerator_headers = 
 
@@ -163,30 +167,53 @@ find `cmd_args` in tools/tolua/genbindings.py and add a line:
 
 ### Run tools/tolua/genbindings.py
 
-run tools/tolua/genbindings.py, then you would find `lua_cocos2dx_custom_auto.cpp` and `lua_cocos2dx_custom_auto.h` in cocos/scripting/lua-bindings/auto directory:
+run tools/tolua/genbindings.py, then you would find `lua_cocos2dx_custom.cpp` and `lua_cocos2dx_custom.h` in cocos/scripting/lua-bindings/auto directory, and `CustomClass.lua` in cocos/scripting/lua-bindings/auto/api:
+
 ![](./res/auto_generate_directory.png)
 
-add them in Xcode project:
+add .h/.cpp in Xcode project:
+
 ![](./res/addScriptToXcode.png)
+
+### Add CustomClass auto completion for Cocos Code IDE(1.0.1.beta or above)
+zip `CustomClass.lua` to a zip file, such as CustomClass.zip by follow command:
+
+```
+zip CustomClass.zip CustomClass.lua
+```
+
+In Cocos Code IDE:
+
+* Right click CocosLuaGame project
+* Build Path->Configure Build Path...->Libraries->Add ZIPS...
+* ![](./res/add_zips.png)
+* Select the `CustomClass.zip` and **OK**
 
 ### Register it to lua
 
-open `lua_cocos2dx_custom_auto.h`, that is a global function declare --> `register_all_cocos2dx_custom(lua_State* tolua_S);`
+open `lua_cocos2dx_custom.h`, that is a global function declare --> `register_all_cocos2dx_custom(lua_State* tolua_S);`
 
-call this function before CustomClass is used, for example, in AppDelegate.cpp before run `main.lua`:
+call this function before CustomClass is used, for example, in AppDelegate.cpp before run Lua entry file:
 
 ```
     ...
     #include "lua_cocos2dx_custom.hpp"
     ...
     
-	auto engine = LuaEngine::getInstance();
-    ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    auto state = engine->getLuaStack()->getLuaState();
+	// register custom function
+    LuaStack* stack = engine->getLuaStack();
+    auto state = stack->getLuaState();
     lua_getglobal(state, "_G");
     register_all_cocos2dx_custom(state);
     lua_pop(state, 1);
-    engine->executeScriptFile("src/main.lua");        
+    
+#if (COCOS2D_DEBUG>0)
+    if (startRuntime())
+        return true;
+#endif
+
+    engine->executeScriptFile(ConfigParser::getInstance()->getEntryFile().c_str());
+    return true;        
 ```
 
 ### Build runtime
@@ -200,7 +227,7 @@ In Cocos Code IDE:
 Edit main.lua, using CustomClass where you want:
 
 ```
-	local customClass = cc.CustomClass:create()
+	local customClass = CustomClass:create()
     local msg = customClass:helloMsg()
     cclog("customClass's msg is : " .. msg)
 ```
