@@ -62,7 +62,7 @@ var g_resources = [
 
 Here we have added two global variables named **s_PlayBG** and **s_runner**. Now when we want to create a sprite in another js files, we can easily access these variables.
 
-Since we will add four javascript files: PlayScnee.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell cocos2d-x engine to load these files when game startup. So we should change **cocos2d.js** to add more source files:
+Since we will add four javascript files: PlayScene.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell cocos2d-x engine to load these files when game startup. So we should change **cocos2d.js** to add more source files:
 
 ```
  appFiles:[
