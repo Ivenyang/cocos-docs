@@ -125,6 +125,7 @@ var BackgroundLayer = cc.Layer.extend({
         this._super();
 		
 		//create the background image and position it at the center of screen
+	var winSize = cc.Director.getInstance().getWinSize();
         var centerPos = cc.p(winSize.width / 2, winSize.height / 2);
         var spriteBG = cc.Sprite.create(s_PlayBG);
         spriteBG.setPosition(centerPos);
@@ -183,7 +184,8 @@ var StatusLayer = cc.Layer.extend({
 
     init:function () {
         this._super();
-
+	
+	var winSize = cc.Director.getInstance().getWinSize();
         this.labelCoin = cc.LabelTTF.create("Coins:0", "Helvetica", 20);
         this.labelCoin.setColor(cc.c3(0,0,0));//black color
         this.labelCoin.setPosition(cc.p(70, winSize.height - 20));
