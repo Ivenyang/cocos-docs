@@ -42,7 +42,7 @@
 
     ```
     cc.game.onStart = function(){
-        cc.Director.getInstance().runScene(new MyScene());
+        cc.director.runScene(new MyScene());
     };
     cc.game.run();
     ```
@@ -217,7 +217,7 @@ var sprite = cc.Sprite.createWithSpriteFrameName(spriteFrameName);
 ```
 var sprite = cc.Sprite.create(filename, rect);
 var sprite = cc.Sprite.create(texture, rect);
-var sprite = cc.Sprite.create(spriteFrameName);
+var sprite = cc.Sprite.create("#" + spriteFrameName);
 ```
 
 这个改动不仅适用于cc.Sprite，同样适用于引擎中所有有类似API的类，支持的类列表以及关于`create`函数改造的更详细信息请参见[create API文档](../../../v3.0/create-api/en.md)。
@@ -227,7 +227,7 @@ var sprite = cc.Sprite.create(spriteFrameName);
 ```
 var sprite = new cc.Sprite(filename, rect);
 var sprite = new cc.Sprite(texture, rect);
-var sprite = new cc.Sprite(spriteFrameName);
+var sprite = new cc.Sprite("#" + spriteFrameName);
 ```
 
 与此同时，为了向后兼容性，所有`create`函数也被保留，使用哪种API风格完全是开发者自由的选择。更重要的是，这个改进使得类的继承变得前所未有的简单。开发者现在可以完全忽略所有的`initXXX`函数，你可以简单得通过重载`ctor`函数并使用正确的参数调用`this._super`即可完成对象的初始化：
@@ -244,7 +244,7 @@ var Enemy = cc.Sprite.extend({
 var enemy1 = new Enemy(100);
 ```
 
-如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d（不包括extension）类都被重构以支持这种风格，而且JSB也同样完美支持。关于`new`对象构造和类的继承的详细文档将在近期推出。
+如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d和扩展类都被重构以支持这种风格，而且JSB也同样完美支持。详细内容请参考关于`new`对象构造和类的继承的[详细文档](../../../v3.0/inheritance/zh)。
 
 
 ##8. GUI控件
@@ -357,6 +357,8 @@ if (cc.sys.isNative) {
     cc.fileUtils.fullPathForFilename(filename)
     cc.fileUtils.loadFilenameLookup(filename)
     cc.fileUtils.getStringFromFile(filename)
+    cc.fileUtils.getByteArrayFromFile(filename) // [beta新添加]
+    cc.fileUtils.createDictionaryWithContentsOfFile(filename) // [beta新添加]
     cc.fileUtils.isAbsolutePath(path)
     cc.fileUtils.isPopupNotify()
     cc.fileUtils.getValueVectorFromFile(filename)
@@ -366,9 +368,14 @@ if (cc.sys.isNative) {
     cc.fileUtils.purgeCachedEntries()
     cc.fileUtils.fullPathFromRelativeFile(filename, relativeFile)
     cc.fileUtils.getWritablePath()
+    cc.fileUtils.addSearchPath(path) // [beta新添加]
+    cc.fileUtils.setSearchPaths(pathArray) // [beta新添加]
+    cc.fileUtils.getSearchPaths() // [beta新添加]
+    cc.fileUtils.setSearchResolutionsOrder(orderArray) // [beta新添加]
+    cc.fileUtils.getSearchResolutionsOrder() // [beta新添加]
     ```
     
-    所有关于搜索路径的函数都被去除了，因为它们会导致在Cocos2d-html5和Cocos2d-JSB中路径的不一致，而最终使得游戏代码很难维护。
+    请注意关于搜索路径的函数的使用，因为它们会导致在Cocos2d-html5和Cocos2d-JSB中资源路径的不一致，而最终使得游戏代码较难维护。如果需要使用，我们建议在Web端和JSB中使用两套不同的资源映射表，同样的资源变量对应不同的资源路径，这样可以较轻松得维护代码。
 
 * **10.3** cc.AssetsManager
 
