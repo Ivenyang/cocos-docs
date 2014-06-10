@@ -162,7 +162,7 @@ var AnimationLayer = cc.Layer.extend({
             this.sprite.stopAllActions();
             this.sprite.runAction(this.jumpUpAction);
 
-            cc.audioEngine.playEffect(res.jump_ogg);
+            cc.audioEngine.playEffect(res.jump_mp3);
 
         }
     },

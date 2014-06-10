@@ -26,18 +26,20 @@ Secondly, let's define some global variables in the *resource.js* file:
 ```
 var res = {
     // Append to the list
-    background_ogg : "res/background.ogg",
-    jump_ogg : "res/jump.ogg",
-    pickup_coin_ogg : "res/pickup_coin.ogg"
+    background_mp3 : "res/background.mp3",
+    jump_mp3 : "res/jump.mp3",
+    pickup_coin_mp3 : "res/pickup_coin.mp3"
 };
 
 var g_resources = [
     // Append to the list
-    res.background_ogg,
-    res.jump_ogg,
-    res.pickup_coin_ogg
+    res.background_mp3,
+    res.jump_mp3,
+    res.pickup_coin_mp3
 ];
 ```
+**Note:** It is recommended to have the same audio file in both `"mp3"` and `"ogg"` format at the same time to ensure compatibility across all browsers. And you don't need to list both in resource.js, please just list `"mp3"` format which has better compatibility with iOS and Mac when you run your game on devices.
+
 #### Add Audio Handling Code into The Game
 
 At first, add the background music when entering the PlayScene:
@@ -46,7 +48,7 @@ At first, add the background music when entering the PlayScene:
 
 ```
 //add background music
-cc.audioEngine.playMusic(res.background_ogg, true);
+cc.audioEngine.playMusic(res.background_mp3, true);
 
 this.scheduleUpdate();
 ```
@@ -63,12 +65,12 @@ At last, let's add jumping audio effect and collecting coin audio effect.
 ```
 //add the jumping audio effect in *jump* method of AnimationLayer
 //Jump music
-cc.audioEngine.playEffect(res.jump_ogg);
+cc.audioEngine.playEffect(res.jump_mp3);
 ```
 
 ```
 //add the collect coin audio effect in *collisionCoinBegin* method of PlayScene
-cc.audioEngine.playEffect(res.pickup_coin_ogg);
+cc.audioEngine.playEffect(res.pickup_coin_mp3);
 ```
 
 Save all the changes and run the game. Now your game rock with a world full of audios.
