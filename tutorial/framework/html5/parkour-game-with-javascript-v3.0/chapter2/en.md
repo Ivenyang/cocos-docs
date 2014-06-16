@@ -93,7 +93,7 @@ Can't help waiting? Let's do it right now!
 As we talked before, we can create an new project with specified name. Go to your workspace and use cocos console to create the **Parkour** game.
 
 ```
-    cococs new Parkour -l js
+    cocos new Parkour -l js
 ```
 
 Now open your WebStorm and open the Parkour directory. Now the project navigator looks like this:
