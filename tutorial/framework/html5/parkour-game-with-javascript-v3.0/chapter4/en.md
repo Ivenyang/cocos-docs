@@ -153,7 +153,7 @@ var AnimationLayer = cc.Layer.extend({
     init:function () {
         this._super();
 
-        //cerate the hero sprite
+        //create the hero sprite
         var spriteRunner = cc.Sprite.create(res.runner_png);
         spriteRunner.attr({x: 80, y: 85});
 
