@@ -235,7 +235,7 @@ When the game starts, the player will be running infinite until him collide with
 
 Thus we can play the game a little bit longer.
 
-When the player jumps up or jumps up, we need to play corresponding animations.
+When the player jumps up or jumps down, we need to play corresponding animations.
 
 So at first, let's add two more animation action member variables into the AnimationLayer:
 
