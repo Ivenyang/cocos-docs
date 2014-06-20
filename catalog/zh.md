@@ -34,3 +34,9 @@
 - 使用Cocos Code IDE搭建工程
 
 [点此进入](studio/zh.md)
+
+## 5. wiki中文文档
+
+cocos2d-x 英文[wiki](http://cocos2d-x.org/wiki)的中文翻译，官方wiki是cocos2d-x开发人员在开发过程中积累的开发文档，系统性较弱，但更全面。
+
+[点此进入](../manual/framework/native/wiki/zh.md)
