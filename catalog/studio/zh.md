@@ -1,6 +1,8 @@
 # CocoStudio
 - [CocoStudio介绍](../../manual/studio/about-cocostudio/zh.md)
-- [CocoStudio安装](../../manual/studio/start/install/zh.md)
+- 安装 
+	- [Win版本](../../manual/studio/start/win_install/zh.md)
+	- [Mac版本](../../manual/studio/start/mac_install/zh.md)
 - [CocoStudio UI编辑器的使用](../../tutorial/studio/how-to-use-ui-editor/zh.md)
 - [如何使用 CocoStudio UI 编辑器实现《乱斗堂》设置界面](../../tutorial/studio/how-to-use-cocostudio-to-make-chaosfighter/zh.md)
 - [使用CocoStudio创建Cocos2d-x序列帧和骨骼动画](../../tutorial/studio/how-to-use-animation-editor/zh.md)
