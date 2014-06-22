@@ -11,7 +11,7 @@
 |目录名称  |  说明 |
 |---------------|----------------------------------------------------------|
 |CocosDenshion	 | 音频支持。注意：Android平台中背景音乐和短音效所使用的系统API不同。|
-|cocos2dx	 | 主目录，除现金外应有尽有。不过因为部分2dx开发的游戏每月收入超过200万美元，所以这里面应该也算是有现金的。该平台适配层设计佳。|
+|cocos2dx	 | cocos2d-x框架的主目录。|
 |document	 | 你可以下载doxygen文档系统，利用该系统打开本文档文件夹内的doxygen.config文件，然后再生成离线API文档。|
 |extensions	 | 如果需要更多图形用户界面的控制功能、网络访问、CocosBuilder支持甚至2.5D功能，你可以使用using namespace cocos2d::extension。|
 |external	 | 包括box2d及Chipmunk库。|
