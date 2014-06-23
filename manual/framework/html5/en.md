@@ -92,4 +92,4 @@ Furthermore, javascript friendly API makes your game development experience a br
     - [About cc.FileUtils](./v3/cc-fileutils/en.md)
     - [About cc.log](./v3/cc-log/en.md)
     - [Other change from v2.2.2 to v3.0](./v3/more-change-from-v2-to-v3/en.md)
-    - Bake Node (In progress)
+    - Bake Layer (./v3/bakeLayer/en.md)
