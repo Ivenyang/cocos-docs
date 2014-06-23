@@ -3,9 +3,9 @@
 本文介绍如何在iPhone模拟器上运行cocos2d-x HelloWorld项目
 ## 下载源代码
 
-从Github下载源代码。地址为：[http://github.com/cocos2d/cocos2d-x](http://github.com/cocos2d/cocos2d-x)
+从Github下载源代码。地址为：[http://cn.cocos2d-x.org/download/](http://cn.cocos2d-x.org/download/)
 
-下载完成后，在“cocos2d-x/HelloWorld/iphone/.”会发现“HelloWorld.xcodepro”文件。双击“HelloWorld.xcodeproj”文件即可在Xcode中浏览代码。编译运行，便会得到以下结果。[OSX环境部署打开如下，选择Test Cpp iOS编译执行就可以看到效果了cocos2d-x-3.0alpha0-pre/samples/samples.xcodeproj ]
+下载完成后，在“cocos2d-x/samples/Cpp/HelloCpp/proj.ios/.”会发现“HelloCpp.xcodepro”文件。双击“HelloCpp.xcodeproj”文件即可在Xcode中浏览代码。编译运行，便会得到以下结果。
 ## 说明
 
 “HelloWorld”样本代码已经在以下环境下测试：
@@ -25,4 +25,4 @@ iOS SDK：4.1 & 3.2
 
 恭喜选择C++！很快你就能在iPhone中用C++编写cocos2d游戏了。
 
-![](./res/helloworld-cocos2d-iphone-cpp.jpg)
+![](./res/helloworld-cocos2d-iphone-cpp.png)

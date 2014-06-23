@@ -26,7 +26,7 @@ Cocos2d通过调用CCTextureCache或者CCSpriteFrameCache来缓存精灵的纹�
 	    }
 	 
 	    // don't release here.
-	    // when load texture failed, it's better to get a "transparent" sprite then a crashed program
+	    // when load texture failed, it's better to get a "transparent" sprite than a crashed program
 	    // this->release(); 
 	    returnfalse;
 	}
