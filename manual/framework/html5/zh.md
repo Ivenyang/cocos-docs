@@ -99,5 +99,5 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
     - [cc.FileUtils的移除](./v3/cc-fileutils/zh.md)
     - [cc.log的改造](./v3/cc-log/zh.md)
     - [其他3.0版的API改动](./v3/more-change-from-v2-to-v3/zh.md)
-    - Bake Node（进行中）
+    - Bake Layer（./v3/bakeLayer/zh.md)
     
