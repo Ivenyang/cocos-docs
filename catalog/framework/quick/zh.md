@@ -1,1 +1,1 @@
-#QuickX
+- [Quick-Cocos2d-x 开发环境配置](../../../tutorial/framework/quick/chap1/zh.md)
