@@ -32,7 +32,7 @@ npm --registry "http://registry.cnpmjs.org" install cocos-utils -g
 
 通过输入`cocos help`来确认是否安装成功。
 
-[查看命令详细说明](cocos_command/zh.md).
+[查看命令详细说明](cocos-command/zh.md).
 
 
 ## HelloWorld
@@ -137,7 +137,7 @@ cocos publish
 该文件是项目相关的`cocos`命令的配置。
 如果在执行执行`cocos`相关命令出错时，请先查看错误信息，再检查该文件是否配置正确。
 
-[详细说明](cocos_json/zh.md)
+[详细说明](cocos-json/zh.md)
 
 
 ## resCfg
@@ -165,7 +165,7 @@ cocos publish
 默认，我们已经为开发者提供了一些常用的测试方法。
 同时，你也可以自定义测试方法。
 
-[详细说明](unit_test/zh.md)
+[详细说明](unit-test/zh.md)
 
 ## 注意事项
 

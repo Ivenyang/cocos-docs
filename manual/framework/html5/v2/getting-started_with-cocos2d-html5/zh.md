@@ -6,7 +6,6 @@
    - XAMPP : for windows, Mac, Linux.   - WAMP : for windows   - MAMP : for mac
 1. 下载适合你的网站服务器，2. 按照说明进行安装，3. 找到安装目录，4. 找到根目录，文件名应该类似于"htdocs" 或者 "www"5. 将经压缩后的Cocos2d-html5文件复制到进来6. 将你的浏览器指向"localhost"你应该能看到如下画面：
 ![](./res/helloworld.png)
-如果你还有疑问，请参见[webserver trouble shooting guide]()
 ## 调试代码调试Javascript代码对于网络开发人员来说应该是再熟悉不过的了。如今的浏览器已经内编有工具来帮助你开发Javascript应用。对于大多数浏览器而言，只需按F12 就能打开开发人员工具，（在Opera上，按Ctrl+ Shift + i）（在Safari上，在“preference”里找到“高级”，然后选择“在目录栏里显示开发目录”以打开开发人员工具，右击后选择“查看组件”）![](./res/dev.png)
 我们推荐使用Google Chrome，因为该浏览器最为方便，而且配备有各种功能。更多有关如何使用Chrome 开发人员工具（Chrome Developer Tools）的详情请参看以下网址文件：[https://developers.google.com/chrome-developer-tools/docs/elements](https://developers.google.com/chrome-developer-tools/docs/elements) 在这里，你可以访问控制台，它能够输出游戏引擎内部的任何错误。你也可以在控制台中输入Javascript命令。让Hello World更有趣Hello World默认的样本代码里，背景是一个cocos2d-html5标志以及“Hello World”的字样，实在是太单调乏味了。![](./res/hellotest.png)
 这是一个Cocos2d-html5的迷你教程，可以让你将Hello World的模版变得更加有趣。打开HelloHTML5World目录中的“src/myApp.js”。你第一眼注意到的就是这个

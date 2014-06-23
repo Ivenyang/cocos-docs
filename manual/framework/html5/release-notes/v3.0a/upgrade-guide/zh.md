@@ -5,9 +5,7 @@
 
 * **1.1** 在2.2.2版中分散的事件分发器cc.TouchDispatcher, cc.MouseDispatcher, cc.KeyboardDispatcher, cc.AccelerometerDispatcher的所有功能都已经被合并到cc.eventManager，所以事件（鼠标，触摸，键盘，陀螺仪，用户自定义）都将由cc.eventManager负责分发，也都将通过它进行注册。
 
-	更多关于cc.eventManager的信息可以查看这篇[详细文档](../../../v3.0/eventManager/en.md)
-
-	如果你希望给我们一些关于事件管理的建议或者反馈，请访问[论坛讨论贴](http://www.cocos2d-x.org/forums/19/topics/45954)
+	更多关于cc.eventManager的信息可以查看这篇[详细文档](../../../v3/eventManager/zh.md)
 
 * **1.2** 由于新的事件管理机制支持开发者在任何对象上绑定事件，所以在2.2.2版中的cc.Layer的事件处理相关函数都被删除了，具体被删除的函数列表如下：
 
@@ -47,18 +45,18 @@
     cc.game.run();
     ```
 
-    更详细的信息请参见这个文档：[cc.game](../../../v3.0/cc-game/en.md)
+    更详细的信息请参见这个文档：[cc.game](../../../v3/cc-game/zh.md)
 
 * **2.2** 游戏配置
 
     在2.2.2版中，游戏的配置列表（包含renderMode, fps...）与初始化代码混在cocos2d.js文件中，这样很不美观，所以3.0版中我们移除了`cocos2d.js`文件并将配置列表单独抽出来放在了`project.json`中，所以修改配置非常简单直观。
-    所有配置项可以参见这篇文档：[project.json](../../../v3.0/project-json/en.md)
+    所有配置项可以参见这篇文档：[project.json](../../../v3/project-json/zh.md)
 
 * **2.3** Cocos2d-html5模块配置
 
     Cocos2d-html5已经成为了在2d游戏开发的各个方面都非常有竞争力的游戏引擎，引擎拥有覆盖面非常广泛的特性。也正因此，我们的引擎比市面上大多数的2d游戏引擎占用空间要更大。假设开发者只需要引擎中一部分特性，并且希望引擎占有空间更小，3.0版中我们提供了按需定制引擎的功能。首先，引擎被分割成了不同的模块，所有模块定义可以参见`cocos2d-html5/moduleConfig.json`，开发者可以在`project.json`的`modules`字段中指定自己需要的模块。默认情况下，`cocos2d`是默认模块，它包含完整的Cocos2d-html5，开发者可以将它替换为自己需要的子模块。
 
-    [moduleConfig.json文档](../../../v3.0/moduleconfig-json/en.md)
+    [moduleConfig.json文档](../../../v3/moduleconfig-json/zh.md)
 
 
 ##3. 资源加载过程
@@ -80,14 +78,14 @@
     });
     ```
 
-    详细文档请参见：[cc.loader](../../../v3.0/cc-loader/en.md)
+    详细文档请参见：[cc.loader](../../../v3/cc-loader/zh.md)
 
 * **3.2** 资源加载工具
 
     3.0版不仅提供了更统一易用的cc.loader，还提供了一些配套工具：
 
-    - 异步函数调用模块（模仿node.js）：[cc.async](../../../v3.0/cc-async/en.md)
-    - 资源路径配置工具：[cc.path](../../../v3.0/cc-path/en.md)
+    - 异步函数调用模块（模仿node.js）：[cc.async](../../../v3/cc-async/zh.md)
+    - 资源路径配置工具：[cc.path](../../../v3/cc-path/zh.md)
 
 
 ##4. 属性风格API
@@ -117,7 +115,7 @@
     });
     ```
 
-    详细文档和具体属性列表参见：[Property API](../../../v3.0/getter-setter-api/en.md)
+    详细文档和具体属性列表参见：[Property API](../../../v3/getter-setter-api/zh.md)
 
 
 ##5. 基本数据结构重构
@@ -155,7 +153,7 @@
 	cc.gray                            -->	cc.color.gray
 	```
 
-	[详细文档](../../../v3.0/basic-data/en.md)
+	[详细文档](../../../v3/basic-data/zh.md)
 
 
 ##6. 单例对象
@@ -199,7 +197,7 @@ ccs.TriggerMng.getInstance()                --> ccs.triggerManager
 ccs.ObjectFactory.getInstance()             --> ccs.objectFactory
 ```
 
-[详细文档](../../../v3.0/singleton-objs/zh.md)。
+[详细文档](../../../v3/singleton-objs/zh.md)。
 
 
 ##7. **[Alpha 2新添加]** 对象创建与类的继承
@@ -220,7 +218,7 @@ var sprite = cc.Sprite.create(texture, rect);
 var sprite = cc.Sprite.create("#" + spriteFrameName);
 ```
 
-这个改动不仅适用于cc.Sprite，同样适用于引擎中所有有类似API的类，支持的类列表以及关于`create`函数改造的更详细信息请参见[create API文档](../../../v3.0/create-api/en.md)。
+这个改动不仅适用于cc.Sprite，同样适用于引擎中所有有类似API的类，支持的类列表以及关于`create`函数改造的更详细信息请参见[create API文档](../../../v3/create-api/zh.md)。
 
 我们从未停止改进我们的引擎，所以在Cocos2d-JS v3.0 alpha2中，引擎支持`new`直接构造对象！构造函数和`create`函数共享完全相同的参数：
 
@@ -244,7 +242,7 @@ var Enemy = cc.Sprite.extend({
 var enemy1 = new Enemy(100);
 ```
 
-如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d和扩展类都被重构以支持这种风格，而且JSB也同样完美支持。详细内容请参考关于`new`对象构造和类的继承的[详细文档](../../../v3.0/inheritance/zh)。
+如上所示，一个`init`函数都不需要调用，非常便于使用。所有cocos2d和扩展类都被重构以支持这种风格，而且JSB也同样完美支持。详细内容请参考关于`new`对象构造和类的继承的[详细文档](../../../v3/inheritance/zh.md)。
 
 
 ##8. GUI控件
@@ -417,12 +415,12 @@ if (cc.sys.isNative) {
     }
     ```
     
-    更多信息请参考[cc.AssetsManager文档](../../../v3.0/assets-manager/zh.md).
+    更多信息请参考[cc.AssetsManager文档](../../../v3/assets-manager/zh.md).
 
 
 ##11. 其他API变动
 
-* **11.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3.0/cc-sys/zh.md).
+* **11.1** `cc.Broswser`和`sys`被`cc.sys`取代: [详细文档](../../../v3/cc-sys/zh.md).
 
 * **11.2** 一些`cc.AudioEngine`的API被删除：
 
@@ -446,7 +444,7 @@ if (cc.sys.isNative) {
     getList
     ```
 
-	同时添加`cc.PlistParser`用于解析plist文件：[cc.SAXParser文档](../../../v3.0/cc-saxparser/zh.md)
+	同时添加`cc.PlistParser`用于解析plist文件：[cc.SAXParser文档](../../../v3/cc-saxparser/zh.md)
 
 * **11.4** `cc.textureCache`的`addImageAsync`方法被移除，请统一使用`addImage`.
 
@@ -741,8 +739,8 @@ var anAction = cc.Sequence.create(
 
 其他详细文档列表：
 
-* [cc.log](../../../v3.0/cc-log/zh.md)
-* [cc.spriteFrameCache](../../../v3.0/cc-spriteframecache/zh.md)
-* [cc.FileUtils](../../../v3.0/cc-fileutils/zh.md)
-* [如何在JSB项目中使用extension](../../../jsb/jsb-extension/zh.md)
-* [more](../../../v3.0/more-change-from-v2-to-v3/zh.md)
+* [cc.log](../../../v3/cc-log/zh.md)
+* [cc.spriteFrameCache](../../../v3/cc-spriteframecache/zh.md)
+* [cc.FileUtils](../../../v3/cc-fileutils/zh.md)
+* [如何在JSB项目中使用extension](../../../v2/jsb/jsb-extension/zh.md)
+* [more](../../../v3/more-change-from-v2-to-v3/zh.md)
