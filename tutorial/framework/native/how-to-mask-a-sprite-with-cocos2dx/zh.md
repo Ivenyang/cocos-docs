@@ -1,4 +1,4 @@
-# 如何使用cocos2d-x3.0来给Sprite添加遮罩
+# 如何使用Cocos2d-x3.0来给Sprite添加遮罩
 
 
 ##引言
@@ -16,11 +16,11 @@
 
 　　你会发现本教程提供的方法非常方便，用它可以完成许多很有意思的效果。比如，把大头贴，或者像框等等。所以这些内容，你都可以从本教程中学到！
 
-　　学习本教程的前提是你要熟悉cocos2d-x，如果你对cocos2d是何物还不清楚的话，建议你先学习一下其它cocos2d-x教程。
+　　学习本教程的前提是你要熟悉Cocos2d-x，如果你对cocos2d是何物还不清楚的话，建议你先学习一下其它Cocos2d-x教程。
 　　
 ##Getting Started
 
-　　启动terminal，运行"python /Cocos/cocos2d-x-3.0beta2/tools/project-creator/create_project.py"。把工程命名为MaskedCal，然后选择一个文件夹来保存，最后点Create。
+　　启动terminal，运行"python /Cocos/Cocos2d-x-3.0beta2/tools/project-creator/create_project.py"。把工程命名为MaskedCal，然后选择一个文件夹来保存，最后点Create。
 
 　　接下来，请下载本工程所需要的[资源文件][r1]并把它们拖到你的Xcode的Resource分组中，确保“Copy items into destination group’s folder (if needed)” 并复选中，然后点Finish。
 
@@ -121,7 +121,7 @@ Layer* HelloWorld::layerWithLastCalendar(int lastCalendar)
 ```
 
 
-　　上面cal精灵设置的坐标就是我们的DesignResolutionSize/2，一旦我们设置了designSize,cocos2d-x中的getWinSize就成了我们的designSize。。
+　　上面cal精灵设置的坐标就是我们的DesignResolutionSize/2，一旦我们设置了designSize,Cocos2d-x中的getWinSize就成了我们的designSize。。
 
 　　我们在init函数里添加触摸事件响应，同时添加三个回调函数：
 
@@ -167,7 +167,7 @@ void HelloWorld::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_even
 ```
 
 
-　　这里只是一些基本的cocos2d-x代码，用来在屏幕中间随机显示一张日历图片。它同时也包含了一些逻辑，当你点击屏幕的时候，可以比较平滑地切换到另一张图片。
+　　这里只是一些基本的Cocos2d-x代码，用来在屏幕中间随机显示一张日历图片。它同时也包含了一些逻辑，当你点击屏幕的时候，可以比较平滑地切换到另一张图片。
 
 　　编译并运行，现在你每次点击屏幕就可以看到一些随机的日历图片啦，它们全部都是由原作者[可爱的妻子](http://www.vickiwenderlich.com/)完成的：）
 

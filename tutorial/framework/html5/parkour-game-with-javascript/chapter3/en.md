@@ -100,7 +100,7 @@ Using StandardTouchDelegate has two benefits:
 
 ## Make your first Game scene
 
-In last tutorial, we have analysed the execution path of a cocos2d-html5 game. We know that in main.js, we load our first game scene in **applicationDidFinishLaunching**, here is the code snippet which does the real trick:
+In last tutorial, we have analysed the execution path of a Cocos2d-html5 game. We know that in main.js, we load our first game scene in **applicationDidFinishLaunching**, here is the code snippet which does the real trick:
 
 ```
  //load resources
@@ -273,7 +273,7 @@ Let's go through all the details from 1-7:
 
 **Note:**
 
-> Don't try to copy these code or remember all of these things. Because cocos2d-html5 is under active development. The API will be minor changed due to some reasons. So try to understand it.
+> Don't try to copy these code or remember all of these things. Because Cocos2d-html5 is under active development. The API will be minor changed due to some reasons. So try to understand it.
  
 And also we should define a Menu scene:
 
@@ -294,7 +294,7 @@ Once the scene is created, a **onEnter** function should be defined. It defined 
 
 ## Summary
 
-In this tutorial, I have shown you the basic concepts you need to know when you first start programming cocos2d-html5 games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](res/Parkour.zip).
+In this tutorial, I have shown you the basic concepts you need to know when you first start programming Cocos2d-html5 games. And also giving you a detailed explanation of how to set up your first game scene. Hope you enjoy it and happy coding! The related sample project can be downloaded at [here](res/Parkour.zip).
 
 ## Where to go from here
 

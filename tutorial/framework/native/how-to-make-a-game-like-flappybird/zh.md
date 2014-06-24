@@ -1,4 +1,4 @@
-# 使用cocos2d-x实现一款类似《Flappy Bird》的游戏
+# 使用Cocos2d-x实现一款类似《Flappy Bird》的游戏
 
 最近，一只8比特位像素的小鸟霸占了IOS免费游戏排行榜的第一名，这款《Flappy Bird》游戏可谓是一夜爆红，简单并不粗糙的画面、超级玛丽游戏中的绿色通道、眼神有些呆滞的小鸟和几朵白云便构成了游戏的一切。不过可惜的是，如此受欢迎的笨鸟又在一夜之间火速下架了，让很多还没来得及被《Flappy Bird》虐过的玩家千方百计下载《Flappy Bird》，不过，就算如此也没关系，一只囧鸟倒下了，立马会有千千万万只高仿真山寨货崛起，下面，就和大家分享一款类似《Flappy Bird》的游戏Demo。
 
@@ -34,7 +34,7 @@ setDesignResolutionSize()设计分辨率大小及模式，setContentScaleFactor(
 
 ### 2.2 Tiled Map的应用
 
-在该游戏中的地图利用瓦片地图编辑器（Tiled Map Editor）编辑制作，它可保存为TMX格式的文件，可以被Cocos2d-x很好的支持。瓦片地图(Tile Map)不但生成简单，并且可以灵活的用于引擎中。不论你的游戏是角色扮演游戏, 平台动作游戏或仿打砖块游戏，这些游戏地图都可以使用开源的瓦片地图编辑器Tiled Map Editor生成。在像《Flappy Bird》之类的游戏中，地图运用Tiled Map在合适不过了。[【cocos2d-x官方文档】瓦片地图 Tiled Map](http://www.ityran.com/archives/3480)
+在该游戏中的地图利用瓦片地图编辑器（Tiled Map Editor）编辑制作，它可保存为TMX格式的文件，可以被Cocos2d-x很好的支持。瓦片地图(Tile Map)不但生成简单，并且可以灵活的用于引擎中。不论你的游戏是角色扮演游戏, 平台动作游戏或仿打砖块游戏，这些游戏地图都可以使用开源的瓦片地图编辑器Tiled Map Editor生成。在像《Flappy Bird》之类的游戏中，地图运用Tiled Map在合适不过了。[【Cocos2d-x官方文档】瓦片地图 Tiled Map](http://www.ityran.com/archives/3480)
 
 将tmx文件加载到游戏中需要用CCTMXTiledMap类，方法很简单，这部分我们将在介绍游戏背景层的时候做详细的讲解。
 
@@ -420,7 +420,7 @@ cpBodyApplyForce会在刚体上施加一个力，可以让刚体慢慢动起来�
 
 **Chipmunk模拟世界的更新**
 
-在创建完基本的Chipmunk世界后，我们需要每帧运行更新一次模拟屏幕。这里可以在update函数中，调用了chipmunk的cpSpaceStep方法，这个方法根据时间刷新刚体的位置和形态角度，cocos2d-x依据这些数据来重新绘制精灵,从而达到移动精灵的目的。
+在创建完基本的Chipmunk世界后，我们需要每帧运行更新一次模拟屏幕。这里可以在update函数中，调用了chipmunk的cpSpaceStep方法，这个方法根据时间刷新刚体的位置和形态角度，Cocos2d-x依据这些数据来重新绘制精灵,从而达到移动精灵的目的。
 
 
 	void PhysicWorldLayer::update(float delta)

@@ -4,7 +4,7 @@
 
 一如既往的C++与objc代码：
 
-	// cpp with cocos2d-xvoid HelloWorld::addTarget()
+	// cpp with Cocos2d-xvoid HelloWorld::addTarget()
 	
 	{
 	
@@ -65,7 +65,7 @@
 	target->runAction( CCSequence::create(actionMove,actionMoveDone, NULL) );
 	
 	}
-	 // objc with cocos2d-iphone-(void)addTarget
+	 // objc with Cocos2d-iphone-(void)addTarget
 	
 	{
 	
@@ -118,7 +118,7 @@
 
 这里，callfuncN_selector(HelloWorld::spriteMoveFinished)回调的spriteMoveFinished()函数，我们需要在HelloWorldScene.h中声明它，并在.cpp中定义如下：
 
-	// cpp with cocos2d-xvoid HelloWorld::spriteMoveFinished(CCNode* sender)
+	// cpp with Cocos2d-xvoid HelloWorld::spriteMoveFinished(CCNode* sender)
 	
 	{
 	
@@ -127,7 +127,7 @@
 	this->removeChild(sprite, true);
 	
 	}
-	 // objc with cocos2d-iphone-(void)spriteMoveFinished:(id)sender
+	 // objc with Cocos2d-iphone-(void)spriteMoveFinished:(id)sender
 	
 	{
 	
@@ -154,24 +154,24 @@
 
 在使用他们时需要根据回调函数的定义。例如：当使用CCTimer::initWithTarget函数（这个函数第二个参数是SEL_SCHEDULE的类型）时，我们可以在selector_protocol.h中找到它的宏定义schedule_selector(_SELECTOR)，然后我们声明一个回调函数void MyClass::MyCallbackFuncName(float)，修改它的第二个参数CCTimer::initWithTarget。
 
-	// cpp with cocos2d-x// Call game logic about every second
+	// cpp with Cocos2d-x// Call game logic about every second
 	
 	this->schedule( schedule_selector(HelloWorld::gameLogic), 1.0 );
-	 // objc with cocos2d-iphone// Call game logic about every second
+	 // objc with Cocos2d-iphone// Call game logic about every second
 	
 	[self schedule:@selector(gameLogic:) interval:1.0];
  
 
 HelloWorldScene.cpp中的实现。注意gameLogic()需要使用public来修饰，否则它将无法被调用。
 
-	// cpp with cocos2d-xvoid HelloWorld::gameLogic(float dt)
+	// cpp with Cocos2d-xvoid HelloWorld::gameLogic(float dt)
 	
 	{
 	
 	this->addTarget();
 	
 	}
-	 // objc with cocos2d-iphone-(void)gameLogic:(float)dt
+	 // objc with Cocos2d-iphone-(void)gameLogic:(float)dt
 	
 	{
 	

@@ -1,9 +1,9 @@
 
  现在，我们想要让英雄发射一些子弹来杀死那些怪物。添加下面的代码来设置layer的触摸。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	 this->setTouchEnabled(true);
-	 or this->setIsTouchEnabled(true); // objc with cocos2d-iphone
+	 or this->setIsTouchEnabled(true); // objc with Cocos2d-iphone
 	 self.isTouchEnabled = YES; 
 
 现在我们可以获得触摸事件了。
@@ -15,7 +15,7 @@
 
 回调函数，并在.cpp中实现它。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
 	{
 		// Choose one of the touches to work with

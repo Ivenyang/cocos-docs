@@ -15,10 +15,10 @@
 
 　　这个教程建立在下列教程的基础之上：
 
-1. [如何使用cocos2d-x3.0来做一个简单的iphone游戏教程][1]
-2. [如何在cocos2d-x3.0里面使用动画和spritesheet][2]
-3. [在cocos2d-x3.0里面如何使用Texture Packer和像素格式来优化spritesheet][3] 
-4. [在cocos2d-x3.0里面如何拖拽精灵][4]
+1. [如何使用Cocos2d-x3.0来做一个简单的iphone游戏教程][1]
+2. [如何在Cocos2d-x3.0里面使用动画和spritesheet][2]
+3. [在Cocos2d-x3.0里面如何使用Texture Packer和像素格式来优化spritesheet][3] 
+4. [在Cocos2d-x3.0里面如何拖拽精灵][4]
 
 　　如果你还没有阅读上面这些教程，强烈建议你先读一读。
 
@@ -28,13 +28,13 @@
   
 　　因为，我们想让这个应用能够同时运行在不同分辨率从设备上面，所以，我们需要花点时间来仔细考虑一下，如何制作图片，主要是图片的尺寸！
 
-　　为了理解到底多大的尺寸合适，首先，我们要弄清楚cocos2d-x的多分辨率适配，本来我是想要摘取部分[Cocos2d-x 多分辨率适配完全解析](http://www.ityran.com/archives/4809)，但发现作者写得太好了，又讲的是原理，确实不好简写，所以请大家直接阅读完上面链接再继续吧。由于这篇文章比较新，函数和用法基本与现在一致，唯一说明一下的是文中提到的kResolutionExactFi变成了ResolutionPolicy::EXACT_FIT，同理其他四个都更名了，自己查看定义或者官方文档了解新名字，换个马甲而已。
+　　为了理解到底多大的尺寸合适，首先，我们要弄清楚Cocos2d-x的多分辨率适配，本来我是想要摘取部分[Cocos2d-x 多分辨率适配完全解析](http://www.ityran.com/archives/4809)，但发现作者写得太好了，又讲的是原理，确实不好简写，所以请大家直接阅读完上面链接再继续吧。由于这篇文章比较新，函数和用法基本与现在一致，唯一说明一下的是文中提到的kResolutionExactFi变成了ResolutionPolicy::EXACT_FIT，同理其他四个都更名了，自己查看定义或者官方文档了解新名字，换个马甲而已。
 
 ##规划图片资源：规划
 
 　　好，基于上面的了解，下面是这篇教程的图片资源规划：
 
-- 设计分辨率定为512X384，会自动转换到不同分辨率显示，从设计分辨率到设备分辨率我们指定策略ResolutionPolicy::NO_BORDER，然后让cocos2d-x自动帮我们转换。
+- 设计分辨率定为512X384，会自动转换到不同分辨率显示，从设计分辨率到设备分辨率我们指定策略ResolutionPolicy::NO_BORDER，然后让Cocos2d-x自动帮我们转换。
 - 高清图片可以通过TexturePacker转换成普清的，并且生成相应的spritesheet。
 - 高清的图片在hd文件夹下，而普清的图片则载sd文件夹下。cocos2d会根据当前的分辨率而加载相应的图片。
 
@@ -185,7 +185,7 @@ ${SRC}/foreground/*.png
 
 ![][P11]
 
-　　上面列出了各行代码对应的图形界面如何选择参数。需要说明的是，上面的date和sheet的路径TexturePacker必须要大写HD和SD，这个回头我们自己把文件夹名字改过来就是。上面的选项少列了一行代码，即为scale选项。我们如下图选择AutoSD ——>  cocos2d-x HD/SD。选择Apply。
+　　上面列出了各行代码对应的图形界面如何选择参数。需要说明的是，上面的date和sheet的路径TexturePacker必须要大写HD和SD，这个回头我们自己把文件夹名字改过来就是。上面的选项少列了一行代码，即为scale选项。我们如下图选择AutoSD ——>  Cocos2d-x HD/SD。选择Apply。
 
 ![][p10]
 
@@ -444,10 +444,10 @@ void HelloWorld::popMole(Sprite *mole)
 [p13]: ./res/course_screenshot13.jpg "教程截图"
 
 
-[1]: wating "如何使用cocos2d-x3.0来做一个简单的iphone游戏教程"
-[2]: wating "如何在cocos2d-x3.0里面使用动画和spritesheet"
-[3]: wating "在cocos2d-x3.0里面如何使用Texture Packer和像素格式来优化spritesheet"
-[4]: wating "在cocos2d-x3.0里面如何拖拽精灵"
+[1]: wating "如何使用Cocos2d-x3.0来做一个简单的iphone游戏教程"
+[2]: wating "如何在Cocos2d-x3.0里面使用动画和spritesheet"
+[3]: wating "在Cocos2d-x3.0里面如何使用Texture Packer和像素格式来优化spritesheet"
+[4]: wating "在Cocos2d-x3.0里面如何拖拽精灵"
 [5]: wating "TexturePacker教程"
 [6]: ./WhackAMole1.zip "完整源代码"
 

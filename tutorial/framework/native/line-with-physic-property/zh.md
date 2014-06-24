@@ -1,4 +1,4 @@
-# cocos2d-x3.x实现屏幕画线并添加刚体属性
+# Cocos2d-x3.x实现屏幕画线并添加刚体属性
 
 为了方便理解，本文分为如下两部分：
 
@@ -172,7 +172,7 @@ private:
 
 #### 1. 创建物理世界
 
-关于3.x 新物理特性的内容 **[泰然网](http://www.ityran.com/)** 有两篇文章可供参考 [在cocos2d-x 3.0中使用物理引擎](http://www.ityran.com/archives/5431) 和 [利用Cocos2dx-3.0新物理特性模拟弹珠迷宫](http://www.ityran.com/archives/5531)
+关于3.x 新物理特性的内容 **[泰然网](http://www.ityran.com/)** 有两篇文章可供参考 [在Cocos2d-x 3.0中使用物理引擎](http://www.ityran.com/archives/5431) 和 [利用Cocos2dx-3.0新物理特性模拟弹珠迷宫](http://www.ityran.com/archives/5531)
 
 首先我们创建物理世界：
 

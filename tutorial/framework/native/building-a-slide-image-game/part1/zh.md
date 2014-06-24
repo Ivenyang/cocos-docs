@@ -1,4 +1,4 @@
-# 如何使用cocos2d-x3.0制作一个滑动图片游戏：第一部分
+# 如何使用Cocos2d-x3.0制作一个滑动图片游戏：第一部分
 
 
 程序截图：
@@ -496,6 +496,6 @@ void PlayLayer::changeWithTileA(TileElem* a, TileElem* b)
 [p2]: ./res/course_screenshot2.jpg "教程截图"
 
 
-[1]: wating "cocos2d-x菜单教程"
-[2]: wating "cocos2d-x精灵教程"
+[1]: wating "Cocos2d-x菜单教程"
+[2]: wating "Cocos2d-x精灵教程"
 [3]: ./SlideImageGame.zip "源码"

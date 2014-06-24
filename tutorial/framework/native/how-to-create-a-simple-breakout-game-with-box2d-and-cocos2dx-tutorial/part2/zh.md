@@ -1,4 +1,4 @@
-# 如何使用cocos2d-x3.0和物理引擎来制作一个Breakout游戏：第二部分
+# 如何使用Cocos2d-x3.0和物理引擎来制作一个Breakout游戏：第二部分
 
 ## 前言
 
@@ -35,7 +35,7 @@
 
 ## 添加Game Over场景
 
-增加GameOverScene.h and GameOverScene.cpp files两个文件，它们可以在《如何使用cocos2d-x3.0制作一个简单的游戏教程》中找到。
+增加GameOverScene.h and GameOverScene.cpp files两个文件，它们可以在《如何使用Cocos2d-x3.0制作一个简单的游戏教程》中找到。
 
 然后，在HelloWorldScene.cpp文件中加入下列代码：
 

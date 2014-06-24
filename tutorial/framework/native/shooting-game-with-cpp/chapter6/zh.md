@@ -11,7 +11,7 @@ Cocos2d-x将跨平台特性封装入了SimpleAudioEngine. 在我们的游戏中�
 
 >[Audio_formats_supported_by_CocosDenshion_on_different_platforms](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Audio_formats_supported_by_CocosDenshion_on_different_platforms).
 
-实际上，cocos2d-iphone 包含 cocosDenshion库。它提供了三层接口 CDSoundEngine->CDAudioManager- >SimpleAudioEngine，但是它们实际上都是依赖于OpenAL.
+实际上，Cocos2d-iphone 包含 cocosDenshion库。它提供了三层接口 CDSoundEngine->CDAudioManager- >SimpleAudioEngine，但是它们实际上都是依赖于OpenAL.
 
 关于OpenAL, 它并不是科纳斯组织([Khronos Group](http://en.wikipedia.org/wiki/Khronos_Group))的开放标准之一。它是一项可以用硬件和软件实现的富有创造力的开源项目。但是到目前为止，硬件层实现OpenAL的仅有苹果的产品，所以在其他平台，我们不能提供低层的cocosDenshion但是我们支持开发者最常用的高层接口。
 
@@ -21,20 +21,20 @@ Cocos2d-x将跨平台特性封装入了SimpleAudioEngine. 在我们的游戏中�
 
 然后在HelloWorldScene.cpp中include SimpleaudioEngine.h
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	#include "SimpleAudioEngine.h"
 
 
 在init()中添加背景音乐
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	CocosDenshion::SimpleAudioEngine::sharedEngine()-&gt;playBackgroundMusic(
 	"background-music-aac.wav", true);
 
 
 在开枪的时候播放音效
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	CocosDenshion::SimpleAudioEngine::sharedEngine()-&gt;playEffect(
 	"pew-pew-lei.wav");
 

@@ -13,7 +13,7 @@ We are happy to announce the release of:
 
 ### Download ###
 
-[cocos2d-x-3.0beta.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0beta.zip)
+[Cocos2d-x-3.0beta.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0beta.zip)
 
 ### Highlights ###
 
@@ -41,7 +41,7 @@ We are happy to announce the release of:
 
 ### More Info ###
 
-Read more about all the new features at [cocos2d-x v3.0 release notes](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Node_v300).
+Read more about all the new features at [Cocos2d-x v3.0 release notes](http://www.cocos2d-x.org/projects/cocos2d-x/wiki/Release_Node_v300).
 
 # v2.2.2 Coordinate Releases #
 
@@ -49,7 +49,7 @@ Read more about all the new features at [cocos2d-x v3.0 release notes](http://ww
 
 ### Download ###
 
-[cocos2d-x-2.2.2.zip](http://cdn.cocos2d-x.org/cocos2d-x-2.2.2.zip)
+[Cocos2d-x-2.2.2.zip](http://cdn.cocos2d-x.org/cocos2d-x-2.2.2.zip)
 
 ### Highlights ###
 
@@ -86,7 +86,7 @@ Read more about all the new features at [Cocos2d-html5 v2.2.2 release notes](htt
 
 ### Download ###
 
-[CocoStudio-v1.2.exe](http://126.am/COCOSTUDIO1200FULL)
+[Cocos Studio-v1.2.exe](http://126.am/COCOSTUDIO1200FULL)
 
 ### Highlights ###
 
@@ -111,4 +111,4 @@ Read more about all the new features at [Cocos2d-html5 v2.2.2 release notes](htt
 
 ### More information ###
 
-Read more about all the new features at [CocoStudio V1.2.0.0 release notes](http://www.cocos2d-x.org/wiki/CocoStudio).
+Read more about all the new features at [Cocos Studio V1.2.0.0 release notes](http://www.cocos2d-x.org/wiki/CocoStudio).

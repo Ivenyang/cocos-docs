@@ -5,7 +5,7 @@ In this documentation, I will show you how to setup a Cocos2d-JS development env
 
 1. Download and install WebStorm 7. The current stable release of [WebStorm 7](http://www.jetbrains.com/webstorm/download/index.html) is 7.0.3.  Why do we choose WebStorm? Because it provides many feature like javascript code syntax completion, debugging, syntax highlighting, version system integrated etc. You can go to WebStorm's official website for more information.
 
-2. Download Cocos2d-JS v3.0 alpha from the offical website of Cocos2d-x. Here is the [Link](http://cocos2d-x.org/download ) .After you downloaded the Cocos2d-JS v3.0 alpha. You should unzip it to a proper location. In our case, I unzip it at ~/work/cocos2d-js-v3.0-alpha2.The ~ simbol represents your home directory path, which in our case is /Users/linshun. 
+2. Download Cocos2d-JS v3.0 alpha from the offical website of Cocos2d-x. Here is the [Link](http://cocos2d-x.org/download ) .After you downloaded the Cocos2d-JS v3.0 alpha. You should unzip it to a proper location. In our case, I unzip it at ~/work/Cocos2d-js-v3.0-alpha2.The ~ simbol represents your home directory path, which in our case is /Users/linshun. 
 
 **Note:** 
 	
@@ -173,7 +173,7 @@ Back to WebStorm and double click **MyJSGame/src/myApp.js** to view the source c
 3. Now you can do debugging things like step out, step into, step over, continue executing etc. 
 
 ## Summary
-In this tutorial, I have shown you the basic steps to configure cocos2d-html5 to work with WebStorm 7, including configuring syntax aware auto complete and debugging. The process is quite simple and straightforward. If you have any questions or suggestion of this tutorials, please let us know. we will appreciate your contribution.
+In this tutorial, I have shown you the basic steps to configure Cocos2d-html5 to work with WebStorm 7, including configuring syntax aware auto complete and debugging. The process is quite simple and straightforward. If you have any questions or suggestion of this tutorials, please let us know. we will appreciate your contribution.
 
 ## Where to go from here
 In the next tutorial, I will show you how to setup an new Cocos2d-JS project. And we will walk through the built-in tests and sample games of Cocos2d-JS.

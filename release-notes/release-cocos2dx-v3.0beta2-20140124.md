@@ -3,7 +3,7 @@
 
 We are happy to announce that Cocos2d-x v3.0-beta2 is available for download:
 
-* [cocos2d-x-3.0beta.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0beta2.zip)
+* [Cocos2d-x-3.0beta.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0beta2.zip)
 
 ### Highlights
 

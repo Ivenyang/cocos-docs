@@ -1,6 +1,6 @@
 # Cocos2d-x 3.0菜单教程：第一部分
 
-　　今天，将带大家一起征服cocos2d-x的菜单。你不可能会做一个游戏而缺少菜单功能吧？cocos2d使得制作菜单变得非常简单。但是，在我们开始之前，需要确保构建一个系统，它非常容易扩展，以后制作任何游戏都可以用到，它就是我们即将创建的“场景管理器”（Scene Manager）。
+　　今天，将带大家一起征服Cocos2d-x的菜单。你不可能会做一个游戏而缺少菜单功能吧？cocos2d使得制作菜单变得非常简单。但是，在我们开始之前，需要确保构建一个系统，它非常容易扩展，以后制作任何游戏都可以用到，它就是我们即将创建的“场景管理器”（Scene Manager）。
 
 　　你可以去Cocos2d-x官网上下载最新版本：[http://www.cocos2d-x.org/download/version#Cocos2d-x](http://www.cocos2d-x.org/download/version#Cocos2d-x)。目前最新版本是3.0 beta2。
 
