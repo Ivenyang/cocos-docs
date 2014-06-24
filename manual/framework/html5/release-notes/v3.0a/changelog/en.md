@@ -1,5 +1,5 @@
 ChangeLog:
-Cocos2d-html5-v3.0 alpha @ Feb.10, 2014
+Cocos2d-html5-v3.0 alpha @ March.15, 2014
 
 * Refactor some properties of all rendering classes with getter setter for providing javascript user friendly APIs, [document reference](../../../v3.0/getter-setter-api/en.md).
 * Provide `attr` function for cc.Node and its descendants to permit modify multiple properties at the same time with a key-value object.
@@ -11,7 +11,7 @@ Cocos2d-html5-v3.0 alpha @ Feb.10, 2014
 * Use `moduleConfig.json` to config the paths of engine scripts, [document reference](../../../v3.0/moduleconfig-json/en.md).
 * `cocos2d.js` is replaced with `project.json`, [document reference](../../../v3.0/project-json/en.md).
 * Refactoring cc.loader, [document reference](../../../v3.0/cc-loader/en.md).
-* CocoStudio GUI updated to 3.0.
+* CocoStudio GUI updated to 3.0, and ccs prefix of UI widgets have been changed to ccui.
 * CocoStudio v1.3.0 has been supported in v3.0.
 * richText has been supported in v3.0.
 * Use `cc.BuilderReader.registerController` to register controller of ccb.

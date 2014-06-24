@@ -56,7 +56,7 @@ CustomImageViewWrap是C#项目，包括由Swig工具自动生成的C#封装代�
 
   1. 方法名必须使用 ”CS_Set” 和 “CS_Get”作为前缀，区分大小写。
   2.  Set和Get方法必须成对出现，也即除了前缀部分，方法名剩余部分必须相同，Set方法目前只支持单个参数，同时必须和Get方法返回值的类型一致。
-  3. 目前支持字符串，数值，颜色三种基本类型。
+  3. 目前支持字符串，数值，颜色三种基本类型，以及资源类型，在Particle示例中可以看到，这样就可以在编辑器中为控件配置渲染资源。
 
   查看CS_SetStringTest方法内部实现，如下所示：
 ![image](./res/9.png)
@@ -67,12 +67,30 @@ CustomImageViewWrap是C#项目，包括由Swig工具自动生成的C#封装代�
    1. 在构造中初始化m_GUI，同时调用父类的Init方法。
    2. 按照预定的命名规则，封装需要公开的控件自定义属性。
 
+###编写自定义控件属性解析代码
+
+示例 CustomImageViewReader 的代码：  
+  自定义解析类需要从 cocos2d::CCOject 继承。
+![image](./res/10.png)	 
+  CustomImageViewReader 单例对象静态创建方法：  
+![image](./res/11.png)
+  
+
+CustomImageViewReader 解析 CustomImageView 自定义属性的回调方法：
+![image](./res/12.png)
+
+
+
+  1、2 两部分的说明可参照 cocos2d-x TestCpp 工程中 CustomImageView.cpp、CustomImageViewReader.cpp
+
+   在完成自定义控件，编辑器封装代码和自定义控件解析之后，就可以将自定义控件的类型信息，注册到解析工厂，使得解析工厂在读取Json数据时，能够识别这些自定义的类型，并完成创建。在CustomWidget项目中，有RegisterWidget类，在里面实现了自定义控件类型的注册。通过对静态变量的赋值操作，保证动态库在加载时直接将类型注册到解析工厂中。
+ ![image](./res/13.png)
 
 ###编写Swig生成脚本
 
   双击打开Swig脚本。内容如下：
   
-![image](./res/10.png)
+![image](./res/14.png)
 
 该Swig脚本文件，主要包括5个部分：  
   其中的第1,2部分为默认配置，不需要修改。我们在添加自定义控件时，主要修改第3,4,5三个部分。  
@@ -85,7 +103,7 @@ CustomImageViewWrap是C#项目，包括由Swig工具自动生成的C#封装代�
 在编写完Swig脚本后，在VisualStudio的 ”解决方案资源管理器“ 中右键单击该文件（SwigCustomImageView.i），选择编译，在输出窗口会有 ”Invoking SWIG...“信息输出，表示调用Swig成功。如果脚本编写错误如语法错误这里也会有相关提示。
 如果执行成功，在CustomImageViewWarp项目目录下，会生成三个CS文件，将这三个文件包含到CustomImageViewWarp项目中，
 
-![image](./res/11.png)
+![image](./res/15.png)
 
 同时在CustomImageView项目目录下会生成SwigCustomImageView_wrap.cxx文件,同样将该文件包含到CustomImageView项目中。在Swig脚本的编译选项中，可以配置输出路径。
 
@@ -95,7 +113,7 @@ CustomImageViewWrap是C#项目，包括由Swig工具自动生成的C#封装代�
 
   1. 必须设置release模式，进行编译。
   2. C#项目中，必须启用签名，在CustomImageViewWrap项目中使用Plugins.snk文件（默认已经配置）。
-  3. 目前只支持基于Coco2d-x 2.2.2版本开发的自定义插件，暂不支持基于Coco2d-x 3.0开发的自定义控件。
+  3. 目前只支持基于Coco2d-x 2.2.X版本开发的自定义插件，暂不支持基于Coco2d-x 3.0开发的自定义控件。
 
 ###将生成的动态库拷贝到插件目录
 
@@ -109,31 +127,17 @@ CustomImageViewWrap是C#项目，包括由Swig工具自动生成的C#封装代�
 ###编辑UI工程
 
 在放置后插件后，启动UI编辑器，如果配置插件成功，则在左侧工具栏中会直接显示对应的自定义控件，
-![image](./res/12.png)
+![image](./res/16.png)
 
 鼠标放置到最后的图标上，会显示自定义控件类名。然后就可以像使用其他控件一样，直接拖拽该控件到画布进行使用，选中该控件后，在右侧的属性窗口，会显示之前在CSCustomImageView类中公开的可以配置的属性。可以直接设置操作。编辑完成后，直接保存项目。
 
 
-###编写自定义控件属性解析代码
 
-示例 CustomImageViewReader 的代码：  
-  自定义解析类需要从 cocos2d::CCOject 继承。
-![image](./res/13.png)	 
-  CustomImageViewReader 单例对象静态创建方法：  
-![image](./res/14.png)
-  
-
-CustomImageViewReader 解析 CustomImageView 自定义属性的回调方法：
-![image](./res/15.png)
-
-
-
-  1、2 两部分的说明可参照 cocos2d-x TestCpp 工程中 CustomImageView.cpp、CustomImageViewReader.cpp
 
 ###在游戏中加载UI界面显示
 
   示例代码 CustomImageTest:  
-![image](./res/16.png) 
+![image](./res/17.png) 
   registerTypeAndCallBack 方法说明：  
     参数说明：  
   	“CustomImageView”  
