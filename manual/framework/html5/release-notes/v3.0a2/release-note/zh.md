@@ -16,13 +16,13 @@ Cocos2d-JS为不同平台提供了统一的开发体验，无论你为web还是�
 
 ## 核心特性
 
-* **[Alpha2特性]** 专为Web开发者提供了一个定制下载页面，开发者可以选择自己需要的引擎模块并下载这个定制的单JS文件引擎，也可以选择是否压缩，[在线地址](http://www.cocos2d-x.org/jsbuilder)。
-* **[Alpha2特性]** 引擎类支持通过`new`操作符来构造，构造函数可接受参数，继承引擎类的时候也可以直接在构造函数中传递参数给父类构造函数完成初始化，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/inheritance/zh)。
+* **[Alpha2特性]** 专为Web开发者提供了一个定制下载页面，开发者可以选择自己需要的引擎模块并下载这个定制的单JS文件引擎，也可以选择是否压缩，[在线地址](http://cocos2d-x.org/filecenter/jsbuilder/)。
+* **[Alpha2特性]** 引擎类支持通过`new`操作符来构造，构造函数可接受参数，继承引擎类的时候也可以直接在构造函数中传递参数给父类构造函数完成初始化，[文档说明](../../../v3/inheritance/zh.md)。
 * **[Alpha2 Feature]** 引擎包自带测试例与Moon Warriors游戏实例已支持命令行工具Cocos Console的所有功能。
-* 提供基于python的cocos console来统一并极大简化HTML5与JSB各平台的开发流程，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/cocos-console/zh)。
-* 实现了简单得难以置信得游戏创建与设置代码，为此我们用cc.game取代了cc.Application，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/cc-game/zh)。
-* 使用getter/setter重构所有游戏节点类，提供了对Javascript开发者非常友好得属性风格API和`attr`批量设置函数，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/getter-setter-api/zh)。
-* 将所有事件的分发机制整合到新的事件管理器中，支持对任意类型节点进行事件注册和分发，并支持开发者自定义事件，[文档说明](http://www.cocos2d-x.org/docs/manual/framework/html5/v3.0/eventManager/zh)。
+* 提供基于python的cocos console来统一并极大简化HTML5与JSB各平台的开发流程，[文档说明](../../../v3/Setting-up-Cocos2d-JS-Development-Environment/zh.md)。
+* 实现了简单得难以置信得游戏创建与设置代码，为此我们用cc.game取代了cc.Application，[文档说明](../../../v3/cc-game/zh.md)。
+* 使用getter/setter重构所有游戏节点类，提供了对Javascript开发者非常友好得属性风格API和`attr`批量设置函数，[文档说明](../../../v3/getter-setter-api/zh.md)。
+* 将所有事件的分发机制整合到新的事件管理器中，支持对任意类型节点进行事件注册和分发，并支持开发者自定义事件，[文档说明](../../../v3/eventManager/zh.md)。
 
 ### 详细更改 ###
 
