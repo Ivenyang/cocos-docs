@@ -26,7 +26,7 @@ It's really painful, but in Cocos2d-js 3.0 alpha, we only need a unified create 
 
 To make it work in JSB, we made some js level wrapper for cc.Sprite.create, so if we use cc.Sprite.create function we will call the correspond C++ level create function according to the length and type of arguments:
 
-| Javascript | JSB | cocos2d-x |
+| Javascript | JSB | Cocos2d-x |
 | ---------- |-----|-----------|              
 | cc.Sprite._create | js_cocos2dx_Sprite_create | cocos2d::Sprite::create |
 | cc.Sprite.createWithSpriteFrame | js_cocos2dx_Sprite_createWithSpriteFrameName | cocos2d::Sprite::createWithSpriteFrameName |
@@ -57,7 +57,7 @@ In html5 engine, we have refactored all in engine classes' `ctor` functions to s
 
 In JSB, we actually call js\_cocos2dx\_Sprite\_constructor in C++ level by using `new` operator of cc.Sprite. In this C++ function we allocate memory for this sprite and add it to autorelease pool, and then execute `_ctor` function in js level for initialization using initWithXXX functions, they are also supported in js bindings:
 
-| Javascript | JSB | cocos2d-x |
+| Javascript | JSB | Cocos2d-x |
 | ---------- |-----|-----------|              
 | cc.Sprite.initWithSpriteFrameName | js_cocos2dx_Sprite_initWithSpriteFrameName | cocos2d::Sprite::initWithSpriteFrameName |
 | cc.Sprite.initWithSpriteFrame | js_cocos2dx_Sprite_initWithSpriteFrame | cocos2d::Sprite::initWithSpriteFrame |

@@ -33,7 +33,7 @@ There are two ways of building Android projects.
 #### Setup Eclipse Environment (only once)
 
 
-**NOTE:** This step needs to be done only once to setup the Eclipse environment for cocos2d-x projects. Skip this section if you've done this before.
+**NOTE:** This step needs to be done only once to setup the Eclipse environment for Cocos2d-x projects. Skip this section if you've done this before.
 
 1. Download Eclipse ADT bundle from [Google ADT homepage](http://developer.android.com/sdk/index.html)
 
@@ -49,7 +49,7 @@ There are two ways of building Android projects.
 3. Set up Variables: 
 	1. Path Variable `COCOS2DX`: 
 		* Eclipse->Preferences->General->Workspace->**Linked Resources**
-		* Click **New** button to add a Path Variable `COCOS2DX` pointing to the root cocos2d-x directory.
+		* Click **New** button to add a Path Variable `COCOS2DX` pointing to the root Cocos2d-x directory.
 		![Example](https://lh5.googleusercontent.com/-oPpk9kg3e5w/UUOYlq8n7aI/AAAAAAAAsdQ/zLA4eghBH9U/s400/cocos2d-x-eclipse-vars.png)
 
 	2. C/C++ Environment Variable `NDK_ROOT`: 

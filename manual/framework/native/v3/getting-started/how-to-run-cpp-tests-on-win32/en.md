@@ -4,7 +4,7 @@ In this article, I will show you how to run cpp-tests on your windows PC.
 
 ## Environmental Requirements
 
-- Cocos2D-X version: cocos2d-x v3.0 ([https://github.com/cocos2d/cocos2d-x/](https://github.com/cocos2d/cocos2d-x/ "cocos2d-x"))
+- Cocos2D-X version: Cocos2d-x v3.0 ([https://github.com/cocos2d/cocos2d-x/](https://github.com/cocos2d/cocos2d-x/ "cocos2d-x"))
 
 - IDE: Visual Studio 2012
 
@@ -12,7 +12,7 @@ In this article, I will show you how to run cpp-tests on your windows PC.
 
 ## Compile and Run the TestCpp Project
 
-- Download cocos2d-x from our [download page](http://cocos2d-x.org/download) and unzip it on your working directory. The structure of the directory should look like as following:
+- Download Cocos2d-x from our [download page](http://cocos2d-x.org/download) and unzip it on your working directory. The structure of the directory should look like as following:
 
 ![](res/1.png)
 
@@ -32,9 +32,9 @@ In this article, I will show you how to run cpp-tests on your windows PC.
 
 At first, you need to download and install python 2.7  to finish the following steps.
 
-Then, you should add the path "[cocos2d-x root]\tools\cocos2d-console\bin\" into your system environment path, don't forget to add a ';' as delimiter. For example, my bin path is "F:\source\cocos2d-x\tools\cocos2d-console\bin", and I will add it to the end of PATH as following:
+Then, you should add the path "[Cocos2d-x root]\tools\cocos2d-console\bin\" into your system environment path, don't forget to add a ';' as delimiter. For example, my bin path is "F:\source\cocos2d-x\tools\cocos2d-console\bin", and I will add it to the end of PATH as following:
 
-(Note: The [cocos2d-x root] is the path where you unzip your downloaded cocos2d-x package)
+(Note: The [Cocos2d-x root] is the path where you unzip your downloaded Cocos2d-x package)
 
 ![](res/2.png)
 

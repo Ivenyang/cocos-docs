@@ -37,7 +37,7 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-
 
 ### Release Notes
 
-Read more about all the new features at [cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
+Read more about all the new features at [Cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
 
 
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.

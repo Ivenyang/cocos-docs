@@ -2,8 +2,8 @@
 
 ### 创建新项目之前，确保已经正确设置了 QUICK_COCOS2DX_ROOT 环境变量，参考：###
 
-	设置 quick-cocos2d-x 在 Mac 下的编译环境
-	设置 quick-cocos2d-x 在 Windows 下的编译环境
+	设置 quick-Cocos2d-x 在 Mac 下的编译环境
+	设置 quick-Cocos2d-x 在 Windows 下的编译环境
 
 
 ## 在 Mac 环境里创建新项目 ##

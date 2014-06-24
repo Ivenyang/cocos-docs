@@ -1,6 +1,6 @@
 # quick 事件参考
 
-quick 修改后的 cocos2d-x 提供一些底层事件支持。这些事件按照功能和用途分为：
+quick 修改后的 Cocos2d-x 提供一些底层事件支持。这些事件按照功能和用途分为：
 
 -   节点事件 (cc.NODE_EVENT)
 -   帧事件 (cc.NODE_ENTER_FRAME_EVENT)

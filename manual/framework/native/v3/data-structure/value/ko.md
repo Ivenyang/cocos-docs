@@ -19,7 +19,7 @@ class Value;
 
 내부적으로 `cocos2d::Value` 는 유니온을 구성해 모든 종류의 프리미티브 타입 변수들을 저장하며, 이를 통해 많은 메모리 공간을 절약합니다.
 
-cocos2d-x v3.0 beta 이전에는, `CCBool`, `CCFloat`, `CCDouble`, `CCinteger` 등의 프리미티브 타입을 래핑한 클래스가 있었습니다. 하지만 이 클래스들은 더 이상 사용되지 않을 것입니다.
+Cocos2d-x v3.0 beta 이전에는, `CCBool`, `CCFloat`, `CCDouble`, `CCinteger` 등의 프리미티브 타입을 래핑한 클래스가 있었습니다. 하지만 이 클래스들은 더 이상 사용되지 않을 것입니다.
 
 *주목*:프리미티브 타입 변수들과 컨테이너를 다룰 때, `cocos2d::Vector<T>`,`cocos2d::Map<K,V>` 와 `cocos2d::Value` 를 사용해 주세요.
 

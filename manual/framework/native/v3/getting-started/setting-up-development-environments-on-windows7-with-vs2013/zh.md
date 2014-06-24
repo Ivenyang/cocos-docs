@@ -12,7 +12,7 @@
 
 - Visual Studio    
 - python  ———(本教程以python2.7.3版本为例），下载地址：[http://www.python.org/download/releases/2.7.3/](http://www.python.org/download/releases/2.7.3/)。     
-- cocos2d-x ———(本教程以cocos2d-x-3.0版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
+- Cocos2d-x ———(本教程以cocos2d-x-3.0版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
     
 ## 安装配置过程
 Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d-x-3.2alpha0的安装配置过程。
@@ -47,7 +47,7 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 
 ![](./res/test.jpg)
 
-- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行cocos2d-x引擎了。
+- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行Cocos2d-x引擎了。
 
 ![](./res/testcpp.jpg)
 

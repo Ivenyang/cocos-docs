@@ -1,18 +1,18 @@
-# 设置 quick-cocos2d-x 在 Windows 下的编译环境 #
+# 设置 quick-Cocos2d-x 在 Windows 下的编译环境 #
 
 配置编译环境的基本步骤：
 
-1. 下载 quick-cocos2d-x 源代码
+1. 下载 quick-Cocos2d-x 源代码
 2. 设置运行环境
 3. 安装 Java SDK
 4. 安装最新的 Android ADT bundle 和 Android NDK
 5. 编译 LuaJavaBridge 示例，并在 Android 真机上进行测试
 
-## Step 1: 下载 quick-cocos2d-x 源代码 ##
+## Step 1: 下载 quick-Cocos2d-x 源代码 ##
 
 访问 [https://github.com/chukong/quick-cocos2d-x/releases](https://github.com/chukong/quick-cocos2d-x/releases) 下载最新版 quick 源代码。
 
-由于 ** Android SDK ** 和 ** NDK ** 的问题，** quick-cocos2d-x 目录的放置有一定要求 ** ：
+由于 ** Android SDK ** 和 ** NDK ** 的问题，** quick-Cocos2d-x 目录的放置有一定要求 ** ：
 
 1. 必须和 Android SDK/NDK 在同一个分区
 2. 不能放在根目录
@@ -98,7 +98,7 @@ Install        : libgame.so => libs/armeabi/libgame.so
 
 ### 将项目导入 Eclipse ADT ###
 
-启动 \<PATH_TO>\eclipse\eclipse.exe, 导入 ** libcocos2dx ** 库（这个库是 cocos2d-x 的 Java 支持）.
+启动 \<PATH_TO>\eclipse\eclipse.exe, 导入 ** libcocos2dx ** 库（这个库是 Cocos2d-x 的 Java 支持）.
 
 1.选择菜单 ** File ** -> ** Import **, 再选择 ** Android ** -> ** Existing Android Code Into Workspace ** :
 
