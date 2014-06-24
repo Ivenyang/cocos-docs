@@ -1,16 +1,16 @@
 # 如何在Windows 7平台搭建Cocos2d-x Android开发环境
 
-**注意：**本指南主要以cocos2d-x 2.x版本引擎为例。因为cocos2d-x 3.x引擎不需要安装cygwin即可编译Android样本程序，欲了解更多信息可参见本贴。
+**注意：**本指南主要以Cocos2d-x 2.x版本引擎为例。因为Cocos2d-x 3.x引擎不需要安装cygwin即可编译Android样本程序，欲了解更多信息可参见本贴。
 
 在Windows 7平台搭建Android Cocos2D-x开发环境不难，但因为框架更新频繁，许多用户在使用过程中还是会遇到很多问题。希望本指南对用户有好处。
 
 **建议：**为避免安全相关问题，所有操作请在管理员身份下进行，在运行命令时，请确保以管理员身份打开控制台（console）。      
-本指南将介绍如何在Windows 7平台搭建cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2010的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
+本指南将介绍如何在Windows 7平台搭建Cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2010的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
 
-### 下载cocos2d-x 2.2引擎
+### 下载Cocos2d-x 2.2引擎
 
-**注意：**目前最新版本的引擎为cocos2d-x 2.2。     
-用户可以登陆[cocos2d-x](http://www.cocos2d-x.org/) 官方网站下载最新稳定版的cocos2d-x。如图所示。  
+**注意：**目前最新版本的引擎为Cocos2d-x 2.2。     
+用户可以登陆[Cocos2d-x](http://www.cocos2d-x.org/) 官方网站下载最新稳定版的Cocos2d-x。如图所示。  
    
 ![](./res/getcocos2d-x.jpeg)
 
@@ -18,10 +18,10 @@
 
 ![](./res/cocos2dxversion.jpeg)
 
-从图中可以看出，官网有两个版本可供下载，一个为cocos2d-x 2.2，另一个为cocos2d-x 3.0 pre-alpha0。
+从图中可以看出，官网有两个版本可供下载，一个为Cocos2d-x 2.2，另一个为Cocos2d-x 3.0 pre-alpha0。
 
-在本指南中，将会以cocos2d-x 2.2为例。
-（注意：如果你想要下载旧版的cocos2d-x，可点击“looking for an old versoin?”链接。但本人强烈推荐使用最新版本的cocos2d-x，新版引擎有很多新功能，修复了旧版的很多问题。）
+在本指南中，将会以Cocos2d-x 2.2为例。
+（注意：如果你想要下载旧版的Cocos2d-x，可点击“looking for an old versoin?”链接。但本人强烈推荐使用最新版本的Cocos2d-x，新版引擎有很多新功能，修复了旧版的很多问题。）
 
 右键单击“Download”链接选择“save link as…”（将链接保存为…），然后将压缩文件保存至适当的位置。本机保存位置为C:\cocos2d-x-2.2.0.。    
   
@@ -29,13 +29,13 @@
 
 ![](./res/cocos2dxdirectory.jpeg)
 
-### cocos2d-x新手入门
+### Cocos2d-x新手入门
 看到上图红色划线部分了吗？双击这个名为“cocos2d-win32.vs2010.sln”的文件，然后会自动启动Visual Studio 2010。
 现在你便可以将HelloCpp项目当作默认启动项目来编译，按CTRL-F5运行样本程序。如果编译没有什么错误，同时运行成功的话，你会看到如下画面。
 
 ![](./res/hellocpp.jpeg)
 
-祝贺你！你已成功在Windows 7平台中运行cocos2d-x引擎。接下里介绍如何配置Android开发环境。
+祝贺你！你已成功在Windows 7平台中运行Cocos2d-x引擎。接下里介绍如何配置Android开发环境。
 
 ### 配置Android开发环境
 
@@ -80,12 +80,12 @@
 
 ![](./res/cocos2dandroiderror.jpg)
 
-这是因为缺少cocos2d-x Android JNI桥接库（bridge library）。解决方法：导入另一个Android项目，项目位置为“C:\cocos2d-x-2.2.0\cocos2dx\platform\android”。导入项目之后，错误即会消失，如下图所示。
+这是因为缺少Cocos2d-x Android JNI桥接库（bridge library）。解决方法：导入另一个Android项目，项目位置为“C:\cocos2d-x-2.2.0\cocos2dx\platform\android”。导入项目之后，错误即会消失，如下图所示。
 
 ![](./res/cocos2dxandroidsuccess.jpg)
 ### 测试Cocos2d-x Android NDK环境
 
-这次将切换使用终端，而不是Windows CMD命令工具。打开目录“c:\cygwin64”，双击“Cygwin.bat”文件。这是会出现一个终端，你可以使用bash命令来定位cocos2d-x Android项目。
+这次将切换使用终端，而不是Windows CMD命令工具。打开目录“c:\cygwin64”，双击“Cygwin.bat”文件。这是会出现一个终端，你可以使用bash命令来定位Cocos2d-x Android项目。
 
 操作如下：    
 
@@ -97,7 +97,7 @@ cd /cygdrive/c/cocos2d-x-2.2.0/samples/Cpp/HelloCpp/proj.android/
 
 ```1./build_native.sh```
 
-如果没有错误出现，那恭喜你，Windows 7平台cocos2d-x Android开发环境已经正在运行。
+如果没有错误出现，那恭喜你，Windows 7平台Cocos2d-x Android开发环境已经正在运行。
 
 （注意：你也可以通过Eclipse来运行Android应用。右键单击Android项目然后选择“Run as Android Application”即可。）
 ### 在Android手机安装APK应用

@@ -1,4 +1,4 @@
-# 在WP8上搭建cocos2d-x开发环境
+# 在WP8上搭建Cocos2d-x开发环境
 
 ##Overview
 
@@ -7,8 +7,8 @@ WP8 是微软公司最新一代的手机操作系统，由于采用和 Win8 相�
 不断增加中。现在看来越来越多的开发者包括游戏开发者正向 WP8 平台迁移，想在这个平
 台上一显身手。
 
-所以采用 cocos2d-x 引擎开发 WP8 手机游戏是一件顺理成章的事。鉴于这种趋势，笔者提
-供这个示例。希望通过本示例，能让各位学习到如何在 WP8 平台上搭建 cocos2d-x 的游戏
+所以采用 Cocos2d-x 引擎开发 WP8 手机游戏是一件顺理成章的事。鉴于这种趋势，笔者提
+供这个示例。希望通过本示例，能让各位学习到如何在 WP8 平台上搭建 Cocos2d-x 的游戏
 开发环境，并预先告知搭建平台可能会遇到的一些问题及其解决办法。握起你手中的
 windows phone，我们开始吧！
 
@@ -35,13 +35,13 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 [http://dev.windowsphone.com/en-US/downloadsdk](http://dev.windowsphone.com/en-US/downloadsdk)
 [http://dev.windowsphone.com/zh-cn/downloadsdk](http://dev.windowsphone.com/zh-cn/downloadsdk)
 
-##cocos2d-x 项目的创建
+##Cocos2d-x 项目的创建
 
-###获取最新的 cocos2d-x 的代码（本文以 2.2 版本为例）
+###获取最新的 Cocos2d-x 的代码（本文以 2.2 版本为例）
 
 从官网下载最新代码：http://www.cocos2d-x.org/download
 
-把下载的 zip 包解压后就是 cocos2d-x 的整个工程:
+把下载的 zip 包解压后就是 Cocos2d-x 的整个工程:
 
 ![](res/2.png)
 
@@ -49,7 +49,7 @@ Windows 账号说明：就是 Hotmail、SkyDrive、Xbox LIVE 的用户
 
 ![](res/3.png)
 
-###创建自己的 cocos2d-x 的 HelloWorld：
+###创建自己的 Cocos2d-x 的 HelloWorld：
 
 下载并安装 Python，注意不要安装 3.0 版本以上的【Tip1】
 
@@ -82,9 +82,9 @@ Note：上面的脚本中有三个变量需要根据自己的情况替换
 
 ![](res/7.png)
 
-###把 HelloWorld 从 cocos2d-x 的大工程中独立出来：
+###把 HelloWorld 从 Cocos2d-x 的大工程中独立出来：
 刚才的 HelloWorld 在 cocos2d-x-2.2.0\projects\目录下，可以根据自己的情况新建一个目
-录，把 HelloWorld 代码和 cocos2d-x 必要的文件拷贝过去，做一个干净的工程，注意目
+录，把 HelloWorld 代码和 Cocos2d-x 必要的文件拷贝过去，做一个干净的工程，注意目
 录结构不能破坏。做好的工程大致如下所示：
 
 ![](res/8.png)
@@ -129,7 +129,7 @@ Note：上面的脚本中有三个变量需要根据自己的情况替换
 ###通过观察，我们可以得出几点结论：
 
 以 Proj.开头的目录存放的是和各个平台相关的代码和工程文件还有资源(比如 Splash)
-Class 目录存放的是和平台无关的代码即用 cocos2d-x 写的游戏代码部分(AppDelegate, 
+Class 目录存放的是和平台无关的代码即用 Cocos2d-x 写的游戏代码部分(AppDelegate, 
 HelloWorldScene.cpp)。大家开发游戏的时候也应该把代码放在此目录下。
 通过如下代码可以了解引擎是如何把 AppDelegate 加到 WP 项目中去的
 
@@ -228,7 +228,7 @@ Assets 目录。中图是 Assets 目录、右图是 Assets/Resources 目录包�
 由此可见，和 Android 一样，WP 的程序会把需要用到的资源放在 Assets 目录下。
 
 ###进一步认识 Assets 目录（本节内容可以跳过）
-利用 cocos2d-x 的跨平台特性，我们可以做一个实验
+利用 Cocos2d-x 的跨平台特性，我们可以做一个实验
 
 分别编译并运行 MyDemo 的 proj.win32 和 proj.wp8 工程，成功后分别出现如下画面
 
@@ -344,10 +344,10 @@ Assets 下。编译后，查看一下 XAP 文件，看看 1.123 有没有。
 [http://www.icopybot.com/](http://www.icopybot.com/)
 
 ##导入游戏
-###有了以上知识的铺垫，读者应该可以真正用 cocos2d-x 的语句来编写游戏代码了。关于如何用 cocos2d-x 开发游戏，请参考官网介绍，此处笔者不做详细展开：
+###有了以上知识的铺垫，读者应该可以真正用 Cocos2d-x 的语句来编写游戏代码了。关于如何用 Cocos2d-x 开发游戏，请参考官网介绍，此处笔者不做详细展开：
 [http://www.cocos2d-x.org/](http://www.cocos2d-x.org/)
 
-###作为试验，在上述已经搭好的环境下，笔者参考下面的网址，把里面的 cocos2d-x 的代码直接拿到了 MyDemo 工程里，非常方便：
+###作为试验，在上述已经搭好的环境下，笔者参考下面的网址，把里面的 Cocos2d-x 的代码直接拿到了 MyDemo 工程里，非常方便：
 [http://www.raywenderlich.com/33752/cocos2d-x-tutorial-for-ios-and-android-space-game](http://www.raywenderlich.com/33752/cocos2d-x-tutorial-for-ios-and-android-space-game)
 
 这是完成的游戏界面，很酷吧。

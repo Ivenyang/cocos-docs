@@ -1,39 +1,39 @@
 #Setup Android Development on Win7
 
-Note: This tutorial is made for cocos2d-x 2.x version. Since cocos2d-x 3.x version doesn't need to install Cygwin for building Android samples any more.
+Note: This tutorial is made for Cocos2d-x 2.x version. Since Cocos2d-x 3.x version doesn't need to install Cygwin for building Android samples any more.
 You can refer to [this post](http://cocos2d-x.org/news/148) for more information.
 
-In this tutorial, I will show you how to set up cocos2d-x android development on windows 7. To follow this tutorial, you should have a PC with windows 7 and visual studio 2010 to be installed. It is better to have a fast and stable network connection, because there are many software packages
+In this tutorial, I will show you how to set up Cocos2d-x android development on windows 7. To follow this tutorial, you should have a PC with windows 7 and visual studio 2010 to be installed. It is better to have a fast and stable network connection, because there are many software packages
 need to be downloaded during the configuration process.
 
-##Download cocos2d-x 2.2 
+##Download Cocos2d-x 2.2 
 
-we can go to [ cocos2d-x ](http://www.cocos2d-x.org) offical website to download the latest stable version of cocos2d-x.
+we can go to [ Cocos2d-x ](http://www.cocos2d-x.org) offical website to download the latest stable version of Cocos2d-x.
 
 ![](./res/getcocos2d-x.jpeg)
 
-After your click the **Download** tab in the navigation bar, you will find a cocos2d-x download section like this:
+After your click the **Download** tab in the navigation bar, you will find a Cocos2d-x download section like this:
 
 ![cocos2dversion](res/cocos2dxversion.jpeg)
 
 <!-- more -->
 
-From the above picture, we can see that there are two versions available, one is called cocos2d-x 2.2 and the other is called cocos2d-x 3.0 pre-alpha0.
+From the above picture, we can see that there are two versions available, one is called Cocos2d-x 2.2 and the other is called Cocos2d-x 3.0 pre-alpha0.
 
-In this tutorial, I will take cocos2d-x 2.2 as a example.
+In this tutorial, I will take Cocos2d-x 2.2 as a example.
 
-(Note: If you want to download any old version of cocos2d-x, you can go to the link named "looking for an old versoin?". But I highly recommend you to try out the lastest version of cocos2d-x, it has many new features and bug fixes.).
+(Note: If you want to download any old version of Cocos2d-x, you can go to the link named "looking for an old versoin?". But I highly recommend you to try out the lastest version of Cocos2d-x, it has many new features and bug fixes.).
 
 Ok, right click the download link and  choose "save link as..." to save the zip file to a proper location. In our case, the location is C:\cocos2d-x-2.2.0.
 
-(Update: Don't put cocos2d-x folder under c:\, since it will cause many privilege related problems. Try to put it in another disk, like D:\, E:\ etc.)
+(Update: Don't put Cocos2d-x folder under c:\, since it will cause many privilege related problems. Try to put it in another disk, like D:\, E:\ etc.)
 
 Now we can unzip the package and the unziped directory looks like this:
 
 ![cocos2dxdirector](res/cocos2dxdirectory.jpeg)
 
 
-##Getting Started with cocos2d-x
+##Getting Started with Cocos2d-x
 
 Do you see the red line in the above picture? Double click the file named cocos2d-win32.vs2010.sln, then it will launch your visual studio 2010.
 
@@ -41,7 +41,7 @@ Now you can make the HelloCpp project as the default startup project and press c
 
 ![hellocpp](res/hellocpp.jpeg)
 
-Congratulations! You have successfully made cocos2d-x running on your Win7. Now it's time to configure the android development environment.
+Congratulations! You have successfully made Cocos2d-x running on your Win7. Now it's time to configure the android development environment.
 
 ##Configure android development environment
 
@@ -83,7 +83,7 @@ C:\cygwin64\bin;C:\adt-bundle-windows-x86_64\sdk\platform-tools;C:\adt-bundle-wi
 After you finish installing, you should install another software package named Android NDK. Here is the [download link](http://developer.android.com/tools/sdk/ndk/index.html). When you finish downloading, unzip it and put it at C:\android-ndk-r9 and setup another environment variable named NDK_ROOT
 pointing at the url.
 
-Finally, we can launch eclipse and import a sample android project within cocos2d-x folder. Here is the instructions:
+Finally, we can launch eclipse and import a sample android project within Cocos2d-x folder. Here is the instructions:
 
 - Right click Package Explorer and choose "Import..."
 - When a dialog will appear , you should choose "Exsiting Android project into workspace"
@@ -98,14 +98,14 @@ You may notice that there are some errors shown in the Package Explorer:
 
 ![image](./res/cocos2dandroiderror.jpg)
 
-This is duing to the lack of cocos2d-x android jni bridge library. We can fix the problem by importing another android project. The location of the project is at C:\cocos2d-x-2.2.0\cocos2dx\platform\android. After you have imported the project, the errors will disappear.
+This is duing to the lack of Cocos2d-x android jni bridge library. We can fix the problem by importing another android project. The location of the project is at C:\cocos2d-x-2.2.0\cocos2dx\platform\android. After you have imported the project, the errors will disappear.
 
 ![image](./res/cocos2dxandroidsuccess.jpg)
 
 
 ##Test Your Cocos2d-x Android NDK Environment
 
-This time we will switch to use terminal, not windows' CMD tool. Open the directory c:\cygwin64, and double click the Cygwin.bat. Then a terminal will appear and you can use bash command to locate your cocos2d-x android project.
+This time we will switch to use terminal, not windows' CMD tool. Open the directory c:\cygwin64, and double click the Cygwin.bat. Then a terminal will appear and you can use bash command to locate your Cocos2d-x android project.
 
 Here is my instruction:
 
@@ -119,7 +119,7 @@ Now you can run this command:
 ./build_native.sh
 ``` 
 
-If there are no errors. Congratulations, your cocos2d-x android development environment on win7 is working.
+If there are no errors. Congratulations, your Cocos2d-x android development environment on win7 is working.
 
 (Note: you can also run your android applicaton through Eclipse. Right click the androd project and choose "Run as Android Application".)
 

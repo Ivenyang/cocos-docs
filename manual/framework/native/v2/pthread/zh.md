@@ -1,16 +1,16 @@
 
 # 如何用pthread新建线程 #
 
-现在，你可以在cocos2d-x中使用pthread,但是有几点限制。
+现在，你可以在Cocos2d-x中使用pthread,但是有几点限制。
 
-1. 不要调用任何会引起`CCObject::retain()`,`CCObject::release()` 或者 `CCObject::autorelease()`的方法，因为CCAutoreleasePool并不是线程安全。更多详细介绍请参照“[Reference Count and AutoReleasePool in Cocos2d-x](http://www.cocos2d-x.org/wiki/Reference_Count_and_AutoReleasePool_in_Cocos2d-x)(cocos2d-x中的引用计数和自动释放池)”。在Cocos2d-x引擎中，CCAutoreleasePool的使用无处不在，所以我的建议就是：不要在新线程中点用任何cocos2d-x API除了[数据结构](http://www.cocos2d-x.org/wiki/Data_Structures)。
+1. 不要调用任何会引起`CCObject::retain()`,`CCObject::release()` 或者 `CCObject::autorelease()`的方法，因为CCAutoreleasePool并不是线程安全。更多详细介绍请参照“[Reference Count and AutoReleasePool in Cocos2d-x](http://www.cocos2d-x.org/wiki/Reference_Count_and_AutoReleasePool_in_Cocos2d-x)(Cocos2d-x中的引用计数和自动释放池)”。在Cocos2d-x引擎中，CCAutoreleasePool的使用无处不在，所以我的建议就是：不要在新线程中点用任何Cocos2d-x API除了[数据结构](http://www.cocos2d-x.org/wiki/Data_Structures)。
 
 2. 如果你想要在新线程中加载资源，你可以调用`CCTextureCache::addImageAsync()`
 
 3. `pthread_cond_wait()` 似乎有bug，首次执行时并不能正常等待，但是，后续可以很好的工作。
 
 
-如果我们确保retain(), release() 和 autorealese()是线程安全的，那么线程互斥就变得必须。因为cocos2d-x框架会在每个消息循环(message loop)最后释放自动释放池，使用线程互斥会引起性能问题。     
+如果我们确保retain(), release() 和 autorealese()是线程安全的，那么线程互斥就变得必须。因为Cocos2d-x框架会在每个消息循环(message loop)最后释放自动释放池，使用线程互斥会引起性能问题。     
 
 顺便说一下，OpenGL上下文(OpenGL context)并不是线程安全的，这个你应该永远记住。
 

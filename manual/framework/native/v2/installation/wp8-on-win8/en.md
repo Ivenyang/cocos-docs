@@ -3,7 +3,7 @@
 ##Overview
 
 WP8 is the new phone operating system of Microsoft, since the same NT kernel with Win8 and the advantage differance with IOS and Android, it develops rapidly. It contains more than 170 thounsand apps, and the number is still increasing. More and more game developers are porting their game to wp8, to show their skills.
-So using cocos2d-x engine to develop game on wp8 is undoubtedly logical. Since this trend, I will show you the example. And hopes that, you can learn how to setup the develop environment of game on wp8 using cocos2d-x, and I will show you some problems and the method to solve on the way of setup develop environment. Pick your windows phone up, we are starting.
+So using Cocos2d-x engine to develop game on wp8 is undoubtedly logical. Since this trend, I will show you the example. And hopes that, you can learn how to setup the develop environment of game on wp8 using Cocos2d-x, and I will show you some problems and the method to solve on the way of setup develop environment. Pick your windows phone up, we are starting.
 
 ## Enable to start develop on Windows phone
 
@@ -27,13 +27,13 @@ install windows phone SDK 8.0
 [http://dev.windowsphone.com/en-US/downloadsdk](http://dev.windowsphone.com/en-US/downloadsdk)
 [http://dev.windowsphone.com/zh-cn/downloadsdk](http://dev.windowsphone.com/zh-cn/downloadsdk)
 
-## create cocos2d-x project
+## create Cocos2d-x project
 
-### get the latest cocos2d-x codes（I will use the version of 2.2)
+### get the latest Cocos2d-x codes（I will use the version of 2.2)
 
 get the latest code from offical website：http://www.cocos2d-x.org/download
 
-uncompress the zip pack file, and you will get the whole project of cocos2d-x
+uncompress the zip pack file, and you will get the whole project of Cocos2d-x
 
 ![](res/2.png)
 
@@ -41,7 +41,7 @@ the whole directory include as the following:
 
 ![](res/41.png)
 
-### create yourselve's cocos2d-x porject of HelloWorld：
+### create yourselve's Cocos2d-x porject of HelloWorld：
 
 download and install Python, and note that donnot use the version above 3.0【Tip1】
 
@@ -77,8 +77,8 @@ Congratulation if you find the result as following, you create the project succe
 
 ![](res/7.png)
 
-### seperate HelloWorld from cocos2d-x project：
-the code of HelloWorld is under the folder of cocos2d-x-2.2.0\projects\，you can create your folder in your condition, but cannot destroy the structure of the folder，copy the HelloWorld with some necessary file in cocos2d-x，make a clean project， note that you cannot destroy the structure of the folder. The result of your creating as following：
+### seperate HelloWorld from Cocos2d-x project：
+the code of HelloWorld is under the folder of cocos2d-x-2.2.0\projects\，you can create your folder in your condition, but cannot destroy the structure of the folder，copy the HelloWorld with some necessary file in Cocos2d-x，make a clean project， note that you cannot destroy the structure of the folder. The result of your creating as following：
 
 ![](res/8.png)
 
@@ -217,7 +217,7 @@ In a conclusion, WP's application we conclude all the resources file under the f
 
 ### much familiar with Assets folder（you can jump to next step）
 
-With the feature of cocos2d-x cross platform, we make a experiment:
+With the feature of Cocos2d-x cross platform, we make a experiment:
 build and run the MyDemo's proj.win32 project and proj.wp8 porject respectively, and meet with the result as following:
 
 ![](res/24.png)
@@ -334,11 +334,11 @@ Congratulations, I believe you are familiar with Assets.
 [http://www.icopybot.com/](http://www.icopybot.com/)
 
 ## import games
-### with the konwledge above, developers can use cocos2d-x to write your game code. About how to develop by cocos2d-x，please look at the offical website， I don't make it detail here：
+### with the konwledge above, developers can use Cocos2d-x to write your game code. About how to develop by Cocos2d-x，please look at the offical website， I don't make it detail here：
 
 [http://www.cocos2d-x.org/](http://www.cocos2d-x.org/)
 
-### as experiment, I refer the link as following with the right environment above, I take the code in cocos2d-x into the MyDemo project, very convenient: 
+### as experiment, I refer the link as following with the right environment above, I take the code in Cocos2d-x into the MyDemo project, very convenient: 
 
 [http://www.raywenderlich.com/33752/cocos2d-x-tutorial-for-ios-and-android-space-game](http://www.raywenderlich.com/33752/cocos2d-x-tutorial-for-ios-and-android-space-game)
 

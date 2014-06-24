@@ -12,7 +12,7 @@ class Value;
 
 你可以将上面提及的基本类放进`cocos2d::Value`对象将它们转换成对应的类型，反之亦然。
 
-`cocos2d::Value`底层用一个统一的变量来保存任意基本类型值，它将更加节省内存。在`cocos2d-x v3.0beta`之前使用的是`CCBool`, `CCFloat`, `CCDouble`和`CCInteger`这样基本类型包装类，不过它们将被废弃掉。
+`cocos2d::Value`底层用一个统一的变量来保存任意基本类型值，它将更加节省内存。在`Cocos2d-x v3.0beta`之前使用的是`CCBool`, `CCFloat`, `CCDouble`和`CCInteger`这样基本类型包装类，不过它们将被废弃掉。
 
 **注意**：当处理基本类型和和容器时，请使用`cocos2d::Vector<T>`, `cocos2d::Map<K,V>`和`cocos2d::Value`。
 

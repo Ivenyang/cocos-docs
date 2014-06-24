@@ -31,7 +31,7 @@ Menu仅仅是一个menuItems的集合，这些菜单项作为菜单的一部分�
     pCloseItem->setFontSize(35);
     pCloseItem->setFontName("Helvetica");
 	```
-##创建一个菜单在cocos2d-x V3以上的版本
+##创建一个菜单在Cocos2d-x V3以上的版本
 
 ===
 
@@ -96,7 +96,7 @@ void HelloWorld::menuPauseCallback(cocos2d::Ref* pSender)
 }
 ```
 
-##创建一个菜单在cocos2d-x V2版本
+##创建一个菜单在Cocos2d-x V2版本
 
 ===
 

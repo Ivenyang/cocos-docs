@@ -1,8 +1,8 @@
 #如何使用 bindings-generator 自动生成 lua绑定
 
-Since cocos2d-x 3.0, we use bindings-generator to generate lua bindings for c++ automatically
+Since Cocos2d-x 3.0, we use bindings-generator to generate lua bindings for c++ automatically
 
-自从cocos2d-x 3.0，我们使用 [bindings-generator](https://github.com/cocos2d/bindings-generator) 自动生成 c++ lua 绑定。
+自从Cocos2d-x 3.0，我们使用 [bindings-generator](https://github.com/cocos2d/bindings-generator) 自动生成 c++ lua 绑定。
 
 bindings-generator 是基于 tolua++，你可以配置 tools/tolua目录下的ini文件，然后运行genbindings.py脚本生成绑定代码。通过使用这种方法，大大降低了记录的pkg文件的配置工作。
 
@@ -138,7 +138,7 @@ script_control_cpp = no
 
 - target_namespace：要配置在脚本层模块的名字。在这里，我们使用cc作为模块名，当你想在脚本层REF的名称，您必须将一个名为前缀，CC在名称的前面。例如，CustomClass可以参考作为`cc.CustomClass`。
 
-- headers：要配置所有需要解析的头文件和％（cocosdir）s是的cocos2d-x的引擎的根路径。
+- headers：要配置所有需要解析的头文件和％（cocosdir）s是的Cocos2d-x的引擎的根路径。
  
 - classes：要配置所有绑定所需的类。在这里，它支持正则表达式。因此，我们可以设置MyCustomClass。*在这里，用于查找多个特定的用法，你可以对照到`tools/tolua/cocos2dx.ini`。 
 

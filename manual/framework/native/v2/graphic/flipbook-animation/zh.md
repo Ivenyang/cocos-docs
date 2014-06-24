@@ -43,7 +43,7 @@ Cocos2d-x v2.0已更新，是基于OpenGL ES 2.0的.OpenGL ES 2.0不再为textur
 
 ## Creating from .png and .plist file
 
-在cocos2d-x 0.x和1.x版本中，CCSpriteSheet便是为此目的而生的.而CCSpriteBatchNode在v2.0版本之后替换了CCSpriteSheet
+在Cocos2d-x 0.x和1.x版本中，CCSpriteSheet便是为此目的而生的.而CCSpriteBatchNode在v2.0版本之后替换了CCSpriteSheet
 
 CCSpriteBatchNode对象包含了所有sprite frames中用到的真实图片texture.你必须在场景中添加它，甚至它自身什么都不用画;它只需要放到那里，这样它就成了rendering pipeline的组成部分.比如:
 
@@ -103,4 +103,4 @@ CCAnimationCache 可以加载xml/plist文件，此文件可以非常好的描述
 简单易用吧？哈哈
 
 
-标签：`Animations` `cocos2d-x官方文档` `动画` 
+标签：`Animations` `Cocos2d-x官方文档` `动画` 

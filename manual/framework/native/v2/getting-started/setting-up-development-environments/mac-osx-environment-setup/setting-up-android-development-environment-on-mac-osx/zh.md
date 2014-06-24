@@ -2,14 +2,14 @@
 
 ## 测试环境：
 
-- Cocos2d-x版本号：cocos2d-2.0-x-2.0.4
+- Cocos2d-x版本号：Cocos2d-2.0-x-2.0.4
 - OS X版本号：10.8
 - NDK版本号：android-ndk-r8b
 - 设备：Android 4.0.3（支持2.3版本及以上）
 
 ## 下载最新Cocos2d-x
 
-- 从cocos2d-x官方网站下载最新的Cocos2d-x。
+- 从Cocos2d-x官方网站下载最新的Cocos2d-x。
 - 解压ZIP文件。本指南中解压库的存放位置如下：    
 ```
 1/Users/iven/dev/cocos2d-x
@@ -69,7 +69,7 @@ MacOS X会自动下载JDK，如图所示。
 ![](./res/downloadNDK.png)         
 至此集成开发环境已经加载Android开发人员工具（Android Developer Tools）插件，SDK准备就绪。
 
-现在已经准备好用cocos2d-x来开发跨平台游戏。但是我们还得做一些小修改，以便后续顺利开发。打开终端，输入以下命令：     
+现在已经准备好用Cocos2d-x来开发跨平台游戏。但是我们还得做一些小修改，以便后续顺利开发。打开终端，输入以下命令：     
 ```
 1export ANDROID_SDK_ROOT="/Users/iven/Dev/android/Users/iven/Dev/Android/adt-bundle-mac-x86_64/sdk" 
 2export NDK_ROOT="/Users/iven/Dev/android-ndk-r8c" 
@@ -130,7 +130,7 @@ MacOS X会自动下载JDK，如图所示。
 
 ## 创建HelloWorld
 
-至此我们已经为Mac电脑搭建好了环境，即可以用cocos2d-x来进行跨平台开发了。下一步是在Eclipse中创建一个跨平台项目，当然是用cocos2d-x引擎。
+至此我们已经为Mac电脑搭建好了环境，即可以用Cocos2d-x来进行跨平台开发了。下一步是在Eclipse中创建一个跨平台项目，当然是用Cocos2d-x引擎。
 
 将create-android-project.sh文件前面的代码换成如下：     
 ```
@@ -140,12 +140,12 @@ MacOS X会自动下载JDK，如图所示。
 
 进入cocos2d-x根目录，运行以下命令生成create-android-project.sh文件并创建名为“HelloWorld”的新Android项目。   
 ```
- 1IvenYangtekiMacBook-Pro:cocos2d-x iven$ /Users/iven/Dev/cocos2d-x/create-android-project.sh 
+ 1IvenYangtekiMacBook-Pro:Cocos2d-x iven$ /Users/iven/Dev/cocos2d-x/create-android-project.sh 
  2use global definition of NDK_ROOT: /Users/iven/Dev/android-ndk-r8c/tools
  3use global definition of ANDROID_SDK_ROOT: /Users/iven/Dev/Android/adt-bundle-mac-x86_64/sdk
  4Input package path. For example: org.cocos2dx.example
  5org.cocos2dx.HelloWorld
- 6Now cocos2d-x supports Android 2.2 or upper version
+ 6Now Cocos2d-x supports Android 2.2 or upper version
  7Available Android targets:
  8----------
  9id: 1 or "android-15" 
@@ -182,7 +182,7 @@ MacOS X会自动下载JDK，如图所示。
 5SharedLibrary : libgame.so
 6Install : libgame.so => libs/armeabi/libgame.so
 7make: Leaving directory `/Users/iven/Dev/cocos2d-x/helloworld/proj.android'
-8IvenYangtekiMacBook-Pro:cocos2d-x iven$ 
+8IvenYangtekiMacBook-Pro:Cocos2d-x iven$ 
 ```
 ### 导入helloworld Eclipse项目
 

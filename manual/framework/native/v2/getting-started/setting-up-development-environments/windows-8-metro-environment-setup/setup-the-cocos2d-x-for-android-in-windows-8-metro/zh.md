@@ -1,4 +1,4 @@
-# 在Windows 8 Metro平台搭建cocos2d-x Android开发环境
+# 在Windows 8 Metro平台搭建Cocos2d-x Android开发环境
 
 - 1.下载Android SDK：一般情况下用户只下载SDK，不过这里推荐下载集合Android SDK、Eclipse及Android Plugin for Eclipse（Android插件）的ADT Bundle工具。最新版下载地址为
 [http://developer.android.com/sdk/index.html](http://developer.android.com/sdk/index.html)
@@ -12,9 +12,9 @@
 - 4.从[http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)下载JDK。不管你的系统是32位还是64位，你都只需要下载32位版本的JDK。将Java安装至“C:\Java”中。
 
 
-- 5.下载最新版本的cocos2d-x引擎并解压至“C:\ Drive”。本机解压路径为“E:\cocos2d-x-2.2”。
+- 5.下载最新版本的Cocos2d-x引擎并解压至“C:\ Drive”。本机解压路径为“E:\cocos2d-x-2.2”。
 
-- 6.设置Java、cocos2d-x、SDK及NDK环境变量。          
+- 6.设置Java、Cocos2d-x、SDK及NDK环境变量。          
 本机环境变量如下所示：
 ```
 	COCOS2DX_ROOTE:\cocos2d-x-2.2
@@ -26,7 +26,7 @@
 
 - 7.打开Cygwin，右键单击图标，选择“Run as administrator”（以管理员身份运行）。
 
-- 8.现在开始新建cocos2d-x项目。先介绍如何新建各平台通用的项目，之后再只选择Android平台作介绍。执行以下命令：cd $COCOS2DX_ROOTcd tools/project-creator       
+- 8.现在开始新建Cocos2d-x项目。先介绍如何新建各平台通用的项目，之后再只选择Android平台作介绍。执行以下命令：cd $COCOS2DX_ROOTcd tools/project-creator       
 再输入以下命令创建新项目：       
 `python ./create_project.py -project TestGame -package com.MyCompany.TestGame -language cpp`     
 这时会在项目目录下创建新项目。本机目录为“E:\cocos2d-x-2.2\projects”。      
@@ -73,6 +73,6 @@ print "Invalid -project parameter" ^SyntaxError: invalid syntax
 5. 浏览找到“location-> COCOS2D-X_INSTALLATION_FOLDER/cocos2dx/platform/android/java/src. My path will be: E:\cocos2d-x-2.2\cocos2dx\platform\android\java\src”
 6. 随便给个文件夹名称。例如，将移除“src”用“Cocos2d-x-source”替换。点击“Finish”完成。
 
-到此编译结束。你可以在Android设备中运行项目，应该会显示cocos2d-x LOGO。请注意：项目在Android虚拟机上可能有时候无法运行。
+到此编译结束。你可以在Android设备中运行项目，应该会显示Cocos2d-x LOGO。请注意：项目在Android虚拟机上可能有时候无法运行。
 
 参考信息：[http://www.cocos2d-x.org/forums/6/topics/37122](http://www.cocos2d-x.org/forums/6/topics/37122)。

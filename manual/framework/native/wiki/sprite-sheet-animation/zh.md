@@ -37,13 +37,13 @@
 2. 减少内存能耗。OpenGL ES 1.1只能使用二次幂限制（power-of-two）的纹理（即高度或宽度为2,4,8, 64,128,256,512,1024）。换句话说，OpenGL ES 1.1会为每个纹理分配二次幂的内存，即便是小于规定高度或宽度的纹理也是如此。所以使用打包的精灵表图像会减少内存的分块。
 3. 减少对Open GL ES的绘制调用，加快渲染速度。
 
-升级的cocos2d-x v2.0基于OpenGL ES 2.0。OpenGL ES 2.0不会再给纹理分配二次幂内存块，但仍然会减少文件输入输出的次数，减少绘制调用。       
+升级的Cocos2d-x v2.0基于OpenGL ES 2.0。OpenGL ES 2.0不会再给纹理分配二次幂内存块，但仍然会减少文件输入输出的次数，减少绘制调用。       
 
 那动画呢？我们知道，精灵表与动画之间没有“MUST-BE”关系。但是考虑到以上优点，精灵表动画也是有效的。在cocos2d引擎中创建精灵表的方法有几种。
 
 ### 用.png及.plist文件创建
 
-在cocos2d-x 0.x及1.x版本中，“CCSpriteSheet”即用于创建精灵表。自2.0版本以来，我们就用“CCSpriteBatchNode”来替换“CCSpriteSheet”。           
+在Cocos2d-x 0.x及1.x版本中，“CCSpriteSheet”即用于创建精灵表。自2.0版本以来，我们就用“CCSpriteBatchNode”来替换“CCSpriteSheet”。           
 “CCSpriteBatchNode”对象包括所有精灵帧的真实图像纹理。你必须将“CCSpriteBatchNode”添加到场景中，即便其本身不会画出任何东西；但必须作为渲染流水线的一部分存在。例如：
 
 	CCSpriteBatchNode* spritebatch = CCSpriteBatchNode::create("animations/grossini.png");

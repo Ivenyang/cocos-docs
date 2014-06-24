@@ -5,7 +5,7 @@
 - 使用Wizard工具可以生成**Cocos2d-x-win32**项目。
 - Wizard支持Visual Studio 2008、Visual Studio 2010(0.8.0及更新版)、Visual C++2008 Express(0.8.0及更新版) 以及Visual C++ 2010 Express(0.8.0及更新版)
 
-## 1. 首先从Github获取cocos2d-x源代码
+## 1. 首先从Github获取Cocos2d-x源代码
 源码存档请点击：下载。   
 源代码库请点击：[https://github.com/cocos2d/cocos2d-x](https://github.com/cocos2d/cocos2d-x)。
 
@@ -32,9 +32,9 @@ Cocos2d-wohone二进制文件在PRJ_TG3\LIB\Win32Lib路径下。
 ![](./res/cc_helloworld_win32.PNG)     
 ![](./res/cc_tests_win32.PNG) 
 
-## 3. 在MSVC++开发环境中安装cocos2d-x Application Wizard
+## 3. 在MSVC++开发环境中安装Cocos2d-x Application Wizard
 
-运行“install-templates-msvc.bat”会自动安装cocos2d-x Application Wizard工具。
+运行“install-templates-msvc.bat”会自动安装Cocos2d-x Application Wizard工具。
 
 每个MSVC集成开发环境的脚本文件位于“ \template\msvc\”目录。
 

@@ -11,16 +11,16 @@
 - Windows用户
 	- 在NDK-R6版本之前，大部分人在安装Android NDK及Cygwin编译时都很头疼，现在用户可以参考本指南[《如何安装Cocos2d-x》](http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/)。
 	- 自Android NDK R7版本以来，开发人员都能够在Windows平台用Cygwin编译NDK源文件，所以安装Windows devenv也是有可能的。具体方法参考本博客。注意：`ndk-gdb`在Windows平台无法工作，所以需要用到Cygwin来调试。
-	- Jesus Bosch编写的这个指南也不错[《Win 7平台搭建Android+Win32 cocos2d-x开发环境》](http://www.jesusbosch.com/2012/06/how-to-set-up-android-and-win32-cocos2d.html)。
+	- Jesus Bosch编写的这个指南也不错[《Win 7平台搭建Android+Win32 Cocos2d-x开发环境》](http://www.jesusbosch.com/2012/06/how-to-set-up-android-and-win32-cocos2d.html)。
 	- （西班牙语）基于Jesús Bosch和Jean-Yves Mengant的指南[《开发扩平台移动应用》](http://www.maestrosdelweb.com/editorial/cocos2d-x-desarrollo-de-aplicaciones-moviles-multiplataforma/)。
 - Linux用户可以参考
 	- [《Linux平台Cocos2d-x Android开发指南》](http://blog.plicatibu.com/developing-with-cocos2d-x-for-android-on-linux/)以及
 	- [《使用Eclipse调试指南》](http://blog.plicatibu.com/how-to-debug-cocos2d-x-and-java-code-using-eclipse/)
-- 最后安装和初次运行章节也介绍了如何运行“HelloWorld”及测试项目、如何用各平台支持的脚本创建cocos2d-x项目。
+- 最后安装和初次运行章节也介绍了如何运行“HelloWorld”及测试项目、如何用各平台支持的脚本创建Cocos2d-x项目。
 
 ### 概念须知
 
-- [Cocos2d基本概念](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:basic_concepts)基本涵盖了cocos2d各个分支，包括cocos2d-iphone、cocos2d-x及cocos2d-html5。欲了解更多信息可参考cocos2d-iphone[编程指南](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:index)。
+- [Cocos2d基本概念](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:basic_concepts)基本涵盖了cocos2d各个分支，包括Cocos2d-iphone、Cocos2d-x及Cocos2d-html5。欲了解更多信息可参考Cocos2d-iphone[编程指南](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:index)。
 - 许多开发人员不明白“标准触摸代表和目标触摸代表”（  [Standard Touch Delegate & Targeted Touch Delegate](http://www.cocos2d-iphone.org/wiki/doku.php/tips:touchdelegates?s[]=touch&s[]=delegate)）。
 - Cocos2d-x在[内存管理](http://)中会用到引用计数（reference count）。类似于Objective-C的“NSAutoreleasePool”工具。用户需要小心使用“retain/release/autorelease”以防止崩溃。
 
@@ -49,12 +49,12 @@
 	- Marat Yakupov编Scoreloop封装
 - [iOS/UIKit平台集成Cocos2d-x OpenGL View至UIViewController](http://jpsarda.tumblr.com/post/24983791554/mixing-cocos2d-x-uikit)
 - [集成Cocos2d-x活动至典型JavaAndroid应用](http://jpsarda.tumblr.com/post/26000816688/integrate-cocos2d-x-c-into-an-android-application)
-- 可能你还想在iOS平台cocos2d-x引擎下播放视频
+- 可能你还想在iOS平台Cocos2d-x引擎下播放视频
 - 另一个跨平台（iOS/Android）视频播放器： [http://www.gethugames.in/blog/2013/09/cocos2d-x-cross-platform-video-player-ios.html](http://www.gethugames.in/blog/2013/09/cocos2d-x-cross-platform-video-player-ios.html)。
 - 编译[基于物理库平台游戏的简单原型](http://www.gethugames.in/blog/2013/02/cocos2d-x-platformer-physics-tutorial.html)
 - 编译[使用Masking旋转地球](http://www.gethugames.in/blog/2013/03/spinning-globe-by-masking-technique.html)
 - Box2D协作
-	- Gav T编[如何在cocos2d-x中使用Box2D检测碰撞](http://www.gmtdev.com/blog/2011/08/19/how-to-use-box2d-for-just-collision-detection-with-cocos2d-x/)
+	- Gav T编[如何在Cocos2d-x中使用Box2D检测碰撞](http://www.gmtdev.com/blog/2011/08/19/how-to-use-box2d-for-just-collision-detection-with-cocos2d-x/)
 	- Mac Andy编[如何使用cocos2d及box2d制作弹弓类游戏](http://www.cocos2d-x.org/forums/6/topics/4391)
 
 ## 代码样例
@@ -84,4 +84,4 @@
 	- 太空射击片段，[Part1](http://developer.bada.com/library/Space-Shooter-Episode-I-How-to-start-development-with-Cocos2d-x)，[Part2](http://developer.bada.com/library/Space-Shooter-Episode-II-How-to-move-things)。
 - Wudi（Zynga中国）游戏样本[Tiny Wings Remake on Android using Cocos2d-X](https://github.com/diwu/Tiny-Wings-Remake-on-Android)。
 - Francis Styck编[TweeJump port](http://www.cocos2d-x.org/boards/6/topics/1652 by Francis Styck)。
-- 最近Chris Wong的[BTris](http://www.cocos2d-x.org/boards/6/topics/322)已更新至cocos2d-x 1.0.1。
+- 最近Chris Wong的[BTris](http://www.cocos2d-x.org/boards/6/topics/322)已更新至Cocos2d-x 1.0.1。

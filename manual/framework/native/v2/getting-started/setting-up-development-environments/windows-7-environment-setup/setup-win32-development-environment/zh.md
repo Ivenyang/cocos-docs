@@ -12,10 +12,10 @@
 
 - Visual Studio    
 - python  ———(本教程以python2.7.3版本为例），下载地址：[http://www.python.org/download/releases/2.7.2/](http://www.python.org/download/releases/2.7.3/)。     
-- cocos2d-x ———(本教程以cocos2d-x-2.2.2版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
+- Cocos2d-x ———(本教程以Cocos2d-x-2.2.2版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
     
 ## 安装配置过程
-Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d-x-2.2.2的安装配置过程。
+Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和Cocos2d-x-2.2.2的安装配置过程。
 ### 安装配置python2.7.3
 #### 1. 下载并安装python2.7.3。         
 ![](./res/python1.png)
@@ -36,9 +36,9 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 打开cmd控制台，输入 python，如果出现如下提示，则说明python安装成功。
 ![](./res/python-env4.jpg)
 
-### 安装创建cocos2d-x-2.2.2项目
+### 安装创建Cocos2d-x-2.2.2项目
 
-- cocos2d-x-2.2.2项目无需安装，下载cocos2d-x-2.2.2文件并解压，直接双击运行相应的sln解决方案即可，如 cocos2d-win32.vc2012.sln       
+- Cocos2d-x-2.2.2项目无需安装，下载Cocos2d-x-2.2.2文件并解压，直接双击运行相应的sln解决方案即可，如 cocos2d-win32.vc2012.sln       
      
 ![](./res/cocos2dx.jpg)   
 
@@ -46,7 +46,7 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 
 ![](./res/test.jpg)
 
-- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行cocos2d-x引擎了。
+- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行Cocos2d-x引擎了。
 
 ![](./res/testcpp.jpg)
 
@@ -58,7 +58,7 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 
 - 复制create_project.py文件所在的路径，在cmd控制台中依次输入以下命令符：          
 ![](./res/cmd1.jpg)      
-分别表示：切换到你存放cocos2d-x的盘，打开project-createor 文件夹。
+分别表示：切换到你存放Cocos2d-x的盘，打开project-createor 文件夹。
 
 - 输入下图方框内的命令python create_project.py (熟练使用时可跳过此步骤)，将会出现如下的提示信息。         
 ![](./res/cmd2.jpg)       

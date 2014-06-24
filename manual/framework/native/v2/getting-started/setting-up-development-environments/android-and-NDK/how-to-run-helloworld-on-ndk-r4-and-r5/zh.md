@@ -13,7 +13,7 @@
 NDK-R4不支持STL。但我们的引擎需要依赖STL，所以我们要找一个支持STL的版本。该版本已经存在，你可以在以下网站下载：[http://www.crystax.net/android/ndk.php](http://www.crystax.net/android/ndk.php)。  
 
 - 如果你想在crystax.net下载的NDK-R4中编译，请按照步骤1.1.1~1.1.3操作。
-- 如果你想在NKD-R5中编译cocos2d-x测试文件，你可以使用Android.mk文件中的默认设置，直接跳到步骤1.2开始操作。
+- 如果你想在NKD-R5中编译Cocos2d-x测试文件，你可以使用Android.mk文件中的默认设置，直接跳到步骤1.2开始操作。
 
 
 ### 修改Cocos2dx/Android.mk文件
@@ -112,11 +112,11 @@ NDK-R4不支持STL。但我们的引擎需要依赖STL，所以我们要找一�
 
 ### 注意
 
-在为Android平台编程时，推荐使用Eclipse作为集成开发环境（IDE），不仅对cocos2d-x项目如此，对其他应用的开发也是如此，因为谷歌支持Eclipse集成开发环境。本网站的Android指南也是使用Eclipse作为例子，看起来简单易懂。其他集成开发环境（IDE）也可以，但在此不作讨论。
+在为Android平台编程时，推荐使用Eclipse作为集成开发环境（IDE），不仅对Cocos2d-x项目如此，对其他应用的开发也是如此，因为谷歌支持Eclipse集成开发环境。本网站的Android指南也是使用Eclipse作为例子，看起来简单易懂。其他集成开发环境（IDE）也可以，但在此不作讨论。
 
 ## 2. 编译
 
-改变变量ANDROID_NDK_ROOT和COCOS2DX_ROOT的值，这两个变量的定义在$COCOS2DX_ROOT/HelloWorld/android/build_native.sh文件中有所说明。COCOS2DX_ROOT是指cocos2d-x的目录路径，其中包括Box2D、Chipmunk等库的路径。这部分将介绍如何在没有集成开发环境（IDE）的情况下编译项目。
+改变变量ANDROID_NDK_ROOT和COCOS2DX_ROOT的值，这两个变量的定义在$COCOS2DX_ROOT/HelloWorld/android/build_native.sh文件中有所说明。COCOS2DX_ROOT是指Cocos2d-x的目录路径，其中包括Box2D、Chipmunk等库的路径。这部分将介绍如何在没有集成开发环境（IDE）的情况下编译项目。
 
 ### Linux平台
 
@@ -126,15 +126,15 @@ NDK-R4不支持STL。但我们的引擎需要依赖STL，所以我们要找一�
 ``` 
 cd /usr/workspace/cocos2d-x/HelloWorld/android/ 
 ./build_native.sh 
-This assumes that you put cocos2d-x in /usr/workspace, and left HelloWorld in its default location.
+This assumes that you put Cocos2d-x in /usr/workspace, and left HelloWorld in its default location.
 ```
 
-这意味着你将cocos2d-x放置于**/usr/workspace**路径下，使HelloWorld处于默认位置。
+这意味着你将Cocos2d-x放置于**/usr/workspace**路径下，使HelloWorld处于默认位置。
 
 
 ### Windows平台下使用Cygwin
 
-这种方法在Windows平台中也适用，但是你需要用到Cygwin的bash外壳，而不是命令提示符。这是因为**build_native.sh**这个指令是专为Linux设计的shell脚本，它会调用Android-NDK中的一个Linux工具。即便是不使用cocos2d-x创建NDK应用，你还是得从Cygwin中调用ndk_build这个工具。build_native只是将编译项目的过程自动化了而已。
+这种方法在Windows平台中也适用，但是你需要用到Cygwin的bash外壳，而不是命令提示符。这是因为**build_native.sh**这个指令是专为Linux设计的shell脚本，它会调用Android-NDK中的一个Linux工具。即便是不使用Cocos2d-x创建NDK应用，你还是得从Cygwin中调用ndk_build这个工具。build_native只是将编译项目的过程自动化了而已。
 
 ```
 bash 
@@ -142,7 +142,7 @@ cd /cygdrive/c/cocos2d-x/HelloWorld/android
 ./build_native.sh 
 ```
 
-这意味着你将cocos2d-x放置于 C:/,路径下，使HelloWorld处于默认状态。
+这意味着你将Cocos2d-x放置于 C:/,路径下，使HelloWorld处于默认状态。
 
 ## 3. 运行
 

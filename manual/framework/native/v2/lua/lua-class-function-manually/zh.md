@@ -1,9 +1,9 @@
 #如何手动绑定C++类成员函数到Lua
 
-cocos2d-x 3.0使用bindings-generator实现了大部分类成员函数的lua binding,但还是有一小部份类成员函数，对于这些函数，就需我们自己手动实现lua binding.
+Cocos2d-x 3.0使用bindings-generator实现了大部分类成员函数的lua binding,但还是有一小部份类成员函数，对于这些函数，就需我们自己手动实现lua binding.
 
 ###类成员函数的手动绑定
-在cocos2d-x 3.0中，lua_cocos2d_manual.h/.cpp、lua_cocos2dx_extension_manual.h/.cpp以及lua_cocos2dx_gui_manual.h/.cpp等文件名中包括`manual`的文件,它们的内容是一些类成员函数的手动lua binding。下面，我们将一步一步讲解如何手动实现类成员方法的lua binding。
+在Cocos2d-x 3.0中，lua_cocos2d_manual.h/.cpp、lua_cocos2dx_extension_manual.h/.cpp以及lua_cocos2dx_gui_manual.h/.cpp等文件名中包括`manual`的文件,它们的内容是一些类成员函数的手动lua binding。下面，我们将一步一步讲解如何手动实现类成员方法的lua binding。
 
 ####函数命名
 

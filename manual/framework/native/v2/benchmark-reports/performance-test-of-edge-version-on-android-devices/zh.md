@@ -2,7 +2,7 @@
 
 ####环境
 - Version of Android: 2.2.1
-- cocos2d-x version: edge版本 2011-04-22.
+- Cocos2d-x version: edge版本 2011-04-22.
 
 ####帧率
 - FPS指每秒帧数 
