@@ -16,7 +16,7 @@ IDE 配置
 ===
 ---
 ## 基础设置
-打开工具的 **Preferences** 页，切换到 **Cocos/Lua** 子页面，选择你刚刚下载的修改版 cocos2d-x 3.0rc0 作为 Lua Framework。
+打开工具的 **Preferences** 页，切换到 **Cocos/Lua** 子页面，选择你刚刚下载的修改版 Cocos2d-x 3.0rc0 作为 Lua Framework。
 ![](./res/PreferencesCocosLua.png)
 
 ## 额外设置

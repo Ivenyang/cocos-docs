@@ -9,7 +9,7 @@ This documentation will show you how to use [cocos console](https://github.com/c
 * OS X 10.7 or newer
 * Windows 7 or newer
 * Linux Ubuntu 12.04 (or newer)
-* cocos2d-x v3.0rc(or newer)
+* Cocos2d-x v3.0rc(or newer)
 
 ## Software Requirements
 

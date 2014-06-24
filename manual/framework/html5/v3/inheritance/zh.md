@@ -26,7 +26,7 @@
 
 为了使它在JSB中同样有效，我们在js层为cc.Sprite.create做了一些包装，所以如果我们使用cc.Sprite.create，将会根据参数的数量和类型调用对应的C++层的create函数。
 
-| Javascript | JSB | cocos2d-x |
+| Javascript | JSB | Cocos2d-x |
 | ---------- |-----|-----------|              
 | cc.Sprite._create | js_cocos2dx_Sprite_create | cocos2d::Sprite::create |
 | cc.Sprite.createWithSpriteFrame | js_cocos2dx_Sprite_createWithSpriteFrameName | cocos2d::Sprite::createWithSpriteFrameName |
@@ -57,7 +57,7 @@
 
 在JSB中如果使用new操作符来调用cc.Sprite的构造函数，我们实际上在C++层会调用js\_cocos2dx\_Sprite\_constructor函数。在这个C++函数中，会为这个精灵对象分配内存，并把它添加到自动回收池，然后调用js层的`_ctor`函数来完成初始化。在`_ctor`函数中会根据参数类型和数量调用不同的init函数，这些init函数也是C++函数的绑定：
 
-| Javascript | JSB | cocos2d-x |
+| Javascript | JSB | Cocos2d-x |
 | ---------- |-----|-----------|              
 | cc.Sprite.initWithSpriteFrameName | js_cocos2dx_Sprite_initWithSpriteFrameName | cocos2d::Sprite::initWithSpriteFrameName |
 | cc.Sprite.initWithSpriteFrame | js_cocos2dx_Sprite_initWithSpriteFrame | cocos2d::Sprite::initWithSpriteFrame |

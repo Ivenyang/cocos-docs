@@ -1,4 +1,4 @@
-## quick-cocos2d-x 2.2.3 player 编译方法
+## quick-Cocos2d-x 2.2.3 player 编译方法
 
 ## 编译
 

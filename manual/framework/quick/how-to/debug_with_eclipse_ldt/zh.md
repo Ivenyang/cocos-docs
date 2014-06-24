@@ -1,7 +1,7 @@
-# 用 Eclipse LDT 调试 quick-cocos2d-x 游戏 #
+# 用 Eclipse LDT 调试 quick-Cocos2d-x 游戏 #
 
 
-目前，quick-cocos2d-x 已经内置了对 Eclipse LDT 的调试器支持，要用 LDT 进行调试需要以下几步:
+目前，quick-Cocos2d-x 已经内置了对 Eclipse LDT 的调试器支持，要用 LDT 进行调试需要以下几步:
 
 1. 在Eclipse中安装 **LDT**
 2. 创建一个lua工程

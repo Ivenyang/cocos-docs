@@ -10,7 +10,7 @@ We are happy to announce the release of:
 
 <img src="https://lh3.googleusercontent.com/-glwwzmFyUmk/UQgPnlx40uI/AAAAAAAArzg/WPRW10kkecM/s800/cocos2d-x-logo.png">
 
-`JSB` is moved into [cocos-js](https://github.com/cocos2d/cocos2d-js) repo. This repo includes `JSB` and `cocos2d-html5`. 
+`JSB` is moved into [cocos-js](https://github.com/cocos2d/cocos2d-js) repo. This repo includes `JSB` and `Cocos2d-html5`. 
 
 ### Download ###
 
@@ -46,7 +46,7 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-
 
 ### Release Notes
 
-Read more about all the new features at [cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
+Read more about all the new features at [Cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
 
 
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.

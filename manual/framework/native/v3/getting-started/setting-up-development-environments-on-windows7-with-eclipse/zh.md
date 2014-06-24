@@ -2,39 +2,39 @@
 
 
 **建议：**为避免安全相关问题，所有操作请在管理员身份下进行，在运行命令时，请确保以管理员身份打开控制台（console）。      
-本指南将介绍如何在Windows 7平台搭建cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2012/2013的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
+本指南将介绍如何在Windows 7平台搭建Cocos2d-x Android开发环境。本指南操作要求一台搭载Windows 7平台及安装Visual Studio 2012/2013的电脑。最好拥有快速稳定的网络，因为在指南操作中需要下载许多软件包。
 
 
 搭建开发环境需要安装工具包括
 
-- Visual Studio 2012/2013 ——— 因为cocos2d-x-v3.x引擎不能用老版本的VS编译，所以我们需要下载安装Visual Studio 2012或2013。VS的安装简单，本教程不做讲解。
-- cocos2d-x ———本教程以cocos2d-x 3.2alpha0版本为例，下载地址：[http://cocos2d-x.org/download](http://cocos2d-x.org/download)
+- Visual Studio 2012/2013 ——— 因为Cocos2d-x-v3.x引擎不能用老版本的VS编译，所以我们需要下载安装Visual Studio 2012或2013。VS的安装简单，本教程不做讲解。
+- Cocos2d-x ———本教程以Cocos2d-x 3.2alpha0版本为例，下载地址：[http://cocos2d-x.org/download](http://cocos2d-x.org/download)
 - JAVA JDK
 - Android SDK
 - NDK
 
 
-## 下载cocos2d-x 3.2alpha0引擎
+## 下载Cocos2d-x 3.2alpha0引擎
      
-用户可以登陆[cocos2d-x](http://www.cocos2d-x.org/) 官方网站下载最新版的cocos2d-x。点击导航栏的“Download”（下载）后你会看到如下下载页面：
+用户可以登陆[Cocos2d-x](http://www.cocos2d-x.org/) 官方网站下载最新版的Cocos2d-x。点击导航栏的“Download”（下载）后你会看到如下下载页面：
 
 ![](./res/download.png)
 
-在本指南中，将会以目前最新版本的cocos2d-x 3.2alpha0引擎为例。
-（注意：如果你想要下载旧版的cocos2d-x，可点击“looking for an old versoin?”链接。但本人强烈推荐使用最新版本的cocos2d-x，新版引擎有很多新功能，修复了旧版的很多问题。）
+在本指南中，将会以目前最新版本的Cocos2d-x 3.2alpha0引擎为例。
+（注意：如果你想要下载旧版的Cocos2d-x，可点击“looking for an old versoin?”链接。但本人强烈推荐使用最新版本的Cocos2d-x，新版引擎有很多新功能，修复了旧版的很多问题。）
 
-右键单击“Download”链接选择“save link as…”（将链接保存为…），然后将压缩文件保存至适当的位置。本机保存位置为 D:\Cocos2d-x\cocos2d-x 3.2alpha0。    
+右键单击“Download”链接选择“save link as…”（将链接保存为…），然后将压缩文件保存至适当的位置。本机保存位置为 D:\Cocos2d-x\Cocos2d-x 3.2alpha0。    
   
-（注意：请不要将cocos2d-x文件夹放置c:\下，因为会导致很多优先级别（privilege）相关的问题。可尝试将该文件夹放到其他盘如D:\及E:\等等。）
+（注意：请不要将Cocos2d-x文件夹放置c:\下，因为会导致很多优先级别（privilege）相关的问题。可尝试将该文件夹放到其他盘如D:\及E:\等等。）
 
-打开 “D:\Cocos2d-x\cocos2d-x 3.2alpha0\build”目录，如下所示：           
+打开 “D:\Cocos2d-x\Cocos2d-x 3.2alpha0\build”目录，如下所示：           
 ![](./res/cocos2dxdirectory.jpg)         
 双击“cocos2d-win32.vs2012.sln”文件，然后会自动启动Visual Studio 2012/2013。
 现在你便可以将HelloCpp项目当作默认启动项目来编译，按CTRL-F5运行样本程序。如果编译没有什么错误，同时运行成功的话，你会看到如下画面。
 
 ![](./res/hello.jpg)
 
-祝贺你！你已成功在Windows 7平台中运行cocos2d-x引擎。接下里介绍如何配置Android开发环境。
+祝贺你！你已成功在Windows 7平台中运行Cocos2d-x引擎。接下里介绍如何配置Android开发环境。
 
 
 ### 安装配置JAVA JDK

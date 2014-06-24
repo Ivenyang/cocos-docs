@@ -1,20 +1,20 @@
-# 设置 quick-cocos2d-x 在 Mac 下的编译环境 #
+# 设置 quick-Cocos2d-x 在 Mac 下的编译环境 #
 
 如果不需要在 Android 上运行，那么可以跳过 3/4 两个步骤。
 
 配置编译环境的基本步骤：
 
-1. 下载 quick-cocos2d-x 源代码
+1. 下载 quick-Cocos2d-x 源代码
 2. 设置运行环境
 3. 安装最新的 Android ADT bundle 和 Android NDK
 4. 编译 LuaJavaBridge 示例，并在 Android 真机上进行测试
 
 
-## Step 1: 下载 quick-cocos2d-x 源代码 ##
+## Step 1: 下载 quick-Cocos2d-x 源代码 ##
 
 访问 [https://github.com/chukong/quick-cocos2d-x/releases](https://github.com/chukong/quick-cocos2d-x/releases) 下载最新版 quick 源代码。
 
-quick-cocos2d-x 目录的放置有一定要求 ** ：
+quick-Cocos2d-x 目录的放置有一定要求 ** ：
 
 1. 不能放在根目录
 2. 路径中不能包含中文和空格（所以别放桌面了）
@@ -31,7 +31,7 @@ quick-cocos2d-x 目录的放置有一定要求 ** ：
 ~
 
 
-启动 **player/mac/player.app**，如果是首次运行，会提示设置 quick-cocos2d-x 源代码所在路径。如果不是首次运行，请按 CMD+, 键打开偏好设置对话框进行设置：
+启动 **player/mac/player.app**，如果是首次运行，会提示设置 quick-Cocos2d-x 源代码所在路径。如果不是首次运行，请按 CMD+, 键打开偏好设置对话框进行设置：
 
 ![](res/howto_setup_development_environment_mac_01.png)
 

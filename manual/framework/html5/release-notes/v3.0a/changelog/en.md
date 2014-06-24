@@ -4,7 +4,7 @@ Cocos2d-html5-v3.0 alpha @ March.15, 2014
 * Refactor some properties of all rendering classes with getter setter for providing javascript user friendly APIs, [document reference](../../../v3.0/getter-setter-api/en.md).
 * Provide `attr` function for cc.Node and its descendants to permit modify multiple properties at the same time with a key-value object.
 * Refactor foundational data structures for better maintainability, [document reference](../../../v3.0/basic-data/en.md).
-* Add event manager to cocos2d-html5, all events are dispatched via cc.eventManager to event listener, [document reference](../../../v3.0/eventManager/en.md).
+* Add event manager to Cocos2d-html5, all events are dispatched via cc.eventManager to event listener, [document reference](../../../v3.0/eventManager/en.md).
 * Refactor cc.Application to cc.game, [document reference](../../../v3.0/cc-game/en.md).
 * Refactor singleton Classes to javascript object, [document reference](../../../v3.0/singleton-objs/en.md).
 * Refactor all createWithXXX functions into unified create function with different parameters, [document reference](../../../v3.0/create-api/en.md).

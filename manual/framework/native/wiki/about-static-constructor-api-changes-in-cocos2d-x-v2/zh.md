@@ -1,4 +1,4 @@
-About Static Constructor API Changes in cocos2d-x v2.0
+About Static Constructor API Changes in Cocos2d-x v2.0
 ======================================================
 
 以前，我们必须OBJ-C风格的API来创建对象。 
