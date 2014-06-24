@@ -32,13 +32,13 @@ ja.md // Japanese version
 - catalog // keeps the catalog file
 - manual // Detailed documents about how to use cocos
   - framework
-    - native  // cocos2d-x
+    - native  // Cocos2d-x
       - module_1  // use lowercase + underscore style
         - article_name_1  // the same, lowercase + underscore
           - res   // image and other resources
         - article_name_2
       - module_2
-    - html5  // cocos2d-html5 documents
+    - html5  // Cocos2d-html5 documents
   - studio  // CocoStudio documents
 - tutorials // Tutorials
 ```
@@ -57,6 +57,6 @@ When you create a new document, please follow these steps:
 
 To contribute a document, you need to use [pull requests](https://help.github.com/articles/using-pull-requests).
 
-After your pull reuqest is merged, your will see you modifications applied on cocos2d-x website in 10 minutes.
+After your pull reuqest is merged, your will see you modifications applied on Cocos2d-x website in 10 minutes.
 
     

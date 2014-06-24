@@ -1,12 +1,12 @@
 #多分辨率的支持
 
-这篇涉及到的API只适用于cocos2d-x 2.0.4
+这篇涉及到的API只适用于Cocos2d-x 2.0.4
 
 android的分辨率由于太多了很难来适配。但是Cocos2d-x提供了CCEGLView::setDesignResolutionSize() 和 CCDirector::setContentScaleFactor()来帮助你使用最小的工作量来让你的的游戏运行在不同分辨率下。
 
 ##基本原则
 
-自从2.0.4版本之后我们已经把所有和enableRetina方法相关的代码移除了。因此从cocos2d-2.0-x-2.0.4开启高清模式就消失了。在ios平台上，假如设备支持retian显示，我们是默认支持的。
+自从2.0.4版本之后我们已经把所有和enableRetina方法相关的代码移除了。因此从Cocos2d-2.0-x-2.0.4开启高清模式就消失了。在ios平台上，假如设备支持retian显示，我们是默认支持的。
 
 你可以通过CCEGLView::sharedOpenGLView()->getFrameSize()方法来得到屏幕的真实分辨率大小。例如以上那个函数在Iphone4S的横屏状态下返回“960*640”。
 
@@ -103,7 +103,7 @@ ContentScaleFactor是指ResourcesSize 和 designResolutionSize的比例系数。
 
 ##模式
 
-现在cocos2d-x支持三种模式
+现在Cocos2d-x支持三种模式
 
 ##Exact fit
 

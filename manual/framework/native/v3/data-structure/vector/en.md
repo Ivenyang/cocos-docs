@@ -17,7 +17,7 @@ template<class T>class CC_DLL Vector;
 
 The elements are stored contiguously and the storage of the `cocos2d::Vector<T>` is handled automatically. The internal implementation data structure is actually [std::vector<T>](http://en.cppreference.com/w/cpp/container/vector) which is the standard sequence container of STL.
 
-Before cocos2d-x v3.0 beta, there was another sequence container named [cocos2d::CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h) which will be deprecated in the future.
+Before Cocos2d-x v3.0 beta, there was another sequence container named [cocos2d::CCArray](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCArray.h) which will be deprecated in the future.
 
 Because we carefully designed the `cocos2d::Vector<T>` container as a replacement for `cocos2d::CCArray`, please use `cocos2d::Vector<T>` instead of `cocos2d::CCArray`.
 
@@ -34,7 +34,7 @@ The complexity (efficiency) of common operations on `cocos2d::Vector<T>` is as f
 
 **T** - The type of the elements.
 
-- T must be the a pointer to a [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed, because we have integrated the memory management model of cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
+- T must be the a pointer to a [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed, because we have integrated the memory management model of Cocos2d-x into `cocos2d::Vector<T>`. （since v3.0 beta）
 
 ##Memory Management
 The `cocos2d::Vector<T>` class contains only one data member:
@@ -51,15 +51,15 @@ If you call `new` operator to allocate a `cocos2d::Vector<T>` on the heap, you n
 
 If you do want to dynamic allocate `cocos2d::Vector<T>` on the heap due to some obligatory reasons, please wrap the raw pointer with smart pointers like `shared_ptr`, `unique_ptr`.
 
-**WARNING**: `cocos2d::Vector<T>` is not *itself* a descendant of `cocos2d::Object`, and thus doesn't use retain/release and refcount memory management, like other cocos2d classes! In other words, you cannot call retain, release, etc on the `cocos2d::Vector<T>` itself.
+**WARNING**: `cocos2d::Vector<T>` is not *itself* a descendant of `cocos2d::Object`, and thus doesn't use retain/release and refcount memory management, like other Cocos2d-x classes! In other words, you cannot call retain, release, etc on the `cocos2d::Vector<T>` itself.
 
 
 ##Basic Usage
-We wrapped almost all common operations of `std::vector<T>` with a unified interface plus the memory management rules of cocos2d-x.
+We wrapped almost all common operations of `std::vector<T>` with a unified interface plus the memory management rules of Cocos2d-x.
 
 So the `pushBack()` method now will retain the ownership of the function argument and the `popBack()` method will release the ownership of the last element of container.
 
-When you use these operations, you should pay extra attention to the underlying memory management stuff which are the common traps for many newbie cocos2d-x developers.
+When you use these operations, you should pay extra attention to the underlying memory management stuff which are the common traps for many newbie Cocos2d-x developers.
 
 **WARNING**: The `cocos2d::Vector<T>` doesn't overload `operator[]`, so you can't get a element from `cocos2d::Vector<T>` using subscript operator like `vec[i]`.
 
@@ -67,7 +67,7 @@ The `cocos2d::Vector<T>` container provides many different kinds of iterators. T
 
 Besides `std::vector<T>`'s container operations, we have also added many standard algorithms like `std::find`, `std::reverse` and `std::swap` to the `cocos2d::Vector<T>` container, which simplifies many useful common operations.
 
-For more API usage, please refer to the source code and the tests distributed with the cocos2d-x 3.0 beta archive.
+For more API usage, please refer to the source code and the tests distributed with the Cocos2d-x 3.0 beta archive.
 
 Here is a simple usage example:
 

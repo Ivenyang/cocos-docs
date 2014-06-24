@@ -1,10 +1,10 @@
-#iOS设备cocos2d-x 0.7.1性能测试
+#iOS设备Cocos2d-x 0.7.1性能测试
 
 有些好心的开发人员已经帮我们测试了iOS设备的Cocos2d-X性能。尽管测试方法没有[cocos2d-iphone's performance](http://www.cocos2d-iphone.org/wiki/doku.php/perf_test:index)那么专业，但还是可以大致认为iOS平台OBJC语言与C++语言之间不存在性能差异。
 
 测试1 – 设备: iPod Touch4 
 
-cocos2d-x 0.7.1
+Cocos2d-x 0.7.1
 
 |测试用例	|粒子数|AVG帧数|最低帧数|
 |-------|-----|-------|------|

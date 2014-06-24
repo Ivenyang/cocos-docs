@@ -4,9 +4,9 @@
 Cocos2d-x v3 alpha1 +
 ##Introduction
 
-在游戏中模拟真实世界的物理会很复杂。使用物理引擎会用很大的帮助。 **Box2D**的和**Chipmunk**是两个著名的物理引擎，cocos2d-X已经很好的集成它们。在cocos2d-X v2的开发人员需要直接使用物理引擎。 Cocos2dx提供了一个简单`CCPhysicsSprite`类，以帮助缩小使用差距，但对于其它元素的开发者需要直接调用物理引擎的API。 
+在游戏中模拟真实世界的物理会很复杂。使用物理引擎会用很大的帮助。 **Box2D**的和**Chipmunk**是两个著名的物理引擎，Cocos2d-x已经很好的集成它们。在Cocos2d-x v2的开发人员需要直接使用物理引擎。 Cocos2d-x提供了一个简单`CCPhysicsSprite`类，以帮助缩小使用差距，但对于其它元素的开发者需要直接调用物理引擎的API。 
 
-在Cocos2d-X V3+ 版本事情发生了变化。Cocos2d-X V3+ 版本集成了全新的物理引擎，基于**Chipmunk**的核心API。开发人员不再需要关心它的物理引擎将被用于或需要直接调用物理引擎的API。
+在Cocos2d-x V3+ 版本事情发生了变化。Cocos2d-x V3+ 版本集成了全新的物理引擎，基于**Chipmunk**的核心API。开发人员不再需要关心它的物理引擎将被用于或需要直接调用物理引擎的API。
 
 ##Cocos2d-x 中的物理属性:
 
@@ -15,7 +15,7 @@ Cocos2d-x v3 alpha1 +
 * Cocos2d-x 3.0 已经封装了物理属性 `Body`(PhysicsBody), `Shape`(PhysicsShape), `Contact`(PhysicsContact), `Joint`(PhysicsJoint) 和 `World`(PhysicsWorld), 更加方便使用。
 * 方便的使用`listener-EventListenerPhysicsContact`进行碰撞检测
 
-除使用cocos2d-x 物理 API外, 你还可以直接使用 **Chipmunk** 或 **Box2D**。
+除使用Cocos2d-x 物理 API外, 你还可以直接使用 **Chipmunk** 或 **Box2D**。
 
 ## 创建一个带物理引擎的游戏工程
 
@@ -72,7 +72,7 @@ PhysicsWorld 拥有默认的重力设置，Vect(0.0f, -98.0f), 你可以使用 `
 
 ##  创建物理边界
 
-我们知道，在物理世界的每一件事情由重力的影响。物理引擎提供staticShape方法来创建一个不受重力影响的形状，在cocos2d-X 2.0，我们需要知道staticShape的物理引擎各项参数。 
+我们知道，在物理世界的每一件事情由重力的影响。物理引擎提供staticShape方法来创建一个不受重力影响的形状，在Cocos2d-x 2.0，我们需要知道staticShape的物理引擎各项参数。 
 
 然而，在3.0 PhysicsShape是节点的一个属性，所以如果你要设置PhysicsWorld的属性，您必须通过一个节点实例来传递它们。 
 
@@ -96,9 +96,9 @@ PhysicsWorld有很多工厂方法，如createEdgeBox创建一个矩形的边框�
 
 然后，我们创建节点，并连接刚刚创建的节点的身体。屏幕为节点的位置设置好的中心，最后加入节点到场景。 
 
-在cocos2d-x 3.0节点的addChild方法可以处理物理刚体。它会自动添加节点的身体到场景的PhysicsWorld。 
+在Cocos2d-x 3.0节点的addChild方法可以处理物理刚体。它会自动添加节点的身体到场景的PhysicsWorld。 
 
-PhysicsBody的工程方法可以根据参数设置刚体的大小，创建相应的PhysicsBody和PhysicsShape。这是一个常见的做法由物理引擎直接创建一个刚体。然而，在cocos2d-X3.0物理集成简化了这个过程，所以我们并不需要编写大量的代码。
+PhysicsBody的工程方法可以根据参数设置刚体的大小，创建相应的PhysicsBody和PhysicsShape。这是一个常见的做法由物理引擎直接创建一个刚体。然而，在Cocos2d-x 3.0物理集成简化了这个过程，所以我们并不需要编写大量的代码。
 
 ## 创建受重力影响的精灵
 

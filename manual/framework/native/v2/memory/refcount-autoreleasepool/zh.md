@@ -6,7 +6,7 @@
 
 引用计数是c/c++项目中一种古老的内存管理方式。当我8年前在研究一款名叫TCPMP的开源项目的时候，引用计数就已经有了。 
 
-IOS SDK把这项计数封装到了NSAutoreleasePool中。所以我们也在cocos2d-x中克隆了一套CCAutoreleasePool。两者的用法基本上一样，所以假如你没有涉及过ios开发，你可以看看苹果官方文档NSAutoreleasePool Class Reference。 
+IOS SDK把这项计数封装到了NSAutoreleasePool中。所以我们也在Cocos2d-x中克隆了一套CCAutoreleasePool。两者的用法基本上一样，所以假如你没有涉及过ios开发，你可以看看苹果官方文档NSAutoreleasePool Class Reference。 
 
 ## CCAutoreleasePool
 
@@ -38,7 +38,7 @@ CCAutoreleasePool的逻辑是，当你调用object->autorelease()，object就被
 
 ## 使用静态构造函数
 
-CCSprite::create(“player.png”)是一个使用静态构造函数的例子。所以在cocos2d-x中所有的类，除了单例，都提供了静态构造函数，这些静态构造函数包含下面4项操作: 
+CCSprite::create(“player.png”)是一个使用静态构造函数的例子。所以在Cocos2d-x中所有的类，除了单例，都提供了静态构造函数，这些静态构造函数包含下面4项操作: 
 
 1. 新建一个对象 
 
@@ -50,7 +50,7 @@ CCSprite::create(“player.png”)是一个使用静态构造函数的例子。�
 
 所有CCAsdf::createWithXxxx(…)这种类型的函数都有以上这些方式。 
 
-在cocos2d-x v1.x或者更早版本里，这些方式是： 
+在Cocos2d-x v1.x或者更早版本里，这些方式是： 
 
 	CCSprite* sprite = CCSprite::spriteWithTexture(...) 
 

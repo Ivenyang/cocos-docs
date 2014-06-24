@@ -14,7 +14,7 @@ template<class T>class CC_DLL Vector;
 
 `cocos2d::Vector<T>`是一个封装好的能动态增长顺序访问的容器。
 `cocos2d::Vector<T>`中的元素是按序存取的，它的低层实现数据结构是标准模版库中的标准顺序容器`std::vector`。
-在cocos2d-x v3.0 beta之前，使用的是另外一个顺序访问容器`cocos2d::CCArray`，不过它将会被废弃。
+在Cocos2d-x v3.0 beta之前，使用的是另外一个顺序访问容器`cocos2d::CCArray`，不过它将会被废弃。
 设计者们将`cocos2d::Vector<T>`设计为`cocos2d::CCArray`的替代品，所以建议优先考虑使用`cocos2d::Vector<T>`。
 `cocos2d::Vector<T>`的一些操作的时间复杂度如下：
 
@@ -25,7 +25,7 @@ template<class T>class CC_DLL Vector;
 ##模版参数
 
 **T** - 元素类型
-- T的类型必须是继承自`cocos2d::Object`类型的指针。因为已经将cocos2d-x的内存管理模型集成到了`cocos2d::Vector<T>`中，所以类型参数不能是其他的类型包括基本类型。
+- T的类型必须是继承自`cocos2d::Object`类型的指针。因为已经将Cocos2d-x的内存管理模型集成到了`cocos2d::Vector<T>`中，所以类型参数不能是其他的类型包括基本类型。
 
 ##内存管理
 
@@ -42,13 +42,13 @@ std::vector<T> _data;
 
 ##基本用法
 
-作者们用`std::vector<T>`的基本操作加上cocos2d-x的内存管理规则来覆盖该模版原先的普通操作。
+作者们用`std::vector<T>`的基本操作加上Cocos2d-x的内存管理规则来覆盖该模版原先的普通操作。
 所以pushBack()操作将会保留传递过来的参数，而popBack()则会释放掉容器中最后的一个元素。
 当你使用这些操作的时候，你需要特别注意这些受托管的对象，对于新手来说，这往往是陷阱。
 警告：`cocos2d::Vector<T>`并没有重载[]操作，所以不能直接用下标[i]来获取第i位元素。
 `cocos2d::Vector<T>`提供了不同类型的迭代器，所以我们可以受益于c++的标准函数库，我们可以使用大量标准泛型算法和for_each循环。
 除了std::vector<T>容器的操作之外，开发者们还加入许多标准算法诸如：`std::find`, `std::reverse`和`std::swap`，这些算法可以简化很多通用的操作。
-要了解更多的api用例，可以参考cocos2d-x 3.0beta的源码和压缩包里附带的例子。
+要了解更多的api用例，可以参考Cocos2d-x 3.0beta的源码和压缩包里附带的例子。
 下面是一些简单的例子：
 
 ```cpp

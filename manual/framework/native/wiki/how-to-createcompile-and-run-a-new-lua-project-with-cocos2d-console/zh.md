@@ -35,7 +35,7 @@ export JAVA_HOME=/usr/local/jdk1.7.0_51
 
 ##创建一个新工程
 
-你可以使用如下命令容易的创建一个新的cocos2d-x Lua 工程。
+你可以使用如下命令容易的创建一个新的Cocos2d-x Lua 工程。
 
 ```
 cocos new projectName -l lua

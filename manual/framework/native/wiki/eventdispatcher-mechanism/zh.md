@@ -1,6 +1,6 @@
 # 事件分发机制
 
-* 版本: cocos2d-x v3.0 alpha0
+* 版本: Cocos2d-x v3.0 alpha0
 
 ## 简介
 

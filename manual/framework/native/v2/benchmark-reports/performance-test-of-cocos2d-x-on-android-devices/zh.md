@@ -1,8 +1,8 @@
-#Android设备cocos2d-x性能测试
+#Android设备Cocos2d-x性能测试
 
 我们已在Android系统中准备了一些样本用于测试性能，测试结果如下所示。APK文件详见附件，欢迎下载，也欢迎各位亲自测试。
 
-测试设备: HTC G6 Legend, Android: 2.2, cocos2d-x 0.7.1
+测试设备: HTC G6 Legend, Android: 2.2, Cocos2d-x 0.7.1
 
 |测试用例	|粒子数|纹理|	AVG帧数|最低帧数|
 |-------|-----|---|-------|------|
@@ -11,7 +11,7 @@
 |SpinningPeas|	1000	|37*37pixels, 32bpp|46.6|44.7|
 |SpookyPeas|1000|37*37pixels, 32bpp|33.5|33.0|
 
-测试设备: HTC G3 Hero, Android: 2.2, cocos2d-x 0.7.1
+测试设备: HTC G3 Hero, Android: 2.2, Cocos2d-x 0.7.1
 
 |测试用例	|粒子数|纹理|	AVG帧数|	最低帧数|
 |-------|-----|---|-------|-------|
@@ -20,7 +20,7 @@
 |SpinningPeas|1000|37*37, 32bpp|8.5|7.8|
 |SpookyPeas|1000|37*37, 32bpp|5.5|4.5|
 
-测试设备Device: HTC G4 Tattoo, Android: 2.2, cocos2d-x 0.7.1
+测试设备Device: HTC G4 Tattoo, Android: 2.2, Cocos2d-x 0.7.1
 
 注意：G4使用高通MSM7225芯片，不支持OpenGL ES硬件加速。
 

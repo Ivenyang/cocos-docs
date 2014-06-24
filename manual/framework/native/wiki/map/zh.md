@@ -15,7 +15,7 @@ class CC_DLL Map;
 
 在unordered_map内部，元素是无序，它们是根据键的哈希值来存取的，存取的时间复杂度是常量，超级快。
 
-在cocos2d-x v3.0beta之前，使用的是另外一种顺序式容器`cocos2d::CCDictionary`,不过它将很快被废弃。
+在Cocos2d-x v3.0beta之前，使用的是另外一种顺序式容器`cocos2d::CCDictionary`,不过它将很快被废弃。
 
 设计者们谨慎地设计了`cocos2d::Map<K,V>`用来替代`cocos2d::CCDictionary`，所以应该尽量使用`cocos2d::Map`而不是`cocos2d::CCDictionary`
 

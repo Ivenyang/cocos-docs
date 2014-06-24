@@ -3,11 +3,11 @@
 ## Brief
 
 Since there is not apipay SDK on wp8, we can use WAP and Server to pay. In this situlation, we just need to add Windows Phone Page that contains WebBrowser control, you have to implement the Server that response to the web.
-I will show you a example of how to respond CCMenuItem click event to add a C# class, that is a way of using WinRT component to invoke C# library. The example code all in the github branch: [https://github.com/koowolf/cocos2d-x/tree/webbroswer](https://github.com/koowolf/cocos2d-x "koowolf/cocos2d-x")。
+I will show you a example of how to respond CCMenuItem click event to add a C# class, that is a way of using WinRT component to invoke C# library. The example code all in the github branch: [https://github.com/koowolf/cocos2d-x/tree/webbroswer](https://github.com/koowolf/Cocos2d-x "koowolf/cocos2d-x")。
 
 ## create Windows Phone XAML and Direct3D App project
 
- the cocos2d-x contains XAML project in the Github now, [https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml](https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml), pull the codes and open cocos2d-wp8.vc2012.sln, you will see the structure as following：
+ the Cocos2d-x contains XAML project in the Github now, [https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml](https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml), pull the codes and open cocos2d-wp8.vc2012.sln, you will see the structure as following：
 
 ![application](res/1.png)
 

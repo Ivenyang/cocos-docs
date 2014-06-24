@@ -19,7 +19,7 @@ You can put all the primitives mentioned above into a `cocos2d::Value` object an
 
 Internally, `cocos2d::Value` uses a union variable to hold all kinds of primitives which saves a lot of memory space.
 
-Before cocos2d-x v3.0 beta, there are `CCBool`, `CCFloat`, `CCDouble`, `CCinteger` primitive wrapper. These classes will be deprecated in the future.
+Before Cocos2d-x v3.0 beta, there are `CCBool`, `CCFloat`, `CCDouble`, `CCinteger` primitive wrapper. These classes will be deprecated in the future.
 
 *Note*:When you deal with primitives and container, please use `cocos2d::Vector<T>`,`cocos2d::Map<K,V>` and `cocos2d::Value`.
 
@@ -49,7 +49,7 @@ Type _type;
 
 From the code snippets, `_baseData`, `_strData` and `_type` data members' memory are handled automatically by the compiler and their own destructors. The destructor of `cocos2d::Value` is responsible for deallocating all the resources of pointer member variables(`_vectorData`,`_mapData` and `_intKeyMapData`).
 
-WARNING: `cocos2d::Value` doesn't use retain/release and refcount memory management like other cocos2d classes!
+WARNING: `cocos2d::Value` doesn't use retain/release and refcount memory management like other Cocos2d-x classes!
 
 ##Basic Usage
 The usage of `cocos2d::Value` is very straightforward.

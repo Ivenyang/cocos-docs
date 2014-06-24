@@ -2,7 +2,7 @@
 
 ## introduction
 
- With the support of xaml in cocos2d-x wp8，it's much convenient to invoke third SDK. I will show you how to integrate third SDK using Microsoft's advertise system and IAP as a example，integrae in the XAML project. 
+ With the support of xaml in Cocos2d-x wp8，it's much convenient to invoke third SDK. I will show you how to integrate third SDK using Microsoft's advertise system and IAP as a example，integrae in the XAML project. 
 
 ### Microsoft's offical doc of Integrating the AdControl
 

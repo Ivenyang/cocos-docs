@@ -69,7 +69,7 @@ Cocos2d 는 [Particle Designer](http://particledesigner.71squared.com/) 를 사�
 
 Particle Designer의 'Radius Mode' 는 입자의 방출량을 초당 30 개로 고정해놓았습니다. cocos2d는 이와는 약간 다른 접근방법을 취하기에 해당 모드에서 정확히 동일하게 보이지 않을 수 있습니다. 하지만 대부분의 결과물들은 거의 비슷하게 보입니다.
 
-cocos2d 는 Particle Designer 에서 사용된 모든 변수들에 더불어 몇 가지 추가적인 옵션들도 제공합니다:
+Cocos2d-x 는 Particle Designer 에서 사용된 모든 변수들에 더불어 몇 가지 추가적인 옵션들도 제공합니다:
 
 - spinning particles (ParticleSystemQuad에서 사용 가능합니다)
 - tangential acceleration (Gravity mode)
@@ -197,5 +197,5 @@ ParticleSystemQuad 은 ParticleSystem 의 자식 클래스입니다.
 		m_emitter->setEmissionRate(100);
 		addChild(m_emitter,10);
 
-- ParticleExplosion, ParticleFire, ParticleFireworks, ParticleFlower, ParticleGalaxy, ParticleMeteor, ParticleRain, ParticleSmoke, ParticleSnow, ParticleSpiral, ParticleSun 클래스들은 위의 클래스들을 상속받아 만든 예제들이며, cocos2d-x 내부에 기본적으로 포함되어 있습니다. 이 클래스들을 참고해 조금만 수정해도 멋진 결과물들을 만드실 수 있을것입니다. 물론, 수정 없이 그대로 사용해도 됩니다.
+- ParticleExplosion, ParticleFire, ParticleFireworks, ParticleFlower, ParticleGalaxy, ParticleMeteor, ParticleRain, ParticleSmoke, ParticleSnow, ParticleSpiral, ParticleSun 클래스들은 위의 클래스들을 상속받아 만든 예제들이며, Cocos2d-x 내부에 기본적으로 포함되어 있습니다. 이 클래스들을 참고해 조금만 수정해도 멋진 결과물들을 만드실 수 있을것입니다. 물론, 수정 없이 그대로 사용해도 됩니다.
 

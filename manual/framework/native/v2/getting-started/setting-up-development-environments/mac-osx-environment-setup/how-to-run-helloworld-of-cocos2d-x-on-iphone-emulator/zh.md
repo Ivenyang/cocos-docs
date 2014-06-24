@@ -1,6 +1,6 @@
-# 如何在iPhone模拟器上运行cocos2d-x HelloWorld项目
+# 如何在iPhone模拟器上运行Cocos2d-x HelloWorld项目
 
-本文介绍如何在iPhone模拟器上运行cocos2d-x HelloWorld项目
+本文介绍如何在iPhone模拟器上运行Cocos2d-x HelloWorld项目
 ## 下载源代码
 
 从Github下载源代码。地址为：[http://cn.cocos2d-x.org/download/](http://cn.cocos2d-x.org/download/)
