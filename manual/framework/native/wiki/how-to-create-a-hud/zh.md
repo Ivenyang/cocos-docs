@@ -22,7 +22,7 @@
 
 ## 如何创建一个HUD?
 
-将HUD想作 `Layer*` 的类型，更具体的是 cocos2d-x中的`LayerColor*`类型。[LayerColor API](http://www.cocos2d-x.org/reference/native-cpp/V3.0/d1/de8/classcocos2d_1_1_layer_color.html#ab130d18f75bae5aab246f43f87a00034)
+将HUD想作 `Layer*` 的类型，更具体的是 Cocos2d-x中的`LayerColor*`类型。[LayerColor API](http://www.cocos2d-x.org/reference/native-cpp/V3.0/d1/de8/classcocos2d_1_1_layer_color.html#ab130d18f75bae5aab246f43f87a00034)
 
 让我们创建一个简单的HUD例子，调用时通知用户的消息。
 

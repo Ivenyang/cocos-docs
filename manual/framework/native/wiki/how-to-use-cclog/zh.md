@@ -45,7 +45,7 @@ cclog = function(...)
     print(string.format(...))
 end
 
-cclog("float and int and string: %4.2f, %#x, %s", 3.1415926, 2014, "cocos2d-x");
+cclog("float and int and string: %4.2f, %#x, %s", 3.1415926, 2014, "Cocos2d-x");
 print("you can use either print or cclog as you want");
 print("another float is " .. 3.14 .. " another int is " .. 1024);
 ```
@@ -67,7 +67,7 @@ cocos2d: A string
 Lua
 
 ```
-cocos2d: [LUA-print] float and int and string: 3.14, 0x7de, cocos2d-x
+cocos2d: [LUA-print] float and int and string: 3.14, 0x7de, Cocos2d-x
 cocos2d: [LUA-print] you can use either print or cclog as you want
 cocos2d: [LUA-print] another float is 3.14 another int is 1024
 ```

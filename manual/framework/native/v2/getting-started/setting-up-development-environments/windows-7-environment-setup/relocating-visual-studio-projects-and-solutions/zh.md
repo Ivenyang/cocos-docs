@@ -1,10 +1,10 @@
 # 迁移VS Project及Solution文件
 
-本文介绍如何将Visual Studio的project文件（`.vcproj`, `.vcxproj`）及/或solution文件（`.sln`）迁移至cocos2d-x安装目录以外的目录。
+本文介绍如何将Visual Studio的project文件（`.vcproj`, `.vcxproj`）及/或solution文件（`.sln`）迁移至Cocos2d-x安装目录以外的目录。
 
 通常情况下，运行项目创建脚本`create-android-projec.bat/sh`时或者使用MSVC模板时会在与cocos2d-x根目录相同的目录下创建新项目。
 
-例如，如果在`C:\cocos2d-x`已经安装（或者已克隆`git` repo）cocos2d-x，新建项目（`TestProject`）将会与`C:\cocos2d-x\TestProject`处于同一个目录。
+例如，如果在`C:\cocos2d-x`已经安装（或者已克隆`git` repo）Cocos2d-x，新建项目（`TestProject`）将会与`C:\cocos2d-x\TestProject`处于同一个目录。
 
 如果想让cocos2d-x目录保持不变，并将个人项目移到其他位置，如`C:\Projects`。你也可以通过更新项目文件中的值或引用来实现这个目标。
 

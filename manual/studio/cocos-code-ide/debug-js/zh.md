@@ -18,7 +18,7 @@ IDE 配置
 ===
 ---
 ## 基础设置
-打开工具的 **Preferences** 页，切换到 **Cocos/JavaScript** 子页面，选择你刚刚下载 cocos2d-js 作为 JavaScript Framework。
+打开工具的 **Preferences** 页，切换到 **Cocos/JavaScript** 子页面，选择你刚刚下载 Cocos2d-js 作为 JavaScript Framework。
 ![](./res/PreferencesCocosJS.png)
 
 ## 额外设置

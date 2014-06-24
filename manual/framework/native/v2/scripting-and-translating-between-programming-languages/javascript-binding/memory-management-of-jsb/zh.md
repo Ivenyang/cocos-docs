@@ -1,102 +1,1 @@
-# JSB内存管理
-
-Base on Cocos2d-x 2.1.5, but also applicable to Cocos2d-x 3.0.
-基于Cocos2d-x 2.1.5，但也适用于Cocos2d-x 3.0。
-
-## JSB对象生命周期
-
-Java脚本自身尤其内存管理和垃圾收集机制。Cocos2d-x模拟了一个垃圾收集系统以方便管理Cocos对象。但是有个问题，在绑定Cocos2d-x对象至java对象时，哪个垃圾收集机制负责内存管理呢？我们来看一个典型的案例。
-
-### 通过xxx.create()分配对象
-
-以下代码会分配一个全球变量。
-
-```
-gnode = cc.Node.create();
-```
-
-gnode不会将addChild()添加至其他cc.Node节点中。
-在菜单项（menuItem）回调函数中，增加以下代码：```
-// menuItem callbackonButton:function (sender) {    sender.addChild(gnode);}```
-
-点击按钮会，会看到如下错误信息：
-
-```
-Cocos2d: jsb: ERROR: File /Users/u0u0/Documents/project/SK_parkour/scripting/javascript/bindings/generated/jsb_cocos2dx_auto.cpp: Line: 3010, Function: js_cocos2dx_CCNode_addChildCocos2d: Invalid Native Object
-```
-
-这是怎么回事？“Invalid Native Object”（无效本地对象）是什么意思？
-Gnode是java脚本中的一个全球变量，意思是指“非GC”（非垃圾收集）
-但是gnode里的CCNode却是Cocos2d-x引擎的GC（垃圾收集）。
-为了解决这个问题，需要知道如何使用spidermonkey以及深入挖掘JSB代码。
-### cc.Node.create()内部实现
-
-详细实现代码如下：
-
-```
-static JSFunctionSpec st_funcs[] = {    JS_FN("create", js_cocos2dx_CCNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),    JS_FS_END};jsb_CCNode_prototype = JS_InitClass(    cx, global,    NULL, // parent proto    jsb_CCNode_class,    js_cocos2dx_CCNode_constructor, 0, // constructor    properties,    funcs,    NULL, // no static properties    st_funcs);
-```
-
-cc.Node.create()会被影射到C函数“js_cocos2dx_CCNode_create()”。
-
-```
-JSBool js_cocos2dx_CCNode_create(JSContext *cx, uint32_t argc, jsval *vp){    if (argc == 0) {        cocos2d::CCNode* ret = cocos2d::CCNode::create();        jsval jsret;        do {        if (ret) {            js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCNode>(cx, ret);            jsret = OBJECT_TO_JSVAL(proxy->obj);        } else {            jsret = JSVAL_NULL;        }    } while (0);        JS_SET_RVAL(cx, vp, jsret);        return JS_TRUE;    }    JS_ReportError(cx, "wrong number of arguments");    return JS_FALSE;}
-```
-
-“cocos2d::CCNode::create()”成功分配对象后，对象会被打包至“js_get_or_create_proxy()”创建的新对象“object js_proxy_t”中。
-在“js_get_or_create_proxy()”函数更深处只需关注以下代码：
-```
-JS_AddObjectRoot(cx, &proxy->obj);```
-
-这是一个spidermonkey的API，用于将“JSObject”增加到垃圾收集器的根目录，“proxy->obj”是java脚本这边的JSObject对象影射。
-
-但是“cocos2d::CCNode::create()”是一个自动释放对象，在下一个游戏帧中会被cocos2d-x垃圾收集（GC）。
-
-这时会调用CCObject析构器，如下代码所示：
-
-```
-// if the object is referenced by Lua engine, remove itif (m_nLuaID){    CCScriptEngineManager::sharedManager()->getScriptEngine()->removeScriptObjectByCCObject(this);}else{    CCScriptEngineProtocol* pEngine = CCScriptEngineManager::sharedManager()->getScriptEngine();    if (pEngine != NULL && pEngine->getScriptType() == kScriptTypeJavascript)    {        pEngine->removeScriptObjectByCCObject(this);    }}
-```
-
-pEngine->removeScriptObjectByCCObject会搞定一切：
-
-```
-void ScriptingCore::removeScriptObjectByCCObject(CCObject* pObj){    js_proxy_t* nproxy;    js_proxy_t* jsproxy;    void *ptr = (void*)pObj;    nproxy = jsb_get_native_proxy(ptr);    if (nproxy) {        JSContext *cx = ScriptingCore::getInstance()->getGlobalContext();        jsproxy = jsb_get_js_proxy(nproxy->obj);        JS_RemoveObjectRoot(cx, &jsproxy->obj);        jsb_remove_proxy(nproxy, jsproxy);    }}
-```
-
-函数“JS_RemoveObjectRoot”会从java根目录移除“JSObject”。“ jsb_remove_proxy”会从Hash表中移除代理（proxy）。现在我们可以回答文章开头的问题了。
-
-Cocos2d-x垃圾收集系统负责控制内存管理。
-
-回到gnode。Gnode是一个全球变量。CCObject析构器中的JS_RemoveObjectRoot效果正好会平衡create()中的JS_AddObjectRoot。Spidermonkey不会垃圾收集（GC）这个变量，但是gnode本地代码会被释放。访问gnode本地代码会触发错误，如前所示。
-
-### 通过new分配对象
-
-考虑使用以下代码：
-
-```
-gnode = new cc.Node;
-```
-
-要发现真理，你还需更加深入挖掘JSB代码。
-如前面所示，cc.Node析构器为js_cocos2dx_CCNode_constructor()函数。
-注意以下部分代码：
-```
-if (argc == 0) {    cocos2d::CCNode* cobj = new cocos2d::CCNode();    cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);    if (_ccobj) {        _ccobj->autorelease();    }```本地对象被放到Cocos2d-x自动释放池中。所以“new”与“create()”没有什么区别。
-
-## 关于retain()和release()
-
-这两个函数用于手动控制对象的生命周期。如果你想要避免如前所示的错误，有两个选择：
-
-1. 将gnode增加到另一个CCNode中，addChild()会保留在gnode内部。
-2. 在第二种情况下，你需要在适当的时刻调用gnode.release()防止内存泄露。下一部分将会介绍如何调用。
-
-### ctor() 和 onExit()
-
-Cocos2d-x JSB使用以下继承 Simple JavaScript Inheritance By John Resig。但是析构器名字不一样，ctor()为JSB中的析构器；而onExit()在CCNode释放前调用的话会也会充当析构器的角色。
-
-以下样例介绍如何手动控制JSB对象的生命周期。
-
-```
-var container = cc.Node.extend({    ctor:function () {        this._super();        this.gnode = cc.Node.create();        this.gnode.retain();    },    onExit:function() {        this.gnode.release();        this._super();    },});
-```
+# JSB内存管理Base on Cocos2d-x 2.1.5, but also applicable to Cocos2d-x 3.0.基于Cocos2d-x 2.1.5，但也适用于Cocos2d-x 3.0。## JSB对象生命周期Java脚本自身尤其内存管理和垃圾收集机制。Cocos2d-x模拟了一个垃圾收集系统以方便管理Cocos对象。但是有个问题，在绑定Cocos2d-x对象至java对象时，哪个垃圾收集机制负责内存管理呢？我们来看一个典型的案例。### 通过xxx.create()分配对象以下代码会分配一个全球变量。```gnode = cc.Node.create();```gnode不会将addChild()添加至其他cc.Node节点中。在菜单项（menuItem）回调函数中，增加以下代码：```// menuItem callbackonButton:function (sender) {    sender.addChild(gnode);}```点击按钮会，会看到如下错误信息：```Cocos2d: jsb: ERROR: File /Users/u0u0/Documents/project/SK_parkour/scripting/javascript/bindings/generated/jsb_cocos2dx_auto.cpp: Line: 3010, Function: js_cocos2dx_CCNode_addChildCocos2d: Invalid Native Object```这是怎么回事？“Invalid Native Object”（无效本地对象）是什么意思？Gnode是java脚本中的一个全球变量，意思是指“非GC”（非垃圾收集）但是gnode里的CCNode却是Cocos2d-x引擎的GC（垃圾收集）。为了解决这个问题，需要知道如何使用spidermonkey以及深入挖掘JSB代码。### cc.Node.create()内部实现详细实现代码如下：```static JSFunctionSpec st_funcs[] = {    JS_FN("create", js_cocos2dx_CCNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),    JS_FS_END};jsb_CCNode_prototype = JS_InitClass(    cx, global,    NULL, // parent proto    jsb_CCNode_class,    js_cocos2dx_CCNode_constructor, 0, // constructor    properties,    funcs,    NULL, // no static properties    st_funcs);```cc.Node.create()会被影射到C函数“js_cocos2dx_CCNode_create()”。```JSBool js_cocos2dx_CCNode_create(JSContext *cx, uint32_t argc, jsval *vp){    if (argc == 0) {        cocos2d::CCNode* ret = cocos2d::CCNode::create();        jsval jsret;        do {        if (ret) {            js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCNode>(cx, ret);            jsret = OBJECT_TO_JSVAL(proxy->obj);        } else {            jsret = JSVAL_NULL;        }    } while (0);        JS_SET_RVAL(cx, vp, jsret);        return JS_TRUE;    }    JS_ReportError(cx, "wrong number of arguments");    return JS_FALSE;}```“cocos2d::CCNode::create()”成功分配对象后，对象会被打包至“js_get_or_create_proxy()”创建的新对象“object js_proxy_t”中。在“js_get_or_create_proxy()”函数更深处只需关注以下代码：```JS_AddObjectRoot(cx, &proxy->obj);```这是一个spidermonkey的API，用于将“JSObject”增加到垃圾收集器的根目录，“proxy->obj”是java脚本这边的JSObject对象影射。但是“cocos2d::CCNode::create()”是一个自动释放对象，在下一个游戏帧中会被Cocos2d-x垃圾收集（GC）。这时会调用CCObject析构器，如下代码所示：```// if the object is referenced by Lua engine, remove itif (m_nLuaID){    CCScriptEngineManager::sharedManager()->getScriptEngine()->removeScriptObjectByCCObject(this);}else{    CCScriptEngineProtocol* pEngine = CCScriptEngineManager::sharedManager()->getScriptEngine();    if (pEngine != NULL && pEngine->getScriptType() == kScriptTypeJavascript)    {        pEngine->removeScriptObjectByCCObject(this);    }}```pEngine->removeScriptObjectByCCObject会搞定一切：```void ScriptingCore::removeScriptObjectByCCObject(CCObject* pObj){    js_proxy_t* nproxy;    js_proxy_t* jsproxy;    void *ptr = (void*)pObj;    nproxy = jsb_get_native_proxy(ptr);    if (nproxy) {        JSContext *cx = ScriptingCore::getInstance()->getGlobalContext();        jsproxy = jsb_get_js_proxy(nproxy->obj);        JS_RemoveObjectRoot(cx, &jsproxy->obj);        jsb_remove_proxy(nproxy, jsproxy);    }}```函数“JS_RemoveObjectRoot”会从java根目录移除“JSObject”。“ jsb_remove_proxy”会从Hash表中移除代理（proxy）。现在我们可以回答文章开头的问题了。Cocos2d-x垃圾收集系统负责控制内存管理。回到gnode。Gnode是一个全球变量。CCObject析构器中的JS_RemoveObjectRoot效果正好会平衡create()中的JS_AddObjectRoot。Spidermonkey不会垃圾收集（GC）这个变量，但是gnode本地代码会被释放。访问gnode本地代码会触发错误，如前所示。### 通过new分配对象考虑使用以下代码：```gnode = new cc.Node;```要发现真理，你还需更加深入挖掘JSB代码。如前面所示，cc.Node析构器为js_cocos2dx_CCNode_constructor()函数。注意以下部分代码：```if (argc == 0) {    cocos2d::CCNode* cobj = new cocos2d::CCNode();    cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);    if (_ccobj) {        _ccobj->autorelease();    }```本地对象被放到Cocos2d-x自动释放池中。所以“new”与“create()”没有什么区别。## 关于retain()和release()这两个函数用于手动控制对象的生命周期。如果你想要避免如前所示的错误，有两个选择：1. 将gnode增加到另一个CCNode中，addChild()会保留在gnode内部。2. 在第二种情况下，你需要在适当的时刻调用gnode.release()防止内存泄露。下一部分将会介绍如何调用。### ctor() 和 onExit()Cocos2d-x JSB使用以下继承 Simple JavaScript Inheritance By John Resig。但是析构器名字不一样，ctor()为JSB中的析构器；而onExit()在CCNode释放前调用的话会也会充当析构器的角色。以下样例介绍如何手动控制JSB对象的生命周期。```var container = cc.Node.extend({    ctor:function () {        this._super();        this.gnode = cc.Node.create();        this.gnode.retain();    },    onExit:function() {        this.gnode.release();        this._super();    },});```

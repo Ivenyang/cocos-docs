@@ -43,7 +43,7 @@ void GLView::setFrameZoomFactor(float fZoomFactor)
     }
 ```
 
-此外，虽然的cocos2d-X得到系统的触摸事件，我们把`x`现在的位置是和`y`由`m_fFrameZoomFactor`。
+此外，虽然的Cocos2d-X得到系统的触摸事件，我们把`x`现在的位置是和`y`由`m_fFrameZoomFactor`。
 
 ```
     LRESULT EGLView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)

@@ -10,7 +10,7 @@ Cocos2d-x引擎中的Emscripten编译器可以将C++编写的游戏转变成Java
 
 在开始前，请阅读Emscripten维基网站的指南。Cocos2d-x包括一个Emscripten子模块。阅读指南可确保你安装和配置了所有Emscripten的依赖（dependencies）。
 
-### 获取cocos2d-x
+### 获取Cocos2d-x
 
 从终端运行以下命令：   
 ```
@@ -18,14 +18,14 @@ git clone https://github.com/cocos2d/cocos2d-x.git
 git submodule update --init --recursive
 ```
 
-### 编译cocos2d-x及样本
+### 编译Cocos2d-x及样本
 
 在cocos2d-x目录下执行以下命令：    
 ```
 make -f Makefile.emscripten -j 8
 ```
 
-该命令会编译cocos2d-x及所有样本。完成之后你即会在proj.emscripten/bin/release路径下发现生成的.js、.data及.html文件，如：    
+该命令会编译Cocos2d-x及所有样本。完成之后你即会在proj.emscripten/bin/release路径下发现生成的.js、.data及.html文件，如：    
 ```
 $ ls -1 samples/Cpp/TestCpp/proj.emscripten/bin/release/
 TestCpp.data
@@ -51,7 +51,7 @@ make -f Makefile.emscripten -j 8
 
 ## 局限
 
-将cocos2d-x导入到Emscripten的工作才刚刚开始，当前的目录树可以说是正在研发的状态。以下是当前代码库的一些局限，以下只列举出已发现的局限。
+将Cocos2d-x导入到Emscripten的工作才刚刚开始，当前的目录树可以说是正在研发的状态。以下是当前代码库的一些局限，以下只列举出已发现的局限。
 
 - 目前暂不支持音频
 - 目前只支持PNG纹理。注意：不支持硬件压缩纹理。因为桌面浏览器不支持PVRTC，我们应该考虑增加S3TC或类似格式的支持。
@@ -62,7 +62,7 @@ make -f Makefile.emscripten -j 8
 
 ## 结语
 
-Emscripten是公认的一种极具效力的游戏编译及网页部署工具，更好的是现在cocos2d-x已经增加到游戏引擎行列，与Emscripten互相融合。对Emscripten的强化研发会继续进行：[https://github.com/j4m3z0r/cocos2d-x](https://github.com/j4m3z0r/cocos2d-x)，并且定期修改会提交回至cocos2d-x主线。若需了解最近更新，请参见以上网站，我们绝对欢迎各位合作者加入。
+Emscripten是公认的一种极具效力的游戏编译及网页部署工具，更好的是现在Cocos2d-x已经增加到游戏引擎行列，与Emscripten互相融合。对Emscripten的强化研发会继续进行：[https://github.com/j4m3z0r/cocos2d-x](https://github.com/j4m3z0r/cocos2d-x)，并且定期修改会提交回至Cocos2d-x主线。若需了解最近更新，请参见以上网站，我们绝对欢迎各位合作者加入。
 
 ## 在Mac OS X平台安装Emscripten
 

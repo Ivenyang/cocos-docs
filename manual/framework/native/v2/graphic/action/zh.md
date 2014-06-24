@@ -92,4 +92,4 @@ act1是持续0.5秒的CCMoveBy action,并且使用位置`ccp(100,0)`的值？.
   
 
 
-标签：`Actions` `cocos2d-x官方文档` `动作 `
+标签：`Actions` `Cocos2d-x官方文档` `动作 `

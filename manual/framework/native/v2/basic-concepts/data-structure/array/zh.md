@@ -2,7 +2,7 @@
 
 ## 简介 ##
 
-CCArray是cocos2d鼎力支持的数据结构类。它对游戏存储数组型数据做了优化。你可以在cocos2d-x源文件目录cocos2d/support/ data_support里面找到CCArray的实现。CCArray在cocos2d内被使用广泛，它模拟了苹果NSMutableArray的功能，但是执行效率更高。
+CCArray是cocos2d鼎力支持的数据结构类。它对游戏存储数组型数据做了优化。你可以在Cocos2d-x源文件目录cocos2d/support/ data_support里面找到CCArray的实现。CCArray在cocos2d内被使用广泛，它模拟了苹果NSMutableArray的功能，但是执行效率更高。
 
  
 

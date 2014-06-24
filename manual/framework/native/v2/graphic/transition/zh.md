@@ -37,4 +37,4 @@ Time 是过渡的秒数.为了把过渡应用到场景中，语法如下:
 
 
 
-标签：`cocos2d-x官方文档` `Transitions` 
+标签：`Cocos2d-x官方文档` `Transitions` 

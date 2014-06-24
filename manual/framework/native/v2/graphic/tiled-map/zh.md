@@ -252,7 +252,7 @@ Z序列和深度缓冲
 
 **参考**
 
-[cocos2d-iphone tiled_maps](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps)
+[Cocos2d-iphone tiled_maps](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps)
 
 [Creating a simple map with Tiled](http://sourceforge.net/apps/mediawiki/tiled/index.php?title=Creating_a_simple_map_with_Tiled)
 
@@ -266,5 +266,5 @@ Z序列和深度缓冲
   
 
 
-标签：`cocos2d-x官方文档` `Tiled Map` `瓦片地图`
+标签：`Cocos2d-x官方文档` `Tiled Map` `瓦片地图`
 

@@ -1,6 +1,6 @@
 # Android ndk r4b开发环境搭建
 
-> 本文从我的朋友Yarin的博客[http://yarin.blog.51cto.com/1130898/382109](http://yarin.blog.51cto.com/1130898/382109) 转载过来的。我用它作为我的android开发的第一课,但我没有尝试最后一步“Eclipse集成NDK开发”。而且我推荐ndk-r5或更高版本来做cocos2d-x开发。
+> 本文从我的朋友Yarin的博客[http://yarin.blog.51cto.com/1130898/382109](http://yarin.blog.51cto.com/1130898/382109) 转载过来的。我用它作为我的android开发的第一课,但我没有尝试最后一步“Eclipse集成NDK开发”。而且我推荐ndk-r5或更高版本来做Cocos2d-x开发。
 
 + [资源准备](#资源准备)
 + [搭建Android SDK开发环境](#搭建Android SDK开发环境)

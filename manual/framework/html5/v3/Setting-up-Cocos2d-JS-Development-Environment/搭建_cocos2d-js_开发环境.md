@@ -117,7 +117,7 @@ cocos new projectName -l js -d ./Projects
 图5
 ![img](res/syntaxac.png)	
 
-如果你有一个第三方JavaScript库在你的cocos2d-JS游戏应用程序，你也可以把它添加到WebStorm库来解析并启用实时语法自动补全。 
+如果你有一个第三方JavaScript库在你的Cocos2d-JS游戏应用程序，你也可以把它添加到WebStorm库来解析并启用实时语法自动补全。 
 
 下面是说明：
 
@@ -183,7 +183,7 @@ cocos new projectName -l js -d ./Projects
 
 ##总结 
 
-在本教程中，向你展示了基本的步骤来配置WebStorm7进行cocos2d-HTML5的开发工作，包括配置语法感知自动补全和调试。过程是相当简单明了。如果你对这个教程有任何疑问或建议，请告诉我们。我们将非常感谢你的贡献。 
+在本教程中，向你展示了基本的步骤来配置WebStorm7进行Cocos2d-HTML5的开发工作，包括配置语法感知自动补全和调试。过程是相当简单明了。如果你对这个教程有任何疑问或建议，请告诉我们。我们将非常感谢你的贡献。 
 
 ##何去何从 
 

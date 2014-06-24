@@ -1,7 +1,7 @@
 cocos-utils
 ===========
 
-`cocos-utils` is a tool to support NPM branch of Cocos2d-html5 only, aims to help developers using cocos2d-html5 easily.
+`cocos-utils` is a tool to support NPM branch of Cocos2d-html5 only, aims to help developers using Cocos2d-html5 easily.
 
 ## Installing
 * Install `nodejs`...
@@ -36,7 +36,7 @@ Type `cocos help` to check whether the installing is successful.
 
 ## HelloWorld
 
-##### Install all modules of cocos2d-html5
+##### Install all modules of Cocos2d-html5
 
 ```bash
 cd your/workspace/
@@ -48,7 +48,7 @@ because `cocos install` calls `npm install`, and `npm` requires administrator pe
 
 Sometimes, you may need to use `cocos install -r` if you are in China.
 
-##### Create project of cocos2d-html5
+##### Create project of Cocos2d-html5
 
 (under your workspace)
 
@@ -59,10 +59,10 @@ cocos build
 ```
 
 ##### Visit dev version
-Be sure that your project and modules of cocos2d-html5 have been published in a webServer,
+Be sure that your project and modules of Cocos2d-html5 have been published in a webServer,
 then visit `http://serverhost:port/your/project/path/index.html` in your browser.
 
-Pay attention to this, modules of cocos2d-html5 should also been published in the webServer.
+Pay attention to this, modules of Cocos2d-html5 should also been published in the webServer.
 
 Open it with FireFox if you have not published them in a webServer.
 
@@ -165,7 +165,7 @@ Do not forget run `cocos genRes` if you add or delete resources, rename the reso
 
 Do not forget run `cocos genJsRes` if you add or delete js, rename js or change the path of js.
 
-Do not forget run `cocos genBaseCfg` if you install or uninstall modules of cocos2d-html5 which are configured in dependencies of cocos.json,
+Do not forget run `cocos genBaseCfg` if you install or uninstall modules of Cocos2d-html5 which are configured in dependencies of cocos.json,
 or of third party which are configured in dependencies of package.json.
 
 In fact, you can use `cocos build` which includes these three command above.
@@ -182,7 +182,7 @@ a b.png  :  ab.png     //" " will be replaced by ""
 
 `cc.js` will be replaced with `cc4publish.js` when publishing.
 
-There are test cases in each modules of cocos2d-html5, which is quite different from the develop branch.
+There are test cases in each modules of Cocos2d-html5, which is quite different from the develop branch.
 The code is clearer and smaller for developers.
-And I think it is a better way for developers to learn cocos2d-html5.
-Keep all modules of cocos2d-html5 in the same folder, boot your web server, then visit it(`index.html` in each module).
+And I think it is a better way for developers to learn Cocos2d-html5.
+Keep all modules of Cocos2d-html5 in the same folder, boot your web server, then visit it(`index.html` in each module).

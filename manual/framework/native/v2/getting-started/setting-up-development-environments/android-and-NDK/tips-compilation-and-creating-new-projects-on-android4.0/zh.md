@@ -14,7 +14,7 @@ NDK-R7以前的版本无法识别project.properties文件。
 
 **3.执行create-android-project.bat或者create-android-project.sh生成新Android项目**
 
-因为Android 4.0系统中的Android.bat文件不会生成res/drawable-hdpi、res/drawable-ldpi和res/drawable-mdpi文件。新版本（cocos2d-1.0.1-x-0.10.0）下执行create-android-project.bat或者create-android-project.sh会从HelloWorld中复制这三个文件夹。
+因为Android 4.0系统中的Android.bat文件不会生成res/drawable-hdpi、res/drawable-ldpi和res/drawable-mdpi文件。新版本（Cocos2d-1.0.1-x-0.10.0）下执行create-android-project.bat或者create-android-project.sh会从HelloWorld中复制这三个文件夹。
 
 
 

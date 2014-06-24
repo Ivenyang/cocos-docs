@@ -128,31 +128,31 @@
 *导入提示*
 
 1. 注意“GameOverLayer._label”和“GameOverScene._layer”层，这两个层是在objc的属性（@property）中定义的，这意味着这两个层是保留的，因此应该在“dealloc”函数中释放。同理由于在“GameOverLayer”和“GameOverScene”中的“init()”函数中存在“retain()”函数，所以在“~GameOverLayer()”和“~GameOverScene()”函数中应该分别调用“release()”函数来释放。
-2. “NSAutoReleasePool”也会在cocos2d-x中移植。这个“Garbage Collector”（垃圾收集器）对C++编程很有帮助，在iOS中的用法相同，更多信息请参考[http://developer.apple.com/library/ios/#documentation/cocoa/reference/foundation/Classes/NSAutoreleasePool_Class/Reference/Reference.html](http://developer.apple.com/library/ios/#documentation/cocoa/reference/foundation/Classes/NSAutoreleasePool_Class/Reference/Reference.html)。             
-在cocos2d-x中有两种情况要调用“release()”函数：   
+2. “NSAutoReleasePool”也会在Cocos2d-x中移植。这个“Garbage Collector”（垃圾收集器）对C++编程很有帮助，在iOS中的用法相同，更多信息请参考[http://developer.apple.com/library/ios/#documentation/cocoa/reference/foundation/Classes/NSAutoreleasePool_Class/Reference/Reference.html](http://developer.apple.com/library/ios/#documentation/cocoa/reference/foundation/Classes/NSAutoreleasePool_Class/Reference/Reference.html)。             
+在Cocos2d-x中有两种情况要调用“release()”函数：   
 	- 物体被我们手动更新了。如“CCSprite *sprite = new CCSprite();”。     
 	- 物体由静态函数创建，如“CCSprite *sprite = CCSprite::spriteWithFile(...)”。在这种情况下，我们不必释放，但是当调用“sprite->retain()”函数时，同时也应该调用“sprite->release()”函数。
 
 什么情况下应该调用“GameOverScene”？当一定数量的怪物被全部消灭或者有一只怪物逃走时。
 我们在“HelloWorldScene”中增加一个变量来计算消灭的怪物数量。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	protected:
 	int _projectilesDestroyed;
 
 然后在“HelloWorld::HelloWorld()”中初始化该变量。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	_projectilesDestroyed = 0;
 
 将“GameOverScene.h”文件包含进“HelloWorldScene.cpp”文件中。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	#include "GameOverScene.h"    
 
 为循环“HelloWorld::update()”函数，在“targetsToDelete”中执行“removeChild(target)”后，增加以下代码检查赢家情况。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	_projectilesDestroyed++;                       
 	if (_projectilesDestroyed >= 5)
 	{
@@ -163,7 +163,7 @@
 
 增加以下代码检查“if (sprite->getTag() == 1)”条件下的“spriteMoveFinished()”函数确认输家情况。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	GameOverScene *gameOverScene = GameOverScene::create();
 	gameOverScene->getLayer()->getLabel()->setString("You Lose :[");
 	CCDirector::sharedDirector()->replaceScene(gameOverScene);    

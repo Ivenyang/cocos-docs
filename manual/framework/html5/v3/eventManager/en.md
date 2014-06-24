@@ -1,6 +1,6 @@
 # EventManager Mechanism
 
-* version: since cocos2d-html5 v3.0 alpha0
+* version: since Cocos2d-html5 v3.0 alpha0
 
 ## Introduction
 

@@ -18,7 +18,7 @@ Cocos2d-x较早的版本中有两种粒子系统：方块（Quad）粒子系统�
 - 粒子可以有任意大小。在点粒子系统“CCParticleSystemPoint”中，如果粒子大小大于64，将会当作是64。
 - 方块粒子系统整个系统可以使用缩小或放大（scale）属性进行调整。
 
-因为点粒子系统“CCParticleSystemPoint”不支持批量节点“CCParticleBatchNode”，该系统现在已经被移出cocos2d-x粒子系统。
+因为点粒子系统“CCParticleSystemPoint”不支持批量节点“CCParticleBatchNode”，该系统现在已经被移出Cocos2d-x粒子系统。
 
 ## CCParticleBatchNode
 
@@ -109,9 +109,9 @@ Cocos2d-x较早的版本中有两种粒子系统：方块（Quad）粒子系统�
 
 ## 样例
 
-cocos2d-x预装一些粒子，用户可在游戏开发中进行个性化设计。预装粒子列表如下：
+Cocos2d-x预装一些粒子，用户可在游戏开发中进行个性化设计。预装粒子列表如下：
 
-- cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
+- Cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
 - CCParticleFire: Point particle system. 使用重力模式.
 - CCParticleFireworks: Point particle system. 使用重力模式.
 - CCParticleSun: Point particle system. 使用重力模式.

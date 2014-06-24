@@ -14,7 +14,7 @@ Linux平台开发可以通过Eclipse（及其管理make系统）或普通Makefil
 
 Cocos2d-x引擎的Linux编译文件大部分用于基于Debian/Ubuntu的系统。其他系统上使用应该也没什么问题，只是会因系统而已。
 
-编译cocos2d-x时需要安装以下资源包：
+编译Cocos2d-x时需要安装以下资源包：
 
 ```
  g++ libx11-dev libxmu-dev libglu1-mesa-dev libgl2ps-dev libxi-dev 
@@ -47,4 +47,4 @@ $ cd samples/Cpp/TestCpp/proj.linux && make -j5 DEBUG=1 run
 
 ## 创建新项目
 
-新建项目简单的方法就是将“samples/Cpp/HelloCpp/proj.linux”文件夹复制到你的项目。复制后需要相应地编辑Makefile的部分内容（至少要编辑SOURCES资源部分）。如果在cocos2d-x目录树以外编译，则需要在Makefile文件里设置$COCOS2DX_ROOT路径或者在环境变量中加入该路径。
+新建项目简单的方法就是将“samples/Cpp/HelloCpp/proj.linux”文件夹复制到你的项目。复制后需要相应地编辑Makefile的部分内容（至少要编辑SOURCES资源部分）。如果在Cocos2d-x目录树以外编译，则需要在Makefile文件里设置$COCOS2DX_ROOT路径或者在环境变量中加入该路径。

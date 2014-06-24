@@ -18,7 +18,7 @@
 - 粒子可以为任意大小。在`CCParticleSystemPoint`中，如果大小大于64时，就视为64。
 - 通过scale属性可以缩放整个系统。
 
-由于`CCParticleSystemPoint`不支持`CCParticleBatchNode`.所以,`CCParticleSystemPoint`已经从cocos2d-x粒子系统里移除了.
+由于`CCParticleSystemPoint`不支持`CCParticleBatchNode`.所以,`CCParticleSystemPoint`已经从Cocos2d-x粒子系统里移除了.
 
 ##CCParticleBatchNode
 CCParticleBatchNode可以引用且只可以引用1个texture(一个图片文件，一个texture图集).只有CCParticleSystem可以增加到CCSpriteBatchNode中.
@@ -113,7 +113,7 @@ CCParticleBatchNode可以引用且只可以引用1个texture(一个图片文件�
 - texture纹理(CCTexture2D)。粒子使用的纹理。
 
 ###示例
-cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
+Cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
 
 - CCParticleFire: Point particle system. 使用重力模式.
 - CCParticleFireworks: Point particle system. 使用重力模式.

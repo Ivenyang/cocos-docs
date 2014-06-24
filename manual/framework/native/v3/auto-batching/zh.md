@@ -32,7 +32,7 @@ Auto-culling的支持，Sprite在绘制时会进行检查，超出屏幕的不�
 
 
 ##SpriteBatchNode
-它是批处理绘制精灵，主要是用来提高精灵的绘制效率的，需要绘制的精灵数量越多，效果越明显。因为cocos2d-x采用opengl es绘制图片的，opengl es绘制每个精灵都会执行：open-draw-close流程。而SpriteBatchNode是把多个精灵放到一个纹理上，绘制的时候直接统一绘制该texture，不需要单独绘制子节点，这样opengl es绘制的时候变成了：open-draw()-draw()…-draw()-close()，节省了多次open-close的时间。SpriteBatchNode内部封装了一个TextureAtlas(纹理图集，它内部封装了一个Texture2D)和一个Array(用来存储SpriteBatchNode的子节点：单个精灵)。注意：因为绘制的时候只open-close一次，所以SpriteBatchNode对象的所有子节点都必须和它是用同一个texture(同一张图片)。
+它是批处理绘制精灵，主要是用来提高精灵的绘制效率的，需要绘制的精灵数量越多，效果越明显。因为Cocos2d-x采用opengl es绘制图片的，opengl es绘制每个精灵都会执行：open-draw-close流程。而SpriteBatchNode是把多个精灵放到一个纹理上，绘制的时候直接统一绘制该texture，不需要单独绘制子节点，这样opengl es绘制的时候变成了：open-draw()-draw()…-draw()-close()，节省了多次open-close的时间。SpriteBatchNode内部封装了一个TextureAtlas(纹理图集，它内部封装了一个Texture2D)和一个Array(用来存储SpriteBatchNode的子节点：单个精灵)。注意：因为绘制的时候只open-close一次，所以SpriteBatchNode对象的所有子节点都必须和它是用同一个texture(同一张图片)。
 
 在addChild的时候会检查子节点纹理的名称跟SpriteBatchNode的是不是一样，如果不一样就会出错。
 

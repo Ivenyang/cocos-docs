@@ -9,7 +9,7 @@
 
 ## 创建Windows Phone XAML和Direct3D工程
 
-cocos2d-x包含XAML的项目在，https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml，clone代码并打开cocos2d-wp8.vc2012.sln，你会看如下的结构：
+Cocos2d-x包含XAML的项目在，https://github.com/cocos2d/cocos2d-x/tree/master/cocos2dx/platform/wp8-xaml，clone代码并打开cocos2d-wp8.vc2012.sln，你会看如下的结构：
 
 ![jiegou](./1.png)
 

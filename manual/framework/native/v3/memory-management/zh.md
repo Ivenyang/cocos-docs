@@ -173,7 +173,7 @@ Label* Label::create()
 
 ## 总结
 
-使用cocos2d-x的内存管理，要清楚当前对象的引用计数。 使用者对对象进行retain和release成对使用。 正确使用autorelease方法。灵活使用自动释放池管理一些autorelease对象密集的区域。
+使用Cocos2d-x的内存管理，要清楚当前对象的引用计数。 使用者对对象进行retain和release成对使用。 正确使用autorelease方法。灵活使用自动释放池管理一些autorelease对象密集的区域。
 
 
 
