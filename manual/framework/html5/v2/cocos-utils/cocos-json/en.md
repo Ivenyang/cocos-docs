@@ -4,7 +4,7 @@ cocos json
 This file is about config of `cocos` command.
 If there is something wrong while using `cocos` command, check this file first.
 
-* engineDir : the path of cocos2d-html5 modules, default to be `../node_modules/`.
+* engineDir : the path of Cocos2d-html5 modules, default to be `../node_modules/`.
 
 This is very important, for it tells us where the engine is.
 

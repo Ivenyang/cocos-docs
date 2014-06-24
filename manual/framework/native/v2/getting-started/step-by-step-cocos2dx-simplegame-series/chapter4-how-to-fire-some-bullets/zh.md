@@ -2,14 +2,14 @@
 
 现在我们让英雄角色发射一些子弹消灭敌人，添加以下代码，使能层级的触摸功能，如下所示。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	this->setTouchEnabled(true); or this->setIsTouchEnabled(true);
 
 现在便可以接受到触摸事件了。
 
 在“HelloWorldScene.h”文件中声明回调函数“void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);”，然后在“HelloWorldScene.cpp”文件中执行该函数。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
 	{
 	    // Choose one of the touches to work with

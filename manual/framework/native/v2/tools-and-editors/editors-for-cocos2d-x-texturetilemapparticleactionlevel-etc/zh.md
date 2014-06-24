@@ -11,7 +11,7 @@
 	- 视频
 		- Youtube: [http://www.youtube.com/watch?v=YoVMSuwsATk](http://www.youtube.com/watch?v=YoVMSuwsATk)
 		- 优酷: [http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html](http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html)
-	- cocos2d-x新闻: [http://www.cocos2d-x.org/news/14](http://www.cocos2d-x.org/news/14)
+	- Cocos2d-x新闻: [http://www.cocos2d-x.org/news/14](http://www.cocos2d-x.org/news/14)
 - CocosBuilder: [http://cocosbuilder.com/](http://cocosbuilder.com/) (只能用于iOS游戏)
 - SceneDesigner: [https://github.com/andrew0/SceneDesigner](https://github.com/andrew0/SceneDesigner)
 - CocoShop: [http://www.cocos2d-iphone.org/forum/topic/15668](http://www.cocos2d-iphone.org/forum/topic/15668) (只能用于iOS游戏) -遗弃项目
@@ -32,7 +32,7 @@
 ### Particle Editor 粒子系统编辑器
 
 - 粒子系统编辑器: [Particle Designer](http://particledesigner.71squared.com/) , 仅限OSX系统、授权费8美元、输出.png & ,plist文件
-- 粒子系统编辑器: [cocos2d-windows-particle-editor](http://code.google.com/p/cocos2d-windows-particle-editor/) , 仅限windows系统、免费、输出.png & ,plist文件
+- 粒子系统编辑器: [Cocos2d-windows-particle-editor](http://code.google.com/p/cocos2d-windows-particle-editor/) , 仅限windows系统、免费、输出.png & ,plist文件
 
 ### Font editor: 字体编辑器
 - Hiero (跨平台): [http://slick.cokeandcode.com/demos/hiero.jnlp](http://slick.cokeandcode.com/demos/hiero.jnlp) (免费)

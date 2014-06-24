@@ -72,5 +72,5 @@
 			
 ### 参考
 
-cocos2d-iphone [Introduction to cocos2d’s effects](http://www.cocos2d-iphone.org/archives/40)
+Cocos2d-iphone [Introduction to cocos2d’s effects](http://www.cocos2d-iphone.org/archives/40)
 。

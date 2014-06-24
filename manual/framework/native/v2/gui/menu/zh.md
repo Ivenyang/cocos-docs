@@ -6,7 +6,7 @@ CCMenu仅仅是一个CCmenuItems的集合，这些菜单项作为菜单的一部
 
  
 
-**在cocos2d-x中创建一个菜单很容易**
+**在Cocos2d-x中创建一个菜单很容易**
 - 创建一个新的场景（继承自CCScene）
 - 创建一个 CCMenuItem
 

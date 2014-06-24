@@ -2,7 +2,7 @@
 
 本文档介绍如何利用BAT批量文件（Windows平台）或shell脚本（Linux或Mac平台）创建Android项目。脚本文件版本号为0.8.2.
 
-自cocos2d-1.0.1-x-0.12.0版本以来，你可创建支持lua、chipmunk或box2d的项目。用法如下：
+自Cocos2d-1.0.1-x-0.12.0版本以来，你可创建支持lua、chipmunk或box2d的项目。用法如下：
 
 - Windows平台     
 编辑create-android-project.bat批量文件，在endlocal & _CYGBIN\bash --login "%_CYGSCRIPT%" _CURRENTDIR _PROJECTNAME _NDKROOT _PACKAGEPATH "windows".后面加上[-b|--box2d]、 [-l|--lua]或[-c|chipmunk]，如下所示：

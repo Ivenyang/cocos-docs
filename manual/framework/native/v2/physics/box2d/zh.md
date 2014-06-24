@@ -1,6 +1,6 @@
 # Box2D #
 
-Box2D是一个用于游戏的二维刚体模拟库。 cocos2d-X程序员可以在他们的游戏使用它，使物体以可信的方式移动，使游戏世界互相作用。   
+Box2D是一个用于游戏的二维刚体模拟库。 Cocos2d-X程序员可以在他们的游戏使用它，使物体以可信的方式移动，使游戏世界互相作用。   
 Box2D是用轻便的C++编写的，下面的教程，由Ray Wenderlich编写，展示了如何在游戏中使用box2d，原来的文章是“How To Create A Breakout Game with Box2D and Cocos2D”。
 
 [Part 1](http://www.raywenderlich.com/28604/how-to-create-a-breakout-game-with-box2d-and-cocos2d-2-x-tutorial-part-1), [Part 2](http://www.raywenderlich.com/28606/how-to-create-a-breakout-game-with-box2d-and-cocos2d-2-x-tutorial-part-2).
@@ -11,7 +11,7 @@ Box2D是用轻便的C++编写的，下面的教程，由Ray Wenderlich编写，�
 
 **Box2D的世界**  
 
- 你需要做的第一件事是在cocos2d-X中为Box2D创建一个世界对象，世界对象是Box2D的主要对象，它管理所有的物理刚体和模拟。    
+ 你需要做的第一件事是在Cocos2d-X中为Box2D创建一个世界对象，世界对象是Box2D的主要对象，它管理所有的物理刚体和模拟。    
  当我们创建了一个世界中的对象，我们还需要指定一个初始的重力矢量。
 
 	// Define the gravity vector.

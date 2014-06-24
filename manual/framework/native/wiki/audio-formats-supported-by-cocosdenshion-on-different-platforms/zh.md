@@ -1,6 +1,6 @@
 # 不同平台上支持的音频格式
 
-在大多数平台上，cocos2d-x调用不同的SDK API来播放背景音乐和音效。CocosDenshion在同一时间只能播放一首背景音乐，但是能同时播放多个音效。 
+在大多数平台上，Cocos2d-x调用不同的SDK API来播放背景音乐和音效。CocosDenshion在同一时间只能播放一首背景音乐，但是能同时播放多个音效。 
 
 ## 背景音乐 ##
 
@@ -17,6 +17,6 @@
 
 
 **Android**  ogg是最好的选择，对wav的支持不是太好。  
-**IOS**  和cocos2d-iphone中cocosDenshion所支持的格式一样。个人建议是苹果的caf格式。  
+**IOS**  和Cocos2d-iphone中cocosDenshion所支持的格式一样。个人建议是苹果的caf格式。  
 **Windows** mid， wav都是可以的。  
 **Marmalade**  只支持raw PCM格式  

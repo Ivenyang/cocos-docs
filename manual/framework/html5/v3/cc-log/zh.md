@@ -19,16 +19,16 @@ cc.assert <-- cc.Assert
 
 ```
 cc.log("this is a log");
-cc.log("this is a log for %s", "cocos2d-html5");
+cc.log("this is a log for %s", "Cocos2d-html5");
 
 cc.warn("this is a waring");
-cc.warn("this is a waring for %s", "cocos2d-html5");
+cc.warn("this is a waring for %s", "Cocos2d-html5");
 
 cc.error("this is an error");
-cc.error("this is an error for %s", "cocos2d-html5");
+cc.error("this is an error for %s", "Cocos2d-html5");
 
 cc.assert(false, "this is an assert");
-cc.assert(false, "this is an assert for %s", "cocos2d-html5");
+cc.assert(false, "this is an assert for %s", "Cocos2d-html5");
 ```
 
 然后今后会定义出`msgCode.js`
@@ -44,7 +44,7 @@ cc.msgCode = {
     assert1 : "this is an assert",
     assert2 : "this is an assert for %s",
     throw1 : "this is an throw",
-    throw2 : "this is an throw for %s", "cocos2d-html5"
+    throw2 : "this is an throw for %s", "Cocos2d-html5"
 }
 ```
 

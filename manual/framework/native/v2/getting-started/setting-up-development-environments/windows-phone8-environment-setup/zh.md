@@ -1,6 +1,6 @@
 # 搭建Windows Phone 8开发环境
 
-在VS2012 Express的cocos2d-x样本同一层（level）内新建Direct3D项目。
+在VS2012 Express的Cocos2d-x样本同一层（level）内新建Direct3D项目。
 
 清除生成文件的内容然后用“cocos2dorig.cpp”内容替换。
 

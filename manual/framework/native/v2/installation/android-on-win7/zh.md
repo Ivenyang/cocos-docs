@@ -38,7 +38,7 @@ autoconf, automake, binutils, gcc-core, gcc-g++, gcc4-core, gcc4-g++, gdb, pcre,
 
 执行脚本
 
-在windows文件浏览器中执行脚本。这个脚本会提示你选择工程路径，请按com.yourproject.something的格式设置好， 然后选择工程名字和target ID. 这样会在cocos2d-x的安装目录中，建立一个以工程名命名的目录。执行脚本后， 您将会看到如下内容，没有任何错误。
+在windows文件浏览器中执行脚本。这个脚本会提示你选择工程路径，请按com.yourproject.something的格式设置好， 然后选择工程名字和target ID. 这样会在Cocos2d-x的安装目录中，建立一个以工程名命名的目录。执行脚本后， 您将会看到如下内容，没有任何错误。
 
 ![](../res/060334dOH.png)
 
@@ -71,10 +71,10 @@ autoconf, automake, binutils, gcc-core, gcc-g++, gcc4-core, gcc4-g++, gdb, pcre,
 
  
 
-在cygwin中，自行修改cocos2d-x和NDK的权限，就可以解决这个问题。
+在cygwin中，自行修改Cocos2d-x和NDK的权限，就可以解决这个问题。
 
 比如:
-1.<code class="cpp"> chmod -R 775 cocos2d-2.1beta3-x-2.1.1 chmod -R 775 android-ndk-r8d </code>
+1.<code class="cpp"> chmod -R 775 Cocos2d-2.1beta3-x-2.1.1 chmod -R 775 android-ndk-r8d </code>
 
 
 如果Cygwin显示权限失败，那么需要按照如下方法修改  helloworld\proj.android\jnk\hellocpp的属性
@@ -91,7 +91,7 @@ autoconf, automake, binutils, gcc-core, gcc-g++, gcc4-core, gcc4-g++, gdb, pcre,
 
 马上就要完成了！现在我们来向Eclipse导入工程。打开Eclipse，选择“新建工程->从已存在的工程导入”（“create new project->import from existing project”）
 
-重要提示 ：不要启用“把工程拷贝到工作目录”（copy projects into workspace），并且根目录必须要在cocos2d-x的安装目录下.
+重要提示 ：不要启用“把工程拷贝到工作目录”（copy projects into workspace），并且根目录必须要在Cocos2d-x的安装目录下.
 
 创建工程后，你可能会碰到很多关于很多函数前有关键字@override的问题。 要解决这个问题，右键单机Eclipse中的工程->属性->Java编译器, 然后确保编译器compliance设置为1.6
 

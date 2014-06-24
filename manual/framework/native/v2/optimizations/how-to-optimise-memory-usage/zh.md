@@ -62,7 +62,7 @@ Cocos2d: cocos2d: CCTextureCache dumpDebugInfo: 2 textures, for 16400 KB (16.02 
 ##提示和技巧
 
 1. 一帧一帧载入游戏资源
-2. 减少绘制调用，使用“Use CCSpriteBatchNode”
+2. 减少绘制调用，使用“CCSpriteBatchNode”
 3. 载入纹理时按照从大到小的顺序
 4. 避免高峰内存使用
 5. 使用载入屏幕预载入游戏资源

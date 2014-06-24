@@ -10,16 +10,16 @@
 
 将以下两个成员变量增加到 “HelloWorld”的“HelloWorldScene.h”文件中，这两个变量用于存储现有的敌人和子弹。 
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	protected:
 	cocos2d::CCArray *_targets;
 	cocos2d::CCArray *_projectiles;  
 
-在cocos2d-x引擎中，“CCMutableArray”是iOS平台“NSMutableArray”的一个实现文件（implementation），包含“NSObject”及其子类。需要注意的是你应该指定其成员的具体范畴。
+在Cocos2d-x引擎中，“CCMutableArray”是iOS平台“NSMutableArray”的一个实现文件（implementation），包含“NSObject”及其子类。需要注意的是你应该指定其成员的具体范畴。
 
 然后在构建（construct）函数中初始化这两个变量，在“init()”中加上“new”如下所示，然后在析构（destruct）函数中释放这两个变量。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	
 	// in init()
 	// Initialize arrays
@@ -53,14 +53,14 @@
 
 然后修改“addTarget()”部分，在目标矩阵中新增一个目标，并将该目标标签设为1。如下所示。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// Add to targets array
 	target->setTag(1);
 	_targets->addObject(target);      
  
 修改“ccTouchesEnded()”部分，在子弹矩阵中增加一个新子弹，然后将其标签设置为2。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// Add to projectiles array
 	projectile->setTag(2);
 	_projectiles->addObject(projectile);       
@@ -68,7 +68,7 @@
 
 修改“spriteMoveFinished()”部分如下所示。从相应的矩阵中移除精灵。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::spriteMoveFinished(CCNode* sender)
 	{
 	  CCSprite *sprite = (CCSprite *)sender;
@@ -89,7 +89,7 @@
 
 在“HelloWorldScene.h”文件中声明该函数并在“HelloWorldScene.cpp”文件中定义该函数。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::update(float dt)
 	{
 	    CCArray *projectilesToDelete = new CCArray;
@@ -145,7 +145,7 @@
 
 好，最后要做的便是在“schedule”中增加“update()”函数，让这个函数在每帧中都被调用。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	this->schedule( schedule_selector(HelloWorld::update) );    
 
 编译运行该项目，随意发射子弹吧，敌人碰到子弹就会消失。

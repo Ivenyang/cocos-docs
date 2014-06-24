@@ -4,7 +4,7 @@
 
 本文介绍如何使用Cocos2d-x引擎将众所周知的“Cocos2dSimpleGame”游戏从objc文件移植到c++中，然后再在WIN32/iPhone/Android/WoPhone多平台运行游戏。“Cocos2dSimpleGame”由Ray Wenderlich编写而成。几乎每个Cocos2d-iphone引擎初学者都看过他的操作指南。
 
-首先，你需要从[http://download.cocos2d-x.org](http://download.cocos2d-x.org)下载最新稳定版引擎。编写本指南时引擎最新版本为Cocos2d-0.99.5-x-0.8.2，然后升级游戏资源至0.91版本。最新引擎名称中的“0.99.5”是指该c++端口是基于cocos2d-iphone 0.99.5父引擎，而后缀“0.82”是我们Cocos2d-x端口的版本号。
+首先，你需要从[http://download.cocos2d-x.org](http://download.cocos2d-x.org)下载最新稳定版引擎。编写本指南时引擎最新版本为Cocos2d-0.99.5-x-0.8.2，然后升级游戏资源至0.91版本。最新引擎名称中的“0.99.5”是指该c++端口是基于Cocos2d-iphone 0.99.5父引擎，而后缀“0.82”是我们Cocos2d-x端口的版本号。
 
 “Cocos2dxSimpleGame”源码地址为 [http://www.cocos2d-x.org/attachments/535/Cocos2dxSimpleGame-0.9.1.rar](http://www.cocos2d-x.org/attachments/535/Cocos2dxSimpleGame-0.9.1.rar)。该源码已经经过“cocos2d-1.0.1-x-0.9.1”引擎测试。             
 下面开始介绍如何创建项目。你可以直接跳到平台上开始操作。

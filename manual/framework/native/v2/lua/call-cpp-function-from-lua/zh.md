@@ -1,10 +1,10 @@
-#cocos2d-x如何在Lua中调用C++的函数
+#Cocos2d-x如何在Lua中调用C++的函数
 
-cocos2d-x使用bindings-generator自动生成了大部分类及类成员函数的lua绑定，并且通过一系统的手动绑定进一步的完善了Lua绑定。下面，我们以通过一些测试例代码来一步一步了解如何在Lua层调用这些绑定的类及方法
+Cocos2d-x使用bindings-generator自动生成了大部分类及类成员函数的lua绑定，并且通过一系统的手动绑定进一步的完善了Lua绑定。下面，我们以通过一些测试例代码来一步一步了解如何在Lua层调用这些绑定的类及方法
 
 ###类成员函数的调用
 
-打开lua-empty-test/src/hello.lua,我们会发现很多cc.***的函数调用，这些都是涉及到了Lua层调cocos2d-x中的类成员函数，例如:
+打开lua-empty-test/src/hello.lua,我们会发现很多cc.***的函数调用，这些都是涉及到了Lua层调Cocos2d-x中的类成员函数，例如:
 
 ```
 	cc.Director:getInstance():getVisibleSize()

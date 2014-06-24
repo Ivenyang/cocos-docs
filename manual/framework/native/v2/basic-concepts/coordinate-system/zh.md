@@ -36,7 +36,7 @@ Cocos2d-x/-html5/-iphone使用的坐标系统与OpenGL坐标系统一样，为�
 - X轴始于屏幕左侧，向右侧延伸
 - Y轴始于屏幕底部，向顶部延伸
 
-下图会有助于你更好地了解cocos2d-x坐标系统。
+下图会有助于你更好地了解Cocos2d-x坐标系统。
 
 ![](./res/SpriteCoordinates.png)
 
@@ -44,8 +44,8 @@ Cocos2d-x/-html5/-iphone使用的坐标系统与OpenGL坐标系统一样，为�
 
 ## 父类和子类
 
-每个从“**CCNode**”（最后cocos2d-x类）继承的类都会有锚点（anchorPoint）属性。
-在决定从哪开始画对象（精灵、层等等）时，cocos2d-x会结合属性位置和锚点。此外在旋转对象时，cocos2d-x也会随着锚点而旋转。
+每个从“**CCNode**”（最后Cocos2d-x类）继承的类都会有锚点（anchorPoint）属性。
+在决定从哪开始画对象（精灵、层等等）时，Cocos2d-x会结合属性位置和锚点。此外在旋转对象时，Cocos2d-x也会随着锚点而旋转。
 我们创建一个精灵作为灰色父类，再创建一个精灵作为蓝色子类，将父类的位置设置为“cpp(100, 100)”，将子类的锚点设在圆中心。
 
     CCSprite* parent = CCSprite::create("parent.png");

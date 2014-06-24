@@ -3,10 +3,10 @@
 注意：本文介绍cocos2dx 3.x版本引擎支持的功能，可与Github中的开发工具分支（git branch）配套使用。
 
 ## 功能
-在**MyGame.pro** 中增加两行代码即可将完全集成cocos2d-x及其模块。
+在**MyGame.pro** 中增加两行代码即可将完全集成Cocos2d-x及其模块。
 
 - Required（必填）行包括项目中新增的路径及宏定义。
-- Slelected（选填）行包括即将被编译或链接至项目的cocos2d-x模块。
+- Slelected（选填）行包括即将被编译或链接至项目的Cocos2d-x模块。
 
 ## 基本结构
 
@@ -52,7 +52,7 @@
 
 ## 运行应用
 
-QtCreator不会自动复制项目新增的资源及来自assets文件夹的资源。你也无法将这些资源放到QRC文件中（因为cocos2d-x不支持Qt）。这时你有两个选择：
+QtCreator不会自动复制项目新增的资源及来自assets文件夹的资源。你也无法将这些资源放到QRC文件中（因为Cocos2d-x不支持Qt）。这时你有两个选择：
 
 - 使用CCFileUtils设置定制资源路径。以下例子使用命令行加自变量（command-line arguments）获取资源（当然你也可以自己硬件编码的字符串）    
 ```

@@ -13,9 +13,9 @@ Version of cocos-utils.
 
 ### cocos install
 
-Installing for all modules of cocos2d-html5.
+Installing for all modules of Cocos2d-html5.
 
-If you want to install a single module of cocos2d-html5, just use the simple command of npm, such as:
+If you want to install a single module of Cocos2d-html5, just use the simple command of npm, such as:
 
 ```bash
 npm install ccactions

@@ -1,6 +1,6 @@
 #如何在android平台上使用js直接调用Java方法
 
-在cocos2d-js 3.0beta中加入了一个新特征，在android平台上我们可以通过反射直接在js中调用java的静态方法。它的使用方法很简单：
+在Cocos2d-js 3.0beta中加入了一个新特征，在android平台上我们可以通过反射直接在js中调用java的静态方法。它的使用方法很简单：
 
 ```
 var o = cc.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
@@ -48,7 +48,7 @@ public class Test {
 
 现在有一些理解了吧，括号内的符号表示参数类型，括号后面的符号表示返回值类型。因为Java是允许函数重载的，可以有多个方法名相同但是参数返回值不同的方法，方法签名正是用来帮助区分这些相同名字的方法的。
 
-目前cocos2d-js中支持的Java类型签名有下面4种：
+目前Cocos2d-js中支持的Java类型签名有下面4种：
 
 
 | Java类型 | 签名 |

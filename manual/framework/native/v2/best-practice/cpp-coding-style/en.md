@@ -1602,7 +1602,7 @@ Do not use boost.
 
 **Pros:** Boost code is generally very high-quality, is widely portable, and fills many important gaps in the C++ standard library, such as type traits, better binders, and better smart pointers. It also provides an implementation of the TR1 extension to the standard library.
 
-**Cons:** Some Boost libraries encourage coding practices which can hamper readability, such as metaprogramming and other advanced template techniques, and an excessively "functional" style of programming. It also adds more dependencies in cocos2d-x.
+**Cons:** Some Boost libraries encourage coding practices which can hamper readability, such as metaprogramming and other advanced template techniques, and an excessively "functional" style of programming. It also adds more dependencies in Cocos2d-x.
 
 **Decision:**
 In order to maintain a high level of readability for all contributors who might read and maintain code, and also in order to keep the dependencies as minimal as possible, we do not use Boost.
@@ -1930,7 +1930,7 @@ Start each file with license boilerplate, followed by a description of its conte
 
 Every file should contain license boilerplate. Choose the appropriate boilerplate for the license used by the project (for example, Apache 2.0, BSD, MIT, etc).
 
-The license must be compatible for the different App Stores, so GPL and LGPL code cannot be used in cocos2d-x.
+The license must be compatible for the different App Stores, so GPL and LGPL code cannot be used in Cocos2d-x.
 
 If you make significant changes to a file with an author line, consider deleting the author line.
 

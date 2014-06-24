@@ -1,4 +1,4 @@
-#cocos2d-x坐标系详解
+#Cocos2d-x坐标系详解
 
 ##不同坐标系简介
 
@@ -46,7 +46,7 @@ Y轴坐标从屏幕最下方开始，由下向上渐增
 
 ###Parent and Childrens
 
-由于每个类都继承自CCNode（cocos2d-x的最顶层类），所以每个类都会默认有anchorPoint属性。 当我们在一个位置画一个的对象的时候，cocos2d-x会合并属性位置和anchorPoint。当然，当旋转一个对象时，cocos2d-x会围绕绕anchorPoint旋转的。
+由于每个类都继承自CCNode（Cocos2d-x的最顶层类），所以每个类都会默认有anchorPoint属性。 当我们在一个位置画一个的对象的时候，Cocos2d-x会合并属性位置和anchorPoint。当然，当旋转一个对象时，Cocos2d-x会围绕绕anchorPoint旋转的。
 
 我们创建一个灰色父对象和一个蓝色子对象。设置父对象位置是ccp(100,100),子对象的anchor point位于圆心。
 
@@ -200,5 +200,5 @@ Point point = node1->convertToWorldSpace(node2->getPosition());
 
 * How to make a simple iphone game with cocos2d tutorial written by Ray Wenderlich[如何使用cocos2d制作一个简单的iphone游戏](http://www.raywenderlich.com/352/how-to-make-a-simple-iphone-game-with-cocos2d-tutorial)
 
-* Coordinate Systems of cocos2dx
-[cocos2dx坐标系](http://blog.163.com/zjf_to/blog/static/201429061201292193855498/)
+* Coordinate Systems of Cocos2d-x
+[Cocos2d-x坐标系](http://blog.163.com/zjf_to/blog/static/201429061201292193855498/)

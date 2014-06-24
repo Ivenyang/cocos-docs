@@ -2,7 +2,7 @@
 
 现在cocose2d-x可以在Android 3.0上运行。
 
-本文档将不再介绍如何在Android上运行cocos2d-x引擎。若需关于如何在Android中运行cocos2d-x的信息，请参见如何在NDK R4和R5中运行HelloWorld项目部分。     
+本文档将不再介绍如何在Android上运行Cocos2d-x引擎。若需关于如何在Android中运行Cocos2d-x的信息，请参见如何在NDK R4和R5中运行HelloWorld项目部分。     
 
 本文档介绍在Android 3.0中运行的一些注意事项。
 

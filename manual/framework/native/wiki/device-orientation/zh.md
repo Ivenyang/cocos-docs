@@ -14,7 +14,7 @@ iOS设备有四种方向:
 
 ![img](res/ios_device_orientation.png)
 
-当你创建一个新的 cocos2d-x, 默认设置支持 **Landscape Left** 和 **Landscape Right**.
+当你创建一个新的 Cocos2d-x, 默认设置支持 **Landscape Left** 和 **Landscape Right**.
 
 现在修改默认横屏为竖屏。
 

@@ -2,7 +2,7 @@
 
 ##怎样支持多点触摸
 
-这个问题经常被问到。多点触摸特性在cocos2d-x的第一个版本中，iOS平台和安卓平台就都可用了。但是在iOS中，苹果默认屏蔽掉了这个特新，并且提供api手动支持多点触摸。
+这个问题经常被问到。多点触摸特性在Cocos2d-x的第一个版本中，iOS平台和安卓平台就都可用了。但是在iOS中，苹果默认屏蔽掉了这个特新，并且提供api手动支持多点触摸。
 
 ##iOS
 
@@ -14,7 +14,7 @@
 [*glView setMultipleTouchEnabled:YES]
 ```
 
-当有一个使用xcode的 cocos2d-x模板创建的项目，你可以像下面MyGame/proj.ios/AppController.mm一样进行修改。
+当有一个使用xcode的 Cocos2d-x模板创建的项目，你可以像下面MyGame/proj.ios/AppController.mm一样进行修改。
 
 ```
 - application:application didFinishLaunchingWithOptions:launchOptions 
@@ -48,7 +48,7 @@ return YES;
 ##其他平台
 
 ===
-人们通常在windows桌面系统调试的cocos2d-X游戏。但可悲的是，有窗户上没有多点触摸的支持。你必须连接您的手机和在他们上测试的多点触控功能。
+人们通常在windows桌面系统调试的Cocos2d-X游戏。但可悲的是，有窗户上没有多点触摸的支持。你必须连接您的手机和在他们上测试的多点触控功能。
 
 ##多点触摸的测试用例
 

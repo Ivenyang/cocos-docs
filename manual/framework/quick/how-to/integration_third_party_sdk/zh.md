@@ -150,7 +150,7 @@ $proj表示当前工程目录
 
 ![](res/integration_third_party_05.png)
 
-**注意** : cocos2d-x项目默认使用libstdc++编译,如果您的项目正在使用libc++编译请使用libMobClickCppWithLibCpp.a
+**注意** : Cocos2d-x项目默认使用libstdc++编译,如果您的项目正在使用libc++编译请使用libMobClickCppWithLibCpp.a
 
 依赖框架中添加libz.dylib
 
