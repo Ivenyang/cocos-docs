@@ -22,3 +22,6 @@
 - [升级到 2.2.3](../../../manual/framework/quick/how-to/upgrade-to-2_2_3/zh.md)
 - [quick 事件参考](../../../manual/framework/quick/reference/events-in-quick/zh.md)
 - [用 Eclipse LDT 调试 quick-Cocos2d-x 游戏](../../../manual/framework/quick/how-to/debug_with_eclipse_ldt/zh.md)
+
+### 引擎分析
+- [Quick-Cocos2d-x引擎结构分析](../../../tutorial/framework/quick/quick-file-system/zh.md)

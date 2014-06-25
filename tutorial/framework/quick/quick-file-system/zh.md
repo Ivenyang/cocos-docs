@@ -1,5 +1,5 @@
-# quick-cocos2d-x文件结构分析
-在上一章我们讲过了quick-cocos2d-x中的环境搭建，这章我们分析下quick中的文件结构吧！打开quick的文件夹，可以看到如下的这些目录和文件：
+# Quick-Cocos2d-x文件结构分析
+在上一章我们讲过了Quick-Cocos2d-x中的环境搭建，这章我们分析下quick中的文件结构吧！打开quick的文件夹，可以看到如下的这些目录和文件：
 
 
 `bin`:存放各种与引擎相关的脚本
@@ -30,7 +30,7 @@
 	+ `Store.lua`:提供了游戏内的计费功能。现在已经弃用，推荐使用`cc.sdk.pay`。
 	+ `Timer.lua`:这个是基于 2D-X 中 scheduler 计时器的一个扩展，他可以方便的管理各个计时器，并添加了一些方便的功能，例如：100秒的时间，每5秒调用触发一次计时器事件。推荐使用`cc.utils.Timer`。
 
-- `cc`：cc扩展在cocos2dx C++ API和quick基本模块的基础上，提供了符合脚本风格的事件接口、组件架构等扩展。
+- `cc`：cc扩展在Cocos2d-x C++ API和quick基本模块的基础上，提供了符合脚本风格的事件接口、组件架构等扩展。
 	+ `init.lua`:初始化cc扩展
 	+ `GameObject.lua`:quick现在使用的一套类似Unity3D的GameObject的框架
 	+ `Registry.lua`:quick中GameObject的注册器
