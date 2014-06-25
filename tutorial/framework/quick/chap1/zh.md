@@ -1,21 +1,21 @@
-# quick-cocos2d-x开发环境搭建
+# Quick-Coco2d-x开发环境搭建
 
-## 1.quick-cocos2d-x介绍
-quick-cocos2d-x是cocos2d-x在Lua上的增强和扩展版本，廖宇雷廖大觉得官方cocos2d-x的Lua版本不是太好用，于是便在官方Lua版本的基础上进行了一次自己的封装，并且添加了一些游戏开发中常用的第三方库，便于开发人员使用。至于Lua与Javascript的比较或者是quick-cocos2d-x与cocos2d-x的开发效率之类的比较，就不赘述了，相信看这篇文章的童鞋都已经在其他地方看过了。
+## 1.Quick-Coco2d-x介绍
+Quick-Coco2d-x是Cocos2d-x在Lua上的增强和扩展版本，廖宇雷廖大觉得官方Cocos2d-x的Lua版本不是太好用，于是便在官方Lua版本的基础上进行了一次自己的封装，并且添加了一些游戏开发中常用的第三方库，便于开发人员使用。至于Lua与Javascript的比较或者是Quick-Coco2d-x与Cocos2d-x的开发效率之类的比较，就不赘述了，相信看这篇文章的童鞋都已经在其他地方看过了。
 
 ## 2.工具准备
-quick-cocos2d-x的底层基本是沿袭cocos2d-x的那套，所以可移植性也差不多，常用的Mac,iOS,Windows,Android也是支持的，如果原来开发过Android或者iOS游戏的开发者可以无视`2.2`和`2.3`两节。而如果第一次来做Android或者iOS游戏开发的话，咱们还是一步一步来，毕竟东西也不是太多，如果我写的不是太清楚的地方，也欢迎各位批评和指正。
+Quick-Coco2d-x的底层基本是沿袭Cocos2d-x的那套，所以可移植性也差不多，常用的Mac,iOS,Windows,Android也是支持的，如果原来开发过Android或者iOS游戏的开发者可以无视`2.2`和`2.3`两节。而如果第一次来做Android或者iOS游戏开发的话，咱们还是一步一步来，毕竟东西也不是太多，如果我写的不是太清楚的地方，也欢迎各位批评和指正。
 
-## 2.1 获取quick-cocos2d-x的代码
-首先，自然是要获取quick-cocos2d-x(以下简称quick)的代码，quick的代码被廖大分别托管在github和osc上，osc的代码貌似现在是已经停止更新了，github在quick被触控收购后已经转移到触控的仓库中，地址是：
+## 2.1 获取Quick-Coco2d-x的代码
+首先，自然是要获取Quick-Coco2d-x(以下简称quick)的代码，quick的代码被廖大分别托管在github和osc上，osc的代码貌似现在是已经停止更新了，github在quick被触控收购后已经转移到触控的仓库中，地址是：
 
-	https://github.com/chukong/quick-cocos2d-x
+	https://github.com/chukong/Quick-Coco2d-x
 
 git作为程序员的社交网站，具体功能相信不需要我多说。打开quick的代码仓库的页面如下：
 
 ![](res/1.jpg)
 
-咱们先确定是使用哪个分支来做开发，quick一直维护的只有两个分支，一个是`master`分支，一个是`develop`分支。`master`分支是正式版本，缺点是cocos2d-x的版本可能会稍微落后于官方，一些quick新添加的功能可能没有，优点在于稳定版本是经过测试使用后没问题，可以放心大胆的使用；`develop`版本是目前正在开发的版本，缺点是问题可能会比较多，优点是cocos2d-x的版本比较新，有一些新添加的功能在里面。如果是商用游戏的话推荐使用正式版本，如果是自己学习的话既可以使用正式版本也可以使用`develop`版本。
+咱们先确定是使用哪个分支来做开发，quick一直维护的只有两个分支，一个是`master`分支，一个是`develop`分支。`master`分支是正式版本，缺点是Cocos2d-x的版本可能会稍微落后于官方，一些quick新添加的功能可能没有，优点在于稳定版本是经过测试使用后没问题，可以放心大胆的使用；`develop`版本是目前正在开发的版本，缺点是问题可能会比较多，优点是Cocos2d-x的版本比较新，有一些新添加的功能在里面。如果是商用游戏的话推荐使用正式版本，如果是自己学习的话既可以使用正式版本也可以使用`develop`版本。
 
 选好版本之后我们把版本`clone`下来，至于`clone`的工具，既可以使用`git命令行`，也可以使用`github客户端`或者`SourceTree`之类的工具，个人推荐使用`SourceTree`，GUI界面还是比较简单直白的^_^。
 
@@ -39,7 +39,7 @@ Android下开发需要的工具有：
 ## 3.环境配置
 所有的软件安装完成后，我们还不能马上使用quick,还需要配置一些环境变量和参数。
 
-### 3.1 quick-cocos2d-x环境配置
+### 3.1 Quick-Coco2d-x环境配置
 相对来说,quick的环境变量配置是很简单的，较老的版本需要在windows中配置环境变量`QUICK_COCOS2DX_ROOT`。
 
 右键`我的电脑或者计算机`->`属性`->`高级`->`环境变量`,打开环境变量设置窗口
@@ -83,13 +83,13 @@ Android下开发需要的工具有：
 
 ![](res/9.png)
 
-不出意外的话你看到的应该是一片xx，这是因为咱们还没导入cocos2d-x的java代码导致的。
+不出意外的话你看到的应该是一片xx，这是因为咱们还没导入Cocos2d-x的java代码导致的。
 
 ![](res/10.png)
 
-导入cocos2d-x的Java代码有两种方式，一种是直接把代码拷贝到src目录下，还有一种方式是直接将cocos2d-x的代码作为第三方库的形式导入。第一种方式适合要经常修改引擎Java代码的同学，第二种方式的话不是经常更改引擎Java代码的同学。
-第一种方式，不多说，直接把`quick根目录\lib\cocos2d-x\cocos2dx\platform\android\java\src`下的文件拷贝到项目的src目录下然后刷新项目就可以了。
-第二种方式和导入quick的android工程一样导入`quick根目录\lib\cocos2d-x\cocos2dx\platform\android\java`下的代码到workspace中，之后选择我们在quick中建立的工程，点击`右键->Properties->Android`,在Library中点击Add，
+导入Cocos2d-x的Java代码有两种方式，一种是直接把代码拷贝到src目录下，还有一种方式是直接将Cocos2d-x的代码作为第三方库的形式导入。第一种方式适合要经常修改引擎Java代码的同学，第二种方式的话不是经常更改引擎Java代码的同学。
+第一种方式，不多说，直接把`quick根目录\lib\Cocos2d-x\cocos2dx\platform\android\java\src`下的文件拷贝到项目的src目录下然后刷新项目就可以了。
+第二种方式和导入quick的android工程一样导入`quick根目录\lib\Cocos2d-x\cocos2dx\platform\android\java`下的代码到workspace中，之后选择我们在quick中建立的工程，点击`右键->Properties->Android`,在Library中点击Add，
 
 ![](res/11.png)
 
