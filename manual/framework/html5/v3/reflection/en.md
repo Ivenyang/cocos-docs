@@ -67,14 +67,14 @@ We will call the static methods of `Test` class:
 
 ```
 //call hello method
-cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String)V", "this is a message from js");
+cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String)V", "this is a message from js");
 
 //call the first sum method
-var result = cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "sum", "(II)I", 3, 7);
+var result = cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(II)I", 3, 7);
 cc.log(result); //10
 
 //call the second sum method
-var result = cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "sum", "(I)I", 3);
+var result = cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(I)I", 3);
 cc.log(result); //5
 ```
 
