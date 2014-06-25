@@ -2,29 +2,29 @@
 
 本章中，我们将引入碰撞检测来解决上述问题。
 
-首先，需要先把子弹和怪物记录下来。游戏中，我们给他们添加一个标记tag值，tag = 1代表怪物，tag = 2代表子弹。为什么我们会使用tag?因为CCNode有一个命名为m_nTag的成员（cocos2d-x没有如OC的属性概念，详见第二章的提示1），当然它相应的有setTag()和getTag()方法。我们使用的CCSprite是继承自CCNode的，所以我们可以直接使用这个tag值。
+首先，需要先把子弹和怪物记录下来。游戏中，我们给他们添加一个标记tag值，tag = 1代表怪物，tag = 2代表子弹。为什么我们会使用tag?因为CCNode有一个命名为m_nTag的成员（Cocos2d-x没有如OC的属性概念，详见第二章的提示1），当然它相应的有setTag()和getTag()方法。我们使用的CCSprite是继承自CCNode的，所以我们可以直接使用这个tag值。
 
 在HelloWorldScene.h中添加两个用于记录子弹和怪物的成员变量。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	protected:
 	cocos2d::CCArray *_targets;
 	cocos2d::CCArray *_projectiles;
 >
 	
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	NSMutableArray *_targets;
 	NSMutableArray *_projectiles;
 
  
 
-（译者注：上述cocos2d-x的代码中，CCArray应该换成CCMutableArray，CCArray为不可变数组，CCMutableArray为可变数组，游戏中需要的是可以时时更改的数组以便记录每个子弹和怪物）
+（译者注：上述Cocos2d-x的代码中，CCArray应该换成CCMutableArray，CCArray为不可变数组，CCMutableArray为可变数组，游戏中需要的是可以时时更改的数组以便记录每个子弹和怪物）
 
- 在cocos2d-x中，CCMutableArray用法跟NSMutableArray一样，它的成员都是NSObjects或者NSObjects的子集。有点不同的是cocos2d-x中你需要指定它所包含的成员的具体类型。
+ 在Cocos2d-x中，CCMutableArray用法跟NSMutableArray一样，它的成员都是NSObjects或者NSObjects的子集。有点不同的是Cocos2d-x中你需要指定它所包含的成员的具体类型。
 
 在.cpp中初始化这两个变量，在init()方法中使用new来初始化，同时不要忘记release它们。为什么要release？因为你new了它们。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// in init()
 	// Initialize arrays
 	_targets = new CCArray;
@@ -52,7 +52,7 @@
 	}
 >
 
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	// in init()
 	// Initialize arrays
 	_targets = [[NSMutableArray alloc] init];
@@ -71,13 +71,13 @@
 
 修改addTarget() 方法，将一个新的对象添加进targets数组中，并且把它的tag设成1.
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// Add to targets array
 	target->setTag(1);
 	_targets->addObject(target);
 >
 	
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	// Add to targets array
 	target.tag = 1;
 	[_targets addObject:target];
@@ -86,13 +86,13 @@
 
 在ccTouchesEnded()方法中，将子弹添加进bullets数组，并把子弹的tag值设为2。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// Add to projectiles array
 	projectile->setTag(2);
 	_projectiles->addObject(projectile);
 >
 	
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	// Add to projectiles array
 	projectile.tag = 2;
 	[_projectiles addObject: projectile];
@@ -101,7 +101,7 @@
 
 然后，添加如下spriteMoveFinished()方法，将精灵从它们各自所对应的数组中remove掉。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::spriteMoveFinished(CCNode* sender)
 	{
 		CCSprite *sprite = (CCSprite *)sender;
@@ -116,7 +116,7 @@
 	}
 >
 	
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	-(void)spriteMoveFinished:(id)sender
 	{
 		CCSprite *sprite = (CCSprite *)sender;
@@ -135,7 +135,7 @@
 
 下面的update()方法是用来时时检测碰撞，把碰撞过的子弹怪物从场景中移除。在HelloWorldScene的.h中声明它.m中实现。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::update(float dt)
 	{
 		CCArray *projectilesToDelete = new CCArray;
@@ -189,7 +189,7 @@
 >
 	
 	 
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	 (void)update:(ccTime)dt
 	{
 		NSMutableArray *projectilesToDelete =  [[NSMutableArray alloc] init];
@@ -237,11 +237,11 @@
 
 好了，最后的事是需要我们让update()方法被时时调用。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	this->schedule( schedule_selector(HelloWorld::update) );
 >
 	
-	// objc with cocos2d-iphone
+	// objc with Cocos2d-iphone
 	[self schedule:@selector(update:)];
 
 

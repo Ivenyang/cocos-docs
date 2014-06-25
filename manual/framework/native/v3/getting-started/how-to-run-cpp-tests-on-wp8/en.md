@@ -6,7 +6,7 @@ In this article, I will show you how to run cpp-tests on your windows PC.
 
 - Windows version: Windows 8.0/8.1
 
-- Cocos2D-X version: cocos2d-x v3.0 ([https://github.com/cocos2d/cocos2d-x/](https://github.com/cocos2d/cocos2d-x/ "cocos2d-x"))
+- Cocos2D-X version: Cocos2d-x v3.0 ([https://github.com/cocos2d/cocos2d-x/](https://github.com/cocos2d/cocos2d-x/ "cocos2d-x"))
 
 - IDE: Visual Studio 2012
 
@@ -27,7 +27,7 @@ the fee of developer account: $19 per year, while students account is free but c
 
 ## Compile and Run the TestCpp Project
 
-- Download cocos2d-x from our [download page](http://cocos2d-x.org/download) and unzip it on your working directory. The structure of the directory should look like as following:
+- Download Cocos2d-x from our [download page](http://cocos2d-x.org/download) and unzip it on your working directory. The structure of the directory should look like as following:
 
 ![](res/1.png)
 

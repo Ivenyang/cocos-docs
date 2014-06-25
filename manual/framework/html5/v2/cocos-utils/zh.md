@@ -1,7 +1,7 @@
 cocos-utils
 ========
 
-`cocos-utils` 是一个用于支持cocos2d-html5引擎 NPM 分支的工具，目的是更好的为开发者提供开发的便利，降低引擎的使用难度，提高开发效率，并极力为开发者提供一套良好的开发流程。
+`cocos-utils` 是一个用于支持Cocos2d-html5引擎 NPM 分支的工具，目的是更好的为开发者提供开发的便利，降低引擎的使用难度，提高开发效率，并极力为开发者提供一套良好的开发流程。
 
 
 ## 安装
@@ -32,12 +32,12 @@ npm --registry "http://registry.cnpmjs.org" install cocos-utils -g
 
 通过输入`cocos help`来确认是否安装成功。
 
-[查看命令详细说明](cocos_command/zh.md).
+[查看命令详细说明](cocos-command/zh.md).
 
 
 ## HelloWorld
 
-##### 安装cocos2d-html5引擎的所有模块
+##### 安装Cocos2d-html5引擎的所有模块
 
 ```bash
 cd your/workspace/
@@ -47,7 +47,7 @@ cocos install
 有时候需要改执行`sudo cocos install`。
 同时，有时候需要通过指定镜像来进行安装，例如：`cocos install -r`。
 
-##### Create project of cocos2d-html5
+##### Create project of Cocos2d-html5
 
 (在你的workspace目录下)
 
@@ -137,7 +137,7 @@ cocos publish
 该文件是项目相关的`cocos`命令的配置。
 如果在执行执行`cocos`相关命令出错时，请先查看错误信息，再检查该文件是否配置正确。
 
-[详细说明](cocos_json/zh.md)
+[详细说明](cocos-json/zh.md)
 
 
 ## resCfg
@@ -165,7 +165,7 @@ cocos publish
 默认，我们已经为开发者提供了一些常用的测试方法。
 同时，你也可以自定义测试方法。
 
-[详细说明](unit_test/zh.md)
+[详细说明](unit-test/zh.md)
 
 ## 注意事项
 

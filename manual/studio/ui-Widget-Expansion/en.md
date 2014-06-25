@@ -87,7 +87,7 @@ The callback method of CustomImageViewReader parsing the self-defined attribute 
 
 ![image](./res/12.png)
 
-  For the notes on Part 1 and 2, see CustomImageView.cpp and CustomImageViewReader.cpp in cocos2d-x TestCpp project.
+  For the notes on Part 1 and 2, see CustomImageView.cpp and CustomImageViewReader.cpp in Cocos2d-x TestCpp project.
 
  After completing the above work，please regist the analytical functions。
 
@@ -171,5 +171,5 @@ Sample code CustomImageTest:
 
 Before reading json, call the interface of GUIReader registerTypeAndCallBack, register the object and attribute parsing method of the self-defined control class and the self-defined attribute parsing class (the attribute parsing method must be the member method of the self-defined attribute parsing class); then call widgetFromJsonFile of GUIReader and create the node of UI control, and in widgetFromJsonFile method, create the self-defined control by reflecting the registered self-defined control name (e.g. “CustomImageView”), and call the object of the registered self-defined attribute parsing class and the callback function parsing self-defined attribute. 
 
-The sample codes are shown in CustomImageTest.cpp of cocos2d-x TestCpp. 
+The sample codes are shown in CustomImageTest.cpp of Cocos2d-x TestCpp. 
 

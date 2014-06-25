@@ -237,7 +237,7 @@ Run/Debug this project with new runtime named `CocosLuaGame`, you would see log 
 
 `customClass's msg is : Hello from CustomClass::sayHello`
 
-[Lua binding for custom class]: ../../../framework/native/scripting/lua/lua-binding-for-custom-class/zh.md
+[Lua binding for custom class]: ../../../framework/native/v2/lua/lua-binding-for-custom-class/zh.md
 
 
 

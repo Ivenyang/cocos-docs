@@ -1,6 +1,6 @@
-We are happy to announce that cocos2d-x v3.0-rc2 is available for __download__:
+We are happy to announce that Cocos2d-x v3.0-rc2 is available for __download__:
 
-- [cocos2d-x-3.0rc2.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc2.zip)
+- [Cocos2d-x-3.0rc2.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc2.zip)
 
 
 ## Fixes
@@ -19,7 +19,7 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-
 
 ## Release Notes
 
-Read more about all the new features at [cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
+Read more about all the new features at [Cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
 
 
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.

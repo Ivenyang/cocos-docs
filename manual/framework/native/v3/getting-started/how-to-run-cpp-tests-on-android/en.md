@@ -5,7 +5,7 @@ Let's take MacOS as an example, the processes on win32 and linux are more or les
 ### Prerequisite
 
 #### Download Cocos2D-X
-At first, you should download [cocos2d-x](http://cocos2d-x.org/download) and unzip it. We could simply unzip it on the root directory of your home folder.
+At first, you should download [Cocos2d-x](http://cocos2d-x.org/download) and unzip it. We could simply unzip it on the root directory of your home folder.
 
 Double click the folder *cocos2d-x* and you will find a lot of files and folders. Here is the screenshot:
 
@@ -23,7 +23,7 @@ java -version
 ```
 If the following lines shown on your Terminal then you may have get [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) properly installed.
 
-(Note, the java version number may be different, but it's doesn't matter. As to cocos2d-x, you could upgrade the JDK and we recommend you to install JDK 1.6 or 1.7)
+(Note, the java version number may be different, but it's doesn't matter. As to Cocos2d-x, you could upgrade the JDK and we recommend you to install JDK 1.6 or 1.7)
 
 ```
 java version "1.7.0_51"
@@ -113,9 +113,9 @@ source ~/.bash_profile
 on win32 system, you can just close the command line windows and restart it.
 
 
-#### Use android-build.py to build cocos2d-x samples
+#### Use android-build.py to build Cocos2d-x samples
 
-Now it's time to compile the built-in samples of cocos2d-x.
+Now it's time to compile the built-in samples of Cocos2d-x.
 
 At first, you should change your directory to the android-build.py scripts lays.
 
@@ -136,7 +136,7 @@ If you only type `python android-build.py` in the Terminal, it will give you the
 
 ![buildandroidpy](./res/buildandroidpy.png)
 
-Please read the help information carefully when this is your first time trying to build cocos2d-x.
+Please read the help information carefully when this is your first time trying to build Cocos2d-x.
 
 If all things are going well, you will get the following meesages:
 

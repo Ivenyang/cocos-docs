@@ -64,7 +64,7 @@ var g_resources = [
 
 Here we have added two global variables named **PlayBG_png** and **runner_png**. Now when we want to create a sprite in another js files, we can easily access these variables.
 
-Since we will add four javascript files: PlayScnee.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell cocos2d-x engine to load these files when game startup. So we should change **project.json** to add more source files:
+Since we will add four javascript files: PlayScene.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell Cocos2d-x engine to load these files when game startup. So we should change **project.json** to add more source files:
 
 ```
  "jsList" : [
@@ -153,7 +153,7 @@ var AnimationLayer = cc.Layer.extend({
     init:function () {
         this._super();
 
-        //cerate the hero sprite
+        //create the hero sprite
         var spriteRunner = cc.Sprite.create(res.runner_png);
         spriteRunner.attr({x: 80, y: 85});
 
@@ -167,7 +167,7 @@ var AnimationLayer = cc.Layer.extend({
 
 ### Coding StatusLayer(StatusLayer.js)
 
-In this section, we will add two indicators: the coin quantity indicator and the distance indicator. Both indicator are labels in cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
+In this section, we will add two indicators: the coin quantity indicator and the distance indicator. Both indicator are labels in Cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
 
 Here is the code snippet we need to setup the layer:
 

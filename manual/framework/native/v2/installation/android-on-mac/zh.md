@@ -110,7 +110,7 @@ Android ADT Bundle中是包含了Android SDK Manager的. 启动您的Eclipse-ADT
 文件
  根据提示输入对应信息.
 
-	``` Youngs-MacBook-Air:~ young40$ cd /opt/cocos2d-2.1beta3-x-2.1.1/ Youngs-MacBook-Air:cocos2d-2.1beta3-x-2.1.1 young40$ ./create-android-project.sh use global definition of NDK_ROOT: /opt/android-ndk use global definition of ANDROID_SDK_ROOT: /opt/adt-bundle-mac-x86_64/sdk Input package path. For example: org.cocos2dx.example com.young40.test //这里输入了包名 Now cocos2d-x supports Android 2.2 or upper version
+	``` Youngs-MacBook-Air:~ young40$ cd /opt/cocos2d-2.1beta3-x-2.1.1/ Youngs-MacBook-Air:cocos2d-2.1beta3-x-2.1.1 young40$ ./create-android-project.sh use global definition of NDK_ROOT: /opt/android-ndk use global definition of ANDROID_SDK_ROOT: /opt/adt-bundle-mac-x86_64/sdk Input package path. For example: org.cocos2dx.example com.young40.test //这里输入了包名 Now Cocos2d-x supports Android 2.2 or upper version
 
 
 ## Available Android targets: ##

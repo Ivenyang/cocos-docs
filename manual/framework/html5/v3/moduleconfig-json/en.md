@@ -8,7 +8,7 @@ The old `jsloader.js` is replaced with `moduleConfig.json` to make the config pu
 
 #### module
 
-All the modules of cocos2d-html5 is configed here. If you need some modules in your project, just config the names in `modules` of `project.json`.
+All the modules of Cocos2d-html5 is configed here. If you need some modules in your project, just config the names in `modules` of `project.json`.
 
 The config of each module is an array which includes module name or javascript path, like:
 

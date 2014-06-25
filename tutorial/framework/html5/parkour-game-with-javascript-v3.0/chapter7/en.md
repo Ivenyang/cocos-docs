@@ -81,9 +81,7 @@ TiledMap consumes less memory than normal PNG file. If you want to build some hu
 Without further ado, let's dive into the TiledMap.
 
 ### Design and Make the TiledMap Background
-At first, you should download TiledMap. You can download it from [here](http://www.mapeditor.org/download.html). Since TiledMap is a cross platform software.
-
-There are many different kinds of version available. You can choose a version according to your operating system. After downloading the Tiled editor, you should be
+At first, you should download TiledMap. You can download it from [here](http://www.mapeditor.org/download.html). TiledMap is a cross platform software and there are many different kinds of version available. You can choose a version according to your operating system. After downloading the Tiled editor, you should be
 familiar with it's usage. You may want to take a look at it's [documentation](https://github.com/bjorn/tiled/wiki).
 
 When you feel comfortable with Tiled, you can design your tiled map with the tilesets we provided.

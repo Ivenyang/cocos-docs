@@ -1,4 +1,4 @@
-# 在Windows7上搭建Cocos2d-x 3.0开发环境
+# 在Windows7上搭建Cocos2d-x 3.2alpha0开发环境
 ---
 
 在windows7上搭建COCOS2D-X开发环境并不难， 但是由于框架更新过快，很多用户都有困难。我希望你们认为这个教程有用。
@@ -12,10 +12,11 @@
 
 - Visual Studio    
 - python  ———(本教程以python2.7.3版本为例），下载地址：[http://www.python.org/download/releases/2.7.3/](http://www.python.org/download/releases/2.7.3/)。     
-- cocos2d-x ———(本教程以cocos2d-x-3.0版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
+- Cocos2d-x ———(本教程以cocos2d-x-3.0版本为例），下载地址：[https://code.google.com/p/cocos2d-x/downloads/list](https://code.google.com/p/cocos2d-x/downloads/list)。
     
 ## 安装配置过程
-Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d-x-3.0的安装配置过程。
+Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d-x-3.2alpha0的安装配置过程。
+
 ### 安装配置python2.7.3
 #### 1. 下载并安装python2.7.3。         
 ![](./res/python1.png)
@@ -36,9 +37,9 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 打开cmd控制台，输入 python，如果出现如下提示，则说明python安装成功。
 ![](./res/python-env4.jpg)
 
-### 安装创建cocos2d-x-3.0项目
+### 安装创建cocos2d-x-3.2alpha0项目
 
-- cocos2d-x-3.0项目无需安装，下载cocos2d-x-3.0文件并解压，打开 “build”目录，直接双击运行 cocos2d-win32.vc2012.sln解决方案即可。       
+- cocos2d-x-3.2alpha0项目无需安装，下载cocos2d-x-3.2alpha0文件并解压，打开 “build”目录，直接双击运行 cocos2d-win32.vc2012.sln解决方案即可。       
      
 ![](./res/cocos2dx1.jpg)    
 
@@ -46,28 +47,30 @@ Visual Studio 的安装过程略过，本教程主要讲解python2.7.3和cocos2d
 
 ![](./res/test.jpg)
 
-- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行cocos2d-x引擎了。
+- 如果一切正常，你将得到如下的界面。那么祝贺你！你已成功的在Windows 7平台中运行Cocos2d-x引擎了。
 
 ![](./res/testcpp.jpg)
 
 
 #### 创建项目
 
-打开..\tools\project-creator文件夹，找到create_project.py文件，如下所示。
-![](./res/cocos2dx.jpg)
+进入到目录**cocos2d-x-3.2alpha0/tools/cocos2d-console/bin/cocos.py**
 
-打开终端运行**create_project.py**脚本创建文件
+打开终端运行**cocos.py**脚本创建文件
 
-此版本项目创建脚本支持图形界面方式创建项目，执行以上脚本后会出现图形界面:
+```
+python cocos.py new HelloCpp -p com.coco2dx.org -l cpp -d ~/Desktop
+```
 
-![](./res/create1.jpg)
+参数说明：
 
-填写项目名称，包名称以及项目路径后选择开发语言，即可点击**create**开始创建项目:
+- HelloCpp为项目名称
+- `-p`后面接包名
+- `-l`后面接开发语言类型，有cpp, lua, js三种类型
+- `-d`后面接项目存放的目录
 
-![](./res/create2.jpg)
 
-
-- 查看项目路径，你会发现目录中会出现新建的“test1”项目。依次打开“ test1/proj.win32 ”文件夹，“ test1.sln ”解决方案，单击运行项目。出现下面的界面则项目创建成功        
+- 查看项目路径，你会发现目录中会出现新建的“HelloCpp”项目。依次打开“ HelloCpp/proj.win32 ”文件夹，“ HelloCpp.sln ”解决方案，单击运行项目。出现下面的界面则项目创建成功        
 ![](./res/hello.jpg)
 
 

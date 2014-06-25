@@ -24,4 +24,4 @@ Cocos2D Scheduler 为你的游戏提供了时间事件和调用.最好不要使�
 
 因此，CCScheduler会比NSTimer节省很多时间，让你更加关注于你的游戏架构.
 
-标签：`cocos2d-x官方文档` `定时器Schedulerh和Timer Callback` 
+标签：`Cocos2d-x官方文档` `定时器Schedulerh和Timer Callback` 

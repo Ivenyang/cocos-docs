@@ -62,7 +62,7 @@ var g_resources = [
 
 Here we have added two global variables named **s_PlayBG** and **s_runner**. Now when we want to create a sprite in another js files, we can easily access these variables.
 
-Since we will add four javascript files: PlayScnee.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell cocos2d-x engine to load these files when game startup. So we should change **cocos2d.js** to add more source files:
+Since we will add four javascript files: PlayScene.js, AnimationLayer.js, BackgroundLayer.js and StatusLayer.js.  We need to tell Cocos2d-x engine to load these files when game startup. So we should change **cocos2d.js** to add more source files:
 
 ```
  appFiles:[
@@ -125,6 +125,7 @@ var BackgroundLayer = cc.Layer.extend({
         this._super();
 		
 		//create the background image and position it at the center of screen
+	var winSize = cc.Director.getInstance().getWinSize();
         var centerPos = cc.p(winSize.width / 2, winSize.height / 2);
         var spriteBG = cc.Sprite.create(s_PlayBG);
         spriteBG.setPosition(centerPos);
@@ -166,7 +167,7 @@ var AnimationLayer = cc.Layer.extend({
 
 ### Coding StatusLayer(StatusLayer.js)
 
-In this section, we will add two indicators: the coin quantity indicator and the distance indicator. Both indicator are labels in cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
+In this section, we will add two indicators: the coin quantity indicator and the distance indicator. Both indicator are labels in Cocos2d-html5. Labels are very useful to display HUD information to players. And the code to create and use labels are very easy. Thanks to cocos2d framework.
 
 Here is the code snippet we need to setup the layer:
 
@@ -183,7 +184,8 @@ var StatusLayer = cc.Layer.extend({
 
     init:function () {
         this._super();
-
+	
+	var winSize = cc.Director.getInstance().getWinSize();
         this.labelCoin = cc.LabelTTF.create("Coins:0", "Helvetica", 20);
         this.labelCoin.setColor(cc.c3(0,0,0));//black color
         this.labelCoin.setPosition(cc.p(70, winSize.height - 20));

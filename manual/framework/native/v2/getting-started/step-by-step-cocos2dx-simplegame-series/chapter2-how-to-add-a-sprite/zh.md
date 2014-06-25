@@ -71,9 +71,9 @@ xcopy /Y /E .\Resources\*.* $(OutDir)
 		return bRet;
 	}
 
-在关闭菜单之后，其实我们只增加了“2. Add your codes below”部分。从这里你可以看到将cocos2d-iphone代码一行一行地转换成cocos2d-x multi-platform代码的过程。
+在关闭菜单之后，其实我们只增加了“2. Add your codes below”部分。从这里你可以看到将cocos2d-iphone代码一行一行地转换成Cocos2d-x multi-platform代码的过程。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	bool HelloWorld::init()
 	{
 		if ( CCLayer::init() )
@@ -94,8 +94,8 @@ xcopy /Y /E .\Resources\*.* $(OutDir)
 2. C++与objc不同的是，不像objc，C++没有“属性（property）”这个概念。所以在C++中请使用“get/set”方法。例如，如果你想要获取“`CCSprite`”的“`contentSize`”属性，必须调用“`sprite->getContentSize()`”方法。记得第一个字母大写，然后再加上“get”前缀。     
 3. 请用“setter”来设置属性值。所以“`player.position = …`”转换成“`player->setPosition(…)`”。
 4. 但是访问结构成员不用遵循这个规则。例如在“winSize”结构中是没有包装了“width”和“height”的“getter/setter”包装类的。     
-5. 我们已经安装了一些频繁用到的CGGeometry功能，例如CGRectMake、CGPointMake、CGSizeMake、CGPointZero、CGSizeZero以及CGRectZero。你可以在“`cocos2dx/include/CCGeometry.h`”文件中看到这些功能，且功能与iOS平台一样。至于命名冲突，在cocos2d-x中CG、NS及UI前缀的类名字已经改为CC前缀。     
-6. cocos2d-x中所有游戏元素如精灵、层、场景、标签及动作均位于堆内存（heap）。所以必须通过“->”来调用它们的方法。
+5. 我们已经安装了一些频繁用到的CGGeometry功能，例如CGRectMake、CGPointMake、CGSizeMake、CGPointZero、CGSizeZero以及CGRectZero。你可以在“`cocos2dx/include/CCGeometry.h`”文件中看到这些功能，且功能与iOS平台一样。至于命名冲突，在Cocos2d-x中CG、NS及UI前缀的类名字已经改为CC前缀。     
+6. Cocos2d-x中所有游戏元素如精灵、层、场景、标签及动作均位于堆内存（heap）。所以必须通过“->”来调用它们的方法。
 7. 在Cpp文件中使用“this”关键字，而不是objc中使用的“self”。     
 8. 现在“init”方法的返回类型是“bool”。在Cpp中没有“id”关键字，所以所有返回“id”的方法均会被转换为目标指针（object pointer）或者bool。    
 9. 对于Android平台，标题栏会占据一些空间，所以需要将角色位置设置为“`ccp(player.contentSize.width/2 + 40, winSize.height/2)`”。   
@@ -106,7 +106,7 @@ xcopy /Y /E .\Resources\*.* $(OutDir)
 
 首先修改HelloWoldScene.h文件中的声明（declaration）。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	class HelloWorld : public cocos2d::CCLayerColor
 
 将以下开头部分代码
@@ -125,13 +125,13 @@ xcopy /Y /E .\Resources\*.* $(OutDir)
 
 这里跟RayWenderlinch的代码有些不同，因为更习惯用防御式编程（defensive programming）。一般的代码是，如果“supoer init”成功，然后就会干什么声明。本人更愿意使用：如果“init”失败，先处理错误，然后再继续编写正确的代码流。圆规正传。我们再来比较一下objc到cpp的转换。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	if ( CCLayerColor::initWithColor( ccc4(255,255,255,255) ) )
 
 ### 提示2
 
 1. C++继承的默认权限是私人权限。所以需要在“CCLayerColor”前面加上“public”修饰语。
-2. cocos2d-iphone首席编写者RicardoQuesada建议：使用cocos2d-x的命名空间。重要的是要检查你启动的cocos2d-x类是否在“cocos2d”命名空间或“CocosDenshion”命名空间里。
+2. Cocos2d-iphone首席编写者RicardoQuesada建议：使用Cocos2d-x的命名空间。重要的是要检查你启动的Cocos2d-x类是否在“cocos2d”命名空间或“CocosDenshion”命名空间里。
 
 编译并运行，这时你会看到我们的主角一个人站在白色的背景中。如下图所示：    
      

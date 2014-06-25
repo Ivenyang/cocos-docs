@@ -161,7 +161,7 @@ script_control_cpp = no
 
 ### Change tools/tojs/genbindings.py
 
-find `custom_cmd_args`(old version including cocos2d-js 3.0 alpha 2, it was `cmd_args` only) in tools/tojs/genbindings.py and add a line:
+find `custom_cmd_args`(old version including Cocos2d-js 3.0 alpha 2, it was `cmd_args` only) in tools/tojs/genbindings.py and add a line:
 
 ```
   'cocos2dx_custom.ini' : ('cocos2dx_custom', 'jsb_cocos2dx_custom'), \

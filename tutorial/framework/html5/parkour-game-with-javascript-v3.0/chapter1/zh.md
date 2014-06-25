@@ -8,11 +8,11 @@
 
 1. 下载并安装 WebStorm 7。目前 [WebStorm 7](http://www.jetbrains.com/webstorm/download/index.html) 最稳定的发布版本是 7.0.3。我们为什么 WebStorm 呢？因为它提供了很多特性，例如Javascript代码的语法实现、调试、语法高亮以及版本管理等等。你可以去WebStorm的官网获取更多的信息。
 
-2. 从Cocos2d-x的官网下载[cocos2d-js-v3.0 alpha2](http://cocos2d-x.org/download )。下载完成后解压到适当的路径。以我的为例，我将它解压在 ~/work/cocos2d-js-v3.0-alpha2 里。这里的 ~ 符号代表我们的 home 文件路径，于我而言就是 /Users/linshun。
+2. 从Cocos2d-x的官网下载[cocos2d-js-v3.0 alpha2](http://cocos2d-x.org/download )。下载完成后解压到适当的路径。以我的为例，我将它解压在 ~/work/Cocos2d-js-v3.0-alpha2 里。这里的 ~ 符号代表我们的 home 文件路径，于我而言就是 /Users/linshun。
 
 	**注意：**
 	
-	你也可以从github上[Cocos2d-JS的仓库](https://github.com/cocos2d/cocos2d-js )中获取cocos2d-js的最新版本。**master**分支是最后一个稳定版本，**develope**分支是当前工作分支，有最新的features但是可能存在不稳定情况。
+	你也可以从github上[Cocos2d-JS的仓库](https://github.com/cocos2d/cocos2d-js )中获取Cocos2d-js的最新版本。**master**分支是最后一个稳定版本，**develope**分支是当前工作分支，有最新的features但是可能存在不稳定情况。
 	
 3. 下载并安装 Chrome 34 和 [JetBrains-IDE-support ]( https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji)。
 
@@ -24,7 +24,7 @@ OK,接下来我们将要介绍如何配置WebStorm 7 进行开发和调试我们
 Cocos console是一个可以为Cocos2d-html5和Cocos2d-x JavaScript Binding（JSB）极大简化游戏创建和环境配置过程的工具，可以使用它来创建新项目，编译并发布游戏到android，iOS，Mac OS，iOS或者Web平台。
 
 ### Cocos console安装
-* 进入到已经下载完成的软件包，如~/work/cocos2d-js-v3.0-alpha2
+* 进入到已经下载完成的软件包，如~/work/Cocos2d-js-v3.0-alpha2
 * 执行设置脚本 setup.py，安装的过程中需要你提供NDK，Android SDK和ANT的路径。该工具使用python开发，支持python 2.7.5或者2.7.6，暂时不支持python 3
 * 根据提示执行 source ~/.bash_profile 指令，让环境设置立即生效
 

@@ -52,7 +52,7 @@ Chipmunk在一个“虚拟的Chipmunk空间”中模拟了物理行为。而你�
  创造一些墙，确保物体不会掉出屏幕。   
  向Chipmunk空间添加各种形状。   
  设定触摸事件，实现点击屏幕时可以添加精灵。   
- 下面的工程在cocos2d-x的示例工程中被命名为ChipmunkTest。  
+ 下面的工程在Cocos2d-x的示例工程中被命名为ChipmunkTest。  
  
 **创建Chipmunk空间**   
 下面这一步创建一个虚拟的Chipmunk空间，用来模拟物理的运行。

@@ -263,7 +263,7 @@ director->replaceScene(TransitionFade::create(1.2f, newScene, Color3B::WHITE));
 ```
 
  
-　　从下载下来的cocos2d-x工程里的TestCpp测试代码中，找到TransitionsTest.h/.cpp，那里面有所有的transition的用法，后面我们用到的是从TransitionsTest切出来的一小部分。 
+　　从下载下来的Cocos2d-x工程里的TestCpp测试代码中，找到TransitionsTest.h/.cpp，那里面有所有的transition的用法，后面我们用到的是从TransitionsTest切出来的一小部分。 
 
 　　为了从场景的字符串名字返回场景类，我们所要下面的宏定义和结构体：
 

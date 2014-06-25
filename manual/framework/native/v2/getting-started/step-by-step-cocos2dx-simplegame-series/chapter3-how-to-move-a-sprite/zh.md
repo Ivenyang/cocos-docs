@@ -4,7 +4,7 @@
 这时就要用到void addTarget()函数，这个函数会在场景中从右到左按照任意速度增加敌人。
 在HelloWorldScene.h文件中对void addTarget()函数进行声明，然后在HelloWorldScene.cpp文件中增加以下代码（不要忘了在HelloWorldScene.cpp文件开头增加使用cocos2d命名空间）。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::addTarget()	
 	{	
 		CCSprite *target = CCSprite::create(“Target.png”,	
@@ -41,7 +41,7 @@
 
 这里callfuncN_selector(HelloWorld::spriteMoveFinished)会回调spriteMoveFinished()函数，我们需要在HelloWorldScene.h文件中对该函数进行声明并作如下定义：
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::spriteMoveFinished(CCNode* sender)
 	{
 		CCSprite *sprite = (CCSprite *)sender;
@@ -62,13 +62,13 @@
 要根据不同的回调函数定义来使用这些回调函数。例如当使用函数CCTimer::initWithTarget时，第二个参数是SEL_SCHEDULE的类型，我们可以在selector_protocol.h文件中找到schedule_selector(_SELECTOR)的宏定义，然后声明回调函数void MyClass::MyCallbackFuncName(float)，然后将该函数转换为CCTimer::initWithTarget函数的第二个参数。
 然后我们间隔性地放置一些敌人，在函数返回之前增加以下代码。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	// Call game logic about every second
 	this->schedule( schedule_selector(HelloWorld::gameLogic), 1.0 );
 
 在HelloWorldScene.cpp文件中执行gameLogic()函数。注意：gameLogic()应该声明为公共类（public）。
 
-	// cpp with cocos2d-x
+	// cpp with Cocos2d-x
 	void HelloWorld::gameLogic(float dt)
 	{
 	    this->addTarget();

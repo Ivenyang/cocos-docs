@@ -9,14 +9,14 @@ Examples:
 
 ```
 cc.log("this is a log");
-cc.log("this is a log for %s", "cocos2d-html5");
+cc.log("this is a log for %s", "Cocos2d-html5");
 
 cc.warn("this is a waring");
-cc.warn("this is a waring for %s", "cocos2d-html5");
+cc.warn("this is a waring for %s", "Cocos2d-html5");
 
 cc.error("this is an error");
-cc.error("this is an error for %s", "cocos2d-html5");
+cc.error("this is an error for %s", "Cocos2d-html5");
 
 cc.assert(false, "this is an assert");
-cc.assert(false, "this is an assert for %s", "cocos2d-html5");
+cc.assert(false, "this is an assert for %s", "Cocos2d-html5");
 ```

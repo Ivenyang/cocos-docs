@@ -16,7 +16,7 @@ The directory structures can be separated into four parts:
 #### Part1: engine related folders
 
 * **frameworks** directory hosts Cocos2d-html5 engine and Cocos2d-x JavaScript Bindings.
-    * **cocos2d-html5** directory holds all the engine modules of cocos2d-html5, such as engine core modules, audio module, external physic lib, CocosBuilder Reader, CocoStudio Reader and other modules. All of modules are implemented in JS, and can be run on web.
+    * **Cocos2d-html5** directory holds all the engine modules of Cocos2d-html5, such as engine core modules, audio module, external physic lib, CocosBuilder Reader, CocoStudio Reader and other modules. All of modules are implemented in JS, and can be run on web.
     * **js-bindings** directory hosts Cocos2d-x engine, project files of bindings and external prebuilt SpiderMonkey lib. The exported API is JS, and the base modules are implemented by Cpp, and can be run on native platform, such as iOS, android, Mac, win32 and so on.
     
 #### Part2: tests,sample games and template
@@ -93,7 +93,7 @@ Can't help waiting? Let's do it right now!
 As we talked before, we can create an new project with specified name. Go to your workspace and use cocos console to create the **Parkour** game.
 
 ```
-    cococs new Parkour -l js
+    cocos new Parkour -l js
 ```
 
 Now open your WebStorm and open the Parkour directory. Now the project navigator looks like this:
@@ -145,7 +145,7 @@ Ok, you have known what these files and folder are for. Now it's time to underst
 
 It is very important to know a program's execution path. 
 
-The project is loaded into browser from index.html. Then it moves to **frameworks/cocos2d-html5/CCBoot.js**. In this file, it will try to load the project configuration from the project.json file.
+The project is loaded into browser from index.html. Then it moves to **frameworks/Cocos2d-html5/CCBoot.js**. In this file, it will try to load the project configuration from the project.json file.
 
 ```
 {
@@ -170,7 +170,7 @@ The project is loaded into browser from index.html. Then it moves to **framework
 
 Loot at the code piece, there is a object property named **engineDir** which is the key point to decide the execution path of the following program. In the default case, we have specify the engineDir. 
 
-The main.js will be loaded after **frameworks/cocos2d-html5/CCBoot.js** file and it will initilize the configuration and load all the JavaScript files specified by **modules** and **jsList**. It is more clear to read the source code than reading my plain text. 
+The main.js will be loaded after **frameworks/Cocos2d-html5/CCBoot.js** file and it will initilize the configuration and load all the JavaScript files specified by **modules** and **jsList**. It is more clear to read the source code than reading my plain text. 
 
 ### Making Some little tweaks of the project
 
@@ -191,7 +191,7 @@ Here is the code:
     "frameRate" : 60,
     "id" : "gameCanvas",
     "renderMode" : 0,
-    "engineDir":"frameworks/cocos2d-html5",
+    "engineDir":"frameworks/Cocos2d-html5",
 
     "modules" : ["cocos2d"],
 
@@ -212,8 +212,8 @@ id | "gameCanvas"  | the dom element to run cocos2d on
 frameRate | a positive number above 24, usually 60-30  | adjust the frame rate of your game
 renderMode | 0,1,2 | Choose of RenderMode: 0(default), 1(Canvas only), 2(WebGL only)
 engineDir | the engine directory related to your project  | specify the directory the engine code  
-modules | engine modules  | you could customize your engine by modules. Module names are in the module of moduleConfig.json in root of **frameorks/cocos2d-html5** directory
- appFiles | a list of your game source code  | add your own file lists after myApp.js
+modules | engine modules  | you could customize your engine by modules. Module names are in the module of moduleConfig.json in root of **frameorks/Cocos2d-html5** directory
+ jsList | a list of your game source code  | add your own file lists after myApp.js
  
  
 

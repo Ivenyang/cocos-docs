@@ -29,7 +29,7 @@ CCParticleSystemQuad有很多特性是CCParticleSystemPoint不支持的:
 
 
 
-由于CCParticleSystemPoint不支持CCParticleBatchNode.所以,CCParticleSystemPoint已经从cocos2d-x粒子系统里移除了.
+由于CCParticleSystemPoint不支持CCParticleBatchNode.所以,CCParticleSystemPoint已经从Cocos2d-x粒子系统里移除了.
 
 ## CCParticleBatchNode ##
 
@@ -121,7 +121,7 @@ CCParticleBatchNode可以引用且只可以引用1个texture(一个图片文件�
 
 
 
-- cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
+- Cocos2d-x里内置的预制粒子是可以在运行时自定义的.内置粒子列表:
 - CCParticleFire: Point particle system. 使用重力模式.
 - CCParticleFireworks: Point particle system. 使用重力模式.
 - CCParticleSun: Point particle system. 使用重力模式.
@@ -142,4 +142,4 @@ CCParticleBatchNode可以引用且只可以引用1个texture(一个图片文件�
   
 
 
-标签：`cocos2d-x官方文档` `粒子效果 Particles` 
+标签：`Cocos2d-x官方文档` `粒子效果 Particles` 

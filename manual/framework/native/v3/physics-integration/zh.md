@@ -1,4 +1,4 @@
-# 使用 cocos2d-x 3.0 physicals
+# 使用 Cocos2d-x 3.0 physicals
 
 ## 概述
 

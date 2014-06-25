@@ -12,7 +12,7 @@ We are happy to announce the release of:
 
 ### Download ###
 
-[cocos2d-x-3.0.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0.zip)
+[Cocos2d-x-3.0.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0.zip)
 
 ### Fixes
 
@@ -27,7 +27,7 @@ Read the [complete changelog](https://github.com/cocos2d/cocos2d-x/blob/cocos2d-
 
 ## Release Notes
 
-Read more about all the new features at [cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
+Read more about all the new features at [Cocos2d-x v3.0 release notes](https://github.com/cocos2d/cocos2d-x/blob/develop/docs/RELEASE_NOTES.md)
 
 
 We would greatly appreciate if you can test this version and report any kind of bug and/or issue that you might find.
@@ -40,7 +40,7 @@ Thank you!
 
 ## Download
 
-- [cocos2d-js-v3.0-alpha2.zip](http://cdn.cocos2d-x.org/cocos2d-js-v3.0-alpha2.zip)
+- [Cocos2d-js-v3.0-alpha2.zip](http://cdn.cocos2d-x.org/cocos2d-js-v3.0-alpha2.zip)
 - [Downloadable API reference](http://cdn.cocos2d-x.org/Cocos2d-html5_v3.0_Alpha2_API_Doc.zip)
 
 ## Highlights
@@ -63,7 +63,7 @@ Read more about all the new features at [Cocos2d-JS v3.0 alpha2 changelog](http:
 
 ## Download
 
-- [cocos2d-html5-v2.2.3.zip](http://cdn.cocos2d-x.org/cocos2d-html5-v2.2.3.zip)
+- [Cocos2d-html5-v2.2.3.zip](http://cdn.cocos2d-x.org/cocos2d-html5-v2.2.3.zip)
 - [Downloadable API reference](http://cdn.cocos2d-x.org/Cocos2d-html5_v2.2.3_API_Doc.zip)
 
 ## Highlights

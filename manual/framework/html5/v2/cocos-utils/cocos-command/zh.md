@@ -14,7 +14,7 @@ cocos command
 
 ### cocos install
 
-安装`cocos2d-html5`引擎的所有模块。
+安装`Cocos2d-html5`引擎的所有模块。
 
 如果你只想安装单个模块，可以使用npm自带的命令：
 

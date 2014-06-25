@@ -1,10 +1,10 @@
-# 第一章——如何在多平台新建cocos2d-x项目
+# 第一章——如何在多平台新建Cocos2d-x项目
 
 **DEPRECATED! (see Updated process)弃用！（见更新过程）**
 
-本文介绍如何使用cocos2d-x引擎将众所周知的“Cocos2dSimpleGame”游戏从objc文件移植到c++中，然后再在WIN32/iPhone/Android/WoPhone多平台运行游戏。“Cocos2dSimpleGame”由Ray Wenderlich编写而成。几乎每个cocos2d-iphone引擎初学者都看过他的操作指南。
+本文介绍如何使用Cocos2d-x引擎将众所周知的“Cocos2dSimpleGame”游戏从objc文件移植到c++中，然后再在WIN32/iPhone/Android/WoPhone多平台运行游戏。“Cocos2dSimpleGame”由Ray Wenderlich编写而成。几乎每个Cocos2d-iphone引擎初学者都看过他的操作指南。
 
-首先，你需要从[http://download.cocos2d-x.org](http://download.cocos2d-x.org)下载最新稳定版引擎。编写本指南时引擎最新版本为cocos2d-0.99.5-x-0.8.2，然后升级游戏资源至0.91版本。最新引擎名称中的“0.99.5”是指该c++端口是基于cocos2d-iphone 0.99.5父引擎，而后缀“0.82”是我们cocos2d-x端口的版本号。
+首先，你需要从[http://download.cocos2d-x.org](http://download.cocos2d-x.org)下载最新稳定版引擎。编写本指南时引擎最新版本为Cocos2d-0.99.5-x-0.8.2，然后升级游戏资源至0.91版本。最新引擎名称中的“0.99.5”是指该c++端口是基于Cocos2d-iphone 0.99.5父引擎，而后缀“0.82”是我们Cocos2d-x端口的版本号。
 
 “Cocos2dxSimpleGame”源码地址为 [http://www.cocos2d-x.org/attachments/535/Cocos2dxSimpleGame-0.9.1.rar](http://www.cocos2d-x.org/attachments/535/Cocos2dxSimpleGame-0.9.1.rar)。该源码已经经过“cocos2d-1.0.1-x-0.9.1”引擎测试。             
 下面开始介绍如何创建项目。你可以直接跳到平台上开始操作。
@@ -27,7 +27,7 @@ cocos2d-win32端口已经在WinXP+ VistualStudio2008/2010环境下经过测试�
 
 ![](./res/Win32AddProject.png)
 
-选择“cocos2d-x -> cocos2d-win32 Application”在“Name”一栏中填上“Cocos2dxSimpleGame”，“Location”一栏选择默认设置。
+选择“Cocos2d-x -> cocos2d-win32 Application”在“Name”一栏中填上“Cocos2dxSimpleGame”，“Location”一栏选择默认设置。
 
 注意：WIN32及WoPhone端口中，游戏存放路径（location）必须在cocos2d-x根目录下。
 
@@ -55,7 +55,7 @@ cocos2d-win32端口已经在WinXP+ VistualStudio2008/2010环境下经过测试�
 
 - 对于WIN7用户：“PowerVR”还未发布Windows7版本端口。但还是可以试一下，许多行业里的WIN7用户成功运行过这个样例。
 - 对于WINXP/Vista用户：如果“HelloWorld”是因为“glXXX”或“eglXXX”功能而崩溃，请更新视频显卡驱动，登陆“NVIDIA/ATI/INTEL”网址下载最新驱动。
-- 对于其他不幸的用户：可以手动在XCode中创建cocos2d-x项目。
+- 对于其他不幸的用户：可以手动在XCode中创建Cocos2d-x项目。
 ## 2. 从WoPhone开始
 
 如果你是WoPhone开发人员，以上WIN32平台的各步骤也适用。只有3个不同点：      
@@ -70,7 +70,7 @@ cocos2d-wophone引擎下运行HelloWorld界面如下。
 ![](./res/WoPhoneHelloWorld.png)
 ## 3. 从iPhone开始
 
-自从0.8.2版本以来我们就提供了XCode模板。你可以像创建“cocos2d-iphone projects”项目一样新建“cocos2d-x”项目。
+自从0.8.2版本以来我们就提供了XCode模板。你可以像创建“cocos2d-iphone projects”项目一样新建“Cocos2d-x”项目。
 首先进入“cocos2d-x”文件夹根目录，然后在Mac Shell中运行“install-templates.sh”。     
 ``` 
 ./install-templates-xcode.sh -u -f
@@ -79,8 +79,8 @@ cocos2d-wophone引擎下运行HelloWorld界面如下。
 安装完成之后，便可启动XCode，然后单击“Create a new Xcode project”后会看到如下界面。          
 
 ![](./res/IOSNewProject.png)          
-选择“cocos2d-x application”，然后点击“choose”，输入项目名称，之后XCode便会为你新建“cocos2d-x”项目。
-注意：iOS平台cocos2d-x项目可以创建在任意路径。Xcode中的Wizard工具会复制所有cocos2dx及CocosDenshion等的库到项目文件夹中。这点与在VisualStudio环境WIN32及WoPhone平台的Wizard工具不同。
+选择“Cocos2d-x application”，然后点击“choose”，输入项目名称，之后XCode便会为你新建“Cocos2d-x”项目。
+注意：iOS平台Cocos2d-x项目可以创建在任意路径。Xcode中的Wizard工具会复制所有cocos2dx及CocosDenshion等的库到项目文件夹中。这点与在VisualStudio环境WIN32及WoPhone平台的Wizard工具不同。
 然后编译运行，你会看到如下HelloWorld运行界面。
 
 ![](./res/IOSHelloWorld.png)   
@@ -106,11 +106,11 @@ Android NDK项目包括两个部分，用于Java语言的部分和用于C++语�
 
 org.coco2dx.Cocos2dxSimpleGame.      
 
-不同开发环境下的目标ID（target id）不同，你应确保输入有效的目标ID（target id）。目前cocos2d-x支持Android 2.1-update1及Android 2.2，其他版本尚未测试。
+不同开发环境下的目标ID（target id）不同，你应确保输入有效的目标ID（target id）。目前Cocos2d-x支持Android 2.1-update1及Android 2.2，其他版本尚未测试。
 
 #### 4.1.2 编译本地代码
 
-在cocos2d-x根目录下有一个“Cocos2dxSimpleGame”文件夹。运行cygwin然后进入“Cocos2dxSimpleGame/android”目录，然后运行“build_native.sh”文件。
+在Cocos2d-x根目录下有一个“Cocos2dxSimpleGame”文件夹。运行cygwin然后进入“Cocos2dxSimpleGame/android”目录，然后运行“build_native.sh”文件。
 
 ![](./res/BuildNativeCode.jpg)
 #### 4.1.3 往Eclipse导入项目

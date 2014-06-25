@@ -6,9 +6,9 @@
 
 这里有本教程的[完整源代码](./sprite-tutorial-part2)。
 
-这里介绍一下cocos2d-x 3.0新的触摸机制：
+这里介绍一下Cocos2d-x 3.0新的触摸机制：
 
-首先我们需要让layer能接收touch事件。cocos2d-x 3.0增加了新的事件分发机制，并且让setTouchEnabled为deprecated的方法。对某个方法和类标注deprecated的意思就是这个方法或类不再建议使用。所以我们继承虚函数onEnter，并重写：
+首先我们需要让layer能接收touch事件。Cocos2d-x 3.0增加了新的事件分发机制，并且让setTouchEnabled为deprecated的方法。对某个方法和类标注deprecated的意思就是这个方法或类不再建议使用。所以我们继承虚函数onEnter，并重写：
 
 ```
 void PlayLayer::onEnter()
@@ -61,7 +61,7 @@ int runAnim = (int)((cocosAngle)/45);
 1. 计算touch点到dragon当前位置的向量
 2. 计算这个向量的长度（这里是像素长度）
 3. 计算move向量的弧度
-4. 把弧度转换成角度（因为cocos2d-x使用的是角度）
+4. 把弧度转换成角度（因为Cocos2d-x使用的是角度）
 
 为了得到统一的移动方法，而不用管dragon目前处在屏幕的哪个位置，我们设置了一个变量，保存dragon移动的速度常量（通过距离/时间计算得到的）。然后，我们把move向量的长度除以这个速度，就可以得到MoveTo action所需要的duration了）
 

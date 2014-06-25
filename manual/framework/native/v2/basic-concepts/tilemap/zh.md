@@ -182,7 +182,7 @@ GID0用于代表空瓷砖。
 
 ## 参考
 
-[cocos2d-iphone tiled\_maps ](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps)
+[Cocos2d-iphone tiled\_maps ](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps)
 
 [使用瓷砖编辑器制作简单地图](http://sourceforge.net/apps/mediawiki/tiled/index.php?title=Creating_a_simple_map_with_Tiled)
 

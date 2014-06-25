@@ -1,6 +1,6 @@
 # How to Build an Android Project with Eclipse
 
-In this document, I will show you how to build cocos2d-x and android project with Eclipse. Since Eclipse is a multi-platform software, here I just use MacOS as an example.
+In this document, I will show you how to build Cocos2d-x and android project with Eclipse. Since Eclipse is a multi-platform software, here I just use MacOS as an example.
 The processes in other platforms should be more or less the same.
 
 ## Prerequisite
@@ -29,7 +29,7 @@ command.) If you don't know how to do this, please refer to [this link](https://
 
 - Open the existing Android project with Eclipse.
 
-- Import the libcocos2dx project.(Caution: Don't import the libcocos2dx project under cocos2d-x directory unless you are building cpp-tests project. If you create a project with `cocos` command, make sure you are importing the libcocos2dx under your own project directory.)
+- Import the libcocos2dx project.(Caution: Don't import the libcocos2dx project under Cocos2d-x directory unless you are building cpp-tests project. If you create a project with `cocos` command, make sure you are importing the libcocos2dx under your own project directory.)
 
 - Build and Run the Android project.
 
@@ -39,16 +39,16 @@ I will use the next two examples to show you how to perform this workflow.
 
 ### Build Cpp-Tests by using the python scripts.
 
-At first, you should download [cocos2d-x](http://www.cocos2d-x.org/download) and unzip it under a location. We unzip it under my home directory.
+At first, you should download [Cocos2d-x](http://www.cocos2d-x.org/download) and unzip it under a location. We unzip it under my home directory.
 
-Then open Terminal, and cd to the `build` directory of the cocos2d-x folder. Here is the screenshot:
+Then open Terminal, and cd to the `build` directory of the Cocos2d-x folder. Here is the screenshot:
 
 ![image1](./res/image1.png)
 
 And run `python android-build.py -p 10 cpp-tests` command to build the cpp-tests android project. 
 
 If you get a build success message from the Terminal then you should check whether there is a libcocos2dcpp.so file located
-in `[cocos2d-x root]tests/cpp-tests/proj.android/libs/armeabi/libcpp_tests.so `.
+in `[Cocos2d-x root]tests/cpp-tests/proj.android/libs/armeabi/libcpp_tests.so `.
 
 ### Open the proj.android project with Eclipse.
 
@@ -83,7 +83,7 @@ If all the above processes are correct, the `Finish` button will be enabled and 
 ### Import Libcocos2dx Project
 This is more or less the same process as we do in the previous section except for the path of the `proj.android` is different.
 
-The path of the libcocos2dx project is `[your cocos2d-x root]cocos/2d/platform/android/java`. 
+The path of the libcocos2dx project is `[your Cocos2d-x root]cocos/2d/platform/android/java`. 
 
 
 ### Build and Run the Android Project

@@ -36,7 +36,7 @@ When you add new images into the *TexturePacker* folder, TexturePacker will auto
 
 Ok, we have successfully generate the running animation files. Next let's play with the generated animation files.
 
-## Load Animations Files in Cocos2D-HTML5
+## Load Animations Files in Cocos2d-HTML5
 
 ### Preparation
 
@@ -103,14 +103,14 @@ this.runningAction = cc.RepeatForever.create(cc.Animate.create(animation));
 
 The animation is constructed from a series of small images(from runner0.png to runner7.png) in the spritesheet.
 
-Here is the completely process to create a animation in cocos2d-html5:
+Here is the completely process to create a animation in Cocos2d-html5:
 
 1. Load spritesheet plist file into SpriteFrameCache class.
 2. Add animation frames to the array *animFrames*
 3. Create a cc.Animation object from the animation frame array along with a delay time between each sprite frame.
 4. Create the final cc.Animate object and wrap it when a RepeatForever action. Thus the animation will run infinite.
 
-Generally, if we use animations in cocos2d-html5, we always use *SpriteBatchNode* to boost game performance.
+Generally, if we use animations in Cocos2d-html5, we always use *SpriteBatchNode* to boost game performance.
 
 The final code of the *AnimationLayer.js* is:
 
@@ -157,7 +157,7 @@ Now, you can run the project and you will get a infinite running player in your 
 
 ##Summary
 
-In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within cocos2d-html5.
+In this tutorial, we have learned how to use TexturePacker to generate animation and how to run animation on a sprite within Cocos2d-html5.
 
 You can download the entire project from [here](res/Parkour.zip).
 

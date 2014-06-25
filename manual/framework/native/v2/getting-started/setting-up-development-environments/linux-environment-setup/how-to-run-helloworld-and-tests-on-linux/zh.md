@@ -1,12 +1,12 @@
 # 如何在Linux平台运行HelloWorld及测试项目
 
-Cocos2d-x引擎自cocos2d-1.0.1-x-0.9.2版本以来支持Linux平台。
+Cocos2d-x引擎自Cocos2d-1.0.1-x-0.9.2版本以来支持Linux平台。
 本文介绍如何在Linux及Android模拟器中运行HelloWorld及测试项目。
 运行环境为Ubuntu 11.04 + eclipse3.7。
 
 ## 1. 搭建环境
-### 1.1 获取cocos2d-x源代码
-a) 执行以下命令从git获取最新的cocos2d-x源代码（不稳定）：
+### 1.1 获取Cocos2d-x源代码
+a) 执行以下命令从git获取最新的Cocos2d-x源代码（不稳定）：
 
 ```
 git clone https://github.com/cocos2d/cocos2d-x.git
@@ -50,7 +50,7 @@ cd $COCOS2DX
 ./build_linux.sh
 ```
 
-COCOS2DX是cocos2d-x的根目录。用makefile运行很简单。如下：      
+COCOS2DX是Cocos2d-x的根目录。用makefile运行很简单。如下：      
 ```
 cd $HELLOWORLD/linux/
 make
@@ -65,7 +65,7 @@ HELLOWORLD是helloworld的根目录，在本机环境的路径为“/home/zhangx
 
 ![](./res/import_project.jpg)
 
-然后选择cocos2d-x根目录。
+然后选择Cocos2d-x根目录。
 
 ![](./res/select_project.jpg)
 

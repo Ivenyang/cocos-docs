@@ -24,7 +24,7 @@ Coco2d引擎中的“CCScene”有一个或多个“CCNode”组成，这些节�
 
 ![](./res/layers.png)
 
-“CCLayer”也是你定义触摸事件处理器（handler）的地方。“CCLayer”会通过调用某种方法（ccTouchBegan、 ccTouchMoved、ccTouchEnded或ccTouchCancelled）来处理触摸事件以回应用户的交互。这些触摸事件几乎布满一个场景的所有层级，前前后后，直到一些层级捕获了该捕获并接受了该触摸时间。
+“CCLayer”也是你定义触摸事件处理器（handler）的地方。“CCLayer”会通过调用某种方法（ccTouchBegan、 ccTouchMoved、ccTouchEnded或ccTouchCancelled）来处理触摸事件以回应用户的交互。这些触摸事件几乎布满一个场景的所有层级，前前后后，直到一些层级捕获并接受了该触摸事件。
 
 复杂的应用会要求你定义特定的“CCLayer”子类，cocos2d提供了几个预设的子类，例如“CCMenu”（一个简单的菜单层）、“CCColorLayer”（一个绘制纯色的颜色层）以及“CCLayerMultiplex”（一个允许你复用子类的层，一次激活一个子类时会关闭其他子类）。
 
@@ -60,7 +60,3 @@ Coco2d引擎中的“CCScene”有一个或多个“CCNode”组成，这些节�
 ### Sprites 精灵
 
 Cocos2d引擎的“CCSprite”精灵跟你在其他游戏引擎中看到的差不多。“CCSprite”精灵是一个2D图像，可以移动、旋转、放大缩小、活动，还能进行其他变化。精灵（通过“CCSprite”类实现）还可以有其他精灵当作子类。当父类被转变时，该父类下的所有子类也将被转变。因为精灵实际是“CCNode”的一个子类，可以手动转变或者使用“CCAction”转变。欲了解更多信息，请参考动作章节。
-
-### 参考
-
-iPhone版cocos2d：[cocos2d Basic Concepts](http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:basic_concepts)

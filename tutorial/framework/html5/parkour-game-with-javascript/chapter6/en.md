@@ -61,7 +61,7 @@ Append *globals.js* path to the end of *appFiles* array:
         ]
 ```
 
-*Note:* Whenever you add a new file in cocos2d-html5, you should remember to add it to the *appFiles* array.
+*Note:* Whenever you add a new file in Cocos2d-html5, you should remember to add it to the *appFiles* array.
 
 ### Initialize Chipmunk physic world
 

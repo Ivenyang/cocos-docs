@@ -22,7 +22,7 @@ In an unordered_map, the key value is generally used to uniquely identify the el
 
 Internally, the elements in the unordered_map are not sorted in any particular order with respect to either their key or mapped values, but organized into buckets depending on their hash values to allow for fast access to individual elements directly by their key values (with a constant average time complexity on average).
 
-Before cocos2d-x v3.0 beta, there is another sequence container named [cocos2d::CCDictionary](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCDictionary.h) which will be deprecated in the future.
+Before Cocos2d-x v3.0 beta, there is another sequence container named [cocos2d::CCDictionary](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCDictionary.h) which will be deprecated in the future.
 
 Because we carefully design the `cocos2d::Map<K,V>` container as a replacement for `cocos2d::CCDictionary`, please use cocos2d::Map<T> instead of `cocos2d::CCDictionary`.
 ##Template parameters
@@ -33,7 +33,7 @@ Because we carefully design the `cocos2d::Map<K,V>` container as a replacement f
 
 **V** - The type of the mapped value.
 
-- T must be the a pointer to [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of cocos2d-x into `cocos2d::Map<K,V>`. （since v3.0 beta）
+- T must be the a pointer to [cocos2d::Object](https://github.com/cocos2d/cocos2d-x/blob/develop/cocos/base/CCObject.h) descendant object type. No other data type or primitives are allowed. Because we integrate the memory management model of Cocos2d-x into `cocos2d::Map<K,V>`. （since v3.0 beta）
 
 ##Memory Management
 The `cocos2d::Map<K,V>` class contains only one data member:
@@ -51,14 +51,14 @@ If you call `new` operator to allocate a dynamic memory of `cocos2d::Map<K,V>`, 
 
 If you do want to dynamic allocate `cocos2d::Map<K,V>` on the heap due to some obligatory reasons. Please wrap the raw pointer with smart pointers like `shared_ptr`,`unique_ptr`.
 
-**WARNING**: `cocos2d::Map<K,V>` doesn't use retain/release and refcount memory management like other cocos2d classes!
+**WARNING**: `cocos2d::Map<K,V>` doesn't use retain/release and refcount memory management like other Cocos2d-x classes!
 
 
 ##Basic Usage
 
 **WARNING** The `cocos2d::Map<K,V>` doesn't overload `operator[]`, so you can't get a element from `cocos2d::Map<K,V>` using subscrit operator like `map[i]`.
 
-For more APIs usage, please refer to the source code and the tests distributed with cocos2d-x 3.0 beta archive.
+For more APIs usage, please refer to the source code and the tests distributed with Cocos2d-x 3.0 beta archive.
 
 Here is a simple usage example:
 

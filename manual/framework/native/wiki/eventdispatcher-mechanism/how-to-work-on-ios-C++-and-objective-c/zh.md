@@ -1,0 +1,18 @@
+iOS平台开发实践（C++/Object-C）
+===
+
+##目的
+
+点击Cocos2dx场景中的按钮就可以给Objective-C发送信息，然后在本地平台上显示弹出对话框。如何实现的呢？请阅读本文。
+
+##指令
+
+你需要对项目执行几次include（包含）指令，本人已经创建了一个在线repo库，根据开发环境分为几个部分。请确保你include了所有C++文件和Objective-C文件。在线repo库链接为：[EasyNDK](https://github.com/aajiwani/EasyNDK-for-cocos2dx)。
+
+从C++包含
+
+```#include "NDKHelper.h" // The button click method of Cocos2dxvoid HelloWorld::menuCloseCallback(CCObject* pSender){    // Register a selector in a global space    // So that when our native environment will call the method with the string    // It can respond to the selector    // Note : Group name is there for ease of removing the selectors    NDKHelper::AddSelector("HelloWorldSelectors",                           "SampleSelector",                           callfuncND_selector(HelloWorld::SampleSelector),                           this);    // Making parameters for message to be passed to native language    // For the ease of use, i am sending the method to be called name from C++    CCDictionary* prms = CCDictionary::create();    prms->setObject(CCString::create("SampleSelector"), "to_be_called");    // Finally call the native method in current environment    SendMessageWithParams(string("SampleSelector"), prms);}// A selector that will respond to us, when native language will call itvoid HelloWorld::SampleSelector(CCNode *sender, void *data){    CCLog("Called from native environment");}// Destructor to remove all the selectors which are grouped as HelloWorldSelectorsHelloWorld::~HelloWorld(){    // Remove the associated selector group from the global space,    // Because we are destroying this instance    NDKHelper::RemoveSelectorsInGroup("HelloWorldSelectors");}
+```从Objective-C包含
+```// Using a UIViewController init method to attach a receiver for messages from C++- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {        // Custom initialization        // Tell NDKHelper that RootViewController will respond to messages        // Coming from C++        [IOSNDKHelper SetNDKReciever:self];    }    return self;}// Implement the selector to be called for a message from C++// Be sure to name the selector to be of the same string as you will pass from C++// Like we passed "SampleSelector" from C++, that is why created this selector- (void) SampleSelector:(NSObject *)prms{    NSLog(@"purchase something called");    NSDictionary *parameters = (NSDictionary*)prms;    NSLog(@"Passed params are : %@", parameters);    // Fetching the name of the method to be called from Native to C++    // For a ease of use, i have passed the name of method from C++    NSString* CPPFunctionToBeCalled = (NSString*)[parameters objectForKey:@"to_be_called"];    // Show a bogus pop up here    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"                                                       message:@"This is a sample popup on iOS"                                                      delegate:nil                                            cancelButtonTitle:@"OK"                                             otherButtonTitles:nil];    [message show];    // Send C++ a message with paramerts    // C++ will recieve this message, only if the selector list will have a method    // with the string we are passing    [IOSNDKHelper SendMessage:CPPFunctionToBeCalled WithParameters:nil];}```
+`注意`
+若连接其他SDK，你可以参考相关SDK的Objective-C指南并分别实施消息传递机制从Cocos2d-x进行调用。本人通过这种方法已经实现了GameCenter、Flurry以及其他很多SDK。拥有完整源码的样本项目可从网上下载：[Sample iOS Project](https://github.com/aajiwani/EasyNDK-for-cocos2dx/tree/master/Sample iOS Project)。祝编程愉快！

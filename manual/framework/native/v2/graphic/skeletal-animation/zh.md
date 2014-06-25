@@ -9,7 +9,7 @@
 
 
 
-骨骼动画是cocos2d-x动画在人物渲染方面的技术,分二个部分:用于绘制人物的外观呈现（被称为蒙皮或者mesh）和用于mesh进行动画(造型和关键帧) 的一组分层的相互连接的骨骼.
+骨骼动画是Cocos2d-x动画在人物渲染方面的技术,分二个部分:用于绘制人物的外观呈现（被称为蒙皮或者mesh）和用于mesh进行动画(造型和关键帧) 的一组分层的相互连接的骨骼.
 
 ![](./res/043420LIe.jpg)
 
@@ -49,7 +49,7 @@
 
 CocosBuilder为Cocos2d的Javascript绑定而创建的。这意味着你的代码、动画和接口会无修改地在Cocos2d-x中运行。
 
-cocos2d-iphone的教程可以在[Zynga Engineering blog](http://code.zynga.com/2012/10/creating-a-game-with-cocosbuilder/)找到。
+Cocos2d-iphone的教程可以在[Zynga Engineering blog](http://code.zynga.com/2012/10/creating-a-game-with-cocosbuilder/)找到。
 
  
 
@@ -190,4 +190,4 @@ CocosBuilder的动画编辑器有一个非常强大的特性就是在单个文�
   
 
 
-标签：`cocos2d-x官方文档` `骨骼动画详解`
+标签：`Cocos2d-x官方文档` `骨骼动画详解`

@@ -4,9 +4,9 @@
 
 ## 快速指南
 
-**注意：以下指南仅对cocos2d-x v3.0-alpha0或更新版本有效。**
+**注意：以下指南仅对Cocos2d-x v3.0-alpha0或更新版本有效。**
 
-1. 下载解压[cocos2d-x](http://www.cocos2d-x.org/download)
+1. 下载解压[Cocos2d-x](http://www.cocos2d-x.org/download)
 
 2. 运行以下脚本
 ```
@@ -86,7 +86,7 @@ Xcode项目：
 
 **所需环境变量：**    
 
-- COCOS2DX_ROOT：应指向cocos2d-x根目录
+- COCOS2DX_ROOT：应指向Cocos2d-x根目录
 - ANDROID_SDK_ROOT：应指向Android SDK根目录
 - NDK_ROOT：应该指向Android NDK根目录
 - NDK_TOOLCHAIN_VERSION：应该使用的Android NDK工具链版本

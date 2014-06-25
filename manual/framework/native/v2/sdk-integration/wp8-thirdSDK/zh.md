@@ -2,7 +2,7 @@
 
 ## 简介
 
-cocos2d-x wp8平台上支持xaml后，方便了第三方Sdk的调用。本文以微软的广告这个第三方sdk为例，介绍如何在XAML工程中集成该sdk。微软官方文档：[http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx](http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx " Integrating the AdControl")，不过这种方式是在xaml页面上直接添加控件，本文介绍如何通过c++调用在c#页面里面添加控件，及对c#控件事件的回调在c++里面进行响应处理，即c++和c#的互相调用。代码均在gitbub上个人仓库adcontrol分支中，链接：[https://github.com/koowolf/cocos2d-x/tree/adcontrol](https://github.com/koowolf/cocos2d-x/tree/adcontrol "adcontrol")，详细集成教程见下文。
+Cocos2d-x wp8平台上支持xaml后，方便了第三方Sdk的调用。本文以微软的广告这个第三方sdk为例，介绍如何在XAML工程中集成该sdk。微软官方文档：[http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx](http://msdn.microsoft.com/en-US/library/advertising-mobile-windows-phone-8-adcontrol-visual-designer%28v=msads.20%29.aspx " Integrating the AdControl")，不过这种方式是在xaml页面上直接添加控件，本文介绍如何通过c++调用在c#页面里面添加控件，及对c#控件事件的回调在c++里面进行响应处理，即c++和c#的互相调用。代码均在gitbub上个人仓库adcontrol分支中，链接：[https://github.com/koowolf/cocos2d-x/tree/adcontrol](https://github.com/koowolf/cocos2d-x/tree/adcontrol "adcontrol")，详细集成教程见下文。
 
 ## 下载Microsoft Advertising SDK for Windows Phone 
 

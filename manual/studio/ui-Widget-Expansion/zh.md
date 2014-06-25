@@ -81,7 +81,7 @@ CustomImageViewReader 解析 CustomImageView 自定义属性的回调方法：
 
 
 
-  1、2 两部分的说明可参照 cocos2d-x TestCpp 工程中 CustomImageView.cpp、CustomImageViewReader.cpp
+  1、2 两部分的说明可参照 Cocos2d-x TestCpp 工程中 CustomImageView.cpp、CustomImageViewReader.cpp
 
    在完成自定义控件，编辑器封装代码和自定义控件解析之后，就可以将自定义控件的类型信息，注册到解析工厂，使得解析工厂在读取Json数据时，能够识别这些自定义的类型，并完成创建。在CustomWidget项目中，有RegisterWidget类，在里面实现了自定义控件类型的注册。通过对静态变量的赋值操作，保证动态库在加载时直接将类型注册到解析工厂中。
  ![image](./res/13.png)
@@ -151,5 +151,5 @@ CustomImageViewReader 解析 CustomImageView 自定义属性的回调方法：
 
   读取 json 前，先调用 GUIReader 的接口 registerTypeAndCallBack, 注册自定义控件类与自定义属性解析类对象及属性解析方法，属性解析方法必须是自定义属性解析类的成员方法。然后调用 GUIReader 的 widgetFromJsonFile 创建 ui 控件节点，widgetFromJsonFile 方法内部通过注册的自定义控件名称（如：“CustomImageView”）反射创建自定义控件，并调用注册的自定义属性解析类对象及回调函数解析自定义属性。
 
-  示例代码可参照 cocos2d-x TestCpp 的 CustomImageTest.cpp 
+  示例代码可参照 Cocos2d-x TestCpp 的 CustomImageTest.cpp 
 

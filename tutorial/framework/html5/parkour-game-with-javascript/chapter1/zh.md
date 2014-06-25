@@ -1,6 +1,6 @@
 # 搭建 Cocos2d-HTML5 开发环境
 
-本文将向大家演示如何在高大上的 MacOS 10.9 上搭建cocos2d-html5的开发环境。
+本文将向大家演示如何在高大上的 MacOS 10.9 上搭建Cocos2d-html5的开发环境。
 
 ## 预备知识
 
@@ -22,11 +22,11 @@
 
 1. 下载并安装 WebStorm 7。目前 [WebStorm 7](http://www.jetbrains.com/webstorm/download/index.html) 最稳定的发布版本是 7.0.2。我们为什么 WebStorm 呢？因为它提供了很多特性，例如Javascript代码的语法实现、调试、语法高亮以及版本管理等等。你可以去WebStorm的官网获取更多的信息。
 
-2. 从cocos2d-x的官网下载[cocos2d-html5-v2.2](http://cocos2d-x.org/download )。下载完成后解压到适当的路径。以我的为例，我将它解压在 ~/workspace/cocos2d-html5里。这里的 ~ 符号代表我们的 home 文件路径，于我而言就是 /Users/guanghui。
+2. 从Cocos2d-x的官网下载[Cocos2d-html5-v2.2](http://cocos2d-x.org/download )。下载完成后解压到适当的路径。以我的为例，我将它解压在 ~/workspace/Cocos2d-html5里。这里的 ~ 符号代表我们的 home 文件路径，于我而言就是 /Users/guanghui。
 
 	**注意：**
 	
-	你也可以从github上[cocos2d-html5的仓库](https://github.com/cocos2d/cocos2d-html5 )中获取cocos2d-html5的最新版本。**develop**分支下，开发工作一直在积极的进行着。
+	你也可以从github上[Cocos2d-html5的仓库](https://github.com/cocos2d/cocos2d-html5 )中获取cocos2d-html5的最新版本。**develop**分支下，开发工作一直在积极的进行着。
 	
 3. 下载并安装 Chrome 30 和 [JetBrains-IDE-support ]( https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji)。
 
@@ -34,9 +34,9 @@
 	
 	- 不建议使用Chrome的最新测试版。WebGL的一些API被改变了，开发过程中你将会遇到很多因为API更新而带来的问题。
 	
-	- 尽管当前Chrome的稳定发行版本是31.0.1650.57，但它并不能很好的兼容cocos2d-html5-v2.2。如果因为一些其他的原因致使你不得不使用这个最新版的话，你可以参考[Google Chrome v31 breaks cocos2d-html5](http://www.cocos2d-x.org/forums/19/topics/39063 )获取更多信息。在不久的将来，cocos2d-html5团队将会发布一个新的版本，那是你的代码将可以在Chrome 31上运行。
+	- 尽管当前Chrome的稳定发行版本是31.0.1650.57，但它并不能很好的兼容Cocos2d-html5-v2.2。如果因为一些其他的原因致使你不得不使用这个最新版的话，你可以参考[Google Chrome v31 breaks Cocos2d-html5](http://www.cocos2d-x.org/forums/19/topics/39063 )获取更多信息。在不久的将来，Cocos2d-html5团队将会发布一个新的版本，那是你的代码将可以在Chrome 31上运行。
 
-OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我们的cocos2d-html5应用程序。
+OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我们的Cocos2d-html5应用程序。
 
 ## 配置 WebStorm
 
@@ -52,9 +52,9 @@ OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我�
 **注意：** 
    如果这是你第一次运行WebStorm，那么近期项目部分应该是空的。
    
-现在，我们在WebStorm中使用cocos2d-html5。
+现在，我们在WebStorm中使用Cocos2d-html5。
 
-1. 从cocos2d-html5中创建一个项目
+1. 从Cocos2d-html5中创建一个项目
 
 	正如上图所示，你应该选择**Create New Project from Exisiting Files** 
 	
@@ -70,7 +70,7 @@ OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我�
 
 	![choosedirectory](res/choosedirectory.png)
 
-3. 在这一步中，你需要展开目录树去指定cocos2d-html5源码的存放路径。在你指定了正确路径之后，注意到**Finish** 按钮任然是灰色。
+3. 在这一步中，你需要展开目录树去指定Cocos2d-html5源码的存放路径。在你指定了正确路径之后，注意到**Finish** 按钮任然是灰色。
 
 4. 现在我们需要把目录设为 **Project Root**。点击 **Project Root** 按钮，随之 **Finish** 按钮将会被激活。
 
@@ -78,17 +78,17 @@ OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我�
 
 	![setupfinish](res/setupfinish.png)
 
-5. 祝贺你！到此你已经成功在WebStorm上配置好cocos2d-html5项目。
+5. 祝贺你！到此你已经成功在WebStorm上配置好Cocos2d-html5项目。
 
-## 使用cocos2d-html5
+## 使用Cocos2d-html5
 
-因为你已经在WebStorm 7中添加了 cocos2d-html5的文件路径。WebStrom 将会解析所有的 cocos2d-html5 源文件。Since you have added the entire cocos2d-html5 directory to WebStorm 7. 打开 **HelloHTML5World/src/myApp.js**，你将能够进行语法实现。
+因为你已经在WebStorm 7中添加了 Cocos2d-html5的文件路径。WebStrom 将会解析所有的 Cocos2d-html5 源文件。Since you have added the entire Cocos2d-html5 directory to WebStorm 7. 打开 **HelloHTML5World/src/myApp.js**，你将能够进行语法实现。
 
 **图 5**
 
 ![syntaxac](res/syntaxac.png)
 
-如果在你的 cocos2d-html5游戏应用中由第三方的 javascript库，你同样可以添加到WebStorm库进行解析，获取实时的语法提示。
+如果在你的 Cocos2d-html5游戏应用中由第三方的 javascript库，你同样可以添加到WebStorm库进行解析，获取实时的语法提示。
 
 说明如下:
 
@@ -112,12 +112,12 @@ OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我�
 	
 	![addjslibpath](res/addjslibpath.png)
 
-### 在 WebStorm 中调试 cocos2d-html5 javascript 代码
-现在我们开始调试 cocos2d-html5 代码.
+### 在 WebStorm 中调试 Cocos2d-html5 javascript 代码
+现在我们开始调试 Cocos2d-html5 代码.
 
 #### 通过 JB chrome 扩展将 WebStorm 连接到 Chrome
 
-1. 右击 **~/Github/cocos2d-html5** 下的 **index.html** 然后选择 **Debug 'index.html'**:
+1. 右击 **~/Github/Cocos2d-html5** 下的 **index.html** 然后选择 **Debug 'index.html'**:
 	
 	**图 9**
 	
@@ -151,4 +151,4 @@ OK,接下来我们将要介绍如何配置WebStorm 7.1进行开发和调试我�
 
 ## 总结
 
-在本教程中，我给大家展示了配置 cocos2d-html5使其与 WebStorm 7 相配合的基础步骤，包括配置语法自动提示和调试。这个过程非常的简单。如果你对教程有任何疑问或建议，请告诉我们，我们真诚地感谢你对此做出的贡献！
+在本教程中，我给大家展示了配置 Cocos2d-html5使其与 WebStorm 7 相配合的基础步骤，包括配置语法自动提示和调试。这个过程非常的简单。如果你对教程有任何疑问或建议，请告诉我们，我们真诚地感谢你对此做出的贡献！

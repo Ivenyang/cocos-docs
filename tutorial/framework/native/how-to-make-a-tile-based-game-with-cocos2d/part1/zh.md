@@ -6,13 +6,13 @@
 
 ![][p1]
 
-　　在这个２部分的教程中，我将会教大家如何使用cocos2d-x来做一个基于tile地图的游戏，当然还有Tiled地图编辑器。（我们小时候玩的小霸王小学机里面的游戏，大部分都是基于tile地图的游戏，如坦克大战、冒险岛、吞食天地等）我们将会创建一个忍者在沙漠中找西瓜吃的小游戏。-_-
+　　在这个２部分的教程中，我将会教大家如何使用Cocos2d-x来做一个基于tile地图的游戏，当然还有Tiled地图编辑器。（我们小时候玩的小霸王小学机里面的游戏，大部分都是基于tile地图的游戏，如坦克大战、冒险岛、吞食天地等）我们将会创建一个忍者在沙漠中找西瓜吃的小游戏。-_-
 
 　　在第一部分教程中，我将教大家如何使用Tile来创建地图，怎样把地图加到游戏中，怎么让地图跟随玩家滚动，以及怎样使用对象层。
 
 　　在第二部分教程中，我将介绍如何在地图中创建可碰撞的区域，如何使用tile属性，如何制作可拾取的物体和动态修改地图，还有确保忍者不要吃撑了！
 
-　　如果你还没有准备好的话，你可能需要先从[《如何用cocos2d-x3.0制作一款简单的游戏》][1]系列教程开始学起，因为我们这个教程使用了大量的基本概念，而这些概念都可以从上面的教程中获取。
+　　如果你还没有准备好的话，你可能需要先从[《如何用Cocos2d-x3.0制作一款简单的游戏》][1]系列教程开始学起，因为我们这个教程使用了大量的基本概念，而这些概念都可以从上面的教程中获取。
 
 　　好了，让我们玩一玩tile地图吧！
 
@@ -24,7 +24,7 @@
 
 　　接下来，下载[游戏资源文件][r1]。这个资源文件包里包含了以下内容：
 
-- 玩家sprite。这个图片和《如何用cocos2d-x3.0制作一款简单的游戏》差不多。
+- 玩家sprite。这个图片和《如何用Cocos2d-x3.0制作一款简单的游戏》差不多。
 - 我使用[cxfr](http://thirdcog.eu/apps/cfxr)这个工具制作的一些音效。
 - 我使用Garage　Band制作的一些背景音乐。（查看这篇[博文](http://www.raywenderlich.com/233/audio-101-for-iphone-developers-converting-and-recording)获得更多的信息）
 - 我们将会使用的tile集合--它实际上会和tile地图编辑器一块儿使用，但是，我想把它放在这里，余下的事情会变得更容易。 
@@ -36,7 +36,7 @@
 
 ##使用Tile来制作地图
 
-　　cocos2d-x支持使用[Tile地图编辑器](http://www.mapeditor.org/)创建的TMX格式的地图。(建议大家在安装的时候选择英文，本教程的Tile采用英文的)
+　　Cocos2d-x支持使用[Tile地图编辑器](http://www.mapeditor.org/)创建的TMX格式的地图。(建议大家在安装的时候选择英文，本教程的Tile采用英文的)
 
 　　下载完之后，直接双击运行。点击File\New，然后会出现以下对话框：
 
@@ -81,7 +81,7 @@
 
 　　后面我们将会使用这个tmx来做一些有趣的事情，好了，让我们把地图加载到游戏中去吧！
 
-##把tile地图添加到cocos2d-x的场景中
+##把tile地图添加到Cocos2d-x的场景中
 
 　　打开HelloWorldScene.h，然后添加一些成员变量：
 
@@ -149,7 +149,7 @@ bool HelloWorld::init()
 
 ![][p10]
 
-　　我们仅仅把这个类型设置为空就行了，最后cocos2d-x会为我们创建ValueMap保存相关数据，我们可以从中获得对象的各种属性，包含x，y坐标。
+　　我们仅仅把这个类型设置为空就行了，最后Cocos2d-x会为我们创建ValueMap保存相关数据，我们可以从中获得对象的各种属性，包含x，y坐标。
 
 　　保存地图，然后返回VS。在HelloWorldScene.h中做如下修改：
 
@@ -212,7 +212,7 @@ void HelloWorld::setViewPointCenter(Point position) {
 
 　　看一下，什么时候camera的中心会小于winSize.width/2或者winSize.height/2，部分视图将会在屏幕之外？类似的，我们需要检查上面的界限区间，也和我们这里的情形一样。
 
-　　因此，我们把这个函数看作是设置camera的视角中心点。然而。。。那不完全是我们想要的。在cocos2d-x里面有一种方式可以直接操作一个Node的camera，但是那会使事情变得更复杂。我们需要另一种替代方法，那就是移动整个层。
+　　因此，我们把这个函数看作是设置camera的视角中心点。然而。。。那不完全是我们想要的。在Cocos2d-x里面有一种方式可以直接操作一个Node的camera，但是那会使事情变得更复杂。我们需要另一种替代方法，那就是移动整个层。
 
 　　看看下面的图：
 
@@ -285,11 +285,11 @@ void HelloWorld::onTouchEnded(Touch *touch, Event *unused_event)
 ```
 </pre>
 
-　　首先，在init方法中设置事件监听器，让监听器的onTouchesBegan和onTouchEnded绑定不同的方法。因为要想onTouchEnded能用，onTouchesBegan必须返回true。我们这里只需onTouchesBegan发挥返回true的作用，所以就直接写c++11的新特征支持的也是cocos2d-x3.0 支持的lambda表达式，不是太懂的话搜索一下。这样发生触摸事件，监听器就会调用onTouchBegan匿名方法和onTouchEnded方法（注意是单数形式，而不是复数形式的onTouchesBegan和onTouchesEnded方法）
+　　首先，在init方法中设置事件监听器，让监听器的onTouchesBegan和onTouchEnded绑定不同的方法。因为要想onTouchEnded能用，onTouchesBegan必须返回true。我们这里只需onTouchesBegan发挥返回true的作用，所以就直接写c++11的新特征支持的也是Cocos2d-x3.0 支持的lambda表达式，不是太懂的话搜索一下。这样发生触摸事件，监听器就会调用onTouchBegan匿名方法和onTouchEnded方法（注意是单数形式，而不是复数形式的onTouchesBegan和onTouchesEnded方法）
 
-　　你可能会问，为什么我要讲这个，因为我们在 [《如何用cocos2d-x3.0制作一款简单的游戏》][1]里面使用的是onTouchesBegan和onTouchesEnded方法。那两个方法可以，在这个教程里用两种方法都可以。但是，我想向大家介绍一个新方法，因为它有两个优点：
+　　你可能会问，为什么我要讲这个，因为我们在 [《如何用Cocos2d-x3.0制作一款简单的游戏》][1]里面使用的是onTouchesBegan和onTouchesEnded方法。那两个方法可以，在这个教程里用两种方法都可以。但是，我想向大家介绍一个新方法，因为它有两个优点：
 
-- “你不需要处理std::vector<Touch*>&，划分Touch并调度的工作全部由cocos2d-x框架来完成。每一次方法调用，你只获得了一个Touch。“
+- “你不需要处理std::vector<Touch*>&，划分Touch并调度的工作全部由Cocos2d-x框架来完成。每一次方法调用，你只获得了一个Touch。“
 - “你可以在onTouchBegan中返回true，这样当前的层就可以接收touch事件回调。而且，只有当你返回true的时候，才会响应move/ended/cancelled回调. 这个就使你从一些复杂的多触摸判断中解放出来了。
 
 　　不管怎么说，在我们的onTouchEnded里面，我们转换屏幕touch坐标为本地坐标。
@@ -332,6 +332,6 @@ void HelloWorld::onTouchEnded(Touch *touch, Event *unused_event)
 [p14]: ./res/course_screenshot14.jpg "教程截图"
 
 
-[1]: wating "如何用cocos2d-x3.0制作一款简单的游戏"
+[1]: wating "如何用Cocos2d-x3.0制作一款简单的游戏"
 [2]: ./TileGame1.zip "完整源代码"
 [3]: ../part2/zh.md "第二部分教程"

@@ -5,14 +5,14 @@
 ###教程截图：  
 ![][p1]  
 
-　　由于有很多读者想要一个关于如何在cocos2d-x里面使用动画和spritesheet的教程。这篇教程就应运而生了！
+　　由于有很多读者想要一个关于如何在Cocos2d-x里面使用动画和spritesheet的教程。这篇教程就应运而生了！
 
-　　在这个教程里，我将向大家展示如何用cocos2d-x来制作一只熊在走路的动画。同时，我会使用spritesheet来使动画运行效率更高，还有如何让用户鼠标点击决定熊的行走方向，以及怎样基于熊当前行进的方向改变熊的面朝方向。
+　　在这个教程里，我将向大家展示如何用Cocos2d-x来制作一只熊在走路的动画。同时，我会使用spritesheet来使动画运行效率更高，还有如何让用户鼠标点击决定熊的行走方向，以及怎样基于熊当前行进的方向改变熊的面朝方向。
 
-　　如果你对cocos2d-x完全陌生的话，你可能需要先阅读[《如何用cocos2d-x3.0制作一款简单的游戏》][1]这一系列的教程，但是也不一定！（如果说你已经有相关经验就另当别论了)
+　　如果你对Cocos2d-x完全陌生的话，你可能需要先阅读[《如何用Cocos2d-x3.0制作一款简单的游戏》][1]这一系列的教程，但是也不一定！（如果说你已经有相关经验就另当别论了)
 
 ##Getting Started
-　　让我们首先创建一个工程骨架--使用cocos2d-x创建一个新的项目并取名为AnimBear.
+　　让我们首先创建一个工程骨架--使用Cocos2d-x创建一个新的项目并取名为AnimBear.
 
 　　接下来，下载一些由我的老婆制作的熊行走的图片。（子龙山人:老婆会美工多好啊！）
 
@@ -20,13 +20,13 @@
 　　
 	![][p2]  
 
-　　现在，把这些图片加到工程里面，然后基于这些单个的图片来创建动画。然后，在cocos2d-x里面，还有另一种更加高效的方式来创建动画--那就是使用spritesheet。（也叫精灵表单）
+　　现在，把这些图片加到工程里面，然后基于这些单个的图片来创建动画。然后，在Cocos2d-x里面，还有另一种更加高效的方式来创建动画--那就是使用spritesheet。（也叫精灵表单）
 
 ##精灵表单和熊
 
 　　如果你从来没有使用过spritesheet，你可以把它看作是一张巨大的图片，你可以把许许多多的sprite放进去。与spritesheet对应的，还有一个plist文件，这个文件指定了每个独立的sprite在这张“大图”里面的位置和大小，当你在代码之间需要使用这个sprite的时候，就可以很方面地使用plist文件中的这些信息来获取sprite。
 
-　　为什么这会提高效率呢？因为cocos2d-x对它进行了优化！如果你使用spritesheet来获取sprite，那么当场景中有许多sprite的时候，如果这些sprite共享一个spritesheet，那么cocos2d-x就会使用一次OpenGL　ES调用来渲染这些sprite。但是，如果是单个的sprite的话，那么就会有N次OpenGL　ES　call，这个代价是相当昂贵的。
+　　为什么这会提高效率呢？因为Cocos2d-x对它进行了优化！如果你使用spritesheet来获取sprite，那么当场景中有许多sprite的时候，如果这些sprite共享一个spritesheet，那么Cocos2d-x就会使用一次OpenGL　ES调用来渲染这些sprite。但是，如果是单个的sprite的话，那么就会有N次OpenGL　ES　call，这个代价是相当昂贵的。
 
 　　简而言之--使用spritesheet会更快，尤其是当你有很多的sprite的时候！使用spritesheet还可以减少游戏占用的内存大小，具体参考我改编的文章[《在cocos2d里面如何使用TexturePacker和像素格式来优化spritesheet》][2]
 
@@ -145,7 +145,7 @@ for(int i = 1; i < 9; i++)
 }
 ```	
 </pre>
-　　为了创建一系列的动画帧,我们简单地遍历我们的图片名字(它们是按照 Bear1.png-->Bear8.png 的方式命名的),然后使用共享的 SpriteFrameCache 来获得 每一个动画帧。记住,它们已经在缓存里了,因为我们前面调用了 addSpriteFramesWithFile 方法。
+　　为了创建一系列的动画帧,我们简单地遍历我们的图片名字(它们是按照 Bear1.png-->Bear8.png 的方式命名的),然后使用共享的 SpriteFrameCache 来获得 每一个动画帧。记住,它们已经在缓存里了,因为我们前面调用了 addSpriteFramesWithFile 方法。
 
 - 4) 创建动画对象
 
@@ -161,7 +161,8 @@ auto animation = Animation::createWithSpriteFrames(animFrames, 0.1f);
 
 <pre>
 ```cpp
- auto winSize = Director::getInstance()->getWinSize();_bear = Sprite::createWithSpriteFrameName("bear1.png");
+ auto winSize = Director::getInstance()->getWinSize();
+_bear = Sprite::createWithSpriteFrameName("bear1.png");
 _bear->cocos2d::Node::setPosition(Point(winSize.width/2, winSize.height/2));
 _walkAction =  RepeatForever::create( Animate::create(animation) ) ;
 _bear->runAction(_walkAction);
@@ -170,9 +171,10 @@ spriteSheet->addChild(_bear);
 ```
 </pre>
 
-　　我们首先通过 spriteframe 来创建一个 sprite,并把它放在屏幕中间。然后,生成 AnimationAction,并赋值给场景的 _walkAction,最后让熊来运行这个 action。最后,我们把熊加个场景中--把它当作 spritesheet 的孩子加到 spritesheet 中去。注意, 如果在这里我们没有把它加到 spritsheet 中,而是加到当前层里面的话。那么我们将得不到 spritesheet 为我们带来的性能提升!!!
-　　完成了!
-　　就这么多!编译并运行,你将会看到一只熊欢快地在屏幕上面走动!
+　　我们首先通过 spriteframe 来创建一个 sprite,并把它放在屏幕中间。然后,生成 AnimationAction,并赋值给场景的 _walkAction,最后让熊来运行这个 action。
+最后,我们把熊加个场景中--把它当作 spritesheet 的孩子加到 spritesheet 中去。注意, 如果在这里我们没有把它加到 spritsheet 中,而是加到当前层里面的话。那么我们将得不到 spritesheet 为我们带来的性能提升!!!
+　　完成了!
+　　就这么多!编译并运行,你将会看到一只熊欢快地在屏幕上面走动!
 	![][p6]
 
 ##基于熊的移动方向改变熊的朝向
@@ -224,8 +226,9 @@ void HelloWorld::bearMoveEnded()
 
 　　开始之前,我们先把 init 方法中的运行行走 action 的代码注释掉,因为我们并不想让熊自 己动,直到我们发出指令之后,它才能动!
 
-　　当 bearMoveEnded 方法被调用的时候,我们想让熊停止任何正在运行的动画,并且设置标记为不再移动。
-　　看到 onTouchEnded 方法,那里就是待会要实现功能的地方。那儿有许多东西要实现,因 此,让我把它们分解成一些小片断,一步步向众位看官道来:
+　　当 bearMoveEnded 方法被调用的时候,我们想让熊停止任何正在运行的动画,并且设置
+标记为不再移动。
+　　看到 onTouchEnded 方法,那里就是待会要实现功能的地方。那儿有许多东西要实现,因 此,让我把它们分解成一些小片断,一步步向众位看官道来:
 
 - 1) 计算 touch 坐标点
 
@@ -247,7 +250,7 @@ float bearVelocity = 480.0/3.0;
 </pre>
 
 　　这里,我们设置了熊的移动速度。我假设熊要花3秒钟时间才能从 iphone 屏幕(480个像素宽)的一头移动到另一头。因此,简单地用480个像素除以3秒。
-- 3) 计算x轴和y轴的移动量
+- 3) 计算x轴和y轴的移动量
 
 <pre>
 ```cpp
@@ -255,7 +258,7 @@ Point moveDifference = touchPoint - _bear->getPosition();
 ```
 </pre>
 
-　　接下来,我们需要计算出熊相当于 x 轴和 y 轴移动了多远。我们简单地使用 touch 坐标减 去熊当前的坐标。cocos2d-x 3.0支持这样直接减的操作, Point类写了操作符重载。
+　　接下来,我们需要计算出熊相当于 x 轴和 y 轴移动了多远。我们简单地使用 touch 坐标减 去熊当前的坐标。Cocos2d-x 3.0支持这样直接减的操作, Point类写了操作符重载。
 
 - 4) 计算实际移动的距离
 
@@ -265,8 +268,9 @@ float distanceToMove = moveDifference.getLength();
 ```
 </pre>
 
-　　我们需要计算出熊实际移动的距离(欧几里德距离)。cocos2d-x 3.0 里面的Point类也有一个函数来做这个事情,这个函数就是 getLength ,用来求一个向量的长度。
-- 5) 计算移动需要花费的时间
+　　我们需要计算出熊实际移动的距离(欧几里德距离)。Cocos2d-x 3.0 里面的Point类也有一个函数来做这个事情,这个函数就是 getLength ,用来求一个向量的长度。
+
+- 5) 计算移动需要花费的时间
 
 <pre>
 ```cpp
@@ -282,30 +286,36 @@ float moveDuration = distanceToMove / bearVelocity;
 ```cpp
 if (moveDifference.x < 0)
 {
-	_bear->setFlippedX(false);}
+	_bear->setFlippedX(false);
+}
 else
-{	_bear->setFlippedX(true);}
+{
+	_bear->setFlippedX(true);
+}
 ```
 </pre>
 
 　　接下来,我们通过判断移动的差值,如果小于0,那么就不需要翻转动画,否则,就需要翻转。因为我们的原画里面,熊就是往左移动的,因此,当熊往左移动时,我们不需要翻转动画, 而往右移动的时候,只需要翻转动画。
 
-　　我们的第一直觉可能是用图片编辑器重新创建另一套朝向不同的熊的动画序列图,然后使用它们。但是,cocos2d-x 3.0 里面有一种更容易的方式(也更高效)--我们仅仅翻转已经存在的图片就行了。
-　　这种方式可行,实现上,我们只是设置了运行动画的 sprite 的 flip 属性,但是它会使所有 相关的动画帧也相应地翻转。在这个例子中,当熊往右行走的时候,我们就设置熊的 flipX 为 true。
+　　我们的第一直觉可能是用图片编辑器重新创建另一套朝向不同的熊的动画序列图,然后使用它们。但是,Cocos2d-x 3.0 里面有一种更容易的方式(也更高效)--我们仅仅翻转已经存在的图片就行了。
+　　这种方式可行,实现上,我们只是设置了运行动画的 sprite 的 flip 属性,但是它会使所有 相关的动画帧也相应地翻转。在这个例子中,当熊往右行走的时候,我们就设置熊的 flipX 为 true。
 
 - 7) 运行合适的 action
 
 <pre>
 ```cpp
-_bear->stopAction(_moveAction);if (!_moving)
+_bear->stopAction(_moveAction);
+if (!_moving)
 {
 	_bear->runAction(_walkAction);
-}_moveAction = Sequence::create(
+}
+_moveAction = Sequence::create(
 				MoveTo::create(moveDuration, touchPoint),
 				CallFunc::create(CC_CALLBACK_0(HelloWorld::bearMoveEnded, this)),
 				NULL);
     
-_bear->runAction(_moveAction);_moving = true;
+_bear->runAction(_moveAction);
+_moving = true;
 ```
 </pre>
 

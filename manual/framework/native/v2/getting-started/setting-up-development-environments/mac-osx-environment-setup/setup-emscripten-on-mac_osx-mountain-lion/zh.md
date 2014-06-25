@@ -22,7 +22,7 @@
 安装llvm-3.2虚拟机   
 ```
 sudo port install llvm-3.2
-exec on cocos2d-x dir
+exec on Cocos2d-x dir
 make -f Makefile.emscripten
 ```
 
@@ -44,9 +44,9 @@ sudo ln -s clang-mp-3.2 clang
 sudo ln -s clang++-mp-3.2 clang++
 ```
 
-用emscripten编译cocos2d-x
+用emscripten编译Cocos2d-x
 
-在cocos2d-x重新运行Makefile.emscripten
+在Cocos2d-x重新运行Makefile.emscripten
 
 安装XAMPP或者MAMPP
 
