@@ -36,36 +36,13 @@
     - [其他3.0版的API改动](../../../manual/framework/html5/v3/more-change-from-v2-to-v3/zh.md)
     - Bake Node（进行中）
     - 简化action的使用（进行中）
-    
-### Cocos2d-JS教程
-- 怎样用Cocos2d-html5制作一款横版动作游戏
- 	- [怎样用Cocos2d-html5制作一款横版动作游戏 (1)](../../../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part1/zh.md)
- 	- [怎样用Cocos2d-html5制作一款横版动作游戏 (2)](../../../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part2/zh.md)
- 	- [怎样用Cocos2d-html5制作一款横版动作游戏 (3)](../../../tutorial/framework/html5/how-to-to-make-a-acting-game-by-cocos-html5/part3/zh.md)
-- 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-JS v3.0)
-	- [建立Cocos2d-JS开发环境](../../../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter1/zh.md)
-	- [你好Cocos2d-JS](../../../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter2/en.md)
-	- [建立第一个游戏场景](../../../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter3/en.md)
-	- [设计实现主场景](../../../tutorial/framework/html5/parkour-game-with-javascript-v3.0/chapter4/en.md)
-- 脚本篇：用Javascript来写一个跑酷游戏(Cocos2d-html5 v2.2.2)
-	- [建立html5开发环境](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter1/zh.md)
-	- [你好Cocos2d-html5](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter2/en.md)
-	- [建立第一个游戏场景](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter3/en.md)
-	- [设计实现主场景](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter4/en.md)
-	- [让角色运行动画](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter5/en.md)
-	- [在游戏中加入Chipmunk物理引擎](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter6/en.md)
-	- [使用瓦片地图和相机](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter7/en.md)
-	- [增加金币和障碍物](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter8/en.md)
-	- [游戏结束逻辑](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter9/en.md)
-	- [对源码进行混淆](../../../tutorial/framework/html5/parkour-game-with-javascript/chapter10/en.md)
-	- 在浏览器中对Javascript代码进行调试
-	- 通过Cocos2d-x Javascript Binding以原生方式编译iOS和Android版
 
 ## 开发后期和第三方集成
 ### 绑定
-	- 如何实现Javascript和C++的相互调用
-	- 如何通过自动绑定把C++接口批量导到Javascript
-	- Javascript绑定的远程调试
+
+- 如何实现Javascript和C++的相互调用
+- 如何通过自动绑定把C++接口批量导到Javascript
+- Javascript绑定的远程调试
 - 如何使用iOS游戏内付费IAP
 	- [如何使用iOS游戏内付费IAP(C++篇)](../../../tutorial/framework/html5/jsb-ios-iap/ios-storekit-integration-in-c++/zh.md)
 	- [如何使用iOS游戏内付费IAP(JSB篇)](../../../tutorial/framework//html5/jsb-ios-iap/ios-storekit-integration-in-jsb/zh.md)
