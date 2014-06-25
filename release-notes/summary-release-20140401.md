@@ -10,7 +10,7 @@ We are happy to announce the release of:
 
 ### Download ###
 
-[cocos2d-x-3.0rc1.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc1.zip)
+[Cocos2d-x-3.0rc1.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc1.zip)
 
 ### Highlights ###
 

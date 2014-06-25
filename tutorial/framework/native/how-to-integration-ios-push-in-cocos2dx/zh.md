@@ -1,8 +1,8 @@
-#cocos2d-x iOS集成push
+#Cocos2d-x iOS集成push
 
 ###前言
 
-使用推送消息，可提醒用户，召回玩家。延长游戏的寿命和收益！下面我们就一起来学习，cocos2d-x iOS集成push。
+使用推送消息，可提醒用户，召回玩家。延长游戏的寿命和收益！下面我们就一起来学习，Cocos2d-x iOS集成push。
 
 收到push消息：
 ![img](res/push1.png)![img](res/push2.png)
@@ -33,14 +33,14 @@
     
 ### 创建工程
 
-工程基于 cocos2d-x-3.0rc2 版本, 针对ios平台.
+工程基于 Cocos2d-x-3.0rc2 版本, 针对ios平台.
 
-[cocos2d-x-3.0rc2 下载地址](http://www.cocos2d-x.org/filedown/cocos2d-x-3.0rc2-cn)
-如果已经有cocos2d-x 引擎可以跳过下载。解压文件进入该目录
+[Cocos2d-x-3.0rc2 下载地址](http://www.cocos2d-x.org/filedown/cocos2d-x-3.0rc2-cn)
+如果已经有Cocos2d-x 引擎可以跳过下载。解压文件进入该目录
 创建工程
 
 ```
-    $ cd cocos2d-x
+    $ cd Cocos2d-x
     $ ./setup.py
     $ source FILE_TO_SAVE_SYSTEM_VARIABLE
     $ cocos new pushDemo -p com.your_company.pushDemo -l cpp -d /home

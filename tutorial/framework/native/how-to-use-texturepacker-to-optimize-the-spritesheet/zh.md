@@ -1,4 +1,4 @@
-# cocos2d-x里如何用TexturePacker和像素格式来优化spritesheet
+# Cocos2d-x里如何用TexturePacker和像素格式来优化spritesheet
 
 ## 预备知识
 
@@ -8,7 +8,8 @@
 
 这里我们将要借助一款叫做**TexturePacker**的工具来创建 sprite sheet。
 
-本教程将讲述如何在基于Cocos2d-x进行游戏开发时使用TexturePacker。同时,你还将学习到**如何使用像素格式(pixel formats)；TexturePacker如何智能地让你的游戏加载速度更快,运行更流畅,而且还能够在游戏界面看起来很不错的前提下使用尽可能少的内存**。
+本教程将讲述如何在基于Cocos2d-x进行游戏开发时使用TexturePacker。同时,你还将学习到**如何使用像素格式(pixel formats)；TexturePacker如何智能地让你的游戏加载速度更快,运行更流畅,而且还能够在游戏界面看起来很不错的前提下使用尽可能少的内存**。
+
 ## 开始
 
 硬件环境： MacOS X 10.9.1
@@ -17,7 +18,7 @@
 
 引擎版本：[Cocos2d-x-3.0beta](http://cdn.cocos2d-x.org/cocos2d-x-3.0beta.zip)
 
-以上是我的开发环境，你大可根据你的开发环境做相应操作。直接将路径 /cocos2dx-master/tools/project-creator 中的 create_project.py 拖到终端,然后会跳出对话框如下（这是3.0之后才有的，使用之前版本的小伙伴请参考 [cocos2d-x环境搭建（基于win7以及mac）](http://bbs.ityran.com/thread-9157-1-2.html)）:
+以上是我的开发环境，你大可根据你的开发环境做相应操作。直接将路径 /cocos2dx-master/tools/project-creator 中的 create_project.py 拖到终端,然后会跳出对话框如下（这是3.0之后才有的，使用之前版本的小伙伴请参考 [Cocos2d-x环境搭建（基于win7以及mac）](http://bbs.ityran.com/thread-9157-1-2.html)）:
 
 ![image](./res/createProj.png)
 
@@ -50,19 +51,22 @@ ok,现在来熟悉一下左侧的**TextureSettings**栏：
 
 - **Min/max size** 让你为你的spritesheet指定一个最大值。如果你想设置特定大小的spritesheet的时候,这也是一个非常方便的特性。(因为对于特定的设备来说, 你可不想超过设备能够支持的最大限制,比如2代touch最大支持 texture大小为1024*1024)
 
-- **Scale** 可以用于保存一个比原始图片尺寸要大一点、或者小一点的spritesheet。如果你想在 spritesheet中加载“2x"的图片(也即为Retina-display设备或者ipad创建的)。但是你同时也想为不支持高清显示的iphone和 touch制作spritesheet,这时候只需要设置**scale**为0.5就可以了。也就是说,只需要提供@2x的高清图片,用TP你就可以生成高清和普清的图片。- **Algorithm** TexturePacker 支持的算法是 MaxRects,即按精灵尺寸大小排列；如果选择 Basic 则表示，当第一行排满之后再排到第二行。
-- **Border/shape padding** 即在spritesheet里面,设置精灵与精灵之间的间隔。
-- **Extrude** 精灵边界的重复像素个数。这个与间隔是相对应的--如果你的精灵旁边存在一些透明的小点,你可以通过把这个值设置大一点来解决。
-- **Trim** 通过移除精灵四周的透明区域使之更好地被放在spritesheet中。不要担心, 这些透明的区域仅仅是为了使 spritesheet 里面的精灵紧凑一点，当你从cocos2d 里面去读取这些精灵的时候,这些透明区域仍然存在。
-- **Shape outlines** 把这个选项打开,那么就能看到精灵的边框。这在调试的时候非常有用。
-对于spritesheet来说,上面的属性我们只需使用TP的默认值就好。我们只需要在输出时做些修改，讲解这个之前我们先了解下cocos2d-x中的像素格式。
-## Cocos2d-x 和像素格式
+- **Scale** 可以用于保存一个比原始图片尺寸要大一点、或者小一点的spritesheet。如果你想在 spritesheet中加载“2x"的图片(也即为Retina-display设备或者ipad创建的)。但是你同时也想为不支持高清显示的iphone和 touch制作spritesheet,这时候只需要设置**scale**为0.5就可以了。也就是说,只需要提供@2x的高清图片,用TP你就可以生成高清和普清的图片。
 
-在cocos2d-x里面,理解像素格式非常重要。因为,像素格式会影响你在游戏中加载一张图片所需内存。游戏通常要加载大量的图片资源,尽可能充分利用移动设备上的可用物理内存对我们来说是很重要的。
+- **Algorithm** TexturePacker 支持的算法是 MaxRects,即按精灵尺寸大小排列；如果选择 Basic 则表示，当第一行排满之后再排到第二行。
+- **Border/shape padding** 即在spritesheet里面,设置精灵与精灵之间的间隔。
+- **Extrude** 精灵边界的重复像素个数。这个与间隔是相对应的--如果你的精灵旁边存在一些透明的小点,你可以通过把这个值设置大一点来解决。
+- **Trim** 通过移除精灵四周的透明区域使之更好地被放在spritesheet中。不要担心, 这些透明的区域仅仅是为了使 spritesheet 里面的精灵紧凑一点，当你从cocos2d 里面去读取这些精灵的时候,这些透明区域仍然存在。
+- **Shape outlines** 把这个选项打开,那么就能看到精灵的边框。这在调试的时候非常有用。
+对于spritesheet来说,上面的属性我们只需使用TP的默认值就好。我们只需要在输出时做些修改，讲解这个之前我们先了解下cocos2d-x中的像素格式。
+## Cocos2d-x 和像素格式
 
-默认情况下,当你在cocos2d-x里面加载一张图片的时候,对于每一个像素点使用4个byte来表示。其中1个byte(8位)代表red,另外3个 byte分别代表green、blue和alpha透明通道。这个就简称RGBA8888。
+在Cocos2d-x里面,理解像素格式非常重要。因为,像素格式会影响你在游戏中加载一张图片所需内存。游戏通常要加载大量的图片资源,尽可能充分利用移动设备上的可用物理内存对我们来说是很重要的。
 
-因此,如果你使用默认的像素格式来加载图片的话,你可以通过下面的公式来计算出将要消耗多少内存: 
+默认情况下,当你在Cocos2d-x里面加载一张图片的时候,对于每一个像素点使用4个byte来表示。其中1个byte(8位)代表red,另外3个 byte分别代表green、blue和alpha透明通道。这个就简称RGBA8888。
+
+因此,如果你使用默认的像素格式来加载图片的话,你可以通过下面的公式来计算出将要消耗多少内存:
+ 
 图像宽度(width)×图像高度(height)×每一个像素的位数(bytes per pixel) = 内存大小
 
 此时,如果你有一张512×512的图片,那么当你使用默认的像素格式去加载它的话, 那么将耗费 **512×512×4=1MB**
@@ -82,19 +86,22 @@ btw,如果你注意看窗口的右下角,你会看到TexturePacker会基于你�
 ![image](./res/totalEffect.png)
 
 看到没有,图像上面有许许多多的“条条”和颜色梯度变化,特别是熊和绿色的框框那里。这时,你可能想重新设计你的图片来确保使用更少的梯度,或者使用大一点的像素格式。但是,在这里,TexturePacker提供了另外一个杀手锏功能**图像抖动**。
-当你使用TexturePacker来保存spritesheet的时候,你可以指定目标像素格式为RGBA4444,然后选择“dithering method”。这个默认选项会修改一些你的图像的颜色,但是当有梯度变化或者其它一些会带来问题的颜色以后,图像看起来就会非常糟糕。
-继续,我们为spritesheet选择RBGA4444格式,然后改变抖动选项为“FloydSteinberg +Alpha”(下图红色框区域)。TexturePacker将会动态修改你的图片然后显示出效果来。
+当你使用TexturePacker来保存spritesheet的时候,你可以指定目标像素格式为RGBA4444,然后选择“dithering method”。这个默认选项会修改一些你的图像的颜色,但是当有梯度变化或者其它一些会带来问题的颜色以后,图像看起来就会非常糟糕。
+继续,我们为spritesheet选择RBGA4444格式,然后改变抖动选项为“FloydSteinberg +Alpha”(下图红色框区域)。TexturePacker将会动态修改你的图片然后显示出效果来。
 
 ![image](./res/settingTP.png)
 
 现在让我们保存这个spritesheet。点击工具栏顶端的“Save”,在弹出的对话框中选择 TextureFun\Resouces 目录,然后命名为“sprites-hd.pvr.ccz”。然后,TexturePack会自动为我们在Data file那里生成相应的plist文件路径。并且会命名为“sprites-hd.plist”, 这个名字是根据前面你提要的名字来命名的。最后,点击“Publish”,TeturePacker会提示你一些精灵将会创建成红色(因为你使 用的是免费版本)。为什么使用**pvr.ccz**呢？
 
-## PVRs 和压缩 
-PVR 图像也可以包含许多种不同像素格式的图像数据。cocos2d-x可以支持压缩了的 pvr图像格式pvr.ccz。使用这种图片格式的好处有两点:一、可以使你的应用程序更小,因为图片是压缩过了的。二、你的游戏能够启动地更快。
-总而言之,对于 spritesheet 来说,你可能通过指定16位的像素格式来减少内存消耗, 同时保存为pvr.ccz格式来使程序加载速度更快。
-## 在Cocos2d-x里面使用SpriteSheet
-现在回到我们之前创建好的-x项目，在Resources文件中加入我们刚刚生成好的文件**sprites-hd.plist**和**sprites-hd.pvr.ccz**，接下来在**HelloWorldScene.cpp**的**init()**方法中加入相应代码。源码放在github中可供[下载](https://github.com/cuit-zhaxin/ProjectsSpace/tree/master/doc-space/spritesheet)。首先我们设置像素格式为RBGA4444(你为主精灵所使用的每个像素点16位的像素格式)
-
+## PVRs 和压缩
+ 
+PVR 图像也可以包含许多种不同像素格式的图像数据。Cocos2d-x可以支持压缩了的 pvr图像格式pvr.ccz。使用这种图片格式的好处有两点:一、可以使你的应用程序更小,因为图片是压缩过了的。二、你的游戏能够启动地更快。
+总而言之,对于 spritesheet 来说,你可能通过指定16位的像素格式来减少内存消耗, 同时保存为pvr.ccz格式来使程序加载速度更快。
+## 在Cocos2d-x里面使用SpriteSheet
+现在回到我们之前创建好的-x项目，在Resources文件中加入我们刚刚生成好的文件**sprites-hd.plist**和**sprites-hd.pvr.ccz**，接下来在**HelloWorldScene.cpp**的**init()**方法中加入相应代码。源码放在github中可供[下载](https://github.com/cuit-zhaxin/ProjectsSpace/tree/master/doc-space/spritesheet)。
+
+首先我们设置像素格式为RBGA4444(你为主精灵所使用的每个像素点16位的像素格式)
+
 ```
 Texture2D::setDefaultAlphaPixelFormat(Texture2D::PixelFormat::RGBA4444);
 ```

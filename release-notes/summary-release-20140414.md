@@ -1,6 +1,6 @@
 We are happy to announce that Cocos2d-x v3.0-rc2 is available for __download__:
 
-- [cocos2d-x-3.0rc2.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc2.zip)
+- [Cocos2d-x-3.0rc2.zip](http://cdn.cocos2d-x.org/cocos2d-x-3.0rc2.zip)
 
 
 ## Fixes

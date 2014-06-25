@@ -1,9 +1,9 @@
 #Hello World Cocos2d-HTML5
-In the tutorial, I will show you how to setup a new cocos2d-html5 project from scratch. Before that, I want to
-give you a brief description of cocos2d-html5's directory structures.
+In the tutorial, I will show you how to setup a new Cocos2d-html5 project from scratch. Before that, I want to
+give you a brief description of Cocos2d-html5's directory structures.
 
-## Overview of cocos2d-html5 directory structures
-Here is the cocos2d-html5 directory structure:
+## Overview of Cocos2d-html5 directory structures
+Here is the Cocos2d-html5 directory structure:
 
 **Figure1**
 
@@ -15,7 +15,7 @@ The directory structures can be separated into four parts:
 
 #### Part1: engine related folders
 
-- The **cocos2d** directory holds all the core engine files. The main components of cocos2d-html5 are implemented in these js files.
+- The **Cocos2d** directory holds all the core engine files. The main components of cocos2d-html5 are implemented in these js files.
 
 - The **CocosDenshion** directory holds all the audio engine related files.
 
@@ -25,15 +25,15 @@ The directory structures can be separated into four parts:
 
 #### Part2: tests,sample games and template
 
-- The folder **HelloHTML5World** contains a simple **Hello World** sample. When you are new to cocos2d-htlm5, you may want to give it a try. It is the minimax skeleton of a full cocos2d-html5 app.
+- The folder **HelloHTML5World** contains a simple **Hello World** sample. When you are new to Cocos2d-htlm5, you may want to give it a try. It is the minimax skeleton of a full Cocos2d-html5 app.
 
 - The **template** is more or less the same as **HelloHTML5World** except for that **template** is more clean. **Template**  folder is where you should start from. At the end of part of this tutorial, we will create a new project based on this folder.
 
-- The **samples** directory, it contains all the **tests** of cocos2d-html5. It also includes some playable sample games. All the tests and games can be run in iOS and android with javascript binding. 
+- The **samples** directory, it contains all the **tests** of Cocos2d-html5. It also includes some playable sample games. All the tests and games can be run in iOS and android with javascript binding. 
 
 #### Part3: miscellaneous
 
-- The **license** directory includes all the license files in this project, as we mentioned before, the license of Cocos2d-html5 is MIT,you can refer to the folder to get more details about the licenses of cocos2d-html5.
+- The **license** directory includes all the license files in this project, as we mentioned before, the license of Cocos2d-html5 is MIT,you can refer to the folder to get more details about the licenses of Cocos2d-html5.
 
 - The **tools** directory includes JS Doc tool and closure compiler. The **template** folder contains a build.xml which is a config file for closure compiler, you can package your game into one single file via Ant. 
 
@@ -85,13 +85,13 @@ There are also other type games, you could try it by yourself.
 
 ## Setting up your first "Hello World" Project
 
-Finally, we are reaching the final important part of this tutorial. Here I wil not really create a "Hello World" project. I will take Parkour game as a example. In the future, all of these epic tutorials are about how to make a Parkour game with cocos2d-html5.
+Finally, we are reaching the final important part of this tutorial. Here I wil not really create a "Hello World" project. I will take Parkour game as a example. In the future, all of these epic tutorials are about how to make a Parkour game with Cocos2d-html5.
 
 Can't help waiting? Let's do it right now!
 
 ### Making Parkour project skeleton
 
-As we talked before, there is a **template** folder under cocos2d-html5 root directory. Right click the **template** folder and choose **Duplicate** to create a copy of it. Then modify the **Template Copy** folder to **Parkour**.
+As we talked before, there is a **template** folder under Cocos2d-html5 root directory. Right click the **template** folder and choose **Duplicate** to create a copy of it. Then modify the **Template Copy** folder to **Parkour**.
 
 Now open your WebStorm and there will be a new directory in the previous Project Root. Now the project navigator looks like this:
 
@@ -102,7 +102,7 @@ Now open your WebStorm and there will be a new directory in the previous Project
 Right click the **index.html** in WebStorm and choose **Debug 'index.html(1)'**. It will open your Chrome automatically and you have successfully setted up a new project. Cheers! The browser address is 
 
 ```
-http://localhost:63342/cocos2d-html5/Parkour/index.html.
+http://localhost:63342/Cocos2d-html5/Parkour/index.html.
 ```
 
 **Note:**
@@ -119,7 +119,7 @@ to
    cc.EGLView.getInstance().setDesignResolutionSize(designSize.width, designSize.height, cc.RESOLUTION_POLICY.SHOW_ALL);
 ```
 
-Why should we do this little change? What's the magic? Haha, It is a very long story of cocos2d-x's Multiple Resolution Adaption. If you want to know more about the mechanism of this topic, refer to [this link](http://cocos2d-x.org/wiki/Multi_resolution_support) for more information. We will cover this topic in the future tutorials.
+Why should we do this little change? What's the magic? Haha, It is a very long story of Cocos2d-x's Multiple Resolution Adaption. If you want to know more about the mechanism of this topic, refer to [this link](http://cocos2d-x.org/wiki/Multi_resolution_support) for more information. We will cover this topic in the future tutorials.
 
 After this modification, save and run, it gives us the classic **Hello World** screenshot:
 
@@ -153,11 +153,11 @@ In the Figure 8, we can see that:
 
 - The **index.html** file is the entry point of a HTML5 based web application. It is a HTML5 compatible format. It defines some meta data like setting viewpoint and fullscreen patameters.
 
-- The **ccos2d-jsb.js** file is a bridge file between cocos2d-html5 and cocos2d-x javascript bindings. You can safety leave it out currently.
+- The **ccos2d-jsb.js** file is a bridge file between Cocos2d-html5 and Cocos2d-x javascript bindings. You can safety leave it out currently.
 
 - The **cocos2d.js** file is the main entry point of our js engine. It uses a auto execution anonymous function to start our game engine.
 
-- The **main.js** is called by cocos2d-html5 framework after the cocos2d.js is loaded. It is 
+- The **main.js** is called by Cocos2d-html5 framework after the cocos2d.js is loaded. It is 
 where the main function like c/c++ language lies in. The **applicationDidFinishLanching** function will define the screen orientation, color format and resource load strategy. It is also the place to create your first game scene and show it on the browser.
 
 Ok, you have known what these files and folder are for. Now it's time to understand the source code and the execution path.
@@ -165,13 +165,13 @@ Ok, you have known what these files and folder are for. Now it's time to underst
 
 #### Analysis of the project's execution path
 
-It is very important to know a program's execution path. Here is a picture shows every cocos2d-html5 project's execution path:
+It is very important to know a program's execution path. Here is a picture shows every Cocos2d-html5 project's execution path:
 
 **Figure 9**
 
 ![exepath](res/execute-path.png)
 
-From Figure 9, we can see that our program is loaded into browser from index.html. Then it moves to cocos2d.js. In this file, the code logic diverse due to the following config:
+From Figure 9, we can see that our program is loaded into browser from index.html. Then it moves to Cocos2d.js. In this file, the code logic diverse due to the following config:
 
 ```
  var c = {
@@ -244,7 +244,7 @@ SingleEngineFile | a single game js file  | this file can be generated by Google
 
 #### Modify the design resolution size
 
-Now cocos2d-html5 take web browser as a full screen game canvas. We don't need to manually adjust the canvas size any more. We just need to care about the design resolution size. In order to let our game to run seamlessly on iOS and Android with javascript binding technics. We should change the design resolution size to 480*320. Open you main.js and in function **applicationDidFinishLaunching** change **designSize** to cc.Size(480,320).
+Now Cocos2d-html5 take web browser as a full screen game canvas. We don't need to manually adjust the canvas size any more. We just need to care about the design resolution size. In order to let our game to run seamlessly on iOS and Android with javascript binding technics. We should change the design resolution size to 480*320. Open you main.js and in function **applicationDidFinishLaunching** change **designSize** to cc.Size(480,320).
 
 ```
 var designSize = cc.size(480, 320);
@@ -260,8 +260,8 @@ If you are curious about why  we should do this, please refer to [this post](htt
 
 ## Summary
 
-In this tutorial, we have talked about the directory structures and the built-in tests and sample games of cocos2d-html5. We also created our first project based on the template provided by cocos2d-html5. In the last part, we took effort to analysis the files and the code structures of the template.
+In this tutorial, we have talked about the directory structures and the built-in tests and sample games of cocos2d-html5. We also created our first project based on the template provided by Cocos2d-html5. In the last part, we took effort to analysis the files and the code structures of the template.
 
 ## Where to go from here?
 
-In the next tutorial, I will show you how to set up your first game main menu scene. We will do more coding with cocos2d-html5. 
+In the next tutorial, I will show you how to set up your first game main menu scene. We will do more coding with Cocos2d-html5. 

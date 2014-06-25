@@ -1,13 +1,13 @@
-#如何使用cocos2d-x 3.0来做一个简单的iphone游戏教程（第一部分）
+#如何使用Cocos2d-x 3.0来做一个简单的iphone游戏教程（第一部分）
 ---------------------
 
 ##游戏截图：
 
 ![游戏截图][p1]
 
-　　[cocos2d-x](http://www.cocos2d-x.org "cocos2d-x") 是一个支持多平台的开源框架，用于构建游戏、应用程序和其他图形界面交互应用。Cocos2d-x项目可以很容易地建立和运行在iOS，Android的三星Bada，黑莓Blackberry操作系统。Cocos2d-x还支持Windows、Mac和Linux等桌面操作系统，因此，我们可以编写的源代码很容易在桌面操作系统中编辑和调试。
+　　[Cocos2d-x](http://www.cocos2d-x.org "Cocos2d-x") 是一个支持多平台的开源框架，用于构建游戏、应用程序和其他图形界面交互应用。Cocos2d-x项目可以很容易地建立和运行在iOS，Android的三星Bada，黑莓Blackberry操作系统。Cocos2d-x还支持Windows、Mac和Linux等桌面操作系统，因此，我们可以编写的源代码很容易在桌面操作系统中编辑和调试。
 
-cocos2d-x 具有以下特称:
+Cocos2d-x 具有以下特称:
 
   * 快速
   * 免费
@@ -16,19 +16,19 @@ cocos2d-x 具有以下特称:
 
 　　目前支持精灵（sprite）、动画、物理引擎、声音引擎以及许许多多非常酷的图像效果等等。
 
-　　目前已经有许多非常好的教程来教你如何使用cocos2d-x了。但关于cocos2d-x 3.0的资料非常少。同时很多人真正想要的是一个非常简单，但是可以跑起来的游戏。这个游戏包括怎么使用动画、碰撞检测和播放声音，这就够了，并不需要使用太多高级的特性。
+　　目前已经有许多非常好的教程来教你如何使用Cocos2d-x了。但关于Cocos2d-x 3.0的资料非常少。同时很多人真正想要的是一个非常简单，但是可以跑起来的游戏。这个游戏包括怎么使用动画、碰撞检测和播放声音，这就够了，并不需要使用太多高级的特性。
 
 　　这篇教程将会从头至尾、一步一步地教你如何使用cocos2d来制作一个简单的iphone游戏。你可以按照教程一步步来，或者干脆直接跳到文章的最后，下载样例程序。没错！游戏里面有忍者。	
 
-##Hello, Cocos2D-x!
+##Hello, Cocos2d-x!
 
-  1. 你可以从[cocos2d-x下载](http://www.cocos2d-x.org/download/version#Cocos2d-x)来下载cocos2d-x的最新版本并解压
-  2. 打开终端，进入cocos2d-x目录下的`tools/project-creator`，执行命令`./create_project.py -n [项目名] -k [包名] -l [使用语言cpp或javascript等]`，然后就能在cocos2d-x目录下的projects中看到新生成的项目了。或者直接执行`./create_project.py`会有图形界面，直接填写.
+  1. 你可以从[Cocos2d-x下载](http://www.cocos2d-x.org/download/version#Cocos2d-x)来下载Cocos2d-x的最新版本并解压
+  2. 打开终端，进入Cocos2d-x目录下的`tools/project-creator`，执行命令`./create_project.py -n [项目名] -k [包名] -l [使用语言cpp或javascript等]`，然后就能在Cocos2d-x目录下的projects中看到新生成的项目了。或者直接执行`./create_project.py`会有图形界面，直接填写.
   
 <pre>
 //sample1:
 ```
-$ cd cocos2d-x-3.0beta/tools/project-creator/
+$ cd Cocos2d-x-3.0beta/tools/project-creator/
 # 用python运行脚本进入GUI界面，效果如下图
 $ python create_project.py
 ```
@@ -39,11 +39,11 @@ $ python create_project.py
 <pre>
 //sample2:
 ```
-$ cd cocos2d-x-3.0beta/tools/project-creator/
+$ cd Cocos2d-x-3.0beta/tools/project-creator/
  # 查询命令行的Usage,然后就可以自己创建了
 $ python create_project.py --help
  # 用命令行创建与sample1等同的工程
-$ ./project-creator.py -n SampleGame -k com.MyCompany.SampleGame -l cpp -p /Cocos/cocos2d-x-3.0beta/projects
+$ ./project-creator.py -n SampleGame -k com.MyCompany.SampleGame -l cpp -p /Cocos/Cocos2d-x-3.0beta/projects
 ```
 </pre>  		 
   		
@@ -59,7 +59,7 @@ $ ./project-creator.py -n SampleGame -k com.MyCompany.SampleGame -l cpp -p /Coco
 
 　　在我们增加一个精灵之前，我们需要一些图片。你可以自己去创建一些，或者使用原英文作者的夫人这个项目所创建的图片: [a Player image](http://www.raywenderlich.com/downloads/Player.png), [a Projectile image](http://www.raywenderlich.com/downloads/Projectile.png), [and a Target image](http://www.raywenderlich.com/downloads/Target.png).如果上面的链接不幸失效的话，后面我会把源码放出，在我给出的工程里的Resources文件夹直接拷贝吧。
 
-　　一旦你获得了这些图片，你就可以把它们用鼠标拖到xcode的resource文件夹中去，并且保证“ Copy items into destination group’s folder (if needed)”勾上了。现在，我们拥有自己的图片了，我们先得计算一下，应该把player放在哪里。请注意，cocos2d-x坐标系的原点在屏幕的左下角，即（０，０）位置在左下角，这与一般的窗口坐标系统在左上角有所区别。x方向往右是正，y方向往上是正。由于项目是landscape（横版）模式，这就意味着右上角的坐标是（960，640）。
+　　一旦你获得了这些图片，你就可以把它们用鼠标拖到xcode的resource文件夹中去，并且保证“ Copy items into destination group’s folder (if needed)”勾上了。现在，我们拥有自己的图片了，我们先得计算一下，应该把player放在哪里。请注意，Cocos2d-x坐标系的原点在屏幕的左下角，即（０，０）位置在左下角，这与一般的窗口坐标系统在左上角有所区别。x方向往右是正，y方向往上是正。由于项目是landscape（横版）模式，这就意味着右上角的坐标是（960，640）。
 
 　　还有需要注意的是，当我们设置一个对象的位置的时候，这个位置是相对于所加精灵的中心点来加的。因此，如果我们想让我们的player精灵与屏幕的左边界水平对齐，并且垂直居中的话。
 
@@ -92,7 +92,7 @@ bool HelloWorld::init()
 ```
 </pre>
 	
-　　编译并运行，你的精灵这时候应该出现在正确的位置上了。但是，这个前景默认是黑的。对于这张忍者图片来说，白色的背景可能看起来更好一些。在cocos2d-x里面，有一种非常简单的方式来改变层的背景颜色，那就是使用LayerColor类。好，跟我来吧！点击HelloWorldScene.h，然后把HelloWorld类继承声明改成下面这样：
+　　编译并运行，你的精灵这时候应该出现在正确的位置上了。但是，这个前景默认是黑的。对于这张忍者图片来说，白色的背景可能看起来更好一些。在Cocos2d-x里面，有一种非常简单的方式来改变层的背景颜色，那就是使用LayerColor类。好，跟我来吧！点击HelloWorldScene.h，然后把HelloWorld类继承声明改成下面这样：
 
 <pre>
 ```cpp
@@ -152,7 +152,7 @@ void HelloWorld::addTarget()
 
 　　在这里我将以一种非常啰嗦的形式来介绍，目的是方便大家理解。第一部分需要解释的是我们之前已经讨论过了的：我们做一些简单的计算来决定把对象放在什么位置，然后设置对象的position，然后并把它加在场景上面，就和加载player精灵一样。
 
-　　这里增加的新的元素就是actions。cocos2d-x里面提供了许多非常方便的内置的action，你可以使用这样action来让你的精灵动起来。比如move　action，jump　action，fade　action，animation　action（就是播放图片序列）等等。这里，我们对目标对象使用了３种类型的action：
+　　这里增加的新的元素就是actions。Cocos2d-x里面提供了许多非常方便的内置的action，你可以使用这样action来让你的精灵动起来。比如move　action，jump　action，fade　action，animation　action（就是播放图片序列）等等。这里，我们对目标对象使用了３种类型的action：
 　　
 
   * MoveTo: 我们使用MoveTo action让目标从屏幕右边一直往左移动，直到移出屏幕。注意，这里我们可以指定这个过程要花费多长时间。这里使用了变化的时间间隔２-４秒。
@@ -172,7 +172,7 @@ void HelloWorld::spriteMoveFinished(Object* pSender)
 
 　　这个函数的目的是当精灵飞出屏幕之后，需要移除出当前的scene。这个非常重要，这样的话我们就不会因为屏幕外面积累太多没有用到的精灵而造成内存泄漏。注意，其实还有其它更好的方式来解决这个问题，比如使用一组可以重用的精灵等。不过，对于初学者来说，我在这篇教程里，尽量简单化。
 
-　　在我们继续之前，还有最后一件事没做。我们需要调用这个方法来创建我们的目标怪物。而且，为了使事情变得更加有趣，我们会随着时间连续不断地发射一些怪物出来。我们可以使用cocos2d-x的定时scheduler，并指定一个回调函数来完成此功能。一秒钟调用一次回调函数就可以了。因此，在init函数返回之前，我们再加入下面的代码：
+　　在我们继续之前，还有最后一件事没做。我们需要调用这个方法来创建我们的目标怪物。而且，为了使事情变得更加有趣，我们会随着时间连续不断地发射一些怪物出来。我们可以使用Cocos2d-x的定时scheduler，并指定一个回调函数来完成此功能。一秒钟调用一次回调函数就可以了。因此，在init函数返回之前，我们再加入下面的代码：
 
 <pre>
 ```cpp
@@ -205,7 +205,7 @@ void HelloWorld::gameLogic(float dt)
 　　
 　　因此，就像你看到的，在触摸点和player之间有一个小的三角形，由origin点，offx和offy组成。我们只需要画一个更大的三角形，同时使用一样的比率就行了。然后我们就可以根据比例算出飞盘飞出屏幕的位置。
 
-　　好了，让我们看看代码怎么写。首先我们需要让layer能接收touch事件。cocos2d-x 3.0增加了新的事件分发机制，并且让setTouchEnabled为deprecated的方法。对某个方法和类标注deprecated的意思就是这个方法或类不再建议使用。所以我们继承虚函数onEnter，并重写：
+　　好了，让我们看看代码怎么写。首先我们需要让layer能接收touch事件。Cocos2d-x 3.0增加了新的事件分发机制，并且让setTouchEnabled为deprecated的方法。对某个方法和类标注deprecated的意思就是这个方法或类不再建议使用。所以我们继承虚函数onEnter，并重写：
 　　
 <pre>
 ```cpp	
@@ -309,7 +309,7 @@ void HelloWorld::onTouchEnded(Touch* touch, Event* event)
 ##碰撞检测
 　　现在，我们可以看到飞镖到处乱飞了！但是，我们的忍者真正想做的，是能够放倒一些怪物。好吧，让我们增加一些代码来检测什么时候我们的飞镖与怪物相撞了。
 
-　　在cocos2d-x里面，有许多方法可以解决这个问题，包括使用cocos2d-x内置的开源物理引擎box２d和chipmunk。然而，为了使事情变得简单一点，在这里我们自己实现了一个简单的碰撞检测。
+　　在Cocos2d-x里面，有许多方法可以解决这个问题，包括使用Cocos2d-x内置的开源物理引擎box２d和chipmunk。然而，为了使事情变得简单一点，在这里我们自己实现了一个简单的碰撞检测。
 
 　　为了实现这个，我们首先需要当前场景中存在的飞镖和怪物。在HelloWorldScene类里面增加下面的声明：
 
@@ -624,11 +624,11 @@ Director::getInstance()->replaceScene(gameOverScene);
 
 　　旁边是本版本教程使用的完整的源代码：[项目源码下载](./SampleGame1.zip)。
 
-　　要注意的是，上面的链接下载的源码只包含Classs文件和Resources文件,因为cocos2d-x 3.0 beta 支持在任何目录创建工程，用过2.x的都知道,以前只能在cocos2d的安装路径的projects下创建。支持任意路径创建的代价就是在每个工程下都多了一个cocos2d的文件夹,把它打开看，你会神奇的发现它纯粹是cocos2d安装目录里的文件的子集。
+　　要注意的是，上面的链接下载的源码只包含Classs文件和Resources文件,因为Cocos2d-x 3.0 beta 支持在任何目录创建工程，用过2.x的都知道,以前只能在cocos2d的安装路径的projects下创建。支持任意路径创建的代价就是在每个工程下都多了一个cocos2d的文件夹,把它打开看，你会神奇的发现它纯粹是cocos2d安装目录里的文件的子集。
 
 ##何去何从？
 
-　　这个项目对于一个cocos2d-x的初学者来说非常有帮助，而且你还可以自己往项目里面添加更多新的特性。或许你可以尝试一下，添加一个提示框，提示当前你已经打中了多少个怪物了。或者你可以增加一些很酷的动画，比如怪物被击中后不是直接消失，而是用一段动画来模拟死去。（可以参考cocs2d-x　TestCpp里面的ActionsTest，EffectsTest和EffectsAdvancedTest）。或者你还可以增加更多的图片和声音资源，或者更多的游戏逻辑。心情发挥吧！
+　　这个项目对于一个Cocos2d-x的初学者来说非常有帮助，而且你还可以自己往项目里面添加更多新的特性。或许你可以尝试一下，添加一个提示框，提示当前你已经打中了多少个怪物了。或者你可以增加一些很酷的动画，比如怪物被击中后不是直接消失，而是用一段动画来模拟死去。（可以参考cocs2d-x　TestCpp里面的ActionsTest，EffectsTest和EffectsAdvancedTest）。或者你还可以增加更多的图片和声音资源，或者更多的游戏逻辑。心情发挥吧！
 
 [原版英文教程](http://www.raywenderlich.com/352/how-to-make-a-simple-iphone-game-with-cocos2d-tutorial "原版英文教程")
 　　
