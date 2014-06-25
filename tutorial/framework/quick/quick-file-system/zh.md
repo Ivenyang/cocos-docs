@@ -1,5 +1,5 @@
-# quick-cocos2d-x文件结构分析
-在上一章我们讲过了quick-cocos2d-x中的环境搭建，这章我们分析下quick中的文件结构吧！打开quick的文件夹，可以看到如下的这些目录和文件：
+# Quick-Cocos2d-x文件结构分析
+在上一章我们讲过了Quick-Cocos2d-x中的环境搭建，这章我们分析下quick中的文件结构吧！打开quick的文件夹，可以看到如下的这些目录和文件：
 
 
 `bin`:存放各种与引擎相关的脚本
@@ -19,7 +19,7 @@
 - `logo`:quick的logo存放目录
 - `apidoc_config.json`:文档生成的json配置文件
 
-`framework`:quick的核心部分，在cocos2d-x基础上自己搭建的一套framework。
+`framework`:quick的核心部分，在Cocos2d-x基础上自己搭建的一套framework。
 
 - `api`:quick封装的库目录,现在基本里面的接口都改到cc目录下。
 	+ `Context.lua`: 存取索引数据,目前已经弃用。
@@ -30,7 +30,7 @@
 	+ `Store.lua`:提供了游戏内的计费功能。现在已经弃用，推荐使用`cc.sdk.pay`。
 	+ `Timer.lua`:这个是基于 2D-X 中 scheduler 计时器的一个扩展，他可以方便的管理各个计时器，并添加了一些方便的功能，例如：100秒的时间，每5秒调用触发一次计时器事件。推荐使用`cc.utils.Timer`。
 
-- `cc`：cc扩展在cocos2dx C++ API和quick基本模块的基础上，提供了符合脚本风格的事件接口、组件架构等扩展。
+- `cc`：cc扩展在Cocos2d-x C++ API和quick基本模块的基础上，提供了符合脚本风格的事件接口、组件架构等扩展。
 	+ `init.lua`:初始化cc扩展
 	+ `GameObject.lua`:quick现在使用的一套类似Unity3D的GameObject的框架
 	+ `Registry.lua`:quick中GameObject的注册器
@@ -43,14 +43,14 @@
 	+ `net`:网络接口封装，使用Socket连接
 	+ `push`:push SDK封装，目前包含友盟push和cocopush两个push的SDK
 	+ `share`:分享SDK封装，目前包含友盟分享SDK
-	+ `ui`:quick封装的cocos2d-x控件，包含:UIGroup、UIImage，UIPushButton，UICheckBoxButton，UICheckBoxButtonGroup，UILabel，UISlider，UIBoxLayout
+	+ `ui`:quick封装的Cocos2d-x控件，包含:UIGroup、UIImage，UIPushButton，UICheckBoxButton，UICheckBoxButtonGroup，UILabel，UISlider，UIBoxLayout
 	+ `update`:自动更新组件的封装，使用的是友盟的更新SDK
 	+ `utils`:quick中其他的封装的功能
 
-- `cocos2dx`:quick对cocos2d-x中的扩展
+- `cocos2dx`:quick对Cocos2d-x中的扩展
 - `platform`:平台移植代码
 - `audio.lua`:音乐、音效管理
-- `cocos2dx.lua`:导入cocos2d-x的库
+- `cocos2dx.lua`:导入Cocos2d-x的库
 - `crypto.lua`:加解密、数据编码库
 - `debug.lua`:提供调试接口
 - `deprecated.lua`:定义所有已经废弃的 API
