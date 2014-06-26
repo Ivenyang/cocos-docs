@@ -1,6 +1,7 @@
 # Cocos2d-x 2048 游戏教程 第一部分
 
 ##概述
+
 一个根本停不下来的游戏。。。看看谁能玩到2048。2048 是一款数学游戏，通过上下左右滑动让两两相同的数字碰撞就会诞生一个翻倍的.最近2048游戏火的一塌糊涂！
 
 2048游戏规则很简单：
@@ -19,15 +20,12 @@
 ##项目介绍
 
 * 引擎版本： Cocos2d-x 3.0
-
 * 开发工具：xcode5
-
 * 效果图：
 
 	![img](res/2048.png)
 
 游戏只粗略实现大概逻辑，基本可玩。画面简陋还需小伙伴继续完善。
-
 
 
 ##工程建立
@@ -46,6 +44,7 @@ $ cocos new MyGame -p com.your_company.mygame -l cpp -d NEW_PROJECTS_DIR
 $ cd NEW_PROJECTS_DIR/MyGame
 
 ```
+
 按照上面操作执行
 
 ```
@@ -67,7 +66,7 @@ IvenYangtekiMacBook-Pro-2:Documents zeroyang$
 
 * AppDelegate.cpp是Cocos2d-x自动生成的一个类，它控制着游戏的生命周期。
 * HelloWorldScene是Cocos2d-x自动生成的一个类，HelloWorld场景。
-	
+
 
 使用xcode打开刚创建的工程，proj.ios_mac/2048.xcodeproj，编译运行如下， cocos2d-x 默认为我们创建了一个模板工程。运行结果如图：
 ![img](res/helloWorld.png)
@@ -85,9 +84,9 @@ Cocos2d-x 使用Scene表示游戏的场景，类似于电影中的场景。场�
 
 新建GameScene类，创建游戏的主场景。GameScene 是Layer的子类，负责显示score、pause 菜单，以及 4*4 的数字卡片。管理游戏的交换逻辑和分数更新。
 
-* 新建GameScene
+createScene静态方法的实现。
 
-	```
+```
 	Scene* GameScene::createScene()
 	{
     // 'scene' is an autorelease object
@@ -102,13 +101,13 @@ Cocos2d-x 使用Scene表示游戏的场景，类似于电影中的场景。场�
     // return the scene
     return scene;
 	}
-	```
+```
 
-	GameScene::createScene()方法，首先创建了一个场景，然后创建layer将自己add到该场景。并返回。
+GameScene::createScene()方法，首先创建了一个场景，然后创建layer将自己add到该场景。并返回。
 
-* 在bool GameScene::init()中加入bgLayer 和显示score label 和 pause菜单
+在bool GameScene::init()中加入bgLayer 和显示score label 和 pause菜单
 
-  ```
+```
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     //加入游戏背景
@@ -138,44 +137,44 @@ Cocos2d-x 使用Scene表示游戏的场景，类似于电影中的场景。场�
     cardNumberTTF = Label::createWithSystemFont("0", "Consolas", 70);
     cardNumberTTF->setPosition(Point(visibleSize.width - 150, visibleSize.height/2 - 50));
     addChild(cardNumberTTF);
-  ```
-  1. 创建了一个LayerColor对象layerColorBG，用于做游戏的背景。 游戏的背景也可以使用精灵通过图片创建
-  2. 使用MenuItemFont，指定字体和大小，创建了一个menuItemPause 菜单项，菜单的响应函数onPause执行点击菜单的响应。
-  3. 创建了两个label,一个显示SCORE标题，一个显示分数。当得分变化时时更新分数的显示。
-  
-  
-  
-* 替换HelloWorldScene，加入GameScene
-  
-  打开AppDelegate.cpp，加入头文件#include "GameScene.h"， 在Cocos2d-x的入口bool AppDelegate::applicationDidFinishLaunching()作如下修改，
-  
-  将
-  
-  ```
+```
+
+1. 创建了一个LayerColor对象layerColorBG，用于做游戏的背景。 游戏的背景也可以使用精灵通过图片创建
+2. 使用MenuItemFont，指定字体和大小，创建了一个menuItemPause 菜单项，菜单的响应函数onPause执行点击菜单的响应。
+3. 创建了两个label,一个显示SCORE标题，一个显示分数。当得分变化时时更新分数的显示。
+
+
+替换HelloWorldScene，加入GameScene
+ 
+打开AppDelegate.cpp，加入头文件#include "GameScene.h"， 在Cocos2d-x的入口bool AppDelegate::applicationDidFinishLaunching()作如下修改，
+
+将
+
+```
   	auto scene = HelloWorld::createScene();
   	director->runWithScene(scene);
-  ```
-  
-  改为
-  
-  ```
+```
+
+改为
+
+```
 	auto scene = GameScene::createScene();
 	director->runWithScene(scene);
-  ```
-  Cocos2d-x用Director类管理场景，访问和改变场景。通过上面修改，将我的游戏场景运行起来。
-  
-* 运行查看效果
- ![img](res/gameScene1.png)
- 游戏场景基本已经创建好，接下来我们来加入4*4的数字卡片。
+```
+
+Cocos2d-x用Director类管理场景，访问和改变场景。通过上面修改，将我的游戏场景运行起来。
+
+运行查看效果
+![img](res/gameScene1.png)
+游戏场景基本已经创建好，接下来我们来加入4*4的数字卡片。
 
 ### 新建Card 精灵
 
+新建CardSprite类来表示数字方块，CardSprite是Sprite的子类。由显示背景的LayerColor和显示数字的Label组合而成。 负责显示2、4、8...数字方块和不同的背景色。
 
-  新建CardSprite类来表示数字方块，CardSprite是Sprite的子类。由显示背景的LayerColor和显示数字的Label组合而成。 负责显示2、4、8...数字方块和不同的背景色。
-  
-  * 数字卡片的创建
-  
-  ```
+数字卡片的创建
+
+```
   //初始化
 void CardSprite::initCard(int number, int wight, int height, float CardSpriteX, float CardSpriteY)
 {
@@ -205,12 +204,13 @@ void CardSprite::initCard(int number, int wight, int height, float CardSpriteX, 
     
 	this->addChild(colorBackground);
 }
-  ```
-  上面代码，通过指定位置和大小创建了一个显示背景的LayerColor对象，然后将创建显示数字的Label对象add到背景上，最后将其add到CardSprite上。
-  
-  * 添加更新和获取数字方法
-  
-  ```
+```
+
+上面代码，通过指定位置和大小创建了一个显示背景的LayerColor对象，然后将创建显示数字的Label对象add到背景上，最后将其add到CardSprite上。
+
+添加更新和获取数字方法
+
+```
   //获取数据
 int CardSprite::getNumber()
 {
@@ -251,8 +251,9 @@ void CardSprite::setNumber(int num)
 		colorBackground->setColor(Color3B(0,130,0));
 	}
 }
-  ```
-  CardSprite的成员变量number保存卡片显示的数字，colorBackground 在不同number下显示不同的颜色。
+```
+
+CardSprite的成员变量number保存卡片显示的数字，colorBackground 在不同number下显示不同的颜色。
 
 ### 在场景中加入4*4的数字卡片
 
@@ -288,14 +289,15 @@ cocos2d-x中提供了CCRANDOM_0_1()宏
  */
 #define CCRANDOM_0_1() ((float)rand()/RAND_MAX)
 ```
+
 生成float范围是[0.f,1.f]。
 我们需要在4*4的矩阵上，随机取数字卡片初始为2或4。使用如下方法
 
 ```
 int i = CCRANDOM_0_1() * 4;        //生成0~3随机数
 ```
-将float转为int，得到0~3的随机数
 
+将float转为int，得到0~3的随机数
 
 ```
 //创建生成随机卡片
@@ -336,6 +338,7 @@ void GameScene::createCardNumber()
     createCardNumber();
 
 ```
+
 运行效果如图：
 
 ![img](res/gameScene2.png)
@@ -345,3 +348,5 @@ void GameScene::createCardNumber()
 
 在这节我们已经完成了游戏的主场景和4*4的数字卡片。但是还缺少游戏上下左右滑动移动数字卡片，得分，游戏结束等逻辑。
 在下一节我们将加入游戏的逻辑、数据存储和如何在android上运行。
+
+你可以在[这里](https://github.com/iTyran/2048)获取游戏源码。
