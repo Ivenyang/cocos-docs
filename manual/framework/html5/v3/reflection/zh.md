@@ -1,6 +1,6 @@
 #如何在android平台上使用js直接调用Java方法
 
-在Cocos2d-js 3.0beta中加入了一个新特征，在android平台上我们可以通过反射直接在js中调用java的静态方法。它的使用方法很简单：
+在cocos2d-js 3.0beta中加入了一个新特性，在android平台上我们可以通过反射直接在js中调用java的静态方法。它的使用方法很简单：
 
 ```
 var o = cc.reflection.callStaticMethod(className, methodName, methodSignature, parameters...)
@@ -67,14 +67,14 @@ public class Test {
 
 ```
 //调用hello方法
-cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String)V", "this is a message from js");
+cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "hello", "(Ljava/lang/String)V", "this is a message from js");
 
 //调用第一个sum方法
-var result = cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "sum", "(II)I", 3, 7);
+var result = cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(II)I", 3, 7);
 cc.log(result); //10
 
 //调用第二个sum方法
-var result = cc.reflection.callStaticMethod("/org/cocos2dx/javascript/Test", "sum", "(I)I", 3);
+var result = cc.reflection.callStaticMethod("org/cocos2dx/javascript/Test", "sum", "(I)I", 3);
 cc.log(result); //5
 ```
 
