@@ -59,8 +59,6 @@
 
 ### 内存管理
 
-### 网络
-
 ### [物理引擎](./physics/zh.md)
 
 ### 场景
@@ -91,7 +89,6 @@
 	* [在Windows Phone 8中集成支付宝](./how-to-integrate-alipay/zh.md)
 	* [Windows Phone 8上集成第三方库SDK](./how-to-integrate-third-sdk/zh.md)
 
-## 最佳实践
 
 ## 优化
 
@@ -108,26 +105,6 @@
 
 ## Cocos2d-x发行说明
 
-## 已废弃得文档
-
-1. CCArray
-2. CCDictionary
-3. CCString
-4. EasyNDK
-	* [Cocos2d-x中Android部分的c++和java实现相互调用](./how-to-work-on-android-c++Java/zh.md)
-	* [Cocos2d-x中实现Object-c与c++相互调用](./how-to-work-on-ios-c++objectivec/zh.md)
-5. [资源加载机制](./mechanism-of-loading-resources/zh.md)
-7. 开发环境搭建
-	* [Linux环境搭建](./linux-environment-setup/zh.md)
-	* Mac OS X环境搭建
-		1. [Android ndk r4b开发环境搭建](./installation-guide-of-android-ndk-r4b-development-environment/zh.md)
-8. 一步一步实现coco2d-x simple game
-9. 工具和编辑器	
-	* [TexturePacker](./texturepacker/zh.md)
-	* [瓦片地图](./tilemap/zh.md)
-10. Cocos2d-x升级指南
-	* [关于Cocos2d-x v2.0的静态构造函数的变化](./about-static-constructor-api-changes-in-cocos2d-x-v2/zh.md)
-
 ## How to教程
 
 2. [如何创建精灵(Sprites) ](./how-to-create-sprites/zh.md)
@@ -135,35 +112,10 @@
 
 # Cocos2d-js
 
-## Cocos2d-js特性
-
-## 开始使用Cocos2d-js
-
-## Cocos2d-js展示MoonWarriors游戏
 
 ## Cocos2d-js发行说明
 
 7. [Cocos2d-JS v3.0 alpha发布说明](./release-notes-for-cocos2d-js-v30alpha/zh.md)
-
-## html5升级说明
-
-# cocos2d-console
-
-## cocos new
-
-## cocos compile
-
-## cocos deploy
-
-## cocos run
-
-## cocos jscompile
-
-## cocos luacompile
-
-# cocos studio
-
-## [Code Editor](./code-editor/zh.md)
 
 # 关于
 

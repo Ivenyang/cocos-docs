@@ -26,8 +26,6 @@
 		- windows
 			- [在Windows7上搭建Cocos2d-x win32开发环境](../../../manual/framework/native/v3/getting-started/setting-up-development-environments-on-windows7-with-vs2013/zh.md)
 			- [在Windows7平台搭建Cocos2d-x Android开发环境](../../../manual/framework/native/v3/getting-started/setting-up-development-environments-on-windows7-with-eclipse/zh.md)
-		- Linux
-			- [如何运行HelloWord](../../../manual/framework/native/v3/getting-started/how-to-run-cpp-tests-on-linux/en.md)
 	- 环境说明
 		- Mac
 			- [在Mac OS X山狮系统安装Emscripten说明](../../../manual/framework/native/v2/getting-started/setting-up-development-environments/mac-osx-environment-setup/setup-emscripten-on-mac_osx-mountain-lion/zh.md)
