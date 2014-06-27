@@ -1,7 +1,7 @@
-# 用 Eclipse LDT 调试 quick-Cocos2d-x 游戏 #
+# 用 Eclipse LDT 调试 Quick-Cocos2d-x 游戏 #
 
 
-目前，quick-Cocos2d-x 已经内置了对 Eclipse LDT 的调试器支持，要用 LDT 进行调试需要以下几步:
+目前，Quick-Cocos2d-x 已经内置了对 Eclipse LDT 的调试器支持，要用 LDT 进行调试需要以下几步:
 
 1. 在Eclipse中安装 **LDT**
 2. 创建一个lua工程
@@ -50,7 +50,7 @@ $QUICK_COCOS2DX_ROOT/samples/luajavabridge/scripts/
 
 ## 开启Player的debugger功能 ##
 
-启动 quick-x-player，打开要调试的项目，然后选择菜单 **Player** -> **Auto Connect Debugger** 。
+启动 Quick-x-player，打开要调试的项目，然后选择菜单 **Player** -> **Auto Connect Debugger** 。
 
 ![](res/debug_with_eclipse_ldt_05.png)
 
@@ -69,11 +69,11 @@ cd $QUICK_COCOS2DX_ROOT/player/mac/quick-x-player.app/Contents/MacOS
 
 ![](res/debug_with_eclipse_ldt_09.png)
 
-windows上，进入到quick-x-player.exe所在目录，运行命令:
+windows上，进入到Quick-x-player.exe所在目录，运行命令:
 
 ~~~
 
-quick-x-player -debugger-ldt
+Quick-x-player -debugger-ldt
 
 ~~~
 
@@ -94,7 +94,7 @@ quick-x-player -debugger-ldt
 
 ## 刷新Player ##
 
-启动调试器后，需要在超时限制到达前刷新 quick-x-player。按下 CMD+R 或者 F5 键，quick-x-player 会刷新，此时 LDT 会打开调试视图。
+启动调试器后，需要在超时限制到达前刷新 Quick-x-player。按下 CMD+R 或者 F5 键，Quick-x-player 会刷新，此时 LDT 会打开调试视图。
 
 ![](res/debug_with_eclipse_ldt_08.png)
 
@@ -102,4 +102,4 @@ quick-x-player -debugger-ldt
 
 ## 再次开启调试 ##
 
-目前比较麻烦的一点是本次调试结束后，如果要再次开始调试，就需要在 LDT 中重新打开 Debug Configurations 对话框，选中先前创建的设置后点击 Debug 按钮。然后再次刷新 quick-x-player。
+目前比较麻烦的一点是本次调试结束后，如果要再次开始调试，就需要在 LDT 中重新打开 Debug Configurations 对话框，选中先前创建的设置后点击 Debug 按钮。然后再次刷新 Quick-x-player。

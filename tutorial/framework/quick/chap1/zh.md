@@ -50,7 +50,7 @@ Android下开发需要的工具有：
 
 新版本的quick包含一个自动设置环境变量的脚本。在quick的根目录下可以找到一个名为setup.bat的批处理脚本，运行它，就会自动为你完成刚才说的步骤了。当你改变了quick的文件夹时，也需要改变环境变量中`QUICK_COCOS2D_ROOT`的值。
 
-配置好这些参数基本上quick的player就可以运行起来了。打开quick根目录下的player/win下的quick-x-player.exe文件，为了方便也可以在桌面上创建一个快捷方式。打开后的界面如下：
+配置好这些参数基本上quick的player就可以运行起来了。打开quick根目录下的player/win下的Quick-x-player.exe文件，为了方便也可以在桌面上创建一个快捷方式。打开后的界面如下：
 
 ![](res/4.png)
  

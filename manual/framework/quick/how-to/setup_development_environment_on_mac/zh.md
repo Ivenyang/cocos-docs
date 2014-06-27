@@ -1,20 +1,20 @@
-# 设置 quick-Cocos2d-x 在 Mac 下的编译环境 #
+# 设置 Quick-Cocos2d-x 在 Mac 下的编译环境 #
 
 如果不需要在 Android 上运行，那么可以跳过 3/4 两个步骤。
 
 配置编译环境的基本步骤：
 
-1. 下载 quick-Cocos2d-x 源代码
+1. 下载 Quick-Cocos2d-x 源代码
 2. 设置运行环境
 3. 安装最新的 Android ADT bundle 和 Android NDK
 4. 编译 LuaJavaBridge 示例，并在 Android 真机上进行测试
 
 
-## Step 1: 下载 quick-Cocos2d-x 源代码 ##
+## Step 1: 下载 Quick-Cocos2d-x 源代码 ##
 
 访问 [https://github.com/chukong/quick-cocos2d-x/releases](https://github.com/chukong/quick-cocos2d-x/releases) 下载最新版 quick 源代码。
 
-quick-Cocos2d-x 目录的放置有一定要求 ** ：
+Quick-Cocos2d-x 目录的放置有一定要求 ** ：
 
 1. 不能放在根目录
 2. 路径中不能包含中文和空格（所以别放桌面了）
@@ -97,11 +97,11 @@ export ANDROID_HOME=${ANDROID_SDK_ROOT}
 
 ## Step 4: 编译 LuaJavaBridge 示例，并在 Android 真机上进行测试 ##
 
-启动 终端 应用程序, 改变当前目录为 <PATH_TO>/quick-cocos2d-x/sample/luajavabridge/proj.android, 运行 build_native.sh:
+启动 终端 应用程序, 改变当前目录为 <PATH_TO>/Quick-cocos2d-x/sample/luajavabridge/proj.android, 运行 build_native.sh:
 
 ```
 
-$ cd quick-cocos2d-x/sample/luajavabridge/proj.android
+$ cd Quick-cocos2d-x/sample/luajavabridge/proj.android
 $ ./build_native.sh
 
 ```
@@ -124,7 +124,7 @@ Install        : libgame.so => libs/armeabi/libgame.so
 
 ![](res/howto_setup_development_environment_mac_05.png)
 
-2.点击 Browse 按钮, 选择 <PATH_TO>/quick-cocos2d-x/lib/cocos2d-x/cocos2dx/platform/android/java :
+2.点击 Browse 按钮, 选择 <PATH_TO>/Quick-cocos2d-x/lib/cocos2d-x/cocos2dx/platform/android/java :
 
 ![](res/howto_setup_development_environment_mac_06.png)
 
