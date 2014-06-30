@@ -8,9 +8,9 @@
 
 ###编译方式
 
-- [设置 quick-Cocos2d-x 在 Mac 下的编译环境](../../../manual/framework/quick/how-to/setup_development_environment_on_mac/zh.md)
-- [设置 quick-Cocos2d-x 在 Windows 下的编译环境](../../../manual/framework/quick/how-to/setup_development_environment_on_windows/zh.md)
-- [quick-Cocos2d-x 2.2.3 player 编译方法](../../../manual/framework/quick/how-to/compile_qt_player/zh.md)
+- [设置 Quick-Cocos2d-x 在 Mac 下的编译环境](../../../manual/framework/quick/how-to/setup_development_environment_on_mac/zh.md)
+- [设置 Quick-Cocos2d-x 在 Windows 下的编译环境](../../../manual/framework/quick/how-to/setup_development_environment_on_windows/zh.md)
+- [Quick-Cocos2d-x 2.2.3 player 编译方法](../../../manual/framework/quick/how-to/compile_qt_player/zh.md)
 
 ###创建和导入项目
 
@@ -21,7 +21,7 @@
 - [在QUICK中集成第三方SDK](../../../manual/framework/quick/how-to/integration_third_party_sdk/zh.md)
 - [升级到 2.2.3](../../../manual/framework/quick/how-to/upgrade-to-2_2_3/zh.md)
 - [quick 事件参考](../../../manual/framework/quick/reference/events-in-quick/zh.md)
-- [用 Eclipse LDT 调试 quick-Cocos2d-x 游戏](../../../manual/framework/quick/how-to/debug_with_eclipse_ldt/zh.md)
+- [用 Eclipse LDT 调试 Quick-Cocos2d-x 游戏](../../../manual/framework/quick/how-to/debug_with_eclipse_ldt/zh.md)
 
 ### 引擎分析
 - [Quick-Cocos2d-x引擎结构分析](../../../tutorial/framework/quick/quick-file-system/zh.md)
