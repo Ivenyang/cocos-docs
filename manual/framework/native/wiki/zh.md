@@ -2,6 +2,7 @@
 
 ## [开始使用Cocos2d-x](./getting-started-cocos2d-x/zh.md)
 
+1. [C++编程规范](./cpp-coding-style/zh.md)
 1. [如何开始一个新的cocos2d-x游戏](./how-to-start-a-new-cocos2d-x-game/zh.md)
 2. [如何使用Eclipse 编译一个Android项目](./how-to-build-android-project-with-eclipse/zh.md)
 3. [如何在Android上运行cpp-tests](./how-to-run-cpp-tests-on-android/zh.md)
