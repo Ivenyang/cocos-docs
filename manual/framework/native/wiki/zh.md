@@ -3,16 +3,16 @@
 ## [开始使用Cocos2d-x](./getting-started-cocos2d-x/zh.md)
 
 1. [C++编程规范](./cpp-coding-style/zh.md)
-1. [如何开始一个新的cocos2d-x游戏](./how-to-start-a-new-cocos2d-x-game/zh.md)
-2. [如何使用Eclipse 编译一个Android项目](./how-to-build-android-project-with-eclipse/zh.md)
-3. [如何在Android上运行cpp-tests](./how-to-run-cpp-tests-on-android/zh.md)
-4. [如何在iOS上运行cpp-tests](./how-to-run-cpp-tests-on-iOS/zh.md)
-5. [如何在Linux上运行cpp-tests](./how-to-run-cpp-tests-on-linux/zh.md)
-6. [如何在Mac OSX上运行cpp-tests](./how-to-run-cpp-tests-on-mac-osx/zh.md)
-7. [如何在Windows上运行cpp-tests](./how-to-run-cpp-tests-on-win32/zh.md)
-8. [如何在WP8上运行cpp-tests](./how-to-run-cpp-tests-on-wp8/zh.md)
-9. [如何在Linux(NetBeans)上运行cpp-tests](./how-to-run-cpp-tests-on-netbeans/zh.md)
-10. [如何使用CCache进行cocos2d-x编译加速](./ccache-speed-up/zh.md)
+2. [如何开始一个新的cocos2d-x游戏](./how-to-start-a-new-cocos2d-x-game/zh.md)
+3. [如何使用Eclipse 编译一个Android项目](./how-to-build-android-project-with-eclipse/zh.md)
+4. [如何在Android上运行cpp-tests](./how-to-run-cpp-tests-on-android/zh.md)
+5. [如何在iOS上运行cpp-tests](./how-to-run-cpp-tests-on-iOS/zh.md)
+6. [如何在Linux上运行cpp-tests](./how-to-run-cpp-tests-on-linux/zh.md)
+7. [如何在Mac OSX上运行cpp-tests](./how-to-run-cpp-tests-on-mac-osx/zh.md)
+8. [如何在Windows上运行cpp-tests](./how-to-run-cpp-tests-on-win32/zh.md)
+9. [如何在WP8上运行cpp-tests](./how-to-run-cpp-tests-on-wp8/zh.md)
+10. [如何在Linux(NetBeans)上运行cpp-tests](./how-to-run-cpp-tests-on-netbeans/zh.md)
+11. [如何使用CCache进行cocos2d-x编译加速](./ccache-speed-up/zh.md)
 
 ## 模块
 
