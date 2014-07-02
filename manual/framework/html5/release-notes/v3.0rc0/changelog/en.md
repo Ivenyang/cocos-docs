@@ -10,7 +10,7 @@ Cocos2d-JS-v3.0 RC0 @ July.1, 2014
 * Refactored `ccui.Widget`'s `getLeftInParent`, `getBottomInParent`, `getRightInParent`, `getTopInParent` to `getLeftBoundary`, `getBottomBoundary`, `getRightBoundary`, `getTopBoundary`.
 * Refactored `cc.FadeIn.create(duration, toOpacity)` to `cc.FadeIn.create(duration)`.
 * Refactroed all string access functions in `ccui` extension to `setString` and `getString`.
-* Added to `getContentSize` and `setContentSize` in `ccui` extension.
+* Added `getContentSize` and `setContentSize` in `ccui` extension.
 * Changed the default alpha value of `cc.Color` from `undefined` to 255.
 * Made `cc.log` support formatted string.
 * [JSB] Improved `cc.AssetsManager` with multi-thread downloading, download resuming support, compressed file support, better progression informations, possibility to retry failed assets.
