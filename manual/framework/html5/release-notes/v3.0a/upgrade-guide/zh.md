@@ -659,16 +659,18 @@ if (cc.sys.isNative) {
 
     **旧的调用方式:**
     ```
-var anAction = cc.Sequence.create(
-    cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
-    cc.RepeatForever.create(cc.RotateBy.create(2, 30)));
+    var anAction = cc.Sequence.create(
+        cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
+        cc.RepeatForever.create(cc.RotateBy.create(2, 30))
+    );
     ```
 
     **新的调用方式:**
     ```
     var anAction = cc.sequence(
-		    cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3).repeat(5).speed(1.7), 
-		    cc.rotateBy(2,30).repeatForever());
+        cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3)).repeat(5).speed(1.7), 
+        cc.rotateBy(2,30).repeatForever()
+    );
     ```
 
     **注意**: 所有的Actions的旧API都保留，并向前兼容。
@@ -704,38 +706,37 @@ var anAction = cc.Sequence.create(
 
 * ccui.Text :
 
-    
-  ```
-  setText --> setString
-  getStringValue --> getString
-  ```
+    ```
+    setText --> setString
+    getStringValue --> getString
+    ```
 
 * ccui.TextAtlas :
- 
-  ```
-  getStringValue ==> getString
-  ```
+
+    ```
+    getStringValue ==> getString
+    ```
 
 * ccui.TextBMFont :
 
-   ```
-  setText --> setString
-  getStringValue --> getString
-  ```
+    ```
+    setText --> setString
+    getStringValue --> getString
+    ```
 
 * ccui.TextField :
 
-   ```
-  setText --> setString
-  getStringValue --> getString
-  ```
+    ```
+    setText --> setString
+    getStringValue --> getString
+    ```
 
 * cc.EditBox :
 
-   ```
-  setText --> setString
-  getText --> getString
-  ```
+    ```
+    setText --> setString
+    getText --> getString
+    ```
 
 其他详细文档列表：
 

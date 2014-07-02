@@ -622,6 +622,7 @@ if (cc.sys.isNative) {
     getCString  --> getString
     setCString  --> setString
     ```
+    
 ##12.[New in Beta]Actions API changements
 
 * **12.1 Provide shortcut to create an action**
@@ -667,19 +668,22 @@ if (cc.sys.isNative) {
 
     **Old usage:**
     ```
-var anAction = cc.Sequence.create(
-    cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
-    cc.RepeatForever.create(cc.RotateBy.create(2, 30)));
+    var anAction = cc.Sequence.create(
+        cc.Speed.create(cc.Repeat.create(cc.EaseIn.create(cc.MoveBy.create(2, cc.p(100,50)),0.3), 5),1.7),
+        cc.RepeatForever.create(cc.RotateBy.create(2, 30))
+    );
     ```
 
     **New usage:**
     ```
     var anAction = cc.sequence(
-		    cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3).repeat(5).speed(1.7), 
-		    cc.rotateBy(2,30).repeatForever());
+        cc.moveBy(2,cc.p(100,50)).easing(cc.easeIn(0.3)).repeat(5).speed(1.7), 
+        cc.rotateBy(2,30).repeatForever()
+    );
     ```
 
     **Note**: All actions changes are backward compatible.
+    
 * **12.4 The new design list**
    
      Old usage       				     | New usage
@@ -711,7 +715,6 @@ var anAction = cc.Sequence.create(
 ##13.[New in Beta]Changed setText，getText to unified API of SetString, getString
 
 * ccui.Text :
-
     
   ```
   setText --> setString
@@ -726,14 +729,14 @@ var anAction = cc.Sequence.create(
 
 * ccui.TextBMFont :
 
-   ```
+  ```
   setText --> setString
   getStringValue --> getString
   ```
 
 * ccui.TextField :
 
-   ```
+  ```
   setText --> setString
   getStringValue --> getString
   ```
