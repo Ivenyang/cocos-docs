@@ -34,6 +34,7 @@
 	- 其他
 		- [如何在Tizen平台中运行HelloWorld及测试项目](../../../manual/framework/native/v2/getting-started/setting-up-development-environments/tizen-environment-setup/zh.md)
 		- [如何在黑莓平板系统中运行HelloWorld及测试项目](../../../manual/framework/native/v2/getting-started/setting-up-development-environments/blackberry-environment-setup/how-to-run-helloworld-and-tests-on-blackberry-tablet-OS/zh.md)
+		- [CCConsole](../../../manual/framework/native/v3/CCConsole/zh.md)
 
 - ### 基础概念
 	- [导演，场景，层，以及精灵](../../../manual/framework/native/v2/basic-concepts/director-scene-layer-and-sprite/zh.md)
@@ -43,7 +44,7 @@
 	- [坐标系详解](../../../manual/framework/native/v2/graphic/coordinate-system/zh.md)
 	- [动作](../../../manual/framework/native/v2/graphic/action/zh.md)
 	- [序列帧动画](../../../manual/framework/native/v2/graphic/flipbook-animation/zh.md)
-	- [骨骼动画](../../../manual/framework/native/v2/graphic/skeletal-animation/zh.md)
+	- [骨骼动画](../../../manual/framework/native/v3/spine/zh.md)
 	- [场景转换](../../../manual/framework/native/v2/graphic/transition/zh.md)
 	- [粒子效果](../../../manual/framework/native/v2/graphic/particle/zh.md)
 	- [瓦片地图](../../../manual/framework/native/v2/graphic/tiled-map/zh.md)
