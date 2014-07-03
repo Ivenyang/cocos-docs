@@ -31,7 +31,6 @@ Cocos2d-JS-v3.0 beta @ May.23, 2014
 * [JSB]Support x, y parameter in position setting functions of cc.TMXLayer.
 * [JSB]Added `game_on_hide` and `game_on_show` events.
 
-
 * Bugs fix:
     1. Fixed a bug of cc.winSize that it returns incorrect value when using setDesignResolution.
     2. Added a check to cc._setup to avoid double invocation.
@@ -60,7 +59,8 @@ Cocos2d-JS-v3.0 beta @ May.23, 2014
     25. [JSB]Fixed a bug of `cc.view.setDesignResolutionSize`.
     26. [JSB]Fixed API inconsistence for cc.view.
     27. [JSB]Fixed API inconsistence for constants.
-    28. [JSB]Fixed API inconsistence of EventMouse and EventTouch.		
+    28. [JSB]Fixed API inconsistence of EventMouse and EventTouch.
+    
 * Known Issues:
     1. [JSB]Property's getter/setter functions can not be overrided automatically in custom subclasses.
     2. [JSB]CocoStudio's scene reloading may cause memory release issues and crash.

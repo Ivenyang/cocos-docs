@@ -15,6 +15,17 @@
 
 对于以上这些情况，如果你可以在开发完成后快速得部署到用户手上，我说的快速，是也许一个晚上，这难道不是很吸引人么？资源管理器就是为了这些情况而设计的。
 
+##特性
+
+Cocos2d-JS v3.0 RC0版中的资源管理器新增了非常多强大的功能特性，使得热更新的过程更加快捷方便。
+
+- 多线程并行下载支持
+- 两层进度统计信息：文件级以及字节级
+- Zip压缩文件支持
+- 断点续传
+- 详细的错误报告
+- 文件下载失败重试支持
+
 ##资源管理器的使用
 
 实际上，使用资源管理器的使用相当简单，首先，你的应用包中将需要一个JSON格式的初始的配置文件(manifest)。
@@ -31,7 +42,7 @@
 	"remoteVersionUrl" : "http://example.com/assets_manager/TestScene/version.manifest",
 	"remoteManifestUrl" : "http://example.com/assets_manager/TestScene/project.manifest",
 	"version" : "1.0.0",
-	"engineVersion" : "Cocos2d-JS 3.0 beta",
+	"engineVersion" : "Cocos2d-JS v3.0 RC0",
 
 	"assets" : {
 		"Images/background.jpg" : {
@@ -48,6 +59,10 @@
 		},
 		"src/layer.js" : {
 			"md5" : "..."
+		},
+		"compressed.zip" : {
+			"md5" : "...",
+			"compressed" : true
 		}
 	},
     
@@ -62,7 +77,10 @@
 - remoteManifestUrl :   远程配置文件的路径，包含版本信息以及所有资源信息。
 - version :             配置文件对应的版本。
 - engineVersion :       配置文件对应的引擎版本。
-- assets :              所有资源信息，其中单项的键代表资源的相对路径（相对于packageUrl），值中的md5代表资源文件的版本信息。
+- assets :              所有资源信息。
+    - key : 键代表资源的相对路径（相对于packageUrl）。
+    - md5 : md5值代表资源文件的版本信息。
+    - compressed : [可选项] 如果值为true，文件被下载后会自动被解压，目前仅支持zip压缩格式。
 - searchPaths :         需要添加到cocos2d引擎中的搜索路径列表。
 
 版本文件`version.manifest`文件应该包含与配置文件完全相同的前五项信息。这个文件是可选的，如果它未被找到或成功失败，资源管理器会自动下载完整的配置文件。但是当配置文件包含很多资源非常庞大的时候，版本文件将极大缩短版本比较的时间。
@@ -72,7 +90,7 @@
 下面是`cc.AssetsManager`使用的示例代码：
 
 ```
-var manager = new cc.AssetsManager(string manifestUrl, string storagePath);
+var manager = new cc.AssetsManager(manifestUrl, storagePath);
 
 manager.update();
 // 由于下载过程是异步的，你需要增加manager的索引数以保证它不会被Cocos2d-x的内存管理释放掉
@@ -90,7 +108,8 @@ else {
                 break;
             case cc.EventAssetsManager.UPDATE_PROGRESSION:
                 var percent = event.getPercent();
-                cc.log("Download percent : " + percent);
+                var filePercent = event.getPercentByFile();
+                cc.log("Download percent : " + percent + " | File percent : " + filePercent);
                 break;
             case cc.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
             case cc.EventAssetsManager.ERROR_PARSE_MANIFEST:
@@ -102,8 +121,16 @@ else {
                 // 由于增加了manager的引用计数，你需要在合适的时候将它释放掉，并确保这个对象不再被使用到
                 manager.release();
                 break;
+            case cc.EventAssetsManager.UPDATE_FAILED:
+                cc.log("Update failed. " + event.getMessage());
+                // 直接重新下载失败的资源，建议你对重试次数计数，超过一定次数放弃
+                manager.downloadFailedAssets();
+                break;
             case cc.EventAssetsManager.ERROR_UPDATING:
                 cc.log("Asset update error: " + event.getAssetId() + ", " + event.getMessage());
+                break;
+            case cc.EventAssetsManager.ERROR_DECOMPRESS:
+                cc.log(event.getMessage());
                 break;
             default:
                 break;
@@ -120,11 +147,6 @@ else {
 - getLocalManifest()
 - getRemoteManifest()
 
-##下一步
+###已知bug
 
-资源管理器已经提供了非常强大的游戏资源更新功能，但它仍然是第一个版本，所以还有一些特性我们并没有添加或没有完全准备好。在下一个版本中，我们计划将要实现的特性有下面这些：
-
-- 多线程下载支持（目前是独立单线程顺序下载所有资源）
-- 真实进度信息支持（目前仅支持文件级下载进度信息）
-- 压缩文件支持
-- 下载状态记录以及断点续传功能
+资源管理器可能会在windows和iOS模拟器上遇到无法创建并下载文件的问题，我们会尽快解决这个问题，与此同时，请使用iOS真机进行调试。

@@ -1,4 +1,4 @@
-# Cocos2d-JS v3.0 alpha2
+# Cocos2d-JS v3.0 beta release note
 
 <img src="http://www.cocos2d-x.org/attachments/download/1508" height=180> 
 
@@ -19,7 +19,7 @@ For more informations please see [Cocos2d-JS github site](https://github.com/coc
 
 ## Highlights
 
-** **[Beta Feature]** Added `AssetManager` for Cocos2d-x JSB asset hot updating, please refer to [AssetManager document](http://cocos2d-x.org/docs/manual/framework/html5/v3/assets-manager/en).  
+* **[Beta Feature]** Added `AssetManager` for Cocos2d-x JSB asset hot updating, please refer to [AssetManager document](http://cocos2d-x.org/docs/manual/framework/html5/v3/assets-manager/en).  
 * **[Beta Feature]** Enabled `Baseline compiler` of SpiderMonkey to boost the performance of JSB on Android, mostly it is **really faster than Lua**.
 * **[Beta Feature]** Integrated `Spine` skeleton animation feature.
 * **[Beta Feature]** Re-enable `Plugin-x` for third party SDK integration, please refer to [Plugin-x Architecture](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/plugin-x-architecture/en), [How to use plugin-x in android](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-use-plugin-x-on-android/en) and [How to write your own plugin for android](http://cocos2d-x.org/docs/manual/framework/html5/v3/plugin-x/how-to-write-your-own-plugin-for-android/en).
@@ -27,6 +27,6 @@ For more informations please see [Cocos2d-JS github site](https://github.com/coc
 * **[Beta Feature]** Implemented `reflexion` from Javascript to JAVA static class functions.
 * **[Beta Feature]** Refactored `actions` to make it more friendly and easy-to-use, please refer to [new actions API](http://cocos2d-x.org/docs/manual/framework/html5/v3/cc-actions/en).
 
-### More information ###
+## More information ##
 
 Read more about all the new features at [Cocos2d-JS v3.0 beta changelog](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0b/changelog/en) and [Cocos2d-JS v3.0 beta upgrade guide](http://www.cocos2d-x.org/docs/manual/framework/html5/release-notes/v3.0a/upgrade-guide/en)
