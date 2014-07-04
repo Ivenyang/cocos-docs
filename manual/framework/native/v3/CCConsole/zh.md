@@ -56,7 +56,7 @@ IvenYangtekiMacBook-Pro-2:Documents zeroyang$
  Console 是一个让开发者通过 TCP 连接控制游戏的助手(helper)类.
  Console将产生一个监听特定 TCP 端口的新线程.
  Console有一个基本的命令解析器(token parser).每一条命令都会调用`std::function<void(int)>`.
- 如果`std::function<>`需要使用 cocos2d API, 它需要调用
+ 如果`std::function<>`需要使用 Cocos2d API, 它需要调用
  
   
  ```
@@ -91,7 +91,7 @@ Director::getInstance()->getConsole()->listenOnTCP(5678);
 nc localhost 5678
 ```
 
-cocos2dx已经定义了很多命令，具体可以看help, 输入help，回车， PC控制台输入可用的远程控制命令如下：
+Cocos2d-x已经定义了很多命令，具体可以看help, 输入help，回车， PC控制台输入可用的远程控制命令如下：
 
 ![img](src/console.png)
 
@@ -153,9 +153,9 @@ cocos2dx已经定义了很多命令，具体可以看help, 输入help，回车�
 how are you?
 Arguments passed: cocos2d-x console learning
 ```
-cocos2d-x console learning 是hello指令的传递参数。
+Cocos2d-x console learning 是hello指令的传递参数。
 
 ## 总结
 
-Console模块的使用就到此了。如果是运行ios或者android设备工程，把localhost改为相应设备的ip地址，要确保开发机和设备在同一内网。完整测试代码[在此下载](http://about).
+Console模块的使用就到此了。如果是运行ios或者android设备工程，把localhost改为相应设备的ip地址，要确保开发机和设备在同一内网。完整测试代码[在此下载](./ConsoleTest.zip).
 
