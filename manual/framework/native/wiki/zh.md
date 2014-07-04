@@ -12,7 +12,7 @@
 8. [如何在Windows上运行cpp-tests](./how-to-run-cpp-tests-on-win32/zh.md)
 9. [如何在WP8上运行cpp-tests](./how-to-run-cpp-tests-on-wp8/zh.md)
 10. [如何在Linux(NetBeans)上运行cpp-tests](./how-to-run-cpp-tests-on-netbeans/zh.md)
-11. [如何使用CCache进行cocos2d-x编译加速](./ccache-speed-up/zh.md)
+11. [如何使用CCache进行Cocos2d-x编译加速](./ccache-speed-up/zh.md)
 
 ## 模块
 
@@ -21,7 +21,7 @@
 1. [动作](./actions/zh.md)
 2. 动画
 	- [帧动画](./sprite-sheet-animation/zh.md)
-	- [Skeletal animation 骨骼动画 ](./skeletal-animation/zh.md)
+	- [Skeletal Animation 骨骼动画 ](./skeletal-animation/zh.md)
 3. [坐标系](./coordinate-system/zh.md)
 4. [Cocos2d-x 多分辨率适配完全解析](./detailed-explanation-of-multi-resolution/zh.md)
 5. [设备方向](./device-orientation/zh.md)
@@ -139,6 +139,6 @@
 # 关于
 
 1. [关于我们](./about-us/zh.md)
-2. [如果贡献](./contribution/zh.md) 
+2. [如何贡献](./contribution/zh.md) 
 3. [Cocos2d-x的Logo资源](./logo-resources-of-cocos2d-x/zh.md)
 4. [支持平台和编程语言](./supported-platforms-and-programming-languages/zh.md)
